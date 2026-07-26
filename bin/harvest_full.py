@@ -37,7 +37,7 @@ def count(qrange):
     global queries_used
     d = hc.gh(f"search/code?q=filename:SKILL.md+size:{qrange}&per_page=1")
     queries_used += 1
-    time.sleep(2.1)
+    time.sleep(6.5)
     return d.get("total_count", 0) if isinstance(d, dict) else 0
 
 def drain(qrange, found):
@@ -46,7 +46,7 @@ def drain(qrange, found):
     for page in range(1, 11):
         d = hc.gh(f"search/code?q=filename:SKILL.md+size:{qrange}&per_page=100&page={page}")
         queries_used += 1
-        time.sleep(2.1)
+        time.sleep(6.5)
         items = d.get("items") or [] if isinstance(d, dict) else []
         if not items:
             break

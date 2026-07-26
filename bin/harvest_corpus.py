@@ -59,7 +59,7 @@ def search_skill_files():
                     found[repo].append(path)
             print(f"  bucket {bucket} page {page}: 累計 {sum(len(v) for v in found.values())} 檔 / {len(found)} repo",
                   file=sys.stderr)
-            time.sleep(2.2)                 # code search 限 30 req/min
+            time.sleep(6.5)                 # code search 限 30 req/min
             if len(items) < 100:
                 break
     return found

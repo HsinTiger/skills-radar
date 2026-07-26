@@ -53,7 +53,7 @@ def search(term, tier, found, tiers):
     q = urllib.parse.quote(f"filename:SKILL.md {term}")
     for page in range(1, 11):
         d = hc.gh(f"search/code?q={q}&per_page=100&page={page}")
-        time.sleep(2.2)
+        time.sleep(6.5)   # code search 實測上限 10 次/分鐘
         items = (d.get("items") or []) if isinstance(d, dict) else []
         if not items:
             break
