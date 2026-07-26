@@ -48,6 +48,8 @@ def bucket(r, mode):
     d = (r.get("repo_created") or "")[:10]
     if len(d) < 10:
         return None
+    if mode == "day":
+        return d
     if mode == "month":
         return d[:7]
     dt = datetime.strptime(d, "%Y-%m-%d")
@@ -140,13 +142,70 @@ def eda_section():
         "global_verify_pct": opp["global_task_pct"]["verify"],
     }
 
+def daily_discovery():
+    """每日新發現：first_seen 的逐日增量。這才是真正的「今天有什麼變了」。"""
+    # 只算中立樣本：EDA 過取樣是一次性的專案，混進來會讓「每日新發現」看起來暴衝
+    disc = defaultdict(Counter)
+    for r in rows:
+        fs = r.get("first_seen")
+        if fs:
+            disc[fs][r.get("domain") or "unlabeled"] += 1
+    days = sorted(disc)[-30:]
+    targeted = Counter()
+    for r in rows_all:
+        if r.get("sample") == "targeted-eda" and r.get("first_seen"):
+            targeted[r["first_seen"]] += 1
+    return {"days": days,
+            "totals": [sum(disc[d].values()) for d in days],
+            "targeted": [targeted.get(d, 0) for d in days],
+            "top_domains": {d: dict(disc[d].most_common(6)) for d in days},
+            "n_days": len(days)}
+
+def _clean(x):
+    x = re.sub(r"\n?-{3,}\s*$", "", (x or "").strip())
+    return re.sub(r"\s*-{3,}\s*$", "", x).strip()
+
+def read_summary():
+    """把當日的 AI 摘要抓進頁面，讓人不必去 repo 翻 markdown。"""
+    import glob as _g
+    out = {}
+    ins = sorted(_g.glob(os.path.join(ROOT, "research", "insights", "*.md")))
+    if ins:
+        t = open(ins[-1], encoding="utf-8", errors="replace").read()
+        m = re.search(r"## 一句話判斷\s*\n+(.+?)(?=\n##|\Z)", t, re.S)
+        sh = re.search(r"## 三、短期看法[^\n]*\n+(.*?)(?=\n## |\Z)", t, re.S)
+        md = re.search(r"## 四、中期看法[^\n]*\n+(.*?)(?=\n## |\Z)", t, re.S)
+        out["insight"] = {
+            "date": os.path.basename(ins[-1])[:-3],
+            "headline": _clean(m.group(1).strip() if m else ""),
+            "short": _clean(sh.group(1).strip()[:1400] if sh else ""),
+            "mid": _clean(md.group(1).strip()[:1400] if md else ""),
+        }
+    dl = sorted(_g.glob(os.path.join(ROOT, "daily", "*.md")))
+    if dl:
+        t = open(dl[-1], encoding="utf-8", errors="replace").read()
+        m = re.search(r"## 今日一句話\s*\n+(.+?)(?=\n##|\Z)", t, re.S)
+        ch = re.search(r"## 🔴 官方變動[^\n]*\n+(.*?)(?=\n## |\Z)", t, re.S)
+        out["ecosystem"] = {
+            "date": os.path.basename(dl[-1])[:-3],
+            "headline": _clean(m.group(1).strip() if m else ""),
+            "official": _clean(ch.group(1).strip()[:1200] if ch else ""),
+        }
+    return out
+
 data = {
     "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     "n_total": N,
     "global_production_pct": opp["global_production_pct"],
     "global_task_pct": {TASK_ZH[k]: v for k, v in opp["global_task_pct"].items()},
+    "day": build_view("day", 30),
     "week": build_view("week", 16),
     "month": build_view("month", 12),
+    "discovery": daily_discovery(),
+    "summary": read_summary(),
+    "schedule": {"hour": 8, "minute": 30, "tz": "Asia/Taipei",
+                 "cadence": "每日", "job": "com.hsin.skills-radar"},
+    "niche_day": niches("week"),
     "niche_week": niches("week"),
     "niche_month": niches("month"),
     "traction": [{**t, "zh": DOM_ZH.get(t["domain"], t["domain"])} for t in opp["A_traction"]],
@@ -160,4 +219,4 @@ tpl = open(os.path.join(ROOT, "index", "site_template.html"), encoding="utf-8").
 page = tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
 open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page)
 print(f"站台完成：{N} 筆樣本 → docs/index.html ({len(page)//1024} KB)")
-print(f"  週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")
+print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")

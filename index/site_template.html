@@ -65,6 +65,14 @@ code{font-family:var(--mono);font-size:.85em;background:var(--accent-soft);paddi
 .side{border:2px solid var(--accent);border-radius:10px;padding:1.25rem;background:var(--accent-soft)}
 footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
 .hide{display:none}
+.sumcard{border:2px solid var(--accent);border-radius:10px;padding:1.1rem 1.25rem;margin:1.5rem 0;background:var(--accent-soft)}
+.sumcard h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+.sumcard .meta{font-size:.75rem;color:var(--dim)}
+.sumcard details{margin-top:.7rem}
+.sumcard summary{cursor:pointer;font-size:.85rem;color:var(--accent);font-weight:600}
+.sumcard .body{font-size:.86rem;margin-top:.5rem;white-space:pre-wrap;line-height:1.6}
+.sched{display:flex;flex-wrap:wrap;gap:1rem;font-size:.82rem;margin-top:.4rem}
+.sched b{font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -81,11 +89,16 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
   </div>
 </header>
 
+<div id="summary-card"></div>
+
 <div class="toggle" role="group" aria-label="時間視角">
+  <button id="btn-day" aria-pressed="false">日級視角</button>
   <button id="btn-week" aria-pressed="false">週級視角</button>
   <button id="btn-month" aria-pressed="true">月級視角</button>
 </div>
 <p class="lede" id="view-desc"></p>
+<div class="note" id="next-update"></div>
+<div id="discovery-block"></div>
 
 <h2>一、出現苗頭的趨勢<span class="n" id="trend-range"></span></h2>
 <p class="lede">比較近半期與前半期的<strong>佔比</strong>變化（用佔比而非件數，避免被總量起伏帶著走）。
@@ -182,11 +195,15 @@ function spark(arr){
 
 function render(){
   const v = D[mode];
-  const label = mode === "week" ? "週" : "月";
+  const label = mode === "day" ? "日" : mode === "week" ? "週" : "月";
+  $("#btn-day").setAttribute("aria-pressed", mode === "day");
   $("#btn-week").setAttribute("aria-pressed", mode === "week");
   $("#btn-month").setAttribute("aria-pressed", mode === "month");
   $("#view-desc").textContent =
-    `目前為${label}級視角，涵蓋最近 ${v.periods.length} ${label}（${v.periods[0]} 起）。`;
+    `目前為${label}級視角，涵蓋最近 ${v.periods.length} ${mode === "day" ? "天" : label}（${v.periods[0]} 起）。` +
+    (mode === "day" ? "日級粒度雜訊大，且最近 2–3 天因搜尋索引落差會明顯偏低，看趨勢不要看單日。" : "");
+  renderSchedule();
+  renderDiscovery();
   $("#trend-range").textContent = `近期 ${v.recent_label}｜前期 ${v.older_label}`;
 
   $("#trend-body").innerHTML = v.growth.map(g => {
@@ -199,7 +216,7 @@ function render(){
       <td>${spark(v.stack[g.domain])}</td></tr>`;
   }).join("");
 
-  const niches = D[mode === "week" ? "niche_week" : "niche_month"];
+  const niches = D[mode === "month" ? "niche_month" : "niche_week"];
   $("#niche-body").innerHTML = niches.slice(0, 8).map(nc => {
     const mom = nc.momentum;
     const hot = mom !== null && mom > 0;
@@ -282,8 +299,96 @@ $("#side-project").innerHTML = `
   <p class="pain">副作用是它同時餵飽你的 Substack：一個「IC 工程師把驗證直覺寫成 AI skill」的連載，
   在中文圈幾乎沒有競品，而且是你真的懂、別人抄不走的題材。</p>`;
 
+function pad(n){ return String(n).padStart(2,"0"); }
+function nextRun(){
+  const s = D.schedule || {hour:8, minute:30};
+  const now = new Date();
+  const n = new Date(now); n.setHours(s.hour, s.minute, 0, 0);
+  if (n <= now) n.setDate(n.getDate() + 1);
+  return n;
+}
+function fmtDT(d){
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+function untilText(d){
+  const ms = d - new Date();
+  const h = Math.floor(ms/3600000), m = Math.floor(ms%3600000/60000);
+  return h > 0 ? `${h} 小時 ${m} 分後` : `${m} 分後`;
+}
+function nextBoundary(kind){
+  const d = new Date();
+  if (kind === "week"){ const x = new Date(d); const dow = (x.getDay()+6)%7;
+    x.setDate(x.getDate() + (7-dow)); x.setHours(0,0,0,0); return x; }
+  if (kind === "month"){ return new Date(d.getFullYear(), d.getMonth()+1, 1); }
+  const x = new Date(d); x.setDate(x.getDate()+1); x.setHours(0,0,0,0); return x;
+}
+
+function renderSchedule(){
+  const nr = nextRun();
+  const b = nextBoundary(mode);
+  const label = mode === "day" ? "日" : mode === "week" ? "週" : "月";
+  const bLabel = mode === "day" ? "新的一天" : mode === "week" ? "新的一週（週一）" : "新的一月（1 號）";
+  $("#next-update").innerHTML =
+    `<div class="sched">
+       <span>🔄 <b>下次資料更新</b>：${fmtDT(nr)}（${untilText(nr)}）</span>
+       <span>📅 <b>下次${label}界變動</b>：${bLabel} ${fmtDT(b).slice(0,10)}</span>
+     </div>
+     <div style="margin-top:.5rem">
+       排程：launchd <code>${(D.schedule||{}).job || "com.hsin.skills-radar"}</code>
+       每日 ${pad((D.schedule||{}).hour ?? 8)}:${pad((D.schedule||{}).minute ?? 30)} 執行
+       → 增量採集 → 分類 → 重算訊號 → 重建本頁 → 自動部署。
+       <strong>三個視角每天都會一起重算</strong>，差別只在時間軸的分桶粒度。
+     </div>`;
+}
+
+function renderSummary(){
+  const s = D.summary || {};
+  if (!s.insight && !s.ecosystem) { $("#summary-card").innerHTML = ""; return; }
+  let h = '<div class="sumcard"><div class="kicker">每日 AI 摘要</div>';
+  if (s.insight){
+    h += `<h3>${esc(s.insight.headline)}</h3>
+          <div class="meta">機會訊號解讀 · ${esc(s.insight.date)}</div>`;
+    if (s.insight.short) h += `<details><summary>短期看法（一個月內）</summary>
+          <div class="body">${esc(s.insight.short)}</div></details>`;
+    if (s.insight.mid) h += `<details><summary>中期看法（一季內）</summary>
+          <div class="body">${esc(s.insight.mid)}</div></details>`;
+  }
+  if (s.ecosystem){
+    h += `<div style="margin-top:.9rem;padding-top:.7rem;border-top:1px solid var(--line)">
+            <div class="meta">生態動態 · ${esc(s.ecosystem.date)}</div>
+            <div style="font-size:.9rem;margin-top:.3rem">${esc(s.ecosystem.headline)}</div>`;
+    if (s.ecosystem.official) h += `<details><summary>官方變動</summary>
+            <div class="body">${esc(s.ecosystem.official)}</div></details>`;
+    h += `</div>`;
+  }
+  $("#summary-card").innerHTML = h + "</div>";
+}
+
+function renderDiscovery(){
+  const d = D.discovery;
+  if (mode !== "day" || !d || !d.days.length){ $("#discovery-block").innerHTML = ""; return; }
+  const rows = d.days.map((day, i) =>
+    `<tr><td>${day}</td><td class="num">${d.totals[i]}</td>
+      <td class="num">${(d.targeted && d.targeted[i]) ? d.targeted[i].toLocaleString() : "—"}</td>
+      <td class="pain">${Object.entries(d.top_domains[day] || {})
+        .map(([k,v]) => `${esc(k)} ${v}`).join("、")}</td></tr>`).reverse().join("");
+  const single = d.days.length < 2;
+  $("#discovery-block").innerHTML = `
+    <h3>每日新發現（採集增量）</h3>
+    <p class="lede">上面的圖表用的是 <strong>repo 建立日</strong>；這張表則是
+      <strong>本系統每天新抓到的 skill</strong>——這才是「今天有什麼變了」。
+      「專案式過取樣」欄位是一次性的專題採集（例如 EDA 長尾深掘），<strong>不計入比例統計</strong>，
+      也不代表生態每日新增量。
+      ${single ? '<strong>目前只有第一天的資料，趨勢要等後續累積。</strong>' : ''}</p>
+    <div class="scroll"><table>
+      <thead><tr><th>採集日</th><th class="num">中立新發現</th><th class="num">專案式過取樣</th><th>主要領域</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+}
+
+$("#btn-day").onclick = () => { mode = "day"; render(); };
 $("#btn-week").onclick = () => { mode = "week"; render(); };
 $("#btn-month").onclick = () => { mode = "month"; render(); };
+renderSummary();
 render();
 </script>
 </body>
