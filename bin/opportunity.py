@@ -26,7 +26,8 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
         r = json.loads(line)
     except Exception:
         continue
-    if r.get("domain"):
+    # 分層過取樣的樣本不可進入比例統計（見 harvest_eda.py 的方法論說明）
+    if r.get("domain") and r.get("sample") != "targeted-eda":
         rows.append(r)
 
 N = len(rows)

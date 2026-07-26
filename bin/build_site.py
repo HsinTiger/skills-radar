@@ -17,7 +17,7 @@ OPP = os.path.join(ROOT, "corpus", "opportunity.json")
 DOCS = os.path.join(ROOT, "docs")
 os.makedirs(DOCS, exist_ok=True)
 
-rows = []
+rows, rows_all = [], []
 for line in open(MASTER, encoding="utf-8", errors="replace"):
     line = line.strip()
     if not line:
@@ -26,7 +26,8 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
         r = json.loads(line)
     except Exception:
         continue
-    if r.get("domain"):
+    rows_all.append(r)
+    if r.get("domain") and r.get("sample") != "targeted-eda":
         rows.append(r)
 
 opp = json.load(open(OPP, encoding="utf-8"))
@@ -113,7 +114,8 @@ def niches(mode):
 # ---------- EDA / IC 專區 ----------
 CHIP_PAT = re.compile(r"晶片|IC|RTL|UVM|FPGA|時序|閘級|佈線|OpenROAD|驗證平台|覆蓋率|布爾", re.I)
 def eda_section():
-    eda = [r for r in rows if r.get("domain") == "hardware-eda"]
+    neutral_eda = [r for r in rows if r.get("domain") == "hardware-eda"]
+    eda = [r for r in rows_all if r.get("domain") == "hardware-eda"]
     chip = [r for r in eda if CHIP_PAT.search((r.get("pain") or "") + (r.get("name") or ""))]
     others = [r for r in eda if r not in chip]
     def fmt(rs):
@@ -126,7 +128,9 @@ def eda_section():
     # 全體 verify 佔比 vs EDA verify 佔比
     return {
         "n": len(eda), "chip_n": len(chip),
-        "pct_of_corpus": round(100 * len(eda) / N, 2),
+        "neutral_n": len(neutral_eda),
+        "targeted_n": len(eda) - len(neutral_eda),
+        "pct_of_corpus": round(100 * len(neutral_eda) / N, 2),
         "task": {TASK_ZH[k]: v for k, v in tc.most_common() if k},
         "maturity": dict(mc),
         "chip": fmt(chip), "adjacent": fmt(others)[:12],
