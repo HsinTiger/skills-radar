@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills Radar — AI 應用行為研究</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#fff; --line:#e6e2db; --ink:#1c1b19; --dim:#6b6660;
+  --accent:#b4501e; --accent-soft:#f3e6de; --good:#2f6b4f; --warn:#9a6b12;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#151413;--panel:#1e1d1b;--line:#332f2b;--ink:#ece8e2;--dim:#9c958c;
+        --accent:#e08050;--accent-soft:#3a271d;--good:#6fb28d;--warn:#d3a344;}
+}
+:root[data-theme="dark"]{--bg:#151413;--panel:#1e1d1b;--line:#332f2b;--ink:#ece8e2;--dim:#9c958c;
+  --accent:#e08050;--accent-soft:#3a271d;--good:#6fb28d;--warn:#d3a344;}
+:root[data-theme="light"]{--bg:#fbfaf8;--panel:#fff;--line:#e6e2db;--ink:#1c1b19;--dim:#6b6660;
+  --accent:#b4501e;--accent-soft:#f3e6de;--good:#2f6b4f;--warn:#9a6b12;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 5rem}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.25rem;margin-bottom:2rem}
+h1{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 .4rem;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:.9rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1rem}
+.stat b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{color:var(--dim);font-size:.78rem}
+h2{font-size:1.3rem;margin:3rem 0 .5rem;letter-spacing:-.01em}
+h2 .n{color:var(--dim);font-weight:400;font-size:.85rem;margin-left:.5rem}
+h3{font-size:1rem;margin:1.75rem 0 .6rem}
+p{margin:.5rem 0}
+.lede{color:var(--dim);font-size:.92rem;margin-bottom:1rem}
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:1rem 0}
+.toggle button{background:var(--panel);border:0;color:var(--dim);padding:.5rem 1.1rem;
+  font:inherit;font-size:.88rem;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:.75rem 0}
+.grid{display:grid;gap:.75rem}
+@media(min-width:720px){.grid.two{grid-template-columns:1fr 1fr}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:520px}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+.bar{height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.tag{display:inline-block;font-size:.72rem;padding:.1rem .5rem;border-radius:20px;
+  border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+.tag.hot{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.tag.good{color:var(--good);border-color:currentColor}
+.tag.warn{color:var(--warn);border-color:currentColor}
+.up{color:var(--good)}.down{color:var(--dim)}
+.spark{display:flex;align-items:flex-end;gap:2px;height:34px}
+.spark i{flex:1;background:var(--accent);border-radius:1px 1px 0 0;min-height:1px;opacity:.75}
+.spark i:last-child{opacity:1}
+.note{border-left:3px solid var(--warn);padding:.6rem 0 .6rem .9rem;color:var(--dim);
+  font-size:.86rem;margin:1rem 0;background:transparent}
+.kicker{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.pain{font-size:.86rem;color:var(--dim)}
+code{font-family:var(--mono);font-size:.85em;background:var(--accent-soft);padding:.1rem .35rem;border-radius:4px}
+.side{border:2px solid var(--accent);border-radius:10px;padding:1.25rem;background:var(--accent-soft)}
+footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Skills Radar</h1>
+  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作</div>
+  <div class="stats">
+    <div class="stat"><b id="s-n">—</b><span>已分類 skill</span></div>
+    <div class="stat"><b id="s-prod">—</b><span>平均上線率</span></div>
+    <div class="stat"><b id="s-verify">—</b><span>verify 任務佔比</span></div>
+    <div class="stat"><b id="s-eda">—</b><span>硬體 / EDA 佔比</span></div>
+    <div class="stat"><b id="s-gen">—</b><span>資料更新</span></div>
+  </div>
+</header>
+
+<div class="toggle" role="group" aria-label="時間視角">
+  <button id="btn-week" aria-pressed="false">週級視角</button>
+  <button id="btn-month" aria-pressed="true">月級視角</button>
+</div>
+<p class="lede" id="view-desc"></p>
+
+<h2>一、出現苗頭的趨勢<span class="n" id="trend-range"></span></h2>
+<p class="lede">比較近半期與前半期的<strong>佔比</strong>變化（用佔比而非件數，避免被總量起伏帶著走）。
+正值代表這個領域在生態中的份額正在擴大。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">近期</th><th class="num">前期</th>
+    <th class="num">佔比變化</th><th>走勢</th></tr></thead>
+  <tbody id="trend-body"></tbody>
+</table></div>
+
+<h2>二、沒人注意到但做得起來的利基</h2>
+<p class="lede">利基的定義是可驗證的量：<strong>若這個領域的任務分佈跟全體一樣，這種能力「應該」有幾件，
+實際卻只有幾件</strong>。比值越低＝結構性缺席越明顯。再疊上該領域的動能，
+就能分出「需求在長、能力卻缺席」與「本來就不該做」。</p>
+<div id="niche-body" class="grid"></div>
+<div class="note" id="niche-caveat"></div>
+
+<h2>三、已經拿到成績的領域</h2>
+<p class="lede">上線率（production）高於全體平均，代表這個領域的人真的把 AI 放進正式流程，不是玩票。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">樣本</th><th class="num">上線率</th>
+    <th class="num">vs 平均</th><th class="num">給 agent 用</th></tr></thead>
+  <tbody id="traction-body"></tbody>
+</table></div>
+
+<h2>四、做一半的領域</h2>
+<p class="lede">workflow 多但 production 少＝需求已驗證、卻沒人做完。對做工具的人來說，比空白市場更好切。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">workflow</th><th class="num">production</th><th class="num">完成率</th><th>缺口</th></tr></thead>
+  <tbody id="unfinished-body"></tbody>
+</table></div>
+
+<h2>五、EDA / IC 設計專區</h2>
+<div id="eda-summary"></div>
+
+<h3>整個生態裡，真正的晶片設計 skill</h3>
+<div class="scroll"><table>
+  <thead><tr><th class="num">stars</th><th>任務</th><th>成熟度</th><th>作者</th><th>痛點</th></tr></thead>
+  <tbody id="eda-chip"></tbody>
+</table></div>
+
+<h3>鄰接領域（嵌入式 / 機器人 / 韌體）</h3>
+<p class="lede">這些不是晶片設計，但共用「硬體在迴圈裡、錯了很貴」的性質，做法可以借。</p>
+<div class="scroll"><table>
+  <thead><tr><th class="num">stars</th><th>任務</th><th>成熟度</th><th>作者</th><th>痛點</th></tr></thead>
+  <tbody id="eda-adj"></tbody>
+</table></div>
+
+<h3>可以嘗試的方向</h3>
+<div id="eda-ideas" class="grid two"></div>
+
+<h2>六、下班時間的 side project</h2>
+<div class="side" id="side-project"></div>
+
+<h2>七、前緣職業</h2>
+<p class="lede">樣本極少（1–8 件）但已有 production 的職業。稀有＋認真＝前緣，不是雜訊。
+他們是最早把 AI 帶進自己專業的人。</p>
+<div class="scroll"><table>
+  <thead><tr><th>職業</th><th class="num">件數</th><th class="num">已上線</th><th>痛點</th></tr></thead>
+  <tbody id="pros-body"></tbody>
+</table></div>
+
+<footer>
+  <p><strong>資料與限制</strong></p>
+  <ul>
+    <li>樣本僅涵蓋公開到 GitHub 的 skill，<strong>系統性低估</strong>法務、醫療、金融、IC 設計的真實採用率。</li>
+    <li>時間軸用 repo 建立時間，代表「這個 skill 所在的 repo 何時建立」，<strong>不是</strong> skill 何時被寫出、更不是何時被使用。</li>
+    <li>最近期的數字會偏低：新 repo 尚未被搜尋索引完全收錄，也還沒累積 star。<strong>近 1–2 期的下滑不要當成退燒</strong>。</li>
+    <li>star 屬於 repo 不屬於 skill；大型專案順手附的 skill 會繼承該專案的 star。</li>
+    <li>分類由 LLM 標註，小樣本（n&lt;30）的比例數字不穩定。</li>
+  </ul>
+  <p id="foot-gen"></p>
+</footer>
+</div>
+
+<script>
+const D = /*__DATA__*/;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let mode = "month";
+
+$("#s-n").textContent = D.n_total.toLocaleString();
+$("#s-prod").textContent = D.global_production_pct + "%";
+$("#s-verify").textContent = D.global_task_pct["驗證"] + "%";
+$("#s-eda").textContent = D.eda.pct_of_corpus + "%";
+$("#s-gen").textContent = D.generated.slice(0, 10);
+$("#foot-gen").textContent = "產生時間：" + D.generated + "｜樣本 " + D.n_total.toLocaleString() + " 筆";
+
+function spark(arr){
+  const max = Math.max(...arr, 1);
+  return '<div class="spark">' + arr.map(v =>
+    `<i style="height:${Math.max(2, Math.round(100*v/max))}%"></i>`).join('') + '</div>';
+}
+
+function render(){
+  const v = D[mode];
+  const label = mode === "week" ? "週" : "月";
+  $("#btn-week").setAttribute("aria-pressed", mode === "week");
+  $("#btn-month").setAttribute("aria-pressed", mode === "month");
+  $("#view-desc").textContent =
+    `目前為${label}級視角，涵蓋最近 ${v.periods.length} ${label}（${v.periods[0]} 起）。`;
+  $("#trend-range").textContent = `近期 ${v.recent_label}｜前期 ${v.older_label}`;
+
+  $("#trend-body").innerHTML = v.growth.map(g => {
+    const up = g.delta > 0;
+    return `<tr>
+      <td>${esc(g.zh)}</td>
+      <td class="num">${g.recent}<br><span class="pain">${g.recent_share}%</span></td>
+      <td class="num">${g.older}<br><span class="pain">${g.older_share}%</span></td>
+      <td class="num ${up ? 'up' : 'down'}">${up ? '+' : ''}${g.delta}<small>pp</small></td>
+      <td>${spark(v.stack[g.domain])}</td></tr>`;
+  }).join("");
+
+  const niches = D[mode === "week" ? "niche_week" : "niche_month"];
+  $("#niche-body").innerHTML = niches.slice(0, 8).map(nc => {
+    const mom = nc.momentum;
+    const hot = mom !== null && mom > 0;
+    const badge = mom === null ? '<span class="tag">動能資料不足</span>'
+      : hot ? `<span class="tag hot">需求在長 +${mom}pp</span>`
+            : `<span class="tag">份額收縮 ${mom}pp</span>`;
+    return `<div class="card">
+      <div class="kicker">缺口比值 ${nc.ratio}×</div>
+      <h3 style="margin:.3rem 0 .5rem">${esc(nc.zh)} 缺「${esc(nc.task_zh)}」能力</h3>
+      <p class="pain">該領域共 ${nc.domain_n} 件，這種任務實際只有 <b>${nc.observed}</b> 件，
+         按全體分佈推算應有 <b>${nc.expected}</b> 件。</p>
+      <div class="bar" title="實際 / 期望"><i style="width:${Math.min(100, nc.ratio*100)}%"></i></div>
+      <p style="margin-top:.6rem">${badge}</p>
+    </div>`;
+  }).join("");
+  $("#niche-caveat").innerHTML =
+    `<strong>缺口不等於機會。</strong>有些空白是該行業刻意避開的——例如醫療生技幾乎沒有「生成」類 skill，
+     那是避免 AI 幻覺造成醫療責任，不是沒人想到。判斷方向錯了比不做更糟；
+     每日文字版洞察會逐一判斷哪些是真空缺、哪些不該碰，見 <code>research/insights/</code>。`;
+}
+
+$("#traction-body").innerHTML = D.traction.map(t => `<tr>
+  <td>${esc(t.zh)}</td><td class="num">${t.n}</td>
+  <td class="num">${t.production_pct}%</td>
+  <td class="num ${t.vs_global_production > 0 ? 'up' : 'down'}">${t.vs_global_production > 0 ? '+' : ''}${t.vs_global_production}</td>
+  <td class="num">${t.agent_facing_pct}%</td></tr>`).join("");
+
+$("#unfinished-body").innerHTML = D.unfinished.slice(0, 8).map(u => `<tr>
+  <td>${esc(u.zh)}</td><td class="num">${u.workflow}</td><td class="num">${u.production}</td>
+  <td class="num">${u.completion_ratio}</td>
+  <td><div class="bar"><i style="width:${Math.round(u.completion_ratio*100)}%"></i></div></td></tr>`).join("");
+
+$("#pros-body").innerHTML = D.niche_pros.map(p => `<tr>
+  <td>${esc(p.profession)}</td><td class="num">${p.n}</td><td class="num">${p.production}</td>
+  <td class="pain">${esc((p.pains || []).join("；"))}</td></tr>`).join("");
+
+const e = D.eda;
+$("#eda-summary").innerHTML = `<div class="card">
+  <p>硬體 / EDA 在 ${D.n_total.toLocaleString()} 筆樣本中只有 <b>${e.n} 件（${e.pct_of_corpus}%）</b>，
+  其中真正跟晶片設計相關的只有 <b>${e.chip_n} 件</b>，其餘是嵌入式、機器人、3D 列印等鄰接領域。</p>
+  <p>這個數字小到不能用來下統計結論，但<strong>缺席本身就是結論</strong>：
+  NDA、封閉的 EDA 工具鏈、tape-out 的零容錯門檻，把成果全鎖在企業防火牆內。
+  公開生態沒有現成答案可抄，同時也沒有競爭者。</p>
+  <p>值得注意的是這個領域的 verify 佔比為 <b>${e.verify_pct}%</b>，
+  全體平均是 ${e.global_verify_pct}%——連最該做驗證的硬體領域，公開生態也沒把驗證做起來。</p>
+</div>`;
+
+const row = r => `<tr>
+  <td class="num">${(r.stars || 0).toLocaleString()}</td>
+  <td><span class="tag">${esc(r.task_zh)}</span></td>
+  <td><span class="tag ${r.maturity === 'production' ? 'good' : r.maturity === 'toy' ? 'warn' : ''}">${esc(r.maturity)}</span></td>
+  <td>${esc(r.profession)}</td><td class="pain">${esc(r.pain)}</td></tr>`;
+$("#eda-chip").innerHTML = e.chip.map(row).join("") || '<tr><td colspan="5">無</td></tr>';
+$("#eda-adj").innerHTML = e.adjacent.map(row).join("");
+
+const IDEAS = [
+  ["RTL 波形回歸的驗證層", "公開生態裡 UVM 相關的唯一樣本停在 toy 階段。把「改完 RTL 自動重跑波形比對、只回報有意義的差異」做成 skill，是這個領域最缺、你又最熟的一塊。", "verify"],
+  ["時序收斂的失敗歸因", "樣本裡有人在做 OpenROAD 佈線修時序（analyze，已上線）。把 timing report 從「一堆數字」變成「這條路徑為什麼掉了、上次改了什麼」的歸因，用開源工具鏈就能做，不碰公司 IP。"],
+  ["規格到測試項的展開", "從布爾邏輯規格推導閘級電路的樣本只有 26 stars、還停在 workflow。規格 → 測試點清單 → 覆蓋率缺口，這條鏈在公開生態完全空白。"],
+  ["FPGA 上板失敗的除錯助手", "樣本裡有「模擬正常但上板失敗」的痛點（10 stars, workflow）。這是嵌入式與 IC 交界最普遍的痛，而且完全可以用個人板子做，沒有 NDA 問題。"],
+];
+$("#eda-ideas").innerHTML = IDEAS.map(([t, d]) => `<div class="card">
+  <div class="kicker">可嘗試</div><h3 style="margin:.3rem 0 .4rem">${t}</h3>
+  <p class="pain">${d}</p></div>`).join("");
+
+$("#side-project").innerHTML = `
+  <div class="kicker">一句話</div>
+  <p style="font-size:1.05rem;margin:.4rem 0 .8rem">
+  <strong>做一個「驗證層」的公開作品——把你在公司裡對 RTL 波形除錯的直覺，
+  抽成不含任何公司 IP 的開源 skill，用 OpenROAD／開源 RISC-V core 當素材。</strong></p>
+  <p class="pain">理由有三個，都來自這份資料而不是我的想像：
+  ① 整份語料最強的訊號是 <b>verify 全面缺席</b>（全體僅 ${D.global_task_pct["驗證"]}%，
+  AI Agent 工具領域只有 7.9%，而完成率最低的兩個領域卡關原因都是缺驗證）；
+  ② 硬體 EDA 公開樣本只有 ${e.n} 件、晶片相關 ${e.chip_n} 件，
+  唯一的 UVM 樣本還停在 toy——這是空白，不是紅海；
+  ③ 你已經在做 rtl-waveform-debug 與 phyUD 驗證流程，這件事對你是<strong>下班後的延伸而非重新學習</strong>，
+  而且用開源素材就繞開了 NDA。</p>
+  <p class="pain">副作用是它同時餵飽你的 Substack：一個「IC 工程師把驗證直覺寫成 AI skill」的連載，
+  在中文圈幾乎沒有競品，而且是你真的懂、別人抄不走的題材。</p>`;
+
+$("#btn-week").onclick = () => { mode = "week"; render(); };
+$("#btn-month").onclick = () => { mode = "month"; render(); };
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills Radar — AI 應用行為研究</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#fff; --line:#e6e2db; --ink:#1c1b19; --dim:#6b6660;
+  --accent:#b4501e; --accent-soft:#f3e6de; --good:#2f6b4f; --warn:#9a6b12;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#151413;--panel:#1e1d1b;--line:#332f2b;--ink:#ece8e2;--dim:#9c958c;
+        --accent:#e08050;--accent-soft:#3a271d;--good:#6fb28d;--warn:#d3a344;}
+}
+:root[data-theme="dark"]{--bg:#151413;--panel:#1e1d1b;--line:#332f2b;--ink:#ece8e2;--dim:#9c958c;
+  --accent:#e08050;--accent-soft:#3a271d;--good:#6fb28d;--warn:#d3a344;}
+:root[data-theme="light"]{--bg:#fbfaf8;--panel:#fff;--line:#e6e2db;--ink:#1c1b19;--dim:#6b6660;
+  --accent:#b4501e;--accent-soft:#f3e6de;--good:#2f6b4f;--warn:#9a6b12;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 5rem}
+header{border-bottom:2px solid var(--ink);padding-bottom:1.25rem;margin-bottom:2rem}
+h1{font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 .4rem;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:.9rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1rem}
+.stat b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{color:var(--dim);font-size:.78rem}
+h2{font-size:1.3rem;margin:3rem 0 .5rem;letter-spacing:-.01em}
+h2 .n{color:var(--dim);font-weight:400;font-size:.85rem;margin-left:.5rem}
+h3{font-size:1rem;margin:1.75rem 0 .6rem}
+p{margin:.5rem 0}
+.lede{color:var(--dim);font-size:.92rem;margin-bottom:1rem}
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:1rem 0}
+.toggle button{background:var(--panel);border:0;color:var(--dim);padding:.5rem 1.1rem;
+  font:inherit;font-size:.88rem;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:.75rem 0}
+.grid{display:grid;gap:.75rem}
+@media(min-width:720px){.grid.two{grid-template-columns:1fr 1fr}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:520px}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+.bar{height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.tag{display:inline-block;font-size:.72rem;padding:.1rem .5rem;border-radius:20px;
+  border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+.tag.hot{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.tag.good{color:var(--good);border-color:currentColor}
+.tag.warn{color:var(--warn);border-color:currentColor}
+.up{color:var(--good)}.down{color:var(--dim)}
+.spark{display:flex;align-items:flex-end;gap:2px;height:34px}
+.spark i{flex:1;background:var(--accent);border-radius:1px 1px 0 0;min-height:1px;opacity:.75}
+.spark i:last-child{opacity:1}
+.note{border-left:3px solid var(--warn);padding:.6rem 0 .6rem .9rem;color:var(--dim);
+  font-size:.86rem;margin:1rem 0;background:transparent}
+.kicker{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.pain{font-size:.86rem;color:var(--dim)}
+code{font-family:var(--mono);font-size:.85em;background:var(--accent-soft);padding:.1rem .35rem;border-radius:4px}
+.side{border:2px solid var(--accent);border-radius:10px;padding:1.25rem;background:var(--accent-soft)}
+footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Skills Radar</h1>
+  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作</div>
+  <div class="stats">
+    <div class="stat"><b id="s-n">—</b><span>已分類 skill</span></div>
+    <div class="stat"><b id="s-prod">—</b><span>平均上線率</span></div>
+    <div class="stat"><b id="s-verify">—</b><span>verify 任務佔比</span></div>
+    <div class="stat"><b id="s-eda">—</b><span>硬體 / EDA 佔比</span></div>
+    <div class="stat"><b id="s-gen">—</b><span>資料更新</span></div>
+  </div>
+</header>
+
+<div class="toggle" role="group" aria-label="時間視角">
+  <button id="btn-week" aria-pressed="false">週級視角</button>
+  <button id="btn-month" aria-pressed="true">月級視角</button>
+</div>
+<p class="lede" id="view-desc"></p>
+
+<h2>一、出現苗頭的趨勢<span class="n" id="trend-range"></span></h2>
+<p class="lede">比較近半期與前半期的<strong>佔比</strong>變化（用佔比而非件數，避免被總量起伏帶著走）。
+正值代表這個領域在生態中的份額正在擴大。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">近期</th><th class="num">前期</th>
+    <th class="num">佔比變化</th><th>走勢</th></tr></thead>
+  <tbody id="trend-body"></tbody>
+</table></div>
+
+<h2>二、沒人注意到但做得起來的利基</h2>
+<p class="lede">利基的定義是可驗證的量：<strong>若這個領域的任務分佈跟全體一樣，這種能力「應該」有幾件，
+實際卻只有幾件</strong>。比值越低＝結構性缺席越明顯。再疊上該領域的動能，
+就能分出「需求在長、能力卻缺席」與「本來就不該做」。</p>
+<div id="niche-body" class="grid"></div>
+<div class="note" id="niche-caveat"></div>
+
+<h2>三、已經拿到成績的領域</h2>
+<p class="lede">上線率（production）高於全體平均，代表這個領域的人真的把 AI 放進正式流程，不是玩票。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">樣本</th><th class="num">上線率</th>
+    <th class="num">vs 平均</th><th class="num">給 agent 用</th></tr></thead>
+  <tbody id="traction-body"></tbody>
+</table></div>
+
+<h2>四、做一半的領域</h2>
+<p class="lede">workflow 多但 production 少＝需求已驗證、卻沒人做完。對做工具的人來說，比空白市場更好切。</p>
+<div class="scroll"><table>
+  <thead><tr><th>領域</th><th class="num">workflow</th><th class="num">production</th><th class="num">完成率</th><th>缺口</th></tr></thead>
+  <tbody id="unfinished-body"></tbody>
+</table></div>
+
+<h2>五、EDA / IC 設計專區</h2>
+<div id="eda-summary"></div>
+
+<h3>整個生態裡，真正的晶片設計 skill</h3>
+<div class="scroll"><table>
+  <thead><tr><th class="num">stars</th><th>任務</th><th>成熟度</th><th>作者</th><th>痛點</th></tr></thead>
+  <tbody id="eda-chip"></tbody>
+</table></div>
+
+<h3>鄰接領域（嵌入式 / 機器人 / 韌體）</h3>
+<p class="lede">這些不是晶片設計，但共用「硬體在迴圈裡、錯了很貴」的性質，做法可以借。</p>
+<div class="scroll"><table>
+  <thead><tr><th class="num">stars</th><th>任務</th><th>成熟度</th><th>作者</th><th>痛點</th></tr></thead>
+  <tbody id="eda-adj"></tbody>
+</table></div>
+
+<h3>可以嘗試的方向</h3>
+<div id="eda-ideas" class="grid two"></div>
+
+<h2>六、下班時間的 side project</h2>
+<div class="side" id="side-project"></div>
+
+<h2>七、前緣職業</h2>
+<p class="lede">樣本極少（1–8 件）但已有 production 的職業。稀有＋認真＝前緣，不是雜訊。
+他們是最早把 AI 帶進自己專業的人。</p>
+<div class="scroll"><table>
+  <thead><tr><th>職業</th><th class="num">件數</th><th class="num">已上線</th><th>痛點</th></tr></thead>
+  <tbody id="pros-body"></tbody>
+</table></div>
+
+<footer>
+  <p><strong>資料與限制</strong></p>
+  <ul>
+    <li>樣本僅涵蓋公開到 GitHub 的 skill，<strong>系統性低估</strong>法務、醫療、金融、IC 設計的真實採用率。</li>
+    <li>時間軸用 repo 建立時間，代表「這個 skill 所在的 repo 何時建立」，<strong>不是</strong> skill 何時被寫出、更不是何時被使用。</li>
+    <li>最近期的數字會偏低：新 repo 尚未被搜尋索引完全收錄，也還沒累積 star。<strong>近 1–2 期的下滑不要當成退燒</strong>。</li>
+    <li>star 屬於 repo 不屬於 skill；大型專案順手附的 skill 會繼承該專案的 star。</li>
+    <li>分類由 LLM 標註，小樣本（n&lt;30）的比例數字不穩定。</li>
+  </ul>
+  <p id="foot-gen"></p>
+</footer>
+</div>
+
+<script>
+const D = {"generated": "2026-07-26 11:19 UTC", "n_total": 5397, "global_production_pct": 42.3, "global_task_pct": {"生成": 21.9, "轉換": 8.0, "分析": 12.5, "驗證": 15.0, "調度": 15.6, "檢索": 9.9, "配置": 17.1}, "week": {"periods": ["2026-04-06", "2026-04-13", "2026-04-20", "2026-04-27", "2026-05-04", "2026-05-11", "2026-05-18", "2026-05-25", "2026-06-01", "2026-06-08", "2026-06-15", "2026-06-22", "2026-06-29", "2026-07-06", "2026-07-13", "2026-07-20"], "totals": [236, 175, 183, 145, 154, 144, 131, 149, 104, 132, 111, 80, 84, 81, 66, 46], "stack": {"software-dev": [59, 51, 59, 35, 44, 45, 24, 31, 35, 40, 32, 16, 27, 22, 25, 8], "ai-agent-tooling": [37, 31, 21, 22, 34, 19, 26, 18, 9, 27, 18, 10, 14, 12, 11, 5], "devops-infra": [12, 7, 12, 15, 4, 4, 7, 9, 6, 5, 8, 3, 5, 1, 6, 9], "design-creative": [19, 9, 10, 10, 17, 19, 7, 5, 8, 5, 7, 7, 6, 14, 4, 5], "personal-productivity": [22, 18, 12, 12, 8, 10, 9, 7, 6, 12, 7, 3, 6, 8, 2, 0], "security": [6, 8, 14, 10, 10, 6, 11, 11, 10, 4, 13, 5, 4, 2, 4, 2], "ops-admin": [16, 8, 11, 9, 4, 4, 4, 5, 4, 4, 3, 3, 6, 7, 4, 5], "marketing-growth": [9, 7, 9, 9, 5, 5, 3, 4, 1, 7, 3, 11, 2, 2, 1, 1], "research-academia": [5, 4, 7, 5, 8, 2, 8, 11, 5, 4, 2, 4, 2, 1, 3, 1], "finance-investing": [14, 5, 4, 4, 5, 3, 9, 9, 5, 4, 4, 2, 4, 2, 2, 3], "writing-content": [6, 9, 8, 5, 4, 4, 4, 8, 3, 9, 2, 6, 3, 3, 2, 1], "data-analytics": [6, 4, 9, 3, 1, 3, 4, 2, 5, 1, 3, 4, 0, 1, 2, 2], "healthcare-bio": [1, 1, 1, 1, 5, 6, 2, 13, 0, 2, 3, 2, 2, 1, 0, 0], "legal-compliance": [6, 2, 2, 1, 2, 7, 12, 10, 0, 2, 2, 0, 1, 2, 0, 0], "education-training": [6, 3, 2, 2, 2, 4, 0, 2, 5, 2, 2, 3, 1, 3, 0, 2], "sales-crm": [6, 1, 1, 0, 0, 1, 0, 2, 0, 2, 1, 0, 0, 0, 0, 0], "hardware-eda": [2, 3, 0, 1, 1, 1, 0, 2, 2, 1, 1, 1, 1, 0, 0, 2], "other": [4, 4, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]}, "growth": [{"domain": "software-dev", "zh": "軟體開發", "recent": 205, "older": 348, "recent_share": 29.1, "older_share": 26.4, "delta": 2.7}, {"domain": "education-training", "zh": "教育訓練", "recent": 18, "older": 21, "recent_share": 2.6, "older_share": 1.6, "delta": 1.0}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "recent": 43, "older": 70, "recent_share": 6.1, "older_share": 5.3, "delta": 0.8}, {"domain": "design-creative", "zh": "設計創意", "recent": 56, "older": 96, "recent_share": 8.0, "older_share": 7.3, "delta": 0.7}, {"domain": "security", "zh": "資安", "recent": 44, "older": 76, "recent_share": 6.2, "older_share": 5.8, "delta": 0.5}, {"domain": "ops-admin", "zh": "營運行政", "recent": 36, "older": 61, "recent_share": 5.1, "older_share": 4.6, "delta": 0.5}, {"domain": "writing-content", "zh": "寫作內容", "recent": 29, "older": 48, "recent_share": 4.1, "older_share": 3.6, "delta": 0.5}, {"domain": "hardware-eda", "zh": "硬體 / EDA", "recent": 8, "older": 10, "recent_share": 1.1, "older_share": 0.8, "delta": 0.4}, {"domain": "marketing-growth", "zh": "行銷成長", "recent": 28, "older": 51, "recent_share": 4.0, "older_share": 3.9, "delta": 0.1}, {"domain": "data-analytics", "zh": "資料分析", "recent": 18, "older": 32, "recent_share": 2.6, "older_share": 2.4, "delta": 0.1}, {"domain": "finance-investing", "zh": "金融投資", "recent": 26, "older": 53, "recent_share": 3.7, "older_share": 4.0, "delta": -0.3}, {"domain": "sales-crm", "zh": "銷售 CRM", "recent": 3, "older": 11, "recent_share": 0.4, "older_share": 0.8, "delta": -0.4}, {"domain": "ai-agent-tooling", "zh": "AI Agent 工具", "recent": 106, "older": 208, "recent_share": 15.1, "older_share": 15.8, "delta": -0.7}, {"domain": "research-academia", "zh": "研究學術", "recent": 22, "older": 50, "recent_share": 3.1, "older_share": 3.8, "delta": -0.7}, {"domain": "other", "zh": "其他", "recent": 1, "older": 12, "recent_share": 0.1, "older_share": 0.9, "delta": -0.8}, {"domain": "healthcare-bio", "zh": "醫療生技", "recent": 10, "older": 30, "recent_share": 1.4, "older_share": 2.3, "delta": -0.9}, {"domain": "personal-productivity", "zh": "個人生產力", "recent": 44, "older": 98, "recent_share": 6.2, "older_share": 7.4, "delta": -1.2}, {"domain": "legal-compliance", "zh": "法務合規", "recent": 7, "older": 42, "recent_share": 1.0, "older_share": 3.2, "delta": -2.2}], "recent_label": "2026-06-01 ~ 2026-07-20", "older_label": "2026-04-06 ~ 2026-05-25"}, "month": {"periods": ["2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"], "totals": [45, 36, 105, 114, 171, 444, 642, 965, 829, 632, 456, 248], "stack": {"software-dev": [24, 14, 34, 40, 79, 151, 199, 274, 229, 158, 132, 73], "ai-agent-tooling": [9, 9, 13, 23, 29, 73, 97, 174, 117, 109, 71, 35], "devops-infra": [6, 0, 9, 10, 10, 37, 39, 56, 51, 30, 23, 20], "design-creative": [1, 2, 9, 6, 6, 29, 37, 56, 52, 51, 27, 29], "personal-productivity": [3, 2, 5, 3, 6, 21, 32, 55, 73, 39, 31, 13], "security": [0, 1, 2, 4, 4, 16, 38, 54, 43, 39, 34, 10], "ops-admin": [0, 1, 7, 6, 8, 22, 38, 37, 50, 19, 16, 20], "marketing-growth": [0, 1, 4, 2, 4, 21, 39, 38, 39, 19, 22, 6], "research-academia": [0, 1, 7, 6, 4, 3, 27, 44, 31, 30, 16, 6], "finance-investing": [0, 0, 2, 1, 3, 13, 30, 40, 25, 30, 16, 10], "writing-content": [1, 1, 4, 4, 8, 12, 15, 25, 30, 22, 21, 8], "data-analytics": [0, 1, 1, 2, 4, 14, 10, 26, 25, 11, 13, 5], "healthcare-bio": [1, 0, 3, 3, 1, 17, 7, 39, 4, 26, 8, 2], "legal-compliance": [0, 0, 3, 0, 3, 4, 12, 14, 11, 31, 5, 2], "education-training": [0, 2, 1, 1, 0, 4, 7, 11, 17, 8, 12, 6], "sales-crm": [0, 1, 0, 2, 1, 4, 5, 15, 12, 3, 3, 0], "hardware-eda": [0, 0, 1, 1, 0, 1, 3, 5, 8, 4, 5, 3], "other": [0, 0, 0, 0, 1, 2, 7, 2, 12, 3, 1, 0]}, "growth": [{"domain": "security", "zh": "資安", "recent": 218, "older": 27, "recent_share": 5.8, "older_share": 3.0, "delta": 2.8}, {"domain": "personal-productivity", "zh": "個人生產力", "recent": 243, "older": 40, "recent_share": 6.4, "older_share": 4.4, "delta": 2.1}, {"domain": "finance-investing", "zh": "金融投資", "recent": 151, "older": 19, "recent_share": 4.0, "older_share": 2.1, "delta": 1.9}, {"domain": "research-academia", "zh": "研究學術", "recent": 154, "older": 21, "recent_share": 4.1, "older_share": 2.3, "delta": 1.8}, {"domain": "design-creative", "zh": "設計創意", "recent": 252, "older": 53, "recent_share": 6.7, "older_share": 5.8, "delta": 0.9}, {"domain": "legal-compliance", "zh": "法務合規", "recent": 75, "older": 10, "recent_share": 2.0, "older_share": 1.1, "delta": 0.9}, {"domain": "marketing-growth", "zh": "行銷成長", "recent": 163, "older": 32, "recent_share": 4.3, "older_share": 3.5, "delta": 0.8}, {"domain": "education-training", "zh": "教育訓練", "recent": 61, "older": 8, "recent_share": 1.6, "older_share": 0.9, "delta": 0.7}, {"domain": "hardware-eda", "zh": "硬體 / EDA", "recent": 28, "older": 3, "recent_share": 0.7, "older_share": 0.3, "delta": 0.4}, {"domain": "other", "zh": "其他", "recent": 25, "older": 3, "recent_share": 0.7, "older_share": 0.3, "delta": 0.3}, {"domain": "sales-crm", "zh": "銷售 CRM", "recent": 38, "older": 8, "recent_share": 1.0, "older_share": 0.9, "delta": 0.1}, {"domain": "ops-admin", "zh": "營運行政", "recent": 180, "older": 44, "recent_share": 4.8, "older_share": 4.8, "delta": -0.0}, {"domain": "data-analytics", "zh": "資料分析", "recent": 90, "older": 22, "recent_share": 2.4, "older_share": 2.4, "delta": -0.0}, {"domain": "writing-content", "zh": "寫作內容", "recent": 121, "older": 30, "recent_share": 3.2, "older_share": 3.3, "delta": -0.1}, {"domain": "healthcare-bio", "zh": "醫療生技", "recent": 86, "older": 25, "recent_share": 2.3, "older_share": 2.7, "delta": -0.5}, {"domain": "ai-agent-tooling", "zh": "AI Agent 工具", "recent": 603, "older": 156, "recent_share": 16.0, "older_share": 17.0, "delta": -1.1}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "recent": 219, "older": 72, "recent_share": 5.8, "older_share": 7.9, "delta": -2.1}, {"domain": "software-dev", "zh": "軟體開發", "recent": 1065, "older": 342, "recent_share": 28.2, "older_share": 37.4, "delta": -9.1}], "recent_label": "2026-02 ~ 2026-07", "older_label": "2025-08 ~ 2026-01"}, "niche_week": [{"domain": "healthcare-bio", "zh": "醫療生技", "task": "generate", "task_zh": "生成", "observed": 1, "expected": 25.4, "ratio": 0.04, "domain_n": 116, "momentum": -0.9, "hot": false}, {"domain": "personal-productivity", "zh": "個人生產力", "task": "verify", "task_zh": "驗證", "observed": 3, "expected": 45.5, "ratio": 0.07, "domain_n": 303, "momentum": -1.2, "hot": false}, {"domain": "sales-crm", "zh": "銷售 CRM", "task": "verify", "task_zh": "驗證", "observed": 1, "expected": 7.5, "ratio": 0.13, "domain_n": 50, "momentum": -0.4, "hot": false}, {"domain": "finance-investing", "zh": "金融投資", "task": "transform", "task_zh": "轉換", "observed": 2, "expected": 14.5, "ratio": 0.14, "domain_n": 182, "momentum": -0.3, "hot": false}, {"domain": "security", "zh": "資安", "task": "orchestrate", "task_zh": "調度", "observed": 6, "expected": 41.2, "ratio": 0.15, "domain_n": 265, "momentum": 0.5, "hot": true}, {"domain": "legal-compliance", "zh": "法務合規", "task": "orchestrate", "task_zh": "調度", "observed": 2, "expected": 13.7, "ratio": 0.15, "domain_n": 88, "momentum": -2.2, "hot": false}, {"domain": "education-training", "zh": "教育訓練", "task": "verify", "task_zh": "驗證", "observed": 2, "expected": 11.7, "ratio": 0.17, "domain_n": 78, "momentum": 1.0, "hot": true}, {"domain": "design-creative", "zh": "設計創意", "task": "analyze", "task_zh": "分析", "observed": 7, "expected": 40.5, "ratio": 0.17, "domain_n": 324, "momentum": 0.7, "hot": true}, {"domain": "design-creative", "zh": "設計創意", "task": "configure", "task_zh": "配置", "observed": 10, "expected": 55.3, "ratio": 0.18, "domain_n": 324, "momentum": 0.7, "hot": true}, {"domain": "writing-content", "zh": "寫作內容", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 28.3, "ratio": 0.18, "domain_n": 166, "momentum": 0.5, "hot": true}, {"domain": "writing-content", "zh": "寫作內容", "task": "orchestrate", "task_zh": "調度", "observed": 5, "expected": 25.8, "ratio": 0.19, "domain_n": 166, "momentum": 0.5, "hot": true}, {"domain": "healthcare-bio", "zh": "醫療生技", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 19.8, "ratio": 0.25, "domain_n": 116, "momentum": -0.9, "hot": false}, {"domain": "design-creative", "zh": "設計創意", "task": "orchestrate", "task_zh": "調度", "observed": 13, "expected": 50.4, "ratio": 0.26, "domain_n": 324, "momentum": 0.7, "hot": true}, {"domain": "marketing-growth", "zh": "行銷成長", "task": "configure", "task_zh": "配置", "observed": 9, "expected": 34.5, "ratio": 0.26, "domain_n": 202, "momentum": 0.1, "hot": true}, {"domain": "data-analytics", "zh": "資料分析", "task": "verify", "task_zh": "驗證", "observed": 5, "expected": 19.4, "ratio": 0.26, "domain_n": 129, "momentum": 0.1, "hot": true}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "task": "generate", "task_zh": "生成", "observed": 21, "expected": 73.9, "ratio": 0.28, "domain_n": 337, "momentum": 0.8, "hot": true}, {"domain": "security", "zh": "資安", "task": "generate", "task_zh": "生成", "observed": 16, "expected": 58.1, "ratio": 0.28, "domain_n": 265, "momentum": 0.5, "hot": true}, {"domain": "writing-content", "zh": "寫作內容", "task": "analyze", "task_zh": "分析", "observed": 6, "expected": 20.7, "ratio": 0.29, "domain_n": 166, "momentum": 0.5, "hot": true}, {"domain": "finance-investing", "zh": "金融投資", "task": "configure", "task_zh": "配置", "observed": 9, "expected": 31.1, "ratio": 0.29, "domain_n": 182, "momentum": -0.3, "hot": false}, {"domain": "ops-admin", "zh": "營運行政", "task": "verify", "task_zh": "驗證", "observed": 11, "expected": 37.3, "ratio": 0.3, "domain_n": 248, "momentum": 0.5, "hot": true}, {"domain": "ai-agent-tooling", "zh": "AI Agent 工具", "task": "analyze", "task_zh": "分析", "observed": 34, "expected": 105.4, "ratio": 0.32, "domain_n": 844, "momentum": -0.7, "hot": false}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "task": "transform", "task_zh": "轉換", "observed": 9, "expected": 26.9, "ratio": 0.33, "domain_n": 337, "momentum": 0.8, "hot": true}, {"domain": "marketing-growth", "zh": "行銷成長", "task": "verify", "task_zh": "驗證", "observed": 10, "expected": 30.4, "ratio": 0.33, "domain_n": 202, "momentum": 0.1, "hot": true}, {"domain": "legal-compliance", "zh": "法務合規", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 15.0, "ratio": 0.33, "domain_n": 88, "momentum": -2.2, "hot": false}, {"domain": "research-academia", "zh": "研究學術", "task": "configure", "task_zh": "配置", "observed": 11, "expected": 31.7, "ratio": 0.35, "domain_n": 186, "momentum": -0.7, "hot": false}], "niche_month": [{"domain": "healthcare-bio", "zh": "醫療生技", "task": "generate", "task_zh": "生成", "observed": 1, "expected": 25.4, "ratio": 0.04, "domain_n": 116, "momentum": -0.5, "hot": false}, {"domain": "personal-productivity", "zh": "個人生產力", "task": "verify", "task_zh": "驗證", "observed": 3, "expected": 45.5, "ratio": 0.07, "domain_n": 303, "momentum": 2.1, "hot": true}, {"domain": "sales-crm", "zh": "銷售 CRM", "task": "verify", "task_zh": "驗證", "observed": 1, "expected": 7.5, "ratio": 0.13, "domain_n": 50, "momentum": 0.1, "hot": true}, {"domain": "finance-investing", "zh": "金融投資", "task": "transform", "task_zh": "轉換", "observed": 2, "expected": 14.5, "ratio": 0.14, "domain_n": 182, "momentum": 1.9, "hot": true}, {"domain": "security", "zh": "資安", "task": "orchestrate", "task_zh": "調度", "observed": 6, "expected": 41.2, "ratio": 0.15, "domain_n": 265, "momentum": 2.8, "hot": true}, {"domain": "legal-compliance", "zh": "法務合規", "task": "orchestrate", "task_zh": "調度", "observed": 2, "expected": 13.7, "ratio": 0.15, "domain_n": 88, "momentum": 0.9, "hot": true}, {"domain": "design-creative", "zh": "設計創意", "task": "analyze", "task_zh": "分析", "observed": 7, "expected": 40.5, "ratio": 0.17, "domain_n": 324, "momentum": 0.9, "hot": true}, {"domain": "education-training", "zh": "教育訓練", "task": "verify", "task_zh": "驗證", "observed": 2, "expected": 11.7, "ratio": 0.17, "domain_n": 78, "momentum": 0.7, "hot": true}, {"domain": "design-creative", "zh": "設計創意", "task": "configure", "task_zh": "配置", "observed": 10, "expected": 55.3, "ratio": 0.18, "domain_n": 324, "momentum": 0.9, "hot": true}, {"domain": "writing-content", "zh": "寫作內容", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 28.3, "ratio": 0.18, "domain_n": 166, "momentum": -0.1, "hot": false}, {"domain": "writing-content", "zh": "寫作內容", "task": "orchestrate", "task_zh": "調度", "observed": 5, "expected": 25.8, "ratio": 0.19, "domain_n": 166, "momentum": -0.1, "hot": false}, {"domain": "healthcare-bio", "zh": "醫療生技", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 19.8, "ratio": 0.25, "domain_n": 116, "momentum": -0.5, "hot": false}, {"domain": "design-creative", "zh": "設計創意", "task": "orchestrate", "task_zh": "調度", "observed": 13, "expected": 50.4, "ratio": 0.26, "domain_n": 324, "momentum": 0.9, "hot": true}, {"domain": "marketing-growth", "zh": "行銷成長", "task": "configure", "task_zh": "配置", "observed": 9, "expected": 34.5, "ratio": 0.26, "domain_n": 202, "momentum": 0.8, "hot": true}, {"domain": "data-analytics", "zh": "資料分析", "task": "verify", "task_zh": "驗證", "observed": 5, "expected": 19.4, "ratio": 0.26, "domain_n": 129, "momentum": -0.0, "hot": false}, {"domain": "security", "zh": "資安", "task": "generate", "task_zh": "生成", "observed": 16, "expected": 58.1, "ratio": 0.28, "domain_n": 265, "momentum": 2.8, "hot": true}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "task": "generate", "task_zh": "生成", "observed": 21, "expected": 73.9, "ratio": 0.28, "domain_n": 337, "momentum": -2.1, "hot": false}, {"domain": "finance-investing", "zh": "金融投資", "task": "configure", "task_zh": "配置", "observed": 9, "expected": 31.1, "ratio": 0.29, "domain_n": 182, "momentum": 1.9, "hot": true}, {"domain": "writing-content", "zh": "寫作內容", "task": "analyze", "task_zh": "分析", "observed": 6, "expected": 20.7, "ratio": 0.29, "domain_n": 166, "momentum": -0.1, "hot": false}, {"domain": "ops-admin", "zh": "營運行政", "task": "verify", "task_zh": "驗證", "observed": 11, "expected": 37.3, "ratio": 0.3, "domain_n": 248, "momentum": -0.0, "hot": false}, {"domain": "ai-agent-tooling", "zh": "AI Agent 工具", "task": "analyze", "task_zh": "分析", "observed": 34, "expected": 105.4, "ratio": 0.32, "domain_n": 844, "momentum": -1.1, "hot": false}, {"domain": "legal-compliance", "zh": "法務合規", "task": "configure", "task_zh": "配置", "observed": 5, "expected": 15.0, "ratio": 0.33, "domain_n": 88, "momentum": 0.9, "hot": true}, {"domain": "marketing-growth", "zh": "行銷成長", "task": "verify", "task_zh": "驗證", "observed": 10, "expected": 30.4, "ratio": 0.33, "domain_n": 202, "momentum": 0.8, "hot": true}, {"domain": "devops-infra", "zh": "DevOps 基礎設施", "task": "transform", "task_zh": "轉換", "observed": 9, "expected": 26.9, "ratio": 0.33, "domain_n": 337, "momentum": -2.1, "hot": false}, {"domain": "research-academia", "zh": "研究學術", "task": "configure", "task_zh": "配置", "observed": 11, "expected": 31.7, "ratio": 0.35, "domain_n": 186, "momentum": 1.8, "hot": true}], "traction": [{"domain": "security", "n": 265, "production_pct": 64.9, "vs_global_production": 22.6, "median_stars": 17, "p90_stars": 1022, "agent_facing_pct": 9.8, "zh": "資安"}, {"domain": "legal-compliance", "n": 88, "production_pct": 63.6, "vs_global_production": 21.3, "median_stars": 31, "p90_stars": 1381, "agent_facing_pct": 1.1, "zh": "法務合規"}, {"domain": "devops-infra", "n": 337, "production_pct": 62.6, "vs_global_production": 20.3, "median_stars": 12, "p90_stars": 496, "agent_facing_pct": 9.2, "zh": "DevOps 基礎設施"}, {"domain": "healthcare-bio", "n": 116, "production_pct": 53.4, "vs_global_production": 11.1, "median_stars": 17, "p90_stars": 1593, "agent_facing_pct": 2.6, "zh": "醫療生技"}, {"domain": "data-analytics", "n": 129, "production_pct": 52.7, "vs_global_production": 10.4, "median_stars": 16, "p90_stars": 475, "agent_facing_pct": 13.2, "zh": "資料分析"}, {"domain": "ai-agent-tooling", "n": 844, "production_pct": 45.3, "vs_global_production": 3.0, "median_stars": 9, "p90_stars": 653, "agent_facing_pct": 59.2, "zh": "AI Agent 工具"}, {"domain": "finance-investing", "n": 182, "production_pct": 42.9, "vs_global_production": 0.6, "median_stars": 20, "p90_stars": 552, "agent_facing_pct": 13.2, "zh": "金融投資"}, {"domain": "software-dev", "n": 1809, "production_pct": 41.5, "vs_global_production": -0.8, "median_stars": 9, "p90_stars": 538, "agent_facing_pct": 12.2, "zh": "軟體開發"}, {"domain": "ops-admin", "n": 248, "production_pct": 39.9, "vs_global_production": -2.4, "median_stars": 10, "p90_stars": 511, "agent_facing_pct": 7.3, "zh": "營運行政"}, {"domain": "design-creative", "n": 324, "production_pct": 38.0, "vs_global_production": -4.3, "median_stars": 12, "p90_stars": 597, "agent_facing_pct": 7.4, "zh": "設計創意"}, {"domain": "hardware-eda", "n": 36, "production_pct": 36.1, "vs_global_production": -6.2, "median_stars": 9, "p90_stars": 330, "agent_facing_pct": 22.2, "zh": "硬體 / EDA"}, {"domain": "marketing-growth", "n": 202, "production_pct": 35.6, "vs_global_production": -6.7, "median_stars": 22, "p90_stars": 573, "agent_facing_pct": 2.5, "zh": "行銷成長"}, {"domain": "sales-crm", "n": 50, "production_pct": 30.0, "vs_global_production": -12.3, "median_stars": 43, "p90_stars": 552, "agent_facing_pct": 4.0, "zh": "銷售 CRM"}, {"domain": "writing-content", "n": 166, "production_pct": 29.5, "vs_global_production": -12.8, "median_stars": 22, "p90_stars": 467, "agent_facing_pct": 1.8, "zh": "寫作內容"}, {"domain": "research-academia", "n": 186, "production_pct": 27.4, "vs_global_production": -14.9, "median_stars": 20, "p90_stars": 868, "agent_facing_pct": 5.4, "zh": "研究學術"}, {"domain": "personal-productivity", "n": 303, "production_pct": 21.5, "vs_global_production": -20.8, "median_stars": 6, "p90_stars": 274, "agent_facing_pct": 5.3, "zh": "個人生產力"}, {"domain": "education-training", "n": 78, "production_pct": 16.7, "vs_global_production": -25.6, "median_stars": 6, "p90_stars": 296, "agent_facing_pct": 2.6, "zh": "教育訓練"}, {"domain": "other", "n": 34, "production_pct": 11.8, "vs_global_production": -30.5, "median_stars": 10, "p90_stars": 254, "agent_facing_pct": 2.9, "zh": "其他"}], "unfinished": [{"domain": "education-training", "n": 78, "workflow": 54, "production": 13, "completion_ratio": 0.19, "zh": "教育訓練"}, {"domain": "personal-productivity", "n": 303, "workflow": 210, "production": 65, "completion_ratio": 0.24, "zh": "個人生產力"}, {"domain": "other", "n": 34, "workflow": 12, "production": 4, "completion_ratio": 0.25, "zh": "其他"}, {"domain": "research-academia", "n": 186, "workflow": 124, "production": 51, "completion_ratio": 0.29, "zh": "研究學術"}, {"domain": "writing-content", "n": 166, "workflow": 111, "production": 49, "completion_ratio": 0.31, "zh": "寫作內容"}, {"domain": "sales-crm", "n": 50, "workflow": 34, "production": 15, "completion_ratio": 0.31, "zh": "銷售 CRM"}, {"domain": "marketing-growth", "n": 202, "workflow": 127, "production": 72, "completion_ratio": 0.36, "zh": "行銷成長"}, {"domain": "hardware-eda", "n": 36, "workflow": 22, "production": 13, "completion_ratio": 0.37, "zh": "硬體 / EDA"}, {"domain": "design-creative", "n": 324, "workflow": 195, "production": 123, "completion_ratio": 0.39, "zh": "設計創意"}, {"domain": "ops-admin", "n": 248, "workflow": 144, "production": 99, "completion_ratio": 0.41, "zh": "營運行政"}, {"domain": "software-dev", "n": 1809, "workflow": 1015, "production": 750, "completion_ratio": 0.42, "zh": "軟體開發"}, {"domain": "finance-investing", "n": 182, "workflow": 99, "production": 78, "completion_ratio": 0.44, "zh": "金融投資"}, {"domain": "ai-agent-tooling", "n": 844, "workflow": 361, "production": 382, "completion_ratio": 0.51, "zh": "AI Agent 工具"}, {"domain": "healthcare-bio", "n": 116, "workflow": 52, "production": 62, "completion_ratio": 0.54, "zh": "醫療生技"}, {"domain": "data-analytics", "n": 129, "workflow": 59, "production": 68, "completion_ratio": 0.54, "zh": "資料分析"}, {"domain": "legal-compliance", "n": 88, "workflow": 31, "production": 56, "completion_ratio": 0.64, "zh": "法務合規"}, {"domain": "devops-infra", "n": 337, "workflow": 116, "production": 211, "completion_ratio": 0.65, "zh": "DevOps 基礎設施"}, {"domain": "security", "n": 265, "workflow": 89, "production": 172, "completion_ratio": 0.66, "zh": "資安"}], "niche_pros": [{"profession": "逆向工程師", "n": 7, "production": 6, "domains": ["security"], "pains": ["閉源執行檔黑箱逆向與漏洞分析耗時", "手動逆向分析二進制檔案極耗時", "未公開通訊協定封包格式與狀態機逆向困難"], "max_stars": 930}, {"profession": "資料庫管理員", "n": 8, "production": 6, "domains": ["software-dev", "devops-infra", "data-analytics"], "pains": ["忘記 DBeaver 快捷鍵與 SSH 隧道配置", "透過 MCP 操作 Oracle DB 指令繁瑣", "SQL Server 轉 Postgres 風險難評估"], "max_stars": 199}, {"profession": "技術主管", "n": 8, "production": 5, "domains": ["ai-agent-tooling", "ops-admin", "software-dev"], "pains": ["團隊任務文檔結構紊亂且資訊歸屬權責不清", "手動統計每週提交紀錄與貢獻極耗時", "每週工程復盤手動統計Commit與貢獻極耗時"], "max_stars": 23200}, {"profession": "網路工程師", "n": 7, "production": 5, "domains": ["security", "devops-infra"], "pains": ["傳統網路連線排查工具輸出格式難以解析", "EVE-NG 網路拓撲建置前缺乏品管檢查", "EVE-NG 網路拓撲設計建置前缺乏自動化 QA"], "max_stars": 6780}, {"profession": "C++工程師", "n": 6, "production": 5, "domains": ["software-dev"], "pains": ["團隊 C++ namespace 宣告風格不一", "C++ 專案風格與命名規範缺乏自動化檢查", "C++ 記憶體所有權與移動語意複雜易洩漏"], "max_stars": 3495}, {"profession": "AI 架構師", "n": 6, "production": 5, "domains": ["ai-agent-tooling"], "pains": ["缺乏支援 Agent 全自動自主運作協定", "AI 未經記憶檢索即幻覺輸出事實", "難以評估專案庫對 AI Agent 的相容性"], "max_stars": 2441}, {"profession": "教會法律師", "n": 5, "production": 5, "domains": ["legal-compliance"], "pains": ["天主教法典條文檢索與審查架構複雜", "教會法條文檢索與適用審查繁瑣耗時", "教會婚姻法典條文審查缺乏即時引用"], "max_stars": 1381}, {"profession": "AI 研發工程師", "n": 6, "production": 5, "domains": ["ai-agent-tooling"], "pains": ["機器人 Skill 基類與生命週期介面規範", "手動編寫與部署 Claude Code 擴充套件繁瑣", "手動編寫與部署 Claude Code 擴充套件繁瑣"], "max_stars": 1220}, {"profession": "資安長", "n": 5, "production": 5, "domains": ["security"], "pains": ["新創資安風險難量化且難回報董事會", "新創成長期難以量化資安風險與規劃合規路線", "新創成長期難以量化資安風險與規劃合規路線"], "max_stars": 30}, {"profession": "SEO 專家", "n": 8, "production": 4, "domains": ["marketing-growth"], "pains": ["手動為新文件尋找並添加站內 SEO 連結", "關鍵字研究與內容稽核缺乏系統化自動流", "難以快速稽核網頁圖片 SEO 與 Alt 屬性"], "max_stars": 9122}, {"profession": "財務分析師", "n": 6, "production": 4, "domains": ["finance-investing"], "pains": ["從多版本分類帳表格查詢最新金額容易出錯", "財務報表彙整粒度不一致致計算錯誤", "評估投資標的時需手動計算多種財務比率"], "max_stars": 6989}, {"profession": "Android工程師", "n": 7, "production": 4, "domains": ["software-dev"], "pains": ["維護想法未經規格化定義無法直接讓 Agent 執行", "Kotlin 空值處理不當易引發崩潰", "手動撰寫 AppFunction 暴露程式碼耗時繁瑣"], "max_stars": 4754}, {"profession": "視覺設計師", "n": 8, "production": 4, "domains": ["marketing-growth", "design-creative"], "pains": ["AI 圖片生成提示詞控制困難且風格難一致", "設計行銷素材時難以快速調用品牌色彩規範", "製作時尚簡報時缺少統一的色彩與視覺版型系統"], "max_stars": 4203}, {"profession": ".NET工程師", "n": 5, "production": 4, "domains": ["software-dev"], "pains": ["手動修改 .NET 套件版本易引發相容性崩潰", "建置產出變更導致 SWA 基準測試不符合而報錯", "MSTest 單元測試編寫與修復耗時"], "max_stars": 1203}, {"profession": "BIM工程師", "n": 5, "production": 4, "domains": ["other", "software-dev"], "pains": ["建築資訊模型 (BIM) 資料品質與合規檢查繁瑣", "IFC 程式碼跨 Schema 版本易出錯難稽核", "BIM 模型資料缺失與不符合規範難以檢查"], "max_stars": 254}, {"profession": "資安檢測員", "n": 4, "production": 4, "domains": ["security"], "pains": ["手動檢測 API 各種安全漏洞漏測率高且耗時", "手動檢測 API 各種安全漏洞漏測率高且耗時", "手動檢測 API 各種安全漏洞漏測率高且耗時"], "max_stars": 5}, {"profession": "智能合約工程師", "n": 5, "production": 4, "domains": ["software-dev"], "pains": ["查詢與互動 Etherlink 區塊鏈資料指令繁瑣", "Hardhat 3 新架構測試與設定易出錯", "Hardhat 3 新架構測試與設定易出錯"], "max_stars": 2}, {"profession": "資安顧問", "n": 3, "production": 3, "domains": ["security"], "pains": ["缺乏符合 NIST 800-30 的資安風險評估流程。", "手動進行符合 NIST 規範的資安風險評估耗時", "手動進行符合 NIST 規範的資安風險評估耗時"], "max_stars": 26583}], "eda": {"n": 36, "chip_n": 8, "pct_of_corpus": 0.67, "task": {"配置": 12, "調度": 8, "生成": 6, "驗證": 4, "分析": 3, "轉換": 2, "檢索": 1}, "maturity": {"toy": 1, "workflow": 22, "production": 13}, "chip": [{"stars": 3081, "task": "orchestrate", "task_zh": "調度", "maturity": "production", "profession": "IC設計工程師", "pain": "手動調整晶片架構參數尋求最佳化耗時", "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"}, {"stars": 1586, "task": "verify", "task_zh": "驗證", "maturity": "toy", "profession": "IC 設計驗證工程師", "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時", "repo": "a5c-ai/babysitter"}, {"stars": 324, "task": "configure", "task_zh": "配置", "maturity": "workflow", "profession": "機器人工程師", "pain": "設計機器人系統軟體架構缺乏標準設計模式", "repo": "arpitg1304/robotics-agent-skills"}, {"stars": 26, "task": "generate", "task_zh": "生成", "maturity": "workflow", "profession": "IC設計工程師", "pain": "從布爾邏輯規格手動推導與轉換閘級電路繁瑣", "repo": "pjt222/agent-almanac"}, {"stars": 24, "task": "analyze", "task_zh": "分析", "maturity": "production", "profession": "IC 設計工程師", "pain": "OpenROAD 佈線修時序耗時過長或死迴圈", "repo": "The-OpenROAD-Project/bazel-orfs"}, {"stars": 10, "task": "verify", "task_zh": "驗證", "maturity": "workflow", "profession": "FPGA 工程師", "pain": "FPGA 仿真正常但上板失敗，難以除錯時序問題", "repo": "LNC0831/oh-my-fpga"}, {"stars": 8, "task": "generate", "task_zh": "生成", "maturity": "workflow", "profession": "機器人工程師", "pain": "機器人軟體架構缺乏標準化設計模式與安全機制", "repo": "KJdotIO/innex1-rover"}, {"stars": 4, "task": "verify", "task_zh": "驗證", "maturity": "workflow", "profession": "晶片驗證工程師", "pain": "晶片 API Mock 實作後缺乏驗證機制易退化", "repo": "tenstorrent/tt-emule"}], "adjacent": [{"stars": 757, "task": "configure", "task_zh": "配置", "maturity": "production", "profession": "嵌入式韌體工程師", "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷", "repo": "LeoKemp223/embed-ai-tool"}, {"stars": 563, "task": "configure", "task_zh": "配置", "maturity": "workflow", "profession": "物聯網架構師", "pain": "設計與部署 IoT 感測器網路時缺乏架構指引", "repo": "FerroxLabs/wayland"}, {"stars": 330, "task": "configure", "task_zh": "配置", "maturity": "workflow", "profession": "嵌入式工程師", "pain": "難以直接透過代碼控制硬體指示燈", "repo": "glebis/claude-skills"}, {"stars": 196, "task": "orchestrate", "task_zh": "調度", "maturity": "workflow", "profession": "韌體工程師", "pain": "編譯並燒錄 ESP 韌體需多步驟手動操作", "repo": "rvdbreemen/OTGW-firmware"}, {"stars": 63, "task": "orchestrate", "task_zh": "調度", "maturity": "production", "profession": "創客", "pain": "3D 列印從建模到切片列印流程切換過於繁瑣", "repo": "makermate/claw3d-skill"}, {"stars": 57, "task": "orchestrate", "task_zh": "調度", "maturity": "production", "profession": "嵌入式工程師", "pain": "Zephyr 嵌入式開發繁雜難以路由正確技能", "repo": "beriberikix/zephyr-agent-skills"}, {"stars": 57, "task": "generate", "task_zh": "生成", "maturity": "workflow", "profession": "韌體工程師", "pain": "工業通訊協定 Modbus 與 CANopen 開發門檻高", "repo": "beriberikix/zephyr-agent-skills"}, {"stars": 43, "task": "verify", "task_zh": "驗證", "maturity": "production", "profession": "嵌入式韌體工程師", "pain": "STM32韌體編譯燒錄與除錯操作繁瑣", "repo": "XZhaoSudo/stm32debug-skill"}, {"stars": 22, "task": "configure", "task_zh": "配置", "maturity": "workflow", "profession": "嵌入式工程師", "pain": "設定 ESP 裝置與 Windows 主機連線繁瑣", "repo": "espressif/esp-claw-skills-lab"}, {"stars": 12, "task": "configure", "task_zh": "配置", "maturity": "production", "profession": "機器人工程師", "pain": "控制手臂運動規劃與逆運動學解算編寫複雜", "repo": "Leehyunbin0131/claude-ros2-skills"}, {"stars": 10, "task": "orchestrate", "task_zh": "調度", "maturity": "production", "profession": "機器人工程師", "pain": "機器人導航迷航或卡住時無法自動復原", "repo": "bdambrosio/Cognitive_workbench"}, {"stars": 10, "task": "generate", "task_zh": "生成", "maturity": "workflow", "profession": "機構工程師", "pain": "3D 列印件參數微調與 STL 輸出過程繁瑣", "repo": "karaage0703/cad-coworker"}], "verify_pct": 11.1, "global_verify_pct": 15.0}};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let mode = "month";
+
+$("#s-n").textContent = D.n_total.toLocaleString();
+$("#s-prod").textContent = D.global_production_pct + "%";
+$("#s-verify").textContent = D.global_task_pct["驗證"] + "%";
+$("#s-eda").textContent = D.eda.pct_of_corpus + "%";
+$("#s-gen").textContent = D.generated.slice(0, 10);
+$("#foot-gen").textContent = "產生時間：" + D.generated + "｜樣本 " + D.n_total.toLocaleString() + " 筆";
+
+function spark(arr){
+  const max = Math.max(...arr, 1);
+  return '<div class="spark">' + arr.map(v =>
+    `<i style="height:${Math.max(2, Math.round(100*v/max))}%"></i>`).join('') + '</div>';
+}
+
+function render(){
+  const v = D[mode];
+  const label = mode === "week" ? "週" : "月";
+  $("#btn-week").setAttribute("aria-pressed", mode === "week");
+  $("#btn-month").setAttribute("aria-pressed", mode === "month");
+  $("#view-desc").textContent =
+    `目前為${label}級視角，涵蓋最近 ${v.periods.length} ${label}（${v.periods[0]} 起）。`;
+  $("#trend-range").textContent = `近期 ${v.recent_label}｜前期 ${v.older_label}`;
+
+  $("#trend-body").innerHTML = v.growth.map(g => {
+    const up = g.delta > 0;
+    return `<tr>
+      <td>${esc(g.zh)}</td>
+      <td class="num">${g.recent}<br><span class="pain">${g.recent_share}%</span></td>
+      <td class="num">${g.older}<br><span class="pain">${g.older_share}%</span></td>
+      <td class="num ${up ? 'up' : 'down'}">${up ? '+' : ''}${g.delta}<small>pp</small></td>
+      <td>${spark(v.stack[g.domain])}</td></tr>`;
+  }).join("");
+
+  const niches = D[mode === "week" ? "niche_week" : "niche_month"];
+  $("#niche-body").innerHTML = niches.slice(0, 8).map(nc => {
+    const mom = nc.momentum;
+    const hot = mom !== null && mom > 0;
+    const badge = mom === null ? '<span class="tag">動能資料不足</span>'
+      : hot ? `<span class="tag hot">需求在長 +${mom}pp</span>`
+            : `<span class="tag">份額收縮 ${mom}pp</span>`;
+    return `<div class="card">
+      <div class="kicker">缺口比值 ${nc.ratio}×</div>
+      <h3 style="margin:.3rem 0 .5rem">${esc(nc.zh)} 缺「${esc(nc.task_zh)}」能力</h3>
+      <p class="pain">該領域共 ${nc.domain_n} 件，這種任務實際只有 <b>${nc.observed}</b> 件，
+         按全體分佈推算應有 <b>${nc.expected}</b> 件。</p>
+      <div class="bar" title="實際 / 期望"><i style="width:${Math.min(100, nc.ratio*100)}%"></i></div>
+      <p style="margin-top:.6rem">${badge}</p>
+    </div>`;
+  }).join("");
+  $("#niche-caveat").innerHTML =
+    `<strong>缺口不等於機會。</strong>有些空白是該行業刻意避開的——例如醫療生技幾乎沒有「生成」類 skill，
+     那是避免 AI 幻覺造成醫療責任，不是沒人想到。判斷方向錯了比不做更糟；
+     每日文字版洞察會逐一判斷哪些是真空缺、哪些不該碰，見 <code>research/insights/</code>。`;
+}
+
+$("#traction-body").innerHTML = D.traction.map(t => `<tr>
+  <td>${esc(t.zh)}</td><td class="num">${t.n}</td>
+  <td class="num">${t.production_pct}%</td>
+  <td class="num ${t.vs_global_production > 0 ? 'up' : 'down'}">${t.vs_global_production > 0 ? '+' : ''}${t.vs_global_production}</td>
+  <td class="num">${t.agent_facing_pct}%</td></tr>`).join("");
+
+$("#unfinished-body").innerHTML = D.unfinished.slice(0, 8).map(u => `<tr>
+  <td>${esc(u.zh)}</td><td class="num">${u.workflow}</td><td class="num">${u.production}</td>
+  <td class="num">${u.completion_ratio}</td>
+  <td><div class="bar"><i style="width:${Math.round(u.completion_ratio*100)}%"></i></div></td></tr>`).join("");
+
+$("#pros-body").innerHTML = D.niche_pros.map(p => `<tr>
+  <td>${esc(p.profession)}</td><td class="num">${p.n}</td><td class="num">${p.production}</td>
+  <td class="pain">${esc((p.pains || []).join("；"))}</td></tr>`).join("");
+
+const e = D.eda;
+$("#eda-summary").innerHTML = `<div class="card">
+  <p>硬體 / EDA 在 ${D.n_total.toLocaleString()} 筆樣本中只有 <b>${e.n} 件（${e.pct_of_corpus}%）</b>，
+  其中真正跟晶片設計相關的只有 <b>${e.chip_n} 件</b>，其餘是嵌入式、機器人、3D 列印等鄰接領域。</p>
+  <p>這個數字小到不能用來下統計結論，但<strong>缺席本身就是結論</strong>：
+  NDA、封閉的 EDA 工具鏈、tape-out 的零容錯門檻，把成果全鎖在企業防火牆內。
+  公開生態沒有現成答案可抄，同時也沒有競爭者。</p>
+  <p>值得注意的是這個領域的 verify 佔比為 <b>${e.verify_pct}%</b>，
+  全體平均是 ${e.global_verify_pct}%——連最該做驗證的硬體領域，公開生態也沒把驗證做起來。</p>
+</div>`;
+
+const row = r => `<tr>
+  <td class="num">${(r.stars || 0).toLocaleString()}</td>
+  <td><span class="tag">${esc(r.task_zh)}</span></td>
+  <td><span class="tag ${r.maturity === 'production' ? 'good' : r.maturity === 'toy' ? 'warn' : ''}">${esc(r.maturity)}</span></td>
+  <td>${esc(r.profession)}</td><td class="pain">${esc(r.pain)}</td></tr>`;
+$("#eda-chip").innerHTML = e.chip.map(row).join("") || '<tr><td colspan="5">無</td></tr>';
+$("#eda-adj").innerHTML = e.adjacent.map(row).join("");
+
+const IDEAS = [
+  ["RTL 波形回歸的驗證層", "公開生態裡 UVM 相關的唯一樣本停在 toy 階段。把「改完 RTL 自動重跑波形比對、只回報有意義的差異」做成 skill，是這個領域最缺、你又最熟的一塊。", "verify"],
+  ["時序收斂的失敗歸因", "樣本裡有人在做 OpenROAD 佈線修時序（analyze，已上線）。把 timing report 從「一堆數字」變成「這條路徑為什麼掉了、上次改了什麼」的歸因，用開源工具鏈就能做，不碰公司 IP。"],
+  ["規格到測試項的展開", "從布爾邏輯規格推導閘級電路的樣本只有 26 stars、還停在 workflow。規格 → 測試點清單 → 覆蓋率缺口，這條鏈在公開生態完全空白。"],
+  ["FPGA 上板失敗的除錯助手", "樣本裡有「模擬正常但上板失敗」的痛點（10 stars, workflow）。這是嵌入式與 IC 交界最普遍的痛，而且完全可以用個人板子做，沒有 NDA 問題。"],
+];
+$("#eda-ideas").innerHTML = IDEAS.map(([t, d]) => `<div class="card">
+  <div class="kicker">可嘗試</div><h3 style="margin:.3rem 0 .4rem">${t}</h3>
+  <p class="pain">${d}</p></div>`).join("");
+
+$("#side-project").innerHTML = `
+  <div class="kicker">一句話</div>
+  <p style="font-size:1.05rem;margin:.4rem 0 .8rem">
+  <strong>做一個「驗證層」的公開作品——把你在公司裡對 RTL 波形除錯的直覺，
+  抽成不含任何公司 IP 的開源 skill，用 OpenROAD／開源 RISC-V core 當素材。</strong></p>
+  <p class="pain">理由有三個，都來自這份資料而不是我的想像：
+  ① 整份語料最強的訊號是 <b>verify 全面缺席</b>（全體僅 ${D.global_task_pct["驗證"]}%，
+  AI Agent 工具領域只有 7.9%，而完成率最低的兩個領域卡關原因都是缺驗證）；
+  ② 硬體 EDA 公開樣本只有 ${e.n} 件、晶片相關 ${e.chip_n} 件，
+  唯一的 UVM 樣本還停在 toy——這是空白，不是紅海；
+  ③ 你已經在做 rtl-waveform-debug 與 phyUD 驗證流程，這件事對你是<strong>下班後的延伸而非重新學習</strong>，
+  而且用開源素材就繞開了 NDA。</p>
+  <p class="pain">副作用是它同時餵飽你的 Substack：一個「IC 工程師把驗證直覺寫成 AI skill」的連載，
+  在中文圈幾乎沒有競品，而且是你真的懂、別人抄不走的題材。</p>`;
+
+$("#btn-week").onclick = () => { mode = "week"; render(); };
+$("#btn-month").onclick = () => { mode = "month"; render(); };
+render();
+</script>
+</body>
+</html>

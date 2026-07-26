@@ -44,6 +44,9 @@ else
   log "FAIL: 洞察專區不合規，保留 .new"; rm -f "$OUT.new"
 fi
 
+# 4.5 重建前端頁面（零 token）
+python3 bin/build_site.py >> "$LOG" 2>&1 || log "WARN: build_site 失敗"
+
 # 5. 稽核（零 token）：數字必須回溯得到訊號表
 python3 bin/validate_research.py "$DATE" >> "$LOG" 2>&1 || log "WARN: 稽核有異常，見 log"
 
