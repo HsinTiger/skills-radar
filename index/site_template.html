@@ -238,13 +238,15 @@ $("#pros-body").innerHTML = D.niche_pros.map(p => `<tr>
 
 const e = D.eda;
 $("#eda-summary").innerHTML = `<div class="card">
-  <p>硬體 / EDA 在 ${D.n_total.toLocaleString()} 筆樣本中只有 <b>${e.n} 件（${e.pct_of_corpus}%）</b>，
-  其中真正跟晶片設計相關的只有 <b>${e.chip_n} 件</b>，其餘是嵌入式、機器人、3D 列印等鄰接領域。</p>
-  <p>這個數字小到不能用來下統計結論，但<strong>缺席本身就是結論</strong>：
-  NDA、封閉的 EDA 工具鏈、tape-out 的零容錯門檻，把成果全鎖在企業防火牆內。
-  公開生態沒有現成答案可抄，同時也沒有競爭者。</p>
-  <p>值得注意的是這個領域的 verify 佔比為 <b>${e.verify_pct}%</b>，
-  全體平均是 ${e.global_verify_pct}%——連最該做驗證的硬體領域，公開生態也沒把驗證做起來。</p>
+  <p><strong>本區使用分層過取樣資料</strong>，樣本數從中立抽樣的 ${e.neutral_n} 件擴大到
+  <b>${e.n} 件</b>（其中 ${e.targeted_n} 件來自 EDA 專門採集）。
+  過取樣資料<strong>不參與</strong>上面各節的比例計算，只用來看這個領域的內部結構。</p>
+  <p>硬體 / EDA 在中立樣本中佔 <b>${e.pct_of_corpus}%</b> —— 這個比例才是母體的真實估計，
+  不會因為本區加碼採集而改變。</p>
+  <p class="pain">方法論警告：第一版曾用關鍵字正則判斷「這是不是晶片設計」，
+  以 540 筆 LLM 標註驗證後發現<strong>誤判率高達 75.6%</strong>
+  （<code>RTL</code> 在網頁開發是 right-to-left、<code>STA</code> 與 <code>timing closure</code>
+  也大量誤中）。現已改用分類模型判定並套用信心門檻。</p>
 </div>`;
 
 const row = r => `<tr>

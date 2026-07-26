@@ -26,7 +26,11 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
     except Exception:
         pass
 
-eda = [r for r in rows if r.get("sample") == "targeted-eda" or r.get("domain") == "hardware-eda"]
+# 判定硬體樣本一律用「模型/LLM 標的 domain」，不用關鍵字正則。
+# 教訓：關鍵字正則的誤判率實測 75.6%——RTL 在網頁開發是 right-to-left、STA/timing closure 也大量誤中。
+CONF_MIN = 0.6
+eda = [r for r in rows if r.get("domain") == "hardware-eda"
+       and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= CONF_MIN)]
 neutral_all = [r for r in rows if r.get("sample") != "targeted-eda" and r.get("domain")]
 
 # 依詞彙層級判斷「有多真」——被 chip-design 層撈到且內容確實談 RTL/時序，才算核心
@@ -40,6 +44,7 @@ def blob(r):
     return " ".join([r.get("name") or "", r.get("description") or "",
                      (r.get("body_head") or "")[:800], " ".join(r.get("matched_terms") or [])])
 
+# 分層仍用關鍵字，但只在「已確認是硬體」的樣本內部分層，誤判影響大幅降低
 core, verif, adjacent = [], [], []
 for r in eda:
     b = blob(r)
@@ -97,6 +102,8 @@ def pain_themes(rs):
 out = {
     "n_eda_total": len(eda),
     "n_targeted": sum(1 for r in eda if r.get("sample") == "targeted-eda"),
+    "conf_min": CONF_MIN,
+    "n_llm_labeled": sum(1 for r in eda if r.get("label_source") != "model"),
     "n_neutral": sum(1 for r in eda if r.get("sample") != "targeted-eda"),
     "global_baseline": {
         "task_pct": {k: round(100 * v / gn_t, 1) for k, v in gt.most_common()},

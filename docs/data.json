@@ -1,15 +1,15 @@
 {
- "generated": "2026-07-26 11:26 UTC",
- "n_total": 5397,
+ "generated": "2026-07-26 13:58 UTC",
+ "n_total": 5430,
  "global_production_pct": 42.3,
  "global_task_pct": {
-  "生成": 21.9,
+  "生成": 22.0,
   "轉換": 8.0,
-  "分析": 12.5,
+  "分析": 12.6,
   "驗證": 15.0,
-  "調度": 15.6,
+  "調度": 15.5,
   "檢索": 9.9,
-  "配置": 17.1
+  "配置": 17.0
  },
  "week": {
   "periods": [
@@ -31,29 +31,29 @@
    "2026-07-20"
   ],
   "totals": [
-   236,
+   237,
    175,
-   183,
-   145,
+   188,
+   148,
    154,
    144,
-   131,
-   149,
+   137,
+   150,
    104,
    132,
-   111,
+   112,
    80,
    84,
    81,
-   66,
-   46
+   67,
+   47
   ],
   "stack": {
    "software-dev": [
-    59,
+    60,
     51,
-    59,
-    35,
+    60,
+    36,
     44,
     45,
     24,
@@ -71,10 +71,10 @@
     37,
     31,
     21,
-    22,
+    24,
     34,
     19,
-    26,
+    27,
     18,
     9,
     27,
@@ -83,17 +83,17 @@
     14,
     12,
     11,
-    5
+    6
    ],
    "devops-infra": [
     12,
     7,
-    12,
+    13,
     15,
     4,
     4,
     7,
-    9,
+    10,
     6,
     5,
     8,
@@ -106,7 +106,7 @@
    "design-creative": [
     19,
     9,
-    10,
+    11,
     10,
     17,
     19,
@@ -114,7 +114,7 @@
     5,
     8,
     5,
-    7,
+    8,
     7,
     6,
     14,
@@ -178,7 +178,7 @@
    "marketing-growth": [
     9,
     7,
-    9,
+    10,
     9,
     5,
     5,
@@ -196,11 +196,11 @@
    "research-academia": [
     5,
     4,
-    7,
+    8,
     5,
     8,
     2,
-    8,
+    9,
     11,
     5,
     4,
@@ -208,7 +208,7 @@
     4,
     2,
     1,
-    3,
+    4,
     1
    ],
    "finance-investing": [
@@ -272,7 +272,7 @@
     1,
     5,
     6,
-    2,
+    6,
     13,
     0,
     2,
@@ -379,9 +379,9 @@
     "domain": "software-dev",
     "zh": "軟體開發",
     "recent": 205,
-    "older": 348,
-    "recent_share": 29.1,
-    "older_share": 26.4,
+    "older": 351,
+    "recent_share": 29.0,
+    "older_share": 26.3,
     "delta": 2.7
    },
    {
@@ -389,26 +389,26 @@
     "zh": "教育訓練",
     "recent": 18,
     "older": 21,
-    "recent_share": 2.6,
+    "recent_share": 2.5,
     "older_share": 1.6,
     "delta": 1.0
+   },
+   {
+    "domain": "design-creative",
+    "zh": "設計創意",
+    "recent": 57,
+    "older": 97,
+    "recent_share": 8.1,
+    "older_share": 7.3,
+    "delta": 0.8
    },
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
     "recent": 43,
-    "older": 70,
+    "older": 72,
     "recent_share": 6.1,
-    "older_share": 5.3,
-    "delta": 0.8
-   },
-   {
-    "domain": "design-creative",
-    "zh": "設計創意",
-    "recent": 56,
-    "older": 96,
-    "recent_share": 8.0,
-    "older_share": 7.3,
+    "older_share": 5.4,
     "delta": 0.7
    },
    {
@@ -417,7 +417,7 @@
     "recent": 44,
     "older": 76,
     "recent_share": 6.2,
-    "older_share": 5.8,
+    "older_share": 5.7,
     "delta": 0.5
    },
    {
@@ -451,7 +451,7 @@
     "domain": "marketing-growth",
     "zh": "行銷成長",
     "recent": 28,
-    "older": 51,
+    "older": 52,
     "recent_share": 4.0,
     "older_share": 3.9,
     "delta": 0.1
@@ -461,7 +461,7 @@
     "zh": "資料分析",
     "recent": 18,
     "older": 32,
-    "recent_share": 2.6,
+    "recent_share": 2.5,
     "older_share": 2.4,
     "delta": 0.1
    },
@@ -484,21 +484,21 @@
     "delta": -0.4
    },
    {
-    "domain": "ai-agent-tooling",
-    "zh": "AI Agent 工具",
-    "recent": 106,
-    "older": 208,
-    "recent_share": 15.1,
-    "older_share": 15.8,
-    "delta": -0.7
-   },
-   {
     "domain": "research-academia",
     "zh": "研究學術",
-    "recent": 22,
-    "older": 50,
-    "recent_share": 3.1,
-    "older_share": 3.8,
+    "recent": 23,
+    "older": 52,
+    "recent_share": 3.3,
+    "older_share": 3.9,
+    "delta": -0.6
+   },
+   {
+    "domain": "ai-agent-tooling",
+    "zh": "AI Agent 工具",
+    "recent": 107,
+    "older": 211,
+    "recent_share": 15.1,
+    "older_share": 15.8,
     "delta": -0.7
    },
    {
@@ -511,22 +511,22 @@
     "delta": -0.8
    },
    {
-    "domain": "healthcare-bio",
-    "zh": "醫療生技",
-    "recent": 10,
-    "older": 30,
-    "recent_share": 1.4,
-    "older_share": 2.3,
-    "delta": -0.9
-   },
-   {
     "domain": "personal-productivity",
     "zh": "個人生產力",
     "recent": 44,
     "older": 98,
     "recent_share": 6.2,
     "older_share": 7.4,
-    "delta": -1.2
+    "delta": -1.1
+   },
+   {
+    "domain": "healthcare-bio",
+    "zh": "醫療生技",
+    "recent": 10,
+    "older": 34,
+    "recent_share": 1.4,
+    "older_share": 2.6,
+    "delta": -1.1
    },
    {
     "domain": "legal-compliance",
@@ -561,14 +561,14 @@
    36,
    105,
    114,
-   171,
-   444,
-   642,
-   965,
-   829,
-   632,
-   456,
-   248
+   172,
+   445,
+   645,
+   971,
+   837,
+   640,
+   457,
+   250
   ],
   "stack": {
    "software-dev": [
@@ -578,9 +578,9 @@
     40,
     79,
     151,
-    199,
-    274,
-    229,
+    200,
+    276,
+    232,
     158,
     132,
     73
@@ -591,13 +591,13 @@
     13,
     23,
     29,
-    73,
-    97,
-    174,
-    117,
-    109,
+    74,
+    98,
+    175,
+    118,
+    111,
     71,
-    35
+    36
    ],
    "devops-infra": [
     6,
@@ -607,9 +607,9 @@
     10,
     37,
     39,
-    56,
-    51,
-    30,
+    57,
+    52,
+    31,
     23,
     20
    ],
@@ -621,10 +621,10 @@
     6,
     29,
     37,
-    56,
-    52,
+    57,
+    53,
     51,
-    27,
+    28,
     29
    ],
    "personal-productivity": [
@@ -646,7 +646,7 @@
     1,
     2,
     4,
-    4,
+    5,
     16,
     38,
     54,
@@ -678,7 +678,7 @@
     21,
     39,
     38,
-    39,
+    40,
     19,
     22,
     6
@@ -692,10 +692,10 @@
     3,
     27,
     44,
+    32,
     31,
-    30,
     16,
-    6
+    7
    ],
    "finance-investing": [
     0,
@@ -719,7 +719,7 @@
     8,
     12,
     15,
-    25,
+    26,
     30,
     22,
     21,
@@ -732,7 +732,7 @@
     2,
     4,
     14,
-    10,
+    11,
     26,
     25,
     11,
@@ -749,7 +749,7 @@
     7,
     39,
     4,
-    26,
+    30,
     8,
     2
    ],
@@ -829,10 +829,10 @@
     "domain": "security",
     "zh": "資安",
     "recent": 218,
-    "older": 27,
-    "recent_share": 5.8,
-    "older_share": 3.0,
-    "delta": 2.8
+    "older": 28,
+    "recent_share": 5.7,
+    "older_share": 3.1,
+    "delta": 2.7
    },
    {
     "domain": "personal-productivity",
@@ -841,7 +841,7 @@
     "older": 40,
     "recent_share": 6.4,
     "older_share": 4.4,
-    "delta": 2.1
+    "delta": 2.0
    },
    {
     "domain": "finance-investing",
@@ -855,7 +855,7 @@
    {
     "domain": "research-academia",
     "zh": "研究學術",
-    "recent": 154,
+    "recent": 157,
     "older": 21,
     "recent_share": 4.1,
     "older_share": 2.3,
@@ -864,7 +864,7 @@
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 252,
+    "recent": 255,
     "older": 53,
     "recent_share": 6.7,
     "older_share": 5.8,
@@ -882,7 +882,7 @@
    {
     "domain": "marketing-growth",
     "zh": "行銷成長",
-    "recent": 163,
+    "recent": 164,
     "older": 32,
     "recent_share": 4.3,
     "older_share": 3.5,
@@ -925,27 +925,27 @@
     "delta": 0.1
    },
    {
-    "domain": "ops-admin",
-    "zh": "營運行政",
-    "recent": 180,
-    "older": 44,
-    "recent_share": 4.8,
-    "older_share": 4.8,
-    "delta": -0.0
-   },
-   {
     "domain": "data-analytics",
     "zh": "資料分析",
-    "recent": 90,
+    "recent": 91,
     "older": 22,
     "recent_share": 2.4,
     "older_share": 2.4,
     "delta": -0.0
    },
    {
+    "domain": "ops-admin",
+    "zh": "營運行政",
+    "recent": 180,
+    "older": 44,
+    "recent_share": 4.7,
+    "older_share": 4.8,
+    "delta": -0.1
+   },
+   {
     "domain": "writing-content",
     "zh": "寫作內容",
-    "recent": 121,
+    "recent": 122,
     "older": 30,
     "recent_share": 3.2,
     "older_share": 3.3,
@@ -954,37 +954,37 @@
    {
     "domain": "healthcare-bio",
     "zh": "醫療生技",
-    "recent": 86,
+    "recent": 90,
     "older": 25,
-    "recent_share": 2.3,
+    "recent_share": 2.4,
     "older_share": 2.7,
-    "delta": -0.5
+    "delta": -0.4
    },
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 603,
-    "older": 156,
+    "recent": 609,
+    "older": 157,
     "recent_share": 16.0,
-    "older_share": 17.0,
+    "older_share": 17.1,
     "delta": -1.1
    },
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
-    "recent": 219,
+    "recent": 222,
     "older": 72,
     "recent_share": 5.8,
     "older_share": 7.9,
-    "delta": -2.1
+    "delta": -2.0
    },
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 1065,
+    "recent": 1071,
     "older": 342,
     "recent_share": 28.2,
-    "older_share": 37.4,
+    "older_share": 37.3,
     "delta": -9.1
    }
   ],
@@ -998,10 +998,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 1,
-   "expected": 25.4,
+   "expected": 26.4,
    "ratio": 0.04,
-   "domain_n": 116,
-   "momentum": -0.9,
+   "domain_n": 120,
+   "momentum": -1.1,
    "hot": false
   },
   {
@@ -1010,10 +1010,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 45.5,
+   "expected": 45.6,
    "ratio": 0.07,
    "domain_n": 303,
-   "momentum": -1.2,
+   "momentum": -1.1,
    "hot": false
   },
   {
@@ -1048,7 +1048,7 @@
    "observed": 6,
    "expected": 41.2,
    "ratio": 0.15,
-   "domain_n": 265,
+   "domain_n": 266,
    "momentum": 0.5,
    "hot": true
   },
@@ -1058,7 +1058,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 2,
-   "expected": 13.7,
+   "expected": 13.6,
    "ratio": 0.15,
    "domain_n": 88,
    "momentum": -2.2,
@@ -1082,22 +1082,10 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 40.5,
+   "expected": 41.1,
    "ratio": 0.17,
-   "domain_n": 324,
-   "momentum": 0.7,
-   "hot": true
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 55.3,
-   "ratio": 0.18,
-   "domain_n": 324,
-   "momentum": 0.7,
+   "domain_n": 327,
+   "momentum": 0.8,
    "hot": true
   },
   {
@@ -1106,9 +1094,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 28.3,
+   "expected": 28.4,
    "ratio": 0.18,
-   "domain_n": 166,
+   "domain_n": 167,
    "momentum": 0.5,
    "hot": true
   },
@@ -1118,10 +1106,22 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 25.8,
+   "expected": 25.9,
    "ratio": 0.19,
-   "domain_n": 166,
+   "domain_n": 167,
    "momentum": 0.5,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 11,
+   "expected": 55.6,
+   "ratio": 0.2,
+   "domain_n": 327,
+   "momentum": 0.8,
    "hot": true
   },
   {
@@ -1130,10 +1130,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 116,
-   "momentum": -0.9,
+   "expected": 20.4,
+   "ratio": 0.24,
+   "domain_n": 120,
+   "momentum": -1.1,
    "hot": false
   },
   {
@@ -1142,10 +1142,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 50.4,
+   "expected": 50.7,
    "ratio": 0.26,
-   "domain_n": 324,
-   "momentum": 0.7,
+   "domain_n": 327,
+   "momentum": 0.8,
    "hot": true
   },
   {
@@ -1156,7 +1156,7 @@
    "observed": 9,
    "expected": 34.5,
    "ratio": 0.26,
-   "domain_n": 202,
+   "domain_n": 203,
    "momentum": 0.1,
    "hot": true
   },
@@ -1166,22 +1166,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 19.4,
+   "expected": 19.6,
    "ratio": 0.26,
-   "domain_n": 129,
+   "domain_n": 130,
    "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 21,
-   "expected": 73.9,
-   "ratio": 0.28,
-   "domain_n": 337,
-   "momentum": 0.8,
    "hot": true
   },
   {
@@ -1190,9 +1178,33 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 16,
-   "expected": 58.1,
-   "ratio": 0.28,
-   "domain_n": 265,
+   "expected": 58.5,
+   "ratio": 0.27,
+   "domain_n": 266,
+   "momentum": 0.5,
+   "hot": true
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 22,
+   "expected": 75.0,
+   "ratio": 0.29,
+   "domain_n": 341,
+   "momentum": 0.7,
+   "hot": true
+  },
+  {
+   "domain": "ops-admin",
+   "zh": "營運行政",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 11,
+   "expected": 37.3,
+   "ratio": 0.29,
+   "domain_n": 248,
    "momentum": 0.5,
    "hot": true
   },
@@ -1202,9 +1214,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 6,
-   "expected": 20.7,
+   "expected": 21.0,
    "ratio": 0.29,
-   "domain_n": 166,
+   "domain_n": 167,
    "momentum": 0.5,
    "hot": true
   },
@@ -1214,34 +1226,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 31.1,
+   "expected": 31.0,
    "ratio": 0.29,
    "domain_n": 182,
    "momentum": -0.3,
-   "hot": false
-  },
-  {
-   "domain": "ops-admin",
-   "zh": "營運行政",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 11,
-   "expected": 37.3,
-   "ratio": 0.3,
-   "domain_n": 248,
-   "momentum": 0.5,
-   "hot": true
-  },
-  {
-   "domain": "ai-agent-tooling",
-   "zh": "AI Agent 工具",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 34,
-   "expected": 105.4,
-   "ratio": 0.32,
-   "domain_n": 844,
-   "momentum": -0.7,
    "hot": false
   },
   {
@@ -1250,10 +1238,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 26.9,
+   "expected": 27.1,
    "ratio": 0.33,
-   "domain_n": 337,
-   "momentum": 0.8,
+   "domain_n": 341,
+   "momentum": 0.7,
    "hot": true
   },
   {
@@ -1262,11 +1250,23 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 10,
-   "expected": 30.4,
+   "expected": 30.5,
    "ratio": 0.33,
-   "domain_n": 202,
+   "domain_n": 203,
    "momentum": 0.1,
    "hot": true
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "zh": "AI Agent 工具",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 35,
+   "expected": 106.9,
+   "ratio": 0.33,
+   "domain_n": 851,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "legal-compliance",
@@ -1286,10 +1286,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 31.7,
-   "ratio": 0.35,
-   "domain_n": 186,
-   "momentum": -0.7,
+   "expected": 32.2,
+   "ratio": 0.34,
+   "domain_n": 189,
+   "momentum": -0.6,
    "hot": false
   }
  ],
@@ -1300,10 +1300,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 1,
-   "expected": 25.4,
+   "expected": 26.4,
    "ratio": 0.04,
-   "domain_n": 116,
-   "momentum": -0.5,
+   "domain_n": 120,
+   "momentum": -0.4,
    "hot": false
   },
   {
@@ -1312,10 +1312,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 45.5,
+   "expected": 45.6,
    "ratio": 0.07,
    "domain_n": 303,
-   "momentum": 2.1,
+   "momentum": 2.0,
    "hot": true
   },
   {
@@ -1350,8 +1350,8 @@
    "observed": 6,
    "expected": 41.2,
    "ratio": 0.15,
-   "domain_n": 265,
-   "momentum": 2.8,
+   "domain_n": 266,
+   "momentum": 2.7,
    "hot": true
   },
   {
@@ -1360,7 +1360,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 2,
-   "expected": 13.7,
+   "expected": 13.6,
    "ratio": 0.15,
    "domain_n": 88,
    "momentum": 0.9,
@@ -1372,9 +1372,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 40.5,
+   "expected": 41.1,
    "ratio": 0.17,
-   "domain_n": 324,
+   "domain_n": 327,
    "momentum": 0.9,
    "hot": true
   },
@@ -1391,26 +1391,14 @@
    "hot": true
   },
   {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 55.3,
-   "ratio": 0.18,
-   "domain_n": 324,
-   "momentum": 0.9,
-   "hot": true
-  },
-  {
    "domain": "writing-content",
    "zh": "寫作內容",
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 28.3,
+   "expected": 28.4,
    "ratio": 0.18,
-   "domain_n": 166,
+   "domain_n": 167,
    "momentum": -0.1,
    "hot": false
   },
@@ -1420,11 +1408,23 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 25.8,
+   "expected": 25.9,
    "ratio": 0.19,
-   "domain_n": 166,
+   "domain_n": 167,
    "momentum": -0.1,
    "hot": false
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 11,
+   "expected": 55.6,
+   "ratio": 0.2,
+   "domain_n": 327,
+   "momentum": 0.9,
+   "hot": true
   },
   {
    "domain": "healthcare-bio",
@@ -1432,10 +1432,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 116,
-   "momentum": -0.5,
+   "expected": 20.4,
+   "ratio": 0.24,
+   "domain_n": 120,
+   "momentum": -0.4,
    "hot": false
   },
   {
@@ -1444,9 +1444,9 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 50.4,
+   "expected": 50.7,
    "ratio": 0.26,
-   "domain_n": 324,
+   "domain_n": 327,
    "momentum": 0.9,
    "hot": true
   },
@@ -1458,7 +1458,7 @@
    "observed": 9,
    "expected": 34.5,
    "ratio": 0.26,
-   "domain_n": 202,
+   "domain_n": 203,
    "momentum": 0.8,
    "hot": true
   },
@@ -1468,9 +1468,9 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 19.4,
+   "expected": 19.6,
    "ratio": 0.26,
-   "domain_n": 129,
+   "domain_n": 130,
    "momentum": -0.0,
    "hot": false
   },
@@ -1480,23 +1480,11 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 16,
-   "expected": 58.1,
-   "ratio": 0.28,
-   "domain_n": 265,
-   "momentum": 2.8,
+   "expected": 58.5,
+   "ratio": 0.27,
+   "domain_n": 266,
+   "momentum": 2.7,
    "hot": true
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 21,
-   "expected": 73.9,
-   "ratio": 0.28,
-   "domain_n": 337,
-   "momentum": -2.1,
-   "hot": false
   },
   {
    "domain": "finance-investing",
@@ -1504,23 +1492,11 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 31.1,
+   "expected": 31.0,
    "ratio": 0.29,
    "domain_n": 182,
    "momentum": 1.9,
    "hot": true
-  },
-  {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 6,
-   "expected": 20.7,
-   "ratio": 0.29,
-   "domain_n": 166,
-   "momentum": -0.1,
-   "hot": false
   },
   {
    "domain": "ops-admin",
@@ -1529,21 +1505,33 @@
    "task_zh": "驗證",
    "observed": 11,
    "expected": 37.3,
-   "ratio": 0.3,
+   "ratio": 0.29,
    "domain_n": 248,
-   "momentum": -0.0,
+   "momentum": -0.1,
    "hot": false
   },
   {
-   "domain": "ai-agent-tooling",
-   "zh": "AI Agent 工具",
+   "domain": "writing-content",
+   "zh": "寫作內容",
    "task": "analyze",
    "task_zh": "分析",
-   "observed": 34,
-   "expected": 105.4,
-   "ratio": 0.32,
-   "domain_n": 844,
-   "momentum": -1.1,
+   "observed": 6,
+   "expected": 21.0,
+   "ratio": 0.29,
+   "domain_n": 167,
+   "momentum": -0.1,
+   "hot": false
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 22,
+   "expected": 75.0,
+   "ratio": 0.29,
+   "domain_n": 341,
+   "momentum": -2.0,
    "hot": false
   },
   {
@@ -1564,11 +1552,23 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 10,
-   "expected": 30.4,
+   "expected": 30.5,
    "ratio": 0.33,
-   "domain_n": 202,
+   "domain_n": 203,
    "momentum": 0.8,
    "hot": true
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "zh": "AI Agent 工具",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 35,
+   "expected": 106.9,
+   "ratio": 0.33,
+   "domain_n": 851,
+   "momentum": -1.1,
+   "hot": false
   },
   {
    "domain": "devops-infra",
@@ -1576,10 +1576,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 26.9,
+   "expected": 27.1,
    "ratio": 0.33,
-   "domain_n": 337,
-   "momentum": -2.1,
+   "domain_n": 341,
+   "momentum": -2.0,
    "hot": false
   },
   {
@@ -1588,9 +1588,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 31.7,
-   "ratio": 0.35,
-   "domain_n": 186,
+   "expected": 32.2,
+   "ratio": 0.34,
+   "domain_n": 189,
    "momentum": 1.8,
    "hot": true
   }
@@ -1598,10 +1598,10 @@
  "traction": [
   {
    "domain": "security",
-   "n": 265,
-   "production_pct": 64.9,
-   "vs_global_production": 22.6,
-   "median_stars": 17,
+   "n": 266,
+   "production_pct": 65.0,
+   "vs_global_production": 22.7,
+   "median_stars": 16,
    "p90_stars": 1022,
    "agent_facing_pct": 9.8,
    "zh": "資安"
@@ -1618,39 +1618,39 @@
   },
   {
    "domain": "devops-infra",
-   "n": 337,
-   "production_pct": 62.6,
-   "vs_global_production": 20.3,
+   "n": 341,
+   "production_pct": 62.5,
+   "vs_global_production": 20.1,
    "median_stars": 12,
    "p90_stars": 496,
-   "agent_facing_pct": 9.2,
+   "agent_facing_pct": 9.4,
    "zh": "DevOps 基礎設施"
   },
   {
-   "domain": "healthcare-bio",
-   "n": 116,
-   "production_pct": 53.4,
-   "vs_global_production": 11.1,
-   "median_stars": 17,
-   "p90_stars": 1593,
-   "agent_facing_pct": 2.6,
-   "zh": "醫療生技"
-  },
-  {
    "domain": "data-analytics",
-   "n": 129,
-   "production_pct": 52.7,
-   "vs_global_production": 10.4,
+   "n": 130,
+   "production_pct": 53.1,
+   "vs_global_production": 10.8,
    "median_stars": 16,
    "p90_stars": 475,
-   "agent_facing_pct": 13.2,
+   "agent_facing_pct": 13.1,
    "zh": "資料分析"
   },
   {
+   "domain": "healthcare-bio",
+   "n": 120,
+   "production_pct": 52.5,
+   "vs_global_production": 10.2,
+   "median_stars": 14,
+   "p90_stars": 1593,
+   "agent_facing_pct": 2.5,
+   "zh": "醫療生技"
+  },
+  {
    "domain": "ai-agent-tooling",
-   "n": 844,
-   "production_pct": 45.3,
-   "vs_global_production": 3.0,
+   "n": 851,
+   "production_pct": 45.1,
+   "vs_global_production": 2.8,
    "median_stars": 9,
    "p90_stars": 653,
    "agent_facing_pct": 59.2,
@@ -1660,7 +1660,7 @@
    "domain": "finance-investing",
    "n": 182,
    "production_pct": 42.9,
-   "vs_global_production": 0.6,
+   "vs_global_production": 0.5,
    "median_stars": 20,
    "p90_stars": 552,
    "agent_facing_pct": 13.2,
@@ -1668,11 +1668,11 @@
   },
   {
    "domain": "software-dev",
-   "n": 1809,
-   "production_pct": 41.5,
+   "n": 1817,
+   "production_pct": 41.6,
    "vs_global_production": -0.8,
    "median_stars": 9,
-   "p90_stars": 538,
+   "p90_stars": 531,
    "agent_facing_pct": 12.2,
    "zh": "軟體開發"
   },
@@ -1688,12 +1688,12 @@
   },
   {
    "domain": "design-creative",
-   "n": 324,
-   "production_pct": 38.0,
-   "vs_global_production": -4.3,
-   "median_stars": 12,
+   "n": 327,
+   "production_pct": 37.9,
+   "vs_global_production": -4.4,
+   "median_stars": 11,
    "p90_stars": 597,
-   "agent_facing_pct": 7.4,
+   "agent_facing_pct": 7.3,
    "zh": "設計創意"
   },
   {
@@ -1708,9 +1708,9 @@
   },
   {
    "domain": "marketing-growth",
-   "n": 202,
-   "production_pct": 35.6,
-   "vs_global_production": -6.7,
+   "n": 203,
+   "production_pct": 35.5,
+   "vs_global_production": -6.9,
    "median_stars": 22,
    "p90_stars": 573,
    "agent_facing_pct": 2.5,
@@ -1728,9 +1728,9 @@
   },
   {
    "domain": "writing-content",
-   "n": 166,
-   "production_pct": 29.5,
-   "vs_global_production": -12.8,
+   "n": 167,
+   "production_pct": 29.9,
+   "vs_global_production": -12.4,
    "median_stars": 22,
    "p90_stars": 467,
    "agent_facing_pct": 1.8,
@@ -1738,19 +1738,19 @@
   },
   {
    "domain": "research-academia",
-   "n": 186,
-   "production_pct": 27.4,
-   "vs_global_production": -14.9,
-   "median_stars": 20,
+   "n": 189,
+   "production_pct": 27.5,
+   "vs_global_production": -14.8,
+   "median_stars": 19,
    "p90_stars": 868,
-   "agent_facing_pct": 5.4,
+   "agent_facing_pct": 5.3,
    "zh": "研究學術"
   },
   {
    "domain": "personal-productivity",
    "n": 303,
    "production_pct": 21.5,
-   "vs_global_production": -20.8,
+   "vs_global_production": -20.9,
    "median_stars": 6,
    "p90_stars": 274,
    "agent_facing_pct": 5.3,
@@ -1760,7 +1760,7 @@
    "domain": "education-training",
    "n": 78,
    "production_pct": 16.7,
-   "vs_global_production": -25.6,
+   "vs_global_production": -25.7,
    "median_stars": 6,
    "p90_stars": 296,
    "agent_facing_pct": 2.6,
@@ -1770,7 +1770,7 @@
    "domain": "other",
    "n": 34,
    "production_pct": 11.8,
-   "vs_global_production": -30.5,
+   "vs_global_production": -30.6,
    "median_stars": 10,
    "p90_stars": 254,
    "agent_facing_pct": 2.9,
@@ -1804,17 +1804,17 @@
   },
   {
    "domain": "research-academia",
-   "n": 186,
-   "workflow": 124,
-   "production": 51,
+   "n": 189,
+   "workflow": 126,
+   "production": 52,
    "completion_ratio": 0.29,
    "zh": "研究學術"
   },
   {
    "domain": "writing-content",
-   "n": 166,
+   "n": 167,
    "workflow": 111,
-   "production": 49,
+   "production": 50,
    "completion_ratio": 0.31,
    "zh": "寫作內容"
   },
@@ -1828,8 +1828,8 @@
   },
   {
    "domain": "marketing-growth",
-   "n": 202,
-   "workflow": 127,
+   "n": 203,
+   "workflow": 128,
    "production": 72,
    "completion_ratio": 0.36,
    "zh": "行銷成長"
@@ -1844,9 +1844,9 @@
   },
   {
    "domain": "design-creative",
-   "n": 324,
-   "workflow": 195,
-   "production": 123,
+   "n": 327,
+   "workflow": 197,
+   "production": 124,
    "completion_ratio": 0.39,
    "zh": "設計創意"
   },
@@ -1860,10 +1860,10 @@
   },
   {
    "domain": "software-dev",
-   "n": 1809,
-   "workflow": 1015,
-   "production": 750,
-   "completion_ratio": 0.42,
+   "n": 1817,
+   "workflow": 1018,
+   "production": 755,
+   "completion_ratio": 0.43,
    "zh": "軟體開發"
   },
   {
@@ -1876,27 +1876,35 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 844,
-   "workflow": 361,
-   "production": 382,
+   "n": 851,
+   "workflow": 365,
+   "production": 384,
    "completion_ratio": 0.51,
    "zh": "AI Agent 工具"
   },
   {
    "domain": "healthcare-bio",
-   "n": 116,
-   "workflow": 52,
-   "production": 62,
-   "completion_ratio": 0.54,
+   "n": 120,
+   "workflow": 55,
+   "production": 63,
+   "completion_ratio": 0.53,
    "zh": "醫療生技"
   },
   {
    "domain": "data-analytics",
-   "n": 129,
+   "n": 130,
    "workflow": 59,
-   "production": 68,
+   "production": 69,
    "completion_ratio": 0.54,
    "zh": "資料分析"
+  },
+  {
+   "domain": "devops-infra",
+   "n": 341,
+   "workflow": 118,
+   "production": 213,
+   "completion_ratio": 0.64,
+   "zh": "DevOps 基礎設施"
   },
   {
    "domain": "legal-compliance",
@@ -1907,18 +1915,10 @@
    "zh": "法務合規"
   },
   {
-   "domain": "devops-infra",
-   "n": 337,
-   "workflow": 116,
-   "production": 211,
-   "completion_ratio": 0.65,
-   "zh": "DevOps 基礎設施"
-  },
-  {
    "domain": "security",
-   "n": 265,
+   "n": 266,
    "workflow": 89,
-   "production": 172,
+   "production": 173,
    "completion_ratio": 0.66,
    "zh": "資安"
   }
@@ -1943,9 +1943,9 @@
    "n": 8,
    "production": 6,
    "domains": [
-    "software-dev",
+    "data-analytics",
     "devops-infra",
-    "data-analytics"
+    "software-dev"
    ],
    "pains": [
     "忘記 DBeaver 快捷鍵與 SSH 隧道配置",
@@ -1959,8 +1959,8 @@
    "n": 8,
    "production": 5,
    "domains": [
-    "ai-agent-tooling",
     "ops-admin",
+    "ai-agent-tooling",
     "software-dev"
    ],
    "pains": [
@@ -1975,8 +1975,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "security",
-    "devops-infra"
+    "devops-infra",
+    "security"
    ],
    "pains": [
     "傳統網路連線排查工具輸出格式難以解析",
@@ -2185,22 +2185,24 @@
   }
  ],
  "eda": {
-  "n": 36,
-  "chip_n": 8,
-  "pct_of_corpus": 0.67,
+  "n": 721,
+  "chip_n": 199,
+  "neutral_n": 36,
+  "targeted_n": 685,
+  "pct_of_corpus": 0.66,
   "task": {
-   "配置": 12,
-   "調度": 8,
-   "生成": 6,
-   "驗證": 4,
-   "分析": 3,
-   "轉換": 2,
-   "檢索": 1
+   "生成": 243,
+   "配置": 125,
+   "調度": 124,
+   "驗證": 115,
+   "分析": 61,
+   "檢索": 36,
+   "轉換": 17
   },
   "maturity": {
-   "toy": 1,
-   "workflow": 22,
-   "production": 13
+   "toy": 3,
+   "workflow": 350,
+   "production": 368
   },
   "chip": [
    {
@@ -2213,6 +2215,42 @@
     "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
    },
    {
+    "stars": 1605,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": "韌體工程師",
+    "pain": "晶片暫存器寫入與指令間競態條件難排查",
+    "repo": "tenstorrent/tt-metal"
+   },
+   {
+    "stars": 1587,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1587,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1587,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "toy",
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
+   },
+   {
     "stars": 1586,
     "task": "verify",
     "task_zh": "驗證",
@@ -2220,6 +2258,60 @@
     "profession": "IC 設計驗證工程師",
     "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時",
     "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1094,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "picoruby/picoruby"
+   },
+   {
+    "stars": 817,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "aklofas/kicad-happy"
+   },
+   {
+    "stars": 817,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "aklofas/kicad-happy"
+   },
+   {
+    "stars": 707,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "hashgraph-online/awesome-codex-plugins"
+   },
+   {
+    "stars": 519,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "晶片驗證工程師",
+    "pain": "晶片驗證缺少可執行的 SystemVerilog 斷言",
+    "repo": "majiayu000/claude-skill-registry"
+   },
+   {
+    "stars": 379,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "diodeinc/pcb"
    },
    {
     "stars": 324,
@@ -2231,12 +2323,273 @@
     "repo": "arpitg1304/robotics-agent-skills"
    },
    {
+    "stars": 199,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Mindrally/skills"
+   },
+   {
+    "stars": 199,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "IC 設計工程師",
+    "pain": "FPGA與ASIC開發缺乏統一的SystemVerilog規範",
+    "repo": "Mindrally/skills"
+   },
+   {
+    "stars": 169,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 169,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 169,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 169,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "晶片驗證工程師",
+    "pain": "UVM 晶片驗證流程複雜需多 Agent 協同",
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 148,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "mohitmishra786/low-level-dev-skills"
+   },
+   {
+    "stars": 139,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "ArabelaTso/Skills-4-SE"
+   },
+   {
+    "stars": 139,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "ArabelaTso/Skills-4-SE"
+   },
+   {
+    "stars": 64,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "晶片驗證工程師",
+    "pain": "晶片驗證時大規模 FSDB 波形手動分析效率低下",
+    "repo": "BLANK2077/xverif"
+   },
+   {
+    "stars": 48,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "mirekez/cpphdl"
+   },
+   {
+    "stars": 46,
+    "task": "retrieve",
+    "task_zh": "檢索",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "znlgis/opengis-skills"
+   },
+   {
+    "stars": 43,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "babyworm/rtl-agent-team"
+   },
+   {
+    "stars": 43,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "babyworm/rtl-agent-team"
+   },
+   {
+    "stars": 43,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "babyworm/rtl-agent-team"
+   },
+   {
+    "stars": 43,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "babyworm/rtl-agent-team"
+   },
+   {
+    "stars": 38,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "bjwanneng/veriflow-cc"
+   },
+   {
+    "stars": 36,
+    "task": "transform",
+    "task_zh": "轉換",
+    "maturity": "production",
+    "profession": "IC 設計工程師",
+    "pain": "各種 RTL 解析工具輸出格式不一影響下游對接",
+    "repo": "amoslee2026/Babel"
+   },
+   {
+    "stars": 36,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "amoslee2026/Babel"
+   },
+   {
+    "stars": 36,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "itgoyo/hermes-skills"
+   },
+   {
+    "stars": 35,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "oaslananka/kicad-mcp-pro"
+   },
+   {
+    "stars": 35,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "PCB設計工程師",
+    "pain": "自動佈局產出的 KiCad 電路圖缺乏人工繪製質感",
+    "repo": "oaslananka/kicad-mcp-pro"
+   },
+   {
+    "stars": 35,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "oaslananka/kicad-mcp-pro"
+   },
+   {
+    "stars": 34,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "mpskex/chisel-npu"
+   },
+   {
+    "stars": 31,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": "晶片設計工程師",
+    "pain": "晶片上遊更新時決策記錄與配置同步容易出錯",
+    "repo": "VLSIDA/HighTide"
+   },
+   {
+    "stars": 27,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "clanker-lover/spicebridge"
+   },
+   {
     "stars": 26,
     "task": "generate",
     "task_zh": "生成",
     "maturity": "workflow",
     "profession": "IC設計工程師",
     "pain": "從布爾邏輯規格手動推導與轉換閘級電路繁瑣",
+    "repo": "pjt222/agent-almanac"
+   },
+   {
+    "stars": 26,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "pjt222/agent-almanac"
+   },
+   {
+    "stars": 26,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "pjt222/agent-almanac"
+   },
+   {
+    "stars": 26,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
     "repo": "pjt222/agent-almanac"
    },
    {
@@ -2249,6 +2602,87 @@
     "repo": "The-OpenROAD-Project/bazel-orfs"
    },
    {
+    "stars": 23,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Verdvana/Verdvana.github.io"
+   },
+   {
+    "stars": 22,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Seeed-Studio/ai-skills"
+   },
+   {
+    "stars": 21,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Cognitohazard/ltspice-mcp"
+   },
+   {
+    "stars": 19,
+    "task": "transform",
+    "task_zh": "轉換",
+    "maturity": "production",
+    "profession": "IC設計工程師",
+    "pain": "手動將 Excel 暫存器表轉為 RTL 代碼易錯",
+    "repo": "siliconpeasant/vibe_soc"
+   },
+   {
+    "stars": 17,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "majiayu000/claude-skill-registry-data"
+   },
+   {
+    "stars": 17,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": "DV驗證工程師",
+    "pain": "晶片驗證 Testbench 缺乏正交維度的架構選擇",
+    "repo": "sean-galloway/RTLDesignSherpa"
+   },
+   {
+    "stars": 16,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "vibeic/vibe-ic"
+   },
+   {
+    "stars": 12,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "clowlove/Hermes-House"
+   },
+   {
+    "stars": 11,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "IC 設計工程師",
+    "pain": "手寫 RTL 程式碼容易不符合可綜合標準",
+    "repo": "gabrielmoreira/agent-skills-mirror"
+   },
+   {
     "stars": 10,
     "task": "verify",
     "task_zh": "驗證",
@@ -2256,6 +2690,24 @@
     "profession": "FPGA 工程師",
     "pain": "FPGA 仿真正常但上板失敗，難以除錯時序問題",
     "repo": "LNC0831/oh-my-fpga"
+   },
+   {
+    "stars": 10,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "FPGA工程師",
+    "pain": "人工撰寫 Vivado XDC 時序約束容易遺漏錯誤",
+    "repo": "LNC0831/oh-my-fpga"
+   },
+   {
+    "stars": 9,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "luokai0/ai-agent-skills-by-luo-kai"
    },
    {
     "stars": 8,
@@ -2267,6 +2719,69 @@
     "repo": "KJdotIO/innex1-rover"
    },
    {
+    "stars": 7,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "tools-only/X-Skills"
+   },
+   {
+    "stars": 7,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "tools-only/X-Skills"
+   },
+   {
+    "stars": 6,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "ndpvt-web/arxiv-claude-skills"
+   },
+   {
+    "stars": 6,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "cyl-0411/cyl0411-skills"
+   },
+   {
+    "stars": 5,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "oniondas/duck-rtl"
+   },
+   {
+    "stars": 5,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "dtsong/my-claude-setup"
+   },
+   {
+    "stars": 5,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": "硬體工程師",
+    "pain": "QSpice 電路圖零件佈局混亂難以閱讀",
+    "repo": "kh6570/HAbedini-qspice-mcp"
+   },
+   {
     "stars": 4,
     "task": "verify",
     "task_zh": "驗證",
@@ -2274,119 +2789,1325 @@
     "profession": "晶片驗證工程師",
     "pain": "晶片 API Mock 實作後缺乏驗證機制易退化",
     "repo": "tenstorrent/tt-emule"
+   },
+   {
+    "stars": 4,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "itgoyo/multica-skills"
+   },
+   {
+    "stars": 4,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "tipoLi5890/akcli"
+   },
+   {
+    "stars": 4,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "tipoLi5890/akcli"
+   },
+   {
+    "stars": 4,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "sandboxcom/gludd"
+   },
+   {
+    "stars": 3,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "pan224/skill"
+   },
+   {
+    "stars": 3,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "rustyqt/skills"
+   },
+   {
+    "stars": 3,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": "晶片架構研究員",
+    "pain": "評估 3D 晶片熱模擬工具精確度與開銷困難",
+    "repo": "qhjqhj00/research-skills-pool"
+   },
+   {
+    "stars": 3,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "codejunkie99/gateflow-cli"
+   },
+   {
+    "stars": 3,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "codejunkie99/gateflow-cli"
+   },
+   {
+    "stars": 3,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "rtl-buddy/rtl_buddy"
+   },
+   {
+    "stars": 3,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "數位電路設計工程師",
+    "pain": "從低階邏輯門建構電路並適應模擬器時序困難",
+    "repo": "genuineknowledge/psi-agent"
+   },
+   {
+    "stars": 3,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "HermeticOrmus/LibreEmbed-Claude-Code"
+   },
+   {
+    "stars": 3,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "folsie/anlogic-fpga-workflow"
+   },
+   {
+    "stars": 2,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "lspaya05/YoloV8n-NPU"
+   },
+   {
+    "stars": 2,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "xsw632/ChipAgent"
+   },
+   {
+    "stars": 2,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "somyadashora/sd-dotfiles"
+   },
+   {
+    "stars": 2,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "ceasonen/research-skills"
+   },
+   {
+    "stars": 2,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "ceasonen/research-skills"
+   },
+   {
+    "stars": 2,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "MikeCheng1208/BattleTree"
+   },
+   {
+    "stars": 2,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "george11642/george-plugins"
+   },
+   {
+    "stars": 2,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "george11642/george-plugins"
+   },
+   {
+    "stars": 2,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": "FPGA設計工程師",
+    "pain": "Vivado 時序違規與 QoR 報告分析極度耗時",
+    "repo": "konosubakonoakua/xilinx-skills"
+   },
+   {
+    "stars": 2,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "george11642/RISC-V-FPGA-Processors"
+   },
+   {
+    "stars": 2,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "硬體工程師",
+    "pain": "使用 GUI 編輯電路圖難以版本控制與自動化",
+    "repo": "quick-brown-bot/hexapod"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Paradicat/demo"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "IC設計工程師",
+    "pain": "RTL IP 設計中規格、程式碼與測試同步繁瑣",
+    "repo": "Paradicat/demo"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "gz-lenk/Robit"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "gz-lenk/Robit"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "KishoreDamam/VLSI-agkit"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "KishoreDamam/VLSI-agkit"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "MikeTreml/MissionControl"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "MikeTreml/MissionControl"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "ssparkOAO/sr_core_lite"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "claudianus/superliora"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "claudianus/superliora"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "lvmeimei888-lab/icarus-verilog-skills"
+   },
+   {
+    "stars": 1,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Liyb65/quartus-lite-23.1-mcp-server"
+   },
+   {
+    "stars": 1,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "makabaka165/fpga-multi-agent-team"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "learner-ran/agent-for-ic-design"
+   },
+   {
+    "stars": 1,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "learner-ran/agent-for-ic-design"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": "晶片驗證工程師",
+    "pain": "SystemVerilog 斷言與時序驗證設計複雜",
+    "repo": "tangyangchao578-art/icer_skill_package"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "tangyangchao578-art/icer_skill_package"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "YuunqiLiu/RTLCodingStyle"
+   },
+   {
+    "stars": 1,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "poi82999/silicontoai"
+   },
+   {
+    "stars": 1,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "poi82999/silicontoai"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "hyndex/Schematics-and-PCB-Skills"
+   },
+   {
+    "stars": 1,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "hyndex/Schematics-and-PCB-Skills"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "HikerPan/embedded-development-skills"
+   },
+   {
+    "stars": 1,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "ni/labview-fpga-hdl-tools"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "kenchangh/kicad-schematic"
+   },
+   {
+    "stars": 1,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "P47Phoenix/Claude-Plugins"
+   },
+   {
+    "stars": 1,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": "韌體工程師",
+    "pain": "FPGA 燒錄指令繁雜且易混淆硬體型號",
+    "repo": "Pla4ma/VEX.RELEASE"
+   },
+   {
+    "stars": 1,
+    "task": "retrieve",
+    "task_zh": "檢索",
+    "maturity": "workflow",
+    "profession": "韌體工程師",
+    "pain": "嵌入式晶片腳位與開發庫規格繁雜查閱耗時",
+    "repo": "therebelrobot/microcontroller-base"
+   },
+   {
+    "stars": 1,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "嵌入式 AI工程師",
+    "pain": "邊緣晶片神經網絡算子實作與量化對齊困難",
+    "repo": "youkorr/s3_vision"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "om-scogo/skillsh-scraper"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "om-scogo/skillsh-scraper"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Lucian-prog/FPGA"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": "IC設計工程師",
+    "pain": "IC 設計缺乏統一 Verilog 程式碼規範",
+    "repo": "Lucian-prog/FPGA"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "makabaka165/verilog-fpga-assistant"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Stef-vvv/claudecode_self_repo"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Stef-vvv/claudecode_self_repo"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "NeuralBlitz/Mito"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "CLI-stack/rosenhorn_agent_flow"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Porrrrrrg/Formal-Aware-AI-DV-Copilot"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "MaTriXy/babysitter-codex"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "MaTriXy/babysitter-codex"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "David-Li0406/meta-skill-evloving"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "David-Li0406/meta-skill-evloving"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "qingyin-alice-zhong/edge_npu_verif"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "晶片驗證工程師",
+    "pain": "從規格書撰寫 SystemVerilog 覆蓋率計畫耗時",
+    "repo": "qingyin-alice-zhong/edge_npu_verif"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "MameMame777/FT4232Hmin"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "GhostOf0days/codex-quant-skills"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "workik-ai/skills"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": "FPGA邏輯設計工程師",
+    "pain": "C/C++ 轉 RTL 時 Pragma 與介面配置複雜",
+    "repo": "Euler0525/dotfiles"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "pwd6164/llm-vivado"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "pwd6164/llm-vivado"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": "IC設計工程師",
+    "pain": "RISC-V RTL 生成與語法檢查流程繁瑣",
+    "repo": "etewe333/eda_first"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "晶片驗證工程師",
+    "pain": "HDL 穩定後需手動撰寫 SVA 斷言與覆蓋率",
+    "repo": "remane-allin/hdl-workflow-platform"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "IC設計工程師",
+    "pain": "晶片設計需求到 RTL/UVM 實現缺乏架構門禁",
+    "repo": "remane-allin/hdl-workflow-platform"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "remane-allin/hdl-workflow-platform"
+   },
+   {
+    "stars": 0,
+    "task": "transform",
+    "task_zh": "轉換",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "remane-allin/hdl-workflow-platform"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "impakt73/ai-rust-hw-dev"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "JohnNuwan/EVA_CORE"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": "IC設計工程師",
+    "pain": "團隊 Verilog RTL 程式碼風格不一",
+    "repo": "charlesjiangxm/Charles-Inventory"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "EasyMoneyTiger/ReverseNetlistAgent"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "hsiang0103/OOO"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "IC 設計工程師",
+    "pain": "執行 Synopsys FC 晶片合成分佈下命令繁瑣",
+    "repo": "n0sig/asic-design-plugins"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Chicken7878/skill4codex"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Seradorr/opencode"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "TsutamachiChitose/verilog-asic-design-skill"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "IC 設計工程師",
+    "pain": "大型 RTL 設計建置與模組驗證無法平行調度",
+    "repo": "RedClaus/cortex"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "Biggo03/uart_ip"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "d-subrahmanyam/deno-fresh-microservices"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "julio211916/TlantiCAD-Studio-V0.1-alpha"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "AvlKP/ldpc-personal"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "RoyTr16/tiny-connect-four"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "dtg-lucifer/nextjs-trpc-frontend-template"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "ziyabicilecommerce-hub/ai-cash-machine"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "czh-ee-2023/zotero-aris"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "curryfromuestc/dev-guide"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "MameMame777/AXIUART_BASE"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "FPGA工程師",
+    "pain": "FPGA 開發中時序收斂與 AXI 介面設計複雜",
+    "repo": "VRIL-LABS/skill-jam"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "NayCheno/mico"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "ethanol777/Hermes"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Emin017/skills"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "hayotbekismoilov/All-Software"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "workflow",
+    "profession": "IC設計驗證資深工程師",
+    "pain": "晶片設計專案庫之規格與可重現性審查標準不一",
+    "repo": "VLSIDA/skillz"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "mcsaver/oscpu"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": "硬體工程師",
+    "pain": "需手動為電路圖子模組建立 SPICE 測試平台模擬",
+    "repo": "ConcertoNotes/codex-plugins"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "evilcomputer12/claude-skills-pack"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "swangneu/ltspice-to-kicad-workflow"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "lightrail-dev/new"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "dieguscl/dotfiles"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": "電路模擬演算法工程師",
+    "pain": "電力電子模擬引擎出現不收斂或數值震盪",
+    "repo": "lgili/skillex"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "lgili/skillex"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Dropio12/Cherry-Hardware-Agent"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "helicopterrun/kicad-product-workflow"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "jl-grey-man/cm5-carrier"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Zhantongoscar/Industrial-Logic-Arena"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "arcnode-io/dlr-pcb"
+   },
+   {
+    "stars": 0,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": "硬體工程師",
+    "pain": "無法直接從描述快速生成可供模擬的 KiCad 圖",
+    "repo": "richardhapb/dotfiles"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Lightiam/tapeout_07"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "mattpainter701/my-claude-setup"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "saifelden1/MyAiStack"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "JonathanLiu1401/ltspice-plugin"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "TheTrickeyOne/claude-harness"
+   },
+   {
+    "stars": 0,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "production",
+    "profession": "光電工程師",
+    "pain": "晶圓微腔大範圍掃瞄量測與數據整理繁瑣",
+    "repo": "pacebryanht57urv-sudo/daily_note_v2"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "rhCat/skillChip"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "Birkemosen/heatvalve-6"
+   },
+   {
+    "stars": 0,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": "IoT 韌體工程師",
+    "pain": "根據不同硬體晶片撰寫正確 ESPHome 設定",
+    "repo": "emeraldwalk/skills"
    }
   ],
   "adjacent": [
    {
-    "stars": 757,
+    "stars": 86515,
     "task": "configure",
     "task_zh": "配置",
     "maturity": "production",
-    "profession": "嵌入式韌體工程師",
-    "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
-    "repo": "LeoKemp223/embed-ai-tool"
+    "profession": null,
+    "pain": null,
+    "repo": "ruvnet/RuView"
    },
    {
-    "stars": 563,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "物聯網架構師",
-    "pain": "設計與部署 IoT 感測器網路時缺乏架構指引",
-    "repo": "FerroxLabs/wayland"
-   },
-   {
-    "stars": 330,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "嵌入式工程師",
-    "pain": "難以直接透過代碼控制硬體指示燈",
-    "repo": "glebis/claude-skills"
-   },
-   {
-    "stars": 196,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "workflow",
-    "profession": "韌體工程師",
-    "pain": "編譯並燒錄 ESP 韌體需多步驟手動操作",
-    "repo": "rvdbreemen/OTGW-firmware"
-   },
-   {
-    "stars": 63,
+    "stars": 13876,
     "task": "orchestrate",
     "task_zh": "調度",
     "maturity": "production",
-    "profession": "創客",
-    "pain": "3D 列印從建模到切片列印流程切換過於繁瑣",
-    "repo": "makermate/claw3d-skill"
+    "profession": "IC設計工程師",
+    "pain": "手動調參探索電腦架構與 EDA 設計空間低效",
+    "repo": "wanshuiyin/Auto-claude-code-research-in-sleep"
    },
    {
-    "stars": 57,
+    "stars": 6994,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "hathach/tinyusb"
+   },
+   {
+    "stars": 3538,
     "task": "orchestrate",
     "task_zh": "調度",
     "maturity": "production",
-    "profession": "嵌入式工程師",
-    "pain": "Zephyr 嵌入式開發繁雜難以路由正確技能",
-    "repo": "beriberikix/zephyr-agent-skills"
+    "profession": "硬體工程師",
+    "pain": "電子電路設計與 PCB 佈局自動化執行難",
+    "repo": "atopile/atopile"
    },
    {
-    "stars": 57,
+    "stars": 3082,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
+   },
+   {
+    "stars": 1587,
     "task": "generate",
     "task_zh": "生成",
     "maturity": "workflow",
-    "profession": "韌體工程師",
-    "pain": "工業通訊協定 Modbus 與 CANopen 開發門檻高",
-    "repo": "beriberikix/zephyr-agent-skills"
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
    },
    {
-    "stars": 43,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": "嵌入式韌體工程師",
-    "pain": "STM32韌體編譯燒錄與除錯操作繁瑣",
-    "repo": "XZhaoSudo/stm32debug-skill"
+    "stars": 1587,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "toy",
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
    },
    {
-    "stars": 22,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "嵌入式工程師",
-    "pain": "設定 ESP 裝置與 Windows 主機連線繁瑣",
-    "repo": "espressif/esp-claw-skills-lab"
-   },
-   {
-    "stars": 12,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "production",
-    "profession": "機器人工程師",
-    "pain": "控制手臂運動規劃與逆運動學解算編寫複雜",
-    "repo": "Leehyunbin0131/claude-ros2-skills"
-   },
-   {
-    "stars": 10,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "機器人工程師",
-    "pain": "機器人導航迷航或卡住時無法自動復原",
-    "repo": "bdambrosio/Cognitive_workbench"
-   },
-   {
-    "stars": 10,
+    "stars": 1587,
     "task": "generate",
     "task_zh": "生成",
     "maturity": "workflow",
-    "profession": "機構工程師",
-    "pain": "3D 列印件參數微調與 STL 輸出過程繁瑣",
-    "repo": "karaage0703/cad-coworker"
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1587,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "workflow",
+    "profession": "IC設計工程師",
+    "pain": "撰寫符合 IEEE 標準的可合成 VHDL 門檻高",
+    "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1587,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "a5c-ai/babysitter"
+   },
+   {
+    "stars": 1089,
+    "task": "retrieve",
+    "task_zh": "檢索",
+    "maturity": "workflow",
+    "profession": "韌體工程師",
+    "pain": "ESP32 SIMD 向量化指令手動優化門檻高",
+    "repo": "espressif/esp-dl"
+   },
+   {
+    "stars": 1089,
+    "task": "generate",
+    "task_zh": "生成",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "espressif/esp-dl"
    }
   ],
-  "verify_pct": 11.1,
+  "verify_pct": 16.0,
   "global_verify_pct": 15.0
  }
 }

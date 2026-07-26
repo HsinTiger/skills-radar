@@ -48,7 +48,8 @@ def text_of(r):
 
 # 種子＝LLM 標過、且不是模型標的
 seed = [r for r in rows if r.get("domain") and r.get("label_source") != "model"]
-todo = [r for r in rows if not r.get("domain")]
+# 模型標過但後來被 LLM 覆蓋的不算待標；其餘模型標的要重標（種子擴充後模型會更準）
+todo = [r for r in rows if not r.get("domain") or r.get("label_source") == "model"]
 print(f"種子樣本 {len(seed)} 筆｜待標 {len(todo)} 筆｜總計 {len(rows)} 筆")
 if len(seed) < 200:
     print("種子太少，不訓練"); sys.exit(0)

@@ -115,7 +115,9 @@ def niches(mode):
 CHIP_PAT = re.compile(r"晶片|IC|RTL|UVM|FPGA|時序|閘級|佈線|OpenROAD|驗證平台|覆蓋率|布爾", re.I)
 def eda_section():
     neutral_eda = [r for r in rows if r.get("domain") == "hardware-eda"]
-    eda = [r for r in rows_all if r.get("domain") == "hardware-eda"]
+    # 過取樣樣本要通過信心門檻才採用（關鍵字正則誤判率實測 75.6%，已棄用）
+    eda = [r for r in rows_all if r.get("domain") == "hardware-eda"
+           and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
     chip = [r for r in eda if CHIP_PAT.search((r.get("pain") or "") + (r.get("name") or ""))]
     others = [r for r in eda if r not in chip]
     def fmt(rs):
