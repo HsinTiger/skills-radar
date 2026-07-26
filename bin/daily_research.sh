@@ -58,6 +58,11 @@ fi
 # 4.5 重建前端頁面（零 token）
 python3 bin/build_site.py >> "$LOG" 2>&1 || log "WARN: build_site 失敗"
 
+# 4.55 跨報告矛盾偵測（零 token）——參考 Karpathy LLM Wiki 的 lint 概念
+if ! python3 bin/wiki_lint.py >> "$LOG" 2>&1; then
+  log "WARN: 發現跨報告矛盾，需人工判斷是修正舊報告還是說明數字為何改變"
+fi
+
 # 4.6 個資閘門：公開 repo，推之前必須確認沒有雇主名稱／持倉資訊
 python3 bin/check_privacy.py >> "$LOG" 2>&1 || { log "STOP: 個資檢查未通過，中止本次流程"; exit 1; }
 
