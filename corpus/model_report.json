@@ -1,0 +1,43 @@
+{
+ "n_seed": 5397,
+ "n_predicted": 33,
+ "fields": {
+  "domain": {
+   "cv_accuracy": 0.72,
+   "cv_std": 0.009,
+   "majority_baseline": 0.335,
+   "lift_over_baseline": 0.385,
+   "n_classes": 18,
+   "n_train": 5397
+  },
+  "task": {
+   "cv_accuracy": 0.664,
+   "cv_std": 0.013,
+   "majority_baseline": 0.219,
+   "lift_over_baseline": 0.444,
+   "n_classes": 7,
+   "n_train": 5397
+  },
+  "target": {
+   "cv_accuracy": 0.632,
+   "cv_std": 0.017,
+   "majority_baseline": 0.361,
+   "lift_over_baseline": 0.271,
+   "n_classes": 5,
+   "n_train": 5397
+  },
+  "maturity": {
+   "cv_accuracy": 0.692,
+   "cv_std": 0.012,
+   "majority_baseline": 0.529,
+   "lift_over_baseline": 0.163,
+   "n_classes": 3,
+   "n_train": 5397
+  }
+ },
+ "pred_conf": {
+  "mean": 0.419,
+  "pct_above_0.6": 21.2,
+  "pct_above_0.8": 6.1
+ }
+}

@@ -26,6 +26,14 @@ else
   log "今日無新增 skill"
 fi
 
+# 2.5 本機分類器：用 LLM 種子標註訓練，替新樣本標籤（零 token）
+python3 bin/train_classifier.py >> "$LOG" 2>&1 || log "WARN: 分類器訓練失敗"
+
+# 2.6 每週一重新分群，發現既有分類法沒涵蓋的新用法（零 token）
+if [ "$(date +%u)" = "1" ]; then
+  python3 bin/cluster.py 120 >> "$LOG" 2>&1 || log "WARN: 分群失敗"
+fi
+
 # 3. 聚合 + 機會訊號（零 token）
 python3 bin/aggregate.py >> "$LOG" 2>&1
 python3 bin/opportunity.py >> "$LOG" 2>&1

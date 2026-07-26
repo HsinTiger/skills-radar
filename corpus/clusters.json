@@ -1,0 +1,5854 @@
+{
+ "k": 120,
+ "n": 5430,
+ "clusters": [
+  {
+   "cluster": 32,
+   "n": 2841,
+   "top_terms": [
+    "is",
+    "this",
+    "in",
+    "user",
+    "with",
+    "of",
+    "it",
+    "you",
+    "code",
+    "from",
+    "agent",
+    "ai"
+   ],
+   "domain_mix": {
+    "software-dev": 935,
+    "ai-agent-tooling": 449,
+    "devops-infra": 187,
+    "personal-productivity": 185,
+    "security": 152
+   },
+   "task_mix": {
+    "generate": 561,
+    "configure": 503,
+    "analyze": 446,
+    "verify": 419
+   },
+   "dispersion": 0.67,
+   "other_pct": 0.7,
+   "samples": [
+    {
+     "name": "verify",
+     "pain": "手動建置並驗證Bun執行階段的底層變更",
+     "stars": 95026,
+     "repo": "oven-sh/bun"
+    },
+    {
+     "name": "jupyter-notebook",
+     "pain": "從零建立結構乾淨且可重複驗證的 Notebook",
+     "stars": 70349,
+     "repo": "microsoft/ai-agents-for-beginners"
+    },
+    {
+     "name": "deploying-scalable-agents",
+     "pain": "將原型 AI Agent 部署至生產環境經驗不足",
+     "stars": 70349,
+     "repo": "microsoft/ai-agents-for-beginners"
+    },
+    {
+     "name": "azure-openai-to-responses",
+     "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+     "stars": 70349,
+     "repo": "microsoft/ai-agents-for-beginners"
+    },
+    {
+     "name": "azure-openai-to-responses",
+     "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+     "stars": 70349,
+     "repo": "microsoft/ai-agents-for-beginners"
+    }
+   ]
+  },
+  {
+   "cluster": 83,
+   "n": 243,
+   "top_terms": [
+    "design",
+    "system",
+    "design system",
+    "html",
+    "create",
+    "ui",
+    "components",
+    "with",
+    "visual",
+    "css",
+    "this",
+    "md"
+   ],
+   "domain_mix": {
+    "software-dev": 88,
+    "design-creative": 80,
+    "ai-agent-tooling": 14,
+    "writing-content": 13,
+    "marketing-growth": 12
+   },
+   "task_mix": {
+    "generate": 120,
+    "configure": 32,
+    "transform": 31,
+    "verify": 23
+   },
+   "dispersion": 0.64,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "n8n:design-system",
+     "pain": "前端開發時難以遵循統一的元件設計規範",
+     "stars": 198028,
+     "repo": "n8n-io/n8n"
+    },
+    {
+     "name": "antd-version-release",
+     "pain": "大型套件庫版本發布流程繁瑣易出錯",
+     "stars": 98822,
+     "repo": "ant-design/ant-design"
+    },
+    {
+     "name": "hyperframes",
+     "pain": "程式碼控制 HTML 影片渲染與音效同步複雜",
+     "stars": 81580,
+     "repo": "nexu-io/open-design"
+    },
+    {
+     "name": "404-page",
+     "pain": "自訂 404 頁面缺乏引導致使用者流失",
+     "stars": 73320,
+     "repo": "thedaviddias/Front-End-Checklist"
+    },
+    {
+     "name": "javascript-inline",
+     "pain": "行內 JS 導致 CSP 違規與快取維護困難",
+     "stars": 73320,
+     "repo": "thedaviddias/Front-End-Checklist"
+    }
+   ]
+  },
+  {
+   "cluster": 7,
+   "n": 222,
+   "top_terms": [
+    "mcp",
+    "ai",
+    "server",
+    "mcp server",
+    "agent",
+    "tools",
+    "claude",
+    "skills",
+    "llm",
+    "md",
+    "agents",
+    "protocol"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 86,
+    "software-dev": 49,
+    "devops-infra": 14,
+    "ops-admin": 11,
+    "security": 9
+   },
+   "task_mix": {
+    "configure": 53,
+    "orchestrate": 43,
+    "retrieve": 34,
+    "generate": 30
+   },
+   "dispersion": 0.61,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "returns-reverse-logistics",
+     "pain": "零售與電商退貨處理與欺詐檢驗流程複雜。",
+     "stars": 233406,
+     "repo": "affaan-m/ECC"
+    },
+    {
+     "name": "flet-validation",
+     "pain": "Python 與 Dart 端控制項驗證邏輯不一致",
+     "stars": 16384,
+     "repo": "flet-dev/flet"
+    },
+    {
+     "name": "xberg-mcp-reference",
+     "pain": "整合 MCP 服務時缺乏自動生成的工具參考文件",
+     "stars": 8695,
+     "repo": "xberg-io/xberg"
+    },
+    {
+     "name": "mcp-activation",
+     "pain": "Agent 僅能讀取靜態程式碼而無法動態排錯",
+     "stars": 6780,
+     "repo": "netalertx/NetAlertX"
+    },
+    {
+     "name": "skill-installer",
+     "pain": "手動下載與安裝 Codex 技能步驟繁瑣易錯",
+     "stars": 5520,
+     "repo": "holaboss-ai/holaOS"
+    }
+   ]
+  },
+  {
+   "cluster": 6,
+   "n": 218,
+   "top_terms": [
+    "install",
+    "bash",
+    "cli",
+    "com",
+    "https",
+    "api",
+    "url",
+    "json",
+    "python",
+    "pip",
+    "curl",
+    "search"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 35,
+    "personal-productivity": 35,
+    "software-dev": 31,
+    "devops-infra": 26,
+    "ops-admin": 19
+   },
+   "task_mix": {
+    "orchestrate": 57,
+    "retrieve": 56,
+    "configure": 43,
+    "transform": 21
+   },
+   "dispersion": 0.84,
+   "other_pct": 0.9,
+   "samples": [
+    {
+     "name": "rwkv-architecture",
+     "pain": "Transformer 模型推理記憶體開銷大且長度受限",
+     "stars": 29909,
+     "repo": "davila7/claude-code-templates"
+    },
+    {
+     "name": "acme-cli-custom-commands",
+     "pain": "為 CLI 擴充自訂指令時需要手動重寫 SDK",
+     "stars": 3726,
+     "repo": "fern-api/fern"
+    },
+    {
+     "name": "Pop — Send Email from the Terminal",
+     "pain": "無法在終端機或自動化腳本中快速發送 Email",
+     "stars": 2877,
+     "repo": "charmbracelet/pop"
+    },
+    {
+     "name": "file_name_add_prefix",
+     "pain": "手動替大量檔案名稱加上前綴費時費力",
+     "stars": 1331,
+     "repo": "CoderWanFeng/python-office"
+    },
+    {
+     "name": "compress_image",
+     "pain": "圖片檔案過大需手動調整品質與壓縮體積",
+     "stars": 1331,
+     "repo": "CoderWanFeng/python-office"
+    }
+   ]
+  },
+  {
+   "cluster": 96,
+   "n": 98,
+   "top_terms": [
+    "review",
+    "code review",
+    "code",
+    "pr",
+    "reviewer",
+    "security",
+    "diff",
+    "review review",
+    "quality",
+    "changes",
+    "maintainability",
+    "review code"
+   ],
+   "domain_mix": {
+    "software-dev": 86,
+    "ai-agent-tooling": 4,
+    "security": 3,
+    "devops-infra": 2,
+    "data-analytics": 1
+   },
+   "task_mix": {
+    "verify": 83,
+    "orchestrate": 7,
+    "analyze": 5,
+    "transform": 2
+   },
+   "dispersion": 0.12,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "reviewing-code",
+     "pain": "Code Review 缺乏一致審查標準與建議",
+     "stars": 26846,
+     "repo": "PrefectHQ/fastmcp"
+    },
+    {
+     "name": "maintainability-reviewer",
+     "pain": "程式碼過度抽象與死碼影響長期可維護性",
+     "stars": 16445,
+     "repo": "udecode/plate"
+    },
+    {
+     "name": "gsd:code-review-fix",
+     "pain": "Code Review 發現的修復建議需手動逐一修改",
+     "stars": 3213,
+     "repo": "davepoon/buildwithclaude"
+    },
+    {
+     "name": "harness-review",
+     "pain": "程式碼與開發計畫多角度審查標準不一",
+     "stars": 3015,
+     "repo": "Chachamaru127/claude-code-harness"
+    },
+    {
+     "name": "cr-code-gate",
+     "pain": "代碼審查缺乏自動化門控以攔截漏洞與瓶頸",
+     "stars": 2108,
+     "repo": "LeoYeAI/openclaw-master-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 23,
+   "n": 92,
+   "top_terms": [
+    "pr",
+    "branch",
+    "git",
+    "merge",
+    "commit",
+    "review",
+    "push",
+    "main",
+    "github",
+    "the pr",
+    "gh",
+    "pull"
+   ],
+   "domain_mix": {
+    "software-dev": 69,
+    "devops-infra": 20,
+    "ai-agent-tooling": 2,
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "orchestrate": 52,
+    "verify": 18,
+    "configure": 7,
+    "transform": 6
+   },
+   "dispersion": 0.25,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "flutter-cherry-pick",
+     "pain": "Flutter 跨分支 Cherry-pick 流程易出錯",
+     "stars": 177947,
+     "repo": "flutter/flutter"
+    },
+    {
+     "name": "bump-tantivy",
+     "pain": "手動升級依賴庫並修復編譯問題步驟重複",
+     "stars": 11432,
+     "repo": "quickwit-oss/quickwit"
+    },
+    {
+     "name": "git-safety",
+     "pain": "AI Agent 誤推代碼至受保護分支",
+     "stars": 8642,
+     "repo": "redis/RedisInsight"
+    },
+    {
+     "name": "release",
+     "pain": "發布版本至套件庫與 GitHub 手動步驟繁瑣",
+     "stars": 6024,
+     "repo": "max-sixty/worktrunk"
+    },
+    {
+     "name": "sync-production",
+     "pain": "手動切換分支合併主幹至正式環境易生衝突",
+     "stars": 4887,
+     "repo": "pollinations/pollinations"
+    }
+   ]
+  },
+  {
+   "cluster": 79,
+   "n": 87,
+   "top_terms": [
+    "github com",
+    "github",
+    "https github",
+    "com",
+    "https",
+    "skill https",
+    "skills",
+    "is",
+    "agent",
+    "io",
+    "ai",
+    "of"
+   ],
+   "domain_mix": {
+    "software-dev": 23,
+    "ai-agent-tooling": 22,
+    "design-creative": 11,
+    "data-analytics": 4,
+    "education-training": 4
+   },
+   "task_mix": {
+    "generate": 26,
+    "configure": 24,
+    "analyze": 13,
+    "retrieve": 8
+   },
+   "dispersion": 0.74,
+   "other_pct": 1.1,
+   "samples": [
+    {
+     "name": "",
+     "pain": "AI Agent 缺乏操作 Herdr 工具的控制指令",
+     "stars": 20864,
+     "repo": "ogulcancelik/herdr"
+    },
+    {
+     "name": "darwin-skill",
+     "pain": "AI Skill 品質缺乏客觀多維度評估與自動優化",
+     "stars": 5110,
+     "repo": "alchaincyf/darwin-skill"
+    },
+    {
+     "name": "shiro-attack-cli",
+     "pain": "手動檢測與利用Shiro反序列化漏洞步驟繁瑣",
+     "stars": 2606,
+     "repo": "SummerSec/ShiroAttack2"
+    },
+    {
+     "name": "art-of-debugging",
+     "pain": "Python 與 CUDA 程式當機死鎖除錯困難",
+     "stars": 1671,
+     "repo": "stas00/the-art-of-debugging"
+    },
+    {
+     "name": "peer-review",
+     "pain": "論文投遞前缺乏客觀且系統化的同行審查",
+     "stars": 1539,
+     "repo": "aipoch/medical-research-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 10,
+   "n": 85,
+   "top_terms": [
+    "ui",
+    "design",
+    "ux",
+    "visual",
+    "ui ux",
+    "layout",
+    "component",
+    "css",
+    "interfaces",
+    "frontend",
+    "landing",
+    "motion"
+   ],
+   "domain_mix": {
+    "design-creative": 62,
+    "software-dev": 20,
+    "marketing-growth": 2,
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "generate": 55,
+    "verify": 10,
+    "configure": 8,
+    "retrieve": 5
+   },
+   "dispersion": 0.27,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "scene-blocking-and-staging",
+     "pain": "影視走位與排練設計缺乏合理動作動機",
+     "stars": 1542,
+     "repo": "nolanx-ai/nolanx.ai"
+    },
+    {
+     "name": "ui-ux-pro-max",
+     "pain": "AI 生成的前端介面充滿罐頭感與缺乏美感",
+     "stars": 995,
+     "repo": "doccker/cc-use-exp"
+    },
+    {
+     "name": "ui-design-brain",
+     "pain": "AI 生成的 Web 介面缺乏設計系統規範與美感",
+     "stars": 849,
+     "repo": "carmahhawwari/ui-design-brain"
+    },
+    {
+     "name": "web-design",
+     "pain": "缺乏統一設計規範導致網頁視覺品質參差不齊",
+     "stars": 597,
+     "repo": "xiaopu-ai/web-design"
+    },
+    {
+     "name": "stylekit",
+     "pain": "AI 生成前端介面缺乏特定設計風格",
+     "stars": 311,
+     "repo": "AnxForever/stylekit"
+    }
+   ]
+  },
+  {
+   "cluster": 4,
+   "n": 84,
+   "top_terms": [
+    "api",
+    "https",
+    "get",
+    "base url",
+    "endpoints",
+    "base",
+    "url",
+    "openapi",
+    "post",
+    "url https",
+    "key",
+    "auth"
+   ],
+   "domain_mix": {
+    "software-dev": 25,
+    "ai-agent-tooling": 21,
+    "ops-admin": 7,
+    "security": 7,
+    "finance-investing": 6
+   },
+   "task_mix": {
+    "orchestrate": 25,
+    "retrieve": 16,
+    "generate": 15,
+    "configure": 14
+   },
+   "dispersion": 0.7,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "conducting-domain-persistence-with-dcsync",
+     "pain": "手動執行 DCSync 提取網域密碼哈希過程繁瑣。",
+     "stars": 26583,
+     "repo": "mukul975/Anthropic-Cybersecurity-Skills"
+    },
+    {
+     "name": "codex-huge-context",
+     "pain": "配置與部署 Codex 百萬 Token 上下文環境複雜。",
+     "stars": 6469,
+     "repo": "steipete/agent-scripts"
+    },
+    {
+     "name": "aatmf-t05-api-exploitation",
+     "pain": "缺乏針對 LLM API 服務專屬漏洞測試方法",
+     "stars": 4917,
+     "repo": "PurpleAILAB/Decepticon"
+    },
+    {
+     "name": "0xarchive",
+     "pain": "難以跨多個 DEX 快速查詢歷史加密市場數據",
+     "stars": 2108,
+     "repo": "LeoYeAI/openclaw-master-skills"
+    },
+    {
+     "name": "freetheai-api",
+     "pain": "切換與設定免費 OpenAI 相容 API 流程繁瑣",
+     "stars": 811,
+     "repo": "Free-The-Ai/free-ai"
+    }
+   ]
+  },
+  {
+   "cluster": 9,
+   "n": 74,
+   "top_terms": [
+    "references",
+    "md",
+    "md references",
+    "api",
+    "ios",
+    "sdk",
+    "skill md",
+    "reference",
+    "ppt",
+    "design",
+    "ai",
+    "patterns md"
+   ],
+   "domain_mix": {
+    "software-dev": 34,
+    "ai-agent-tooling": 10,
+    "writing-content": 9,
+    "design-creative": 7,
+    "devops-infra": 3
+   },
+   "task_mix": {
+    "generate": 25,
+    "configure": 23,
+    "analyze": 9,
+    "transform": 6
+   },
+   "dispersion": 0.54,
+   "other_pct": 2.7,
+   "samples": [
+    {
+     "name": "ima-sdk-basics",
+     "pain": "影音播放器整合多媒體廣告 SDK 過程複雜",
+     "stars": 15250,
+     "repo": "google/skills"
+    },
+    {
+     "name": "bazi",
+     "pain": "四柱八字排盤繁瑣且需查閱多本經典典籍。",
+     "stars": 2289,
+     "repo": "jinchenma94/bazi-skill"
+    },
+    {
+     "name": "GordenSuperPPTSkill",
+     "pain": "無法兼顧 PPT 美觀度與後續編輯靈活性",
+     "stars": 1623,
+     "repo": "GordenSun/GordenSuperPPTSkills"
+    },
+    {
+     "name": "zhengxi-views",
+     "pain": "難以快速檢索基金經理歷年觀點與投資框架",
+     "stars": 1354,
+     "repo": "lyra81604/zhengxi-views"
+    },
+    {
+     "name": "code-quality-principles",
+     "pain": "代碼審查時缺乏客觀模組化架構標準",
+     "stars": 995,
+     "repo": "doccker/cc-use-exp"
+    }
+   ]
+  },
+  {
+   "cluster": 21,
+   "n": 69,
+   "top_terms": [
+    "skills",
+    "claude",
+    "ai",
+    "gemini",
+    "agents",
+    "code claude",
+    "agent",
+    "claude code",
+    "prompt",
+    "gemini cli",
+    "agent skills",
+    "cursor"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 12,
+    "software-dev": 11,
+    "healthcare-bio": 8,
+    "marketing-growth": 6,
+    "devops-infra": 5
+   },
+   "task_mix": {
+    "generate": 19,
+    "analyze": 15,
+    "verify": 11,
+    "retrieve": 7
+   },
+   "dispersion": 0.83,
+   "other_pct": 5.8,
+   "samples": [
+    {
+     "name": "agent-manager-skill",
+     "pain": "難以同時調度與監控多個背景運行的 Agent",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    },
+    {
+     "name": "resolving-merge-conflicts",
+     "pain": "手動解 Git 合併衝突容易遺漏雙方修改意圖",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    },
+    {
+     "name": "accint-commitments",
+     "pain": "追蹤與核對 Agent 承諾事項之執行結果費時",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    },
+    {
+     "name": "c-pro",
+     "pain": "撰寫 C 語言時易出現記憶體與指標操作錯誤",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    },
+    {
+     "name": "godot-gdscript-patterns",
+     "pain": "缺乏 Godot 4 遊戲架構與最佳實踐範本",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 60,
+   "n": 69,
+   "top_terms": [
+    "image",
+    "video",
+    "images",
+    "generation",
+    "generate",
+    "text",
+    "text to",
+    "ai",
+    "prompt",
+    "image generation",
+    "prompts",
+    "videos"
+   ],
+   "domain_mix": {
+    "design-creative": 41,
+    "ai-agent-tooling": 8,
+    "marketing-growth": 8,
+    "software-dev": 6,
+    "research-academia": 2
+   },
+   "task_mix": {
+    "generate": 43,
+    "orchestrate": 10,
+    "configure": 5,
+    "transform": 5
+   },
+   "dispersion": 0.41,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "audiocraft-audio-generation",
+     "pain": "文字生成音樂與音效技術調參及生成繁瑣",
+     "stars": 2789,
+     "repo": "synthetic-sciences/openscience"
+    },
+    {
+     "name": "nano-banana-pro-prompts-recommend-skill",
+     "pain": "AI 繪圖缺乏精準高質量的 Prompt 提示詞",
+     "stars": 1784,
+     "repo": "YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill"
+    },
+    {
+     "name": "redbox-video-director",
+     "pain": "調用 API 生成短影片前需手動規劃鏡頭腳本",
+     "stars": 1286,
+     "repo": "Jamailar/Beav"
+    },
+    {
+     "name": "gpt-image2-ppt",
+     "pain": "批量生成高質感一致風格簡報耗時費力",
+     "stars": 1105,
+     "repo": "JuneYaooo/gpt-image2-ppt-skills"
+    },
+    {
+     "name": "ohmycaptcha-image",
+     "pain": "開源專案缺少專業 README 橫幅與架構圖",
+     "stars": 819,
+     "repo": "shenhao-stu/ohmycaptcha"
+    }
+   ]
+  },
+  {
+   "cluster": 66,
+   "n": 68,
+   "top_terms": [
+    "cli",
+    "bash",
+    "install",
+    "browser",
+    "npm",
+    "commands",
+    "agent",
+    "skills",
+    "agent browser",
+    "ai",
+    "via",
+    "npm install"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 27,
+    "software-dev": 19,
+    "devops-infra": 7,
+    "security": 6,
+    "personal-productivity": 4
+   },
+   "task_mix": {
+    "orchestrate": 23,
+    "configure": 20,
+    "verify": 11,
+    "retrieve": 7
+   },
+   "dispersion": 0.6,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "orchardcore-tester",
+     "pain": "手動測試 OrchardCore CMS 各功能模組費時",
+     "stars": 8130,
+     "repo": "OrchardCMS/OrchardCore"
+    },
+    {
+     "name": "tirith",
+     "pain": "終端機命令與貼上內容易遭受供應鏈攻擊",
+     "stars": 2621,
+     "repo": "sheeki03/tirith"
+    },
+    {
+     "name": "livecodes/getting-started",
+     "pain": "快速嵌入或設定線上程式碼沙盒耗時",
+     "stars": 1474,
+     "repo": "live-codes/livecodes"
+    },
+    {
+     "name": "codex",
+     "pain": "頻繁手動執行程式碼重構與單點修復",
+     "stars": 1379,
+     "repo": "Open-Curiosity/gini-agent"
+    },
+    {
+     "name": "vibe-security",
+     "pain": "AI 生成程式碼常忽略資安防護與權限驗證",
+     "stars": 883,
+     "repo": "raroque/vibe-security-skill"
+    }
+   ]
+  },
+  {
+   "cluster": 80,
+   "n": 68,
+   "top_terms": [
+    "paper",
+    "papers",
+    "academic",
+    "pdf",
+    "arxiv",
+    "research",
+    "search",
+    "literature",
+    "latex",
+    "academic papers",
+    "chinese",
+    "ai"
+   ],
+   "domain_mix": {
+    "research-academia": 53,
+    "design-creative": 4,
+    "education-training": 3,
+    "software-dev": 3,
+    "ops-admin": 2
+   },
+   "task_mix": {
+    "generate": 21,
+    "retrieve": 14,
+    "transform": 14,
+    "analyze": 11
+   },
+   "dispersion": 0.22,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "paper-citation-planner",
+     "pain": "論文草稿撰寫前引用文獻與 BibTeX 對應混亂",
+     "stars": 6341,
+     "repo": "opensquilla/opensquilla"
+    },
+    {
+     "name": "meta-paper-write",
+     "pain": "學術論文 LaTeX 手稿撰寫與編譯流程繁複",
+     "stars": 6341,
+     "repo": "opensquilla/opensquilla"
+    },
+    {
+     "name": "search-skills",
+     "pain": "學術資料庫查詢語法與 API 限制各異",
+     "stars": 3081,
+     "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
+    },
+    {
+     "name": "digital-humanities-guide",
+     "pain": "人文學術研究缺乏量化數據分析方法",
+     "stars": 3081,
+     "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
+    },
+    {
+     "name": "latex-drawing-guide",
+     "pain": "論文繪圖難以保持字體一致與高解析度",
+     "stars": 3081,
+     "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
+    }
+   ]
+  },
+  {
+   "cluster": 64,
+   "n": 62,
+   "top_terms": [
+    "test",
+    "tests",
+    "testing",
+    "e2e",
+    "tdd",
+    "coverage",
+    "perl",
+    "code",
+    "patterns",
+    "writing",
+    "unit",
+    "e2e testing"
+   ],
+   "domain_mix": {
+    "software-dev": 58,
+    "devops-infra": 2,
+    "other": 1,
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "verify": 28,
+    "generate": 17,
+    "configure": 12,
+    "analyze": 2
+   },
+   "dispersion": 0.06,
+   "other_pct": 1.6,
+   "samples": [
+    {
+     "name": "get-it-expert",
+     "pain": "Flutter 專案中依賴注入設定容易出錯",
+     "stars": 1474,
+     "repo": "flutter-it/get_it"
+    },
+    {
+     "name": "check-coverage",
+     "pain": "難以精準定位 Bash 腳本未被測試覆蓋路徑",
+     "stars": 421,
+     "repo": "TypedDevs/bashunit"
+    },
+    {
+     "name": "public-behavior-docs-synchronizer",
+     "pain": "測試框架變更時文件與 API 規格未同步更新",
+     "stars": 405,
+     "repo": "ShaftHQ/SHAFT_ENGINE"
+    },
+    {
+     "name": "testing",
+     "pain": "DBHub測試失敗且Docker容器除錯複雜",
+     "stars": 315,
+     "repo": "Microck/ordinary-claude-skills"
+    },
+    {
+     "name": "springboot-verification",
+     "pain": "Spring Boot 發布前缺乏自動化驗證流程",
+     "stars": 264,
+     "repo": "loulanyue/awesome-claude-notes"
+    }
+   ]
+  },
+  {
+   "cluster": 69,
+   "n": 47,
+   "top_terms": [
+    "react",
+    "components",
+    "ui",
+    "router",
+    "js",
+    "typescript",
+    "css",
+    "component",
+    "tsx",
+    "app",
+    "next js",
+    "tailwind"
+   ],
+   "domain_mix": {
+    "software-dev": 44,
+    "devops-infra": 1,
+    "data-analytics": 1,
+    "design-creative": 1
+   },
+   "task_mix": {
+    "generate": 23,
+    "configure": 9,
+    "verify": 6,
+    "retrieve": 4
+   },
+   "dispersion": 0.06,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "ui",
+     "pain": "shadcn/ui 缺乏常態對話框擴充組件",
+     "stars": 4239,
+     "repo": "graphif/project-graph"
+    },
+    {
+     "name": "actions",
+     "pain": "前後端與 Agent 介面重複手動建立 API",
+     "stars": 3988,
+     "repo": "BuilderIO/agent-native"
+    },
+    {
+     "name": "ssr-hydration-scraping",
+     "pain": "前端 DOM 類名變動導致爬蟲經常失效",
+     "stars": 2233,
+     "repo": "Project-N-E-K-O/N.E.K.O"
+    },
+    {
+     "name": "compose-state-holder-ui-split",
+     "pain": "Jetpack Compose 狀態與 UI 混在一起難以測試",
+     "stars": 862,
+     "repo": "chrisbanes/skills"
+    },
+    {
+     "name": "react-general",
+     "pain": "前端團隊缺乏統一的 React 架構規範",
+     "stars": 607,
+     "repo": "LedgerHQ/ledger-live"
+    }
+   ]
+  },
+  {
+   "cluster": 116,
+   "n": 45,
+   "top_terms": [
+    "session",
+    "workspace",
+    "the user",
+    "handoff",
+    "user",
+    "an",
+    "codex",
+    "start",
+    "work",
+    "not",
+    "run",
+    "this"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 20,
+    "software-dev": 11,
+    "personal-productivity": 5,
+    "marketing-growth": 2,
+    "design-creative": 2
+   },
+   "task_mix": {
+    "orchestrate": 16,
+    "configure": 12,
+    "verify": 5,
+    "transform": 4
+   },
+   "dispersion": 0.56,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "compact-chat-history",
+     "pain": "對話歷史過長導致 Context 超過限制",
+     "stars": 4942,
+     "repo": "dtyq/magic"
+    },
+    {
+     "name": "ai-search-hub",
+     "pain": "多個 AI 搜尋平台登入與跨平台查詢切換繁瑣",
+     "stars": 1224,
+     "repo": "minsight-ai-info/AI-Search-Hub"
+    },
+    {
+     "name": "repo-task-proof-loop",
+     "pain": "大型程式碼改動缺乏可留存證明的自動化驗證",
+     "stars": 719,
+     "repo": "DenisSergeevitch/repo-task-proof-loop"
+    },
+    {
+     "name": "switch-brand",
+     "pain": "跨客戶工作時手動切換品牌設定容易混淆",
+     "stars": 631,
+     "repo": "indranilbanerjee/digital-marketing-pro"
+    },
+    {
+     "name": "Obsidian",
+     "pain": "整理 Obsidian 筆記時易破壞雙向連結與結構",
+     "stars": 578,
+     "repo": "agentic-in/elephant-agent"
+    }
+   ]
+  },
+  {
+   "cluster": 75,
+   "n": 43,
+   "top_terms": [
+    "writing",
+    "user",
+    "ai",
+    "like",
+    "the user",
+    "you",
+    "write",
+    "humanizer",
+    "sound",
+    "this",
+    "humanize",
+    "voice"
+   ],
+   "domain_mix": {
+    "writing-content": 20,
+    "ai-agent-tooling": 4,
+    "education-training": 3,
+    "design-creative": 3,
+    "software-dev": 3
+   },
+   "task_mix": {
+    "transform": 18,
+    "generate": 14,
+    "analyze": 4,
+    "retrieve": 3
+   },
+   "dispersion": 0.53,
+   "other_pct": 4.7,
+   "samples": [
+    {
+     "name": "learning new skill | [Start Chat](https://gptcall.net/chat.html?data=%7B%22conta",
+     "pain": "初學者缺乏零基礎學習特定技能的計畫",
+     "stars": 9622,
+     "repo": "friuns2/BlackFriday-GPTs-Prompts"
+    },
+    {
+     "name": "get-chat-history",
+     "pain": "Agent 無法直接回溯與檢視對話紀錄上下文",
+     "stars": 1885,
+     "repo": "openakita/openakita"
+    },
+    {
+     "name": "update-scheduled-task",
+     "pain": "無法動態修改與開關 AI 助理的排程任務",
+     "stars": 1885,
+     "repo": "openakita/openakita"
+    },
+    {
+     "name": "write-concisely",
+     "pain": "文件表達冗長不夠精準影響閱讀體驗",
+     "stars": 1279,
+     "repo": "NeoLabHQ/context-engineering-kit"
+    },
+    {
+     "name": "renwei-writing",
+     "pain": "AI 潤色文章後丟失原作者個人特色與人味",
+     "stars": 954,
+     "repo": "orange2ai/renwei-writing"
+    }
+   ]
+  },
+  {
+   "cluster": 20,
+   "n": 41,
+   "top_terms": [
+    "py",
+    "python3",
+    "scripts",
+    "python3 scripts",
+    "bash",
+    "python scripts",
+    "python",
+    "json",
+    "bash python3",
+    "openclaw",
+    "openclaw workspace",
+    "python3 openclaw"
+   ],
+   "domain_mix": {
+    "software-dev": 8,
+    "finance-investing": 7,
+    "personal-productivity": 5,
+    "ai-agent-tooling": 4,
+    "hardware-eda": 4
+   },
+   "task_mix": {
+    "orchestrate": 13,
+    "verify": 5,
+    "generate": 5,
+    "retrieve": 5
+   },
+   "dispersion": 0.8,
+   "other_pct": 2.4,
+   "samples": [
+    {
+     "name": "xiaohongshu-skills",
+     "pain": "小紅書多帳號社交互動與內容發布流程繁瑣",
+     "stars": 1693,
+     "repo": "autoclaw-cc/xiaohongshu-skills"
+    },
+    {
+     "name": "email",
+     "pain": "收發郵件需登入網頁，無法透過命令列處理",
+     "stars": 758,
+     "repo": "countbot-ai/CountBot"
+    },
+    {
+     "name": "aigc-reduce",
+     "pain": "學術論文易被查重系統判定高 AIGC 率",
+     "stars": 467,
+     "repo": "xiaofenggan01/aigc-reduce"
+    },
+    {
+     "name": "timebuzzer-led",
+     "pain": "難以直接透過代碼控制硬體指示燈",
+     "stars": 330,
+     "repo": "glebis/claude-skills"
+    },
+    {
+     "name": "feishu-multi-agent",
+     "pain": "部署飛書多 Agent 協作架構步驟複雜",
+     "stars": 269,
+     "repo": "hyperlist/feishu-multi-agent"
+    }
+   ]
+  },
+  {
+   "cluster": 59,
+   "n": 41,
+   "top_terms": [
+    "readme",
+    "readme md",
+    "md",
+    "docs",
+    "if",
+    "documentation",
+    "project",
+    "ask",
+    "md docs",
+    "changelog",
+    "update",
+    "the project"
+   ],
+   "domain_mix": {
+    "software-dev": 27,
+    "personal-productivity": 6,
+    "ops-admin": 3,
+    "ai-agent-tooling": 3,
+    "finance-investing": 1
+   },
+   "task_mix": {
+    "verify": 9,
+    "generate": 9,
+    "configure": 8,
+    "transform": 7
+   },
+   "dispersion": 0.34,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "scope-maintenance-task",
+     "pain": "維護想法未經規格化定義無法直接讓 Agent 執行",
+     "stars": 4754,
+     "repo": "duckduckgo/Android"
+    },
+    {
+     "name": "Verify information accuracy against codebase and docs",
+     "pain": "難以快速驗證技術敘述是否符合實際程式碼",
+     "stars": 1123,
+     "repo": "wasabeef/claude-code-cookbook"
+    },
+    {
+     "name": "twmd",
+     "pain": "專案意圖模糊時缺乏中央分流與系統狀態報告",
+     "stars": 1118,
+     "repo": "frank890417/taiwan-md"
+    },
+    {
+     "name": "luatos-demo-spec",
+     "pain": "撰寫LuatOS範例程式時缺乏統一規範",
+     "stars": 582,
+     "repo": "openLuat/LuatOS"
+    },
+    {
+     "name": "generate-readme",
+     "pain": "手動撰寫專案 README 文件耗時費力。",
+     "stars": 403,
+     "repo": "CoWork-OS/CoWork-OS"
+    }
+   ]
+  },
+  {
+   "cluster": 71,
+   "n": 41,
+   "top_terms": [
+    "agent",
+    "multi agent",
+    "multi",
+    "agents",
+    "orchestration",
+    "swarm",
+    "coordination",
+    "state",
+    "systems",
+    "architect",
+    "state management",
+    "agent orchestration"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 26,
+    "software-dev": 6,
+    "finance-investing": 5,
+    "ops-admin": 1,
+    "writing-content": 1
+   },
+   "task_mix": {
+    "orchestrate": 21,
+    "generate": 9,
+    "analyze": 5,
+    "configure": 4
+   },
+   "dispersion": 0.37,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "langgraph",
+     "pain": "複雜多 Agent 狀態與循環流程難以可視化管理",
+     "stars": 29909,
+     "repo": "davila7/claude-code-templates"
+    },
+    {
+     "name": "dispatching-parallel-agents",
+     "pain": "多個獨立錯誤若依序處理會浪費大量時間",
+     "stars": 369,
+     "repo": "Ibrahim-3d/orchestrator-supaconductor"
+    },
+    {
+     "name": "Task Routing",
+     "pain": "一人公司多個 AI Agent 任務指派混亂",
+     "stars": 364,
+     "repo": "1mancompany/OneManCompany"
+    },
+    {
+     "name": "multi-agent-coordination",
+     "pain": "複雜任務難以由單一 AI Agent 獨立協同完成",
+     "stars": 279,
+     "repo": "MadAppGang/claude-code"
+    },
+    {
+     "name": "multi-agent-orchestration",
+     "pain": "多 Agent 系統協同調度與狀態管理困難",
+     "stars": 115,
+     "repo": "omer-metin/skills-for-antigravity"
+    }
+   ]
+  },
+  {
+   "cluster": 36,
+   "n": 39,
+   "top_terms": [
+    "ai",
+    "claude",
+    "claude code",
+    "agent",
+    "vibe",
+    "code",
+    "workflow",
+    "codex",
+    "coding",
+    "skills",
+    "agents",
+    "vibe coding"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 9,
+    "software-dev": 8,
+    "research-academia": 5,
+    "devops-infra": 4,
+    "education-training": 4
+   },
+   "task_mix": {
+    "generate": 14,
+    "orchestrate": 9,
+    "configure": 9,
+    "analyze": 4
+   },
+   "dispersion": 0.77,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "video-template-frame-build-minimal",
+     "pain": "製作極簡風格品牌動態影片需耗時刻劃動畫",
+     "stars": 81580,
+     "repo": "nexu-io/open-design"
+    },
+    {
+     "name": "weekly-update",
+     "pain": "週會數據彙整與簡報製作耗費團隊精力",
+     "stars": 81580,
+     "repo": "nexu-io/open-design"
+    },
+    {
+     "name": "deck-open-slide-canvas",
+     "pain": "簡報模板限制多且難以自由排版",
+     "stars": 7955,
+     "repo": "nexu-io/html-anything"
+    },
+    {
+     "name": "vibe",
+     "pain": "AI 寫程式時需求失控且缺乏階段驗證",
+     "stars": 2479,
+     "repo": "foryourhealth111-pixel/Vibe-Skills"
+    },
+    {
+     "name": "pymatgen",
+     "pain": "計算材料科學之晶體與能帶資料處理繁瑣",
+     "stars": 2479,
+     "repo": "foryourhealth111-pixel/Vibe-Skills"
+    }
+   ]
+  },
+  {
+   "cluster": 5,
+   "n": 37,
+   "top_terms": [
+    "need",
+    "use this",
+    "you need",
+    "this skill",
+    "need to",
+    "when you",
+    "skill when",
+    "this",
+    "you",
+    "to use",
+    "skill use",
+    "when to"
+   ],
+   "domain_mix": {
+    "software-dev": 8,
+    "design-creative": 6,
+    "ai-agent-tooling": 6,
+    "security": 4,
+    "research-academia": 4
+   },
+   "task_mix": {
+    "generate": 11,
+    "retrieve": 8,
+    "configure": 4,
+    "orchestrate": 4
+   },
+   "dispersion": 0.78,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "vexor",
+     "pain": "傳統關鍵字搜尋無法準確定位語意相關程式碼",
+     "stars": 43916,
+     "repo": "sickn33/agentic-awesome-skills"
+    },
+    {
+     "name": "unified-deliverable-workflow",
+     "pain": "跨格式多項產出物生成流程混亂且易出錯",
+     "stars": 6947,
+     "repo": "HKUDS/OpenSpace"
+    },
+    {
+     "name": "shinka-inspect",
+     "pain": "手動瀏覽資料庫挑選優良程式碼進行迭代效率低",
+     "stars": 1293,
+     "repo": "SakanaAI/ShinkaEvolve"
+    },
+    {
+     "name": "ffuf-claude-skill",
+     "pain": "進行 Web 模糊測試時缺乏 ffuf 參數指引",
+     "stars": 64,
+     "repo": "henryalouf/ruflow"
+    },
+    {
+     "name": "hermes-acp-orchestrator",
+     "pain": "跨 Agent 調度繁瑣，缺乏統一派發與限時機制。",
+     "stars": 52,
+     "repo": "Rainhoole/hermes-agent-acp-skill"
+    }
+   ]
+  },
+  {
+   "cluster": 101,
+   "n": 35,
+   "top_terms": [
+    "agent",
+    "code",
+    "failure",
+    "ai",
+    "agents",
+    "claude",
+    "evaluator",
+    "claude code",
+    "gemini",
+    "iii",
+    "typescript",
+    "generated"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 20,
+    "software-dev": 7,
+    "personal-productivity": 4,
+    "security": 2,
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "configure": 15,
+    "verify": 5,
+    "analyze": 5,
+    "orchestrate": 4
+   },
+   "dispersion": 0.43,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Overview",
+     "pain": "缺乏開發自訂 AI 代理與迴圈的教學範例",
+     "stars": 18507,
+     "repo": "iii-hq/iii"
+    },
+    {
+     "name": "Model and store",
+     "pain": "響應式 CRUD 資料模型與儲存庫設定繁鎖",
+     "stars": 18507,
+     "repo": "iii-hq/iii"
+    },
+    {
+     "name": "Migrate persistence",
+     "pain": "代理框架漸進式遷移時持久化儲存設定困難",
+     "stars": 18507,
+     "repo": "iii-hq/iii"
+    },
+    {
+     "name": "CLI",
+     "pain": "代理引擎命令行工具的參數與說明查閱不便",
+     "stars": 18507,
+     "repo": "iii-hq/iii"
+    },
+    {
+     "name": "1. Start the engine. Use --use-default-config for a scratch instance,",
+     "pain": "難以透過控制台視覺化監控代理運作與日誌",
+     "stars": 18507,
+     "repo": "iii-hq/iii"
+    }
+   ]
+  },
+  {
+   "cluster": 112,
+   "n": 35,
+   "top_terms": [
+    "practices",
+    "security",
+    "best practices",
+    "hardening",
+    "best",
+    "security hardening",
+    "stage",
+    "performance",
+    "secure",
+    "wordpress",
+    "caching",
+    "dockerfile"
+   ],
+   "domain_mix": {
+    "software-dev": 14,
+    "security": 12,
+    "devops-infra": 7,
+    "education-training": 1,
+    "research-academia": 1
+   },
+   "task_mix": {
+    "verify": 13,
+    "configure": 11,
+    "generate": 6,
+    "retrieve": 2
+   },
+   "dispersion": 0.6,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "security-react",
+     "pain": "React 應用安全審查與身份驗證缺乏統一標準",
+     "stars": 519,
+     "repo": "majiayu000/claude-skill-registry"
+    },
+    {
+     "name": "api-security-hardening",
+     "pain": "REST API缺乏驗證與防禦機制易受攻擊",
+     "stars": 300,
+     "repo": "aj-geddes/useful-ai-prompts"
+    },
+    {
+     "name": "concurrency-patterns",
+     "pain": "多執行緒程式設計易產生競態條件與死鎖",
+     "stars": 300,
+     "repo": "aj-geddes/useful-ai-prompts"
+    },
+    {
+     "name": "ssl-certificate-management",
+     "pain": "手動管理與更新SSL/TLS憑證容易過期",
+     "stars": 300,
+     "repo": "aj-geddes/useful-ai-prompts"
+    },
+    {
+     "name": "web-performance-audit",
+     "pain": "網頁載入緩慢卻難以定位效能瓶頸",
+     "stars": 300,
+     "repo": "aj-geddes/useful-ai-prompts"
+    }
+   ]
+  },
+  {
+   "cluster": 18,
+   "n": 32,
+   "top_terms": [
+    "issue",
+    "github",
+    "issues",
+    "gh",
+    "github issue",
+    "github issues",
+    "gh cli",
+    "pull",
+    "linear",
+    "the issue",
+    "an issue",
+    "gh issue"
+   ],
+   "domain_mix": {
+    "software-dev": 27,
+    "ops-admin": 4,
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "orchestrate": 21,
+    "generate": 5,
+    "retrieve": 2,
+    "configure": 2
+   },
+   "dispersion": 0.16,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "creating-pull-requests",
+     "pain": "手動撰寫符合規範且不洩漏客戶資料的 PR",
+     "stars": 5981,
+     "repo": "lightdash/lightdash"
+    },
+    {
+     "name": "suggest-fix-issue",
+     "pain": "分析 Issue 討論並發想修復方案耗時",
+     "stars": 2606,
+     "repo": "microsoft/vscode-pull-request-github"
+    },
+    {
+     "name": "github-ops",
+     "pain": "頻繁透過網頁手動管理 PR 與 Issue",
+     "stars": 1297,
+     "repo": "daymade/claude-code-skills"
+    },
+    {
+     "name": "fix-github-issue",
+     "pain": "處理 GitHub Issue 需手動切分支測試與開 PR",
+     "stars": 989,
+     "repo": "freekmurze/dotfiles"
+    },
+    {
+     "name": "linear-issue",
+     "pain": "手動開 Linear Ticket 標題不合分支規範",
+     "stars": 468,
+     "repo": "ai-dynamo/aiperf"
+    }
+   ]
+  },
+  {
+   "cluster": 30,
+   "n": 32,
+   "top_terms": [
+    "de",
+    "el",
+    "en",
+    "para",
+    "la",
+    "un",
+    "que",
+    "del",
+    "cuando",
+    "por",
+    "una",
+    "con"
+   ],
+   "domain_mix": {
+    "software-dev": 12,
+    "ai-agent-tooling": 4,
+    "ops-admin": 4,
+    "data-analytics": 3,
+    "devops-infra": 2
+   },
+   "task_mix": {
+    "generate": 9,
+    "configure": 7,
+    "transform": 5,
+    "retrieve": 4
+   },
+   "dispersion": 0.62,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "lideranca-equipes",
+     "pain": "新手主管缺乏結構化團隊管理與反饋工具",
+     "stars": 103,
+     "repo": "ricardonevesbraga/flowgrammers-skills"
+    },
+    {
+     "name": "crear-agente",
+     "pain": "無程式背景者難以在雲端建置 AI 自動化機制",
+     "stars": 66,
+     "repo": "santmun/crear-agente"
+    },
+    {
+     "name": "azure-devops-queries",
+     "pain": "查詢與更新 Azure DevOps 工作項目數據繁瑣",
+     "stars": 44,
+     "repo": "gonzalezpazmonica/pm-workspace"
+    },
+    {
+     "name": "afip-facturacion",
+     "pain": "阿根廷單一稅戶開立電子發票流程繁瑣",
+     "stars": 44,
+     "repo": "alandaitch/afip-facturacion"
+    },
+    {
+     "name": "humanizar",
+     "pain": "葡萄牙語文本帶有顯眼 AI 生硬語氣",
+     "stars": 37,
+     "repo": "fabricioctelles/skills"
+    }
+   ]
+  },
+  {
+   "cluster": 114,
+   "n": 31,
+   "top_terms": [
+    "security",
+    "hacking",
+    "security tools",
+    "pentest",
+    "penetration testing",
+    "ethical hacking",
+    "penetration",
+    "ethical",
+    "cybersecurity",
+    "security security",
+    "bounty",
+    "team"
+   ],
+   "domain_mix": {
+    "security": 30,
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "verify": 16,
+    "analyze": 6,
+    "configure": 6,
+    "generate": 1
+   },
+   "dispersion": 0.03,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "hunting-for-cobalt-strike-beacons",
+     "pain": "難以偵測隱匿的 Cobalt Strike C2 網路連線。",
+     "stars": 26583,
+     "repo": "mukul975/Anthropic-Cybersecurity-Skills"
+    },
+    {
+     "name": "benchmarking-kubernetes-with-kube-bench",
+     "pain": "K8s 集群的 CIS 安全基準檢查與修復步驟繁瑣。",
+     "stars": 26583,
+     "repo": "mukul975/Anthropic-Cybersecurity-Skills"
+    },
+    {
+     "name": "cloud-iam-deep",
+     "pain": "跨雲端 IAM 權限提升與漏洞鏈分析複雜",
+     "stars": 3048,
+     "repo": "elementalsouls/Claude-BugHunter"
+    },
+    {
+     "name": "cis-eks-v160-4.5.1",
+     "pain": "手動檢查 K8s 命名空間資源隔離合規",
+     "stars": 1283,
+     "repo": "CyberStrikeus/CyberStrike"
+    },
+    {
+     "name": "cis-eks-v180-4.5.1",
+     "pain": "手動檢查 K8s 命名空間資源隔離合規",
+     "stars": 1283,
+     "repo": "CyberStrikeus/CyberStrike"
+    }
+   ]
+  },
+  {
+   "cluster": 107,
+   "n": 30,
+   "top_terms": [
+    "java",
+    "spring",
+    "spring boot",
+    "boot",
+    "vue",
+    "kotlin",
+    "js",
+    "typescript",
+    "python",
+    "sql",
+    "src main",
+    "jpa"
+   ],
+   "domain_mix": {
+    "software-dev": 19,
+    "security": 6,
+    "devops-infra": 2,
+    "personal-productivity": 1,
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "generate": 12,
+    "verify": 7,
+    "configure": 7,
+    "orchestrate": 2
+   },
+   "dispersion": 0.37,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "development",
+     "pain": "Agent 缺乏程式語言選型與能力分派索引。",
+     "stars": 5767,
+     "repo": "fengshao1227/ccg-workflow"
+    },
+    {
+     "name": "code-nest-project-spec",
+     "pain": "多模組全棧專案改動時難以定位正確模組與風格。",
+     "stars": 773,
+     "repo": "xiaou61/Code-Nest"
+    },
+    {
+     "name": "check-migration",
+     "pain": "Flyway 變更檔易發生版本衝突與語法錯誤",
+     "stars": 398,
+     "repo": "aiskillstore/marketplace"
+    },
+    {
+     "name": "dr-jskill",
+     "pain": "手動建立 Spring Boot 專案腳手架耗時",
+     "stars": 319,
+     "repo": "jdubois/dr-jskill"
+    },
+    {
+     "name": "aws-lambda-python-integration",
+     "pain": "AWS Lambda Python 部署易遭遇冷啟動",
+     "stars": 311,
+     "repo": "giuseppe-trisciuoglio/developer-kit"
+    }
+   ]
+  },
+  {
+   "cluster": 56,
+   "n": 28,
+   "top_terms": [
+    "이",
+    "스킬",
+    "사용자가",
+    "생성",
+    "를",
+    "파일",
+    "실행",
+    "lint",
+    "자동",
+    "이 스킬은",
+    "스킬은",
+    "직접"
+   ],
+   "domain_mix": {
+    "software-dev": 9,
+    "ops-admin": 5,
+    "legal-compliance": 3,
+    "ai-agent-tooling": 3,
+    "education-training": 3
+   },
+   "task_mix": {
+    "orchestrate": 9,
+    "verify": 5,
+    "generate": 4,
+    "retrieve": 4
+   },
+   "dispersion": 0.68,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "hwpx",
+     "pain": "韓文 HWPX 格式文件直接編輯容易損壞樣式",
+     "stars": 280,
+     "repo": "Canine89/hwpxskill"
+    },
+    {
+     "name": "1. 전체 분석 축 가이드",
+     "pain": "個股財報與基本面指標複雜缺乏結構化分析",
+     "stars": 202,
+     "repo": "eddmpython/dartlab"
+    },
+    {
+     "name": "verify",
+     "pain": "Tauri 專案前後端驗證命令多且手動執行繁瑣",
+     "stars": 58,
+     "repo": "DargonLee/skill-switch"
+    },
+    {
+     "name": "sermon-history-culture-geo-context",
+     "pain": "撰寫講道稿時查閱與彙整聖經歷史背景耗時",
+     "stars": 53,
+     "repo": "idoforgod/cys-claude-sermon-skills"
+    },
+    {
+     "name": "offline-law-fallback",
+     "pain": "離線或未取得API金鑰時無法查閱韓國法規",
+     "stars": 50,
+     "repo": "jurisupport/jurisupport-plugins"
+    }
+   ]
+  },
+  {
+   "cluster": 19,
+   "n": 26,
+   "top_terms": [
+    "dev null",
+    "null",
+    "gstack",
+    "dev",
+    "echo",
+    "bash",
+    "gstack analytics",
+    "careful",
+    "destructive",
+    "null echo",
+    "rm",
+    "null true"
+   ],
+   "domain_mix": {
+    "security": 6,
+    "software-dev": 5,
+    "devops-infra": 4,
+    "design-creative": 4,
+    "ai-agent-tooling": 3
+   },
+   "task_mix": {
+    "verify": 8,
+    "generate": 5,
+    "configure": 5,
+    "orchestrate": 3
+   },
+   "dispersion": 0.77,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "land-and-deploy",
+     "pain": "PR合併到正式環境部署驗證缺乏自動化",
+     "stars": 124375,
+     "repo": "garrytan/gstack"
+    },
+    {
+     "name": "CanonicalizeSkill Workflow",
+     "pain": "Skill 格式不符合標準規範需手動重構",
+     "stars": 16929,
+     "repo": "danielmiessler/LifeOS"
+    },
+    {
+     "name": "security-audit",
+     "pain": "部署前需手動掃描安全漏洞與暴露憑證",
+     "stars": 633,
+     "repo": "sundial-org/awesome-openclaw-skills"
+    },
+    {
+     "name": "justin-sun-perspective",
+     "pain": "缺乏特定Web3領袖視角評估商業決策。",
+     "stars": 237,
+     "repo": "0xquqi/sun-skill"
+    },
+    {
+     "name": "github-auth",
+     "pain": "Agent 操作 GitHub 時常卡在認證設定",
+     "stars": 150,
+     "repo": "Devsoul2026/Hermes-One-Click"
+    }
+   ]
+  },
+  {
+   "cluster": 62,
+   "n": 25,
+   "top_terms": [
+    "app",
+    "desktop",
+    "cli",
+    "automation",
+    "printing press",
+    "printing",
+    "press",
+    "gui",
+    "the cli",
+    "capture",
+    "pp",
+    "macos"
+   ],
+   "domain_mix": {
+    "software-dev": 8,
+    "ops-admin": 4,
+    "ai-agent-tooling": 3,
+    "personal-productivity": 3,
+    "devops-infra": 3
+   },
+   "task_mix": {
+    "orchestrate": 9,
+    "generate": 6,
+    "retrieve": 4,
+    "verify": 2
+   },
+   "dispersion": 0.68,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "krillinai-cli",
+     "pain": "影片字幕、配音與跨平台渲染 CLI 操作複雜",
+     "stars": 10550,
+     "repo": "krillinai/KrillinAI"
+    },
+    {
+     "name": "trellis-update-spec",
+     "pain": "除錯與開發過程累積的技術規範未及時文件化",
+     "stars": 7237,
+     "repo": "EcoPasteHub/EcoPaste"
+    },
+    {
+     "name": "peekaboo",
+     "pain": "AI 代理缺乏 macOS 截圖與 GUI 桌面操作能力。",
+     "stars": 6469,
+     "repo": "steipete/agent-scripts"
+    },
+    {
+     "name": "pp-foxnews",
+     "pain": "缺少便利命令列工具快速擷取新聞頭條資訊",
+     "stars": 1852,
+     "repo": "mvanhorn/printing-press-library"
+    },
+    {
+     "name": "pp-tenderned",
+     "pain": "荷蘭政府標案資訊分散且離線檢索不便",
+     "stars": 1852,
+     "repo": "mvanhorn/printing-press-library"
+    }
+   ]
+  },
+  {
+   "cluster": 78,
+   "n": 25,
+   "top_terms": [
+    "commit",
+    "changes",
+    "git",
+    "git diff",
+    "diff",
+    "git status",
+    "investigation memo",
+    "uncommitted",
+    "commit changes",
+    "message",
+    "memo",
+    "stage"
+   ],
+   "domain_mix": {
+    "software-dev": 20,
+    "legal-compliance": 5
+   },
+   "task_mix": {
+    "orchestrate": 11,
+    "generate": 10,
+    "configure": 3,
+    "transform": 1
+   },
+   "dispersion": 0.2,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "commit-changes",
+     "pain": "手動分析 Git diff 並撰寫規範 commit 訊息繁瑣",
+     "stars": 49298,
+     "repo": "tldraw/tldraw"
+    },
+    {
+     "name": "investigation-memo",
+     "pain": "手動彙整內部調查日誌編寫特權備忘錄",
+     "stars": 8890,
+     "repo": "anthropics/claude-for-legal"
+    },
+    {
+     "name": "prp-commit",
+     "pain": "手動輸入 git add 與 commit 指令繁瑣",
+     "stars": 2224,
+     "repo": "Wirasm/prp"
+    },
+    {
+     "name": "commit",
+     "pain": "比對程式碼變更並手動撰寫提交訊息",
+     "stars": 654,
+     "repo": "ok-oldking/ok-script"
+    },
+    {
+     "name": "stage",
+     "pain": "手動選擇與分批暫存 Git 檔案時容易誤加無關修改",
+     "stars": 519,
+     "repo": "majiayu000/claude-skill-registry"
+    }
+   ]
+  },
+  {
+   "cluster": 39,
+   "n": 24,
+   "top_terms": [
+    "transaction",
+    "wallet",
+    "transactions",
+    "customer",
+    "stripe",
+    "payment",
+    "wallets",
+    "mcp",
+    "payments",
+    "billing",
+    "blockchain",
+    "with"
+   ],
+   "domain_mix": {
+    "finance-investing": 8,
+    "software-dev": 8,
+    "marketing-growth": 2,
+    "devops-infra": 2,
+    "writing-content": 1
+   },
+   "task_mix": {
+    "orchestrate": 7,
+    "retrieve": 5,
+    "configure": 5,
+    "generate": 3
+   },
+   "dispersion": 0.67,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "discovery-interview-prep",
+     "pain": "準備客戶訪談易陷入偏誤且難獲取有效洞察",
+     "stars": 5972,
+     "repo": "deanpeters/Product-Manager-Skills"
+    },
+    {
+     "name": "aws-billing-and-cost-management",
+     "pain": "AWS 雲端帳單費用高昂且難以分析優化",
+     "stars": 2122,
+     "repo": "aws/agent-toolkit-for-aws"
+    },
+    {
+     "name": "domain-financial",
+     "pain": "財務報表彙整粒度不一致致計算錯誤",
+     "stars": 475,
+     "repo": "SignalPilot-Labs/SignalPilot"
+    },
+    {
+     "name": "discovery-interview-prep",
+     "pain": "客戶訪談準備不足易導致引導性偏見",
+     "stars": 116,
+     "repo": "ffanglaili/awesome-niuma-skills"
+    },
+    {
+     "name": "pinion-chain-intel",
+     "pain": "缺乏方便 AI 調用的 Web3 鏈上情報工具",
+     "stars": 95,
+     "repo": "chu2bard/pinion-os"
+    }
+   ]
+  },
+  {
+   "cluster": 72,
+   "n": 24,
+   "top_terms": [
+    "plan",
+    "game",
+    "phase",
+    "qa",
+    "mode",
+    "pipeline",
+    "test",
+    "blazor",
+    "playwright test",
+    "decision",
+    "typescript playwright",
+    "review"
+   ],
+   "domain_mix": {
+    "software-dev": 11,
+    "legal-compliance": 4,
+    "design-creative": 3,
+    "devops-infra": 2,
+    "ops-admin": 2
+   },
+   "task_mix": {
+    "orchestrate": 8,
+    "verify": 5,
+    "generate": 5,
+    "analyze": 3
+   },
+   "dispersion": 0.54,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "game-design",
+     "pain": "遊戲核心迴圈與數值平衡缺乏結構化設計",
+     "stars": 29909,
+     "repo": "davila7/claude-code-templates"
+    },
+    {
+     "name": "Full Contract Review — Flagship Orchestrator",
+     "pain": "合約條款繁複且人工審查風險漏洞耗時",
+     "stars": 1590,
+     "repo": "zubair-trabzada/ai-legal-claude"
+    },
+    {
+     "name": "scenario-planner",
+     "pain": "企業進行情境規劃與不確定性分析複雜耗時",
+     "stars": 1184,
+     "repo": "revfactory/harness-100"
+    },
+    {
+     "name": "eve-lab-topology-validation",
+     "pain": "EVE-NG 網路拓撲建置前缺乏品管檢查",
+     "stars": 619,
+     "repo": "automateyournetwork/netclaw"
+    },
+    {
+     "name": "policy-qa",
+     "pain": "基金合規制度問答與敏感違規表述人工排查",
+     "stars": 213,
+     "repo": "aifinlab/FinClaw"
+    }
+   ]
+  },
+  {
+   "cluster": 73,
+   "n": 24,
+   "top_terms": [
+    "rube",
+    "rube mcp",
+    "composio",
+    "via rube",
+    "rube_search_tools",
+    "toolkit",
+    "mcp",
+    "automate",
+    "schemas",
+    "toolkits",
+    "composio dev",
+    "dev toolkits"
+   ],
+   "domain_mix": {
+    "marketing-growth": 9,
+    "ops-admin": 6,
+    "personal-productivity": 2,
+    "software-dev": 1,
+    "data-analytics": 1
+   },
+   "task_mix": {
+    "orchestrate": 24
+   },
+   "dispersion": 0.62,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "mailchimp-automation",
+     "pain": "手動管理 Mailchimp 電子報與受眾名單耗時",
+     "stars": 3213,
+     "repo": "davepoon/buildwithclaude"
+    },
+    {
+     "name": "goody-automation",
+     "pain": "手動操作 Goody 送禮與獎勵平台流程繁瑣",
+     "stars": 552,
+     "repo": "openteams-lab/openteams"
+    },
+    {
+     "name": "ragic-automation",
+     "pain": "手動維護 Ragic 企業雲端資料庫效率低",
+     "stars": 552,
+     "repo": "openteams-lab/openteams"
+    },
+    {
+     "name": "missive-automation",
+     "pain": "跨平台處理Missive郵件與任務",
+     "stars": 552,
+     "repo": "openteams-lab/openteams"
+    },
+    {
+     "name": "formbricks-automation",
+     "pain": "自動化處理Formbricks問卷與表單數據",
+     "stars": 552,
+     "repo": "openteams-lab/openteams"
+    }
+   ]
+  },
+  {
+   "cluster": 3,
+   "n": 23,
+   "top_terms": [
+    "youtube",
+    "video",
+    "transcript",
+    "pdf",
+    "text",
+    "transcribe",
+    "summarize",
+    "url",
+    "path",
+    "transcripts",
+    "audio",
+    "youtu"
+   ],
+   "domain_mix": {
+    "personal-productivity": 8,
+    "writing-content": 7,
+    "ops-admin": 3,
+    "ai-agent-tooling": 2,
+    "software-dev": 1
+   },
+   "task_mix": {
+    "transform": 13,
+    "retrieve": 6,
+    "analyze": 2,
+    "orchestrate": 1
+   },
+   "dispersion": 0.65,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "pdf",
+     "pain": "手動處理與填寫批量 PDF 文件效率低下",
+     "stars": 3368,
+     "repo": "Intelligent-Internet/ii-agent"
+    },
+    {
+     "name": "elevenlabs-stt",
+     "pain": "手動呼叫 STT API 處理語者分段繁瑣",
+     "stars": 633,
+     "repo": "sundial-org/awesome-openclaw-skills"
+    },
+    {
+     "name": "pdf",
+     "pain": "PDF 文件的文字擷取、合併與表單處理繁瑣",
+     "stars": 233,
+     "repo": "760485464/qyclaw"
+    },
+    {
+     "name": "transcribe",
+     "pain": "手動逐字稿轉錄與標記說話者耗時費力",
+     "stars": 209,
+     "repo": "lingxling/awesome-skills-cn"
+    },
+    {
+     "name": "model-usage",
+     "pain": "難以統計與追蹤不同AI模型的本地呼叫成本",
+     "stars": 122,
+     "repo": "Zavianx/vela"
+    }
+   ]
+  },
+  {
+   "cluster": 48,
+   "n": 23,
+   "top_terms": [
+    "skill md",
+    "md",
+    "skill creator",
+    "creator",
+    "name",
+    "frontmatter",
+    "yaml",
+    "yaml frontmatter",
+    "create skill",
+    "skill name",
+    "description",
+    "name description"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 17,
+    "ops-admin": 3,
+    "software-dev": 1,
+    "marketing-growth": 1,
+    "research-academia": 1
+   },
+   "task_mix": {
+    "generate": 11,
+    "configure": 8,
+    "retrieve": 2,
+    "orchestrate": 2
+   },
+   "dispersion": 0.26,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "xhs-note-creator",
+     "pain": "小紅書圖文筆記撰寫與卡片製作繁瑣耗時",
+     "stars": 2041,
+     "repo": "comeonzhj/Auto-Redbook-Skills"
+    },
+    {
+     "name": "lark-attendance",
+     "pain": "查詢飛書考勤紀錄時參數填寫繁瑣",
+     "stars": 707,
+     "repo": "hashgraph-online/awesome-codex-plugins"
+    },
+    {
+     "name": "skill-based-architecture",
+     "pain": "Agent 規則零散且 SKILL.md 膨脹難維護",
+     "stars": 457,
+     "repo": "WoJiSama/skill-based-architecture"
+    },
+    {
+     "name": "academic-paper-writer-pro",
+     "pain": "學術論文排版與格式轉換過程繁瑣易錯",
+     "stars": 247,
+     "repo": "TFboy1/academic-paper-writer"
+    },
+    {
+     "name": "",
+     "pain": "新建 Agent Skill 格式不合規範與索引遺漏",
+     "stars": 210,
+     "repo": "harunkurtdev/ros2-claude-code-template"
+    }
+   ]
+  },
+  {
+   "cluster": 55,
+   "n": 23,
+   "top_terms": [
+    "artificial intelligence",
+    "artificial",
+    "machine learning",
+    "quantum",
+    "learning",
+    "intelligence",
+    "summary",
+    "machine",
+    "summary skill",
+    "ai",
+    "evidence",
+    "langchain"
+   ],
+   "domain_mix": {
+    "research-academia": 4,
+    "finance-investing": 3,
+    "legal-compliance": 2,
+    "ai-agent-tooling": 2,
+    "personal-productivity": 2
+   },
+   "task_mix": {
+    "analyze": 9,
+    "generate": 5,
+    "orchestrate": 2,
+    "configure": 2
+   },
+   "dispersion": 0.83,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "indication-dossier",
+     "pain": "生物醫學適應症資料分散且難以快速彙整",
+     "stars": 8388,
+     "repo": "companion-inc/feynman"
+    },
+    {
+     "name": "financial-analysis",
+     "pain": "評估投資標的時需手動計算多種財務比率",
+     "stars": 6989,
+     "repo": "kyegomez/swarms"
+    },
+    {
+     "name": "pennylane",
+     "pain": "編寫量子機器學習與可微量子計算程式碼門檻高",
+     "stars": 809,
+     "repo": "paperclipai/companies"
+    },
+    {
+     "name": "graphsignal-profiler",
+     "pain": "大模型推理服務 GPU 性能效能瓶頸與追蹤配置困難",
+     "stars": 240,
+     "repo": "graphsignal/graphsignal-profiler"
+    },
+    {
+     "name": "financial-advisor",
+     "pain": "個人與家庭缺乏系統化的理財與退休規劃",
+     "stars": 124,
+     "repo": "theneoai/awesome-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 50,
+   "n": 22,
+   "top_terms": [
+    "plugin",
+    "plugins",
+    "marketplace",
+    "claude code",
+    "claude",
+    "code plugins",
+    "code",
+    "plugin json",
+    "json",
+    "skills",
+    "agents",
+    "system saas"
+   ],
+   "domain_mix": {
+    "software-dev": 8,
+    "ai-agent-tooling": 7,
+    "devops-infra": 3,
+    "finance-investing": 1,
+    "ops-admin": 1
+   },
+   "task_mix": {
+    "configure": 9,
+    "verify": 5,
+    "transform": 3,
+    "orchestrate": 2
+   },
+   "dispersion": 0.64,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "validate-plugin",
+     "pain": "Claude Code 外掛發布前難以自動驗證格式",
+     "stars": 66003,
+     "repo": "ruvnet/ruflo"
+    },
+    {
+     "name": "research-writing-assistant",
+     "pain": "撰寫學術論文時文獻整理與 LaTeX 排版繁瑣",
+     "stars": 2902,
+     "repo": "Norman-bury/research-writing-skill"
+    },
+    {
+     "name": "procore-observability",
+     "pain": "整合 Procore 營建平台 API 與監控手續多",
+     "stars": 2557,
+     "repo": "jeremylongshore/claude-code-plugins-plus-skills"
+    },
+    {
+     "name": "coreweave-prod-checklist",
+     "pain": "部署 CoreWeave 時遺漏生產環境配置",
+     "stars": 2557,
+     "repo": "jeremylongshore/claude-code-plugins-plus-skills"
+    },
+    {
+     "name": "retellai-enterprise-rbac",
+     "pain": "手動設置 Retell 語音平台權限控管繁瑣",
+     "stars": 2557,
+     "repo": "jeremylongshore/claude-code-plugins-plus-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 52,
+   "n": 21,
+   "top_terms": [
+    "marketing",
+    "product",
+    "product marketing",
+    "marketing context",
+    "email",
+    "emails",
+    "growth",
+    "context",
+    "ads",
+    "referral",
+    "that context",
+    "only ask"
+   ],
+   "domain_mix": {
+    "marketing-growth": 19,
+    "finance-investing": 1,
+    "data-analytics": 1
+   },
+   "task_mix": {
+    "generate": 17,
+    "analyze": 2,
+    "configure": 2
+   },
+   "dispersion": 0.1,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "referral-program",
+     "pain": "缺乏規劃推薦機制與拉新獎勵的策略",
+     "stars": 759,
+     "repo": "kostja94/marketing-skills"
+    },
+    {
+     "name": "thread-writer",
+     "pain": "推特討論串缺乏吸引人的引子與架構",
+     "stars": 592,
+     "repo": "OpenClaudia/openclaudia-skills"
+    },
+    {
+     "name": "email-sequence",
+     "pain": "自動化 Email 養客流程與滴水文案設計耗時",
+     "stars": 375,
+     "repo": "marian2js/opengoat"
+    },
+    {
+     "name": "ads",
+     "pain": "跨平台付費廣告策略與投放優化缺乏指引",
+     "stars": 80,
+     "repo": "Yg0rAndrade/carcara-code"
+    },
+    {
+     "name": "marketing-campaign-management",
+     "pain": "行銷活動跨管道策略與文案發想缺乏架構",
+     "stars": 76,
+     "repo": "manojbajaj95/claude-gtm-plugin"
+    }
+   ]
+  },
+  {
+   "cluster": 89,
+   "n": 19,
+   "top_terms": [
+    "ts",
+    "effect",
+    "typescript",
+    "pre commit",
+    "syntax",
+    "prettier",
+    "type",
+    "linters",
+    "quality gate",
+    "set",
+    "code",
+    "pre"
+   ],
+   "domain_mix": {
+    "software-dev": 18,
+    "legal-compliance": 1
+   },
+   "task_mix": {
+    "verify": 12,
+    "configure": 4,
+    "generate": 3
+   },
+   "dispersion": 0.05,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "devtools-imports",
+     "pain": "DevTools 跨模組匯入不合規範導致建置失敗",
+     "stars": 3992,
+     "repo": "ChromeDevTools/devtools-frontend"
+    },
+    {
+     "name": "effect-patterns-scheduling",
+     "pain": "在 Effect-TS 中編寫複雜排程與重試邏輯不熟悉",
+     "stars": 781,
+     "repo": "PaulJPhilp/EffectPatterns"
+    },
+    {
+     "name": "dxos-code-style",
+     "pain": "團隊代碼風格不一且隨意使用類型斷言",
+     "stars": 510,
+     "repo": "dxos/dxos"
+    },
+    {
+     "name": "build-sculptor-extension",
+     "pain": "開發 Sculptor UI 外掛模組時缺乏獨立開發範本",
+     "stars": 209,
+     "repo": "imbue-ai/sculptor"
+    },
+    {
+     "name": "typescript-advanced-types",
+     "pain": "TypeScript 高級型別邏輯複雜且難手動撰寫",
+     "stars": 66,
+     "repo": "jdiegosierra/contributor-report"
+    }
+   ]
+  },
+  {
+   "cluster": 63,
+   "n": 17,
+   "top_terms": [
+    "v3",
+    "ai",
+    "mcp",
+    "fastmcp 14",
+    "ecosystem",
+    "fastmcp",
+    "integration",
+    "14",
+    "mcp server",
+    "all agentic",
+    "server architect",
+    "agentic ides"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 7,
+    "software-dev": 3,
+    "security": 2,
+    "finance-investing": 2,
+    "ops-admin": 1
+   },
+   "task_mix": {
+    "generate": 6,
+    "verify": 4,
+    "analyze": 4,
+    "orchestrate": 2
+   },
+   "dispersion": 0.59,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "assets-refresh",
+     "pain": "Unity 外部修改腳本後需手動刷新與等待編譯",
+     "stars": 3668,
+     "repo": "IvanMurzak/Unity-MCP"
+    },
+    {
+     "name": "hello_js_reverse_skill",
+     "pain": "前端加密與 JS 逆向分析複雜且易遺漏步驟",
+     "stars": 930,
+     "repo": "WhiteNightShadow/hello_js_reverse_skill"
+    },
+    {
+     "name": "stock-analysis-enhanced",
+     "pain": "個股多維度數據手動採集與研報撰寫耗時。",
+     "stars": 606,
+     "repo": "mingli30119/stock-analysis"
+    },
+    {
+     "name": "china-lawyer-analyst",
+     "pain": "法律案件分析缺乏成文法與司法解釋系統化檢索",
+     "stars": 157,
+     "repo": "CSlawyer1985/china-lawyer-analyst"
+    },
+    {
+     "name": "skill-usage-audit",
+     "pain": "人工稽核專案產出物是否符合 Skill 規範耗時",
+     "stars": 155,
+     "repo": "Fr-e-d/GAAI-framework"
+    }
+   ]
+  },
+  {
+   "cluster": 35,
+   "n": 16,
+   "top_terms": [
+    "channels",
+    "learning",
+    "skills continual",
+    "learning self",
+    "driven lifelong",
+    "experience driven",
+    "continual",
+    "continual learning",
+    "learning experience",
+    "role objective",
+    "lifelong",
+    "lifelong learning"
+   ],
+   "domain_mix": {
+    "ops-admin": 4,
+    "marketing-growth": 4,
+    "software-dev": 3,
+    "other": 2,
+    "devops-infra": 2
+   },
+   "task_mix": {
+    "analyze": 6,
+    "generate": 5,
+    "verify": 1,
+    "transform": 1
+   },
+   "dispersion": 0.75,
+   "other_pct": 12.5,
+   "samples": [
+    {
+     "name": "x-mastery-mentor",
+     "pain": "X 平台經營缺乏系統化選題與發文增粉策略",
+     "stars": 1086,
+     "repo": "alchaincyf/x-mentor-skill"
+    },
+    {
+     "name": "滚开游戏",
+     "pain": "測試模型是否能嚴格執行特定角色指令",
+     "stars": 531,
+     "repo": "ECNU-ICALK/AutoSkill"
+    },
+    {
+     "name": "extract_order_quote_data_json",
+     "pain": "手動從訊息提取訂單與報價料號耗時",
+     "stars": 531,
+     "repo": "ECNU-ICALK/AutoSkill"
+    },
+    {
+     "name": "DAX Promo Period Analysis and Volume Calculation",
+     "pain": "DAX 難以精確計算促銷與非促銷銷量",
+     "stars": 531,
+     "repo": "ECNU-ICALK/AutoSkill"
+    },
+    {
+     "name": "Генерация Python скрипта для экспорта логов Elasticsearch",
+     "pain": "從 Elasticsearch 手動匯出日誌步驟繁瑣",
+     "stars": 531,
+     "repo": "ECNU-ICALK/AutoSkill"
+    }
+   ]
+  },
+  {
+   "cluster": 45,
+   "n": 15,
+   "top_terms": [
+    "html",
+    "pixel",
+    "pixel perfect",
+    "css",
+    "html css",
+    "perfect",
+    "visual",
+    "visual content",
+    "any visual",
+    "stitch",
+    "content",
+    "contained html"
+   ],
+   "domain_mix": {
+    "design-creative": 9,
+    "software-dev": 6
+   },
+   "task_mix": {
+    "transform": 9,
+    "generate": 5,
+    "verify": 1
+   },
+   "dispersion": 0.4,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "stitch::react-native",
+     "pain": "Web 設計圖手動轉 React Native 效率低",
+     "stars": 7817,
+     "repo": "google-labs-code/stitch-skills"
+    },
+    {
+     "name": "art",
+     "pain": "為不同品牌產出視覺圖片時風格無法一致",
+     "stars": 105,
+     "repo": "aplaceforallmystuff/claude-art-skill"
+    },
+    {
+     "name": "html-ppt-zhangzara-editorial-tri-tone",
+     "pain": "製作時尚簡報時缺少統一的色彩與視覺版型系統",
+     "stars": 46,
+     "repo": "skeletorflet/opencode-supreme-setup"
+    },
+    {
+     "name": "design-engine",
+     "pain": "從零設計社群海報與簡報耗時費力",
+     "stars": 9,
+     "repo": "rahamanbinujit/claude-design-engine"
+    },
+    {
+     "name": "image-creator",
+     "pain": "難以將 HTML/CSS 自動渲染成高品質圖片",
+     "stars": 1,
+     "repo": "pablitonog/bifrost_quality"
+    }
+   ]
+  },
+  {
+   "cluster": 111,
+   "n": 14,
+   "top_terms": [
+    "remotion",
+    "audio",
+    "md rules",
+    "3d",
+    "for remotion",
+    "real time",
+    "3d md",
+    "audio md",
+    "rules assets",
+    "rules 3d",
+    "rules animations",
+    "animations md"
+   ],
+   "domain_mix": {
+    "design-creative": 9,
+    "software-dev": 4,
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "generate": 10,
+    "retrieve": 2,
+    "configure": 1,
+    "orchestrate": 1
+   },
+   "dispersion": 0.36,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "remotion-best-practices",
+     "pain": "撰寫 Remotion 影片時缺乏最佳實踐",
+     "stars": 209,
+     "repo": "lingxling/awesome-skills-cn"
+    },
+    {
+     "name": "voice-ai-development",
+     "pain": "語音 AI 應用整合延遲高且套件零碎",
+     "stars": 115,
+     "repo": "omer-metin/skills-for-antigravity"
+    },
+    {
+     "name": "moltstream",
+     "pain": "搭建 AI 虛擬主播直播與即時互動流程複雜",
+     "stars": 68,
+     "repo": "skaggsxyz/moltstream"
+    },
+    {
+     "name": "remotion-best-practices",
+     "pain": "使用 React 程式碼製作影片缺乏最佳實踐",
+     "stars": 55,
+     "repo": "fanfan-de/anybox"
+    },
+    {
+     "name": "remotion-best-practices",
+     "pain": "Remotion 影片程式碼缺乏領域最佳實踐",
+     "stars": 8,
+     "repo": "giadaf-boosha/claude-code"
+    }
+   ]
+  },
+  {
+   "cluster": 25,
+   "n": 12,
+   "top_terms": [
+    "md babu",
+    "mia",
+    "babu mia",
+    "babu",
+    "copyright",
+    "imputation",
+    "phasing",
+    "copyright notice",
+    "notice",
+    "this file",
+    "chromosome",
+    "shapeit"
+   ],
+   "domain_mix": {
+    "healthcare-bio": 12
+   },
+   "task_mix": {
+    "analyze": 8,
+    "transform": 3,
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "COPYRIGHT NOTICE",
+     "pain": "臨床病歷文字難以自動擷取醫療實體",
+     "stars": 2882,
+     "repo": "FreedomIntelligence/OpenClaw-Medical-Skills"
+    },
+    {
+     "name": "COPYRIGHT NOTICE",
+     "pain": "基因型數據缺乏單倍體相位定型處理",
+     "stars": 2882,
+     "repo": "FreedomIntelligence/OpenClaw-Medical-Skills"
+    },
+    {
+     "name": "COPYRIGHT NOTICE",
+     "pain": "PacBio Iso-Seq 全長轉錄組定序數據分析複雜",
+     "stars": 31,
+     "repo": "mdbabumiamssm/LLMs-Universal-Life-Science-and-Clinical-Skills-"
+    },
+    {
+     "name": "COPYRIGHT NOTICE",
+     "pain": "手動從臨床病歷文字中擷取醫療實體效率低下",
+     "stars": 19,
+     "repo": "vitaclaw/vitaclaw"
+    },
+    {
+     "name": "bio-machine-learning-biomarker-discovery",
+     "pain": "高維度體學資料的生物標記特徵篩選繁瑣",
+     "stars": 11,
+     "repo": "FridrichMethod/awesome-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 14,
+   "n": 9,
+   "top_terms": [
+    "destructive",
+    "rm",
+    "careful",
+    "drop table",
+    "rf",
+    "rm rf",
+    "drop",
+    "recursive",
+    "for destructive",
+    "careful safety",
+    "destructive command",
+    "safety mode"
+   ],
+   "domain_mix": {
+    "devops-infra": 9
+   },
+   "task_mix": {
+    "verify": 9
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "careful",
+     "pain": "執行命令時缺乏針對高風險破壞操作的防護",
+     "stars": 107,
+     "repo": "mr-daedalium/ostack-saas"
+    },
+    {
+     "name": "careful",
+     "pain": "執行終端指令時容易誤刪生產環境資料",
+     "stars": 8,
+     "repo": "MFS-code/gstack"
+    },
+    {
+     "name": "careful",
+     "pain": "誤執行破壞性指令導致生產環境災難",
+     "stars": 1,
+     "repo": "archerny/gstack-codebuddy"
+    },
+    {
+     "name": "careful",
+     "pain": "誤執行破壞性指令導致生產環境災難",
+     "stars": 0,
+     "repo": "gebl/anvil-skill-marketplace"
+    },
+    {
+     "name": "careful",
+     "pain": "正式環境下易誤執行破壞性 CLI 指令",
+     "stars": 0,
+     "repo": "soyasis/gstack-private"
+    }
+   ]
+  },
+  {
+   "cluster": 28,
+   "n": 6,
+   "top_terms": [
+    "react 19",
+    "router react",
+    "19",
+    "typing",
+    "react",
+    "router",
+    "react typescript",
+    "ref as",
+    "integration tanstack",
+    "generic components",
+    "when_to_use",
+    "server components"
+   ],
+   "domain_mix": {
+    "software-dev": 6
+   },
+   "task_mix": {
+    "generate": 6
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "react-dev",
+     "pain": "React 19 與 TypeScript 型別定義複雜",
+     "stars": 9,
+     "repo": "stephanj/claude-code-collections"
+    },
+    {
+     "name": "react-dev",
+     "pain": "撰寫 React TypeScript 組件時缺少嚴謹型別模式",
+     "stars": 2,
+     "repo": "kscius/KS-Cursor-Orchestrator"
+    },
+    {
+     "name": "react-dev",
+     "pain": "撰寫 React 19 與 TypeScript 元件時缺乏型態安全規範",
+     "stars": 2,
+     "repo": "chidekina/aria-superpowers"
+    },
+    {
+     "name": "react-dev",
+     "pain": "撰寫 React 19 與 TypeScript 元件時缺乏型態安全規範",
+     "stars": 1,
+     "repo": "ma1orek/replay"
+    },
+    {
+     "name": "react-dev",
+     "pain": "撰寫 React 19 與 TypeScript 元件時缺乏型態安全規範",
+     "stars": 0,
+     "repo": "SmallRob/nice_today_android"
+    }
+   ]
+  },
+  {
+   "cluster": 58,
+   "n": 6,
+   "top_terms": [
+    "land and",
+    "and deploy",
+    "land",
+    "deploy",
+    "merge",
+    "gitlab",
+    "merge that",
+    "deploy merge",
+    "the merge",
+    "ship",
+    "to production",
+    "the pr"
+   ],
+   "domain_mix": {
+    "devops-infra": 6
+   },
+   "task_mix": {
+    "orchestrate": 6
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "land-and-deploy",
+     "pain": "自動化處理合併PR、部署與產線金絲雀驗證",
+     "stars": 0,
+     "repo": "fghaffar/faystack"
+    },
+    {
+     "name": "land-and-deploy",
+     "pain": "合併 PR 後需手動監控部署與金絲雀驗證",
+     "stars": 0,
+     "repo": "Bradliebs/VolumeTurtle"
+    },
+    {
+     "name": "land-and-deploy",
+     "pain": "合併 PR 後需手動監控部署與金絲雀驗證",
+     "stars": 0,
+     "repo": "zzxtbeta/design-handbook"
+    },
+    {
+     "name": "land-and-deploy",
+     "pain": "手動合併PR與部署上線容易漏看通關檢查",
+     "stars": 0,
+     "repo": "npc-chris/dfn-discovery"
+    },
+    {
+     "name": "land-and-deploy",
+     "pain": "手動合併PR與部署上線容易漏看通關檢查",
+     "stars": 0,
+     "repo": "SeaLion-hub/DICEE"
+    }
+   ]
+  },
+  {
+   "cluster": 2,
+   "n": 5,
+   "top_terms": [
+    "kotlin",
+    "operator",
+    "maven",
+    "operator when",
+    "safe call",
+    "call operator",
+    "the safe",
+    "in kotlin",
+    "can lead",
+    "as it",
+    "lead to",
+    "when possible"
+   ],
+   "domain_mix": {
+    "software-dev": 5
+   },
+   "task_mix": {
+    "verify": 5
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "kotlin patterns",
+     "pain": "Kotlin 空值處理不當易引發崩潰",
+     "stars": 12,
+     "repo": "jesperancinha/whiskers-kotlin-native"
+    },
+    {
+     "name": "kotlin patterns",
+     "pain": "Kotlin 程式碼中濫用空值操作符導致未預期崩潰",
+     "stars": 8,
+     "repo": "jesperancinha/video-series-app"
+    },
+    {
+     "name": "kotlin patterns",
+     "pain": "Kotlin 程式碼中濫用空值操作符導致未預期崩潰",
+     "stars": 7,
+     "repo": "jesperancinha/concert-demos-root"
+    },
+    {
+     "name": "kotlin patterns",
+     "pain": "Kotlin 程式碼中濫用空值操作符導致未預期崩潰",
+     "stars": 2,
+     "repo": "jesperancinha/spring-test-drives"
+    },
+    {
+     "name": "kotlin patterns",
+     "pain": "Kotlin 程式碼中濫用空值操作符導致未預期崩潰",
+     "stars": 1,
+     "repo": "jesperancinha/project-signer"
+    }
+   ]
+  },
+  {
+   "cluster": 11,
+   "n": 5,
+   "top_terms": [
+    "core web",
+    "web vitals",
+    "vitals",
+    "optimize website",
+    "web performance",
+    "website and",
+    "loading speed",
+    "application performance",
+    "runtime performance",
+    "bundle size",
+    "when optimizing",
+    "and web"
+   ],
+   "domain_mix": {
+    "software-dev": 5
+   },
+   "task_mix": {
+    "analyze": 5
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "web-performance-optimization",
+     "pain": "網頁載入過慢且缺乏效能優化策略",
+     "stars": 68,
+     "repo": "benjaminasterA/antigravity-awesome-skills"
+    },
+    {
+     "name": "web-performance-optimization",
+     "pain": "分析並修復網頁載入過慢與Core Web Vitals",
+     "stars": 7,
+     "repo": "ngxtm/devkit"
+    },
+    {
+     "name": "web-performance-optimization",
+     "pain": "分析並修復網頁載入過慢與Core Web Vitals",
+     "stars": 2,
+     "repo": "nicolas2601/router-skills"
+    },
+    {
+     "name": "web-performance-optimization",
+     "pain": "分析並修復網頁載入過慢與Core Web Vitals",
+     "stars": 1,
+     "repo": "Endsi3g/The-Uprising--Trading-Floor-"
+    },
+    {
+     "name": "web-performance-optimization",
+     "pain": null,
+     "stars": 0,
+     "repo": "Endsi3g/uprising-coldoutreach"
+    }
+   ]
+  },
+  {
+   "cluster": 22,
+   "n": 5,
+   "top_terms": [
+    "python code",
+    "profiling",
+    "python performance",
+    "optimizing",
+    "performance",
+    "bottlenecks",
+    "reducing",
+    "performance optimization",
+    "cpu",
+    "memory",
+    "python",
+    "optimization"
+   ],
+   "domain_mix": {
+    "software-dev": 5
+   },
+   "task_mix": {
+    "analyze": 5
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "python-performance-optimization",
+     "pain": "Python程式碼執行緩慢且記憶體洩漏難查",
+     "stars": 14,
+     "repo": "RudyCity/superagent"
+    },
+    {
+     "name": "python-performance-optimization",
+     "pain": "Python 效能瓶頸與記憶體洩漏難定位優化",
+     "stars": 1,
+     "repo": "jedrzej-grabski/declivity"
+    },
+    {
+     "name": "python-performance-optimization",
+     "pain": "Python 效能瓶頸與記憶體洩漏難定位優化",
+     "stars": 1,
+     "repo": "halimamrin312/VYC-Vibes-Your-Code"
+    },
+    {
+     "name": "python-performance-optimization",
+     "pain": "Python 效能瓶頸與記憶體洩漏難定位優化",
+     "stars": 0,
+     "repo": "JavaStudentAlex/european-defense-tech-hackathon-berlin"
+    },
+    {
+     "name": "python-performance-optimization",
+     "pain": "Python 效能瓶頸與記憶體洩漏難定位優化",
+     "stars": 0,
+     "repo": "thanhnndev/citd-hk1-project"
+    }
+   ]
+  },
+  {
+   "cluster": 93,
+   "n": 5,
+   "top_terms": [
+    "capsule",
+    "palette",
+    "modular",
+    "deck",
+    "demo",
+    "medium",
+    "manager",
+    "zhangzara capsule",
+    "capsule year",
+    "modular pill",
+    "manager review",
+    "tech demo"
+   ],
+   "domain_mix": {
+    "ops-admin": 4,
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "generate": 5
+   },
+   "dispersion": 0.2,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "html-ppt-zhangzara-capsule",
+     "pain": "年終考績自評簡報結構梳理與美化耗時",
+     "stars": 81580,
+     "repo": "nexu-io/open-design"
+    },
+    {
+     "name": "html-ppt-zhangzara-capsule",
+     "pain": "年終績效自評簡報缺乏結構與視覺設計",
+     "stars": 0,
+     "repo": "mrglennc64/carter-studio"
+    },
+    {
+     "name": "html-ppt-zhangzara-capsule",
+     "pain": "年終績效自評簡報缺乏結構與視覺設計",
+     "stars": 0,
+     "repo": "exc33ded/open-design-revamped"
+    },
+    {
+     "name": "html-ppt-zhangzara-capsule",
+     "pain": "年終績效自評簡報缺乏結構與視覺設計",
+     "stars": 0,
+     "repo": "mrglennc64/my-agent"
+    },
+    {
+     "name": "html-ppt-zhangzara-capsule",
+     "pain": "年終績效自評簡報缺乏結構與視覺設計",
+     "stars": 0,
+     "repo": "mrglennc64/new-ac"
+    }
+   ]
+  },
+  {
+   "cluster": 103,
+   "n": 5,
+   "top_terms": [
+    "replace with",
+    "replace",
+    "replace topic",
+    "references replace",
+    "topic md",
+    "tile",
+    "most common",
+    "with one",
+    "topic",
+    "inline",
+    "it to",
+    "what this"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 5
+   },
+   "task_mix": {
+    "configure": 5
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "REPLACE-with-folder-name-lowercase-hyphenated",
+     "pain": "缺乏建立新 Agent Skill 的範本結構",
+     "stars": 39,
+     "repo": "SPANDigital/cel2sql"
+    },
+    {
+     "name": "REPLACE-with-folder-name-lowercase-hyphenated",
+     "pain": "缺乏標準化的 Skill 樣板導致建立流程混亂",
+     "stars": 32,
+     "repo": "richardwooding/feed-mcp"
+    },
+    {
+     "name": "REPLACE-with-folder-name-lowercase-hyphenated",
+     "pain": "缺乏標準化的 Skill 樣板導致建立流程混亂",
+     "stars": 5,
+     "repo": "richardwooding/file-search-on"
+    },
+    {
+     "name": "REPLACE-with-folder-name-lowercase-hyphenated",
+     "pain": "缺乏標準化的 Skill 樣板導致建立流程混亂",
+     "stars": 0,
+     "repo": "SPANDigital/pycel2sql"
+    },
+    {
+     "name": "REPLACE-with-folder-name-lowercase-hyphenated",
+     "pain": "缺乏標準化的 Skill 樣板導致建立流程混亂",
+     "stars": 0,
+     "repo": "SPANDigital/cel2sql4j"
+    }
+   ]
+  },
+  {
+   "cluster": 106,
+   "n": 5,
+   "top_terms": [
+    "freeze",
+    "unfreeze",
+    "state_dir",
+    "gstack",
+    "by freeze",
+    "allowing edits",
+    "freeze dir",
+    "dir txt",
+    "all directories",
+    "freeze allowing",
+    "clear the",
+    "unfreeze clear"
+   ],
+   "domain_mix": {
+    "software-dev": 4,
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "configure": 5
+   },
+   "dispersion": 0.2,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "unfreeze",
+     "pain": "解除專案目錄修改限制需重新開啟會話",
+     "stars": 1,
+     "repo": "w0wl0lxd/mestack"
+    },
+    {
+     "name": "unfreeze",
+     "pain": "被編輯限制鎖住時無法編輯其他目錄",
+     "stars": 0,
+     "repo": "stayconnectquick/gstack"
+    },
+    {
+     "name": "unfreeze",
+     "pain": "解除專案目錄修改限制需重新開啟會話",
+     "stars": 0,
+     "repo": "wodeh/gstack-kimi"
+    },
+    {
+     "name": "unfreeze",
+     "pain": "解除專案目錄修改限制需重新開啟會話",
+     "stars": 0,
+     "repo": "burgebj/gstack"
+    },
+    {
+     "name": "unfreeze",
+     "pain": "解除專案目錄修改限制需重新開啟會話",
+     "stars": 0,
+     "repo": "billydeeii136/black-opps-gstack"
+    }
+   ]
+  },
+  {
+   "cluster": 12,
+   "n": 4,
+   "top_terms": [
+    "root cause",
+    "cause",
+    "cause investigation",
+    "stack traces",
+    "investigate",
+    "investigation",
+    "root",
+    "fixes without",
+    "without root",
+    "no fixes",
+    "systematic debugging",
+    "symptoms"
+   ],
+   "domain_mix": {
+    "software-dev": 4
+   },
+   "task_mix": {
+    "analyze": 4
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "investigate",
+     "pain": "除錯時僅修復表面症狀未找出根本原因",
+     "stars": 0,
+     "repo": "lahomsystem/FOMS"
+    },
+    {
+     "name": "investigate",
+     "pain": "Debug時盲目修改表面症狀導致問題越改越多",
+     "stars": 0,
+     "repo": "abhishekmmgn/didactic-invention"
+    },
+    {
+     "name": "investigate",
+     "pain": "Debug時盲目修改表面症狀導致問題越改越多",
+     "stars": 0,
+     "repo": "SakshamKandel/Salt-Route-Consulting-"
+    },
+    {
+     "name": "investigate",
+     "pain": "除錯缺乏根因分析導致越修引發越多 Bug",
+     "stars": 0,
+     "repo": "FelipeScarel/dk-electric-help"
+    }
+   ]
+  },
+  {
+   "cluster": 15,
+   "n": 3,
+   "top_terms": [
+    "model skill",
+    "list readme",
+    "39",
+    "md documentation",
+    "uri",
+    "readme",
+    "readme md",
+    "back to",
+    "documentation for",
+    "back",
+    "string",
+    "to readme"
+   ],
+   "domain_mix": {
+    "software-dev": 3
+   },
+   "task_mix": {
+    "configure": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "artifacts_mmo_openapi.model.Skill",
+     "pain": "Dart 專案中缺乏 Artifacts MMO 技能資料結構",
+     "stars": 2,
+     "repo": "regenvanwalbeek/artifacts_mmo_openapi"
+    },
+    {
+     "name": "VimeoOpenApi.Model.Skill",
+     "pain": "整合 Vimeo API 時缺乏 C# 技能模型定義",
+     "stars": 2,
+     "repo": "7474/VimeoOpenApi"
+    },
+    {
+     "name": "Skill",
+     "pain": "遊戲 API 技能列舉型態缺乏規格文件定義",
+     "stars": 0,
+     "repo": "mgalliou/artifactsmmo-openapi"
+    }
+   ]
+  },
+  {
+   "cluster": 54,
+   "n": 3,
+   "top_terms": [
+    "has moved",
+    "https ethskills",
+    "ethskills com",
+    "ethskills",
+    "moved to",
+    "moved",
+    "skill has",
+    "md fetch",
+    "correct url",
+    "skill md",
+    "deprecated this",
+    "md https"
+   ],
+   "domain_mix": {
+    "software-dev": 3
+   },
+   "task_mix": {
+    "retrieve": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "l2",
+     "pain": "舊版 Ethereum L2 Skill 已搬遷至新網址",
+     "stars": 241,
+     "repo": "austintgriffith/ethskills"
+    },
+    {
+     "name": "defi",
+     "pain": "舊版 DeFi Skill 已搬遷至新網址",
+     "stars": 241,
+     "repo": "austintgriffith/ethskills"
+    },
+    {
+     "name": "layer2",
+     "pain": "舊版 Layer2 Skill 已搬遷至新網址",
+     "stars": 241,
+     "repo": "austintgriffith/ethskills"
+    }
+   ]
+  },
+  {
+   "cluster": 67,
+   "n": 3,
+   "top_terms": [
+    "df",
+    "df columns",
+    "plt",
+    "original_columns",
+    "df shape",
+    "shape print",
+    "columns",
+    "plt rcparams",
+    "rcparams",
+    "pd",
+    "file_path",
+    "import"
+   ],
+   "domain_mix": {
+    "data-analytics": 3
+   },
+   "task_mix": {
+    "analyze": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "statistical-distribution-and-outlier-analysis",
+     "pain": "文本中數值提取與極端值統計圖表生成慢",
+     "stars": 4812,
+     "repo": "OpenSenseNova/SenseNova-Skills"
+    },
+    {
+     "name": "statistical-distribution-and-outlier-analysis",
+     "pain": "數值數據異常值檢測與圖表報告生成繁瑣",
+     "stars": 111,
+     "repo": "MichaelYang-lyx/AIDABench"
+    },
+    {
+     "name": "statistical-distribution-and-outlier-analysis",
+     "pain": "數值數據異常值檢測與圖表報告生成繁瑣",
+     "stars": 1,
+     "repo": "aiyinluya/SenseNova-Skills-Studio"
+    }
+   ]
+  },
+  {
+   "cluster": 68,
+   "n": 3,
+   "top_terms": [
+    "firebase",
+    "firestore",
+    "team that",
+    "the team",
+    "realtime database",
+    "firebase is",
+    "you ve",
+    "security rules",
+    "got",
+    "ve",
+    "realtime",
+    "hosting"
+   ],
+   "domain_mix": {
+    "software-dev": 3
+   },
+   "task_mix": {
+    "configure": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "firebase",
+     "pain": "Firebase 安全規則與查詢設計不當導致高費用",
+     "stars": 29909,
+     "repo": "davila7/claude-code-templates"
+    },
+    {
+     "name": "firebase",
+     "pain": "Firebase 安全規則與查詢設計複雜易出錯",
+     "stars": 0,
+     "repo": "transaurus/staging-davila7-claude-code-templates"
+    },
+    {
+     "name": "firebase",
+     "pain": "Firebase 安全規則與查詢設計複雜易出錯",
+     "stars": 0,
+     "repo": "mrarcitech/ClaudeCodeRepo"
+    }
+   ]
+  },
+  {
+   "cluster": 81,
+   "n": 3,
+   "top_terms": [
+    "overnight",
+    "briefing",
+    "morning",
+    "activity",
+    "daily",
+    "alerts into",
+    "into daily",
+    "digests and",
+    "daily morning",
+    "synthesize overnight",
+    "daily actionable",
+    "single summary"
+   ],
+   "domain_mix": {
+    "personal-productivity": 3
+   },
+   "task_mix": {
+    "retrieve": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "morning-brief",
+     "pain": "難以快速掌握隔夜所有 Agent 運行與警報摘要",
+     "stars": 809,
+     "repo": "paperclipai/companies"
+    },
+    {
+     "name": "morning-brief",
+     "pain": "難以快速掌握夜間多個 Agent 運作與告警摘要",
+     "stars": 1,
+     "repo": "TechTrader86/companies-ZunoBot"
+    },
+    {
+     "name": "morning-brief",
+     "pain": "難以快速掌握夜間多個 Agent 運作與告警摘要",
+     "stars": 0,
+     "repo": "Sri-Krishna-V/companies"
+    }
+   ]
+  },
+  {
+   "cluster": 85,
+   "n": 3,
+   "top_terms": [
+    "pdfplumber",
+    "用户要求",
+    "pdf",
+    "文档处理技能",
+    "document pro",
+    "pro 文档处理技能",
+    "内置",
+    "docx",
+    "提取",
+    "pptx",
+    "pro",
+    "document"
+   ],
+   "domain_mix": {
+    "personal-productivity": 3
+   },
+   "task_mix": {
+    "retrieve": 3
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "document-pro",
+     "pain": "多種格式文件資訊提取與摘要耗時耗力",
+     "stars": 31,
+     "repo": "bighardperson/computer-science-skills-collection"
+    },
+    {
+     "name": "document-pro",
+     "pain": "從各式跨格式文檔中自動解析與提取關鍵資訊",
+     "stars": 13,
+     "repo": "shuanbao0/agent-factory"
+    },
+    {
+     "name": "document-pro",
+     "pain": "從各式跨格式文檔中自動解析與提取關鍵資訊",
+     "stars": 0,
+     "repo": "lxp119/my_skills"
+    }
+   ]
+  },
+  {
+   "cluster": 95,
+   "n": 3,
+   "top_terms": [
+    "guideline",
+    "btca",
+    "btca local",
+    "guideline guideline",
+    "guideline if",
+    "saas",
+    "svelte",
+    "repos",
+    "include",
+    "links",
+    "better",
+    "repo always"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 2,
+    "software-dev": 1
+   },
+   "task_mix": {
+    "retrieve": 3
+   },
+   "dispersion": 0.33,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "btca-local",
+     "pain": "難以在本地檢索已複製的眾多 Git 專案內容",
+     "stars": 2900,
+     "repo": "stickerdaniel/linkedin-mcp-server"
+    },
+    {
+     "name": "btca-local",
+     "pain": "本地多個 Git 儲存庫難以快速檢索程式碼",
+     "stars": 46,
+     "repo": "stickerdaniel/saas-starter"
+    },
+    {
+     "name": "btca-local",
+     "pain": "本地多個 Git 儲存庫難以快速檢索程式碼",
+     "stars": 0,
+     "repo": "tr4m0ryp/linkedin-mcp-server"
+    }
+   ]
+  },
+  {
+   "cluster": 117,
+   "n": 3,
+   "top_terms": [
+    "ce",
+    "analyzer",
+    "gap",
+    "skills ce",
+    "canonical shared",
+    "compatibility shim",
+    "analyzer skill",
+    "canonical",
+    "shim",
+    "shared skill",
+    "skill definition",
+    "standards"
+   ],
+   "domain_mix": {
+    "software-dev": 2,
+    "legal-compliance": 1
+   },
+   "task_mix": {
+    "verify": 2,
+    "analyze": 1
+   },
+   "dispersion": 0.33,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "ce-adr-gap-analyzer",
+     "pain": "跨平台工具難以定位 ADR 缺口分析技能",
+     "stars": 78,
+     "repo": "Moffran/calibrated_explanations"
+    },
+    {
+     "name": "ce-regulatory-compliance",
+     "pain": "跨平台無法自動找到法規合規檢查技能",
+     "stars": 78,
+     "repo": "Moffran/calibrated_explanations"
+    },
+    {
+     "name": "ce-standards-gap-analyzer",
+     "pain": "跨平台無法定位技術標準差距分析技能",
+     "stars": 78,
+     "repo": "Moffran/calibrated_explanations"
+    }
+   ]
+  },
+  {
+   "cluster": 8,
+   "n": 2,
+   "top_terms": [
+    "summary skill",
+    "and concisely",
+    "for beginner",
+    "clearly and",
+    "skill summary",
+    "research",
+    "key findings",
+    "concisely",
+    "summary",
+    "researchers",
+    "beginner",
+    "research paper"
+   ],
+   "domain_mix": {
+    "research-academia": 2
+   },
+   "task_mix": {
+    "analyze": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Summary Skill",
+     "pain": "閱讀學術論文時難以快速提煉核心要點",
+     "stars": 1,
+     "repo": "rinviriti/ResearchMate-AI"
+    },
+    {
+     "name": "Summary Skill",
+     "pain": "閱讀學術論文耗時且初學者難以快速掌握重點",
+     "stars": 0,
+     "repo": "darkdevil3610/PaperMind"
+    }
+   ]
+  },
+  {
+   "cluster": 27,
+   "n": 2,
+   "top_terms": [
+    "triage",
+    "during triage",
+    "outline driven",
+    "odin",
+    "ai disclaimer",
+    "disclaimer",
+    "label",
+    "every comment",
+    "posted",
+    "state machine",
+    "gemini",
+    "enhancement"
+   ],
+   "domain_mix": {
+    "software-dev": 2
+   },
+   "task_mix": {
+    "orchestrate": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "github-triage",
+     "pain": "GitHub Issue 分類與狀態切換消耗維護人力",
+     "stars": 14,
+     "repo": "OutlineDriven/odin-codex-plugin"
+    },
+    {
+     "name": "github-triage",
+     "pain": "大量 GitHub Issue 需人工整理與分類標籤",
+     "stars": 5,
+     "repo": "OutlineDriven/odin-gemini-cli-extension"
+    }
+   ]
+  },
+  {
+   "cluster": 76,
+   "n": 2,
+   "top_terms": [
+    "instrumentation",
+    "chromium",
+    "self healing",
+    "healing",
+    "latency",
+    "macros",
+    "optimizations",
+    "black",
+    "or refactoring",
+    "thread",
+    "strictly",
+    "files to"
+   ],
+   "domain_mix": {
+    "software-dev": 2
+   },
+   "task_mix": {
+    "configure": 1,
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "latency-instrumentation",
+     "pain": "追查 Chromium 主線程延遲需手動埋點編譯",
+     "stars": 24331,
+     "repo": "chromium/chromium"
+    },
+    {
+     "name": "latency-instrumentation",
+     "pain": "Chromium C++ 延遲黑盒難以插入追蹤標記",
+     "stars": 161,
+     "repo": "nwjs/chromium.src"
+    }
+   ]
+  },
+  {
+   "cluster": 77,
+   "n": 2,
+   "top_terms": [
+    "functionality",
+    "feature work",
+    "after completing",
+    "changelog",
+    "perspective",
+    "completing",
+    "docs",
+    "update",
+    "feature",
+    "changes under",
+    "docs tech",
+    "tech docs"
+   ],
+   "domain_mix": {
+    "software-dev": 2
+   },
+   "task_mix": {
+    "generate": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "update-docs",
+     "pain": "功能開發完成後手動更新各項文件繁瑣且易漏。",
+     "stars": 0,
+     "repo": "davehague/adulting.diy"
+    },
+    {
+     "name": "update-docs",
+     "pain": "功能開發完後經常忘記或延遲更新專案文件",
+     "stars": 0,
+     "repo": "fullstackcurrent/adulting.diy"
+    }
+   ]
+  },
+  {
+   "cluster": 84,
+   "n": 2,
+   "top_terms": [
+    "launch",
+    "multi channel",
+    "product hunt",
+    "multi platform",
+    "waitlist",
+    "plan product",
+    "hunt launch",
+    "launch product",
+    "hunt",
+    "hacker news",
+    "product launch",
+    "hacker"
+   ],
+   "domain_mix": {
+    "marketing-growth": 2
+   },
+   "task_mix": {
+    "orchestrate": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "multi-platform-launch",
+     "pain": "產品跨平台發布策略與時程規劃複雜分散",
+     "stars": 4944,
+     "repo": "tech-leads-club/agent-skills"
+    },
+    {
+     "name": "multi-platform-launch",
+     "pain": "產品跨平台發布流程複雜且難以協調曝光排程",
+     "stars": 0,
+     "repo": "rodrigotoledo/trading-exchange"
+    }
+   ]
+  },
+  {
+   "cluster": 100,
+   "n": 2,
+   "top_terms": [
+    "skills security",
+    "ux",
+    "security",
+    "the canonical",
+    "canonical",
+    "frustrating",
+    "that protect",
+    "design security",
+    "recovery or",
+    "conscious",
+    "skill md",
+    "mfa"
+   ],
+   "domain_mix": {
+    "security": 2
+   },
+   "task_mix": {
+    "generate": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "security-ux",
+     "pain": "安控介面設計繁瑣導致使用者體驗差且易挫折",
+     "stars": 20,
+     "repo": "aladicf/better-web-ui"
+    },
+    {
+     "name": "security-ux",
+     "pain": "資安功能介面過於繁瑣影響使用者體驗",
+     "stars": 0,
+     "repo": "aladicf/better-react-web-ui"
+    }
+   ]
+  },
+  {
+   "cluster": 102,
+   "n": 2,
+   "top_terms": [
+    "owner",
+    "judgment",
+    "boss",
+    "先看",
+    "示例",
+    "24",
+    "impact",
+    "ready",
+    "example",
+    "for and",
+    "for api",
+    "for anything"
+   ],
+   "domain_mix": {
+    "ops-admin": 2
+   },
+   "task_mix": {
+    "analyze": 2
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "example-laozhou-judgment",
+     "pain": "專案評審缺乏客觀標準與風險評估依據",
+     "stars": 31,
+     "repo": "bighardperson/computer-science-skills-collection"
+    },
+    {
+     "name": "example-laozhou-judgment",
+     "pain": "專案評審缺乏標準且溝通成本過高",
+     "stars": 1,
+     "repo": "YYC-Cube/YYC3-AI-Agent-Archive"
+    }
+   ]
+  },
+  {
+   "cluster": 0,
+   "n": 1,
+   "top_terms": [
+    "segment",
+    "ctx",
+    "csv",
+    "working on",
+    "session",
+    "900",
+    "excerpt",
+    "context bash",
+    "intention",
+    "sync",
+    "est",
+    "action files"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "trifecta_dope",
+     "pain": "開發過程中的操作意圖與上下文未持續記錄",
+     "stars": 0,
+     "repo": "fegome90-cmd/trifecta_dope"
+    }
+   ]
+  },
+  {
+   "cluster": 1,
+   "n": 1,
+   "top_terms": [
+    "必需",
+    "rag",
+    "agentic",
+    "chroma",
+    "可选 scripts",
+    "tool tools",
+    "pipeline skill",
+    "md 必需",
+    "默认假设",
+    "python bash",
+    "skills tool",
+    "业务逻辑"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "skill-creator",
+     "pain": "設計與打包 AI Agent 技能缺乏標準結構",
+     "stars": 65,
+     "repo": "xt765/FinchBot"
+    }
+   ]
+  },
+  {
+   "cluster": 13,
+   "n": 1,
+   "top_terms": [
+    "waterfall",
+    "exit",
+    "price",
+    "cap",
+    "preferences",
+    "table",
+    "shown",
+    "founders",
+    "stakeholder",
+    "at each",
+    "conversion",
+    "prices"
+   ],
+   "domain_mix": {
+    "finance-investing": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "exit-waterfall",
+     "pain": "公司清算優先權與股權清算瀑布計算複雜",
+     "stars": 1220,
+     "repo": "mohitagw15856/pm-claude-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 16,
+   "n": 1,
+   "top_terms": [
+    "networks",
+    "md config",
+    "agents md",
+    "implementations",
+    "config",
+    "uv",
+    "readme md",
+    "claude md",
+    "readme",
+    "keep changes",
+    "the linked",
+    "editing files"
+   ],
+   "domain_mix": {
+    "research-academia": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "metainformant-config-networks",
+     "pain": "特定資料夾規範複雜，Agent 容易忽略專案規則",
+     "stars": 7,
+     "repo": "docxology/MetaInformAnt"
+    }
+   ]
+  },
+  {
+   "cluster": 17,
+   "n": 1,
+   "top_terms": [
+    "privacy and",
+    "pipelines and",
+    "data pipelines",
+    "economics",
+    "reproducible",
+    "science",
+    "privacy",
+    "pipelines",
+    "research",
+    "ai tools",
+    "domain knowledge",
+    "tools into"
+   ],
+   "domain_mix": {
+    "research-academia": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "ai-augmented-economist",
+     "pain": "經濟研究缺乏安全合規的 AI 整合流程",
+     "stars": 3081,
+     "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
+    }
+   ]
+  },
+  {
+   "cluster": 24,
+   "n": 1,
+   "top_terms": [
+    "spawning",
+    "judge",
+    "status",
+    "last",
+    "run state",
+    "status read",
+    "advancing",
+    "status update",
+    "state without",
+    "produce",
+    "not produce",
+    "status report"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "retrieve": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "thales-status",
+     "pain": "執行中途難以快速掌握多 Agent 運行狀態",
+     "stars": 2,
+     "repo": "FedorShind/thales"
+    }
+   ]
+  },
+  {
+   "cluster": 26,
+   "n": 1,
+   "top_terms": [
+    "hyperframes",
+    "capture",
+    "website",
+    "video",
+    "from it",
+    "turn this",
+    "second",
+    "ad",
+    "product",
+    "site",
+    "video make",
+    "https and"
+   ],
+   "domain_mix": {
+    "marketing-growth": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "website-to-hyperframes",
+     "pain": "手動錄製網站畫面並製作宣傳影片耗時",
+     "stars": 568,
+     "repo": "video-production-buddy/video-production-buddy"
+    }
+   ]
+  },
+  {
+   "cluster": 29,
+   "n": 1,
+   "top_terms": [
+    "tts",
+    "rules md",
+    "baseline",
+    "phases",
+    "interactive",
+    "and hard",
+    "skill lives",
+    "md complete",
+    "skeletons",
+    "ai tutor",
+    "baseline and",
+    "root file"
+   ],
+   "domain_mix": {
+    "education-training": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "TeachAny",
+     "pain": "K12 互動課件與 AI 學伴製作門檻高",
+     "stars": 258,
+     "repo": "weponusa/teachany"
+    }
+   ]
+  },
+  {
+   "cluster": 31,
+   "n": 1,
+   "top_terms": [
+    "plan review",
+    "review pipeline",
+    "the plan",
+    "post implementation",
+    "autoplan",
+    "surfacing",
+    "reviewed plan",
+    "plan",
+    "begins",
+    "gate before",
+    "critic",
+    "before coding"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "autoplan",
+     "pain": "寫程式前未經審查即執行容易產生缺陷",
+     "stars": 0,
+     "repo": "TimothyNguyen/tstack"
+    }
+   ]
+  },
+  {
+   "cluster": 33,
+   "n": 1,
+   "top_terms": [
+    "multilingual",
+    "transcription",
+    "speech recognition",
+    "speech",
+    "whisper",
+    "speech to",
+    "to text",
+    "recognition",
+    "to english",
+    "audio processing",
+    "99",
+    "languages"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "whisper",
+     "pain": "多語言語音轉文字及翻譯處理複雜",
+     "stars": 2,
+     "repo": "heysuhas/hermes_cli"
+    }
+   ]
+  },
+  {
+   "cluster": 34,
+   "n": 1,
+   "top_terms": [
+    "checks across",
+    "quality checks",
+    "impeccable",
+    "anti patterns",
+    "technical",
+    "accessibility",
+    "anti",
+    "checks",
+    "audit",
+    "address this",
+    "accessibility performance",
+    "not design"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "audit",
+     "pain": "無法全面且系統化審查前端無障礙與效能問題",
+     "stars": 0,
+     "repo": "wang030327-bot/website"
+    }
+   ]
+  },
+  {
+   "cluster": 37,
+   "n": 1,
+   "top_terms": [
+    "minimalist",
+    "logo",
+    "exploration",
+    "board",
+    "white",
+    "black",
+    "24",
+    "theme",
+    "generator",
+    "metadata yaml",
+    "version description",
+    "board with"
+   ],
+   "domain_mix": {
+    "design-creative": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Skill: Minimalist B&W Logo Exploration Board Generator",
+     "pain": "為品牌快速發想多元的極簡黑白 Logo 概念",
+     "stars": 19,
+     "repo": "fucha1122/minimalist-bw-logo-skill"
+    }
+   ]
+  },
+  {
+   "cluster": 38,
+   "n": 1,
+   "top_terms": [
+    "nutrition",
+    "assistant skill",
+    "assistant",
+    "packages",
+    "strategy",
+    "engine",
+    "is registered",
+    "prompt guidance",
+    "passes or",
+    "is documented",
+    "open draft",
+    "draft pr"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Nutrition Strategy Skill",
+     "pain": "將營養策略 Skill 整合至 AI 專案過程繁瑣。",
+     "stars": 10,
+     "repo": "cobuildwithus/murph"
+    }
+   ]
+  },
+  {
+   "cluster": 40,
+   "n": 1,
+   "top_terms": [
+    "tutor",
+    "students",
+    "science",
+    "inquiry",
+    "education",
+    "learning",
+    "12",
+    "skill tree",
+    "rule never",
+    "applications to",
+    "level with",
+    "teacher"
+   ],
+   "domain_mix": {
+    "education-training": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "K-12 Science Tutor",
+     "pain": "缺乏跨國課程規範的中中學科學啟發式家教",
+     "stars": 593,
+     "repo": "24kchengYe/human-skill-tree"
+    }
+   ]
+  },
+  {
+   "cluster": 41,
+   "n": 1,
+   "top_terms": [
+    "debian",
+    "triage",
+    "linux",
+    "and resolve",
+    "apt",
+    "input",
+    "resolve",
+    "systemd",
+    "with copy",
+    "commands after",
+    "assumptions ask",
+    "instructions confirm"
+   ],
+   "domain_mix": {
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "debian-linux-triage",
+     "pain": "Debian 系統出現故障時排查與診斷步驟繁雜",
+     "stars": 0,
+     "repo": "om-scogo/skillsh-scraper"
+    }
+   ]
+  },
+  {
+   "cluster": 42,
+   "n": 1,
+   "top_terms": [
+    "active directory",
+    "to escalate",
+    "passwords",
+    "bugbounty",
+    "escalate",
+    "cybersecurity",
+    "attack",
+    "active",
+    "service",
+    "directory",
+    "accounts",
+    "you want"
+   ],
+   "domain_mix": {
+    "security": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "kerberoasting-active-directory",
+     "pain": "AD 域控提權攻擊手動執行耗時且易出錯",
+     "stars": 18,
+     "repo": "ShulkwiSEC/bb-huge"
+    }
+   ]
+  },
+  {
+   "cluster": 43,
+   "n": 1,
+   "top_terms": [
+    "provides an",
+    "or provides",
+    "coder",
+    "agent tool",
+    "recipe",
+    "round",
+    "analyst",
+    "env",
+    "yaml",
+    "subagents",
+    "resolve",
+    "pareto"
+   ],
+   "domain_mix": {
+    "research-academia": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "autoqec-run",
+     "pain": "量子糾錯研究實驗循環手動調度繁瑣",
+     "stars": 3,
+     "repo": "qualit527/qec-ai-decoder"
+    }
+   ]
+  },
+  {
+   "cluster": 44,
+   "n": 1,
+   "top_terms": [
+    "base sepolia",
+    "sepolia",
+    "payment",
+    "usdc",
+    "repay",
+    "service for",
+    "for base",
+    "the payment",
+    "bank",
+    "on base",
+    "for autonomous",
+    "ai native"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "rsoft-agentic-bank",
+     "pain": "自主 Agent 缺乏鏈上借貸與資金週轉機制",
+     "stars": 2,
+     "repo": "LJT-520/openClaw-backup"
+    }
+   ]
+  },
+  {
+   "cluster": 46,
+   "n": 1,
+   "top_terms": [
+    "vc",
+    "investment",
+    "source project",
+    "fund",
+    "open source",
+    "usd",
+    "evaluation",
+    "sheet",
+    "an open",
+    "company",
+    "fact",
+    "cycle"
+   ],
+   "domain_mix": {
+    "finance-investing": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "oss-investment-scorecard",
+     "pain": "評估開源 AI 公司缺乏 VC 打分框架",
+     "stars": 322,
+     "repo": "lucy-cxy/oss-investment-scorecard"
+    }
+   ]
+  },
+  {
+   "cluster": 47,
+   "n": 1,
+   "top_terms": [
+    "regression",
+    "modules",
+    "identify",
+    "after fixing",
+    "and prevents",
+    "steps identify",
+    "core functionality",
+    "pr commit",
+    "checklist",
+    "regression testing",
+    "note any",
+    "implementing feature"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Regression Checklist",
+     "pain": "程式修改後缺乏系統化迴歸測試導致副作用",
+     "stars": 2,
+     "repo": "Burburton/amazingteam"
+    }
+   ]
+  },
+  {
+   "cluster": 49,
+   "n": 1,
+   "top_terms": [
+    "docs agents",
+    "config",
+    "55",
+    "runtime behavior",
+    "runtime",
+    "dotfiles",
+    "locally",
+    "behavior",
+    "docs",
+    "runtime with",
+    "stow wsl",
+    "or post"
+   ],
+   "domain_mix": {
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "hypr-config",
+     "pain": "Hyprland視窗管理器設定檔修改易出錯",
+     "stars": 3,
+     "repo": "fbosch/dotfiles"
+    }
+   ]
+  },
+  {
+   "cluster": 51,
+   "n": 1,
+   "top_terms": [
+    "unapproved",
+    "monorepo",
+    "ci",
+    "allowlist",
+    "and compliance",
+    "security and",
+    "third party",
+    "security",
+    "permissions",
+    "compliance",
+    "party",
+    "actions"
+   ],
+   "domain_mix": {
+    "security": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "ci-security-compliance",
+     "pain": "Monorepo 的 GitHub Actions 缺乏資安合規",
+     "stars": 4218,
+     "repo": "camunda/camunda"
+    }
+   ]
+  },
+  {
+   "cluster": 53,
+   "n": 1,
+   "top_terms": [
+    "work skill",
+    "persona skill",
+    "persona",
+    "设计文档",
+    "特征",
+    "信息",
+    "ghost",
+    "区分",
+    "colleague",
+    "第二步",
+    "用户提到",
+    "核心原则"
+   ],
+   "domain_mix": {
+    "security": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "colleague-repellent",
+     "pain": "使用者企圖使用 AI 蒸餾同事資料建立數字分身",
+     "stars": 11,
+     "repo": "Trailblazer-Aha/vengeful-ghost-skill"
+    }
+   ]
+  },
+  {
+   "cluster": 57,
+   "n": 1,
+   "top_terms": [
+    "aso",
+    "app store",
+    "each phase",
+    "benefits",
+    "screenshots",
+    "store",
+    "app",
+    "converting",
+    "in order",
+    "screenshot",
+    "phase",
+    "memory"
+   ],
+   "domain_mix": {
+    "marketing-growth": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "aso-appstore-screenshots",
+     "pain": "手動製作符合 ASO 優化的應用程式截圖費時",
+     "stars": 1606,
+     "repo": "adamlyttleapps/claude-skill-aso-appstore-screenshots"
+    }
+   ]
+  },
+  {
+   "cluster": 61,
+   "n": 1,
+   "top_terms": [
+    "testimonials",
+    "harvest",
+    "collector",
+    "purchase",
+    "placement",
+    "08",
+    "quotes",
+    "gtm",
+    "milestone",
+    "v1",
+    "proof",
+    "prd"
+   ],
+   "domain_mix": {
+    "marketing-growth": 1
+   },
+   "task_mix": {
+    "retrieve": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "prd-v10-testimonial-collector",
+     "pain": "缺乏系統化收集與彙整客戶好評與推薦的流程",
+     "stars": 205,
+     "repo": "mattgierhart/PRD-driven-context-engineering"
+    }
+   ]
+  },
+  {
+   "cluster": 65,
+   "n": 1,
+   "top_terms": [
+    "pdf generation",
+    "pdf",
+    "fallback",
+    "reliable",
+    "pdfs",
+    "availability",
+    "generation",
+    "library",
+    "fails",
+    "documents when",
+    "unreliable",
+    "reliable workflow"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "pdf-gen-fallback",
+     "pain": "沙盒環境執行程式碼失敗導致 PDF 生成中斷",
+     "stars": 6947,
+     "repo": "HKUDS/OpenSpace"
+    }
+   ]
+  },
+  {
+   "cluster": 70,
+   "n": 1,
+   "top_terms": [
+    "api automation",
+    "enterprise api",
+    "enterprise",
+    "login",
+    "validation",
+    "automation",
+    "senior api",
+    "metadata name",
+    "and negative",
+    "enterprise grade",
+    "language python",
+    "academy"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Skill: Enterprise API Automation — Login Validation",
+     "pain": "企業級 API 登入驗證缺乏模組化自動化測試",
+     "stars": 0,
+     "repo": "chauhan-Nirdosh/api_automation"
+    }
+   ]
+  },
+  {
+   "cluster": 74,
+   "n": 1,
+   "top_terms": [
+    "socratic",
+    "teaching",
+    "to discover",
+    "the answer",
+    "answer",
+    "discover",
+    "answers",
+    "understanding",
+    "method",
+    "readable content",
+    "questioning",
+    "guides users"
+   ],
+   "domain_mix": {
+    "education-training": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "socrates",
+     "pain": "直接給答案無法引導學生自主思考",
+     "stars": 101,
+     "repo": "bevibing/socrates-skill"
+    }
+   ]
+  },
+  {
+   "cluster": 82,
+   "n": 1,
+   "top_terms": [
+    "handoff",
+    "the handoff",
+    "of session",
+    "note",
+    "rebuild",
+    "write the",
+    "catch",
+    "anything",
+    "session",
+    "git",
+    "branch state",
+    "or fresh"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "retrieve": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "catchup",
+     "pain": "重開對話時需重新梳理開發進度與異動",
+     "stars": 832,
+     "repo": "poshan0126/dotclaude"
+    }
+   ]
+  },
+  {
+   "cluster": 86,
+   "n": 1,
+   "top_terms": [
+    "部署",
+    "devops",
+    "android",
+    "db",
+    "14",
+    "server python",
+    "sdk",
+    "一致",
+    "prod db",
+    "打包",
+    "python",
+    "模块"
+   ],
+   "domain_mix": {
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "devops",
+     "pain": "缺乏自動化規範確保打包部署與生產環境一致",
+     "stars": 0,
+     "repo": "js1688/jflove"
+    }
+   ]
+  },
+  {
+   "cluster": 87,
+   "n": 1,
+   "top_terms": [
+    "kernel",
+    "skill discovery",
+    "sdlc",
+    "slash commands",
+    "listed",
+    "slash",
+    "cards",
+    "skill name",
+    "see skill",
+    "addons",
+    "invoked as",
+    "and cannot"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "prefill-cards",
+     "pain": "需手動填寫 SDLC 模版標頭與團隊元資料",
+     "stars": 168,
+     "repo": "jmagly/aiwg"
+    }
+   ]
+  },
+  {
+   "cluster": 88,
+   "n": 1,
+   "top_terms": [
+    "precise",
+    "est",
+    "correlation",
+    "estimators",
+    "np",
+    "estimation",
+    "observation",
+    "incremental",
+    "online",
+    "matrix",
+    "streaming",
+    "portfolio"
+   ],
+   "domain_mix": {
+    "data-analytics": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "precise",
+     "pain": "串流資料的共變異數矩陣重算耗時",
+     "stars": 333,
+     "repo": "microprediction/precise"
+    }
+   ]
+  },
+  {
+   "cluster": 90,
+   "n": 1,
+   "top_terms": [
+    "the one",
+    "who",
+    "of one",
+    "people",
+    "the thing",
+    "seat",
+    "fills",
+    "keeps",
+    "name the",
+    "you build",
+    "honest",
+    "the key"
+   ],
+   "domain_mix": {
+    "ops-admin": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "vs-people",
+     "pain": "創業團隊核心職位配置不當與客觀性不足",
+     "stars": 0,
+     "repo": "ibm777p2/VentureStack"
+    }
+   ]
+  },
+  {
+   "cluster": 91,
+   "n": 1,
+   "top_terms": [
+    "sip",
+    "overlay",
+    "buy",
+    "worth",
+    "exposure",
+    "market",
+    "account",
+    "ai second",
+    "framework with",
+    "buying",
+    "观察",
+    "空数组"
+   ],
+   "domain_mix": {
+    "finance-investing": 1
+   },
+   "task_mix": {
+    "analyze": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "worth-buy-stocks",
+     "pain": "量化美股選股與持分評估缺乏嚴謹紀律與自動化",
+     "stars": 97,
+     "repo": "starriv/worth-buy-stocks"
+    }
+   ]
+  },
+  {
+   "cluster": 92,
+   "n": 1,
+   "top_terms": [
+    "url",
+    "urls",
+    "always present",
+    "to resource",
+    "set",
+    "not set",
+    "present on",
+    "falls back",
+    "https example",
+    "env var",
+    "environment variable",
+    "is set"
+   ],
+   "domain_mix": {
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "url-shorten",
+     "pain": "長網址過長不便分享，需呼叫 API 快速縮網址",
+     "stars": 4,
+     "repo": "Kernel8901/ai-agent-skills-classification"
+    }
+   ]
+  },
+  {
+   "cluster": 94,
+   "n": 1,
+   "top_terms": [
+    "development lifecycle",
+    "alias for",
+    "for development",
+    "lifecycle",
+    "alias",
+    "development",
+    "ui development",
+    "doing any",
+    "typescript ui",
+    "workflow understand",
+    "development task",
+    "grill"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "work",
+     "pain": "前端開發流程缺乏規範化與完整驗證步驟",
+     "stars": 32,
+     "repo": "redpanda-data/ui-harness"
+    }
+   ]
+  },
+  {
+   "cluster": 97,
+   "n": 1,
+   "top_terms": [
+    "agent browser",
+    "browser",
+    "browser cli",
+    "get core",
+    "skills get",
+    "skills list",
+    "bash agent",
+    "agent",
+    "cli",
+    "electron",
+    "slack",
+    "skills"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "verify": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "agent-browser",
+     "pain": "測試人員或 AI 缺乏統一的瀏覽器操作指南",
+     "stars": 15,
+     "repo": "arrow2nd/dotfiles"
+    }
+   ]
+  },
+  {
+   "cluster": 98,
+   "n": 1,
+   "top_terms": [
+    "skills ui",
+    "scripts search",
+    "ui ux",
+    "ux pro",
+    "kimi",
+    "pro max",
+    "ux",
+    "spa",
+    "max",
+    "pro",
+    "python3",
+    "ui"
+   ],
+   "domain_mix": {
+    "design-creative": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "UI/UX tasarım sistemi oluşturma",
+     "pain": "建立特定產業 UI/UX 設計系統耗時",
+     "stars": 0,
+     "repo": "beraaren/kripto-fonu"
+    }
+   ]
+  },
+  {
+   "cluster": 99,
+   "n": 1,
+   "top_terms": [
+    "whisper",
+    "cpp",
+    "subtitle",
+    "ffmpeg",
+    "烧录",
+    "subtitles",
+    "video",
+    "cache",
+    "ht",
+    "burn",
+    "识别",
+    "metal"
+   ],
+   "domain_mix": {
+    "writing-content": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "video-subtitle",
+     "pain": "影片聽寫字幕與校對專有名詞手動作業極為費時",
+     "stars": 57,
+     "repo": "limin112/video-subtitle"
+    }
+   ]
+  },
+  {
+   "cluster": 104,
+   "n": 1,
+   "top_terms": [
+    "wiki",
+    "serve",
+    "the wiki",
+    "web server",
+    "llm wiki",
+    "with live",
+    "pane",
+    "wikipedia",
+    "assist",
+    "start the",
+    "server",
+    "fastapi"
+   ],
+   "domain_mix": {
+    "ops-admin": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "wiki-serve",
+     "pain": "專案 Wiki 缺乏即時 AI 輔助與瀏覽介面",
+     "stars": 51,
+     "repo": "Oshayr/LLM-Wiki"
+    }
+   ]
+  },
+  {
+   "cluster": 105,
+   "n": 1,
+   "top_terms": [
+    "github io",
+    "served",
+    "publish",
+    "docs",
+    "tutorials",
+    "io",
+    "website",
+    "gh",
+    "build",
+    "from docs",
+    "makefile",
+    "first build"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "orchestrate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "docs-publish",
+     "pain": "部署 Sphinx 文件網站時容易搞錯目標分支",
+     "stars": 0,
+     "repo": "xshi19/normix"
+    }
+   ]
+  },
+  {
+   "cluster": 108,
+   "n": 1,
+   "top_terms": [
+    "sentences",
+    "shorter",
+    "user asked",
+    "jargon",
+    "asked for",
+    "unless",
+    "sentence",
+    "unless the",
+    "lead",
+    "plain",
+    "concrete",
+    "point"
+   ],
+   "domain_mix": {
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "amk",
+     "pain": "AI 解答過於冗長且充滿術語難以直觀理解",
+     "stars": 10,
+     "repo": "osolmaz/tools"
+    }
+   ]
+  },
+  {
+   "cluster": 109,
+   "n": 1,
+   "top_terms": [
+    "likes",
+    "influence",
+    "decision trees",
+    "build your",
+    "coder",
+    "trees",
+    "grow",
+    "instagram",
+    "is for",
+    "not just",
+    "your",
+    "creator"
+   ],
+   "domain_mix": {
+    "ai-agent-tooling": 1
+   },
+   "task_mix": {
+    "generate": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "clawshot",
+     "pain": "AI Agent 缺乏專屬展示成果與互動的社群",
+     "stars": 2108,
+     "repo": "LeoYeAI/openclaw-master-skills"
+    }
+   ]
+  },
+  {
+   "cluster": 110,
+   "n": 1,
+   "top_terms": [
+    "initialize or",
+    "vibe",
+    "project claude",
+    "vibe coding",
+    "regenerate",
+    "claude md",
+    "initialize",
+    "manifest",
+    "init",
+    "ava",
+    "manual testing",
+    "eslint prettier"
+   ],
+   "domain_mix": {
+    "software-dev": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "init",
+     "pain": "設定全自動測試與 AI 協同開發環境繁瑣",
+     "stars": 0,
+     "repo": "neolao/claude-plugin-vibe"
+    }
+   ]
+  },
+  {
+   "cluster": 115,
+   "n": 1,
+   "top_terms": [
+    "local development",
+    "ko",
+    "kind",
+    "controller and",
+    "controller",
+    "cluster",
+    "kubernetes",
+    "webhook",
+    "container",
+    "and webhook",
+    "container images",
+    "go 26"
+   ],
+   "domain_mix": {
+    "devops-infra": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "local-development",
+     "pain": "Kubernetes 控制器本地開發環境建置複雜",
+     "stars": 4,
+     "repo": "tektoncd/pruner"
+    }
+   ]
+  },
+  {
+   "cluster": 118,
+   "n": 1,
+   "top_terms": [
+    "podcast",
+    "youtube",
+    "ingest",
+    "ingestion",
+    "spoken",
+    "summaries and",
+    "podcasts",
+    "long form",
+    "speaker",
+    "bash pip",
+    "transcripts",
+    "transcript"
+   ],
+   "domain_mix": {
+    "personal-productivity": 1
+   },
+   "task_mix": {
+    "transform": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "youtube-podcast-ingestion",
+     "pain": "YouTube 播客長影片逐字稿整理與分段摘要耗時。",
+     "stars": 25,
+     "repo": "uzairansaruzi/youtube-ingest"
+    }
+   ]
+  },
+  {
+   "cluster": 119,
+   "n": 1,
+   "top_terms": [
+    "deploy skill",
+    "mission",
+    "the smallest",
+    "smallest",
+    "deploy",
+    "codex skills",
+    "text use",
+    "https developers",
+    "rollback and",
+    "scope user",
+    "plugin package",
+    "scope"
+   ],
+   "domain_mix": {
+    "education-training": 1
+   },
+   "task_mix": {
+    "configure": 1
+   },
+   "dispersion": 0.0,
+   "other_pct": 0.0,
+   "samples": [
+    {
+     "name": "Mission 12C — Deploy a Skill",
+     "pain": "不確定 Skill 的最佳部署範圍與公開層級",
+     "stars": 0,
+     "repo": "Fishbiscuit/sidequest"
+    }
+   ]
+  }
+ ]
+}
