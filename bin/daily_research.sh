@@ -47,6 +47,9 @@ fi
 # 4.5 重建前端頁面（零 token）
 python3 bin/build_site.py >> "$LOG" 2>&1 || log "WARN: build_site 失敗"
 
+# 4.6 個資閘門：公開 repo，推之前必須確認沒有雇主名稱／持倉資訊
+python3 bin/check_privacy.py >> "$LOG" 2>&1 || { log "STOP: 個資檢查未通過，中止本次流程"; exit 1; }
+
 # 5. 稽核（零 token）：數字必須回溯得到訊號表
 python3 bin/validate_research.py "$DATE" >> "$LOG" 2>&1 || log "WARN: 稽核有異常，見 log"
 
