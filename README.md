@@ -1,7 +1,12 @@
 # Skills Radar
 
-每日追蹤 **Agent Skills / AI harness 生態**的變動，產出短期（一週）、中期（一月）、長期（一季）的策略建議，
-以及「哪些 skill 值得跟進、安裝前該驗什麼」。
+兩件事：
+
+**一、AI 應用行為研究**（主線）— 把公開的 Agent Skill 當成揭露性偏好資料集，
+反推 AI 正在被誰、在什麼領域、拿來做什麼樣的工作。
+→ **[研究報告：從 5,397 個公開 Skill 看見的事](research/AI_APPLICATION_INSIGHTS.md)**｜[研究方法](research/METHOD.md)
+
+**二、每日生態追蹤**（輔線）— 追蹤 Agent Skills / harness 的變動，產出短中長期策略建議。
 
 > ⚠️ **這個 repo 追蹤的生態本身不安全。** Snyk 2026-02 的 ToxicSkills 研究掃描 3,984 個公開 agent skill，
 > 發現 **36.82% 含安全缺陷、13.4% 為 critical、76 個確認惡意負載**。

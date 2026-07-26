@@ -1,0 +1,2250 @@
+{
+ "n_classified": 5397,
+ "domain": {
+  "software-dev": {
+   "n": 1809,
+   "pct": 33.5
+  },
+  "ai-agent-tooling": {
+   "n": 844,
+   "pct": 15.6
+  },
+  "devops-infra": {
+   "n": 337,
+   "pct": 6.2
+  },
+  "design-creative": {
+   "n": 324,
+   "pct": 6.0
+  },
+  "personal-productivity": {
+   "n": 303,
+   "pct": 5.6
+  },
+  "security": {
+   "n": 265,
+   "pct": 4.9
+  },
+  "ops-admin": {
+   "n": 248,
+   "pct": 4.6
+  },
+  "marketing-growth": {
+   "n": 202,
+   "pct": 3.7
+  },
+  "research-academia": {
+   "n": 186,
+   "pct": 3.4
+  },
+  "finance-investing": {
+   "n": 182,
+   "pct": 3.4
+  },
+  "writing-content": {
+   "n": 166,
+   "pct": 3.1
+  },
+  "data-analytics": {
+   "n": 129,
+   "pct": 2.4
+  },
+  "healthcare-bio": {
+   "n": 116,
+   "pct": 2.1
+  },
+  "legal-compliance": {
+   "n": 88,
+   "pct": 1.6
+  },
+  "education-training": {
+   "n": 78,
+   "pct": 1.4
+  },
+  "sales-crm": {
+   "n": 50,
+   "pct": 0.9
+  },
+  "hardware-eda": {
+   "n": 36,
+   "pct": 0.7
+  },
+  "other": {
+   "n": 34,
+   "pct": 0.6
+  }
+ },
+ "task": {
+  "generate": {
+   "n": 1184,
+   "pct": 21.9
+  },
+  "configure": {
+   "n": 921,
+   "pct": 17.1
+  },
+  "orchestrate": {
+   "n": 840,
+   "pct": 15.6
+  },
+  "verify": {
+   "n": 811,
+   "pct": 15.0
+  },
+  "analyze": {
+   "n": 674,
+   "pct": 12.5
+  },
+  "retrieve": {
+   "n": 536,
+   "pct": 9.9
+  },
+  "transform": {
+   "n": 431,
+   "pct": 8.0
+  }
+ },
+ "target": {
+  "team": {
+   "n": 1948,
+   "pct": 36.1
+  },
+  "self": {
+   "n": 1899,
+   "pct": 35.2
+  },
+  "agent": {
+   "n": 912,
+   "pct": 16.9
+  },
+  "public": {
+   "n": 407,
+   "pct": 7.5
+  },
+  "client": {
+   "n": 231,
+   "pct": 4.3
+  }
+ },
+ "maturity": {
+  "workflow": {
+   "n": 2855,
+   "pct": 52.9
+  },
+  "production": {
+   "n": 2283,
+   "pct": 42.3
+  },
+  "toy": {
+   "n": 259,
+   "pct": 4.8
+  }
+ },
+ "profession_top": {
+  "軟體工程師": 638,
+  "前端工程師": 356,
+  "AI工程師": 245,
+  "後端工程師": 215,
+  "DevOps工程師": 150,
+  "unknown": 144,
+  "資安工程師": 114,
+  "專案經理": 99,
+  "軟體架構師": 95,
+  "獨立創作者": 81,
+  "AI 工程師": 81,
+  "產品經理": 72,
+  "研究生": 64,
+  "全端工程師": 63,
+  "資料工程師": 56,
+  "行銷企劃": 52,
+  "UI/UX設計師": 48,
+  "DevOps 工程師": 48,
+  "研究員": 46,
+  "系統架構師": 44,
+  "資料分析師": 44,
+  "UI/UX 設計師": 42,
+  "測試工程師": 39,
+  "AI 系統架構師": 37,
+  "全棧工程師": 36,
+  "系統管理員": 36,
+  "AI研究員": 34,
+  "量化交易員": 31,
+  "區塊鏈工程師": 30,
+  "資深軟體工程師": 29
+ },
+ "injection_suspect": 87,
+ "domain_x_task": {
+  "software-dev": {
+   "generate": 447,
+   "verify": 410,
+   "configure": 351,
+   "orchestrate": 197,
+   "analyze": 168,
+   "transform": 125,
+   "retrieve": 111
+  },
+  "ai-agent-tooling": {
+   "orchestrate": 261,
+   "configure": 250,
+   "generate": 104,
+   "retrieve": 91,
+   "verify": 67,
+   "transform": 37,
+   "analyze": 34
+  },
+  "devops-infra": {
+   "configure": 142,
+   "orchestrate": 71,
+   "verify": 44,
+   "analyze": 31,
+   "generate": 21,
+   "retrieve": 19,
+   "transform": 9
+  },
+  "design-creative": {
+   "generate": 211,
+   "transform": 50,
+   "verify": 18,
+   "retrieve": 15,
+   "orchestrate": 13,
+   "configure": 10,
+   "analyze": 7
+  },
+  "personal-productivity": {
+   "retrieve": 77,
+   "orchestrate": 75,
+   "transform": 46,
+   "generate": 45,
+   "analyze": 33,
+   "configure": 24,
+   "verify": 3
+  },
+  "security": {
+   "verify": 152,
+   "analyze": 43,
+   "configure": 25,
+   "generate": 16,
+   "retrieve": 15,
+   "transform": 8,
+   "orchestrate": 6
+  },
+  "ops-admin": {
+   "orchestrate": 76,
+   "retrieve": 39,
+   "analyze": 35,
+   "configure": 32,
+   "generate": 30,
+   "transform": 25,
+   "verify": 11
+  },
+  "marketing-growth": {
+   "generate": 74,
+   "analyze": 55,
+   "orchestrate": 37,
+   "verify": 10,
+   "retrieve": 10,
+   "configure": 9,
+   "transform": 7
+  },
+  "research-academia": {
+   "analyze": 50,
+   "retrieve": 38,
+   "generate": 35,
+   "orchestrate": 18,
+   "transform": 18,
+   "verify": 16,
+   "configure": 11
+  },
+  "finance-investing": {
+   "analyze": 81,
+   "orchestrate": 32,
+   "retrieve": 30,
+   "generate": 16,
+   "verify": 12,
+   "configure": 9,
+   "transform": 2
+  },
+  "writing-content": {
+   "generate": 70,
+   "transform": 59,
+   "verify": 12,
+   "retrieve": 9,
+   "analyze": 6,
+   "orchestrate": 5,
+   "configure": 5
+  },
+  "data-analytics": {
+   "analyze": 34,
+   "generate": 26,
+   "retrieve": 24,
+   "transform": 20,
+   "configure": 13,
+   "orchestrate": 7,
+   "verify": 5
+  },
+  "healthcare-bio": {
+   "analyze": 58,
+   "retrieve": 22,
+   "verify": 11,
+   "orchestrate": 10,
+   "transform": 9,
+   "configure": 5,
+   "generate": 1
+  },
+  "legal-compliance": {
+   "verify": 29,
+   "generate": 23,
+   "analyze": 14,
+   "retrieve": 9,
+   "transform": 6,
+   "configure": 5,
+   "orchestrate": 2
+  },
+  "education-training": {
+   "generate": 41,
+   "retrieve": 11,
+   "analyze": 7,
+   "orchestrate": 7,
+   "configure": 5,
+   "transform": 5,
+   "verify": 2
+  },
+  "sales-crm": {
+   "orchestrate": 12,
+   "generate": 12,
+   "retrieve": 9,
+   "analyze": 8,
+   "configure": 7,
+   "verify": 1,
+   "transform": 1
+  },
+  "hardware-eda": {
+   "configure": 12,
+   "orchestrate": 8,
+   "generate": 6,
+   "verify": 4,
+   "analyze": 3,
+   "transform": 2,
+   "retrieve": 1
+  },
+  "other": {
+   "analyze": 7,
+   "configure": 6,
+   "retrieve": 6,
+   "generate": 6,
+   "verify": 4,
+   "orchestrate": 3,
+   "transform": 2
+  }
+ },
+ "domain_x_maturity": {
+  "software-dev": {
+   "production": 750,
+   "workflow": 1015,
+   "toy": 44
+  },
+  "ai-agent-tooling": {
+   "toy": 101,
+   "production": 382,
+   "workflow": 361
+  },
+  "devops-infra": {
+   "workflow": 116,
+   "production": 211,
+   "toy": 10
+  },
+  "design-creative": {
+   "workflow": 195,
+   "production": 123,
+   "toy": 6
+  },
+  "personal-productivity": {
+   "workflow": 210,
+   "toy": 28,
+   "production": 65
+  },
+  "security": {
+   "production": 172,
+   "workflow": 89,
+   "toy": 4
+  },
+  "ops-admin": {
+   "workflow": 144,
+   "production": 99,
+   "toy": 5
+  },
+  "marketing-growth": {
+   "workflow": 127,
+   "production": 72,
+   "toy": 3
+  },
+  "research-academia": {
+   "workflow": 124,
+   "toy": 11,
+   "production": 51
+  },
+  "finance-investing": {
+   "workflow": 99,
+   "production": 78,
+   "toy": 5
+  },
+  "writing-content": {
+   "production": 49,
+   "workflow": 111,
+   "toy": 6
+  },
+  "data-analytics": {
+   "toy": 2,
+   "workflow": 59,
+   "production": 68
+  },
+  "healthcare-bio": {
+   "workflow": 52,
+   "toy": 2,
+   "production": 62
+  },
+  "legal-compliance": {
+   "toy": 1,
+   "workflow": 31,
+   "production": 56
+  },
+  "education-training": {
+   "toy": 11,
+   "workflow": 54,
+   "production": 13
+  },
+  "sales-crm": {
+   "workflow": 34,
+   "toy": 1,
+   "production": 15
+  },
+  "hardware-eda": {
+   "toy": 1,
+   "workflow": 22,
+   "production": 13
+  },
+  "other": {
+   "toy": 18,
+   "workflow": 12,
+   "production": 4
+  }
+ },
+ "timeline_by_month": {
+  "2025-05": {
+   "software-dev": 11,
+   "ai-agent-tooling": 8,
+   "security": 2,
+   "finance-investing": 1,
+   "personal-productivity": 1,
+   "sales-crm": 1
+  },
+  "2025-06": {
+   "software-dev": 21,
+   "ai-agent-tooling": 6,
+   "security": 4,
+   "design-creative": 3,
+   "devops-infra": 2,
+   "data-analytics": 2
+  },
+  "2025-07": {
+   "software-dev": 18,
+   "ai-agent-tooling": 17,
+   "finance-investing": 2,
+   "ops-admin": 2,
+   "design-creative": 2,
+   "marketing-growth": 2
+  },
+  "2025-08": {
+   "software-dev": 24,
+   "ai-agent-tooling": 9,
+   "devops-infra": 6,
+   "personal-productivity": 3,
+   "writing-content": 1,
+   "healthcare-bio": 1
+  },
+  "2025-09": {
+   "software-dev": 14,
+   "ai-agent-tooling": 9,
+   "education-training": 2,
+   "personal-productivity": 2,
+   "design-creative": 2,
+   "security": 1
+  },
+  "2025-10": {
+   "software-dev": 34,
+   "ai-agent-tooling": 13,
+   "devops-infra": 9,
+   "design-creative": 9,
+   "ops-admin": 7,
+   "research-academia": 7
+  },
+  "2025-11": {
+   "software-dev": 40,
+   "ai-agent-tooling": 23,
+   "devops-infra": 10,
+   "research-academia": 6,
+   "design-creative": 6,
+   "ops-admin": 6
+  },
+  "2025-12": {
+   "software-dev": 79,
+   "ai-agent-tooling": 29,
+   "devops-infra": 10,
+   "ops-admin": 8,
+   "writing-content": 8,
+   "design-creative": 6
+  },
+  "2026-01": {
+   "software-dev": 151,
+   "ai-agent-tooling": 73,
+   "devops-infra": 37,
+   "design-creative": 29,
+   "ops-admin": 22,
+   "personal-productivity": 21
+  },
+  "2026-02": {
+   "software-dev": 199,
+   "ai-agent-tooling": 97,
+   "marketing-growth": 39,
+   "devops-infra": 39,
+   "ops-admin": 38,
+   "security": 38
+  },
+  "2026-03": {
+   "software-dev": 274,
+   "ai-agent-tooling": 174,
+   "design-creative": 56,
+   "devops-infra": 56,
+   "personal-productivity": 55,
+   "security": 54
+  },
+  "2026-04": {
+   "software-dev": 229,
+   "ai-agent-tooling": 117,
+   "personal-productivity": 73,
+   "design-creative": 52,
+   "devops-infra": 51,
+   "ops-admin": 50
+  },
+  "2026-05": {
+   "software-dev": 158,
+   "ai-agent-tooling": 109,
+   "design-creative": 51,
+   "personal-productivity": 39,
+   "security": 39,
+   "legal-compliance": 31
+  },
+  "2026-06": {
+   "software-dev": 132,
+   "ai-agent-tooling": 71,
+   "security": 34,
+   "personal-productivity": 31,
+   "design-creative": 27,
+   "devops-infra": 23
+  },
+  "2026-07": {
+   "software-dev": 73,
+   "ai-agent-tooling": 35,
+   "design-creative": 29,
+   "ops-admin": 20,
+   "devops-infra": 20,
+   "personal-productivity": 13
+  }
+ },
+ "pain_samples": {
+  "ops-admin": [
+   {
+    "pain": "零售與電商退貨處理與欺詐檢驗流程複雜。",
+    "stars": 233406,
+    "repo": "affaan-m/ECC",
+    "profession": "逆向物流經理"
+   },
+   {
+    "pain": "週會數據彙整與簡報製作耗費團隊精力",
+    "stars": 81580,
+    "repo": "nexu-io/open-design",
+    "profession": "營運經理"
+   },
+   {
+    "pain": "飛書與 Lark API 整合時憑證管理混亂",
+    "stars": 40116,
+    "repo": "Hmbown/CodeWhale",
+    "profession": "全棧工程師"
+   },
+   {
+    "pain": "無程式碼自動化流程複雜時容易故障與出錯",
+    "stars": 29909,
+    "repo": "davila7/claude-code-templates",
+    "profession": "自動化工程師"
+   },
+   {
+    "pain": "專案失敗檢討容易演變成互相甩鍋而無法改進",
+    "stars": 23200,
+    "repo": "alirezarezvani/claude-skills",
+    "profession": "技術主管"
+   },
+   {
+    "pain": "AI 代理缺乏 macOS 截圖與 GUI 桌面操作能力。",
+    "stars": 6469,
+    "repo": "steipete/agent-scripts",
+    "profession": "自動化工程師"
+   },
+   {
+    "pain": "無法透由 Agent 自動於 Slack 回應表情或釘選",
+    "stars": 3953,
+    "repo": "huangruiteng/CS-Notes",
+    "profession": "營運工程師"
+   },
+   {
+    "pain": "手動處理與填寫批量 PDF 文件效率低下",
+    "stars": 3368,
+    "repo": "Intelligent-Internet/ii-agent",
+    "profession": "資料處理員"
+   },
+   {
+    "pain": "無法在終端機或自動化腳本中快速發送 Email",
+    "stars": 2877,
+    "repo": "charmbracelet/pop",
+    "profession": "DevOps工程師"
+   },
+   {
+    "pain": "查詢與管理釘釘直播列表操作繁瑣",
+    "stars": 2533,
+    "repo": "DingTalk-Real-AI/dingtalk-workspace-cli",
+    "profession": "專案經理"
+   },
+   {
+    "pain": "面對時機流失警訊時容易陷入怠惰與反應遲緩",
+    "stars": 2361,
+    "repo": "baojie/shiji-kb",
+    "profession": "高階主管"
+   },
+   {
+    "pain": "缺乏展現領導美德與獲取群眾支持的具體方法",
+    "stars": 2361,
+    "repo": "baojie/shiji-kb",
+    "profession": "政治家"
+   }
+  ],
+  "software-dev": [
+   {
+    "pain": "前端開發時難以遵循統一的元件設計規範",
+    "stars": 198028,
+    "repo": "n8n-io/n8n",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "Flutter 跨分支 Cherry-pick 流程易出錯",
+    "stars": 177947,
+    "repo": "flutter/flutter",
+    "profession": "Flutter工程師"
+   },
+   {
+    "pain": "手動建置並驗證Bun執行階段的底層變更",
+    "stars": 95026,
+    "repo": "oven-sh/bun",
+    "profession": "系統程式員"
+   },
+   {
+    "pain": "自訂 404 頁面缺乏引導致使用者流失",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "行內 JS 導致 CSP 違規與快取維護困難",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "缺乏語義化 HTML 影響無障礙與 SEO",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "平滑捲動引發前庭覺障礙使用者不適",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "手動進行Web與終端介面視覺比對易出錯",
+    "stars": 66602,
+    "repo": "code-yeongyu/oh-my-openagent",
+    "profession": "測試工程師"
+   },
+   {
+    "pain": "手動分析 Git diff 並撰寫規範 commit 訊息繁瑣",
+    "stars": 49298,
+    "repo": "tldraw/tldraw",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "為 SDK 撰寫符合規範的範例程式碼繁瑣耗時",
+    "stars": 49298,
+    "repo": "tldraw/tldraw",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "手動解 Git 合併衝突容易遺漏雙方修改意圖",
+    "stars": 43916,
+    "repo": "sickn33/agentic-awesome-skills",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "撰寫 C 語言時易出現記憶體與指標操作錯誤",
+    "stars": 43916,
+    "repo": "sickn33/agentic-awesome-skills",
+    "profession": "軟體工程師"
+   }
+  ],
+  "devops-infra": [
+   {
+    "pain": "PR合併到正式環境部署驗證缺乏自動化",
+    "stars": 124375,
+    "repo": "garrytan/gstack",
+    "profession": "DevOps工程師"
+   },
+   {
+    "pain": "大型套件庫版本發布流程繁瑣易出錯",
+    "stars": 98822,
+    "repo": "ant-design/ant-design",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "Twenty 應用程式營運與部署命令分散繁瑣",
+    "stars": 53654,
+    "repo": "twentyhq/twenty",
+    "profession": "全棧工程師"
+   },
+   {
+    "pain": "K8s 集群的 CIS 安全基準檢查與修復步驟繁瑣。",
+    "stars": 26583,
+    "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "profession": "DevSecOps工程師"
+   },
+   {
+    "pain": "線上事件發生時缺乏假設驅動的排錯檢索",
+    "stars": 9220,
+    "repo": "openclaw/clawhub",
+    "profession": "SRE 運維工程師"
+   },
+   {
+    "pain": "Agent 僅能讀取靜態程式碼而無法動態排錯",
+    "stars": 6780,
+    "repo": "netalertx/NetAlertX",
+    "profession": "網路工程師"
+   },
+   {
+    "pain": "配置與部署 Codex 百萬 Token 上下文環境複雜。",
+    "stars": 6469,
+    "repo": "steipete/agent-scripts",
+    "profession": "AI維運工程師"
+   },
+   {
+    "pain": "專案 CI 流程缺乏專屬測試與覆蓋率輪詢規範",
+    "stars": 6024,
+    "repo": "max-sixty/worktrunk",
+    "profession": "DevOps 工程師"
+   },
+   {
+    "pain": "發布版本至套件庫與 GitHub 手動步驟繁瑣",
+    "stars": 6024,
+    "repo": "max-sixty/worktrunk",
+    "profession": "Release 工程師"
+   },
+   {
+    "pain": "執行 Shell 指令時容易污染外部環境狀態",
+    "stars": 5343,
+    "repo": "pgdogdev/pgdog",
+    "profession": "後端工程師"
+   },
+   {
+    "pain": "手動配置與建置 KIWI 系統映像檔繁瑣",
+    "stars": 5289,
+    "repo": "microsoft/azurelinux",
+    "profession": "DevOps工程師"
+   },
+   {
+    "pain": "手動發送指令觸發 ADO Pipeline 步驟重複",
+    "stars": 4937,
+    "repo": "microsoft/FluidFramework",
+    "profession": "DevOps工程師"
+   }
+  ],
+  "design-creative": [
+   {
+    "pain": "製作極簡風格品牌動態影片需耗時刻劃動畫",
+    "stars": 81580,
+    "repo": "nexu-io/open-design",
+    "profession": "動態視覺設計師"
+   },
+   {
+    "pain": "程式碼控制 HTML 影片渲染與音效同步複雜",
+    "stars": 81580,
+    "repo": "nexu-io/open-design",
+    "profession": "動態視覺設計師"
+   },
+   {
+    "pain": "遊戲核心迴圈與數值平衡缺乏結構化設計",
+    "stars": 29909,
+    "repo": "davila7/claude-code-templates",
+    "profession": "遊戲企劃"
+   },
+   {
+    "pain": "無法經由指令自動新建 Figma/FigJam 設計檔案。",
+    "stars": 24179,
+    "repo": "openai/skills",
+    "profession": "UI/UX設計師"
+   },
+   {
+    "pain": "影片字幕、配音與跨平台渲染 CLI 操作複雜",
+    "stars": 10550,
+    "repo": "krillinai/KrillinAI",
+    "profession": "影音創作者"
+   },
+   {
+    "pain": "簡報模板限制多且難以自由排版",
+    "stars": 7955,
+    "repo": "nexu-io/html-anything",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "難以手動繪製符合品牌規範的 IDE 抽象 SVG 插圖",
+    "stars": 4203,
+    "repo": "posit-dev/positron",
+    "profession": "視覺設計師"
+   },
+   {
+    "pain": "缺乏一致且獨特的工業風格 UI 組件排版規範",
+    "stars": 2959,
+    "repo": "code-yeongyu/lazycodex",
+    "profession": "前端工程師"
+   },
+   {
+    "pain": "文字生成音樂與音效技術調參及生成繁瑣",
+    "stars": 2789,
+    "repo": "synthetic-sciences/openscience",
+    "profession": "音效師"
+   },
+   {
+    "pain": "介面視覺色彩過於單調缺乏吸引力",
+    "stars": 2389,
+    "repo": "The-Vibe-Company/companion",
+    "profession": "UI設計師"
+   },
+   {
+    "pain": "繪製完整用戶旅程圖缺乏結構化框架",
+    "stars": 1903,
+    "repo": "Owl-Listener/designer-skills",
+    "profession": "UX研究員"
+   },
+   {
+    "pain": "AI 繪圖缺乏精準高質量的 Prompt 提示詞",
+    "stars": 1784,
+    "repo": "YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+    "profession": "AI 繪圖創作者"
+   }
+  ],
+  "personal-productivity": [
+   {
+    "pain": "年終考績自評簡報結構梳理與美化耗時",
+    "stars": 81580,
+    "repo": "nexu-io/open-design",
+    "profession": "產品經理"
+   },
+   {
+    "pain": "個人 Obsidian 知識庫內容零散難以快速檢索",
+    "stars": 9934,
+    "repo": "AgriciDaniel/claude-obsidian",
+    "profession": "知識工作者"
+   },
+   {
+    "pain": "將對話紀錄與日記轉化為數位分身手續繁瑣",
+    "stars": 3210,
+    "repo": "notdog1998/yourself-skill",
+    "profession": "獨立創作者"
+   },
+   {
+    "pain": "無法在手機即時通訊軟體遠端操作 Claude",
+    "stars": 2830,
+    "repo": "op7418/Claude-to-IM-skill",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "手動重複執行特定信件處理流程極為耗時",
+    "stars": 2684,
+    "repo": "anthropics/claude-agent-sdk-demos",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "體能數據與訓練紀錄缺乏離線分析工具",
+    "stars": 1852,
+    "repo": "mvanhorn/printing-press-library",
+    "profession": "運動教練"
+   },
+   {
+    "pain": "每日工作規劃、檢視與筆記整理缺乏結構化流程",
+    "stars": 1727,
+    "repo": "ballred/obsidian-claude-pkm",
+    "profession": "獨立創作者"
+   },
+   {
+    "pain": "AI 在任務失敗後容易消極放棄或回覆推託",
+    "stars": 1367,
+    "repo": "wuji-labs/nopua",
+    "profession": "AI 提示工程師"
+   },
+   {
+    "pain": "手動替大量檔案名稱加上前綴費時費力",
+    "stars": 1331,
+    "repo": "CoderWanFeng/python-office",
+    "profession": "行政人員"
+   },
+   {
+    "pain": "圖片檔案過大需手動調整品質與壓縮體積",
+    "stars": 1331,
+    "repo": "CoderWanFeng/python-office",
+    "profession": "行政人員"
+   },
+   {
+    "pain": "問題分析停留在表面現象未能查明根本原因",
+    "stars": 1279,
+    "repo": "NeoLabHQ/context-engineering-kit",
+    "profession": "專案經理"
+   },
+   {
+    "pain": "辯論論點構建與反駁缺乏系統化架構",
+    "stars": 1184,
+    "repo": "revfactory/harness-100",
+    "profession": "辯論選手"
+   }
+  ],
+  "marketing-growth": [
+   {
+    "pain": "缺少評價結構化資料致搜尋星級曝光遺失",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "SEO專家"
+   },
+   {
+    "pain": "傳統 SEO 工具無法優化 AI 搜尋引擎引用率",
+    "stars": 9122,
+    "repo": "zubair-trabzada/geo-seo-claude",
+    "profession": "SEO 專家"
+   },
+   {
+    "pain": "跨平台投放與啟動付費廣告活動流程繁瑣",
+    "stars": 7483,
+    "repo": "AgriciDaniel/claude-ads",
+    "profession": "數位行銷專家"
+   },
+   {
+    "pain": "新增付費廣告客戶與帳號初始設定複雜繁瑣",
+    "stars": 7483,
+    "repo": "AgriciDaniel/claude-ads",
+    "profession": "數位行銷專家"
+   },
+   {
+    "pain": "準備客戶訪談易陷入偏誤且難獲取有效洞察",
+    "stars": 5972,
+    "repo": "deanpeters/Product-Manager-Skills",
+    "profession": "產品經理"
+   },
+   {
+    "pain": "產品跨平台發布策略與時程規劃複雜分散",
+    "stars": 4944,
+    "repo": "tech-leads-club/agent-skills",
+    "profession": "產品行銷經理"
+   },
+   {
+    "pain": "手動管理 Mailchimp 電子報與受眾名單耗時",
+    "stars": 3213,
+    "repo": "davepoon/buildwithclaude",
+    "profession": "行銷企劃"
+   },
+   {
+    "pain": "獨立開發者與創辦人缺乏系統化 X 社群策略",
+    "stars": 2108,
+    "repo": "LeoYeAI/openclaw-master-skills",
+    "profession": "獨立開發者"
+   },
+   {
+    "pain": "小紅書圖文筆記撰寫與卡片製作繁瑣耗時",
+    "stars": 2041,
+    "repo": "comeonzhj/Auto-Redbook-Skills",
+    "profession": "社群行銷企劃"
+   },
+   {
+    "pain": "Substack 內容發布與訂閱成長管理繁瑣",
+    "stars": 1852,
+    "repo": "mvanhorn/printing-press-library",
+    "profession": "獨立創作者"
+   },
+   {
+    "pain": "小紅書多帳號社交互動與內容發布流程繁瑣",
+    "stars": 1693,
+    "repo": "autoclaw-cc/xiaohongshu-skills",
+    "profession": "社群營運專員"
+   },
+   {
+    "pain": "手動製作符合 ASO 優化的應用程式截圖費時",
+    "stars": 1606,
+    "repo": "adamlyttleapps/claude-skill-aso-appstore-screenshots",
+    "profession": "App行銷企劃"
+   }
+  ],
+  "security": [
+   {
+    "pain": "第三方 Cookie 引發合規與用戶隱私風險",
+    "stars": 73320,
+    "repo": "thedaviddias/Front-End-Checklist",
+    "profession": "資安工程師"
+   },
+   {
+    "pain": "難以偵測隱匿的 Cobalt Strike C2 網路連線。",
+    "stars": 26583,
+    "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "profession": "藍隊分析師"
+   },
+   {
+    "pain": "手動執行 DCSync 提取網域密碼哈希過程繁瑣。",
+    "stars": 26583,
+    "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "profession": "紅隊演練員"
+   },
+   {
+    "pain": "缺乏符合 NIST 800-30 的資安風險評估流程。",
+    "stars": 26583,
+    "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "profession": "資安顧問"
+   },
+   {
+    "pain": "手動測試 API BOLA/IDOR 越權漏洞繁瑣耗時。",
+    "stars": 26583,
+    "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "profession": "滲透測試員"
+   },
+   {
+    "pain": "缺乏針對 LLM API 服務專屬漏洞測試方法",
+    "stars": 4917,
+    "repo": "PurpleAILAB/Decepticon",
+    "profession": "資安滲透測試員"
+   },
+   {
+    "pain": "DAO 治理合約易受閃電貸與投票攻擊",
+    "stars": 4917,
+    "repo": "PurpleAILAB/Decepticon",
+    "profession": "區塊鏈資安審計師"
+   },
+   {
+    "pain": "端點防護機制阻擋滲透測試載荷與程式執行",
+    "stars": 4917,
+    "repo": "PurpleAILAB/Decepticon",
+    "profession": "紅隊滲透測試員"
+   },
+   {
+    "pain": "Monorepo 的 GitHub Actions 缺乏資安合規",
+    "stars": 4218,
+    "repo": "camunda/camunda",
+    "profession": "資安工程師"
+   },
+   {
+    "pain": "專案依賴包解析面臨供應鏈資安威脅",
+    "stars": 3370,
+    "repo": "microsoft/apm",
+    "profession": "資安工程師"
+   },
+   {
+    "pain": "SharePoint 地端滲透測試與漏洞列舉繁瑣",
+    "stars": 3048,
+    "repo": "elementalsouls/Claude-BugHunter",
+    "profession": "資安滲透測試員"
+   },
+   {
+    "pain": "跨雲端 IAM 權限提升與漏洞鏈分析複雜",
+    "stars": 3048,
+    "repo": "elementalsouls/Claude-BugHunter",
+    "profession": "資安滲透測試員"
+   }
+  ],
+  "data-analytics": [
+   {
+    "pain": "從零建立結構乾淨且可重複驗證的 Notebook",
+    "stars": 70349,
+    "repo": "microsoft/ai-agents-for-beginners",
+    "profession": "資料科學家"
+   },
+   {
+    "pain": "文本中數值提取與極端值統計圖表生成慢",
+    "stars": 4812,
+    "repo": "OpenSenseNova/SenseNova-Skills",
+    "profession": "資料分析師"
+   },
+   {
+    "pain": "建構大規模批次與即時資料管道架構複雜",
+    "stars": 1577,
+    "repo": "benchflow-ai/skillsbench",
+    "profession": "資料工程師"
+   },
+   {
+    "pain": "撰寫數據報告時手動組裝 HTML 組件",
+    "stars": 1160,
+    "repo": "tsinghua-fib-lab/AgentSociety",
+    "profession": "資料分析師"
+   },
+   {
+    "pain": "難以迅速定位 Fabric 資料倉儲效能瓶頸",
+    "stars": 877,
+    "repo": "microsoft/skills-for-fabric",
+    "profession": "資料工程師"
+   },
+   {
+    "pain": "大規模檔案資料管道缺乏斷點續傳與防重處理",
+    "stars": 782,
+    "repo": "dadbodgeoff/drift",
+    "profession": "資料工程師"
+   },
+   {
+    "pain": "純文字回應難以直觀展示趨勢與分布數據",
+    "stars": 742,
+    "repo": "B-M-Capital-Research/honeclaw",
+    "profession": "資料分析師"
+   },
+   {
+    "pain": "預測世界盃冠軍缺乏結合 Elo 的數據模型",
+    "stars": 632,
+    "repo": "mikobinbin/2026-world-cup-predictor",
+    "profession": "體育數據分析師"
+   },
+   {
+    "pain": "新增數據集加載器至框架流程繁瑣",
+    "stars": 611,
+    "repo": "tsinghua-fib-lab/AutoSOTA",
+    "profession": "機器學習工程師"
+   },
+   {
+    "pain": "難以跨團隊檢索數據資產與追蹤資料血緣。",
+    "stars": 601,
+    "repo": "marmotdata/marmot",
+    "profession": "資料工程師"
+   },
+   {
+    "pain": "手動擷取與解析網站結構化數據極為費時",
+    "stars": 579,
+    "repo": "shobcoder/shob",
+    "profession": "資料工程師"
+   },
+   {
+    "pain": "DAX 難以精確計算促銷與非促銷銷量",
+    "stars": 531,
+    "repo": "ECNU-ICALK/AutoSkill",
+    "profession": "商業智慧分析師"
+   }
+  ],
+  "ai-agent-tooling": [
+   {
+    "pain": "將原型 AI Agent 部署至生產環境經驗不足",
+    "stars": 70349,
+    "repo": "microsoft/ai-agents-for-beginners",
+    "profession": "AI工程師"
+   },
+   {
+    "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+    "stars": 70349,
+    "repo": "microsoft/ai-agents-for-beginners",
+    "profession": "AI工程師"
+   },
+   {
+    "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+    "stars": 70349,
+    "repo": "microsoft/ai-agents-for-beginners",
+    "profession": "AI工程師"
+   },
+   {
+    "pain": "Claude Code 外掛發布前難以自動驗證格式",
+    "stars": 66003,
+    "repo": "ruvnet/ruflo",
+    "profession": "AI 套件開發者"
+   },
+   {
+    "pain": "使用BMad框架時不清楚當前階段與下一步",
+    "stars": 51121,
+    "repo": "bmad-code-org/BMAD-METHOD",
+    "profession": "AI Agent 開發者"
+   },
+   {
+    "pain": "傳統關鍵字搜尋無法準確定位語意相關程式碼",
+    "stars": 43916,
+    "repo": "sickn33/agentic-awesome-skills",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "難以同時調度與監控多個背景運行的 Agent",
+    "stars": 43916,
+    "repo": "sickn33/agentic-awesome-skills",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "追蹤與核對 Agent 承諾事項之執行結果費時",
+    "stars": 43916,
+    "repo": "sickn33/agentic-awesome-skills",
+    "profession": "軟體工程師"
+   },
+   {
+    "pain": "AI 缺乏針對不同任務情境切換行為模式機制",
+    "stars": 29909,
+    "repo": "davila7/claude-code-templates",
+    "profession": "AI工程師"
+   },
+   {
+    "pain": "複雜多 Agent 狀態與循環流程難以可視化管理",
+    "stars": 29909,
+    "repo": "davila7/claude-code-templates",
+    "profession": "AI工程師"
+   },
+   {
+    "pain": "Transformer 模型推理記憶體開銷大且長度受限",
+    "stars": 29909,
+    "repo": "davila7/claude-code-templates",
+    "profession": "AI研究員"
+   },
+   {
+    "pain": "整合託管 API 金鑰與 BYOK 計費機制複雜",
+    "stars": 29221,
+    "repo": "simstudioai/sim",
+    "profession": "AI平台工程師"
+   }
+  ],
+  "education-training": [
+   {
+    "pain": "撰寫JS觀念教學文章格式與品質不一",
+    "stars": 66510,
+    "repo": "leonardomso/33-js-concepts",
+    "profession": "技術文件撰寫員"
+   },
+   {
+    "pain": "初學者缺乏零基礎學習特定技能的計畫",
+    "stars": 9622,
+    "repo": "friuns2/BlackFriday-GPTs-Prompts",
+    "profession": "unknown"
+   },
+   {
+    "pain": "手動設計高品質且附帶解析的測驗題目耗時",
+    "stars": 1220,
+    "repo": "mohitagw15856/pm-claude-skills",
+    "profession": "教師"
+   },
+   {
+    "pain": "缺乏跨國課程規範的中中學科學啟發式家教",
+    "stars": 593,
+    "repo": "24kchengYe/human-skill-tree",
+    "profession": "教育工作者"
+   },
+   {
+    "pain": "設計結合學科知識的批判性思考任務缺乏範本",
+    "stars": 465,
+    "repo": "GarethManning/education-agent-skills",
+    "profession": "課程設計師"
+   },
+   {
+    "pain": "手工製作解題動畫與多媒體教材耗時費力",
+    "stars": 370,
+    "repo": "shuyicc/MathLens",
+    "profession": "數學教師"
+   },
+   {
+    "pain": "手動查詢英國 UCAS 大學課程資格與費用資訊繁瑣。",
+    "stars": 355,
+    "repo": "antins-labs/SearchOS",
+    "profession": "升學輔導員"
+   },
+   {
+    "pain": "專案中前後端 Skill 索引混合導致維護困難",
+    "stars": 305,
+    "repo": "ai-shifu/ai-shifu",
+    "profession": "教育科技工程師"
+   },
+   {
+    "pain": "簡報課件內容冗長且難以快速整理成考點速查表",
+    "stars": 296,
+    "repo": "Li-Baichuan-James/summarize-slides-skill",
+    "profession": "研究生"
+   },
+   {
+    "pain": "學習練習結束後手動更新多個 JSON 易出錯",
+    "stars": 264,
+    "repo": "m98/fluent",
+    "profession": "教育科技工程師"
+   },
+   {
+    "pain": "K12 互動課件與 AI 學伴製作門檻高",
+    "stars": 258,
+    "repo": "weponusa/teachany",
+    "profession": "中小學教師"
+   },
+   {
+    "pain": "傳統課件缺乏互動性且製作流程繁瑣",
+    "stars": 258,
+    "repo": "weponusa/teachany",
+    "profession": "中小學教師"
+   }
+  ],
+  "research-academia": [
+   {
+    "pain": "手動繪製論文發表級科學圖表耗時且品質難達標",
+    "stars": 31777,
+    "repo": "K-Dense-AI/scientific-agent-skills",
+    "profession": "研究員"
+   },
+   {
+    "pain": "論文草稿撰寫前引用文獻與 BibTeX 對應混亂",
+    "stars": 6341,
+    "repo": "opensquilla/opensquilla",
+    "profession": "研究生"
+   },
+   {
+    "pain": "學術論文 LaTeX 手稿撰寫與編譯流程繁複",
+    "stars": 6341,
+    "repo": "opensquilla/opensquilla",
+    "profession": "研究生"
+   },
+   {
+    "pain": "經濟研究缺乏安全合規的 AI 整合流程",
+    "stars": 3081,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "profession": "經濟研究員"
+   },
+   {
+    "pain": "學術資料庫查詢語法與 API 限制各異",
+    "stars": 3081,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "profession": "學術研究員"
+   },
+   {
+    "pain": "人文學術研究缺乏量化數據分析方法",
+    "stars": 3081,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "profession": "數位人文研究員"
+   },
+   {
+    "pain": "論文繪圖難以保持字體一致與高解析度",
+    "stars": 3081,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "profession": "研究生"
+   },
+   {
+    "pain": "撰寫學術論文時文獻整理與 LaTeX 排版繁瑣",
+    "stars": 2902,
+    "repo": "Norman-bury/research-writing-skill",
+    "profession": "研究生"
+   },
+   {
+    "pain": "計算材料科學之晶體與能帶資料處理繁瑣",
+    "stars": 2479,
+    "repo": "foryourhealth111-pixel/Vibe-Skills",
+    "profession": "材料科學研究員"
+   },
+   {
+    "pain": "跨朝代政權歷史事件與年表整理困難且繁雜",
+    "stars": 2361,
+    "repo": "baojie/shiji-kb",
+    "profession": "歷史研究員"
+   },
+   {
+    "pain": "跨多平台搜尋與下載學術論文格式繁瑣",
+    "stars": 2252,
+    "repo": "openags/paper-search-mcp",
+    "profession": "研究生"
+   },
+   {
+    "pain": "學術論文審查缺乏系統化與多維度的評估標準",
+    "stars": 2135,
+    "repo": "K-Dense-AI/claude-scientific-writer",
+    "profession": "研究員"
+   }
+  ],
+  "healthcare-bio": [
+   {
+    "pain": "醫療器材 QMS 文件合規與版本控管繁瑣易錯",
+    "stars": 23200,
+    "repo": "alirezarezvani/claude-skills",
+    "profession": "品保工程師"
+   },
+   {
+    "pain": "生物醫學適應症資料分散且難以快速彙整",
+    "stars": 8388,
+    "repo": "companion-inc/feynman",
+    "profession": "生物醫學研究員"
+   },
+   {
+    "pain": "非編碼區變異與基因表達預測建模流程複雜",
+    "stars": 8388,
+    "repo": "companion-inc/feynman",
+    "profession": "生物資訊工程師"
+   },
+   {
+    "pain": "表觀基因組學多種測序流程複雜難以自動調度",
+    "stars": 4742,
+    "repo": "openai/plugins",
+    "profession": "生物資訊研究員"
+   },
+   {
+    "pain": "手動將病歷診斷映射至風險模型極繁瑣",
+    "stars": 4721,
+    "repo": "maziyarpanahi/openmed",
+    "profession": "醫療資訊工程師"
+   },
+   {
+    "pain": "臨床病歷文字難以自動擷取醫療實體",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "生醫資訊研究員"
+   },
+   {
+    "pain": "蛋白質結構預測與比對分析流程繁複",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "生物資訊專家"
+   },
+   {
+    "pain": "基因型數據缺乏單倍體相位定型處理",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "基因體學研究員"
+   },
+   {
+    "pain": "查詢 ClinVar 資料庫比對變異致病性耗時",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "臨床遺傳學家"
+   },
+   {
+    "pain": "Hi-C 數據的拓撲關聯結構域分析複雜",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "染色體結構研究員"
+   },
+   {
+    "pain": "藥品不良反應信號監測與定量分析繁瑣",
+    "stars": 2882,
+    "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+    "profession": "藥物安全專員"
+   },
+   {
+    "pain": "疾病與藥物間的複雜網路關係難以統整分析",
+    "stars": 1593,
+    "repo": "mims-harvard/ToolUniverse",
+    "profession": "生醫研究員"
+   }
+  ],
+  "finance-investing": [
+   {
+    "pain": "總帳與子帳或銀行對帳單人工核對繁瑣易錯",
+    "stars": 23042,
+    "repo": "anthropics/knowledge-work-plugins",
+    "profession": "會計師"
+   },
+   {
+    "pain": "評估投資標的時需手動計算多種財務比率",
+    "stars": 6989,
+    "repo": "kyegomez/swarms",
+    "profession": "財務分析師"
+   },
+   {
+    "pain": "交易策略缺乏技術面與情緒面的綜合評估",
+    "stars": 6259,
+    "repo": "Drakkar-Software/OctoBot",
+    "profession": "量化交易員"
+   },
+   {
+    "pain": "難以即時分析加密貨幣訂單簿的滑價與流動性",
+    "stars": 2173,
+    "repo": "olaxbt/ai-market-maker",
+    "profession": "量化交易員"
+   },
+   {
+    "pain": "難以跨多個 DEX 快速查詢歷史加密市場數據",
+    "stars": 2108,
+    "repo": "LeoYeAI/openclaw-master-skills",
+    "profession": "量化交易員"
+   },
+   {
+    "pain": "金融 Tick 資料清洗與 K 線彙整極耗時",
+    "stars": 1586,
+    "repo": "a5c-ai/babysitter",
+    "profession": "量化交易工程師"
+   },
+   {
+    "pain": "隱含波動率微笑與偏斜曲線手動分析繁瑣",
+    "stars": 1543,
+    "repo": "AlphaGBM/skills",
+    "profession": "量化交易員"
+   },
+   {
+    "pain": "難以快速檢索基金經理歷年觀點與投資框架",
+    "stars": 1354,
+    "repo": "lyra81604/zhengxi-views",
+    "profession": "基金研究員"
+   },
+   {
+    "pain": "公司清算優先權與股權清算瀑布計算複雜",
+    "stars": 1220,
+    "repo": "mohitagw15856/pm-claude-skills",
+    "profession": "財務顧問"
+   },
+   {
+    "pain": "世界盃賽事勝率預測與預測市場交易流程繁瑣",
+    "stars": 942,
+    "repo": "binance/binance-skills-hub",
+    "profession": "加密貨幣交易員"
+   },
+   {
+    "pain": "主觀新聞分析影響時事與市場走勢預測準確度。",
+    "stars": 726,
+    "repo": "komako-workshop/digital-oracle",
+    "profession": "量化分析師"
+   },
+   {
+    "pain": "難以從固定資產投資週期客觀評估個股所處階段",
+    "stars": 617,
+    "repo": "haskaomni/serenity-skill",
+    "profession": "股票分析師"
+   }
+  ],
+  "legal-compliance": [
+   {
+    "pain": "手動清點與維護 Semaphore UI 第三方開源授權聲明耗時",
+    "stars": 13916,
+    "repo": "semaphoreui/semaphore",
+    "profession": "DevOps 工程師"
+   },
+   {
+    "pain": "手動彙整內部調查日誌編寫特權備忘錄",
+    "stars": 8890,
+    "repo": "anthropics/claude-for-legal",
+    "profession": "律師"
+   },
+   {
+    "pain": "從專案文檔挖掘專利點與撰寫交底書繁瑣耗時",
+    "stars": 4269,
+    "repo": "handsomestWei/patent-disclosure-skill",
+    "profession": "專利師"
+   },
+   {
+    "pain": "人工審閱廠商合約容易遺漏關鍵條款",
+    "stars": 1632,
+    "repo": "AgentEra/Agently",
+    "profession": "法務人員"
+   },
+   {
+    "pain": "合約條款繁複且人工審查風險漏洞耗時",
+    "stars": 1590,
+    "repo": "zubair-trabzada/ai-legal-claude",
+    "profession": "律師"
+   },
+   {
+    "pain": "商業 NDA 條款用語不一難以快速辨識",
+    "stars": 1577,
+    "repo": "benchflow-ai/skillsbench",
+    "profession": "法務人員"
+   },
+   {
+    "pain": "天主教法典條文檢索與審查架構複雜",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "教會法律師"
+   },
+   {
+    "pain": "教會法條文檢索與適用審查繁瑣耗時",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "教會法律師"
+   },
+   {
+    "pain": "教會婚姻法典條文審查缺乏即時引用",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "教會法律師"
+   },
+   {
+    "pain": "教會法條文個案適用與舉證責任難判定",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "教會法律師"
+   },
+   {
+    "pain": "教會訴訟法典之時效與抗辯分析繁瑣",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "教會法律師"
+   },
+   {
+    "pain": "催收訴訟前缺乏被告角度的品質審查",
+    "stars": 1381,
+    "repo": "Klotzkette/claude-fuer-deutsches-recht",
+    "profession": "法務人員"
+   }
+  ],
+  "writing-content": [
+   {
+    "pain": "技術文件風格不統一且缺乏規範審查",
+    "stars": 6867,
+    "repo": "joe-bell/cva",
+    "profession": "技術文案寫手"
+   },
+   {
+    "pain": "缺少便利命令列工具快速擷取新聞頭條資訊",
+    "stars": 1852,
+    "repo": "mvanhorn/printing-press-library",
+    "profession": "媒體編輯"
+   },
+   {
+    "pain": "技術文件過於冗長且風格不一致",
+    "stars": 1683,
+    "repo": "revokslab/ShipFree",
+    "profession": "技術文案撰寫員"
+   },
+   {
+    "pain": "文件表達冗長不夠精準影響閱讀體驗",
+    "stars": 1279,
+    "repo": "NeoLabHQ/context-engineering-kit",
+    "profession": "技術文案寫手"
+   },
+   {
+    "pain": "將 Markdown 轉為專業排版文件步驟繁雜",
+    "stars": 1275,
+    "repo": "Team-Commonly/commonly",
+    "profession": "技術文案人員"
+   },
+   {
+    "pain": "公開技術文件陳述與實測證據缺乏驗證",
+    "stars": 1143,
+    "repo": "modu-ai/moai-adk",
+    "profession": "技術文案撰寫員"
+   },
+   {
+    "pain": "研究報告架構零散且缺乏明確引用規範",
+    "stars": 1001,
+    "repo": "vstorm-co/pydantic-deepagents",
+    "profession": "研究員"
+   },
+   {
+    "pain": "微信公眾號文章無法直接轉存 Markdown",
+    "stars": 963,
+    "repo": "jackwener/wechat-article-to-markdown",
+    "profession": "內容創作者"
+   },
+   {
+    "pain": "AI 潤色文章後丟失原作者個人特色與人味",
+    "stars": 954,
+    "repo": "orange2ai/renwei-writing",
+    "profession": "文案撰寫人"
+   },
+   {
+    "pain": "凡人流修仙小說的大綱與資源算計難嚴謹",
+    "stars": 667,
+    "repo": "Mochocyang/QMAI",
+    "profession": "網路小說家"
+   },
+   {
+    "pain": "配角易淪為工具人且缺乏立體劇情推動力",
+    "stars": 667,
+    "repo": "Mochocyang/QMAI",
+    "profession": "網路小說家"
+   },
+   {
+    "pain": "小說角色對話與思維缺乏古典反諷感",
+    "stars": 667,
+    "repo": "Mochocyang/QMAI",
+    "profession": "小說家"
+   }
+  ],
+  "hardware-eda": [
+   {
+    "pain": "手動調整晶片架構參數尋求最佳化耗時",
+    "stars": 3081,
+    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "profession": "IC設計工程師"
+   },
+   {
+    "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時",
+    "stars": 1586,
+    "repo": "a5c-ai/babysitter",
+    "profession": "IC 設計驗證工程師"
+   },
+   {
+    "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
+    "stars": 757,
+    "repo": "LeoKemp223/embed-ai-tool",
+    "profession": "嵌入式韌體工程師"
+   },
+   {
+    "pain": "設計與部署 IoT 感測器網路時缺乏架構指引",
+    "stars": 563,
+    "repo": "FerroxLabs/wayland",
+    "profession": "物聯網架構師"
+   },
+   {
+    "pain": "難以直接透過代碼控制硬體指示燈",
+    "stars": 330,
+    "repo": "glebis/claude-skills",
+    "profession": "嵌入式工程師"
+   },
+   {
+    "pain": "設計機器人系統軟體架構缺乏標準設計模式",
+    "stars": 324,
+    "repo": "arpitg1304/robotics-agent-skills",
+    "profession": "機器人工程師"
+   },
+   {
+    "pain": "編譯並燒錄 ESP 韌體需多步驟手動操作",
+    "stars": 196,
+    "repo": "rvdbreemen/OTGW-firmware",
+    "profession": "韌體工程師"
+   },
+   {
+    "pain": "3D 列印從建模到切片列印流程切換過於繁瑣",
+    "stars": 63,
+    "repo": "makermate/claw3d-skill",
+    "profession": "創客"
+   },
+   {
+    "pain": "Zephyr 嵌入式開發繁雜難以路由正確技能",
+    "stars": 57,
+    "repo": "beriberikix/zephyr-agent-skills",
+    "profession": "嵌入式工程師"
+   },
+   {
+    "pain": "工業通訊協定 Modbus 與 CANopen 開發門檻高",
+    "stars": 57,
+    "repo": "beriberikix/zephyr-agent-skills",
+    "profession": "韌體工程師"
+   },
+   {
+    "pain": "STM32韌體編譯燒錄與除錯操作繁瑣",
+    "stars": 43,
+    "repo": "XZhaoSudo/stm32debug-skill",
+    "profession": "嵌入式韌體工程師"
+   },
+   {
+    "pain": "從布爾邏輯規格手動推導與轉換閘級電路繁瑣",
+    "stars": 26,
+    "repo": "pjt222/agent-almanac",
+    "profession": "IC設計工程師"
+   }
+  ],
+  "other": [
+   {
+    "pain": "四柱八字排盤繁瑣且需查閱多本經典典籍。",
+    "stars": 2289,
+    "repo": "jinchenma94/bazi-skill",
+    "profession": "命理師"
+   },
+   {
+    "pain": "測試模型是否能嚴格執行特定角色指令",
+    "stars": 531,
+    "repo": "ECNU-ICALK/AutoSkill",
+    "profession": "unknown"
+   },
+   {
+    "pain": "動漫角色沉浸式互動容易脫離人設",
+    "stars": 531,
+    "repo": "ECNU-ICALK/AutoSkill",
+    "profession": "獨立創作者"
+   },
+   {
+    "pain": "AI 打招呼方式太過公式化缺乏趣味性",
+    "stars": 354,
+    "repo": "anthropics/anthropic-sdk-java",
+    "profession": "unknown"
+   },
+   {
+    "pain": "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
+    "stars": 254,
+    "repo": "datadrivenconstruction/DDC_Skills_for_AI_Agents_in_Construction",
+    "profession": "BIM工程師"
+   },
+   {
+    "pain": "命理計算缺乏標準 API 與自動化交付層",
+    "stars": 198,
+    "repo": "tradecatlabs/fatecat",
+    "profession": "獨立開發者"
+   },
+   {
+    "pain": "缺乏個人化且具互動感的沉浸式角色扮演體驗",
+    "stars": 147,
+    "repo": "wusaki0723/play-prompt-kit",
+    "profession": "unknown"
+   },
+   {
+    "pain": "跑團時難以快速查閱 TTRPG 技能專長規則",
+    "stars": 80,
+    "repo": "Obsidian-TTRPG-Community/Pathfinder-2E-SRD-Markdown",
+    "profession": "unknown"
+   },
+   {
+    "pain": "手動計算工廠遊戲複雜合成鏈的產率與機器數",
+    "stars": 79,
+    "repo": "moorestech/moorestech",
+    "profession": "遊戲玩家"
+   },
+   {
+    "pain": "氣象工具過多且缺乏統一查詢邏輯",
+    "stars": 42,
+    "repo": "FahrenheitResearch/hermes-weather-plugin",
+    "profession": "氣象分析師"
+   },
+   {
+    "pain": "缺乏趣味性且專屬 AI Agent 的互動人格測試",
+    "stars": 30,
+    "repo": "nexu-io/sbti-skill",
+    "profession": "unknown"
+   },
+   {
+    "pain": "彩券號碼選擇缺乏歷史開獎數據統計分析。",
+    "stars": 26,
+    "repo": "Konata9/chinese-lottery-predict-skills",
+    "profession": "彩迷"
+   }
+  ],
+  "sales-crm": [
+   {
+    "pain": "荷蘭政府標案資訊分散且離線檢索不便",
+    "stars": 1852,
+    "repo": "mvanhorn/printing-press-library",
+    "profession": "投標專員"
+   },
+   {
+    "pain": "追蹤企業融資動態並繪製客製化開發信流程繁瑣",
+    "stars": 1052,
+    "repo": "gooseworks-ai/goose-skills",
+    "profession": "B2B 業務開發"
+   },
+   {
+    "pain": "為潛在客戶手動打造客製產品 Demo 耗時費力",
+    "stars": 1052,
+    "repo": "gooseworks-ai/goose-skills",
+    "profession": "售前工程師"
+   },
+   {
+    "pain": "多個 Salesforce 測試環境過期難追蹤",
+    "stars": 756,
+    "repo": "forcedotcom/sf-skills",
+    "profession": "Salesforce 管理員"
+   },
+   {
+    "pain": "拜訪企業客戶前需手動跨系統收集整理資料",
+    "stars": 575,
+    "repo": "aliyun/qwen-dianjin",
+    "profession": "銀行對公客戶經理"
+   },
+   {
+    "pain": "自動化操作Autobound撰寫開發信與潛客",
+    "stars": 552,
+    "repo": "openteams-lab/openteams",
+    "profession": "業務代表"
+   },
+   {
+    "pain": "業務銷售過程中的短影片訊息管理與自動化觸達難",
+    "stars": 248,
+    "repo": "membranedev/application-skills",
+    "profession": "業務代表"
+   },
+   {
+    "pain": "B2B 銷售自動化工作流架構複雜且節點選用混亂",
+    "stars": 219,
+    "repo": "Cold-IQ/ColdIQ-s-GTM-Skills",
+    "profession": "行銷自動化工程師"
+   },
+   {
+    "pain": "開發陌生客戶信件缺乏高效架構與高回覆率框架",
+    "stars": 219,
+    "repo": "Cold-IQ/ColdIQ-s-GTM-Skills",
+    "profession": "業務代表"
+   },
+   {
+    "pain": "難以即時追蹤多個客戶的跟進進度與郵件草稿",
+    "stars": 216,
+    "repo": "ArtemXTech/claude-code-obsidian-starter",
+    "profession": "客戶關係經理"
+   },
+   {
+    "pain": "冷開發郵件缺乏分級個性化導致開信率低",
+    "stars": 205,
+    "repo": "mattgierhart/PRD-driven-context-engineering",
+    "profession": "業務開發"
+   },
+   {
+    "pain": "Shopify 後台營運繁瑣無法統一調度",
+    "stars": 169,
+    "repo": "40RTY-ai/shopify-admin-skills",
+    "profession": "電商營運專員"
+   }
+  ]
+ },
+ "top_by_stars": [
+  {
+   "repo": "affaan-m/ECC",
+   "domain": "ops-admin",
+   "profession": "逆向物流經理",
+   "task": "verify",
+   "maturity": "production",
+   "pain": "零售與電商退貨處理與欺詐檢驗流程複雜。",
+   "stars": 233406
+  },
+  {
+   "repo": "n8n-io/n8n",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "前端開發時難以遵循統一的元件設計規範",
+   "stars": 198028
+  },
+  {
+   "repo": "flutter/flutter",
+   "domain": "software-dev",
+   "profession": "Flutter工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "Flutter 跨分支 Cherry-pick 流程易出錯",
+   "stars": 177947
+  },
+  {
+   "repo": "garrytan/gstack",
+   "domain": "devops-infra",
+   "profession": "DevOps工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "PR合併到正式環境部署驗證缺乏自動化",
+   "stars": 124375
+  },
+  {
+   "repo": "ant-design/ant-design",
+   "domain": "devops-infra",
+   "profession": "前端工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "大型套件庫版本發布流程繁瑣易出錯",
+   "stars": 98822
+  },
+  {
+   "repo": "oven-sh/bun",
+   "domain": "software-dev",
+   "profession": "系統程式員",
+   "task": "verify",
+   "maturity": "production",
+   "pain": "手動建置並驗證Bun執行階段的底層變更",
+   "stars": 95026
+  },
+  {
+   "repo": "nexu-io/open-design",
+   "domain": "design-creative",
+   "profession": "動態視覺設計師",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "製作極簡風格品牌動態影片需耗時刻劃動畫",
+   "stars": 81580
+  },
+  {
+   "repo": "nexu-io/open-design",
+   "domain": "ops-admin",
+   "profession": "營運經理",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "週會數據彙整與簡報製作耗費團隊精力",
+   "stars": 81580
+  },
+  {
+   "repo": "nexu-io/open-design",
+   "domain": "personal-productivity",
+   "profession": "產品經理",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "年終考績自評簡報結構梳理與美化耗時",
+   "stars": 81580
+  },
+  {
+   "repo": "nexu-io/open-design",
+   "domain": "design-creative",
+   "profession": "動態視覺設計師",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "程式碼控制 HTML 影片渲染與音效同步複雜",
+   "stars": 81580
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "自訂 404 頁面缺乏引導致使用者流失",
+   "stars": 73320
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "行內 JS 導致 CSP 違規與快取維護困難",
+   "stars": 73320
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "缺乏語義化 HTML 影響無障礙與 SEO",
+   "stars": 73320
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "平滑捲動引發前庭覺障礙使用者不適",
+   "stars": 73320
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "marketing-growth",
+   "profession": "SEO專家",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "缺少評價結構化資料致搜尋星級曝光遺失",
+   "stars": 73320
+  },
+  {
+   "repo": "thedaviddias/Front-End-Checklist",
+   "domain": "security",
+   "profession": "資安工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "第三方 Cookie 引發合規與用戶隱私風險",
+   "stars": 73320
+  },
+  {
+   "repo": "microsoft/ai-agents-for-beginners",
+   "domain": "data-analytics",
+   "profession": "資料科學家",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "從零建立結構乾淨且可重複驗證的 Notebook",
+   "stars": 70349
+  },
+  {
+   "repo": "microsoft/ai-agents-for-beginners",
+   "domain": "ai-agent-tooling",
+   "profession": "AI工程師",
+   "task": "configure",
+   "maturity": "toy",
+   "pain": "將原型 AI Agent 部署至生產環境經驗不足",
+   "stars": 70349
+  },
+  {
+   "repo": "microsoft/ai-agents-for-beginners",
+   "domain": "ai-agent-tooling",
+   "profession": "AI工程師",
+   "task": "transform",
+   "maturity": "production",
+   "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+   "stars": 70349
+  },
+  {
+   "repo": "microsoft/ai-agents-for-beginners",
+   "domain": "ai-agent-tooling",
+   "profession": "AI工程師",
+   "task": "transform",
+   "maturity": "production",
+   "pain": "手動將 Azure OpenAI SDK 程式碼改寫至新介面",
+   "stars": 70349
+  },
+  {
+   "repo": "code-yeongyu/oh-my-openagent",
+   "domain": "software-dev",
+   "profession": "測試工程師",
+   "task": "verify",
+   "maturity": "production",
+   "pain": "手動進行Web與終端介面視覺比對易出錯",
+   "stars": 66602
+  },
+  {
+   "repo": "leonardomso/33-js-concepts",
+   "domain": "education-training",
+   "profession": "技術文件撰寫員",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "撰寫JS觀念教學文章格式與品質不一",
+   "stars": 66510
+  },
+  {
+   "repo": "ruvnet/ruflo",
+   "domain": "ai-agent-tooling",
+   "profession": "AI 套件開發者",
+   "task": "verify",
+   "maturity": "production",
+   "pain": "Claude Code 外掛發布前難以自動驗證格式",
+   "stars": 66003
+  },
+  {
+   "repo": "twentyhq/twenty",
+   "domain": "devops-infra",
+   "profession": "全棧工程師",
+   "task": "orchestrate",
+   "maturity": "workflow",
+   "pain": "Twenty 應用程式營運與部署命令分散繁瑣",
+   "stars": 53654
+  },
+  {
+   "repo": "bmad-code-org/BMAD-METHOD",
+   "domain": "ai-agent-tooling",
+   "profession": "AI Agent 開發者",
+   "task": "orchestrate",
+   "maturity": "workflow",
+   "pain": "使用BMad框架時不清楚當前階段與下一步",
+   "stars": 51121
+  },
+  {
+   "repo": "tldraw/tldraw",
+   "domain": "software-dev",
+   "profession": "軟體工程師",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "手動分析 Git diff 並撰寫規範 commit 訊息繁瑣",
+   "stars": 49298
+  },
+  {
+   "repo": "tldraw/tldraw",
+   "domain": "software-dev",
+   "profession": "前端工程師",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "為 SDK 撰寫符合規範的範例程式碼繁瑣耗時",
+   "stars": 49298
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "ai-agent-tooling",
+   "profession": "軟體工程師",
+   "task": "retrieve",
+   "maturity": "workflow",
+   "pain": "傳統關鍵字搜尋無法準確定位語意相關程式碼",
+   "stars": 43916
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "ai-agent-tooling",
+   "profession": "軟體工程師",
+   "task": "orchestrate",
+   "maturity": "workflow",
+   "pain": "難以同時調度與監控多個背景運行的 Agent",
+   "stars": 43916
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "software-dev",
+   "profession": "軟體工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "手動解 Git 合併衝突容易遺漏雙方修改意圖",
+   "stars": 43916
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "ai-agent-tooling",
+   "profession": "軟體工程師",
+   "task": "verify",
+   "maturity": "workflow",
+   "pain": "追蹤與核對 Agent 承諾事項之執行結果費時",
+   "stars": 43916
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "software-dev",
+   "profession": "軟體工程師",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "撰寫 C 語言時易出現記憶體與指標操作錯誤",
+   "stars": 43916
+  },
+  {
+   "repo": "sickn33/agentic-awesome-skills",
+   "domain": "software-dev",
+   "profession": "遊戲開發者",
+   "task": "generate",
+   "maturity": "production",
+   "pain": "缺乏 Godot 4 遊戲架構與最佳實踐範本",
+   "stars": 43916
+  },
+  {
+   "repo": "Hmbown/CodeWhale",
+   "domain": "ops-admin",
+   "profession": "全棧工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "飛書與 Lark API 整合時憑證管理混亂",
+   "stars": 40116
+  },
+  {
+   "repo": "K-Dense-AI/scientific-agent-skills",
+   "domain": "research-academia",
+   "profession": "研究員",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "手動繪製論文發表級科學圖表耗時且品質難達標",
+   "stars": 31777
+  },
+  {
+   "repo": "davila7/claude-code-templates",
+   "domain": "software-dev",
+   "profession": "全端工程師",
+   "task": "configure",
+   "maturity": "production",
+   "pain": "Firebase 安全規則與查詢設計不當導致高費用",
+   "stars": 29909
+  },
+  {
+   "repo": "davila7/claude-code-templates",
+   "domain": "ops-admin",
+   "profession": "自動化工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "無程式碼自動化流程複雜時容易故障與出錯",
+   "stars": 29909
+  },
+  {
+   "repo": "davila7/claude-code-templates",
+   "domain": "design-creative",
+   "profession": "遊戲企劃",
+   "task": "generate",
+   "maturity": "workflow",
+   "pain": "遊戲核心迴圈與數值平衡缺乏結構化設計",
+   "stars": 29909
+  },
+  {
+   "repo": "davila7/claude-code-templates",
+   "domain": "ai-agent-tooling",
+   "profession": "AI工程師",
+   "task": "configure",
+   "maturity": "production",
+   "pain": "AI 缺乏針對不同任務情境切換行為模式機制",
+   "stars": 29909
+  },
+  {
+   "repo": "davila7/claude-code-templates",
+   "domain": "ai-agent-tooling",
+   "profession": "AI工程師",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "複雜多 Agent 狀態與循環流程難以可視化管理",
+   "stars": 29909
+  }
+ ]
+}

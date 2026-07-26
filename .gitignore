@@ -1,2 +1,6 @@
 data/run.log
+data/launchd.*
 daily/*.new
+corpus/.batches/
+corpus/.classified/
+corpus/classify.log
