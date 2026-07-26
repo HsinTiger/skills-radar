@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-26T05:59:52.922223+00:00",
+ "generated_at": "2026-07-26T06:05:25.552071+00:00",
  "window_days": 1,
  "repos": [
   {
@@ -102,7 +102,7 @@
    "repo": "anthropics/claude-code",
    "tier": 1,
    "why": "Claude Code 本體（changelog / issue 風向）",
-   "stars": 139101,
+   "stars": 139100,
    "pushed_at": "2026-07-25T01:35:55Z",
    "open_issues": 13346,
    "commits": [],
@@ -131,7 +131,7 @@
    "repo": "ComposioHQ/awesome-claude-skills",
    "tier": 3,
    "why": "最大社群精選清單",
-   "stars": 70698,
+   "stars": 70700,
    "pushed_at": "2026-07-24T07:48:01Z",
    "open_issues": 1098,
    "commits": [],
@@ -141,7 +141,7 @@
    "repo": "travisvn/awesome-claude-skills",
    "tier": 3,
    "why": "Claude Code 取向的社群清單",
-   "stars": 14316,
+   "stars": 14317,
    "pushed_at": "2026-04-28T19:30:24Z",
    "open_issues": 659,
    "commits": [],
@@ -305,8 +305,8 @@
  "hn": [
   {
    "q": "claude code",
-   "points": 251,
-   "comments": 161,
+   "points": 252,
+   "comments": 164,
    "title_untrusted": "The new rules of context engineering for Claude 5 generation models",
    "url": "https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models"
   },
@@ -546,11 +546,17 @@
   }
  ],
  "diff": {
-  "star_delta": {},
+  "star_delta": {
+   "anthropics/skills": 0,
+   "anthropics/claude-plugins-official": 0,
+   "anthropics/claude-code": -1,
+   "ComposioHQ/awesome-claude-skills": 2,
+   "travisvn/awesome-claude-skills": 1
+  },
   "skills_added": {},
   "skills_removed": {},
   "plugins_added": [],
   "plugins_removed": [],
-  "first_run": true
+  "first_run": false
  }
 }

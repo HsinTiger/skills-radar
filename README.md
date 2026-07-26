@@ -10,27 +10,25 @@
 
 ## 最新一期：[2026-07-26](daily/2026-07-26.md)
 
-**今日一句話**：Claude Code 釋出 v2.1.219/220 支援 Opus 5 1M 長上下文與沙盒嚴格網路白名單；同時學界與社群全面轉向防範「長上下文下的 Skill 規範衰退」與「多 Agent 間的 Channel Injection 防禦」。
+**今日一句話**：Claude Code 官方發布 v2.1.219，預設模型正式升級為 1M Context 的 Opus 5，並引進 strictAllowlist 沙盒網路白名單防禦機制。
 
 **短期建議（一週內）**
 
-1. **啟用 `sandbox.network.strictAllowlist` 防禦 CLI 自動化外連風險**
-   - **具體動作**：更新 Claude Code 至 `v2.1.219+`，在本地全域設定檔啟用 `strictAllowlist`，僅放行 Substack API、BTC 數據源、GitHub 等必要 Domain。阻斷所有未授權的背景外連。
-2. **抽取防護型規則至自建全域 System Rules (如 `agy` / `ccr` / `Claude Code`)**
-   - **驗證步驟**：
-     1. 下載 `0xwilliamortiz/andrej-karpathy-skills` (T3) 原始檔。
-     2. 檢查其 `.md` 內容，確認無惡意 Prompt 或外聯網址。
-     3. 僅複製其「反模式負面條款」（如禁止動非相關檔案、禁止偽造 API 回應），貼入本地控制層 Prompt，強化 CLI 稽核能力。
+1. **啟用 Claude Code 嚴格網路白名單**：
+   在 CLI 設定中加入 `sandbox.network.strictAllowlist`，僅允許 pipeline 必要的網域（如 Substack API、Cloudflare、指定數據源），全面阻擋非授權外連。
+2. **檢視並吸收 Karpathy 防護規約**：
+   不用直接安裝第三方 Skill，手動人肉審閱 `0xwilliamortiz/andrej-karpathy-skills` 中的 Markdown 內容，將其中防範「Agent 擅自重構運作中程式碼」的規則，抽離並寫入現有 pipeline 的 `.claude/rules` 或 agy 系統提示詞中。
+   - **驗證步驟**：使用 `git clone` 下載至 `<appDataDir>/scratch/` 獨立目錄 ➔ 純文字人肉檢查是否有隱藏指令 ➔ 手動複製純規約內文。
 
-## 生態指標（首次快照）
+## 生態指標
 
-| repo | star |
-|---|---:|
-| anthropics/skills | 164,187 |
-| anthropics/claude-plugins-official | 32,668 |
-| anthropics/claude-code | 139,101 |
-| ComposioHQ/awesome-claude-skills | 70,698 |
-| travisvn/awesome-claude-skills | 14,316 |
+| repo | 目前 star | 自 2026-07-26 起變化 |
+|---|---:|---:|
+| anthropics/skills | 164,187 | +0 |
+| anthropics/claude-plugins-official | 32,668 | +0 |
+| anthropics/claude-code | 139,100 | -1 |
+| ComposioHQ/awesome-claude-skills | 70,700 | +2 |
+| travisvn/awesome-claude-skills | 14,317 | +1 |
 
 ## 這個系統怎麼運作
 
