@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-26 14:08 UTC",
+ "generated": "2026-07-26 16:17 UTC",
  "n_total": 5430,
  "global_production_pct": 42.3,
  "global_task_pct": {
@@ -5164,5 +5164,1055 @@
   ],
   "verify_pct": 16.0,
   "global_verify_pct": 15.0
+ },
+ "security": {
+  "n_scanned": 21716,
+  "n_flagged": 276,
+  "pct_flagged": 1.27,
+  "by_category": {
+   "隱藏字元": 87,
+   "憑證竊取": 68,
+   "越權自主": 46,
+   "改動設定或掛鉤": 29,
+   "破壞性操作": 24,
+   "指令覆寫": 10,
+   "隱瞞使用者": 8,
+   "外送資料": 7,
+   "編碼混淆": 1
+  },
+  "by_domain": {
+   "software-dev": {
+    "flagged": 60,
+    "total": 7314,
+    "pct": 0.8
+   },
+   "ai-agent-tooling": {
+    "flagged": 52,
+    "total": 2367,
+    "pct": 2.2
+   },
+   "security": {
+    "flagged": 47,
+    "total": 1326,
+    "pct": 3.5
+   },
+   "devops-infra": {
+    "flagged": 27,
+    "total": 1287,
+    "pct": 2.1
+   },
+   "design-creative": {
+    "flagged": 26,
+    "total": 2106,
+    "pct": 1.2
+   },
+   "personal-productivity": {
+    "flagged": 12,
+    "total": 636,
+    "pct": 1.9
+   },
+   "ops-admin": {
+    "flagged": 11,
+    "total": 689,
+    "pct": 1.6
+   },
+   "data-analytics": {
+    "flagged": 10,
+    "total": 470,
+    "pct": 2.1
+   },
+   "finance-investing": {
+    "flagged": 8,
+    "total": 415,
+    "pct": 1.9
+   },
+   "research-academia": {
+    "flagged": 7,
+    "total": 957,
+    "pct": 0.7
+   },
+   "marketing-growth": {
+    "flagged": 5,
+    "total": 795,
+    "pct": 0.6
+   },
+   "hardware-eda": {
+    "flagged": 4,
+    "total": 1751,
+    "pct": 0.2
+   },
+   "writing-content": {
+    "flagged": 3,
+    "total": 386,
+    "pct": 0.8
+   },
+   "legal-compliance": {
+    "flagged": 2,
+    "total": 350,
+    "pct": 0.6
+   },
+   "healthcare-bio": {
+    "flagged": 1,
+    "total": 380,
+    "pct": 0.3
+   },
+   "education-training": {
+    "flagged": 1,
+    "total": 162,
+    "pct": 0.6
+   },
+   "other": {
+    "flagged": 0,
+    "total": 208,
+    "pct": 0.0
+   },
+   "sales-crm": {
+    "flagged": 0,
+    "total": 117,
+    "pct": 0.0
+   }
+  },
+  "top_flagged": [
+   {
+    "repo": "MFS-code/gstack",
+    "path": "careful/SKILL.md.tmpl",
+    "stars": 8,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "gebl/anvil-skill-marketplace",
+    "path": "generated/claude/skills/careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "soyasis/gstack-private",
+    "path": "careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "lyh2/gstack-deepseek",
+    "path": "careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "fghaffar/faystack",
+    "path": "careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "rmarino550/gstack",
+    "path": "careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "mr-daedalium/ostack-saas",
+    "path": "careful/SKILL.md",
+    "stars": 107,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "Shmurdoc/EasyRide-v1",
+    "path": ".opencode/skills/gstack/careful/SKILL.md.tmpl",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "破壞性操作": 3
+    },
+    "name": "careful"
+   },
+   {
+    "repo": "SriramGandhiS/Skills",
+    "path": "skills/everything-claude-code/skills/safety-guard/SKILL.md",
+    "stars": 1,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "改動設定或掛鉤": 1,
+     "破壞性操作": 2
+    },
+    "name": "safety-guard"
+   },
+   {
+    "repo": "Undermybelt/hermes-skills",
+    "path": "skills/community/ecc/ecc-safety-guard/SKILL.md",
+    "stars": 4,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "改動設定或掛鉤": 1,
+     "破壞性操作": 2
+    },
+    "name": "ecc-safety-guard"
+   },
+   {
+    "repo": "tools-only/X-Skills",
+    "path": "development/003-name-skill_e2474108/skill.md",
+    "stars": 7,
+    "domain": "security",
+    "score": 10,
+    "hits": {
+     "指令覆寫": 2
+    },
+    "name": "jailbreak-override"
+   },
+   {
+    "repo": "kody-w/rapp-god",
+    "path": "products/rappterbook/generations/v1/rappterbook/skills/state-health.skill.md",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 10,
+    "hits": {
+     "憑證竊取": 2
+    },
+    "name": "State Health — Skill File"
+   },
+   {
+    "repo": "JGalego/Bag-of-Tricks",
+    "path": "mole/SKILL.md",
+    "stars": 6,
+    "domain": "security",
+    "score": 10,
+    "hits": {
+     "指令覆寫": 2
+    },
+    "name": "mole"
+   },
+   {
+    "repo": "raiph-ai/fireclaw",
+    "path": "SKILL.md",
+    "stars": 17,
+    "domain": "security",
+    "score": 10,
+    "hits": {
+     "指令覆寫": 2
+    },
+    "name": "FireClaw — Prompt Injection Defense Proxy"
+   },
+   {
+    "repo": "microsoft/ai-agents-for-beginners",
+    "path": "translations/zh-CN/.agents/skills/azure-openai-to-responses/SKILL.md",
+    "stars": 70349,
+    "domain": "ai-agent-tooling",
+    "score": 10,
+    "hits": {
+     "憑證竊取": 2
+    },
+    "name": "azure-openai-to-responses"
+   },
+   {
+    "repo": "erasin/notes",
+    "path": "mac/skill.md",
+    "stars": 308,
+    "domain": "personal-productivity",
+    "score": 8,
+    "hits": {
+     "改動設定或掛鉤": 1,
+     "破壞性操作": 1
+    },
+    "name": "mac skill"
+   },
+   {
+    "repo": "Dicklesworthstone/slb",
+    "path": "SKILL.md",
+    "stars": 74,
+    "domain": "ai-agent-tooling",
+    "score": 8,
+    "hits": {
+     "破壞性操作": 2
+    },
+    "name": "slb"
+   },
+   {
+    "repo": "beatussimon/uzaspea",
+    "path": "UZASPEA-SKILL.md",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 8,
+    "hits": {
+     "改動設定或掛鉤": 1,
+     "破壞性操作": 1
+    },
+    "name": "UZASPEA-SKILL.md"
+   },
+   {
+    "repo": "AxioRank/hermes-plugin",
+    "path": "src/hermes_axiorank/skills/secure-tool-use/SKILL.md",
+    "stars": 0,
+    "domain": "security",
+    "score": 8,
+    "hits": {
+     "破壞性操作": 2
+    },
+    "name": "secure-tool-use"
+   },
+   {
+    "repo": "Scrulius/SuperEnchanter",
+    "path": "docs/auxilor/effects/external-integrations/mythicmobs/effects/cast_mythic_skill.md",
+    "stars": 1,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Effect Syntax"
+   },
+   {
+    "repo": "ComeOnOliver/skillshub",
+    "path": "skills/skillshub-team/catalog-batch5/oauth2-jwt-auth/SKILL.md",
+    "stars": 58,
+    "domain": "security",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "OAuth 2.0 & JWT"
+   },
+   {
+    "repo": "Gald3r-Labs/gald3r",
+    "path": "platforms/junie/.junie/skills/g-skl-review/SKILL.md",
+    "stars": 23,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "g-skl-review — thinned shim (prompt-layer)"
+   },
+   {
+    "repo": "Gald3r-Labs/gald3r",
+    "path": "platforms/openclaw/.openclaw/skills/g-skl-review/SKILL.md",
+    "stars": 23,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "g-skl-review — thinned shim (prompt-layer)"
+   },
+   {
+    "repo": "Gald3r-Labs/gald3r",
+    "path": "platforms/openhands/.agents/skills/g-skl-recon-file/SKILL.md",
+    "stars": 23,
+    "domain": "personal-productivity",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "g-recon-file"
+   },
+   {
+    "repo": "Gald3r-Labs/gald3r",
+    "path": "platforms/kiro/.kiro/skills/g-skl-oracle/SKILL.md",
+    "stars": 23,
+    "domain": "devops-infra",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Conditional skill activation (T1250): this skill only makes sense when the"
+   },
+   {
+    "repo": "Gald3r-Labs/gald3r",
+    "path": "platforms/kilo-code/.kilo/skills/g-skl-recon-docs/SKILL.md",
+    "stars": 23,
+    "domain": "personal-productivity",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "g-recon-docs"
+   },
+   {
+    "repo": "maxwellcudjoe/maxsidian",
+    "path": "obsidian/Codebase/Task 4 Make `skillsobsidian-loggingSKILL.md` graph-aware.md",
+    "stars": 0,
+    "domain": "personal-productivity",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Task 4: Make `skills/obsidian-logging/SKILL.md` graph-aware"
+   },
+   {
+    "repo": "pally-ai/whatsapp-use-public-docs",
+    "path": "skill.md",
+    "stars": 0,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱瞞使用者": 1
+    },
+    "name": "WhatsApp Use docs skill"
+   },
+   {
+    "repo": "jeremylongshore/claude-code-plugins-plus-skills",
+    "path": "plugins/saas-packs/procore-pack/skills/procore-observability/SKILL.md",
+    "stars": 2557,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "procore-observability"
+   },
+   {
+    "repo": "jeremylongshore/claude-code-plugins-plus-skills",
+    "path": "skills/.curated/retellai-enterprise-rbac/SKILL.md",
+    "stars": 2557,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "retellai-enterprise-rbac"
+   },
+   {
+    "repo": "davila7/claude-code-templates",
+    "path": "cli-tool/components/skills/ai-research/model-architecture-rwkv/SKILL.md",
+    "stars": 29909,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "rwkv-architecture"
+   },
+   {
+    "repo": "transaurus/staging-davila7-claude-code-templates",
+    "path": "cli-tool/components/skills/ai-research/model-architecture-rwkv/SKILL.md",
+    "stars": 0,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "rwkv-architecture"
+   },
+   {
+    "repo": "mrarcitech/ClaudeCodeRepo",
+    "path": "cli-tool/components/skills/ai-research/model-architecture-rwkv/SKILL.md",
+    "stars": 0,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "rwkv-architecture"
+   },
+   {
+    "repo": "Mochocyang/QMAI",
+    "path": "skills/SkillHub/JueseSkill/supporting-cast/SKILL.md",
+    "stars": 667,
+    "domain": "writing-content",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "配角配置"
+   },
+   {
+    "repo": "AgriciDaniel/claude-ads",
+    "path": "skills/ads-setup/SKILL.md",
+    "stars": 7483,
+    "domain": "marketing-growth",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "ads-setup"
+   },
+   {
+    "repo": "viralcode/tensoragentos",
+    "path": "packages/openwhale/tutorials/github-skill.md",
+    "stars": 23,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "GitHub Skill"
+   },
+   {
+    "repo": "Zhiqi123/pyclaw",
+    "path": "skills/utility/summarize.SKILL.md",
+    "stars": 0,
+    "domain": "personal-productivity",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "summarize"
+   },
+   {
+    "repo": "WildestAI/DiffGraph-CLI",
+    "path": "skill.md",
+    "stars": 8,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "skill: wild-diff"
+   },
+   {
+    "repo": "neojarvis0704/azure-image-gen",
+    "path": "skill.md",
+    "stars": 0,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "azure-image-gen"
+   },
+   {
+    "repo": "lingxling/awesome-skills-cn",
+    "path": "openai-skills/skills/.curated/transcribe/SKILL.md",
+    "stars": 209,
+    "domain": "personal-productivity",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "transcribe"
+   },
+   {
+    "repo": "Dalomeve/bot-output",
+    "path": "skills/zh-encoding-fix/SKILL.md.bak.20260301-221314",
+    "stars": 3,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "ZH Encoding Fix"
+   },
+   {
+    "repo": "enviodev/uniswap-v4-indexer",
+    "path": ".claude/skills/envio-cloud-cli/SKILL.md",
+    "stars": 55,
+    "domain": "devops-infra",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "envio-cloud-cli"
+   },
+   {
+    "repo": "NNNightglow/replay",
+    "path": "skills/visualization/SKILL.md",
+    "stars": 40,
+    "domain": "finance-investing",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "名称"
+   },
+   {
+    "repo": "NVIDIA-AI-IOT/jetson-ai-lab",
+    "path": ".agents/skills/jetson-ai-lab-verify-build/SKILL.md",
+    "stars": 192,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Jetson AI Lab: verify the build"
+   },
+   {
+    "repo": "boazcstrike/opencode",
+    "path": "skills/slack/SKILL.md",
+    "stars": 3,
+    "domain": "ops-admin",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "slack"
+   },
+   {
+    "repo": "konflux-ci/qe-tools",
+    "path": "skills/debugging-cli-locally/SKILL.md",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "debugging-cli-locally"
+   },
+   {
+    "repo": "silvio-l/skills",
+    "path": "skills/openai-image/SKILL.md",
+    "stars": 0,
+    "domain": "design-creative",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "openai-image"
+   },
+   {
+    "repo": "Open-Curiosity/gini-agent",
+    "path": "skills/agents/codex/SKILL.md",
+    "stars": 1379,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "codex"
+   },
+   {
+    "repo": "criptogus/agent-evolve-network",
+    "path": ".claude/skills/api-tester/SKILL.md",
+    "stars": 4,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "api-tester"
+   },
+   {
+    "repo": "criptogus/agent-evolve-network",
+    "path": ".claude/skills/image-analyzer/SKILL.md",
+    "stars": 4,
+    "domain": "data-analytics",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "image-analyzer"
+   },
+   {
+    "repo": "GrizzlySMS-Git/grizzly-sms-mcp",
+    "path": "SKILL.md",
+    "stars": 11,
+    "domain": "ops-admin",
+    "score": 5,
+    "hits": {
+     "隱瞞使用者": 1
+    },
+    "name": "grizzly_sms"
+   },
+   {
+    "repo": "onfire7777/universal-ai-skills-library",
+    "path": "skills/x-api/SKILL.md",
+    "stars": 13,
+    "domain": "marketing-growth",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "x-api"
+   },
+   {
+    "repo": "ak110/GLATasks",
+    "path": ".claude/skills/e2etest/SKILL.md",
+    "stars": 0,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "e2etest"
+   },
+   {
+    "repo": "urjitbhatia/brainlog",
+    "path": "docs/skill/SKILL.md",
+    "stars": 2,
+    "domain": "software-dev",
+    "score": 5,
+    "hits": {
+     "隱瞞使用者": 1
+    },
+    "name": "brainlog-guide"
+   },
+   {
+    "repo": "sassoftware/sas-score-mcp-serverjs",
+    "path": ".skills/skills/request-routing/SKILL.md",
+    "stars": 1,
+    "domain": "data-analytics",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Request Routing â€” Canonical SKILL"
+   },
+   {
+    "repo": "mouadja02/skills",
+    "path": "skills/diagrams-slides/meeting-minutes/SKILL.md",
+    "stars": 8,
+    "domain": "ops-admin",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 1
+    },
+    "name": "Meeting Minutes Skill — Short Internal Meetings"
+   },
+   {
+    "repo": "OpenHands/software-agent-sdk",
+    "path": ".agents/skills/sdk-release/SKILL.md",
+    "stars": 928,
+    "domain": "devops-infra",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "sdk-release"
+   },
+   {
+    "repo": "starrank-soft/PixelArraySkill",
+    "path": "skills/x-api/SKILL.md",
+    "stars": 0,
+    "domain": "marketing-growth",
+    "score": 5,
+    "hits": {
+     "憑證竊取": 1
+    },
+    "name": "x-api"
+   },
+   {
+    "repo": "ProfSynapse/Professor-Synapse",
+    "path": "professor-synapse-claude/SKILL.md",
+    "stars": 3434,
+    "domain": "ai-agent-tooling",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 2
+    },
+    "name": "professor-synapse"
+   },
+   {
+    "repo": "microsoft/ai-agents-for-beginners",
+    "path": "translations/ml/.agents/skills/jupyter-notebook/SKILL.md",
+    "stars": 70349,
+    "domain": "data-analytics",
+    "score": 5,
+    "hits": {
+     "隱藏字元": 5
+    },
+    "name": "jupyter-notebook"
+   }
+  ],
+  "severity_buckets": {
+   "高(>=15)": 0,
+   "中(8-14)": 19,
+   "低(1-7)": 257
+  },
+  "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
+ },
+ "eda_gaps": {
+  "n_hw": 721,
+  "tasks": [
+   {
+    "task": "transform",
+    "zh": "轉換",
+    "hw_pct": 2.4,
+    "global_pct": 8.0,
+    "ratio": 0.3,
+    "n": 17,
+    "samples": [
+     {
+      "pain": "硬體 EDA 工具報錯資訊過於晦澀難以解讀",
+      "stars": 96,
+      "name": "gf-errors"
+     },
+     {
+      "pain": "各種 RTL 解析工具輸出格式不一影響下游對接",
+      "stars": 36,
+      "name": "bb-parse-ast"
+     },
+     {
+      "pain": "手動將 Excel 暫存器表轉為 RTL 代碼易錯",
+      "stars": 19,
+      "name": "excel-yml-gen"
+     },
+     {
+      "pain": "手動從賽道設計圖讀取紅色標註文字",
+      "stars": 7,
+      "name": "line-design-info-extractor"
+     },
+     {
+      "pain": "硬體 IP 核心設定檔版本升級與欄位補全繁瑣",
+      "stars": 1,
+      "name": "af-migrate-manifest"
+     },
+     {
+      "pain": "將語音意圖轉為靈巧手關節控制指令繁瑣",
+      "stars": 0,
+      "name": "Linkerhand Life O20 Local Skill"
+     }
+    ]
+   },
+   {
+    "task": "retrieve",
+    "zh": "檢索",
+    "hw_pct": 5.0,
+    "global_pct": 9.9,
+    "ratio": 0.5,
+    "n": 36,
+    "samples": [
+     {
+      "pain": "ESP32 SIMD 向量化指令手動優化門檻高",
+      "stars": 1089,
+      "name": "esp32p4-simd"
+     },
+     {
+      "pain": "東芝半導體元件料號與封裝代碼複雜難查",
+      "stars": 3,
+      "name": "toshiba"
+     },
+     {
+      "pain": "嵌入式晶片腳位與開發庫規格繁雜查閱耗時",
+      "stars": 1,
+      "name": "xiao-nrf54l15-sense-arduino"
+     }
+    ]
+   },
+   {
+    "task": "analyze",
+    "zh": "分析",
+    "hw_pct": 8.5,
+    "global_pct": 12.6,
+    "ratio": 0.67,
+    "n": 61,
+    "samples": [
+     {
+      "pain": "SerDes 高速傳輸系統訊號完整性模擬複雜耗時",
+      "stars": 837,
+      "name": "matlab-model-serdes-systems"
+     },
+     {
+      "pain": "Simulink 模型求解器效能瓶頸難以分析排解",
+      "stars": 707,
+      "name": "simulink-solver-profiler-analyzer"
+     },
+     {
+      "pain": "OpenROAD 佈線修時序耗時過長或死迴圈",
+      "stars": 24,
+      "name": "repair-timing-grt"
+     },
+     {
+      "pain": "手動分析 FSDB 波形與排查模擬錯誤低效",
+      "stars": 23,
+      "name": "fsdb-analysis"
+     },
+     {
+      "pain": "晶片驗證 Testbench 缺乏正交維度的架構選擇",
+      "stars": 17,
+      "name": "rds-dv-axes"
+     },
+     {
+      "pain": "跨品牌PLC語法規範不同且人工審查繁瑣",
+      "stars": 8,
+      "name": "plc-skill"
+     }
+    ]
+   },
+   {
+    "task": "configure",
+    "zh": "配置",
+    "hw_pct": 17.3,
+    "global_pct": 17.0,
+    "ratio": 1.02,
+    "n": 125,
+    "samples": [
+     {
+      "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
+      "stars": 757,
+      "name": "embed-ai-tool"
+     },
+     {
+      "pain": "設計與部署 IoT 感測器網路時缺乏架構指引",
+      "stars": 563,
+      "name": "iot-sensor-network"
+     },
+     {
+      "pain": "難以直接透過代碼控制硬體指示燈",
+      "stars": 330,
+      "name": "timebuzzer-led"
+     },
+     {
+      "pain": "設計機器人系統軟體架構缺乏標準設計模式",
+      "stars": 324,
+      "name": "robotics-design-patterns"
+     },
+     {
+      "pain": "晶片上遊更新時決策記錄與配置同步容易出錯",
+      "stars": 31,
+      "name": "update-design"
+     },
+     {
+      "pain": "手動更新 EDA 工具鏈並驗證 QoR 耗時費力",
+      "stars": 31,
+      "name": "upgrade-tools"
+     }
+    ]
+   },
+   {
+    "task": "verify",
+    "zh": "驗證",
+    "hw_pct": 16.0,
+    "global_pct": 15.0,
+    "ratio": 1.06,
+    "n": 115,
+    "samples": [
+     {
+      "pain": "晶片暫存器寫入與指令間競態條件難排查",
+      "stars": 1605,
+      "name": "mmio-race-audit"
+     },
+     {
+      "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時",
+      "stars": 1586,
+      "name": "hardware-verification-uvm"
+     },
+     {
+      "pain": "STM32韌體編譯燒錄與除錯操作繁瑣",
+      "stars": 43,
+      "name": "stm32-debug"
+     },
+     {
+      "pain": "多人協作的 SystemVerilog 規範難統一",
+      "stars": 43,
+      "name": "systemverilog"
+     },
+     {
+      "pain": "FPGA 仿真正常但上板失敗，難以除錯時序問題",
+      "stars": 10,
+      "name": "ila-hw-debug"
+     },
+     {
+      "pain": "晶片 API Mock 實作後缺乏驗證機制易退化",
+      "stars": 4,
+      "name": "verify-mock"
+     }
+    ]
+   },
+   {
+    "task": "orchestrate",
+    "zh": "調度",
+    "hw_pct": 17.2,
+    "global_pct": 15.5,
+    "ratio": 1.11,
+    "n": 124,
+    "samples": [
+     {
+      "pain": "手動調參探索電腦架構與 EDA 設計空間低效",
+      "stars": 13876,
+      "name": "dse-loop"
+     },
+     {
+      "pain": "電子電路設計與 PCB 佈局自動化執行難",
+      "stars": 3538,
+      "name": "agent"
+     },
+     {
+      "pain": "手動調整晶片架構參數尋求最佳化耗時",
+      "stars": 3081,
+      "name": "dse-loop"
+     },
+     {
+      "pain": "電腦架構設計空間探索參數調校需人工重複",
+      "stars": 1039,
+      "name": "aris-dse-loop"
+     },
+     {
+      "pain": "編譯並燒錄 ESP 韌體需多步驟手動操作",
+      "stars": 196,
+      "name": "flash"
+     },
+     {
+      "pain": "UVM 晶片驗證流程複雜需多 Agent 協同",
+      "stars": 169,
+      "name": "functional-verification"
+     }
+    ]
+   },
+   {
+    "task": "generate",
+    "zh": "生成",
+    "hw_pct": 33.7,
+    "global_pct": 22.0,
+    "ratio": 1.53,
+    "n": 243,
+    "samples": [
+     {
+      "pain": "撰寫符合 IEEE 標準的可合成 VHDL 門檻高",
+      "stars": 1587,
+      "name": "vhdl-language"
+     },
+     {
+      "pain": "晶片驗證缺少可執行的 SystemVerilog 斷言",
+      "stars": 519,
+      "name": "assertion-design"
+     },
+     {
+      "pain": "FPGA與ASIC開發缺乏統一的SystemVerilog規範",
+      "stars": 199,
+      "name": "systemverilog"
+     },
+     {
+      "pain": "晶片驗證時大規模 FSDB 波形手動分析效率低下",
+      "stars": 64,
+      "name": "x-npi"
+     },
+     {
+      "pain": "工業通訊協定 Modbus 與 CANopen 開發門檻高",
+      "stars": 57,
+      "name": "industrial"
+     },
+     {
+      "pain": "自動佈局產出的 KiCad 電路圖缺乏人工繪製質感",
+      "stars": 35,
+      "name": "wired-subcircuit-design"
+     }
+    ]
+   }
+  ]
  }
 }

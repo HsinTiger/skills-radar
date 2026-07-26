@@ -193,6 +193,26 @@ def read_summary():
         }
     return out
 
+def eda_gaps():
+    """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
+    hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
+          and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
+    gt = Counter(r.get("task") for r in rows if r.get("task"))
+    gn = sum(gt.values()) or 1
+    ht = Counter(r.get("task") for r in hw if r.get("task"))
+    hn = sum(ht.values()) or 1
+    out = []
+    for t in TASK_ZH:
+        hp = 100 * ht.get(t, 0) / hn
+        gp = 100 * gt.get(t, 0) / gn
+        samples = [{"pain": r.get("pain"), "stars": r.get("stars") or 0, "name": (r.get("name") or "")[:60]}
+                   for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")],
+                                   key=lambda x: -(x.get("stars") or 0))[:6]]
+        out.append({"task": t, "zh": TASK_ZH[t], "hw_pct": round(hp, 1), "global_pct": round(gp, 1),
+                    "ratio": round(hp / gp, 2) if gp else 0, "n": ht.get(t, 0), "samples": samples})
+    out.sort(key=lambda x: x["ratio"])
+    return {"n_hw": len(hw), "tasks": out}
+
 data = {
     "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     "n_total": N,
@@ -212,6 +232,9 @@ data = {
     "unfinished": [{**u, "zh": DOM_ZH.get(u["domain"], u["domain"])} for u in opp["B2_unfinished"]],
     "niche_pros": opp["B3_niche_professions"][:18],
     "eda": eda_section(),
+    "security": (json.load(open(os.path.join(ROOT, "corpus", "injection_scan.json"), encoding="utf-8"))
+                 if os.path.exists(os.path.join(ROOT, "corpus", "injection_scan.json")) else None),
+    "eda_gaps": eda_gaps(),
 }
 json.dump(data, open(os.path.join(DOCS, "data.json"), "w"), ensure_ascii=False, indent=1)
 

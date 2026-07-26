@@ -34,6 +34,9 @@ if [ "$(date +%u)" = "1" ]; then
   python3 bin/cluster.py 120 >> "$LOG" 2>&1 || log "WARN: 分群失敗"
 fi
 
+# 2.7 惡意內容掃描（零 token）——這個專案的本質是大量讀取陌生人寫的、會被 AI 當指令的文字
+python3 bin/scan_injection.py >> "$LOG" 2>&1 || log "WARN: 注入掃描失敗"
+
 # 3. 聚合 + 機會訊號（零 token）
 python3 bin/aggregate.py >> "$LOG" 2>&1
 python3 bin/opportunity.py >> "$LOG" 2>&1

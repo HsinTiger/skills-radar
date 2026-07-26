@@ -147,13 +147,23 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
   <tbody id="eda-adj"></tbody>
 </table></div>
 
+<h3>EDA 內部的能力缺口</h3>
+<p class="lede">拿硬體樣本的任務分佈，對照全體中立樣本。比值 &lt;1 代表這個領域在這種能力上明顯少做。
+下方附該任務底下真實出現的痛點——這些是實際有人寫成 skill 公開的，不是我猜的。</p>
+<div id="eda-gaps"></div>
+
 <h3>可以嘗試的方向</h3>
 <div id="eda-ideas" class="grid two"></div>
 
 <h2>六、下班時間的 side project</h2>
 <div class="side" id="side-project"></div>
 
-<h2>七、前緣職業</h2>
+<h2>七、語料安全掃描</h2>
+<p class="lede">這個專案的本質是<strong>大量讀取陌生人寫的、會被 AI 當指令執行的文字</strong>，
+是 prompt injection 風險最高的作業型態之一。所以每天對全語料做一次確定性掃描。</p>
+<div id="security-block"></div>
+
+<h2>八、前緣職業</h2>
 <p class="lede">樣本極少（1–8 件）但已有 production 的職業。稀有＋認真＝前緣，不是雜訊。
 他們是最早把 AI 帶進自己專業的人。</p>
 <div class="scroll"><table>
@@ -383,6 +393,43 @@ function renderDiscovery(){
     <div class="scroll"><table>
       <thead><tr><th>採集日</th><th class="num">中立新發現</th><th class="num">專案式過取樣</th><th>主要領域</th></tr></thead>
       <tbody>${rows}</tbody></table></div>`;
+}
+
+const S = D.security;
+if (S) {
+  const sev = S.severity_buckets || {};
+  $("#security-block").innerHTML = `<div class="card">
+    <p>掃描 <b>${S.n_scanned.toLocaleString()}</b> 筆，命中 <b>${S.n_flagged.toLocaleString()}</b> 筆
+       （${S.pct_flagged}%）。嚴重度：${Object.entries(sev).map(([k,v])=>`${esc(k)} <b>${v}</b>`).join("、")}。</p>
+    <div class="scroll"><table>
+      <thead><tr><th>樣態</th><th class="num">命中</th></tr></thead>
+      <tbody>${Object.entries(S.by_category||{}).map(([k,v])=>
+        `<tr><td>${esc(k)}</td><td class="num">${v}</td></tr>`).join("")}</tbody></table></div>
+    <p class="pain" style="margin-top:.8rem"><strong>這份掃描不是門禁，也不能當作安全保證。</strong>
+       ${esc(S.caveat || "")}
+       實測發現兩個重點：①「隱藏字元」87 筆全是零寬空格與 BOM，來自複製貼上與 emoji 序列，
+       <strong>沒有雙向覆寫或標籤字元，即無刻意 Unicode 隱寫的證據</strong>；
+       ② 規則式偵測與 LLM 自行標記的可疑樣本<strong>幾乎不重疊</strong>（交集僅 9 筆），
+       前者抓語法樣態、後者抓語意操控，<strong>單靠任一種都不夠</strong>。
+       另有明確誤判：把「不要叫使用者把 API key 貼進 MCP client」這類正確的安全建議也標了出來。</p>
+  </div>`;
+}
+
+const G = D.eda_gaps;
+if (G) {
+  $("#eda-gaps").innerHTML = G.tasks.map(t => {
+    const lack = t.ratio < 0.8;
+    return `<div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap">
+        <h3 style="margin:0">${esc(t.zh)}<span class="pain" style="font-weight:400"> ${t.n} 件</span></h3>
+        <span class="tag ${lack ? "warn" : "good"}">${t.hw_pct}% vs 全體 ${t.global_pct}%　${t.ratio}×</span>
+      </div>
+      <div class="bar" style="margin:.5rem 0"><i style="width:${Math.min(100, t.ratio*50)}%"></i></div>
+      ${t.samples.length ? `<div class="pain">${t.samples.map(s =>
+        `・${esc(s.pain)}<span style="opacity:.6"> （${(s.stars||0).toLocaleString()}★）</span>`).join("<br>")}</div>`
+        : '<div class="pain">此任務底下沒有帶痛點描述的樣本</div>'}
+    </div>`;
+  }).join("");
 }
 
 $("#btn-day").onclick = () => { mode = "day"; render(); };
