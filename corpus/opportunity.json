@@ -1,0 +1,1132 @@
+{
+ "n_total": 5397,
+ "global_production_pct": 42.3,
+ "global_task_pct": {
+  "generate": 21.9,
+  "transform": 8.0,
+  "analyze": 12.5,
+  "verify": 15.0,
+  "orchestrate": 15.6,
+  "retrieve": 9.9,
+  "configure": 17.1
+ },
+ "A_traction": [
+  {
+   "domain": "security",
+   "n": 265,
+   "production_pct": 64.9,
+   "vs_global_production": 22.6,
+   "median_stars": 17,
+   "p90_stars": 1022,
+   "agent_facing_pct": 9.8
+  },
+  {
+   "domain": "legal-compliance",
+   "n": 88,
+   "production_pct": 63.6,
+   "vs_global_production": 21.3,
+   "median_stars": 31,
+   "p90_stars": 1381,
+   "agent_facing_pct": 1.1
+  },
+  {
+   "domain": "devops-infra",
+   "n": 337,
+   "production_pct": 62.6,
+   "vs_global_production": 20.3,
+   "median_stars": 12,
+   "p90_stars": 496,
+   "agent_facing_pct": 9.2
+  },
+  {
+   "domain": "healthcare-bio",
+   "n": 116,
+   "production_pct": 53.4,
+   "vs_global_production": 11.1,
+   "median_stars": 17,
+   "p90_stars": 1593,
+   "agent_facing_pct": 2.6
+  },
+  {
+   "domain": "data-analytics",
+   "n": 129,
+   "production_pct": 52.7,
+   "vs_global_production": 10.4,
+   "median_stars": 16,
+   "p90_stars": 475,
+   "agent_facing_pct": 13.2
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "n": 844,
+   "production_pct": 45.3,
+   "vs_global_production": 3.0,
+   "median_stars": 9,
+   "p90_stars": 653,
+   "agent_facing_pct": 59.2
+  },
+  {
+   "domain": "finance-investing",
+   "n": 182,
+   "production_pct": 42.9,
+   "vs_global_production": 0.6,
+   "median_stars": 20,
+   "p90_stars": 552,
+   "agent_facing_pct": 13.2
+  },
+  {
+   "domain": "software-dev",
+   "n": 1809,
+   "production_pct": 41.5,
+   "vs_global_production": -0.8,
+   "median_stars": 9,
+   "p90_stars": 538,
+   "agent_facing_pct": 12.2
+  },
+  {
+   "domain": "ops-admin",
+   "n": 248,
+   "production_pct": 39.9,
+   "vs_global_production": -2.4,
+   "median_stars": 10,
+   "p90_stars": 511,
+   "agent_facing_pct": 7.3
+  },
+  {
+   "domain": "design-creative",
+   "n": 324,
+   "production_pct": 38.0,
+   "vs_global_production": -4.3,
+   "median_stars": 12,
+   "p90_stars": 597,
+   "agent_facing_pct": 7.4
+  },
+  {
+   "domain": "hardware-eda",
+   "n": 36,
+   "production_pct": 36.1,
+   "vs_global_production": -6.2,
+   "median_stars": 9,
+   "p90_stars": 330,
+   "agent_facing_pct": 22.2
+  },
+  {
+   "domain": "marketing-growth",
+   "n": 202,
+   "production_pct": 35.6,
+   "vs_global_production": -6.7,
+   "median_stars": 22,
+   "p90_stars": 573,
+   "agent_facing_pct": 2.5
+  },
+  {
+   "domain": "sales-crm",
+   "n": 50,
+   "production_pct": 30.0,
+   "vs_global_production": -12.3,
+   "median_stars": 43,
+   "p90_stars": 552,
+   "agent_facing_pct": 4.0
+  },
+  {
+   "domain": "writing-content",
+   "n": 166,
+   "production_pct": 29.5,
+   "vs_global_production": -12.8,
+   "median_stars": 22,
+   "p90_stars": 467,
+   "agent_facing_pct": 1.8
+  },
+  {
+   "domain": "research-academia",
+   "n": 186,
+   "production_pct": 27.4,
+   "vs_global_production": -14.9,
+   "median_stars": 20,
+   "p90_stars": 868,
+   "agent_facing_pct": 5.4
+  },
+  {
+   "domain": "personal-productivity",
+   "n": 303,
+   "production_pct": 21.5,
+   "vs_global_production": -20.8,
+   "median_stars": 6,
+   "p90_stars": 274,
+   "agent_facing_pct": 5.3
+  },
+  {
+   "domain": "education-training",
+   "n": 78,
+   "production_pct": 16.7,
+   "vs_global_production": -25.6,
+   "median_stars": 6,
+   "p90_stars": 296,
+   "agent_facing_pct": 2.6
+  },
+  {
+   "domain": "other",
+   "n": 34,
+   "production_pct": 11.8,
+   "vs_global_production": -30.5,
+   "median_stars": 10,
+   "p90_stars": 254,
+   "agent_facing_pct": 2.9
+  }
+ ],
+ "B1_task_gaps": [
+  {
+   "domain": "healthcare-bio",
+   "task": "generate",
+   "domain_n": 116,
+   "observed": 1,
+   "expected": 25.4,
+   "ratio_vs_global": 0.04
+  },
+  {
+   "domain": "personal-productivity",
+   "task": "verify",
+   "domain_n": 303,
+   "observed": 3,
+   "expected": 45.5,
+   "ratio_vs_global": 0.07
+  },
+  {
+   "domain": "sales-crm",
+   "task": "verify",
+   "domain_n": 50,
+   "observed": 1,
+   "expected": 7.5,
+   "ratio_vs_global": 0.13
+  },
+  {
+   "domain": "finance-investing",
+   "task": "transform",
+   "domain_n": 182,
+   "observed": 2,
+   "expected": 14.5,
+   "ratio_vs_global": 0.14
+  },
+  {
+   "domain": "security",
+   "task": "orchestrate",
+   "domain_n": 265,
+   "observed": 6,
+   "expected": 41.2,
+   "ratio_vs_global": 0.15
+  },
+  {
+   "domain": "legal-compliance",
+   "task": "orchestrate",
+   "domain_n": 88,
+   "observed": 2,
+   "expected": 13.7,
+   "ratio_vs_global": 0.15
+  },
+  {
+   "domain": "design-creative",
+   "task": "analyze",
+   "domain_n": 324,
+   "observed": 7,
+   "expected": 40.5,
+   "ratio_vs_global": 0.17
+  },
+  {
+   "domain": "education-training",
+   "task": "verify",
+   "domain_n": 78,
+   "observed": 2,
+   "expected": 11.7,
+   "ratio_vs_global": 0.17
+  },
+  {
+   "domain": "design-creative",
+   "task": "configure",
+   "domain_n": 324,
+   "observed": 10,
+   "expected": 55.3,
+   "ratio_vs_global": 0.18
+  },
+  {
+   "domain": "writing-content",
+   "task": "configure",
+   "domain_n": 166,
+   "observed": 5,
+   "expected": 28.3,
+   "ratio_vs_global": 0.18
+  },
+  {
+   "domain": "writing-content",
+   "task": "orchestrate",
+   "domain_n": 166,
+   "observed": 5,
+   "expected": 25.8,
+   "ratio_vs_global": 0.19
+  },
+  {
+   "domain": "healthcare-bio",
+   "task": "configure",
+   "domain_n": 116,
+   "observed": 5,
+   "expected": 19.8,
+   "ratio_vs_global": 0.25
+  },
+  {
+   "domain": "design-creative",
+   "task": "orchestrate",
+   "domain_n": 324,
+   "observed": 13,
+   "expected": 50.4,
+   "ratio_vs_global": 0.26
+  },
+  {
+   "domain": "marketing-growth",
+   "task": "configure",
+   "domain_n": 202,
+   "observed": 9,
+   "expected": 34.5,
+   "ratio_vs_global": 0.26
+  },
+  {
+   "domain": "data-analytics",
+   "task": "verify",
+   "domain_n": 129,
+   "observed": 5,
+   "expected": 19.4,
+   "ratio_vs_global": 0.26
+  },
+  {
+   "domain": "devops-infra",
+   "task": "generate",
+   "domain_n": 337,
+   "observed": 21,
+   "expected": 73.9,
+   "ratio_vs_global": 0.28
+  },
+  {
+   "domain": "security",
+   "task": "generate",
+   "domain_n": 265,
+   "observed": 16,
+   "expected": 58.1,
+   "ratio_vs_global": 0.28
+  },
+  {
+   "domain": "finance-investing",
+   "task": "configure",
+   "domain_n": 182,
+   "observed": 9,
+   "expected": 31.1,
+   "ratio_vs_global": 0.29
+  },
+  {
+   "domain": "writing-content",
+   "task": "analyze",
+   "domain_n": 166,
+   "observed": 6,
+   "expected": 20.7,
+   "ratio_vs_global": 0.29
+  },
+  {
+   "domain": "ops-admin",
+   "task": "verify",
+   "domain_n": 248,
+   "observed": 11,
+   "expected": 37.3,
+   "ratio_vs_global": 0.3
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "task": "analyze",
+   "domain_n": 844,
+   "observed": 34,
+   "expected": 105.4,
+   "ratio_vs_global": 0.32
+  },
+  {
+   "domain": "devops-infra",
+   "task": "transform",
+   "domain_n": 337,
+   "observed": 9,
+   "expected": 26.9,
+   "ratio_vs_global": 0.33
+  },
+  {
+   "domain": "marketing-growth",
+   "task": "verify",
+   "domain_n": 202,
+   "observed": 10,
+   "expected": 30.4,
+   "ratio_vs_global": 0.33
+  },
+  {
+   "domain": "legal-compliance",
+   "task": "configure",
+   "domain_n": 88,
+   "observed": 5,
+   "expected": 15.0,
+   "ratio_vs_global": 0.33
+  },
+  {
+   "domain": "research-academia",
+   "task": "configure",
+   "domain_n": 186,
+   "observed": 11,
+   "expected": 31.7,
+   "ratio_vs_global": 0.35
+  }
+ ],
+ "B2_unfinished": [
+  {
+   "domain": "education-training",
+   "n": 78,
+   "workflow": 54,
+   "production": 13,
+   "completion_ratio": 0.19
+  },
+  {
+   "domain": "personal-productivity",
+   "n": 303,
+   "workflow": 210,
+   "production": 65,
+   "completion_ratio": 0.24
+  },
+  {
+   "domain": "other",
+   "n": 34,
+   "workflow": 12,
+   "production": 4,
+   "completion_ratio": 0.25
+  },
+  {
+   "domain": "research-academia",
+   "n": 186,
+   "workflow": 124,
+   "production": 51,
+   "completion_ratio": 0.29
+  },
+  {
+   "domain": "writing-content",
+   "n": 166,
+   "workflow": 111,
+   "production": 49,
+   "completion_ratio": 0.31
+  },
+  {
+   "domain": "sales-crm",
+   "n": 50,
+   "workflow": 34,
+   "production": 15,
+   "completion_ratio": 0.31
+  },
+  {
+   "domain": "marketing-growth",
+   "n": 202,
+   "workflow": 127,
+   "production": 72,
+   "completion_ratio": 0.36
+  },
+  {
+   "domain": "hardware-eda",
+   "n": 36,
+   "workflow": 22,
+   "production": 13,
+   "completion_ratio": 0.37
+  },
+  {
+   "domain": "design-creative",
+   "n": 324,
+   "workflow": 195,
+   "production": 123,
+   "completion_ratio": 0.39
+  },
+  {
+   "domain": "ops-admin",
+   "n": 248,
+   "workflow": 144,
+   "production": 99,
+   "completion_ratio": 0.41
+  },
+  {
+   "domain": "software-dev",
+   "n": 1809,
+   "workflow": 1015,
+   "production": 750,
+   "completion_ratio": 0.42
+  },
+  {
+   "domain": "finance-investing",
+   "n": 182,
+   "workflow": 99,
+   "production": 78,
+   "completion_ratio": 0.44
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "n": 844,
+   "workflow": 361,
+   "production": 382,
+   "completion_ratio": 0.51
+  },
+  {
+   "domain": "healthcare-bio",
+   "n": 116,
+   "workflow": 52,
+   "production": 62,
+   "completion_ratio": 0.54
+  },
+  {
+   "domain": "data-analytics",
+   "n": 129,
+   "workflow": 59,
+   "production": 68,
+   "completion_ratio": 0.54
+  },
+  {
+   "domain": "legal-compliance",
+   "n": 88,
+   "workflow": 31,
+   "production": 56,
+   "completion_ratio": 0.64
+  },
+  {
+   "domain": "devops-infra",
+   "n": 337,
+   "workflow": 116,
+   "production": 211,
+   "completion_ratio": 0.65
+  },
+  {
+   "domain": "security",
+   "n": 265,
+   "workflow": 89,
+   "production": 172,
+   "completion_ratio": 0.66
+  }
+ ],
+ "B3_niche_professions": [
+  {
+   "profession": "逆向工程師",
+   "n": 7,
+   "production": 6,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "閉源執行檔黑箱逆向與漏洞分析耗時",
+    "手動逆向分析二進制檔案極耗時",
+    "未公開通訊協定封包格式與狀態機逆向困難"
+   ],
+   "max_stars": 930
+  },
+  {
+   "profession": "資料庫管理員",
+   "n": 8,
+   "production": 6,
+   "domains": [
+    "software-dev",
+    "devops-infra",
+    "data-analytics"
+   ],
+   "pains": [
+    "忘記 DBeaver 快捷鍵與 SSH 隧道配置",
+    "透過 MCP 操作 Oracle DB 指令繁瑣",
+    "SQL Server 轉 Postgres 風險難評估"
+   ],
+   "max_stars": 199
+  },
+  {
+   "profession": "技術主管",
+   "n": 8,
+   "production": 5,
+   "domains": [
+    "ai-agent-tooling",
+    "ops-admin",
+    "software-dev"
+   ],
+   "pains": [
+    "團隊任務文檔結構紊亂且資訊歸屬權責不清",
+    "手動統計每週提交紀錄與貢獻極耗時",
+    "每週工程復盤手動統計Commit與貢獻極耗時"
+   ],
+   "max_stars": 23200
+  },
+  {
+   "profession": "網路工程師",
+   "n": 7,
+   "production": 5,
+   "domains": [
+    "security",
+    "devops-infra"
+   ],
+   "pains": [
+    "傳統網路連線排查工具輸出格式難以解析",
+    "EVE-NG 網路拓撲建置前缺乏品管檢查",
+    "EVE-NG 網路拓撲設計建置前缺乏自動化 QA"
+   ],
+   "max_stars": 6780
+  },
+  {
+   "profession": "C++工程師",
+   "n": 6,
+   "production": 5,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "團隊 C++ namespace 宣告風格不一",
+    "C++ 專案風格與命名規範缺乏自動化檢查",
+    "C++ 記憶體所有權與移動語意複雜易洩漏"
+   ],
+   "max_stars": 3495
+  },
+  {
+   "profession": "AI 架構師",
+   "n": 6,
+   "production": 5,
+   "domains": [
+    "ai-agent-tooling"
+   ],
+   "pains": [
+    "缺乏支援 Agent 全自動自主運作協定",
+    "AI 未經記憶檢索即幻覺輸出事實",
+    "難以評估專案庫對 AI Agent 的相容性"
+   ],
+   "max_stars": 2441
+  },
+  {
+   "profession": "教會法律師",
+   "n": 5,
+   "production": 5,
+   "domains": [
+    "legal-compliance"
+   ],
+   "pains": [
+    "天主教法典條文檢索與審查架構複雜",
+    "教會法條文檢索與適用審查繁瑣耗時",
+    "教會婚姻法典條文審查缺乏即時引用"
+   ],
+   "max_stars": 1381
+  },
+  {
+   "profession": "AI 研發工程師",
+   "n": 6,
+   "production": 5,
+   "domains": [
+    "ai-agent-tooling"
+   ],
+   "pains": [
+    "機器人 Skill 基類與生命週期介面規範",
+    "手動編寫與部署 Claude Code 擴充套件繁瑣",
+    "手動編寫與部署 Claude Code 擴充套件繁瑣"
+   ],
+   "max_stars": 1220
+  },
+  {
+   "profession": "資安長",
+   "n": 5,
+   "production": 5,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "新創資安風險難量化且難回報董事會",
+    "新創成長期難以量化資安風險與規劃合規路線",
+    "新創成長期難以量化資安風險與規劃合規路線"
+   ],
+   "max_stars": 30
+  },
+  {
+   "profession": "SEO 專家",
+   "n": 8,
+   "production": 4,
+   "domains": [
+    "marketing-growth"
+   ],
+   "pains": [
+    "手動為新文件尋找並添加站內 SEO 連結",
+    "關鍵字研究與內容稽核缺乏系統化自動流",
+    "難以快速稽核網頁圖片 SEO 與 Alt 屬性"
+   ],
+   "max_stars": 9122
+  },
+  {
+   "profession": "財務分析師",
+   "n": 6,
+   "production": 4,
+   "domains": [
+    "finance-investing"
+   ],
+   "pains": [
+    "從多版本分類帳表格查詢最新金額容易出錯",
+    "財務報表彙整粒度不一致致計算錯誤",
+    "評估投資標的時需手動計算多種財務比率"
+   ],
+   "max_stars": 6989
+  },
+  {
+   "profession": "Android工程師",
+   "n": 7,
+   "production": 4,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "維護想法未經規格化定義無法直接讓 Agent 執行",
+    "Kotlin 空值處理不當易引發崩潰",
+    "手動撰寫 AppFunction 暴露程式碼耗時繁瑣"
+   ],
+   "max_stars": 4754
+  },
+  {
+   "profession": "視覺設計師",
+   "n": 8,
+   "production": 4,
+   "domains": [
+    "marketing-growth",
+    "design-creative"
+   ],
+   "pains": [
+    "AI 圖片生成提示詞控制困難且風格難一致",
+    "設計行銷素材時難以快速調用品牌色彩規範",
+    "製作時尚簡報時缺少統一的色彩與視覺版型系統"
+   ],
+   "max_stars": 4203
+  },
+  {
+   "profession": ".NET工程師",
+   "n": 5,
+   "production": 4,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "手動修改 .NET 套件版本易引發相容性崩潰",
+    "建置產出變更導致 SWA 基準測試不符合而報錯",
+    "MSTest 單元測試編寫與修復耗時"
+   ],
+   "max_stars": 1203
+  },
+  {
+   "profession": "BIM工程師",
+   "n": 5,
+   "production": 4,
+   "domains": [
+    "other",
+    "software-dev"
+   ],
+   "pains": [
+    "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
+    "IFC 程式碼跨 Schema 版本易出錯難稽核",
+    "BIM 模型資料缺失與不符合規範難以檢查"
+   ],
+   "max_stars": 254
+  },
+  {
+   "profession": "資安檢測員",
+   "n": 4,
+   "production": 4,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "手動檢測 API 各種安全漏洞漏測率高且耗時",
+    "手動檢測 API 各種安全漏洞漏測率高且耗時",
+    "手動檢測 API 各種安全漏洞漏測率高且耗時"
+   ],
+   "max_stars": 5
+  },
+  {
+   "profession": "智能合約工程師",
+   "n": 5,
+   "production": 4,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "查詢與互動 Etherlink 區塊鏈資料指令繁瑣",
+    "Hardhat 3 新架構測試與設定易出錯",
+    "Hardhat 3 新架構測試與設定易出錯"
+   ],
+   "max_stars": 2
+  },
+  {
+   "profession": "資安顧問",
+   "n": 3,
+   "production": 3,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "缺乏符合 NIST 800-30 的資安風險評估流程。",
+    "手動進行符合 NIST 規範的資安風險評估耗時",
+    "手動進行符合 NIST 規範的資安風險評估耗時"
+   ],
+   "max_stars": 26583
+  },
+  {
+   "profession": "滲透測試員",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "手動測試 API BOLA/IDOR 越權漏洞繁瑣耗時。",
+    "將滲透測試結果整理成結構化報告耗費精力",
+    "手動測試 Web API 權限越權漏洞費時且易遺漏"
+   ],
+   "max_stars": 26583
+  },
+  {
+   "profession": "數位行銷專家",
+   "n": 7,
+   "production": 3,
+   "domains": [
+    "marketing-growth"
+   ],
+   "pains": [
+    "透過 API 手動管理亞馬遜廣告活動繁瑣",
+    "跨平台投放與啟動付費廣告活動流程繁瑣",
+    "新增付費廣告客戶與帳號初始設定複雜繁瑣"
+   ],
+   "max_stars": 7483
+  },
+  {
+   "profession": "法務人員",
+   "n": 7,
+   "production": 3,
+   "domains": [
+    "legal-compliance"
+   ],
+   "pains": [
+    "人工審閱廠商合約容易遺漏關鍵條款",
+    "催收訴訟前缺乏被告角度的品質審查",
+    "人工審查 FDD 文件易遺漏合規與範本規範"
+   ],
+   "max_stars": 1632
+  },
+  {
+   "profession": "財務顧問",
+   "n": 3,
+   "production": 3,
+   "domains": [
+    "finance-investing"
+   ],
+   "pains": [
+    "公司清算優先權與股權清算瀑布計算複雜",
+    "捷克複雜稅制與財務房貸試算繁瑣",
+    "市場波動時難以快速向客戶解釋持股影響"
+   ],
+   "max_stars": 1220
+  },
+  {
+   "profession": "Android 工程師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "手動將舊版 Android XML 佈局改寫為 Compose 耗時",
+    "Jetpack Compose 狀態與 UI 混在一起難以測試",
+    "Jetpack Compose 畫面邏輯與 UI 混雜難測試"
+   ],
+   "max_stars": 862
+  },
+  {
+   "profession": "資安架構師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "security"
+   ],
+   "pains": [
+    "勒索軟體破壞傳統備份導致資料無法還原",
+    "跨多雲環境的安全性日誌難以集中監控與自動回應",
+    "缺乏具體的 SOC 2 資安控制措施實作指南"
+   ],
+   "max_stars": 805
+  },
+  {
+   "profession": "TypeScript工程師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "TypeScript配置選項複雜且模組解析常出錯",
+    "在 Effect-TS 中編寫複雜排程與重試邏輯不熟悉",
+    "為Agent與人類建構CLI介面極為繁瑣。"
+   ],
+   "max_stars": 781
+  },
+  {
+   "profession": "網路小說家",
+   "n": 6,
+   "production": 3,
+   "domains": [
+    "writing-content"
+   ],
+   "pains": [
+    "凡人流修仙小說的大綱與資源算計難嚴謹",
+    "配角易淪為工具人且缺乏立體劇情推動力",
+    "長篇小說 AI 寫作易中斷無法續跑"
+   ],
+   "max_stars": 667
+  },
+  {
+   "profession": "網頁設計師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "design-creative"
+   ],
+   "pains": [
+    "預約類網站介面設計冰冷缺乏品牌質感與信任感",
+    "需手動呼叫 API 產生與儲存 PNG 圖片",
+    "缺乏統一設計規範導致網頁視覺品質參差不齊"
+   ],
+   "max_stars": 597
+  },
+  {
+   "profession": "資料架構師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "devops-infra",
+    "data-analytics"
+   ],
+   "pains": [
+    "資料庫 Agent 權限與核心技能未規範",
+    "設計 ClickHouse 架構缺乏工作負載指導",
+    "Databricks 平台建置難以符合官方最佳架構"
+   ],
+   "max_stars": 496
+  },
+  {
+   "profession": "生物資訊學家",
+   "n": 3,
+   "production": 3,
+   "domains": [
+    "healthcare-bio"
+   ],
+   "pains": [
+    "蛋白質序列驗證與結構預測需跨多平台操作",
+    "單細胞 ATAC-seq 分析流程步驟複雜",
+    "單細胞轉錄組分析流程複雜且參數繁瑣"
+   ],
+   "max_stars": 159
+  },
+  {
+   "profession": "提示詞工程師",
+   "n": 4,
+   "production": 3,
+   "domains": [
+    "ai-agent-tooling"
+   ],
+   "pains": [
+    "撰寫 Prompt 文案時容易遺漏規範與設計原則",
+    "Claude Code Agent長對話記憶易遺忘",
+    "LLM 提示詞輸出不穩定且缺乏系統化優化"
+   ],
+   "max_stars": 155
+  },
+  {
+   "profession": "QA 工程師",
+   "n": 5,
+   "production": 3,
+   "domains": [
+    "software-dev"
+   ],
+   "pains": [
+    "撰寫端到端測試缺乏統一規範與架構",
+    "專案缺乏完整的測試策略與覆蓋率規劃",
+    "本地 Web 應用程式 UI 與功能測試複雜"
+   ],
+   "max_stars": 116
+  },
+  {
+   "profession": "知識管理員",
+   "n": 8,
+   "production": 3,
+   "domains": [
+    "personal-productivity",
+    "ops-admin",
+    "data-analytics"
+   ],
+   "pains": [
+    "未解答問題未能自動記錄並指派給專家",
+    "檔案分類系統偏離規範與演進追蹤困難",
+    "會話結束後專案文件與記憶缺乏整理易過期腐爛"
+   ],
+   "max_stars": 73
+  },
+  {
+   "profession": "運維工程師",
+   "n": 6,
+   "production": 3,
+   "domains": [
+    "devops-infra"
+   ],
+   "pains": [
+    "線上日誌同步與交易異常排查繁瑣耗時",
+    "難以即時掌握 Alertmanager 告警狀態",
+    "發信域名與IP遭黑名單攔截無法即時發覺"
+   ],
+   "max_stars": 70
+  },
+  {
+   "profession": "市場研究員",
+   "n": 3,
+   "production": 3,
+   "domains": [
+    "research-academia",
+    "marketing-growth"
+   ],
+   "pains": [
+    "產品上架前的市場與競品調研整理繁瑣",
+    "難以跨平台追蹤特定主題近期動態",
+    "網路研究Agent流程準確度低且無法迭代。"
+   ],
+   "max_stars": 65
+  },
+  {
+   "profession": "AI工具開發者",
+   "n": 5,
+   "production": 3,
+   "domains": [
+    "ai-agent-tooling"
+   ],
+   "pains": [
+    "Claude 技能庫累積過多未用技能難維護",
+    "無法方便地檢索歸檔與刪除Codex對話",
+    "Coding Agent缺乏本地知識庫檢索流程"
+   ],
+   "max_stars": 53
+  }
+ ],
+ "B4_pain_diversity": [
+  {
+   "domain": "hardware-eda",
+   "n": 36,
+   "unique_pains": 36,
+   "diversity": 1.0
+  },
+  {
+   "domain": "sales-crm",
+   "n": 50,
+   "unique_pains": 50,
+   "diversity": 1.0
+  },
+  {
+   "domain": "education-training",
+   "n": 78,
+   "unique_pains": 77,
+   "diversity": 0.99
+  },
+  {
+   "domain": "writing-content",
+   "n": 166,
+   "unique_pains": 164,
+   "diversity": 0.99
+  },
+  {
+   "domain": "devops-infra",
+   "n": 337,
+   "unique_pains": 324,
+   "diversity": 0.96
+  },
+  {
+   "domain": "research-academia",
+   "n": 186,
+   "unique_pains": 179,
+   "diversity": 0.96
+  },
+  {
+   "domain": "ops-admin",
+   "n": 248,
+   "unique_pains": 235,
+   "diversity": 0.95
+  },
+  {
+   "domain": "finance-investing",
+   "n": 182,
+   "unique_pains": 172,
+   "diversity": 0.95
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "n": 844,
+   "unique_pains": 794,
+   "diversity": 0.94
+  },
+  {
+   "domain": "marketing-growth",
+   "n": 202,
+   "unique_pains": 189,
+   "diversity": 0.94
+  },
+  {
+   "domain": "data-analytics",
+   "n": 129,
+   "unique_pains": 121,
+   "diversity": 0.94
+  },
+  {
+   "domain": "other",
+   "n": 34,
+   "unique_pains": 32,
+   "diversity": 0.94
+  },
+  {
+   "domain": "legal-compliance",
+   "n": 88,
+   "unique_pains": 82,
+   "diversity": 0.93
+  },
+  {
+   "domain": "software-dev",
+   "n": 1809,
+   "unique_pains": 1661,
+   "diversity": 0.92
+  },
+  {
+   "domain": "personal-productivity",
+   "n": 303,
+   "unique_pains": 279,
+   "diversity": 0.92
+  },
+  {
+   "domain": "design-creative",
+   "n": 324,
+   "unique_pains": 288,
+   "diversity": 0.89
+  },
+  {
+   "domain": "healthcare-bio",
+   "n": 116,
+   "unique_pains": 103,
+   "diversity": 0.89
+  },
+  {
+   "domain": "security",
+   "n": 265,
+   "unique_pains": 237,
+   "diversity": 0.89
+  }
+ ],
+ "B5_by_first_seen": {
+  "2026-07-26": {
+   "software-dev": 1809,
+   "ai-agent-tooling": 844,
+   "devops-infra": 337,
+   "design-creative": 324,
+   "personal-productivity": 303,
+   "security": 265,
+   "ops-admin": 248,
+   "marketing-growth": 202
+  }
+ }
+}

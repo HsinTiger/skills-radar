@@ -47,11 +47,14 @@ fi
 # 6. 更新 README 的最新一期連結
 /usr/bin/env python3 "$ROOT/bin/build_readme.py" >> "$LOG" 2>&1
 
+# 6.5 每日研究增量（省 token：採集/聚合/訊號全走腳本，LLM 只讀訊號表）
+"$ROOT/bin/daily_research.sh" >> "$LOG" 2>&1 || log "WARN: research 步驟異常"
+
 # 7. 推私有 repo
 git add -A >> "$LOG" 2>&1
 if ! git diff --cached --quiet; then
   git -c user.name="HsinBro" -c user.email="j12345453@gmail.com" \
-      commit -q -m "radar: $DATE 每日情報" >> "$LOG" 2>&1
+      commit -q -m "radar: $DATE 每日情報與研究增量" >> "$LOG" 2>&1
   git push -q origin main >> "$LOG" 2>&1 && log "pushed" || log "WARN: push 失敗"
 else
   log "無變動，略過 commit"
