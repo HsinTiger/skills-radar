@@ -3,6 +3,9 @@ data/launchd.*
 daily/*.new
 corpus/.batches/
 corpus/.classified/
+corpus/.asic-batches/
+corpus/.asic-classified/
+corpus/asic-classify.log
 __pycache__/
 *.pyc
 corpus/classify.log

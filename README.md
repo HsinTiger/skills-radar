@@ -17,6 +17,12 @@
 1. **防禦檔案遺失與歷史清理**：檢查本機 `claude-code` 與 `agy` 執行的工作目錄。為所有自動化 Pipeline（Substack 發文、知識庫更新）建立獨立 git 工作區，並在 Cronjob 中加入「執行完畢自動 git status 比對與自動 Push」機制，防止 30 天本機 Context 遭刪除或檔名誤刪造成不可逆損失。
 2. **精簡巨型 Skill 檔**：盤點目前使用的自訂 Skill，若有單一檔案超過 300 行的「大百科型 Skill」，立即拆解。改為僅保留摘要導引，詳細規格改由 Agent 根據子任務動態讀取，以解決長 Context 下的指令衰退問題。
 
+## 專題研究
+
+- [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
+  排除 FPGA、embedded、board/PCB、analog/RF，逐項審查可改編的 RTL/EDA procedure；
+  current catalog 因 canonical corpus 與 golden labels 尚未完成而明確標為 `BLOCKED`。
+
 ## 生態指標
 
 | repo | 目前 star | 自 2026-07-26 起變化 |

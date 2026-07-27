@@ -29,26 +29,69 @@ MASTER = os.path.join(CORPUS, "master.jsonl")
 PER_REPO_CAP = 10
 
 TOPICS = {
-    # 無線通訊 / WiFi baseband —— 對應使用者本業
+    # WiFi 數位 IC / baseband。刻意不收 hostapd、SDR、RF、天線、封包嗅探、
+    # ESP32/firmware 等鄰接領域；舊 targeted-wifi 樣本仍保留，但 owner-fit 會排除。
     "wifi": {
         "phy-baseband": [
-            "802.11 PHY", "WiFi 6", "WiFi 7", "802.11ax", "802.11be", "802.11ac",
-            "OFDMA scheduling", "MU-MIMO", "beamforming", "channel estimation",
-            "LDPC decoder", "constellation demapper", "carrier frequency offset",
-            "PPDU", "preamble detection", "EVM measurement",
+            "802.11 PHY baseband", "802.11ax PHY", "802.11be PHY",
+            "WLAN baseband", "WiFi baseband algorithm", "WiFi PHY hardware architecture",
         ],
-        "mac-protocol": [
-            "CSMA/CA", "RTS CTS", "A-MPDU", "target wake time", "hostapd",
-            "wpa_supplicant", "802.11 MAC layer", "roaming 802.11r", "WMM QoS",
+        "mac-digital": [
+            "802.11 MAC RTL", "WiFi MAC hardware", "WLAN MAC architecture",
+            "PPDU parser hardware", "A-MPDU hardware", "OFDMA scheduler RTL",
         ],
-        "rf-test": [
-            "RF frontend design", "low noise amplifier", "S-parameter", "vector network analyzer",
-            "spectrum analyzer automation", "path loss model", "antenna matching",
-            "iperf throughput", "wireshark 802.11", "packet sniffer wireless",
+    },
+    # ASIC front-end EDA / RTL；排除 FPGA implementation、board、MCU、PCB 與 analog/RF。
+    "asic": {
+        "spec-architecture": [
+            "ASIC microarchitecture specification", "hardware architecture RTL",
+            "cycle accurate model RTL", "algorithm to RTL fixed point",
         ],
-        "other-wireless": [
-            "BLE GATT", "Bluetooth mesh", "LoRaWAN", "Zigbee", "5G NR", "LTE physical layer",
-            "software defined radio", "GNU Radio", "mmWave", "sub-6 GHz",
+        "rtl-design": [
+            "ASIC RTL SystemVerilog", "synthesizable SystemVerilog ASIC",
+            "ready valid RTL", "pipeline RTL microarchitecture",
+            "clock reset RTL design", "low power RTL design",
+        ],
+        "lint-cdc-rdc": [
+            "ASIC RTL lint", "clock domain crossing ASIC", "reset domain crossing RTL",
+            "SpyGlass CDC", "lint waiver SystemVerilog",
+        ],
+        "formal-assertion": [
+            "ASIC formal verification", "SystemVerilog assertions RTL",
+            "formal property RTL", "sequential equivalence RTL",
+        ],
+        "simulation-debug": [
+            "Synopsys VCS SystemVerilog", "Verdi FSDB debug", "Cadence Xcelium UVM",
+            "RTL regression VCS", "waveform debug RTL",
+        ],
+        "uvm-verification": [
+            "UVM testbench ASIC", "functional coverage SystemVerilog",
+            "constrained random RTL verification", "scoreboard reference model UVM",
+        ],
+        "synthesis-sta-power": [
+            "Design Compiler ASIC", "PrimeTime STA RTL", "SDC constraint ASIC",
+            "UPF power intent RTL", "logic synthesis ASIC",
+        ],
+        "integration-registers": [
+            "ASIC IP integration RTL", "SystemRDL CSR RTL", "IP-XACT RTL integration",
+            "register map RTL generation",
+        ],
+    },
+    # WiFi 演算法到 ASIC RTL 的交集；這是 owner 最高優先採集層。
+    "wifi-asic": {
+        "algorithm-architecture": [
+            "802.11 OFDM fixed point", "WLAN PHY fixed point",
+            "WiFi PHY hardware architecture", "802.11 baseband ASIC",
+        ],
+        "rtl-blocks": [
+            "OFDM FFT RTL", "MIMO detector RTL", "beamforming RTL",
+            "channel estimation RTL", "equalizer RTL", "carrier frequency offset RTL",
+            "WiFi preamble detector RTL", "LDPC decoder RTL",
+            "constellation demapper RTL", "scrambler descrambler RTL",
+        ],
+        "verification": [
+            "802.11 PHY SystemVerilog", "WiFi baseband UVM", "WLAN PHY testbench",
+            "PPDU decoder testbench", "802.11 RTL verification",
         ],
     },
     # EDA 補充面向 —— 第一輪沒撈到的，特別是對應 transform 缺口的規格/暫存器/DFT
@@ -71,6 +114,15 @@ TOPICS = {
             "Synopsys VCS", "Cadence Xcelium", "Questa simulation", "GTKWave",
         ],
     },
+}
+
+# 供測試與下游報告明確區分 owner scope。既有 topic 不追溯改名；新採集一律以
+# asic / wifi-asic 為主，wifi 是較窄的補充層，eda2 只作歷史相容。
+TOPIC_POLICY = {
+    "asic": "owner-direct",
+    "wifi-asic": "owner-direct",
+    "wifi": "owner-supporting",
+    "eda2": "legacy-supporting",
 }
 
 def load_seen():

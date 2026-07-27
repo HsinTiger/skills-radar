@@ -35,6 +35,10 @@ for i, d in enumerate(delta):
         continue
     for k in ("domain","profession","task","target","maturity","pain","injection_suspect"):
         d[k] = c.get(k)
+    # New LLM labels must never masquerade as legacy rows or retain stale model confidence.
+    d["label_source"] = "llm"
+    for k in ("domain_conf", "task_conf", "target_conf", "maturity_conf"):
+        d.pop(k, None)
     merged.append(d)
 
 master_p = os.path.join(ROOT, "corpus", "master.jsonl")

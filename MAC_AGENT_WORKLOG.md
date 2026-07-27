@@ -59,3 +59,55 @@ tests, and a public data-integrity warning first. Mac remains the canonical runt
 - Do not bypass `require_model_report_alignment`.
 - Do not use any `targeted-*` row for population proportions.
 - Do not copy raw third-party skill text into Wiki pages.
+
+---
+
+# Follow-up — WiFi baseband ASIC / RTL taxonomy
+
+## Owner scope
+
+- Direct: WiFi baseband ASIC specification, fixed-point, microarchitecture, RTL, lint/CDC/RDC,
+  formal/SVA, VCS/Verdi simulation/debug, UVM, synthesis/STA/power and RTL integration.
+- Exclude: FPGA/Vivado/Quartus/bitstream, MCU/firmware/embedded, board/PCB and analog/RF/antenna.
+
+## Windows work already prepared
+
+- Narrow `asic` and `wifi-asic` harvest topics in `bin/harvest_targeted.py`.
+- Secondary taxonomy and catalog builder in `bin/asic_taxonomy.py` and
+  `bin/build_asic_catalog.py`.
+- Bounded golden-sample pipeline:
+  `sample_domain_labels.py` -> existing `classify.sh` -> `train_classifier.py` ->
+  `sample_asic_labels.py` -> `classify_asic.sh` -> `evaluate_asic_taxonomy.py`.
+- Strict label merge rejects missing, duplicate or invalid enum/list output.
+- Current Windows catalog is intentionally `PROVISIONAL_STALE_SNAPSHOT`; do not promote it.
+
+## Mac execution order after canonical refresh
+
+Run each write phase sequentially; do not let harvest, merge or training write master concurrently.
+
+```bash
+git pull --ff-only
+python3 bin/harvest_targeted.py asic wifi-asic
+python3 bin/sample_domain_labels.py --n 400
+./bin/classify.sh corpus/domain-golden-sample.jsonl 40 4
+python3 bin/merge_classified.py corpus/domain-golden-sample.jsonl
+python3 bin/train_classifier.py
+python3 bin/sample_asic_labels.py --n 240
+./bin/classify_asic.sh corpus/asic-golden-sample.jsonl 30 2
+python3 bin/evaluate_asic_taxonomy.py
+python3 bin/build_asic_catalog.py
+python3 -m unittest discover -s tests -v
+python3 bin/check_privacy.py
+```
+
+Evaluation must remain `BLOCKED` unless there are at least 200 golden rows, scalar accuracy is at
+least 0.75, and multi-label mean Jaccard is at least 0.65. Inspect the FPGA false-positive rows
+before accepting even a numerical PASS. Re-publish the Release master only after
+`model_report.json` aligns with the new seed/model counts and all gates pass.
+
+## Required readback
+
+1. Push the generated catalog, taxonomy report, model report, source-review report and tests.
+2. Report exact master SHA-256, seed/model counts and Release asset digest.
+3. Confirm no `owner_fit=direct` row is FPGA/embedded/board/PCB/analog-RF.
+4. Do not call any public skill production-ready; source review and EDA runtime proof are separate.
