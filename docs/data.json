@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-27 01:47 UTC",
+ "generated": "2026-07-27 01:54 UTC",
  "n_total": 24944,
  "global_production_pct": 48.4,
  "global_task_pct": {
@@ -3093,8 +3093,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "devops-infra",
-    "software-dev"
+    "software-dev",
+    "devops-infra"
    ],
    "pains": [
     "撰寫端到端測試缺乏統一規範與架構",
@@ -3178,8 +3178,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "devops-infra",
-    "security"
+    "security",
+    "devops-infra"
    ],
    "pains": [
     "K8s 集群的 CIS 安全基準檢查與修復步驟繁瑣。",
@@ -3294,8 +3294,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "software-dev",
-    "other"
+    "other",
+    "software-dev"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
