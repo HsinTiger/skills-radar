@@ -4,3 +4,13 @@ daily/*.new
 corpus/.batches/
 corpus/.classified/
 corpus/classify.log
+
+# 語料原始檔不進版控：74MB 且持續成長，會撞 GitHub 100MB 硬限制。
+# 改為每日輸出壓縮快照 corpus/master.jsonl.gz（約 20MB），原始檔留在本機。
+# 原始語料完全不進版控：74MB 且每日成長，git 歷史會迅速膨脹並撞上 100MB 硬限制。
+# 改為每週上傳壓縮快照到 GitHub Release（bin/publish_snapshot.sh），repo 只留分析產出。
+corpus/*.jsonl
+corpus/*.jsonl.gz
+corpus/seen.tsv
+corpus/.batches/
+corpus/.classified/

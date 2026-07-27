@@ -50,7 +50,12 @@ fi
 # 6.5 每日研究增量（省 token：採集/聚合/訊號全走腳本，LLM 只讀訊號表）
 "$ROOT/bin/daily_research.sh" >> "$LOG" 2>&1 || log "WARN: research 步驟異常"
 
-# 7. 推私有 repo
+# 6.8 每週一發佈語料快照到 Release（不進 git 歷史）
+if [ "$(date +%u)" = "1" ]; then
+  "$ROOT/bin/publish_snapshot.sh" >> "$LOG" 2>&1 || log "WARN: 快照發佈失敗"
+fi
+
+# 7. 推 repo
 git add -A >> "$LOG" 2>&1
 if ! git diff --cached --quiet; then
   git -c user.name="HsinBro" -c user.email="j12345453@gmail.com" \
