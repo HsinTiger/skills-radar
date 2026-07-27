@@ -8,27 +8,19 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-26](daily/2026-07-26.md)
+## 最新一期：[2026-07-27](daily/2026-07-27.md)
 
-**今日一句話**：Claude Code 官方發布 v2.1.219，預設模型正式升級為 1M Context 的 Opus 5，並引進 strictAllowlist 沙盒網路白名單防禦機制。
+**今日一句話**：長 Context 導致 Skill 指令衰退與多 Agent 跨通道攻擊（Channel Attack）研究同步爆發：你的自動化 Pipeline 當前最大的出局風險不在模型智商，而在「未隔離的 Agent 中繼通道」與「一次性載入巨型 Skill 的指令失效」。
 
 **短期建議（一週內）**
 
-1. **啟用 Claude Code 嚴格網路白名單**：
-   在 CLI 設定中加入 `sandbox.network.strictAllowlist`，僅允許 pipeline 必要的網域（如 Substack API、Cloudflare、指定數據源），全面阻擋非授權外連。
-2. **檢視並吸收 Karpathy 防護規約**：
-   不用直接安裝第三方 Skill，手動人肉審閱 `0xwilliamortiz/andrej-karpathy-skills` 中的 Markdown 內容，將其中防範「Agent 擅自重構運作中程式碼」的規則，抽離並寫入現有 pipeline 的 `.claude/rules` 或 agy 系統提示詞中。
-   - **驗證步驟**：使用 `git clone` 下載至 `<appDataDir>/scratch/` 獨立目錄 ➔ 純文字人肉檢查是否有隱藏指令 ➔ 手動複製純規約內文。
+1. **防禦檔案遺失與歷史清理**：檢查本機 `claude-code` 與 `agy` 執行的工作目錄。為所有自動化 Pipeline（Substack 發文、知識庫更新）建立獨立 git 工作區，並在 Cronjob 中加入「執行完畢自動 git status 比對與自動 Push」機制，防止 30 天本機 Context 遭刪除或檔名誤刪造成不可逆損失。
+2. **精簡巨型 Skill 檔**：盤點目前使用的自訂 Skill，若有單一檔案超過 300 行的「大百科型 Skill」，立即拆解。改為僅保留摘要導引，詳細規格改由 Agent 根據子任務動態讀取，以解決長 Context 下的指令衰退問題。
 
 ## 生態指標
 
 | repo | 目前 star | 自 2026-07-26 起變化 |
 |---|---:|---:|
-| anthropics/skills | 164,187 | +0 |
-| anthropics/claude-plugins-official | 32,668 | +0 |
-| anthropics/claude-code | 139,100 | -1 |
-| ComposioHQ/awesome-claude-skills | 70,700 | +2 |
-| travisvn/awesome-claude-skills | 14,317 | +1 |
 
 ## 這個系統怎麼運作
 
@@ -48,4 +40,5 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-07-27](daily/2026-07-27.md)
 - [2026-07-26](daily/2026-07-26.md)

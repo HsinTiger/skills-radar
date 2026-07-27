@@ -1,6 +1,6 @@
 {
  "n_seed": 5937,
- "n_predicted": 15779,
+ "n_predicted": 35293,
  "fields": {
   "domain": {
    "cv_accuracy": 0.725,
@@ -36,8 +36,8 @@
   }
  },
  "pred_conf": {
-  "mean": 0.479,
-  "pct_above_0.6": 32.8,
-  "pct_above_0.8": 14.9
+  "mean": 0.46,
+  "pct_above_0.6": 29.8,
+  "pct_above_0.8": 12.2
  }
 }

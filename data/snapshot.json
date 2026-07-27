@@ -1,215 +1,40 @@
 {
- "generated_at": "2026-07-26T06:05:25.552071+00:00",
+ "generated_at": "2026-07-27T00:30:07.254380+00:00",
  "window_days": 1,
  "repos": [
   {
    "repo": "anthropics/skills",
    "tier": 1,
    "why": "官方 Agent Skills 參考實作與規範",
-   "stars": 164187,
-   "pushed_at": "2026-07-24T20:12:36Z",
-   "open_issues": 1050,
-   "commits": [],
-   "releases": []
+   "error": "[Errno 2] No such file or directory: 'gh'"
   },
   {
    "repo": "anthropics/claude-plugins-official",
    "tier": 1,
    "why": "官方 plugin 目錄",
-   "stars": 32668,
-   "pushed_at": "2026-07-26T00:05:00Z",
-   "open_issues": 845,
-   "commits": [
-    {
-     "sha": "d31456c6",
-     "date": "2026-07-26T00:04:58Z",
-     "msg_untrusted": "bump(remember): e432107b → 1bf23171 (#4521)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "4ea01e6f",
-     "date": "2026-07-26T00:04:34Z",
-     "msg_untrusted": "bump(hyperframes): 3b3d4f55 → f9f00b0e (#4522)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "f3f01d59",
-     "date": "2026-07-25T18:17:09Z",
-     "msg_untrusted": "bump(carta-investors): 0ee76454 → 5236d61b (#4506)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "800db93c",
-     "date": "2026-07-25T18:05:10Z",
-     "msg_untrusted": "bump(hyperframes): 1f9a8f09 → 3b3d4f55 (#4519)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "d56fbf6b",
-     "date": "2026-07-25T18:04:33Z",
-     "msg_untrusted": "bump(auth0): e295fd64 → e6ffc31f (#4518)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "8e346280",
-     "date": "2026-07-25T18:04:08Z",
-     "msg_untrusted": "bump(remember): 6c1d6747 → e432107b (#4520)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "75ed71ce",
-     "date": "2026-07-25T16:18:39Z",
-     "msg_untrusted": "bump(firestore-native): 081f1add → dfe84c0d (#4509)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "7d2e3140",
-     "date": "2026-07-25T16:18:16Z",
-     "msg_untrusted": "bump(huggingface-skills): 28525c59 → 87f9ee5b (#4510)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "ca982a94",
-     "date": "2026-07-25T16:17:53Z",
-     "msg_untrusted": "bump(pydantic-ai): 6cb1aff3 → 6add4dc7 (#4514)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "2439f72a",
-     "date": "2026-07-25T16:17:28Z",
-     "msg_untrusted": "bump(databricks): 3d798146 → fe11006e (#4508)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "7e9cfa58",
-     "date": "2026-07-25T16:17:00Z",
-     "msg_untrusted": "bump(mlflow): c33bb3d3 → c8228eef (#4512)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "ee026b55",
-     "date": "2026-07-25T16:16:17Z",
-     "msg_untrusted": "bump(data-agent-kit-starter-pack): 3e89ba05 → c6607d43 (#4507)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "0f5ac054",
-     "date": "2026-07-25T15:28:00Z",
-     "msg_untrusted": "bump(neon): 6ca24e46 → 7de230f8 (#4513)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "a2449e8a",
-     "date": "2026-07-25T15:27:31Z",
-     "msg_untrusted": "bump(remember): 7db78669 → 6c1d6747 (#4515)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    },
-    {
-     "sha": "fd17e768",
-     "date": "2026-07-25T14:26:22Z",
-     "msg_untrusted": "bump(hyperframes): e7f9918d → 1f9a8f09 (#4511)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-    }
-   ],
-   "releases": []
+   "error": "[Errno 2] No such file or directory: 'gh'"
   },
   {
    "repo": "anthropics/claude-code",
    "tier": 1,
    "why": "Claude Code 本體（changelog / issue 風向）",
-   "stars": 139100,
-   "pushed_at": "2026-07-25T01:35:55Z",
-   "open_issues": 13346,
-   "commits": [],
-   "releases": [
-    {
-     "tag": "v2.1.220",
-     "published": "2026-07-25T01:35:55Z",
-     "name_untrusted": "v2.1.220",
-     "body_untrusted": "## What's changed  - Bug fixes and reliability improvements"
-    },
-    {
-     "tag": "v2.1.219",
-     "published": "2026-07-24T17:14:23Z",
-     "name_untrusted": "v2.1.219",
-     "body_untrusted": "## What's changed  - Added Claude Opus 5 (`claude-opus-5`), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok - Added `sandbox.network.strictAllowlist` setting to deny non-allowlisted hosts for sandboxed commands without prompting - Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_repo_root` control request registers a new working directory mid-session - Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp-config` entries skipped by config validation; terminal runs print a startup warning - Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the `/config` row is hidden while one does - Added nested subagent forwarding in stream-json: sub"
-    },
-    {
-     "tag": "v2.1.218",
-     "published": "2026-07-22T21:24:56Z",
-     "name_untrusted": "v2.1.218",
-     "body_untrusted": "## What's changed  - Changed `/code-review` to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target - Added screen-reader announcements of deleted text for word and line deletions (`Option+Delete`, `Ctrl+W`, `Cmd+Backspace`, `Ctrl+U`, `Ctrl+K`) in `--ax-screen-reader` mode - Fixed Windows paths with `\\u`-prefixed segments (like `C:\\Users\\unicorn`) being corrupted into CJK characters in tool inputs, which made those files inaccessible - Fixed the left arrow key discarding the conversation with no undo: presses right after editing now ask to confirm, and Esc in the agent view returns to the conversation it backgrounded - Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to conne"
-    }
-   ]
+   "error": "[Errno 2] No such file or directory: 'gh'"
   },
   {
    "repo": "ComposioHQ/awesome-claude-skills",
    "tier": 3,
    "why": "最大社群精選清單",
-   "stars": 70700,
-   "pushed_at": "2026-07-24T07:48:01Z",
-   "open_issues": 1098,
-   "commits": [],
-   "releases": []
+   "error": "[Errno 2] No such file or directory: 'gh'"
   },
   {
    "repo": "travisvn/awesome-claude-skills",
    "tier": 3,
    "why": "Claude Code 取向的社群清單",
-   "stars": 14317,
-   "pushed_at": "2026-04-28T19:30:24Z",
-   "open_issues": 659,
-   "commits": [],
-   "releases": []
+   "error": "[Errno 2] No such file or directory: 'gh'"
   }
  ],
- "official_skills": {
-  "skills": [
-   "algorithmic-art",
-   "brand-guidelines",
-   "canvas-design",
-   "claude-api",
-   "doc-coauthoring",
-   "docx",
-   "frontend-design",
-   "internal-comms",
-   "mcp-builder",
-   "pdf",
-   "pptx",
-   "skill-creator",
-   "slack-gif-creator",
-   "theme-factory",
-   "web-artifacts-builder",
-   "webapp-testing",
-   "xlsx"
-  ]
- },
- "official_plugins": [
-  "agent-sdk-dev",
-  "clangd-lsp",
-  "claude-code-setup",
-  "claude-md-management",
-  "claude-security",
-  "code-modernization",
-  "code-review",
-  "code-simplifier",
-  "commit-commands",
-  "csharp-lsp",
-  "cwc-makers",
-  "example-plugin",
-  "explanatory-output-style",
-  "feature-dev",
-  "frontend-design",
-  "gopls-lsp",
-  "hookify",
-  "jdtls-lsp",
-  "kotlin-lsp",
-  "learning-output-style",
-  "lua-lsp",
-  "math-olympiad",
-  "mcp-server-dev",
-  "mcp-tunnels",
-  "php-lsp",
-  "playground",
-  "plugin-dev",
-  "pr-review-toolkit",
-  "project-artifact",
-  "pyright-lsp",
-  "ralph-loop",
-  "receipts",
-  "ruby-lsp",
-  "rust-analyzer-lsp",
-  "security-guidance",
-  "session-report",
-  "skill-creator",
-  "swift-lsp",
-  "typescript-lsp"
- ],
+ "official_skills": {},
+ "official_plugins": [],
  "arxiv": [
   {
    "published": "2026-07-23T07:28:50Z",
@@ -305,258 +130,185 @@
  "hn": [
   {
    "q": "claude code",
-   "points": 252,
-   "comments": 164,
-   "title_untrusted": "The new rules of context engineering for Claude 5 generation models",
-   "url": "https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models"
+   "points": 25,
+   "comments": 13,
+   "title_untrusted": "Claude Code has a hardcoded instruction telling Opus 5 not to use subagents",
+   "url": "https://old.reddit.com/r/ClaudeCode/comments/1v6y5q2/claude_code_has_a_hardcoded_instruction_telling/"
+  },
+  {
+   "q": "claude code",
+   "points": 15,
+   "comments": 19,
+   "title_untrusted": "Cursor Bridge – Run Unlimited Claude Code on Your Cursor Subscription",
+   "url": "https://github.com/hkc5/cursor-bridge"
+  },
+  {
+   "q": "claude code",
+   "points": 13,
+   "comments": 0,
+   "title_untrusted": "Claude Code Deletes Your Context History from Your Device After 30 Days",
+   "url": "https://code.claude.com/docs/en/data-usage"
+  },
+  {
+   "q": "agent skills",
+   "points": 9,
+   "comments": 1,
+   "title_untrusted": "Skill Router – a local-first router for large agent skill libraries",
+   "url": "https://github.com/torakagemusha-sudo/torafirma-skill-router"
+  },
+  {
+   "q": "claude skills",
+   "points": 6,
+   "comments": 8,
+   "title_untrusted": "Hallmark – Anti-AI-Slop Design Skill for Claude Code, Cursor, and Codex",
+   "url": "https://github.com/Nutlope/hallmark"
   },
   {
    "q": "claude code",
    "points": 5,
    "comments": 4,
-   "title_untrusted": "Ask HN: What happens when we do compress the context in Claude Code?",
-   "url": "https://news.ycombinator.com/item?id=49048571"
-  },
-  {
-   "q": "claude code",
-   "points": 4,
-   "comments": 0,
-   "title_untrusted": "Show HN: I built a blind taste test for Claude and Codex designs",
-   "url": "https://taste.rubenflamshepherd.com/"
-  },
-  {
-   "q": "claude code",
-   "points": 4,
-   "comments": 1,
-   "title_untrusted": "Codex now leads Claude Code in first-time Homebrew installs for last 30 days",
-   "url": "https://formulae.brew.sh/analytics/cask-install/30d/"
-  },
-  {
-   "q": "claude code",
-   "points": 4,
-   "comments": 1,
-   "title_untrusted": "Why My Open-Source Project Hasn't Done Better",
-   "url": "https://news.ycombinator.com/item?id=49046999"
-  },
-  {
-   "q": "claude code",
-   "points": 4,
-   "comments": 0,
-   "title_untrusted": "Show HN: Curated Claude Code – a small agent harness with an intake gate",
-   "url": "https://github.com/Sanexxxx777/curated-claude-code"
-  },
-  {
-   "q": "claude skills",
-   "points": 3,
-   "comments": 0,
-   "title_untrusted": "Ask HN: Which is the least sloppy and claudeism free model you have used?",
-   "url": "https://news.ycombinator.com/item?id=49045140"
+   "title_untrusted": "Claude Code Cut Their System Prompt by 80%. Does That Work for Small Models Too?",
+   "url": "https://antigma.ai/blog/2026/07/25/short-prompt-small-models"
   },
   {
    "q": "claude code",
    "points": 3,
    "comments": 0,
-   "title_untrusted": "Show HN: Argus – VSCode Worktree Agent Session Manager",
-   "url": "https://marketplace.visualstudio.com/items?itemName=petar-s-dimov.argus-worktree-agent-sessions"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 4,
-   "title_untrusted": "Ask HN: What's expected from an engineering manager or director now?",
-   "url": "https://news.ycombinator.com/item?id=49051762"
+   "title_untrusted": "Qwen 27B with local well writen tools just as powerful as cluade models?",
+   "url": "https://news.ycombinator.com/item?id=49063609"
   },
   {
    "q": "claude code",
    "points": 3,
    "comments": 0,
-   "title_untrusted": "Ruflo: An agent meta-harness for Claude Code and Codex",
-   "url": "https://github.com/ruvnet/ruflo"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 0,
-   "title_untrusted": "I was paying too much for Claude and codex here is how I reduced 90% of it",
-   "url": "https://github.com/AjnasNB/qarinah"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 0,
-   "title_untrusted": "The Many Claudes of My Code",
-   "url": "https://shippingbinaries.com/blog/the-many-claudes-of-my-code"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 1,
-   "title_untrusted": "Claude Code Lightbar for Mac OS",
-   "url": "https://github.com/gregsramblings/claude-status-bar"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 3,
-   "title_untrusted": "Ask HN: How to use agents via API cheaply?",
-   "url": "https://news.ycombinator.com/item?id=49045925"
+   "title_untrusted": "Design.md for Design in Claude Code",
+   "url": "https://aifordevelopers.substack.com/p/designmd-for-design-in-claude-code"
   },
   {
    "q": "agent harness",
    "points": 3,
-   "comments": 1,
-   "title_untrusted": "The interesting part of an Agent Harness is what you add on top",
-   "url": "https://www.martinrichards.me/post/whats_inside_the_harness/"
+   "comments": 2,
+   "title_untrusted": "Show HN: Open-plan-annotator – local annotation UI for working with agent plans",
+   "url": "https://github.com/ndom91/open-plan-annotator"
   },
   {
    "q": "claude code",
    "points": 2,
    "comments": 0,
-   "title_untrusted": "Show HN: Rules that stop AI coding agents from breaking working code",
-   "url": "https://github.com/avenna01-ceo/claude-code-survival-kr"
+   "title_untrusted": "Jeffy Loop, an autonomous code improvement loop for Claude Code",
+   "url": "https://github.com/lenamonj/jeffy-loop"
   },
   {
    "q": "claude code",
    "points": 2,
-   "comments": 1,
-   "title_untrusted": "MCP Clock: live public hosted tool for Claude, Codex, any MCP Client",
-   "url": "https://github.com/firasd/mcpclock"
+   "comments": 0,
+   "title_untrusted": "Show HN: Anyclaude-SDK – Claude Code-Style SDK for OpenAI/Anthropic Endpoints",
+   "url": "https://github.com/pipilot-dev/anyclaude-sdk"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Show HN: I made Claude quiz me on my own code before showing it",
+   "url": "https://github.com/De-Cri/dont-kick-me-out"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Data loss in Claude Code and OpenAI Codex: when AI deletes user files",
+   "url": "https://firasd.substack.com/p/accidental-data-loss-in-claude-code-openai-codex-ai-agent-harness-file-deletion"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 2,
+   "title_untrusted": "Show HN: Lemmings in HTML in Canvas",
+   "url": "https://github.com/VorticonCmdr/lemmings"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Show HN: Termic – desktop app for running CLI coding agents (Claude Code, Codex)",
+   "url": "https://termic.dev/"
+  },
+  {
+   "q": "agent skills",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "The bitter lesson for skills and coding agents",
+   "url": "https://twitter.com/jim_dowling/status/2081455720336179313"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Automate 7 Projects Marketing with AI for $40",
+   "url": "https://apsquared.co/posts/marketing-automation-claude-codex"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Show HN: I built a transparent terminal wrapper for unobtrusive AI",
+   "url": "https://github.com/emosenkis/terminai"
+  },
+  {
+   "q": "agent harness",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Agent Harness Design for Claude",
+   "url": "https://claude.com/blog/harnessing-claudes-intelligence"
   }
  ],
- "new_community_repos": [
-  {
-   "repo": "danilo-znamerovszkij/draw-your-font",
-   "stars": 257,
-   "created": "2026-07-22T09:47:19Z",
-   "desc_untrusted": "Turn a photo of your handwriting into a real font (TTF/WOFF/WOFF2) - free, open source, no uploads. Node CLI + Claude Code skill."
-  },
-  {
-   "repo": "finna/Finn-loop",
-   "stars": 207,
-   "created": "2026-07-22T16:48:50Z",
-   "desc_untrusted": "The Finn-loop: a 3-skill AI software factory for Claude Code — spec, build, review. Humans merge."
-  },
-  {
-   "repo": "0xwilliamortiz/andrej-karpathy-skills",
-   "stars": 170,
-   "created": "2026-07-21T22:34:47Z",
-   "desc_untrusted": "Behavioral guardrails for Claude Code, distilled from Andrej Karpathy's field notes on where LLMs go wrong when they write software."
-  },
-  {
-   "repo": "codejunkie99/graph-engineering",
-   "stars": 111,
-   "created": "2026-07-23T14:10:49Z",
-   "desc_untrusted": "Graph engineering for AI agents: the 9-stage knowledge-graph pipeline (translated from SEU's graduate course) + task-graph orchestration patterns, as a Claude skill with teaching mode and paste-ready "
-  },
-  {
-   "repo": "NulightJens/humanizer-stack",
-   "stars": 84,
-   "created": "2026-07-23T15:47:07Z",
-   "desc_untrusted": "Two-pass pipeline for removing AI writing tells from outward-facing text: a surface pass plus a structural pass grounded in the StoryScope study. Packaged as Claude Code Skills.      Free community: s"
-  },
-  {
-   "repo": "kennethkhoocy/applied-micro-skills",
-   "stars": 57,
-   "created": "2026-07-22T09:33:39Z",
-   "desc_untrusted": "Claude Code and Codex skills for empirical applied-micro research: reproducibility auditing, LLM-pipeline methods, event studies, WRDS, Stata, publication-grade tables"
-  },
-  {
-   "repo": "skinnerlee1225/enterprise-prd-toolkit",
-   "stars": 37,
-   "created": "2026-07-22T12:33:36Z",
-   "desc_untrusted": "把金融級 PRD 方法論工程化成四個 Claude Skills：找洞 → 寫規格 → 產測試。含交易所提現、自營交易挑戰賽的完整 PRD 範例。"
-  },
-  {
-   "repo": "fcavalcantirj/claude-code-eyes",
-   "stars": 35,
-   "created": "2026-07-21T03:26:05Z",
-   "desc_untrusted": "Give Claude Code eyes 👁️ — a camera skill so it can SEE real hardware, displays and wiring: verify a rendered panel, check wiring before power-on, and catch bugs that live on the glass, not the logs."
-  },
-  {
-   "repo": "ToolMonsters/handoff-skill",
-   "stars": 32,
-   "created": "2026-07-22T08:59:15Z",
-   "desc_untrusted": "Claude skill: turn your current conversation into a complete handoff document so any LLM can pick up exactly where you left off"
-  },
-  {
-   "repo": "ImL1s/resume-skills",
-   "stars": 25,
-   "created": "2026-07-20T11:32:38Z",
-   "desc_untrusted": "Offline portable resume-* skills: migrate inert agent session context across Claude/Codex/Cursor/OpenCode/Antigravity/Grok (6×6 packaging). Python stdlib only. Not live process restore."
-  },
-  {
-   "repo": "kennethkhoocy/legal-scholarship-skills",
-   "stars": 24,
-   "created": "2026-07-22T09:33:48Z",
-   "desc_untrusted": "Claude Code and Codex skills for legal scholarship: verified citation placement (Bluebook/OSCOLA/McGill), law-review docx pipelines, document delivery tooling"
-  },
-  {
-   "repo": "OscarCode9/github-profile-dashboard-skill",
-   "stars": 17,
-   "created": "2026-07-23T19:23:34Z",
-   "desc_untrusted": "Claude Code skill: build a GitHub profile README with self-hosted stats cards (Lambda + CloudFront)"
-  },
-  {
-   "repo": "Leehyunbin0131/claude-ros2-skills",
-   "stars": 12,
-   "created": "2026-07-23T07:57:44Z",
-   "desc_untrusted": "Claude Code skills for ROS 2 Jazzy — establish the unknowns first, verify against the installed system, prove the result ran."
-  },
-  {
-   "repo": "superchun/no-slop-zh",
-   "stars": 12,
-   "created": "2026-07-23T10:08:53Z",
-   "desc_untrusted": "中文优先的 AI 模板腔清理 skill，支持 Codex 与 Claude Code。"
-  },
-  {
-   "repo": "hosungseo/korea100studio",
-   "stars": 11,
-   "created": "2026-07-20T02:25:50Z",
-   "desc_untrusted": "Turn any process into a vertical swimlane board (SVG/PNG), audit its composition, and animate it. Agent Skill for Claude Code and Codex."
-  },
-  {
-   "repo": "EbrahimElbagory/claude-fba",
-   "stars": 11,
-   "created": "2026-07-22T21:39:54Z",
-   "desc_untrusted": "Your Amazon seller ops team in the terminal — Claude Code skills for store audits, review automation, safe listing edits, and impact tracking via SP-API + Helium 10 MCP"
-  },
-  {
-   "repo": "zgbrenner/i-have-adhd-and-47-tabs",
-   "stars": 11,
-   "created": "2026-07-21T07:42:01Z",
-   "desc_untrusted": "Skill for Claude, ChatGPT, Codex, and Copilot: answer first, fewer options, and one clear next step. For work, research, life, and every tab you forgot was open."
-  },
-  {
-   "repo": "olgaiv39/claude-oss-skills",
-   "stars": 10,
-   "created": "2026-07-21T12:58:12Z",
-   "desc_untrusted": "Practical Claude Code runbooks for clean, resource-efficient open-source development - from planning and implementation to debugging, review, release, and deployment"
-  },
-  {
-   "repo": "danyuchn/asd-ste100-skill",
-   "stars": 9,
-   "created": "2026-07-20T15:10:41Z",
-   "desc_untrusted": "ASD-STE100 Simplified Technical English rules, repurposed as a Claude Code skill for rewriting ambiguous agent-facing English."
-  },
-  {
-   "repo": "dennisonbertram/emulsion",
-   "stars": 8,
-   "created": "2026-07-20T06:03:05Z",
-   "desc_untrusted": "🎞️ Collaborative storyboard blocking for AI filmmaking — a Claude Code skill with its own three.js app. Block shots with Claude live, export motion references, generate films."
-  }
- ],
+ "new_community_repos": [],
  "diff": {
-  "star_delta": {
-   "anthropics/skills": 0,
-   "anthropics/claude-plugins-official": 0,
-   "anthropics/claude-code": -1,
-   "ComposioHQ/awesome-claude-skills": 2,
-   "travisvn/awesome-claude-skills": 1
-  },
+  "star_delta": {},
   "skills_added": {},
   "skills_removed": {},
   "plugins_added": [],
-  "plugins_removed": [],
+  "plugins_removed": [
+   "agent-sdk-dev",
+   "clangd-lsp",
+   "claude-code-setup",
+   "claude-md-management",
+   "claude-security",
+   "code-modernization",
+   "code-review",
+   "code-simplifier",
+   "commit-commands",
+   "csharp-lsp",
+   "cwc-makers",
+   "example-plugin",
+   "explanatory-output-style",
+   "feature-dev",
+   "frontend-design",
+   "gopls-lsp",
+   "hookify",
+   "jdtls-lsp",
+   "kotlin-lsp",
+   "learning-output-style",
+   "lua-lsp",
+   "math-olympiad",
+   "mcp-server-dev",
+   "mcp-tunnels",
+   "php-lsp",
+   "playground",
+   "plugin-dev",
+   "pr-review-toolkit",
+   "project-artifact",
+   "pyright-lsp",
+   "ralph-loop",
+   "receipts",
+   "ruby-lsp",
+   "rust-analyzer-lsp",
+   "security-guidance",
+   "session-report",
+   "skill-creator",
+   "swift-lsp",
+   "typescript-lsp"
+  ],
   "first_run": false
  }
 }

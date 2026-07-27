@@ -1,0 +1,138 @@
+[08:30:34] === research start 2026-07-27 ===
+[delta] 已知 41471 筆
+Traceback (most recent call last):
+  File "/Users/hsin/skills-radar/bin/harvest_delta.py", line 87, in <module>
+    main()
+  File "/Users/hsin/skills-radar/bin/harvest_delta.py", line 36, in main
+    found = hc.search_skill_files()
+  File "/Users/hsin/skills-radar/bin/harvest_corpus.py", line 48, in search_skill_files
+    d = gh(f"search/code?q={q}&per_page=100&page={page}")
+  File "/Users/hsin/skills-radar/bin/harvest_corpus.py", line 30, in gh
+    r = subprocess.run(["gh", "api", path], capture_output=True, text=True, timeout=90)
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gh'
+[08:30:34] 今日無新增 skill
+種子樣本 5937 筆｜待標 35293 筆｜總計 41230 筆
+  domain     交叉驗證準確率 0.725 ±0.008（多數類基準 0.338，提升 +0.388）
+  task       交叉驗證準確率 0.657 ±0.010（多數類基準 0.232，提升 +0.425）
+  target     交叉驗證準確率 0.634 ±0.018（多數類基準 0.362，提升 +0.272）
+  maturity   交叉驗證準確率 0.678 ±0.014（多數類基準 0.522，提升 +0.156）
+
+已預測 35293 筆（domain 信心 ≥0.6 佔 29.8%）
+
+報告 → corpus/model_report.json
+向量化：41230 筆 × 80000 維
+
+分群完成 k=120。最可能是「新類別」的前 10 群（跨領域分散度高）：
+  # 69 n= 694 分散度=0.80 other= 0.0%  gpu / user / models / model / training / on
+  # 26 n= 240 分散度=0.74 other= 0.0%  pdf / document / pptx / text / docx / xml
+  # 17 n=4622 分散度=0.72 other= 0.1%  user / the user / design / is / it / that
+  #  4 n= 453 分散度=0.67 other= 0.0%  de / para / el / que / en / la
+  # 91 n=18994 分散度=0.64 other= 0.2%  in / is / of / md / from / this skill
+  # 58 n= 531 分散度=0.64 other= 0.0%  gstack / dev null / _upd / null / skills gstack / gstack sessions
+  # 49 n= 512 分散度=0.62 other= 0.0%  practices / best practices / best / required / skill when / clarify goals
+  # 22 n=4134 分散度=0.60 other= 0.1%  ai / claude / agent / claude code / agents / skills
+  # 72 n= 200 分散度=0.58 other= 0.0%  wiki / search / query / knowledge / llm wiki / the wiki
+  # 85 n= 205 分散度=0.54 other= 0.0%  blockchain / smart / chain / smart contract / contracts / security
+
+→ corpus/clusters.json
+掃描 41,230 筆，命中 517 筆（1.25%）
+嚴重度：{'高(>=15)': 0, '中(8-14)': 31, '低(1-7)': 486}
+
+樣態分佈：
+   隱藏字元             139
+   憑證竊取             133
+   越權自主              85
+   改動設定或掛鉤           73
+   破壞性操作             36
+   指令覆寫              31
+   隱瞞使用者             12
+   編碼混淆              12
+   外送資料               9
+
+各領域命中率（前 8）：
+   software-dev            118/13244    0.9%
+   ai-agent-tooling         97/4675     2.1%
+   security                 95/3415     2.8%
+   devops-infra             65/3365     1.9%
+   design-creative          47/3861     1.2%
+   personal-productivity    19/1175     1.6%
+   finance-investing        16/765      2.1%
+   ops-admin                13/1346     1.0%
+
+最高分樣本（需人工檢視）：
+    14 | leonardoaraujosantos/my_ai_skills      | 憑證竊取,改動設定或掛鉤
+    14 | elementalsouls/Claude-BugHunter        | 憑證竊取,改動設定或掛鉤
+    14 | Skobyn/talon                           | 憑證竊取,改動設定或掛鉤
+    12 | MFS-code/gstack                        | 破壞性操作
+    12 | gebl/anvil-skill-marketplace           | 破壞性操作
+    12 | soyasis/gstack-private                 | 破壞性操作
+    12 | lyh2/gstack-deepseek                   | 破壞性操作
+    12 | fghaffar/faystack                      | 破壞性操作
+    12 | rmarino550/gstack                      | 破壞性操作
+    12 | mr-daedalium/ostack-saas               | 破壞性操作
+聚合完成：540 筆
+
+domain:
+   software-dev               196   36.3%
+   hardware-eda                63   11.7%
+   design-creative             54   10.0%
+   ai-agent-tooling            36    6.7%
+   security                    34    6.3%
+   devops-infra                26    4.8%
+   research-academia           26    4.8%
+   marketing-growth            21    3.9%
+
+task:
+   generate                   194   35.9%
+   verify                      93   17.2%
+   configure                   69   12.8%
+   analyze                     68   12.6%
+   orchestrate                 49    9.1%
+   transform                   39    7.2%
+   retrieve                    28    5.2%
+
+maturity:
+   production                 274   50.7%
+   workflow                   246   45.6%
+   toy                         20    3.7%
+機會訊號計算完成（樣本 24944）
+
+[A] 上線率高於全體平均（全體 52.2%）:
+   legal-compliance       n= 379  production  81.3%  (+29.1)
+   security               n=2355  production  74.8%  (+22.6)
+   devops-infra           n=2419  production  68.8%  (+16.6)
+   data-analytics         n= 541  production  68.8%  (+16.6)
+   ai-agent-tooling       n=3159  production  62.0%  (+9.8)
+   healthcare-bio         n= 556  production  55.9%  (+3.8)
+
+[B1] 能力缺口（該領域這種任務明顯少於全體水準）:
+   sales-crm              缺 verify      實際   2 / 期望  34.9  (0.06x)
+   security               缺 transform   實際  11 / 期望 128.5  (0.09x)
+   design-creative        缺 configure   實際  32 / 期望 342.5  (0.09x)
+   personal-productivity  缺 verify      實際  13 / 期望 148.6  (0.09x)
+   sales-crm              缺 transform   實際   1 / 期望  10.8  (0.09x)
+   legal-compliance       缺 configure   實際   7 / 期望  62.3  (0.11x)
+   devops-infra           缺 transform   實際  16 / 期望 132.0  (0.12x)
+   marketing-growth       缺 configure   實際  21 / 期望 170.2  (0.12x)
+
+[B2] 做一半（完成率最低）:
+   sales-crm              workflow  168 → production   29  完成率 0.15
+   education-training     workflow  113 → production   27  完成率 0.19
+   other                  workflow   12 → production    4  完成率 0.25
+   personal-productivity  workflow  604 → production  208  完成率 0.26
+   marketing-growth       workflow  744 → production  287  完成率 0.28
+   writing-content        workflow  249 → production  125  完成率 0.33
+[08:35:09] 洞察專區 ok (   11814 bytes)
+站台完成：24944 筆樣本 → docs/index.html (106 KB)
+  日級 30 天、週級 16 期、月級 12 期、EDA 847 件（其中晶片相關 209 件）
+[lint] 檢查 7 份報告、3 個指標
+[lint] 未發現跨報告矛盾
+[privacy] 通過：未發現雇主名稱或持倉資訊
+[validate] 2026-07-27 通過
+[08:35:11] === research done (新增 0) ===

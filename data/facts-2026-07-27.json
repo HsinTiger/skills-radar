@@ -1,0 +1,314 @@
+{
+ "generated_at": "2026-07-27T00:30:07.254380+00:00",
+ "window_days": 1,
+ "repos": [
+  {
+   "repo": "anthropics/skills",
+   "tier": 1,
+   "why": "官方 Agent Skills 參考實作與規範",
+   "error": "[Errno 2] No such file or directory: 'gh'"
+  },
+  {
+   "repo": "anthropics/claude-plugins-official",
+   "tier": 1,
+   "why": "官方 plugin 目錄",
+   "error": "[Errno 2] No such file or directory: 'gh'"
+  },
+  {
+   "repo": "anthropics/claude-code",
+   "tier": 1,
+   "why": "Claude Code 本體（changelog / issue 風向）",
+   "error": "[Errno 2] No such file or directory: 'gh'"
+  },
+  {
+   "repo": "ComposioHQ/awesome-claude-skills",
+   "tier": 3,
+   "why": "最大社群精選清單",
+   "error": "[Errno 2] No such file or directory: 'gh'"
+  },
+  {
+   "repo": "travisvn/awesome-claude-skills",
+   "tier": 3,
+   "why": "Claude Code 取向的社群清單",
+   "error": "[Errno 2] No such file or directory: 'gh'"
+  }
+ ],
+ "official_skills": {},
+ "official_plugins": [],
+ "arxiv": [
+  {
+   "published": "2026-07-23T07:28:50Z",
+   "title_untrusted": "Workflow-Localized Mechanism Learning: Attribution-Guided Repair and Knowledge Reuse for Structured Agent Skills",
+   "summary_untrusted": "Agent Skills package reusable procedural knowledge as external artifacts for frozen language-model agents, yet existing optimizers do not jointly resolve where a failure occurs in a workflow, which mechanism caused it, and how relevant knowledge from third-party Skills should be reused locally. We introduce Workflow-Localized Mechanism Learning (WML). Its Node--Mechanism Attribution identifies the",
+   "link": "http://arxiv.org/abs/2607.20999v1"
+  },
+  {
+   "published": "2026-07-22T12:08:41Z",
+   "title_untrusted": "Solar Open 2 Technical Report",
+   "summary_untrusted": "We present Solar Open 2, a 250B-A15B Mixture-of-Experts language model built for long-horizon agentic tasks, scaled up from Solar Open 1 (Solar Open 100B). To hold entire agent trajectories in a single context, Solar Open 2 reaches a 1M-token window through a hybrid attention stack that interleaves one softmax layer among every three linear-attention layers, using no positional encoding and a gate",
+   "link": "http://arxiv.org/abs/2607.20062v1"
+  },
+  {
+   "published": "2026-07-22T07:20:27Z",
+   "title_untrusted": "Know Your Agent: Reconnaissance-Driven Pentesting of AI Agents",
+   "summary_untrusted": "Traditional pentesting uses reconnaissance at each step to uncover unseen weaknesses, build stronger attacks, and advance the objective; we argue that AI agents require the same treatment. We formalize agent reconnaissance by modeling the process and identifying the knowledge assets it seeks to extract: what they are, how they are used, and which agent weaknesses they exploit to give adversaries l",
+   "link": "http://arxiv.org/abs/2607.19837v1"
+  },
+  {
+   "published": "2026-07-21T21:47:52Z",
+   "title_untrusted": "Twin Agent: Context Residual Compression for Privilege Separated Agents",
+   "summary_untrusted": "Large language model (LLM) agents are vulnerable to security risks, such as prompt injection attacks from untrusted context that manipulate downstream reasoning and tool use. Existing secure-by-design approaches mitigate this risk by separating untrusted observations from privileged execution and careful control of information flow, but often degrade utility and require extensive task-specific eng",
+   "link": "http://arxiv.org/abs/2607.19595v1"
+  },
+  {
+   "published": "2026-07-21T11:03:56Z",
+   "title_untrusted": "Skillware: A Software Ontology and Engineering Lifecycle for Persistent Behavioral Artifacts",
+   "summary_untrusted": "Agent Skills have become persistent behavioral artifacts across independent AI agent systems. They combine natural-language task specifications with metadata and optional references, scripts, assets, hooks, package manifests, tests, and companion interfaces. Existing studies explain how Skills are specified, executed, maintained, and evolved, but lack an ontology that defines these artifacts as in",
+   "link": "http://arxiv.org/abs/2607.18970v1"
+  },
+  {
+   "published": "2026-07-21T08:35:22Z",
+   "title_untrusted": "Data Leakage Prevention in Agentic Applications via Preemptive Hardening",
+   "summary_untrusted": "Agentic systems integrate LLM driven planning with interfaces to external tools, making data leakage and tool misuse feasible via instruction/data boundary failures and prompt injection attacks. Enforcing required controls consistently is particularly challenging in workflows spanning many codebases and heterogeneous agents. To address this challenge in multi agentic systems, we present a pre-depl",
+   "link": "http://arxiv.org/abs/2607.18847v1"
+  },
+  {
+   "published": "2026-07-21T06:21:13Z",
+   "title_untrusted": "AgentDebugX: An Open-Source Toolkit for Failure Observability, Attribution, and Recovery in LLM Agents",
+   "summary_untrusted": "LLM agent failures are difficult to debug because the step where an error surfaces is often not the one that caused it. Existing observability tools replay execution traces but provide little support for identifying the root cause or translating diagnosis into recovery. We present AgentDebugX, an open-source debugging framework that organizes debugging as a closed loop of Detect, Attribute, Recove",
+   "link": "http://arxiv.org/abs/2607.18754v1"
+  },
+  {
+   "published": "2026-07-20T22:36:26Z",
+   "title_untrusted": "ChainWatch: A Kill Chain-Aligned Sequential Detection Framework for Multi-Step Attacks in MCP-Based AI Agent Systems",
+   "summary_untrusted": "The Model Context Protocol (MCP) is an open-source standard that allows AI agents to connect to external tools, databases, and services. While this connectivity enables powerful agent capabilities, it also introduces multi-step attacks that existing per-call defenses cannot reliably detect. Attackers can compose individually benign tool invocations into malicious sequences that evade isolated insp",
+   "link": "http://arxiv.org/abs/2607.19432v1"
+  },
+  {
+   "published": "2026-07-20T20:16:02Z",
+   "title_untrusted": "Trusted Credentials, Untrusted Behavior: Benchmarking LLM-Agent Security in High-Performance Computing",
+   "summary_untrusted": "Large language model (LLM) agents are starting to take on routine work in high-performance computing (HPC), including monitoring Slurm jobs, diagnosing failed builds, inspecting simulation output, and coordinating scientific workflows. To do this work, an agent commonly acts under its user's credentials and inherits the user's access to files and the scheduler. This arrangement creates a failure m",
+   "link": "http://arxiv.org/abs/2607.18485v1"
+  },
+  {
+   "published": "2026-07-20T19:11:17Z",
+   "title_untrusted": "ChannelGuard: Safe Models Do Not Compose into Safe Multi-Agent Systems",
+   "summary_untrusted": "Multi-agent LLM applications chain a planner, worker agents, a verifier, and a synthesizer, and every hop between agents is an unmonitored channel through which an adversary can smuggle instructions. Existing defenses guard only the input boundary (IBProtector, Llama Guard, perplexity filters, SmoothLLM) or run outside the application as opaque, stochastic provider-side filters. We show this gap c",
+   "link": "http://arxiv.org/abs/2607.19430v1"
+  },
+  {
+   "published": "2026-07-20T17:14:07Z",
+   "title_untrusted": "Per Astronomix ad Astra: High-Order Differentiable (Magneto)hydrodynamics with Energy-Conserving Self-Gravity",
+   "summary_untrusted": "We present astronomix, a performant differentiable (magneto)hydrodynamics simulator written in Python/JAX. We demonstrate how automatic differentiation, validated against hand-derived analytical functional derivatives and finite differences, enables inverse modeling over millions of parameters and allows for sensitivity and stability analysis as well as correct eigenmode initialization. The differ",
+   "link": "http://arxiv.org/abs/2607.18176v1"
+  },
+  {
+   "published": "2026-07-20T15:30:38Z",
+   "title_untrusted": "Adaptive Adversaries: A Multi-Turn, Multi-LLM Benchmark for LLM Agent Security",
+   "summary_untrusted": "LLM-based agents process external content, exposing them to prompt injection and multi-turn manipulation. Most safety benchmarks evaluate defenders against fixed attack pools collected before evaluation, single-turn or multi-turn. We present a 21-scenario benchmark for \\emph{adaptive multi-round attacks against memoryless LLM defenders}: an autonomous LLM attacker observes prior defender responses",
+   "link": "http://arxiv.org/abs/2607.18063v1"
+  },
+  {
+   "published": "2026-07-20T15:27:13Z",
+   "title_untrusted": "RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning",
+   "summary_untrusted": "Long-horizon robotic tasks require diverse capabilities that no single policy can reliably provide. Heterogeneous policies offer complementary strengths, but orchestrating them requires reasoning over uncertain capability boundaries and cross-policy distribution mismatch, which are largely overlooked by existing planning methods built on homogeneous, predefined skills with fixed applicability. We ",
+   "link": "http://arxiv.org/abs/2607.18060v1"
+  },
+  {
+   "published": "2026-07-20T13:34:53Z",
+   "title_untrusted": "How Agent Skills Fail under Long Contexts: A White-Box Study in Code Auditing",
+   "summary_untrusted": "Agent Skills package procedural instructions and checks for use by general-purpose agents, but loading a skill does not guarantee that every requirement remains active throughout a long tool-using trajectory. We study this problem in a production-derived, white-box code-audit workflow. Holding the task and 24 artifact checks fixed, we vary the surrounding context and classify where failures first ",
+   "link": "http://arxiv.org/abs/2607.17937v1"
+  },
+  {
+   "published": "2026-07-20T06:35:32Z",
+   "title_untrusted": "Is Progressive Disclosure All You Need for Long-Context Agents?",
+   "summary_untrusted": "Long-document question answering usually forces a choice between loading the whole document into the context window and bolting on a separate retriever. Agentic AI suggests a broader option, giving the agent the document path and letting it decide how and what to read. Agent Skills, a standard for packaging expertise into folders an agent loads on demand, supply a ready mechanism: progressive disc",
+   "link": "http://arxiv.org/abs/2607.17598v1"
+  }
+ ],
+ "hn": [
+  {
+   "q": "claude code",
+   "points": 25,
+   "comments": 13,
+   "title_untrusted": "Claude Code has a hardcoded instruction telling Opus 5 not to use subagents",
+   "url": "https://old.reddit.com/r/ClaudeCode/comments/1v6y5q2/claude_code_has_a_hardcoded_instruction_telling/"
+  },
+  {
+   "q": "claude code",
+   "points": 15,
+   "comments": 19,
+   "title_untrusted": "Cursor Bridge – Run Unlimited Claude Code on Your Cursor Subscription",
+   "url": "https://github.com/hkc5/cursor-bridge"
+  },
+  {
+   "q": "claude code",
+   "points": 13,
+   "comments": 0,
+   "title_untrusted": "Claude Code Deletes Your Context History from Your Device After 30 Days",
+   "url": "https://code.claude.com/docs/en/data-usage"
+  },
+  {
+   "q": "agent skills",
+   "points": 9,
+   "comments": 1,
+   "title_untrusted": "Skill Router – a local-first router for large agent skill libraries",
+   "url": "https://github.com/torakagemusha-sudo/torafirma-skill-router"
+  },
+  {
+   "q": "claude skills",
+   "points": 6,
+   "comments": 8,
+   "title_untrusted": "Hallmark – Anti-AI-Slop Design Skill for Claude Code, Cursor, and Codex",
+   "url": "https://github.com/Nutlope/hallmark"
+  },
+  {
+   "q": "claude code",
+   "points": 5,
+   "comments": 4,
+   "title_untrusted": "Claude Code Cut Their System Prompt by 80%. Does That Work for Small Models Too?",
+   "url": "https://antigma.ai/blog/2026/07/25/short-prompt-small-models"
+  },
+  {
+   "q": "claude code",
+   "points": 3,
+   "comments": 0,
+   "title_untrusted": "Qwen 27B with local well writen tools just as powerful as cluade models?",
+   "url": "https://news.ycombinator.com/item?id=49063609"
+  },
+  {
+   "q": "claude code",
+   "points": 3,
+   "comments": 0,
+   "title_untrusted": "Design.md for Design in Claude Code",
+   "url": "https://aifordevelopers.substack.com/p/designmd-for-design-in-claude-code"
+  },
+  {
+   "q": "agent harness",
+   "points": 3,
+   "comments": 2,
+   "title_untrusted": "Show HN: Open-plan-annotator – local annotation UI for working with agent plans",
+   "url": "https://github.com/ndom91/open-plan-annotator"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Jeffy Loop, an autonomous code improvement loop for Claude Code",
+   "url": "https://github.com/lenamonj/jeffy-loop"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Show HN: Anyclaude-SDK – Claude Code-Style SDK for OpenAI/Anthropic Endpoints",
+   "url": "https://github.com/pipilot-dev/anyclaude-sdk"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Show HN: I made Claude quiz me on my own code before showing it",
+   "url": "https://github.com/De-Cri/dont-kick-me-out"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Data loss in Claude Code and OpenAI Codex: when AI deletes user files",
+   "url": "https://firasd.substack.com/p/accidental-data-loss-in-claude-code-openai-codex-ai-agent-harness-file-deletion"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 2,
+   "title_untrusted": "Show HN: Lemmings in HTML in Canvas",
+   "url": "https://github.com/VorticonCmdr/lemmings"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "Show HN: Termic – desktop app for running CLI coding agents (Claude Code, Codex)",
+   "url": "https://termic.dev/"
+  },
+  {
+   "q": "agent skills",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "The bitter lesson for skills and coding agents",
+   "url": "https://twitter.com/jim_dowling/status/2081455720336179313"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Automate 7 Projects Marketing with AI for $40",
+   "url": "https://apsquared.co/posts/marketing-automation-claude-codex"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Show HN: I built a transparent terminal wrapper for unobtrusive AI",
+   "url": "https://github.com/emosenkis/terminai"
+  },
+  {
+   "q": "agent harness",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Agent Harness Design for Claude",
+   "url": "https://claude.com/blog/harnessing-claudes-intelligence"
+  }
+ ],
+ "new_community_repos": [],
+ "diff": {
+  "star_delta": {},
+  "skills_added": {},
+  "skills_removed": {},
+  "plugins_added": [],
+  "plugins_removed": [
+   "agent-sdk-dev",
+   "clangd-lsp",
+   "claude-code-setup",
+   "claude-md-management",
+   "claude-security",
+   "code-modernization",
+   "code-review",
+   "code-simplifier",
+   "commit-commands",
+   "csharp-lsp",
+   "cwc-makers",
+   "example-plugin",
+   "explanatory-output-style",
+   "feature-dev",
+   "frontend-design",
+   "gopls-lsp",
+   "hookify",
+   "jdtls-lsp",
+   "kotlin-lsp",
+   "learning-output-style",
+   "lua-lsp",
+   "math-olympiad",
+   "mcp-server-dev",
+   "mcp-tunnels",
+   "php-lsp",
+   "playground",
+   "plugin-dev",
+   "pr-review-toolkit",
+   "project-artifact",
+   "pyright-lsp",
+   "ralph-loop",
+   "receipts",
+   "ruby-lsp",
+   "rust-analyzer-lsp",
+   "security-guidance",
+   "session-report",
+   "skill-creator",
+   "swift-lsp",
+   "typescript-lsp"
+  ],
+  "first_run": false
+ }
+}
