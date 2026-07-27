@@ -30,7 +30,10 @@ bin/fetch.py        抓事實（GitHub API / arXiv / HN），不做判斷
 index/prompt_daily.txt  分析規格（含 prompt injection 防禦指令）
 bin/run_daily.sh    主流程：抓取 → agy 產簡報 → 驗收 → 更新 README → push
 bin/build_readme.py 重建本頁
+bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 docs/wiki 實體頁面
+bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
 data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
+data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序
 daily/YYYY-MM-DD.md 每日簡報
 ```

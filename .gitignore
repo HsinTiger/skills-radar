@@ -3,6 +3,8 @@ data/launchd.*
 daily/*.new
 corpus/.batches/
 corpus/.classified/
+__pycache__/
+*.pyc
 corpus/classify.log
 
 # 語料原始檔不進版控：74MB 且持續成長，會撞 GitHub 100MB 硬限制。

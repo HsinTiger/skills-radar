@@ -79,7 +79,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
 <div class="wrap">
 <header>
   <h1>Skills Radar</h1>
-  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作</div>
+  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作 · <a href="wiki/index.html">累積式 Domain Wiki</a></div>
   <div class="stats">
     <div class="stat"><b id="s-n">—</b><span>已分類 skill</span></div>
     <div class="stat"><b id="s-prod">—</b><span>平均上線率</span></div>
@@ -88,6 +88,10 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
     <div class="stat"><b id="s-gen">—</b><span>資料更新</span></div>
   </div>
 </header>
+
+<div class="note"><strong>資料完整性通知（2026-07-27）</strong>：先前版本只排除 `targeted-eda`，
+未排除 `targeted-wifi`／`targeted-eda2`，因此部分母體比例已標為 superseded，等待 neutral-only 重建。
+詳見 <a href="https://github.com/HsinTiger/skills-radar/blob/main/research/CORRECTION_2026-07-27_TARGETED_SAMPLE.md">修正紀錄</a>。</div>
 
 <div id="summary-card"></div>
 
@@ -266,7 +270,7 @@ $("#pros-body").innerHTML = D.niche_pros.map(p => `<tr>
 const e = D.eda;
 $("#eda-summary").innerHTML = `<div class="card">
   <p><strong>本區使用分層過取樣資料</strong>，樣本數從中立抽樣的 ${e.neutral_n} 件擴大到
-  <b>${e.n} 件</b>（其中 ${e.targeted_n} 件來自 EDA 專門採集）。
+  <b>${e.n} 件</b>（其中 ${e.targeted_n} 件來自主題專門採集，例如 EDA / WiFi）。
   過取樣資料<strong>不參與</strong>上面各節的比例計算，只用來看這個領域的內部結構。</p>
   <p>硬體 / EDA 在中立樣本中佔 <b>${e.pct_of_corpus}%</b> —— 這個比例才是母體的真實估計，
   不會因為本區加碼採集而改變。</p>

@@ -48,7 +48,10 @@ fi
 /usr/bin/env python3 "$ROOT/bin/build_readme.py" >> "$LOG" 2>&1
 
 # 6.5 每日研究增量（省 token：採集/聚合/訊號全走腳本，LLM 只讀訊號表）
-"$ROOT/bin/daily_research.sh" >> "$LOG" 2>&1 || log "WARN: research 步驟異常"
+if ! "$ROOT/bin/daily_research.sh" >> "$LOG" 2>&1; then
+  log "FAIL: research 步驟異常，停止 commit/push，避免發佈部分更新"
+  exit 1
+fi
 
 # 6.8 每週一發佈語料快照到 Release（不進 git 歷史）
 if [ "$(date +%u)" = "1" ]; then

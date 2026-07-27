@@ -43,6 +43,8 @@ def collect(path):
     規則：限定詞必須與數字同句，且出現在數字之前。
     """
     t = open(path, encoding="utf-8", errors="replace").read()
+    if "<!-- WIKI-LINT:SUPERSEDED -->" in t:
+        return defaultdict(list)
     found = defaultdict(list)
     # 依句末標點與換行切句；保留原文以便回報上下文
     sentences = re.split(r"(?<=[。！？\n])", t)
@@ -65,6 +67,42 @@ def collect(path):
                         "ctx": re.sub(r"\s+", " ", sent.strip())[:200],
                     })
     return found
+
+
+def validate_entity_wiki():
+    """Validate the cumulative wiki ledger and all current entity pages."""
+    errors = []
+    history_path = os.path.join(ROOT, "data", "wiki_history.json")
+    if not os.path.exists(history_path):
+        return ["data/wiki_history.json missing"]
+    try:
+        history = json.load(open(history_path, encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"wiki history unreadable: {exc}"]
+    snapshots = history.get("snapshots")
+    if history.get("schema_version") != 1 or not isinstance(snapshots, list) or not snapshots:
+        return ["wiki history schema/version invalid or empty"]
+    latest = snapshots[-1]
+    domains = latest.get("domains", {})
+    overall_n = latest.get("overall", {}).get("n_total")
+    domain_n = sum(item.get("n", 0) for item in domains.values())
+    if overall_n != domain_n:
+        errors.append(f"latest n_total {overall_n} != domain sum {domain_n}")
+    targeted_policy = latest.get("policy", {}).get("targeted", "")
+    if "all targeted-* excluded" not in targeted_policy:
+        errors.append("latest policy does not exclude all targeted-*")
+    if latest.get("policy", {}).get("raw_third_party_text") != "excluded":
+        errors.append("latest policy does not exclude raw third-party text")
+    for domain in domains:
+        md = os.path.join(ROOT, "research", "wiki", f"{domain}.md")
+        page = os.path.join(ROOT, "docs", "wiki", f"{domain}.html")
+        if not os.path.exists(md):
+            errors.append(f"missing research wiki page: {domain}")
+        elif "<!-- OWNER-NOTES:START -->" not in open(md, encoding="utf-8").read():
+            errors.append(f"owner notes marker missing: {domain}")
+        if not os.path.exists(page):
+            errors.append(f"missing docs wiki page: {domain}")
+    return errors
 
 def main():
     files = sorted(glob.glob(os.path.join(ROOT, "research", "insights", "*.md"))) \
@@ -97,22 +135,29 @@ def main():
                 "samples": [{"file": f, "value": v, "ctx": c[:150]} for f, v, c in entries[:6]],
             })
 
+    wiki_errors = validate_entity_wiki()
     out = {"n_files": len(files), "n_metrics_tracked": len(hist),
-           "n_conflicts": len(conflicts), "conflicts": conflicts}
+           "n_conflicts": len(conflicts), "conflicts": conflicts,
+           "n_wiki_errors": len(wiki_errors), "wiki_errors": wiki_errors}
     json.dump(out, open(os.path.join(ROOT, "corpus", "wiki_lint.json"), "w"),
               ensure_ascii=False, indent=1)
 
     print(f"[lint] 檢查 {len(files)} 份報告、{len(hist)} 個指標")
-    if not conflicts:
-        print("[lint] 未發現跨報告矛盾")
+    if not conflicts and not wiki_errors:
+        print("[lint] 未發現跨報告矛盾，Wiki ledger 與實體頁面一致")
         return 0
-    print(f"[lint] ⚠️ 發現 {len(conflicts)} 個指標前後說法不一致：\n")
-    for c in conflicts:
-        print(f"  ▸ {c['metric']}：{c['min']} ~ {c['max']}（相對差 {c['spread_pct']}%）")
-        for f, vs in c["by_file"].items():
-            print(f"      {f}: {vs}")
-        print()
-    print("處置：要嘛修正舊報告，要嘛在新報告中明確說明「為什麼數字變了」。")
+    if conflicts:
+        print(f"[lint] ⚠️ 發現 {len(conflicts)} 個指標前後說法不一致：\n")
+        for c in conflicts:
+            print(f"  ▸ {c['metric']}：{c['min']} ~ {c['max']}（相對差 {c['spread_pct']}%）")
+            for f, vs in c["by_file"].items():
+                print(f"      {f}: {vs}")
+            print()
+        print("處置：要嘛修正舊報告，要嘛在新報告中明確說明「為什麼數字變了」。")
+    if wiki_errors:
+        print(f"[lint] ⚠️ Wiki 結構錯誤 {len(wiki_errors)} 件：")
+        for error in wiki_errors:
+            print(f"      {error}")
     return 1
 
 if __name__ == "__main__":

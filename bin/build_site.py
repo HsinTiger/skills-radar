@@ -11,6 +11,8 @@ from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from statistics import median
 
+from corpus_policy import is_targeted, label_is_eligible, neutral_for, require_model_report_alignment
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER = os.path.join(ROOT, "corpus", "master.jsonl")
 OPP = os.path.join(ROOT, "corpus", "opportunity.json")
@@ -27,8 +29,10 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
     except Exception:
         continue
     rows_all.append(r)
-    if r.get("domain") and r.get("sample") != "targeted-eda":
+    if neutral_for(r, "domain"):
         rows.append(r)
+
+require_model_report_alignment(rows_all, os.path.join(ROOT, "corpus", "model_report.json"))
 
 opp = json.load(open(OPP, encoding="utf-8"))
 N = len(rows)
@@ -133,16 +137,19 @@ def eda_section():
     neutral_eda = [r for r in rows if r.get("domain") == "hardware-eda"]
     # 過取樣樣本要通過信心門檻才採用（關鍵字正則誤判率實測 75.6%，已棄用）
     eda = [r for r in rows_all if r.get("domain") == "hardware-eda"
-           and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
+           and label_is_eligible(r, "domain")]
     chip = [r for r in eda if CHIP_PAT.search((r.get("pain") or "") + (r.get("name") or ""))]
     others = [r for r in eda if r not in chip]
     def fmt(rs):
-        return [{"stars": r.get("stars") or 0, "task": r.get("task"), "task_zh": TASK_ZH.get(r.get("task"), ""),
-                 "maturity": r.get("maturity"), "profession": r.get("profession"),
+        return [{"stars": r.get("stars") or 0,
+                 "task": r.get("task") if label_is_eligible(r, "task") else None,
+                 "task_zh": TASK_ZH.get(r.get("task"), "") if label_is_eligible(r, "task") else "",
+                 "maturity": r.get("maturity") if label_is_eligible(r, "maturity") else None,
+                 "profession": r.get("profession"),
                  "pain": redact(r.get("pain")), "repo": r.get("repo")}
                 for r in sorted(rs, key=lambda x: -(x.get("stars") or 0))]
-    tc = Counter(r.get("task") for r in eda)
-    mc = Counter(r.get("maturity") for r in eda)
+    tc = Counter(r.get("task") for r in eda if label_is_eligible(r, "task"))
+    mc = Counter(r.get("maturity") for r in eda if label_is_eligible(r, "maturity"))
     # 全體 verify 佔比 vs EDA verify 佔比
     return {
         "n": len(eda), "chip_n": len(chip),
@@ -167,7 +174,7 @@ def daily_discovery():
     days = sorted(disc)[-30:]
     targeted = Counter()
     for r in rows_all:
-        if r.get("sample") == "targeted-eda" and r.get("first_seen"):
+        if is_targeted(r) and r.get("first_seen"):
             targeted[r["first_seen"]] += 1
     return {"days": days,
             "totals": [sum(disc[d].values()) for d in days],
@@ -210,10 +217,10 @@ def read_summary():
 def eda_gaps():
     """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
     hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
-          and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
-    gt = Counter(r.get("task") for r in rows if r.get("task"))
+          and label_is_eligible(r, "domain")]
+    gt = Counter(r.get("task") for r in rows if label_is_eligible(r, "task"))
     gn = sum(gt.values()) or 1
-    ht = Counter(r.get("task") for r in hw if r.get("task"))
+    ht = Counter(r.get("task") for r in hw if label_is_eligible(r, "task"))
     hn = sum(ht.values()) or 1
     out = []
     for t in TASK_ZH:
@@ -221,7 +228,8 @@ def eda_gaps():
         gp = 100 * gt.get(t, 0) / gn
         samples = [{"pain": redact(r.get("pain")), "stars": r.get("stars") or 0,
                     "name": redact((r.get("name") or "")[:60])}
-                   for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")],
+                   for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")
+                                    and label_is_eligible(x, "task")],
                                    key=lambda x: -(x.get("stars") or 0))[:6]]
         out.append({"task": t, "zh": TASK_ZH[t], "hw_pct": round(hp, 1), "global_pct": round(gp, 1),
                     "ratio": round(hp / gp, 2) if gp else 0, "n": ht.get(t, 0), "samples": samples})
@@ -231,6 +239,7 @@ def eda_gaps():
 data = {
     "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     "n_total": N,
+    "eligibility": opp.get("eligibility", {}),
     "global_production_pct": opp["global_production_pct"],
     "global_task_pct": {TASK_ZH[k]: v for k, v in opp["global_task_pct"].items()},
     "day": build_view("day", 30),

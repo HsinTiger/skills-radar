@@ -26,10 +26,10 @@ AI 正在被誰、在哪個領域、拿來做什麼層級的工作。
 
 過取樣樣本的密度遠高於母體。混進去算比例，「硬體/EDA 佔 0.66%」這種數字會被自己污染成假的。
 
-`bin/opportunity.py` 與 `bin/build_site.py` 都有明確排除，**改動這兩支時務必保留**：
+所有統計 consumer 共用 `bin/corpus_policy.py`，**改動統計程式時務必使用同一判定**：
 
 ```python
-if r.get("domain") and r.get("sample") != "targeted-eda":   # 各主題都要排除
+if neutral_for(r, "domain"):  # 只接受缺值 / neutral；所有 targeted-* 一律排除
 ```
 
 過取樣樣本的正當用途只有一個：分析**該主題內部的結構**（誰在做、什麼層級、卡在哪）。
@@ -56,7 +56,8 @@ if r.get("domain") and r.get("sample") != "targeted-eda":   # 各主題都要排
 
 ### 4. 模型標籤與 LLM 標籤必須分開
 
-`label_source` 欄位：`llm`（黃金標準）或 `model`（本機分類器預測）。
+`label_source` 欄位：`llm`（黃金標準）或 `model`（本機分類器預測）。早期 5,397 筆
+LLM 種子建立於此欄位加入前，缺值視為 legacy LLM；新資料不可再省略此欄位。
 
 模型標籤帶 `*_conf` 信心值。**分析時要套信心門檻（慣例 0.6）**，否則會得到錯誤結論——
 本專案就吃過這個虧，見下方「踩過的坑」。
@@ -75,6 +76,7 @@ merge_classified.py    標籤列舉驗證，擋掉不合法的值
 aggregate.py / opportunity.py / eda_deepdive.py / scan_injection.py / cluster.py
         ↓ corpus/*.json（訊號表，幾十 KB）
 prompt_opportunity.txt → agy 解讀 → research/insights/YYYY-MM-DD.md
+wiki_ingest.py         → data/wiki_history.json + research/wiki/*.md + docs/wiki/*.html
 build_site.py          → docs/index.html（自足式單檔）
         ↓
 wiki_lint.py / validate_research.py / check_privacy.py  三道閘門
@@ -119,8 +121,10 @@ python3 bin/wiki_lint.py                 # 跨報告矛盾偵測
 - **時間軸用 repo 建立時間**：不是 skill 寫作時間，更不是使用時間。最近 2–3 天必然偏低（搜尋索引落差）。
 - **分類準確率**：domain 0.73 / task 0.66 / target 0.64 / maturity 0.69（5-fold CV）。
   `maturity` 對多數類基準只贏 0.165，**用它下結論要保守**。
-- **尚未實作**：Karpathy LLM Wiki 的實體頁面（每個領域一頁、隨時間累積修正而非每日重寫）。
-  目前只做了 lint。這是下一個該做的。
+- **已實作、待 fresh master 首次 production ingest**：`wiki_ingest.py` 會建立每個領域一頁、
+  保存 owner notes 與 evidence history；同日證據變動必須附 revision note。GitHub Release 的
+  master 比 `model_report.json` 少 610 個 LLM seeds，freshness gate 會阻止 stale rebuild。
+  下一步是由 canonical runtime 發佈對齊的 master，再完成首次 ingest 與 Pages 驗證。
 
 ## 七、給協作 agent 的具體要求
 

@@ -38,8 +38,12 @@ fi
 python3 bin/scan_injection.py >> "$LOG" 2>&1 || log "WARN: 注入掃描失敗"
 
 # 3. 聚合 + 機會訊號（零 token）
-python3 bin/aggregate.py >> "$LOG" 2>&1
-python3 bin/opportunity.py >> "$LOG" 2>&1
+python3 bin/aggregate.py >> "$LOG" 2>&1 || {
+  log "STOP: aggregate 失敗，不使用舊訊號表繼續"; exit 1;
+}
+python3 bin/opportunity.py >> "$LOG" 2>&1 || {
+  log "STOP: opportunity 失敗，不使用舊訊號表繼續"; exit 1;
+}
 
 # 4. 洞察專區（唯一的 LLM 步驟，輸入只有訊號表）
 OUT="$ROOT/research/insights/$DATE.md"
@@ -55,15 +59,22 @@ else
   log "FAIL: 洞察專區不合規，保留 .new"; rm -f "$OUT.new"
 fi
 
-# 4.5 重建前端頁面（零 token）
-python3 bin/build_site.py >> "$LOG" 2>&1 || log "WARN: build_site 失敗"
+# 4.5 累積式 Domain Wiki ingest（零 token；同日證據變動必須人工附 revision note）
+python3 bin/wiki_ingest.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: Wiki ingest 失敗，避免靜默改寫 evidence history"; exit 1;
+}
 
-# 4.55 跨報告矛盾偵測（零 token）——參考 Karpathy LLM Wiki 的 lint 概念
+# 4.6 重建前端頁面（零 token）
+python3 bin/build_site.py >> "$LOG" 2>&1 || {
+  log "STOP: build_site 失敗，不推送 stale 頁面"; exit 1;
+}
+
+# 4.7 跨報告矛盾與 Wiki 結構偵測（零 token）——參考 Karpathy LLM Wiki 的 lint 概念
 if ! python3 bin/wiki_lint.py >> "$LOG" 2>&1; then
   log "WARN: 發現跨報告矛盾，需人工判斷是修正舊報告還是說明數字為何改變"
 fi
 
-# 4.6 個資閘門：公開 repo，推之前必須確認沒有雇主名稱／持倉資訊
+# 4.8 個資閘門：公開 repo，推之前必須確認沒有雇主名稱／持倉資訊
 python3 bin/check_privacy.py >> "$LOG" 2>&1 || { log "STOP: 個資檢查未通過，中止本次流程"; exit 1; }
 
 # 5. 稽核（零 token）：數字必須回溯得到訊號表

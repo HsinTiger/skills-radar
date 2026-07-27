@@ -80,7 +80,8 @@ LLM 標種子（數千筆） → 本機 TF-IDF + Logistic Regression 學會模�
 
 **這會製造一個陷阱**：如果把這些樣本直接混進總表，「硬體/EDA 佔 0.67%」就會被自己污染成假的。
 
-所以每一筆過取樣樣本都標記 `sample: "targeted-eda"`，並且：
+所以每一筆過取樣樣本都標記 `sample: "targeted-<topic>"`（例如 `targeted-eda`、
+`targeted-wifi`），並且：
 
 | 用途 | 使用哪些樣本 |
 |---|---|
@@ -147,5 +148,6 @@ LLM 標種子（數千筆） → 本機 TF-IDF + Logistic Regression 學會模�
 並且加了自我測試——故意塞入矛盾值確認 lint 會觸發，
 因為**一個永遠不觸發的 lint 比沒有 lint 更危險**，它會給假的安全感。
 
-尚未採納：wiki 實體頁面（每個領域一頁、隨時間累積修正而非每日重寫）。
-這是下一步，也是 Karpathy 那套的核心價值所在。
+已實作、待 fresh master 首次 production ingest：wiki 實體頁面（每個領域一頁、保留 owner notes、
+隨時間追加 evidence history；同日修正必須留下 revision note）。目前公開 Release 與最新
+`model_report.json` 的種子數不一致，freshness gate 會阻止用 stale snapshot 重建。
