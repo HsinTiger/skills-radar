@@ -33,6 +33,20 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
 opp = json.load(open(OPP, encoding="utf-8"))
 N = len(rows)
 
+# 語料來自第三方，內容可能出現特定廠商名稱。本頁公開且掛在個人帳號下，
+# 為避免成為雇主關聯的推論訊號，顯示層一律遮蔽廠商名，但保留痛點語義。
+VENDOR_REDACT = [
+    (re.compile(r"瑞昱|Realtek", re.I), "某 IC 廠"),
+    (re.compile(r"聯發科|MediaTek", re.I), "某 IC 廠"),
+]
+
+def redact(x):
+    if not x:
+        return x
+    for pat, rep in VENDOR_REDACT:
+        x = pat.sub(rep, x)
+    return x
+
 DOM_ZH = {
     "software-dev": "軟體開發", "ai-agent-tooling": "AI Agent 工具", "devops-infra": "DevOps 基礎設施",
     "design-creative": "設計創意", "personal-productivity": "個人生產力", "security": "資安",
@@ -125,7 +139,7 @@ def eda_section():
     def fmt(rs):
         return [{"stars": r.get("stars") or 0, "task": r.get("task"), "task_zh": TASK_ZH.get(r.get("task"), ""),
                  "maturity": r.get("maturity"), "profession": r.get("profession"),
-                 "pain": r.get("pain"), "repo": r.get("repo")}
+                 "pain": redact(r.get("pain")), "repo": r.get("repo")}
                 for r in sorted(rs, key=lambda x: -(x.get("stars") or 0))]
     tc = Counter(r.get("task") for r in eda)
     mc = Counter(r.get("maturity") for r in eda)
@@ -205,7 +219,8 @@ def eda_gaps():
     for t in TASK_ZH:
         hp = 100 * ht.get(t, 0) / hn
         gp = 100 * gt.get(t, 0) / gn
-        samples = [{"pain": r.get("pain"), "stars": r.get("stars") or 0, "name": (r.get("name") or "")[:60]}
+        samples = [{"pain": redact(r.get("pain")), "stars": r.get("stars") or 0,
+                    "name": redact((r.get("name") or "")[:60])}
                    for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")],
                                    key=lambda x: -(x.get("stars") or 0))[:6]]
         out.append({"task": t, "zh": TASK_ZH[t], "hw_pct": round(hp, 1), "global_pct": round(gp, 1),

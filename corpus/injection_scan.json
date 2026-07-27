@@ -15,74 +15,74 @@
  },
  "by_domain": {
   "software-dev": {
-   "flagged": 118,
-   "total": 13244,
-   "pct": 0.9
-  },
-  "ai-agent-tooling": {
-   "flagged": 97,
-   "total": 4675,
-   "pct": 2.1
+   "flagged": 124,
+   "total": 12483,
+   "pct": 1.0
   },
   "security": {
-   "flagged": 95,
-   "total": 3415,
-   "pct": 2.8
+   "flagged": 94,
+   "total": 3475,
+   "pct": 2.7
+  },
+  "ai-agent-tooling": {
+   "flagged": 91,
+   "total": 4748,
+   "pct": 1.9
   },
   "devops-infra": {
-   "flagged": 65,
-   "total": 3365,
+   "flagged": 56,
+   "total": 2997,
    "pct": 1.9
   },
   "design-creative": {
    "flagged": 47,
-   "total": 3861,
+   "total": 3787,
    "pct": 1.2
   },
   "personal-productivity": {
-   "flagged": 19,
-   "total": 1175,
-   "pct": 1.6
+   "flagged": 26,
+   "total": 1165,
+   "pct": 2.2
   },
   "finance-investing": {
-   "flagged": 16,
-   "total": 765,
-   "pct": 2.1
+   "flagged": 15,
+   "total": 789,
+   "pct": 1.9
   },
   "ops-admin": {
-   "flagged": 13,
-   "total": 1346,
-   "pct": 1.0
-  },
-  "data-analytics": {
-   "flagged": 13,
-   "total": 881,
-   "pct": 1.5
+   "flagged": 12,
+   "total": 1457,
+   "pct": 0.8
   },
   "research-academia": {
-   "flagged": 11,
-   "total": 1793,
-   "pct": 0.6
+   "flagged": 12,
+   "total": 1828,
+   "pct": 0.7
+  },
+  "data-analytics": {
+   "flagged": 12,
+   "total": 1184,
+   "pct": 1.0
   },
   "marketing-growth": {
-   "flagged": 9,
-   "total": 1627,
-   "pct": 0.6
+   "flagged": 11,
+   "total": 1686,
+   "pct": 0.7
   },
   "hardware-eda": {
-   "flagged": 5,
-   "total": 2301,
+   "flagged": 7,
+   "total": 2819,
    "pct": 0.2
   },
   "writing-content": {
    "flagged": 4,
-   "total": 602,
-   "pct": 0.7
+   "total": 656,
+   "pct": 0.6
   },
   "legal-compliance": {
    "flagged": 3,
-   "total": 641,
-   "pct": 0.5
+   "total": 679,
+   "pct": 0.4
   },
   "healthcare-bio": {
    "flagged": 1,
@@ -91,17 +91,17 @@
   },
   "education-training": {
    "flagged": 1,
-   "total": 239,
+   "total": 255,
    "pct": 0.4
+  },
+  "sales-crm": {
+   "flagged": 1,
+   "total": 194,
+   "pct": 0.5
   },
   "other": {
    "flagged": 0,
-   "total": 219,
-   "pct": 0.0
-  },
-  "sales-crm": {
-   "flagged": 0,
-   "total": 265,
+   "total": 212,
    "pct": 0.0
   }
  },
