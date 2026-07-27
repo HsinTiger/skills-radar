@@ -111,3 +111,30 @@ before accepting even a numerical PASS. Re-publish the Release master only after
 2. Report exact master SHA-256, seed/model counts and Release asset digest.
 3. Confirm no `owner_fit=direct` row is FPGA/embedded/board/PCB/analog-RF.
 4. Do not call any public skill production-ready; source review and EDA runtime proof are separate.
+
+---
+
+# Follow-up — daily EDA_IC and finance-investing recommendations
+
+Windows added a deterministic daily builder and connected it to `bin/daily_research.sh` before the
+site build. It writes:
+
+- `corpus/daily_skill_recommendations.json`
+- `research/recommendations/YYYY-MM-DD.md`
+- `docs/recommendations/index.html` and a dated HTML page
+
+Mac action after the canonical master refresh:
+
+```bash
+git pull --ff-only
+python3 bin/build_daily_recommendations.py --date "$(date +%F)"
+python3 -m unittest discover -s tests -v
+python3 bin/check_privacy.py
+```
+
+Required readback:
+
+1. Report must be `READY_FOR_OWNER_REVIEW`, not `PREVIEW_STALE_CORPUS`.
+2. EDA scope excludes FPGA, embedded, PCB and analog/RF; source review does not equal EDA runtime proof.
+3. Finance is research-only. Any trading execution, broker/wallet credential or private-key path stays excluded.
+4. `pilot` means isolated evaluation only; it is not installed, live, profitable or production-proven.

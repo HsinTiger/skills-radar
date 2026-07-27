@@ -19,6 +19,8 @@
 
 ## 專題研究
 
+- [每日 EDA_IC／財經投資研究 Skill 建議](research/recommendations/2026-07-27.md)：
+  每日 08:30 以 deterministic gate 更新；`pilot` 只代表可進入隔離評估，不代表已安裝、已上線或通過正確性驗證。
 - [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
   排除 FPGA、embedded、board/PCB、analog/RF，逐項審查可改編的 RTL/EDA procedure；
   current catalog 因 canonical corpus 與 golden labels 尚未完成而明確標為 `BLOCKED`。
@@ -38,6 +40,7 @@ bin/run_daily.sh    主流程：抓取 → agy 產簡報 → 驗收 → 更新 R
 bin/build_readme.py 重建本頁
 bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 docs/wiki 實體頁面
 bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
+bin/build_daily_recommendations.py  產生 EDA_IC／財經投資研究的每日採用候選、摘要與風險 gate
 data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
 data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序

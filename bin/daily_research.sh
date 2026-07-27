@@ -45,6 +45,12 @@ python3 bin/opportunity.py >> "$LOG" 2>&1 || {
   log "STOP: opportunity 失敗，不使用舊訊號表繼續"; exit 1;
 }
 
+# 3.5 每日 owner-facing 建議清單（零 token）
+# EDA/IC 只引用已審來源；財經類只允許研究用途，交易／credential 風險會降級或排除。
+python3 bin/build_daily_recommendations.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: 每日 skill 建議清單產生失敗"; exit 1;
+}
+
 # 4. 洞察專區（唯一的 LLM 步驟，輸入只有訊號表）
 OUT="$ROOT/research/insights/$DATE.md"
 mkdir -p "$ROOT/research/insights"

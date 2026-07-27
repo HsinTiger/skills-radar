@@ -1,0 +1,1091 @@
+{
+ "schema_version": 1,
+ "report_date": "2026-07-27",
+ "generated_at": "2026-07-27T05:28:50.112507+00:00",
+ "status": "PREVIEW_STALE_CORPUS",
+ "corpus_freshness": {
+  "status": "STALE",
+  "master_sha256": "433d17d3a4abd2501ce94e514948c73c88d9dae9d95f64367552496fa6739e18",
+  "actual": {
+   "rows": 41230,
+   "seed": 5937,
+   "model": 35293
+  },
+  "expected": {
+   "seed": 6547,
+   "model": 34683
+  },
+  "population_claims_allowed": false,
+  "note": "master 與 model report 不對齊；本次只能作預覽，需由 canonical runtime 刷新後再決策。"
+ },
+ "policy": {
+  "states": {
+   "adopt": "直接採用",
+   "pilot": "沙盒試行",
+   "watch": "觀察／待審",
+   "exclude": "排除"
+  },
+  "adopt_requires": "owner approval plus domain runtime proof",
+  "finance_boundary": "research only; no trade execution, brokerage/wallet access or credentials",
+  "population_trend_claims": "forbidden in this recommendation artifact"
+ },
+ "categories": {
+  "EDA_IC": {
+   "label": "EDA / 數位 IC（WiFi baseband ASIC）",
+   "scope": "規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、synthesis/STA/power 與 RTL integration。",
+   "excluded_scope": "FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna。",
+   "summary": "已審 13 個來源；5 個可沙盒試行、5 個待補證據、3 個排除。",
+   "recommendations": [
+    {
+     "name": "x-npi",
+     "repo": "BLANK2077/xverif",
+     "path": "skills/x-npi/SKILL.md",
+     "source_commit": "abc390cc7799ff8075b23d9c25ccf21bbc279e11",
+     "source_url": "https://github.com/BLANK2077/xverif/blob/abc390cc7799ff8075b23d9c25ccf21bbc279e11/skills/x-npi/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 100,
+     "summary": "優先改編：保留 runtime/API preflight、同一 clock edge 取樣、coverage denominator 與 JSON evidence contract；不直接複製整包。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "simulation-debug",
+      "FSDB",
+      "VCS/Verdi coverage",
+      "protocol analysis"
+     ],
+     "dependencies": [
+      "local VERDI_HOME",
+      "Synopsys pynpi",
+      "licensed EDA runtime"
+     ],
+     "risks": [
+      "commit unsigned",
+      "real pynpi tests not executed locally",
+      "must not expose license or internal signal names"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "assess-synthesis-and-inference",
+     "repo": "simra-tech/OpenADA",
+     "path": "skills/assess-synthesis-and-inference/SKILL.md",
+     "source_commit": "92895d8f7f6150c9332e51642cfb2b08ccf1886d",
+     "source_url": "https://github.com/simra-tech/OpenADA/blob/92895d8f7f6150c9332e51642cfb2b08ccf1886d/skills/assess-synthesis-and-inference/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 100,
+     "summary": "優先改編 evidence manifest 與 claim boundary；不要把 OpenADA/Yosys 命令直接帶進現有商用 EDA flow。",
+     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。",
+     "capabilities": [
+      "lint",
+      "logic synthesis",
+      "artifact provenance",
+      "false-PASS prevention"
+     ],
+     "dependencies": [
+      "OpenADA CLI",
+      "Yosys/ABC or supported connector",
+      "Liberty/technology map"
+     ],
+     "risks": [
+      "commit unsigned",
+      "OpenADA runtime unavailable here",
+      "open-source contract needs mapping to proprietary OA/NX flow"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "write-sim-testbench",
+     "repo": "xlsynth/bedrock-rtl",
+     "path": ".codex/skills/write-sim-testbench/SKILL.md",
+     "source_commit": "33720f657d214e96826144d13d223e0a6534bae1",
+     "source_url": "https://github.com/xlsynth/bedrock-rtl/blob/33720f657d214e96826144d13d223e0a6534bae1/.codex/skills/write-sim-testbench/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 83,
+     "summary": "抽取 testbench checklist 與 timeout/data-integrity 原則；重寫成現有 testbench framework。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "SystemVerilog testbench",
+      "scoreboard",
+      "ready-valid",
+      "VCS"
+     ],
+     "dependencies": [
+      "Bedrock RTL helpers",
+      "Bazel",
+      "VCS/Verilator"
+     ],
+     "risks": [
+      "repository-specific helpers and BUILD targets",
+      "Verilator portability is not VCS signoff"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "rtl-property-inference",
+     "repo": "ArabelaTso/Skills-4-SE",
+     "path": "skills/rtl-property-inference/SKILL.md",
+     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
+     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-property-inference/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 80,
+     "summary": "只用來產生 candidate properties；每一條需綁 spec requirement 並在正式 formal flow 證明。",
+     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "capabilities": [
+      "SVA candidate generation",
+      "formal-assertion",
+      "vacuity awareness"
+     ],
+     "dependencies": [
+      "manual RTL/spec review",
+      "project formal tool"
+     ],
+     "risks": [
+      "inferring intent from RTL can reproduce existing bugs",
+      "liveness/fairness assumptions need owner confirmation",
+      "no actual proof execution"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "digital-front-end-skill",
+     "repo": "kh7272723-star/digital-front-end-skill",
+     "path": "SKILL.md",
+     "source_commit": "92c9780c71639123eae2709683643d4d2d22004e",
+     "source_url": "https://github.com/kh7272723-star/digital-front-end-skill/blob/92c9780c71639123eae2709683643d4d2d22004e/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 80,
+     "summary": "只抽取 cycle contract、claim ledger、false-pass audit；不整包安裝。",
+     "use_in_next_rtl_design": "在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。",
+     "capabilities": [
+      "cycle contract",
+      "RTL design",
+      "false-pass audit",
+      "handoff gates"
+     ],
+     "dependencies": [
+      "large references tree",
+      "bundled Python gates",
+      "Icarus-oriented examples"
+     ],
+     "risks": [
+      "no detected repository license",
+      "very large instruction surface",
+      "many project-local scripts not reviewed",
+      "Icarus evidence is narrower than VCS"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "rtl-specification-consistency-checker",
+     "repo": "ArabelaTso/Skills-4-SE",
+     "path": "skills/rtl-specification-consistency-checker/SKILL.md",
+     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
+     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-specification-consistency-checker/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 50,
+     "summary": "只採 requirement matrix 格式；禁止把靜態閱讀升格成 satisfied/PASS。",
+     "use_in_next_rtl_design": "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。",
+     "capabilities": [
+      "spec-to-RTL traceability"
+     ],
+     "dependencies": [
+      "specification",
+      "RTL",
+      "manual analysis"
+     ],
+     "risks": [
+      "allows satisfied classification from inspection",
+      "no compile/sim/formal evidence contract",
+      "suggested fixes can precede proof"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "rtl-p5s-sva-check",
+     "repo": "babyworm/rtl-agent-team",
+     "path": "skills/rtl-p5s-sva-check/SKILL.md",
+     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
+     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p5s-sva-check/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 50,
+     "summary": "只參考 proof-stage vocabulary；正式 property、assumption、engine 與 completeness 由內部 formal owner 定義。",
+     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "capabilities": [
+      "formal/SVA"
+     ],
+     "dependencies": [
+      "p5s orchestrator agent",
+      "sv2v",
+      "SymbiYosys/Yosys"
+     ],
+     "risks": [
+      "thin router",
+      "full SystemVerilog/tool compatibility unknown",
+      "open-source proof does not equal internal formal signoff"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "logic-synthesis",
+     "repo": "chuanseng-ng/digital-chip-design-agents",
+     "path": "plugins/synthesis/skills/logic-synthesis/SKILL.md",
+     "source_commit": "9bdd652fb7518c4acbf94d1183d37e5b0a3454f2",
+     "source_url": "https://github.com/chuanseng-ng/digital-chip-design-agents/blob/9bdd652fb7518c4acbf94d1183d37e5b0a3454f2/plugins/synthesis/skills/logic-synthesis/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 50,
+     "summary": "只參考 stage inventory；所有 SDC、corner、threshold 與 signoff 規則必須以專案 owner/golden flow 為準。",
+     "use_in_next_rtl_design": "在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。",
+     "capabilities": [
+      "synthesis",
+      "SDC",
+      "LEC",
+      "handoff"
+     ],
+     "dependencies": [
+      "plugin orchestrator",
+      "Yosys/DC/Genus/FC",
+      "PDK and project state"
+     ],
+     "risks": [
+      "generic clock uncertainty defaults",
+      "blanket false-path guidance can hide real CDC paths",
+      "writes project memory",
+      "cannot run standalone"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "name": "rtl-p4-implement",
+     "repo": "babyworm/rtl-agent-team",
+     "path": "skills/rtl-p4-implement/SKILL.md",
+     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
+     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p4-implement/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 50,
+     "summary": "只參考 wave ordering；不直接引用。",
+     "use_in_next_rtl_design": "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。",
+     "capabilities": [
+      "spec-to-RTL staged workflow"
+     ],
+     "dependencies": [
+      "p4 orchestrator agent",
+      "upstream phase artifacts",
+      "compliance checker"
+     ],
+     "risks": [
+      "thin router rather than standalone procedure",
+      "proceeds when prerequisite missing",
+      "large delegated mutation scope"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "eda-sim",
+     "repo": "cike128/eda-sim",
+     "path": "SKILL.md",
+     "source_commit": "2b0ffa41ff7364bb1dade733f5729a052c78bac9",
+     "source_url": "https://github.com/cike128/eda-sim/blob/2b0ffa41ff7364bb1dade733f5729a052c78bac9/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 50,
+     "summary": "不要安裝；FSDB 批次分析改採已審查的 x-npi 方法，執行命令由內部 golden flow 提供。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "VCS",
+      "Verdi",
+      "FSDB",
+      "regression"
+     ],
+     "dependencies": [
+      "hard-coded directory layout",
+      "local license server",
+      "Synopsys NPI"
+     ],
+     "risks": [
+      "license topology embedded in instructions",
+      "creates .envrc",
+      "grep plus $finish is not a truthful PASS gate",
+      "tool-version assumptions"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    },
+    {
+     "name": "run-vcs",
+     "repo": "n0sig/asic-design-plugins",
+     "path": "plugins/digital-asic-backend/skills/run-vcs/SKILL.md",
+     "source_commit": "cf7b4869d469d3a9e111ef344b6369b636dc7b9d",
+     "source_url": "https://github.com/n0sig/asic-design-plugins/blob/cf7b4869d469d3a9e111ef344b6369b636dc7b9d/plugins/digital-asic-backend/skills/run-vcs/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 50,
+     "summary": "只作後段鄰接參考；不納入 RTL 設計 skill bundle。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "post-layout VCS"
+     ],
+     "dependencies": [
+      "fixed project layout",
+      "Fusion Compiler outputs",
+      "Makefile"
+     ],
+     "risks": [
+      "post-layout scope is not current RTL focus",
+      "nohup background flow",
+      "$finish/log grep is insufficient",
+      "hard-coded artifact names"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ]
+    }
+   ],
+   "adoption_gate": "先抽取 procedure → owner 核准 → toy design canary → internal golden-flow proof → 才能採用。"
+  },
+  "finance-investing": {
+   "label": "財經投資研究",
+   "scope": "市場／總經資料、財報與盈餘品質、估值、產業鏈論點、風險與回測方法。",
+   "excluded_scope": "自動下單、實盤交易、券商／錢包／私鑰／credential 操作，以及無證據的獲利承諾。",
+   "summary": "今日選出 8 個研究候選：3 個沙盒試行、5 個觀察；全部仍待逐檔 source review。",
+   "recommendations": [
+    {
+     "name": "reconciliation",
+     "repo": "anthropics/knowledge-work-plugins",
+     "path": "finance/skills/reconciliation/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/anthropics/knowledge-work-plugins/blob/HEAD/finance/skills/reconciliation/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 52,
+     "summary": "執行對帳、現金流與財務報表的一致性檢查。",
+     "use_in_investment_research": "適合作為研究資料品質 gate，不取代會計師簽核。",
+     "capabilities": [
+      "accounting-control",
+      "fundamental-valuation"
+     ],
+     "risks": [],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "legacy-llm",
+      "domain_conf": null,
+      "stars_repo_level": 23042
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "serenity-skill",
+     "repo": "muxuuu/serenity-skill",
+     "path": "SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/muxuuu/serenity-skill/blob/HEAD/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 52,
+     "summary": "建立可追溯的產業／公司投資論點、反證與待查證清單。",
+     "use_in_investment_research": "只作研究排序與論點壓力測試；結論必須回到一手來源。",
+     "capabilities": [
+      "thesis-research",
+      "forensic-risk"
+     ],
+     "risks": [],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.685,
+      "stars_repo_level": 3622
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "fin-financial-statements",
+     "repo": "evolution-foundation/evo-nexus",
+     "path": ".claude/skills/fin-financial-statements/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/evolution-foundation/evo-nexus/blob/HEAD/.claude/skills/fin-financial-statements/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 46,
+     "summary": "協助財報正規化、基本面檢核與估值假設展開。",
+     "use_in_investment_research": "把假設、公式、來源與敏感度分開；不得把單一估值當成價格預測。",
+     "capabilities": [
+      "fundamental-valuation"
+     ],
+     "risks": [],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.622,
+      "stars_repo_level": 511
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "financial-analysis",
+     "repo": "kyegomez/swarms",
+     "path": "examples/single_agent/capabilities/skills/financial-analysis/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/kyegomez/swarms/blob/HEAD/examples/single_agent/capabilities/skills/financial-analysis/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 45,
+     "summary": "協助財報正規化、基本面檢核與估值假設展開。",
+     "use_in_investment_research": "把假設、公式、來源與敏感度分開；不得把單一估值當成價格預測。",
+     "capabilities": [
+      "fundamental-valuation"
+     ],
+     "risks": [
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "legacy-llm",
+      "domain_conf": null,
+      "stars_repo_level": 6989
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "wayland-cashflow-batch-review",
+     "repo": "FerroxLabs/wayland",
+     "path": "src/process/resources/bundled-workflows/bodies/wayland-cashflow-batch-review/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/FerroxLabs/wayland/blob/HEAD/src/process/resources/bundled-workflows/bodies/wayland-cashflow-batch-review/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 42,
+     "summary": "執行對帳、現金流與財務報表的一致性檢查。",
+     "use_in_investment_research": "適合作為研究資料品質 gate，不取代會計師簽核。",
+     "capabilities": [
+      "accounting-control",
+      "fundamental-valuation"
+     ],
+     "risks": [
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "legacy-llm",
+      "domain_conf": null,
+      "stars_repo_level": 563
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "augur-serenity",
+     "repo": "BruceLanLan/augur",
+     "path": "src/skills/augur-serenity/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/BruceLanLan/augur/blob/HEAD/src/skills/augur-serenity/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 41,
+     "summary": "建立可追溯的產業／公司投資論點、反證與待查證清單。",
+     "use_in_investment_research": "只作研究排序與論點壓力測試；結論必須回到一手來源。",
+     "capabilities": [
+      "thesis-research"
+     ],
+     "risks": [
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.67,
+      "stars_repo_level": 231
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "vibe-trading",
+     "repo": "HKUDS/Vibe-Trading",
+     "path": "agent/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/HKUDS/Vibe-Trading/blob/HEAD/agent/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 39,
+     "summary": "取得並正規化市場／總經資料，保留時間戳、來源與缺值狀態。",
+     "use_in_investment_research": "先做資料 readback 與 corporate-action 檢查，再供研究模型使用。",
+     "capabilities": [
+      "market-macro-data",
+      "backtest-research"
+     ],
+     "risks": [
+      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.829,
+      "stars_repo_level": 27770
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "fengliu-reverse-weakhand",
+     "repo": "xuboyuebobb/investorskills",
+     "path": "skills/fengliu-reverse-weakhand/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/xuboyuebobb/investorskills/blob/HEAD/skills/fengliu-reverse-weakhand/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 38,
+     "summary": "檢查財報異常、盈餘品質、風險因子與反方證據。",
+     "use_in_investment_research": "輸出證據與不確定性，不把規則式異常直接定性為舞弊。",
+     "capabilities": [
+      "forensic-risk"
+     ],
+     "risks": [
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "legacy-llm",
+      "domain_conf": null,
+      "stars_repo_level": 558
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    }
+   ],
+   "excluded": [
+    {
+     "name": "trade",
+     "repo": "zubair-trabzada/ai-trading-hermes",
+     "path": "trade/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/zubair-trabzada/ai-trading-hermes/blob/HEAD/trade/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 8,
+     "summary": "建立可追溯的產業／公司投資論點、反證與待查證清單。",
+     "use_in_investment_research": "只作研究排序與論點壓力測試；結論必須回到一手來源。",
+     "capabilities": [
+      "thesis-research",
+      "forensic-risk"
+     ],
+     "risks": [
+      "含交易執行或實盤語意"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.948,
+      "stars_repo_level": 21
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "hyperliquid",
+     "repo": "AdityaKumar41/arcen-agent",
+     "path": "optional-skills/blockchain/hyperliquid/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/AdityaKumar41/arcen-agent/blob/HEAD/optional-skills/blockchain/hyperliquid/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 0,
+     "summary": "取得並正規化市場／總經資料，保留時間戳、來源與缺值狀態。",
+     "use_in_investment_research": "先做資料 readback 與 corporate-action 檢查，再供研究模型使用。",
+     "capabilities": [
+      "market-macro-data",
+      "backtest-research"
+     ],
+     "risks": [
+      "可能接觸券商、錢包、私鑰或 API credential",
+      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.698,
+      "stars_repo_level": 0
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "hyperliquid",
+     "repo": "pedrocastanha/cast-code",
+     "path": "src/modules/skills/definitions/catalog/optional-skills/blockchain/hyperliquid/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/pedrocastanha/cast-code/blob/HEAD/src/modules/skills/definitions/catalog/optional-skills/blockchain/hyperliquid/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 0,
+     "summary": "取得並正規化市場／總經資料，保留時間戳、來源與缺值狀態。",
+     "use_in_investment_research": "先做資料 readback 與 corporate-action 檢查，再供研究模型使用。",
+     "capabilities": [
+      "market-macro-data",
+      "backtest-research"
+     ],
+     "risks": [
+      "可能接觸券商、錢包、私鑰或 API credential",
+      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.615,
+      "stars_repo_level": 2
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "mql-developer",
+     "repo": "ThomasPraun/mql-developer",
+     "path": "SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/ThomasPraun/mql-developer/blob/HEAD/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": -1,
+     "summary": "檢查財報異常、盈餘品質、風險因子與反方證據。",
+     "use_in_investment_research": "輸出證據與不確定性，不把規則式異常直接定性為舞弊。",
+     "capabilities": [
+      "forensic-risk",
+      "backtest-research"
+     ],
+     "risks": [
+      "含交易執行或實盤語意",
+      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "legacy-llm",
+      "domain_conf": null,
+      "stars_repo_level": 33
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "joinquant-skill",
+     "repo": "gaaiyun/joinquant-skill",
+     "path": "SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/gaaiyun/joinquant-skill/blob/HEAD/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": -8,
+     "summary": "用回測與基準比較檢查研究假說。",
+     "use_in_investment_research": "必須揭露樣本外、交易成本、資料洩漏與存活者偏差；回測不等於獲利證明。",
+     "capabilities": [
+      "backtest-research"
+     ],
+     "risks": [
+      "含交易執行或實盤語意",
+      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.638,
+      "stars_repo_level": 61
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
+    {
+     "name": "web3-polymarket",
+     "repo": "elophanto/EloPhanto",
+     "path": "skills/web3-polymarket/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/elophanto/EloPhanto/blob/HEAD/skills/web3-polymarket/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": -13,
+     "summary": "取得並正規化市場／總經資料，保留時間戳、來源與缺值狀態。",
+     "use_in_investment_research": "先做資料 readback 與 corporate-action 檢查，再供研究模型使用。",
+     "capabilities": [
+      "market-macro-data"
+     ],
+     "risks": [
+      "含價格／方向預測或交易訊號語意；不得直接形成交易決策",
+      "可能接觸券商、錢包、私鑰或 API credential",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "STALE",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "model",
+      "domain_conf": 0.828,
+      "stars_repo_level": 115
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    }
+   ],
+   "adoption_gate": "先 pin commit 與 license → source/security review → 無 credential 的離線資料 canary → owner 核准。"
+  }
+ }
+}

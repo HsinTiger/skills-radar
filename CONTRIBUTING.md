@@ -75,6 +75,9 @@ merge_classified.py    標籤列舉驗證，擋掉不合法的值
         ↓
 aggregate.py / opportunity.py / eda_deepdive.py / scan_injection.py / cluster.py
         ↓ corpus/*.json（訊號表，幾十 KB）
+build_daily_recommendations.py → corpus/daily_skill_recommendations.json
+                               → research/recommendations/YYYY-MM-DD.md
+                               → docs/recommendations/*.html
 prompt_opportunity.txt → agy 解讀 → research/insights/YYYY-MM-DD.md
 wiki_ingest.py         → data/wiki_history.json + research/wiki/*.md + docs/wiki/*.html
 build_site.py          → docs/index.html（自足式單檔）
@@ -93,6 +96,7 @@ wiki_lint.py / validate_research.py / check_privacy.py  三道閘門
 python3 bin/harvest_targeted.py --list   # 看有哪些主題詞表
 python3 bin/harvest_targeted.py wifi     # 跑單一主題過取樣
 python3 bin/train_classifier.py          # 重訓分類器（種子變動後必跑）
+python3 bin/build_daily_recommendations.py --date 2026-07-27  # 重建兩類採用建議
 python3 bin/wiki_lint.py                 # 跨報告矛盾偵測
 ```
 
