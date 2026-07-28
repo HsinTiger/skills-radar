@@ -1,6 +1,33 @@
 {
- "n_files": 7,
+ "n_files": 10,
  "n_metrics_tracked": 3,
- "n_conflicts": 0,
- "conflicts": []
+ "n_conflicts": 1,
+ "conflicts": [
+  {
+   "metric": "語料規模",
+   "min": 3984.0,
+   "max": 246584.0,
+   "spread_pct": 6089.4,
+   "by_file": {
+    "research/DATA_STRATEGY.md": [
+     246584.0
+    ],
+    "daily/2026-07-28.md": [
+     3984.0
+    ]
+   },
+   "samples": [
+    {
+     "file": "research/DATA_STRATEGY.md",
+     "value": 246584.0,
+     "ctx": "GitHub 上有 **246,584 個公開 SKILL.md**。"
+    },
+    {
+     "file": "daily/2026-07-28.md",
+     "value": 3984.0,
+     "ctx": "- **既有基準底線**：Snyk ToxicSkills 2026-02 掃描 3,984 個 skill，36.82% 含安全缺陷、13.4% critical、76 個確認惡意負載。"
+    }
+   ]
+  }
+ ]
 }

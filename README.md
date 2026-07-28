@@ -8,14 +8,14 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-27](daily/2026-07-27.md)
+## 最新一期：[2026-07-28](daily/2026-07-28.md)
 
-**今日一句話**：長 Context 導致 Skill 指令衰退與多 Agent 跨通道攻擊（Channel Attack）研究同步爆發：你的自動化 Pipeline 當前最大的出局風險不在模型智商，而在「未隔離的 Agent 中繼通道」與「一次性載入巨型 Skill 的指令失效」。
+**今日一句話**：生態快速轉向「特權隔離（Privilege Separation）」與「Harness 工程治理」，今日官方 GitHub 資料因擷取工具異常無事實更新。
 
 **短期建議（一週內）**
 
-1. **防禦檔案遺失與歷史清理**：檢查本機 `claude-code` 與 `agy` 執行的工作目錄。為所有自動化 Pipeline（Substack 發文、知識庫更新）建立獨立 git 工作區，並在 Cronjob 中加入「執行完畢自動 git status 比對與自動 Push」機制，防止 30 天本機 Context 遭刪除或檔名誤刪造成不可逆損失。
-2. **精簡巨型 Skill 檔**：盤點目前使用的自訂 Skill，若有單一檔案超過 300 行的「大百科型 Skill」，立即拆解。改為僅保留摘要導引，詳細規格改由 Agent 根據子任務動態讀取，以解決長 Context 下的指令衰退問題。
+1. **建立 Substack / 市場監控 Pipeline 的「讀寫特權分離」**：將網路爬蟲與外部資料抓取模組限縮在無本機檔案寫入與 Shell 執行權限的純解析環境，嚴禁將未過濾的網頁原文直接丟給帶有高執行權限的本機 CLI（Claude Code / agy）。
+2. **導入 Token 佔用率診斷（Context Profiling）工具驗證**：針對既有 IC 知識庫 pipeline，檢查是否有重複載入厚重 prompt 的情況，清理不必要的 context 消耗。
 
 ## 生態指標
 
@@ -40,5 +40,6 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-07-28](daily/2026-07-28.md)
 - [2026-07-27](daily/2026-07-27.md)
 - [2026-07-26](daily/2026-07-26.md)
