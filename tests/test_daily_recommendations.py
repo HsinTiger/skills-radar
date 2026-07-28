@@ -133,6 +133,11 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertLess(script.index("build_daily_recommendations.py"), script.index("build_site.py"))
         self.assertLess(script.index("timescale_summaries.py"), script.index("build_site.py"))
 
+        runner = (ROOT / "bin" / "run_daily.sh").read_text(encoding="utf-8")
+        self.assertIn("git pull --ff-only origin main", runner)
+        self.assertLess(runner.index("daily_research.sh"), runner.index("build_readme.py"))
+        self.assertIn("launchd 必須收到非零狀態", runner)
+
 
 if __name__ == "__main__":
     unittest.main()

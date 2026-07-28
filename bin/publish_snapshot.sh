@@ -3,6 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+export TZ="Asia/Taipei"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 TAG="${1:-corpus-latest}"

@@ -32,9 +32,10 @@ class PipelineHealthTests(unittest.TestCase):
             write(root / "data/timescale_summary_status.json", {
                 "run_date": "2026-07-28", "status": "AI_GENERATED", "updated_periods": [],
             })
-            health = build_health("2026-07-28", privacy_passed=True, root=root)
+            health = build_health("2026-07-28", privacy_passed=True, root=root, run_context="launchd")
         self.assertEqual(health["status"], "PASS")
         self.assertEqual(health["remote_publish"], "NOT_PROVEN_UNTIL_REMOTE_READBACK")
+        self.assertEqual(health["schedule_contract"]["execution_context"], "launchd")
 
     def test_ai_block_is_partial_and_retried_not_false_pass(self):
         with tempfile.TemporaryDirectory() as tmp:

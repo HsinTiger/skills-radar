@@ -6,9 +6,10 @@
 #   少量 token ── 只分類「新增的」skill（穩定後每天幾十筆，非 5,400 筆）
 #   一次 token ── 洞察專區（輸入是幾 KB 的訊號表，不是原始語料）
 set -uo pipefail
-ROOT="$HOME/skills-radar"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT" || exit 1
 LOG="$ROOT/data/research.log"
+export TZ="Asia/Taipei"
 DATE=$(date +%Y-%m-%d)
 log() { echo "[$(date +%H:%M:%S)] $*" >> "$LOG"; }
 log "=== research start $DATE ==="

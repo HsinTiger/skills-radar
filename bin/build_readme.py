@@ -91,7 +91,9 @@ bin/build_daily_recommendations.py  產生 EDA_IC／財經投資研究的每日�
 bin/timescale_summaries.py  日／週／月／季 evidence、AI summary、完整期與 catch-up dispatcher
 bin/build_corpus_snapshot.py  驗證並壓縮 canonical corpus，產生 Release manifest
 bin/write_pipeline_health.py  公開最後一次本機 gate 狀態；remote/Pages 仍須另做 readback
-bin/check_published_freshness.py  GitHub Actions 每日 09:30 watchdog，讓漏跑／stale 狀態明確失敗
+bin/install_launchd.sh  在 canonical Mac 安裝/重載每日 08:30 dispatcher
+bin/check_launchd.sh  驗證版本化 plist 契約與 launchd registration
+bin/check_published_freshness.py  GitHub Actions 每日 09:30 回讀 live Pages，讓漏跑／stale／部署漂移明確失敗
 data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
 data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序
@@ -100,6 +102,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 排程：launchd `com.hsin.skills-radar` 每日 08:30 執行 dispatcher；日摘要每天、週摘要每週一、
 月摘要每月一日、季摘要每季首月一日更新上一完整期。離線後補跑缺少的 `period_id`。
+Mac 安裝/重載：`./bin/install_launchd.sh`；稽核：`./bin/check_launchd.sh`。
 手動跑一次：`~/skills-radar/bin/run_daily.sh`
 
 {index}

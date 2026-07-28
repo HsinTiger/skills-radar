@@ -214,3 +214,23 @@ Required readback after the run:
    actual deployment, or investment outcome.
 5. The GitHub 09:30 freshness watchdog must turn green only after the current health marker is pushed;
    the watchdog detects failure but cannot replace the Mac canonical run.
+
+---
+
+# 2026-07-28 follow-up — make the automatic schedule auditable
+
+The dispatcher logic and today's four summaries are proven, but the installed LaunchAgent was not
+captured in Git.  Pull the follow-up commit, then install/reload the versioned contract on the
+canonical Mac:
+
+```bash
+git pull --ff-only
+./bin/install_launchd.sh
+./bin/check_launchd.sh
+```
+
+The installed job must be `com.hsin.skills-radar`, daily at 08:30 with `TZ=Asia/Taipei`.  The next
+scheduled health marker should expose `schedule_contract.execution_context=launchd`.  A manual run
+may recover current data, but it is not proof that launchd fired.  The 09:30 GitHub watchdog now
+downloads live Pages and requires it to equal the checked-out `docs/pipeline_health.json`; checking
+remote Git alone is no longer accepted as publish proof.

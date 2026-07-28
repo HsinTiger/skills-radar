@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,7 +21,7 @@ def nonempty(path):
     return path.exists() and path.stat().st_size > 0
 
 
-def build_health(report_date, privacy_passed=False, root=ROOT):
+def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None):
     rec = load(root / "corpus" / "daily_skill_recommendations.json", {})
     ts = load(root / "data" / "timescale_summary_status.json", {})
     daily_ok = nonempty(root / "daily" / f"{report_date}.md")
@@ -35,6 +36,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT):
         status = "PARTIAL"
     else:
         status = "PASS"
+    execution_context = run_context or os.environ.get("SKILLS_RADAR_RUN_CONTEXT", "manual_or_unknown")
     return {
         "schema_version": 1,
         "report_date": report_date,
@@ -55,6 +57,8 @@ def build_health(report_date, privacy_passed=False, root=ROOT):
         },
         "schedule_contract": {
             "dispatcher": "daily 08:30 Asia/Taipei",
+            "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
+            "execution_context": execution_context,
             "day": "previous complete day",
             "week": "previous complete Monday-Sunday week",
             "month": "previous complete calendar month",
@@ -70,10 +74,11 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True)
     parser.add_argument("--privacy-passed", action="store_true")
+    parser.add_argument("--run-context")
     parser.add_argument("--output", type=Path, default=ROOT / "data" / "pipeline_health.json")
     parser.add_argument("--public-output", type=Path, default=ROOT / "docs" / "pipeline_health.json")
     args = parser.parse_args(argv)
-    health = build_health(args.date, args.privacy_passed)
+    health = build_health(args.date, args.privacy_passed, run_context=args.run_context)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(health, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     args.public_output.parent.mkdir(parents=True, exist_ok=True)
