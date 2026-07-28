@@ -3,9 +3,10 @@
 
 One daily dispatcher updates only completed periods that are missing:
 day (previous day), week (previous Mon-Sun), month (previous calendar
-month), and quarter (previous calendar quarter).  Validated summaries are
-append-only by period id, so a missed Mac run is retried without re-spending
-tokens on periods already completed.
+month), and quarter (previous calendar quarter).  Each completed period has one
+record keyed by period id.  A missed Mac run is retried, and records that no
+longer satisfy the current reader-safety contract are rewritten instead of
+remaining permanently publishable; Git history preserves the earlier version.
 """
 
 from __future__ import annotations
@@ -335,6 +336,17 @@ NARRATIVE_FIELDS = (
     "headline", "executive_summary", "eda_ic_readout", "finance_readout", "contrarian_view",
 )
 LIST_FIELDS = ("structural_changes", "actions", "falsifiers", "caveats")
+INTERNAL_NARRATIVE = re.compile(
+    r"\b(?:E(?:10|[1-9])|archive_n|discovered_n|discovered_previous_n|domain mix|task mix|"
+    r"maturity mix|production_document_proxy|agent_target_proxy|hardware_eda_n|finance_n|"
+    r"evidence_ids|AI_GENERATED|EDA_IC|cohort|proxy|entropy|[A-Za-z]+_[A-Za-z0-9_]+)\b",
+    re.I,
+)
+READER_JARGON = re.compile(
+    r"\b(?:repo(?:sitory)?|confidence|completeness|taxonomy|validation|signoff|golden|"
+    r"production|workflow|toy|owner(?:-direct)?|front-end|DevOps|pct|pp)\b",
+    re.I,
+)
 
 
 def _strip_fence(text: str) -> str:
@@ -376,6 +388,10 @@ def validate_ai_output(raw: str, due: list[dict]) -> list[dict]:
             raise ValueError("invalid evidence_ids")
         narrative = " ".join(str(summary[f]) for f in NARRATIVE_FIELDS)
         narrative += " " + " ".join(x for f in LIST_FIELDS for x in summary[f])
+        if INTERNAL_NARRATIVE.search(narrative):
+            raise ValueError("AI narrative exposes internal field names or evidence IDs")
+        if READER_JARGON.search(narrative):
+            raise ValueError("AI narrative exposes unexplained technical or process jargon")
         # Evidence cards render all numbers deterministically.  The AI narrative is
         # forbidden from inventing or rounding its own numeric claims.
         if re.search(r"\d", re.sub(r"E(?:10|[1-9])", "", narrative)):
@@ -383,6 +399,31 @@ def validate_ai_output(raw: str, due: list[dict]) -> list[dict]:
         if not re.search(r"[\u4e00-\u9fff]", narrative):
             raise ValueError("AI narrative must contain Traditional Chinese")
     return summaries
+
+
+def legacy_rewrite_periods(history: dict, max_periods: int = 31) -> tuple[list[dict], dict]:
+    """Select stored periods whose prose fails today's reader-safety contract."""
+    due = []
+    backlog = {}
+    for scale in SCALES:
+        candidates = []
+        records = history.get("periods", {}).get(scale, {})
+        for record in records.values():
+            period = record.get("period")
+            summary = record.get("ai")
+            if record.get("status") != "AI_GENERATED" or not isinstance(period, dict):
+                continue
+            try:
+                validate_ai_output(
+                    json.dumps({"summaries": [summary]}, ensure_ascii=False), [period]
+                )
+            except (TypeError, ValueError, json.JSONDecodeError):
+                candidates.append(period)
+        candidates.sort(key=lambda p: p["end"])
+        backlog[scale] = max(0, len(candidates) - max_periods)
+        due.extend(candidates[:max_periods])
+    due.sort(key=lambda p: (p["end"], SCALES.index(p["scale"])))
+    return due, backlog
 
 
 def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
@@ -472,8 +513,21 @@ def main(argv=None) -> int:
     model_report = load_json(args.model_report, {})
     freshness = master_freshness(rows, model_report, args.master)
     history = load_json(args.history, {"schema_version": 1, "periods": {s: {} for s in SCALES}})
-    due, backlog = due_periods(history, run_date, args.max_periods)
-    plan = {"run_date": args.date, "freshness": freshness, "due": due, "backlog": backlog}
+    scheduled_due, scheduled_backlog = due_periods(history, run_date, args.max_periods)
+    rewrite_due, rewrite_backlog = legacy_rewrite_periods(history, args.max_periods)
+    by_key = {
+        (period["scale"], period["period_id"]): period
+        for period in scheduled_due + rewrite_due
+    }
+    due = sorted(by_key.values(), key=lambda p: (p["end"], SCALES.index(p["scale"])))
+    backlog = {
+        scale: scheduled_backlog.get(scale, 0) + rewrite_backlog.get(scale, 0)
+        for scale in SCALES
+    }
+    plan = {
+        "run_date": args.date, "freshness": freshness, "due": due,
+        "rewrite_due": rewrite_due, "backlog": backlog,
+    }
     print(json.dumps(plan, ensure_ascii=False, indent=1))
     if args.plan_only:
         return 0 if freshness["status"] == "CURRENT" else 2

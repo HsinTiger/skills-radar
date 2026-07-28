@@ -48,12 +48,26 @@ class PublishedFreshnessTests(unittest.TestCase):
     def test_next_day_requires_launchd_execution_proof(self):
         health = {
             "report_date": "2026-07-29", "status": "PASS",
-            "gates": {"master_freshness": "CURRENT", "timescale_dispatch": "AI_GENERATED"},
+            "gates": {
+                "master_freshness": "CURRENT", "timescale_dispatch": "AI_GENERATED",
+                "corpus_update": "SUCCESS", "editorial_markdown": "PASS", "editorial_html": "PASS",
+            },
             "schedule_contract": {"execution_context": "manual"},
         }
         self.assertIn("execution_context=manual expected=launchd", validate_health(health, "2026-07-29"))
         health["schedule_contract"]["execution_context"] = "launchd"
         self.assertEqual(validate_health(health, "2026-07-29"), [])
+
+    def test_next_day_requires_corpus_and_editorial_evidence(self):
+        health = {
+            "report_date": "2026-07-29", "status": "PASS",
+            "gates": {"master_freshness": "CURRENT", "timescale_dispatch": "NO_PERIOD_DUE"},
+            "schedule_contract": {"execution_context": "launchd"},
+        }
+        errors = validate_health(health, "2026-07-29")
+        self.assertTrue(any("corpus_update" in error for error in errors))
+        self.assertTrue(any("editorial_markdown" in error for error in errors))
+        self.assertTrue(any("editorial_html" in error for error in errors))
 
     @patch("check_published_freshness.urlopen")
     def test_live_readback_uses_cache_buster(self, mocked):

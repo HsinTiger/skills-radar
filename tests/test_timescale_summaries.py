@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "bin"))
 from timescale_summaries import (  # noqa: E402
     build_period_evidence,
     due_periods,
+    legacy_rewrite_periods,
     latest_complete_period,
     master_freshness,
     main,
@@ -46,7 +47,7 @@ def valid_summary(period):
         "scale": period["scale"],
         "period_id": period["period_id"],
         "headline": "結構轉向驗證與證據治理",
-        "executive_summary": "史料 cohort 顯示能力結構改變，但新發現時鐘仍不足以證明採用趨勢。",
+        "executive_summary": "依專案建立日期歸入本期的樣本顯示能力結構改變，但新發現仍不足以證明採用趨勢。",
         "structural_changes": ["驗證類能力增加", "資料品質仍是主要限制"],
         "eda_ic_readout": "數位晶片內容應優先抽取可驗證程序，不能升格為工具簽核。",
         "finance_readout": "財經內容適合研究與資料檢核，不應直接產生交易決策。",
@@ -119,8 +120,32 @@ class TimescaleSummaryTests(unittest.TestCase):
         broken["headline"] = "成長百分之二十以上，約為 20%"
         with self.assertRaises(ValueError):
             validate_ai_output(json.dumps({"summaries": [broken]}, ensure_ascii=False), [period])
+        jargon = valid_summary(period)
+        jargon["executive_summary"] = "archive_n 為空，因此引用 E1。"
+        with self.assertRaisesRegex(ValueError, "internal field"):
+            validate_ai_output(json.dumps({"summaries": [jargon]}, ensure_ascii=False), [period])
+        process_jargon = valid_summary(period)
+        process_jargon["executive_summary"] = "production workflow 已完成 validation。"
+        with self.assertRaisesRegex(ValueError, "process jargon"):
+            validate_ai_output(
+                json.dumps({"summaries": [process_jargon]}, ensure_ascii=False), [period]
+            )
 
-    def test_persist_is_append_only_by_period_id(self):
+    def test_legacy_prose_is_rescheduled_for_rewrite(self):
+        period = latest_complete_period(date(2026, 7, 28), "day")
+        stale = valid_summary(period)
+        stale["headline"] = "repo_created cohort 沒有樣本"
+        history = {"periods": {
+            "day": {period["period_id"]: {
+                "status": "AI_GENERATED", "period": period, "ai": stale,
+            }},
+            "week": {}, "month": {}, "quarter": {},
+        }}
+        due, backlog = legacy_rewrite_periods(history)
+        self.assertEqual(due, [period])
+        self.assertTrue(all(value == 0 for value in backlog.values()))
+
+    def test_persist_uses_one_record_per_period_id(self):
         period = latest_complete_period(date(2026, 7, 28), "day")
         evidence = {
             "period": period, "time_contract": {}, "evidence": {"E1_sample": {"archive_n": 1}},
@@ -170,7 +195,10 @@ class TimescaleSummaryTests(unittest.TestCase):
         builder = (ROOT / "bin" / "build_site.py").read_text(encoding="utf-8")
         self.assertIn('id="btn-quarter"', template)
         self.assertIn("D.timescale_summary", template)
-        self.assertIn("first_seen 是 radar 首次觀察", template)
+        self.assertIn("本系統首次看到的日期", template)
+        self.assertIn("這一期資料不足，先不判讀趨勢", template)
+        self.assertIn("這篇舊摘要正在重寫", template)
+        self.assertNotIn("${x.delta_pp}pp", template)
         self.assertIn('"quarter": build_view("quarter", 12)', builder)
 
 

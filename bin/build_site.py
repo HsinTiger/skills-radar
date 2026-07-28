@@ -233,6 +233,18 @@ def read_timescale_summary():
         "period_counts": {scale: len(records) for scale, records in periods.items()},
     }
 
+def read_latest_editorial():
+    """Expose only validated local editorial metadata; the renderer owns article HTML."""
+    import glob as _g
+    sources = sorted(_g.glob(os.path.join(ROOT, "research", "editorials", "*.md")), reverse=True)
+    if not sources:
+        return None
+    source = sources[0]
+    date = os.path.basename(source)[:-3]
+    first = open(source, encoding="utf-8", errors="replace").readline().strip()
+    title = first[2:].strip() if first.startswith("# ") else f"Skills Radar 觀點 — {date}"
+    return {"date": date, "title": title, "href": f"editorials/{date}.html"}
+
 def eda_gaps():
     """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
     hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
@@ -268,6 +280,7 @@ data = {
     "discovery": daily_discovery(),
     "summary": read_summary(),
     "timescale_summary": read_timescale_summary(),
+    "editorial": read_latest_editorial(),
     "pipeline_health": (json.load(open(os.path.join(ROOT, "data", "pipeline_health.json"), encoding="utf-8"))
                         if os.path.exists(os.path.join(ROOT, "data", "pipeline_health.json")) else None),
     "schedule": {"hour": 8, "minute": 30, "tz": "Asia/Taipei",
@@ -284,7 +297,9 @@ data = {
                  if os.path.exists(os.path.join(ROOT, "corpus", "injection_scan.json")) else None),
     "eda_gaps": eda_gaps(),
 }
-json.dump(data, open(os.path.join(DOCS, "data.json"), "w"), ensure_ascii=False, indent=1)
+with open(os.path.join(DOCS, "data.json"), "w", encoding="utf-8", newline="\n") as fh:
+    json.dump(data, fh, ensure_ascii=False, indent=1)
+    fh.write("\n")
 
 tpl = open(os.path.join(ROOT, "index", "site_template.html"), encoding="utf-8").read()
 page = tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))

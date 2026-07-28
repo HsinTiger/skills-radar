@@ -1,107 +1,107 @@
 {
- "n_scanned": 41230,
- "n_flagged": 517,
- "pct_flagged": 1.25,
+ "n_scanned": 42242,
+ "n_flagged": 543,
+ "pct_flagged": 1.29,
  "by_category": {
-  "隱藏字元": 139,
-  "憑證竊取": 133,
-  "越權自主": 85,
-  "改動設定或掛鉤": 73,
-  "破壞性操作": 36,
+  "隱藏字元": 144,
+  "憑證竊取": 142,
+  "越權自主": 87,
+  "改動設定或掛鉤": 79,
+  "破壞性操作": 37,
   "指令覆寫": 31,
+  "編碼混淆": 13,
   "隱瞞使用者": 12,
-  "編碼混淆": 12,
-  "外送資料": 9
+  "外送資料": 11
  },
  "by_domain": {
   "software-dev": {
-   "flagged": 117,
-   "total": 12901,
+   "flagged": 121,
+   "total": 13181,
    "pct": 0.9
+  },
+  "ai-agent-tooling": {
+   "flagged": 100,
+   "total": 4676,
+   "pct": 2.1
   },
   "security": {
    "flagged": 93,
-   "total": 3447,
+   "total": 3475,
    "pct": 2.7
   },
-  "ai-agent-tooling": {
-   "flagged": 92,
-   "total": 4459,
-   "pct": 2.1
-  },
   "devops-infra": {
-   "flagged": 63,
-   "total": 3356,
+   "flagged": 65,
+   "total": 3424,
    "pct": 1.9
   },
   "design-creative": {
-   "flagged": 49,
-   "total": 3817,
+   "flagged": 52,
+   "total": 3859,
    "pct": 1.3
   },
   "personal-productivity": {
-   "flagged": 26,
-   "total": 1136,
-   "pct": 2.3
+   "flagged": 29,
+   "total": 1216,
+   "pct": 2.4
   },
   "finance-investing": {
    "flagged": 17,
-   "total": 821,
-   "pct": 2.1
+   "total": 855,
+   "pct": 2.0
+  },
+  "ops-admin": {
+   "flagged": 13,
+   "total": 1360,
+   "pct": 1.0
   },
   "data-analytics": {
    "flagged": 13,
-   "total": 959,
-   "pct": 1.4
+   "total": 970,
+   "pct": 1.3
   },
-  "ops-admin": {
+  "marketing-growth": {
    "flagged": 11,
-   "total": 1308,
-   "pct": 0.8
+   "total": 1715,
+   "pct": 0.6
   },
   "research-academia": {
    "flagged": 10,
-   "total": 1866,
+   "total": 1917,
    "pct": 0.5
   },
-  "marketing-growth": {
-   "flagged": 8,
-   "total": 1663,
-   "pct": 0.5
+  "writing-content": {
+   "flagged": 5,
+   "total": 661,
+   "pct": 0.8
   },
   "hardware-eda": {
    "flagged": 5,
-   "total": 2595,
+   "total": 2598,
    "pct": 0.2
-  },
-  "writing-content": {
-   "flagged": 4,
-   "total": 603,
-   "pct": 0.7
   },
   "sales-crm": {
    "flagged": 4,
-   "total": 293,
-   "pct": 1.4
+   "total": 300,
+   "pct": 1.3
   },
   "legal-compliance": {
    "flagged": 3,
-   "total": 651,
+   "total": 662,
    "pct": 0.5
   },
   "healthcare-bio": {
    "flagged": 1,
-   "total": 808,
+   "total": 816,
    "pct": 0.1
   },
   "education-training": {
    "flagged": 1,
-   "total": 266,
+   "total": 271,
    "pct": 0.4
   },
   "other": {
    "flagged": 0,
-   "total": 281,
+   "total": 286,
    "pct": 0.0
   }
  },
@@ -342,6 +342,17 @@
     "隱瞞使用者": 1
    },
    "name": "skill-security-scan"
+  },
+  {
+   "repo": "motormetrics/motormetrics",
+   "path": ".agents/skills/resend/SKILL.md",
+   "stars": 21,
+   "domain": "devops-infra",
+   "score": 10,
+   "hits": {
+    "憑證竊取": 2
+   },
+   "name": "resend"
   },
   {
    "repo": "mrndstvndv/pi-coding-agent-flake",
@@ -767,23 +778,12 @@
     "憑證竊取": 1
    },
    "name": "openai-image"
-  },
-  {
-   "repo": "Open-Curiosity/gini-agent",
-   "path": "skills/agents/codex/SKILL.md",
-   "stars": 1379,
-   "domain": "ai-agent-tooling",
-   "score": 5,
-   "hits": {
-    "憑證竊取": 1
-   },
-   "name": "codex"
   }
  ],
  "severity_buckets": {
   "高(>=15)": 0,
-  "中(8-14)": 31,
-  "低(1-7)": 486
+  "中(8-14)": 32,
+  "低(1-7)": 511
  },
  "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
 }

@@ -84,7 +84,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
 <div class="wrap">
 <header>
   <h1>Skills Radar</h1>
-  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作 · <a href="wiki/index.html">累積式 Domain Wiki</a> · <a href="recommendations/index.html">每日 EDA_IC／財經研究建議</a></div>
+  <div class="sub">把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作 · <a href="editorials/index.html">每日觀點</a> · <a href="wiki/index.html">累積式 Domain Wiki</a> · <a href="recommendations/index.html">每日 EDA_IC／財經研究建議</a></div>
   <div class="stats">
     <div class="stat"><b id="s-n">—</b><span>已分類 skill</span></div>
     <div class="stat"><b id="s-prod">—</b><span>文件標示上線率</span></div>
@@ -98,6 +98,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
 未排除 `targeted-wifi`／`targeted-eda2`；目前母體統計已用 neutral-only policy 重建，所有 targeted-* 均排除。
 舊受影響報告保留 superseded 標記；詳見 <a href="https://github.com/HsinTiger/skills-radar/blob/main/research/CORRECTION_2026-07-27_TARGETED_SAMPLE.md">修正紀錄</a>。</div>
 
+<div id="editorial-latest"></div>
 <div id="summary-card"></div>
 
 <div class="toggle" role="group" aria-label="時間視角">
@@ -151,13 +152,6 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
   <tbody id="eda-chip"></tbody>
 </table></div>
 
-<h3>鄰接領域（嵌入式 / 機器人 / 韌體）</h3>
-<p class="lede">這些不是晶片設計，但共用「硬體在迴圈裡、錯了很貴」的性質，做法可以借。</p>
-<div class="scroll"><table>
-  <thead><tr><th class="num">stars</th><th>任務</th><th>成熟度</th><th>作者</th><th>痛點</th></tr></thead>
-  <tbody id="eda-adj"></tbody>
-</table></div>
-
 <h3>EDA 內部的能力缺口</h3>
 <p class="lede">拿硬體樣本的任務分佈，對照全體中立樣本。比值 &lt;1 代表這個領域在這種能力上明顯少做。
 下方附該任務底下真實出現的痛點——這些是實際有人寫成 skill 公開的，不是我猜的。</p>
@@ -199,6 +193,27 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
 const D = /*__DATA__*/;
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const readable = s => {
+  let value = String(s ?? "");
+  const terms = [
+    [/archive_n/gi, "依專案建立日期歸入本期的樣本數"],
+    [/discovered_previous_n/gi, "前一期雷達新發現數"],
+    [/discovered_n/gi, "本期雷達新發現數"],
+    [/repo_created(?:\s+cohort)?/gi, "依專案建立日期歸入本期的樣本"],
+    [/first_seen/gi, "本系統首次觀察日期"],
+    [/domain mix/gi, "領域分布"], [/task mix/gi, "任務分布"],
+    [/maturity mix/gi, "成熟度分布"],
+    [/production_document_proxy/gi, "文件自述已投入使用的指標"],
+    [/agent_target_proxy/gi, "文件自述供 AI 助理使用的指標"],
+    [/diversity entropy/gi, "領域分散程度"], [/entropy/gi, "領域分散程度"],
+    [/hardware_eda_n/gi, "硬體與電子設計自動化樣本數"],
+    [/finance_n/gi, "財經研究樣本數"], [/EDA_IC/g, "EDA／數位 IC"],
+    [/AI_GENERATED/g, "已完成"], [/proxy/gi, "文件自述指標"], [/cohort/gi, "同一期樣本"],
+  ];
+  terms.forEach(([pattern, replacement]) => { value = value.replace(pattern, replacement); });
+  return value.replace(/\s*\((?:E(?:10|[1-9])(?:\s*,\s*)?)+\)/g, "").trim();
+};
+const readerUnsafe = s => /(?:archive_n|discovered_n|repo_created|first_seen|domain mix|task mix|maturity mix|\bE(?:10|[1-9])\b|\b(?:confidence|taxonomy|validation|production|workflow|DevOps|signoff|golden|cohort|proxy|entropy)\b)/i.test(String(s ?? ""));
 let mode = "month";
 
 $("#s-n").textContent = D.n_total.toLocaleString();
@@ -207,6 +222,13 @@ $("#s-verify").textContent = D.global_task_pct["驗證"] + "%";
 $("#s-eda").textContent = D.eda.pct_of_corpus + "%";
 $("#s-gen").textContent = D.generated.slice(0, 10);
 $("#foot-gen").textContent = "產生時間：" + D.generated + "｜樣本 " + D.n_total.toLocaleString() + " 筆";
+
+const editorial = D.editorial || {};
+$("#editorial-latest").innerHTML = editorial.href ? `<div class="card">
+  <div class="kicker">最新每日觀點 · ${esc(editorial.date)}</div>
+  <h3 style="margin:.35rem 0"><a href="${esc(editorial.href)}">${esc(editorial.title)}</a></h3>
+  <p class="pain">有主張、反方觀點與可證偽條件的繁中專欄；數字與 EDA／財經判讀都受當日可查證資料約束。</p>
+</div>` : "";
 
 function spark(arr){
   const max = Math.max(...arr, 1);
@@ -304,13 +326,12 @@ const row = r => `<tr>
   <td><span class="tag ${r.maturity === 'production' ? 'good' : r.maturity === 'toy' ? 'warn' : ''}">${esc(r.maturity)}</span></td>
   <td>${esc(r.profession)}</td><td class="pain">${esc(r.pain)}</td></tr>`;
 $("#eda-chip").innerHTML = e.chip.map(row).join("") || '<tr><td colspan="5">無</td></tr>';
-$("#eda-adj").innerHTML = e.adjacent.map(row).join("");
 
 const IDEAS = [
   ["RTL 波形回歸的驗證層", "公開生態裡 UVM 相關的唯一樣本停在 toy 階段。把「改完 RTL 自動重跑波形比對、只回報有意義的差異」做成 skill，是這個領域最缺、你又最熟的一塊。", "verify"],
   ["時序收斂的失敗歸因", "樣本裡有人在做 OpenROAD 佈線修時序（analyze，已上線）。把 timing report 從「一堆數字」變成「這條路徑為什麼掉了、上次改了什麼」的歸因，用開源工具鏈就能做，不碰公司 IP。"],
   ["規格到測試項的展開", "從布爾邏輯規格推導閘級電路的樣本只有 26 stars、還停在 workflow。規格 → 測試點清單 → 覆蓋率缺口，這條鏈在公開生態完全空白。"],
-  ["FPGA 上板失敗的除錯助手", "樣本裡有「模擬正常但上板失敗」的痛點（10 stars, workflow）。這是嵌入式與 IC 交界最普遍的痛，而且完全可以用個人板子做，沒有 NDA 問題。"],
+  ["CDC／RDC 與 reset contract 稽核", "把 clock/reset intent、waiver、assertion 與工具報告分開保存；靜態檢查只證明對應 gate，不把 lint 或 parser PASS 升格成 RTL 正確。"],
 ];
 $("#eda-ideas").innerHTML = IDEAS.map(([t, d]) => `<div class="card">
   <div class="kicker">可嘗試</div><h3 style="margin:.3rem 0 .4rem">${t}</h3>
@@ -386,40 +407,69 @@ function renderSummary(){
   const record = (ts.latest || {})[mode];
   const label = mode === "day" ? "日" : mode === "week" ? "週" : mode === "month" ? "月" : "季";
   if (!record || record.status !== "AI_GENERATED") {
-    const status = ((ts.status || {}).status || "NOT_RUN");
     $("#summary-card").innerHTML = `<div class="sumcard">
-      <div class="kicker">${label}級 AI Summary</div>
+      <div class="kicker">${label}級週期觀察</div>
       <h3>尚未產生經證據驗證的${label}級摘要</h3>
-      <div class="meta">狀態：${esc(status)}。排程存在不等於成功；需 period record、freshness 與遠端發布三者一致。</div>
+      <div class="meta">排程存在不等於成功；需要完整資料、通過本機檢查，並完成遠端回讀。</div>
     </div>`;
     return;
   }
   const ai = record.ai || {}, e = record.evidence || {}, sample = e.E1_sample || {};
+  const prose = [ai.headline, ai.executive_summary, ai.eda_ic_readout, ai.finance_readout,
+    ai.contrarian_view, ...(ai.structural_changes || []), ...(ai.actions || []),
+    ...(ai.falsifiers || []), ...(ai.caveats || [])].join(" ");
+  if (readerUnsafe(prose)) {
+    $("#summary-card").innerHTML = `<div class="sumcard">
+      <div class="kicker">${label}級週期觀察</div>
+      <h3>這篇舊摘要正在重寫</h3>
+      <p>它仍含有資料庫欄位或未解釋的英文術語，不適合直接給人閱讀，因此暫不顯示。</p>
+      <p>資料證據仍保留，下一次每日更新會依目前的繁中專欄規格重新產生文章。</p>
+    </div>`;
+    return;
+  }
+  const noCurrentEvidence = Number(sample.archive_n || 0) === 0 && Number(sample.discovered_n || 0) === 0;
+  if (noCurrentEvidence) {
+    $("#summary-card").innerHTML = `<div class="sumcard">
+      <div class="kicker">${label}級週期觀察 · ${esc(record.period.start)}～${esc(record.period.end)}</div>
+      <h3>這一期資料不足，先不判讀趨勢</h3>
+      <p>依專案建立日期歸入這一期的樣本，以及本系統在這一期首次發現的樣本都不足。
+      這不代表生態沒有變化，只代表目前沒有可靠材料可以下結論。</p>
+      <p>無線網路晶片數位設計與財經研究也沒有足夠的新證據，因此不列空白統計、不硬湊觀點。
+      可改讀上方的每日觀點文章；文章會綜合較長週期與既有採用清單，並清楚標示限制。</p>
+      <div class="meta">判讀信心：低（資料不足）</div>
+    </div>`;
+    return;
+  }
   const proxy = ((e.E6_maturity || {}).production_document_proxy || {});
   const agent = ((e.E6_maturity || {}).agent_target_proxy || {});
   const entropy = ((e.E7_diversity || {}).domain_entropy || {});
   const shifts = (e.E3_domain_shifts || []).slice(0,4);
-  const list = xs => `<ul>${(xs || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
-  let h = `<div class="sumcard"><div class="kicker">${label}級 AI Summary · ${esc(record.period.period_id)}</div>
-    <h3>${esc(ai.headline)}</h3>
-    <div class="meta">${esc(record.period.start)}～${esc(record.period.end)} · confidence ${esc(ai.confidence)} · ${esc(record.status)}</div>
-    <p>${esc(ai.executive_summary)}</p>
+  const list = xs => `<ul>${(xs || []).map(x => `<li>${esc(readable(x))}</li>`).join("")}</ul>`;
+  const confidence = {HIGH:"高", MEDIUM:"中", LOW:"低"}[ai.confidence] || "未標示";
+  const delta = x => `${esc(x.label)}${x.delta_pp > 0 ? "增加" : x.delta_pp < 0 ? "減少" : "持平"}${Math.abs(x.delta_pp)} 個百分點`;
+  let h = `<article class="sumcard"><div class="kicker">${label}級週期觀察 · ${esc(record.period.period_id)}</div>
+    <h3>${esc(readable(ai.headline))}</h3>
+    <div class="meta">${esc(record.period.start)}～${esc(record.period.end)} · 判讀信心：${confidence}</div>
+    <p class="lede">${esc(readable(ai.executive_summary))}</p>
+    <h4>這一期，我怎麼看</h4>${list(ai.structural_changes)}
+    <h4>對你的兩個主題有什麼意義</h4>
+    <p><strong>電子設計自動化與數位晶片設計：</strong>${esc(readable(ai.eda_ic_readout))}</p>
+    <p><strong>財經投資研究：</strong>${esc(readable(ai.finance_readout))}</p>
+    <h4>另一種可能</h4><p>${esc(readable(ai.contrarian_view))}</p>
+    <h4>接下來看什麼</h4>${list(ai.actions)}
+    <details><summary>展開資料依據</summary><div class="body">
     <div class="evidence-grid">
-      <div class="evidence-card"><b>${sample.archive_n ?? "—"}</b><span>repo_created cohort</span></div>
-      <div class="evidence-card"><b>${sample.discovered_n ?? "—"}</b><span>本期 radar 新發現</span></div>
-      <div class="evidence-card"><b>${proxy.pct ?? "—"}${proxy.pct == null ? "" : "%"}</b><span>文件標示 production proxy</span></div>
-      <div class="evidence-card"><b>${agent.pct ?? "—"}${agent.pct == null ? "" : "%"}</b><span>文件標示 agent-facing proxy</span></div>
-      <div class="evidence-card"><b>${entropy.normalized ?? "—"}</b><span>領域多樣性 entropy</span></div>
+      <div class="evidence-card"><b>${sample.archive_n ?? "—"}</b><span>依專案建立日期歸入本期</span></div>
+      <div class="evidence-card"><b>${sample.discovered_n ?? "—"}</b><span>本系統本期新發現</span></div>
+      <div class="evidence-card"><b>${proxy.pct ?? "—"}${proxy.pct == null ? "" : "%"}</b><span>文件自述已投入使用</span></div>
+      <div class="evidence-card"><b>${agent.pct ?? "—"}${agent.pct == null ? "" : "%"}</b><span>文件自述供人工智慧助理使用</span></div>
+      <div class="evidence-card"><b>${entropy.normalized ?? "—"}</b><span>領域分散程度</span></div>
     </div>`;
-  if (shifts.length) h += `<details open><summary>最大領域份額變化（deterministic）</summary>
-    <div class="body">${shifts.map(x => `${esc(x.label)} ${x.delta_pp > 0 ? "+" : ""}${x.delta_pp}pp`).join("、")}</div></details>`;
-  h += `<details open><summary>結構判讀</summary><div class="body">${list(ai.structural_changes)}</div></details>
-    <div class="ai-grid"><div class="card"><div class="kicker">EDA_IC</div><p>${esc(ai.eda_ic_readout)}</p></div>
-    <div class="card"><div class="kicker">財經投資研究</div><p>${esc(ai.finance_readout)}</p></div></div>
-    <details><summary>非共識／反方解讀</summary><div class="body">${esc(ai.contrarian_view)}</div></details>
-    <details><summary>下一步與證偽訊號</summary><div class="body"><strong>行動</strong>${list(ai.actions)}<strong>證偽</strong>${list(ai.falsifiers)}</div></details>
-    <details><summary>資料限制與 evidence IDs</summary><div class="body">${list(ai.caveats)}${esc((ai.evidence_ids || []).join("、"))}</div></details>
-    <p class="pain">雙時鐘：first_seen 是 radar 首次觀察；repo_created 是 repository 建立 cohort，兩者都不是 skill 實際採用時間。</p></div>`;
+  if (shifts.length) h += `<p><strong>領域比重變化：</strong>${shifts.map(delta).join("、")}</p>`;
+  h += `<p><strong>哪些後續訊號會推翻本文：</strong></p>${list(ai.falsifiers)}
+    <p><strong>資料限制：</strong></p>${list(ai.caveats)}
+    <p class="pain">本系統首次看到的日期，以及公開專案庫的建立日期，都不是技能實際採用時間。</p>
+    </div></details></article>`;
   $("#summary-card").innerHTML = h;
 }
 

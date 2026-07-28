@@ -24,15 +24,19 @@ def nonempty(path):
 def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None):
     rec = load(root / "corpus" / "daily_skill_recommendations.json", {})
     ts = load(root / "data" / "timescale_summary_status.json", {})
+    update = load(root / "data" / "corpus_update_manifest.json", {})
     daily_ok = nonempty(root / "daily" / f"{report_date}.md")
-    insight_ok = nonempty(root / "research" / "insights" / f"{report_date}.md")
+    editorial_md_ok = nonempty(root / "research" / "editorials" / f"{report_date}.md")
+    editorial_html_ok = nonempty(root / "docs" / "editorials" / f"{report_date}.html")
+    update_current = update.get("run_date") == report_date
+    update_ok = update_current and update.get("status") == "SUCCESS"
     rec_ok = rec.get("report_date") == report_date and rec.get("status") == "READY_FOR_OWNER_REVIEW"
     ts_ran = ts.get("run_date") == report_date
     ts_ok = ts_ran and ts.get("status") in {"AI_GENERATED", "NO_PERIOD_DUE"}
-    core_ok = daily_ok and rec_ok and privacy_passed and ts_ran
+    core_ok = update_ok and daily_ok and rec_ok and privacy_passed and ts_ran
     if not core_ok:
         status = "FAIL"
-    elif not insight_ok or not ts_ok:
+    elif not editorial_md_ok or not editorial_html_ok or not ts_ok:
         status = "PARTIAL"
     else:
         status = "PASS"
@@ -43,12 +47,21 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
         "completed_at": datetime.now(timezone.utc).isoformat(),
         "status": status,
         "gates": {
+            "corpus_update": update.get("status", "NOT_RUN") if update_current else "NOT_RUN",
             "daily_brief": "PASS" if daily_ok else "FAIL",
             "daily_recommendations": "PASS" if rec_ok else "FAIL",
-            "legacy_opportunity_insight": "PASS" if insight_ok else "PARTIAL",
+            "editorial_markdown": "PASS" if editorial_md_ok else "MISSING",
+            "editorial_html": "PASS" if editorial_html_ok else "MISSING",
+            "legacy_opportunity_insight": "ARCHIVE_ONLY",
             "timescale_dispatch": ts.get("status", "NOT_RUN") if ts_ran else "NOT_RUN",
             "privacy": "PASS" if privacy_passed else "NOT_PROVEN",
             "master_freshness": rec.get("corpus_freshness", {}).get("status", "UNKNOWN"),
+        },
+        "corpus_update": {
+            "status": update.get("status", "NOT_RUN") if update_current else "NOT_RUN",
+            "new_rows": update.get("new_rows") if update_current else None,
+            "rows_after": (update.get("after") or {}).get("rows") if update_current else None,
+            "run_context": update.get("run_context") if update_current else None,
         },
         "timescale": {
             "updated_periods": ts.get("updated_periods", []),
@@ -66,7 +79,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
             "catch_up": "missing period_id only",
         },
         "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK",
-        "claim_boundary": "local PASS does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome",
+        "claim_boundary": "local PASS proves a successful public collector readback plus required local artifacts; it does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome",
     }
 
 

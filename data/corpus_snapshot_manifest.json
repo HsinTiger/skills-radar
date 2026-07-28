@@ -5,13 +5,13 @@
  "release_tag": "corpus-latest",
  "asset_name": "master.jsonl.gz",
  "counts": {
-  "rows": 41230,
-  "unique_keys": 41230,
+  "rows": 42242,
+  "unique_keys": 42242,
   "seed": 6577,
-  "model": 34653
+  "model": 35665
  },
- "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
- "gzip_sha256": "6727d6ced0055ab13ea15c444873274c5331b20283a06f2fcb44c0273510fb00",
- "gzip_bytes": 20557865,
+ "master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+ "gzip_sha256": "b3f856d160bf816b6fb3fe1fd3b3887fee46f40a7778fe67d5303720caddbd01",
+ "gzip_bytes": 21158147,
  "claim_boundary": "Release digest proves corpus bytes, not skill correctness or EDA runtime proof"
 }

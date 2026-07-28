@@ -127,8 +127,16 @@ class DailyRecommendationTests(unittest.TestCase):
 
     def test_daily_pipeline_builds_recommendations_before_publish(self):
         script = (ROOT / "bin" / "daily_research.sh").read_text(encoding="utf-8")
+        self.assertIn('command -v gh', script)
+        self.assertIn('gh auth status', script)
+        self.assertIn('update_corpus.py --date "$DATE"', script)
+        self.assertIn("SKILLS_RADAR_MAX_LLM_DELTA", script)
+        self.assertIn("使用本機模型並保留 confidence gate", script)
         self.assertIn('build_daily_recommendations.py --date "$DATE"', script)
         self.assertIn('timescale_summaries.py --date "$DATE"', script)
+        self.assertIn('build_editorial_evidence.py --date "$DATE"', script)
+        self.assertIn('generate_ai_artifact.py editorial --date "$DATE"', script)
+        self.assertNotIn('generate_ai_artifact.py insight --date "$DATE"', script)
         self.assertIn('write_pipeline_health.py --date "$DATE" --privacy-passed', script)
         self.assertLess(script.index("build_daily_recommendations.py"), script.index("build_site.py"))
         self.assertLess(script.index("timescale_summaries.py"), script.index("build_site.py"))
@@ -137,6 +145,10 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn("git pull --ff-only origin main", runner)
         self.assertLess(runner.index("daily_research.sh"), runner.index("build_readme.py"))
         self.assertIn("launchd 必須收到非零狀態", runner)
+
+        classifier = (ROOT / "bin" / "classify.sh").read_text(encoding="utf-8")
+        self.assertIn("PYTHONUTF8=1", classifier)
+        self.assertIn("完整輸出只有", classifier)
 
 
 if __name__ == "__main__":

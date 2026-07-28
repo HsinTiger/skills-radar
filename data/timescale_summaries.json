@@ -4,7 +4,7 @@
   "day": {
    "2026-07-27": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T05:47:07.609033+00:00",
+    "generated_at": "2026-07-28T08:20:52.274667+00:00",
     "run_date": "2026-07-28",
     "period": {
      "scale": "day",
@@ -19,39 +19,78 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 0,
+      "archive_n": 4,
       "archive_previous_n": 1,
       "discovered_n": 0,
       "discovered_previous_n": 5405
      },
-     "E2_domain_mix": [],
+     "E2_domain_mix": [
+      {
+       "key": "ai-agent-tooling",
+       "label": "AI Agent 工具",
+       "count": 2,
+       "share_pct": 50.0
+      },
+      {
+       "key": "security",
+       "label": "資安",
+       "count": 2,
+       "share_pct": 50.0
+      }
+     ],
      "E3_domain_shifts": [],
-     "E4_task_mix": [],
+     "E4_task_mix": [
+      {
+       "key": "verify",
+       "label": "驗證",
+       "count": 2,
+       "share_pct": 50.0
+      },
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 1,
+       "share_pct": 25.0
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 1,
+       "share_pct": 25.0
+      }
+     ],
      "E5_task_shifts": [],
      "E6_maturity": {
-      "mix": [],
+      "mix": [
+       {
+        "key": "workflow",
+        "label": "workflow",
+        "count": 4,
+        "share_pct": 100.0
+       }
+      ],
       "production_document_proxy": {
        "count": 0,
-       "eligible_n": 0,
-       "pct": null
+       "eligible_n": 4,
+       "pct": 0.0
       },
       "agent_target_proxy": {
-       "count": 0,
-       "eligible_n": 0,
-       "pct": null
+       "count": 2,
+       "eligible_n": 4,
+       "pct": 50.0
       },
       "warning": "document labels are intent/proxy, not deployment or outcome verification"
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 0.0,
-       "categories": 0,
-       "n": 0
+       "normalized": 1.0,
+       "categories": 2,
+       "n": 4
       },
       "task_entropy": {
-       "normalized": 0.0,
-       "categories": 0,
-       "n": 0
+       "normalized": 0.946,
+       "categories": 3,
+       "n": 4
       }
      },
      "E8_eda_ic": {
@@ -76,7 +115,7 @@
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 0,
+      "archive_domain_eligible_n": 4,
       "comparison_domain_eligible_n": 1,
       "minimum_shift_support": 5
      }
@@ -84,45 +123,31 @@
     "ai": {
      "scale": "day",
      "period_id": "2026-07-27",
-     "headline": "本日 repo_created 與 first_seen 兩個 cohort 均無有效樣本，無法產生任何結構性判讀",
-     "executive_summary": "本日 archive_n 為零、discovered_n 亦為零，前一日 discovered_previous_n 雖高但屬前一期事件不應併入本日解讀。所有 domain mix、task mix、maturity mix 皆為空集合，EDA_IC 與財經證據亦全數缺失，本日僅能記錄「無資料」狀態，不可推論任何趨勢或結構變化。",
+     "headline": "今天沒有足夠的新資料，最好的判斷是暫時不下結論",
+     "executive_summary": "今天沒有可供比較的當期樣本。這不是技能生態停滯的證明，更可能是觀察窗口與資料更新節奏造成的空白。與其拿前一天的資料補洞，本期應保留空白，等待下一次採集確認。",
      "structural_changes": [
-      "本日 archive_n 與 discovered_n 均為零，無結構可分析 (E1)",
-      "domain mix、task mix 皆為空集合，無法計算份額變化 (E2, E4)",
-      "maturity mix 為空，production_document_proxy 與 agent_target_proxy 皆無 pct 值 (E6)",
-      "diversity entropy 為零，樣本數為零，屬技術性空值而非真實均質狀態 (E7)"
+      "沒有足夠材料判斷領域或任務結構是否改變",
+      "前一期的大量新發現屬於另一個觀察期間，不能拿來填補今天"
      ],
-     "eda_ic_readout": "hardware_eda_n 為零，無任何證據可供 WiFi baseband ASIC 或 RTL/front-end EDA 判讀 (E8)",
-     "finance_readout": "finance_n 為零，無任何財經研究相關證據可供判讀 (E9)",
-     "contrarian_view": "本日的零樣本很可能只是資料抓取排程或時間切點問題，而非市場真實停滯；不應將其誤讀為技能產出或發現的中斷 (E1, time_contract)",
+     "eda_ic_readout": "今天沒有新的電子設計自動化或數位晶片設計材料，因此不調整無線網路基頻設計的採用清單。",
+     "finance_readout": "今天也沒有新的財經研究材料，既有候選方法維持原狀，不增加任何方向性判斷。",
+     "contrarian_view": "這個空白也可能是採集流程漏跑，而不是單純沒有新項目；只有下一次讀回資料庫後才能分辨。",
      "actions": [
-      "核實本日資料管線是否正常執行，排除排程或抓取失敗的可能",
-      "確認前一日 discovered_previous_n 的高值是否已正確歸屬至對應期間",
-      "若管線正常，記錄本日為真實空窗期並持續觀察後續日期是否恢復",
-      "暫緩發布任何以本日資料為基礎的日層級判讀"
+      "下一次採集完成後讀回資料庫，確認今天的空白是否被補齊"
      ],
      "falsifiers": [
-      "若後續重跑資料管線發現本日實際有 archive_n 或 discovered_n 記錄，說明本日為抓取缺失",
-      "若下一日資料同樣為零，需懷疑管線持續故障",
-      "若補齊本日資料後 domain/task mix 出現非空集合，本次「無資料」判讀即被推翻",
-      "若確認 discovered_previous_n 分配錯誤，需重新核算前後期界線"
+      "後續讀回若補出今天的樣本，本文對資料空白的解釋就必須重寫",
+      "若連續多日都沒有新資料，應優先檢查採集流程而非解讀市場"
      ],
      "caveats": [
-      "本日所有 evidence 欄位皆為空或零值，不構成任何可判讀證據",
-      "discovered_previous_n 的異常高值屬前期事件，不應影響本日判讀",
-      "日層級樣本本就最容易受管線或時間切點問題影響",
-      "此判讀完全基於缺乏資料，confidence 應維持最低"
+      "單日空白不能代表長期趨勢",
+      "前一期資料不應移入今天來製造內容"
      ],
      "confidence": "LOW",
      "evidence_ids": [
       "E1",
-      "E2",
-      "E4",
-      "E6",
-      "E7",
       "E8",
-      "E9",
-      "E10"
+      "E9"
      ]
     }
    }
@@ -130,7 +155,7 @@
   "week": {
    "2026-W30": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T05:47:07.609018+00:00",
+    "generated_at": "2026-07-28T08:20:52.274621+00:00",
     "run_date": "2026-07-28",
     "period": {
      "scale": "week",
@@ -145,47 +170,47 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 46,
-      "archive_previous_n": 67,
+      "archive_n": 47,
+      "archive_previous_n": 68,
       "discovered_n": 5405,
       "discovered_previous_n": 0
      },
      "E2_domain_mix": [
       {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "count": 9,
+       "share_pct": 19.1
+      },
+      {
        "key": "devops-infra",
        "label": "DevOps 基礎設施",
        "count": 9,
-       "share_pct": 19.6
-      },
-      {
-       "key": "software-dev",
-       "label": "軟體開發",
-       "count": 8,
-       "share_pct": 17.4
+       "share_pct": 19.1
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
        "count": 5,
-       "share_pct": 10.9
+       "share_pct": 10.6
       },
       {
        "key": "ops-admin",
        "label": "營運行政",
        "count": 5,
-       "share_pct": 10.9
+       "share_pct": 10.6
       },
       {
        "key": "design-creative",
        "label": "設計創意",
        "count": 5,
-       "share_pct": 10.9
+       "share_pct": 10.6
       },
       {
        "key": "finance-investing",
        "label": "財經投資",
        "count": 3,
-       "share_pct": 6.5
+       "share_pct": 6.4
       },
       {
        "key": "security",
@@ -204,28 +229,28 @@
       {
        "key": "software-dev",
        "label": "軟體開發",
-       "current_count": 8,
+       "current_count": 9,
        "previous_count": 25,
-       "current_share_pct": 17.4,
-       "previous_share_pct": 37.3,
-       "delta_pp": -19.9
+       "current_share_pct": 19.1,
+       "previous_share_pct": 36.8,
+       "delta_pp": -17.6
       },
       {
        "key": "devops-infra",
        "label": "DevOps 基礎設施",
        "current_count": 9,
        "previous_count": 6,
-       "current_share_pct": 19.6,
-       "previous_share_pct": 9.0,
-       "delta_pp": 10.6
+       "current_share_pct": 19.1,
+       "previous_share_pct": 8.8,
+       "delta_pp": 10.3
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
        "current_count": 5,
        "previous_count": 11,
-       "current_share_pct": 10.9,
-       "previous_share_pct": 16.4,
+       "current_share_pct": 10.6,
+       "previous_share_pct": 16.2,
        "delta_pp": -5.5
       },
       {
@@ -233,26 +258,17 @@
        "label": "設計創意",
        "current_count": 5,
        "previous_count": 4,
-       "current_share_pct": 10.9,
-       "previous_share_pct": 6.0,
-       "delta_pp": 4.9
-      },
-      {
-       "key": "ops-admin",
-       "label": "營運行政",
-       "current_count": 5,
-       "previous_count": 4,
-       "current_share_pct": 10.9,
-       "previous_share_pct": 6.0,
-       "delta_pp": 4.9
+       "current_share_pct": 10.6,
+       "previous_share_pct": 5.9,
+       "delta_pp": 4.8
       },
       {
        "key": "research-academia",
        "label": "研究學術",
        "current_count": 1,
        "previous_count": 4,
-       "current_share_pct": 2.2,
-       "previous_share_pct": 6.0,
+       "current_share_pct": 2.1,
+       "previous_share_pct": 5.9,
        "delta_pp": -3.8
       },
       {
@@ -260,9 +276,18 @@
        "label": "財經投資",
        "current_count": 3,
        "previous_count": 2,
-       "current_share_pct": 6.5,
-       "previous_share_pct": 3.0,
-       "delta_pp": 3.5
+       "current_share_pct": 6.4,
+       "previous_share_pct": 2.9,
+       "delta_pp": 3.4
+      },
+      {
+       "key": "ops-admin",
+       "label": "營運行政",
+       "current_count": 5,
+       "previous_count": 5,
+       "current_share_pct": 10.6,
+       "previous_share_pct": 7.4,
+       "delta_pp": 3.3
       },
       {
        "key": "security",
@@ -270,7 +295,7 @@
        "current_count": 2,
        "previous_count": 4,
        "current_share_pct": 4.3,
-       "previous_share_pct": 6.0,
+       "previous_share_pct": 5.9,
        "delta_pp": -1.6
       }
      ],
@@ -389,25 +414,25 @@
         "key": "production",
         "label": "production",
         "count": 24,
-        "share_pct": 52.2
+        "share_pct": 51.1
        },
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 21,
-        "share_pct": 45.7
+        "count": 22,
+        "share_pct": 46.8
        },
        {
         "key": "toy",
         "label": "toy",
         "count": 1,
-        "share_pct": 2.2
+        "share_pct": 2.1
        }
       ],
       "production_document_proxy": {
        "count": 24,
-       "eligible_n": 46,
-       "pct": 52.2
+       "eligible_n": 47,
+       "pct": 51.1
       },
       "agent_target_proxy": {
        "count": 5,
@@ -418,9 +443,9 @@
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 0.905,
+       "normalized": 0.899,
        "categories": 13,
-       "n": 46
+       "n": 47
       },
       "task_entropy": {
        "normalized": 0.949,
@@ -486,53 +511,42 @@
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 46,
-      "comparison_domain_eligible_n": 67,
+      "archive_domain_eligible_n": 47,
+      "comparison_domain_eligible_n": 68,
       "minimum_shift_support": 5
      }
     },
     "ai": {
      "scale": "week",
      "period_id": "2026-W30",
-     "headline": "本週 first_seen 新發現樣本暴增而 repo_created cohort 樣本量偏小，兩個時間軸出現明顯分歧，需分開解讀",
-     "executive_summary": "本週 discovered_n 大幅高於前期（前期為零），顯示 radar 監測範圍或機制在本週出現重大變化；同時 repo_created archive_n 僅四十六筆，較前期六十七筆下降，樣本本就偏小。domain mix 中 DevOps 基礎設施份額上升、軟體開發份額大幅下滑，task mix 中生成與調度上升、驗證與配置下降，但樣本規模小，波動易受個案影響，不宜視為趨勢。",
+     "headline": "本週看似湧入大量新項目，真正的訊號卻是觀察範圍改變",
+     "executive_summary": "本系統在本週首次收進大量資料，但依公開專案建立日期歸入本週的樣本反而偏少。兩個現象放在一起，更像收集機制補齊了先前看不到的內容，而不是技能供給突然爆發。開發維運類比重上升、軟體開發類下降，目前只能當成待驗證線索。",
      "structural_changes": [
-      "discovered_n 由零躍升至五千餘筆，顯示監測機制本身在本週出現重大變化，需先確認是否為系統性事件而非需求變化 (E1)",
-      "軟體開發份額由前期三分之一以上驟降至不到二成，但樣本基數小，個案影響力大 (E3)",
-      "DevOps 基礎設施份額上升逾十個百分點，為本週最大結構變化，仍需以樣本量偏小為前提解讀 (E3)",
-      "task mix 中驗證類份額大幅下降、調度與生成類上升，可能反映極少數 repo 的任務標記差異 (E5)"
+      "新發現的跳升遠大於同期史料變化，顯示觀察系統本身是主要變因",
+      "生成與工作調度的描述變多，驗證與設定的描述變少，但少量樣本很容易被個別專案扭曲"
      ],
-     "eda_ic_readout": "hardware_eda_n 僅兩筆，owner_fit_provisional 分屬 adjacent 與 supporting 各一筆，wifi_areas 為空，taxonomy_validation 仍為 BLOCKED，樣本遠低於可判讀門檻，無法對 WiFi baseband ASIC 或 RTL/front-end EDA 做出任何結論 (E8)",
-     "finance_readout": "finance_n 僅三筆，task mix 以檢索為主，樣本量極小，不足以支撐任何研究廣度或方向性判讀 (E9)",
-     "contrarian_view": "discovered_n 的暴增很可能是 radar 監測範圍或索引機制本身的變動（例如新資料源上線），而非真實市場出現大量新技能；在確認機制變化前，不應將其解讀為採用或供給的躍升 (E1, time_contract)",
+     "eda_ic_readout": "電子設計自動化與數位晶片設計的樣本太少，也沒有直接對應無線網路基頻設計的內容。本週不宜因此調整採用清單。",
+     "finance_readout": "財經內容同樣稀少，主要集中在資料查找與初步分析，還不足以說明研究方法正在轉向。",
+     "contrarian_view": "如果後續人工抽樣發現這批項目來自彼此獨立且近期活躍的來源，那麼供給加速的解釋才值得重新討論。",
      "actions": [
-      "優先核實 discovered_n 暴增是否來自監測機制或資料源變更而非真實新增",
-      "待 discovered_n 事件確認後，重新評估本週 domain/task mix 是否受該事件污染",
-      "對 DevOps 基礎設施份額上升的具體 repo 進行人工抽樣核實",
-      "在樣本量回升前，暫緩對本週 EDA_IC 與財經類做任何方向性結論"
+      "抽樣檢查大量新發現是否來自一次性搜尋擴張或舊資料補回",
+      "下一完整週再比較同一套搜尋範圍，確認領域變化是否重現"
      ],
      "falsifiers": [
-      "若下週 discovered_n 回落至個位數或零，說明本週為一次性系統事件",
-      "若人工抽樣顯示 DevOps 基礎設施上升集中於少數 repo，份額變化即為個案而非結構",
-      "若 archive_n 持續維持在同等低位，需下修對本週判讀的 confidence",
-      "若 discovered_n 暴增後對應的 domain mix 與 archive cohort 高度不一致，需懷疑資料源污染"
+      "若下一週新發現回到低量，這次跳升就較可能是一次性補回",
+      "若領域變化分散於許多獨立來源並持續重現，系統事件的解釋就會變弱"
      ],
      "caveats": [
-      "discovered_n 與 archive_n 分屬不同時間軸，不可直接相加比較",
-      "本週兩個 cohort 樣本量均偏小，minimum_shift_support 門檻下判讀信心低",
-      "EDA_IC 與財經樣本均個位數，僅供留意方向，不構成結論",
-      "repo_created 最新期存在索引不完整風險"
+      "本週首次找到的項目與本週建立的公開專案是兩種不同時間",
+      "專業晶片與財經工作常不公開，公開資料會低估真實活動"
      ],
      "confidence": "LOW",
      "evidence_ids": [
       "E1",
-      "E2",
       "E3",
       "E5",
-      "E6",
       "E8",
-      "E9",
-      "E10"
+      "E9"
      ]
     }
    }
@@ -540,7 +554,7 @@
   "month": {
    "2026-06": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T05:47:07.608974+00:00",
+    "generated_at": "2026-07-28T08:20:52.274583+00:00",
     "run_date": "2026-07-28",
     "period": {
      "scale": "month",
@@ -555,8 +569,8 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 456,
-      "archive_previous_n": 632,
+      "archive_n": 468,
+      "archive_previous_n": 652,
       "discovered_n": 0,
       "discovered_previous_n": 0
      },
@@ -564,106 +578,106 @@
       {
        "key": "software-dev",
        "label": "軟體開發",
-       "count": 132,
-       "share_pct": 28.9
+       "count": 133,
+       "share_pct": 28.4
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
-       "count": 71,
-       "share_pct": 15.6
+       "count": 72,
+       "share_pct": 15.4
       },
       {
        "key": "security",
        "label": "資安",
-       "count": 34,
-       "share_pct": 7.5
+       "count": 36,
+       "share_pct": 7.7
       },
       {
        "key": "personal-productivity",
        "label": "個人生產力",
-       "count": 31,
+       "count": 32,
        "share_pct": 6.8
       },
       {
        "key": "design-creative",
        "label": "設計創意",
-       "count": 27,
-       "share_pct": 5.9
+       "count": 28,
+       "share_pct": 6.0
       },
       {
        "key": "devops-infra",
        "label": "DevOps 基礎設施",
-       "count": 23,
-       "share_pct": 5.0
+       "count": 24,
+       "share_pct": 5.1
       },
       {
        "key": "marketing-growth",
        "label": "行銷成長",
-       "count": 22,
-       "share_pct": 4.8
+       "count": 23,
+       "share_pct": 4.9
       },
       {
        "key": "writing-content",
        "label": "寫作內容",
        "count": 21,
-       "share_pct": 4.6
+       "share_pct": 4.5
       }
      ],
      "E3_domain_shifts": [
       {
-       "key": "software-dev",
-       "label": "軟體開發",
-       "current_count": 132,
-       "previous_count": 158,
-       "current_share_pct": 28.9,
-       "previous_share_pct": 25.0,
-       "delta_pp": 3.9
-      },
-      {
        "key": "legal-compliance",
        "label": "法務合規",
-       "current_count": 5,
-       "previous_count": 31,
-       "current_share_pct": 1.1,
-       "previous_share_pct": 4.9,
-       "delta_pp": -3.8
+       "current_count": 6,
+       "previous_count": 34,
+       "current_share_pct": 1.3,
+       "previous_share_pct": 5.2,
+       "delta_pp": -3.9
+      },
+      {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "current_count": 133,
+       "previous_count": 161,
+       "current_share_pct": 28.4,
+       "previous_share_pct": 24.7,
+       "delta_pp": 3.7
       },
       {
        "key": "healthcare-bio",
        "label": "醫療生技",
        "current_count": 8,
-       "previous_count": 26,
-       "current_share_pct": 1.8,
+       "previous_count": 27,
+       "current_share_pct": 1.7,
        "previous_share_pct": 4.1,
        "delta_pp": -2.4
       },
       {
-       "key": "design-creative",
-       "label": "設計創意",
-       "current_count": 27,
-       "previous_count": 51,
-       "current_share_pct": 5.9,
-       "previous_share_pct": 8.1,
-       "delta_pp": -2.1
-      },
-      {
        "key": "marketing-growth",
        "label": "行銷成長",
-       "current_count": 22,
+       "current_count": 23,
        "previous_count": 19,
-       "current_share_pct": 4.8,
-       "previous_share_pct": 3.0,
-       "delta_pp": 1.8
+       "current_share_pct": 4.9,
+       "previous_share_pct": 2.9,
+       "delta_pp": 2.0
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
-       "current_count": 71,
-       "previous_count": 109,
-       "current_share_pct": 15.6,
+       "current_count": 72,
+       "previous_count": 112,
+       "current_share_pct": 15.4,
        "previous_share_pct": 17.2,
-       "delta_pp": -1.7
+       "delta_pp": -1.8
+      },
+      {
+       "key": "design-creative",
+       "label": "設計創意",
+       "current_count": 28,
+       "previous_count": 51,
+       "current_share_pct": 6.0,
+       "previous_share_pct": 7.8,
+       "delta_pp": -1.8
       },
       {
        "key": "education-training",
@@ -671,35 +685,35 @@
        "current_count": 12,
        "previous_count": 8,
        "current_share_pct": 2.6,
-       "previous_share_pct": 1.3,
-       "delta_pp": 1.4
-      },
-      {
-       "key": "security",
-       "label": "資安",
-       "current_count": 34,
-       "previous_count": 39,
-       "current_share_pct": 7.5,
-       "previous_share_pct": 6.2,
+       "previous_share_pct": 1.2,
        "delta_pp": 1.3
-      },
-      {
-       "key": "finance-investing",
-       "label": "財經投資",
-       "current_count": 16,
-       "previous_count": 30,
-       "current_share_pct": 3.5,
-       "previous_share_pct": 4.7,
-       "delta_pp": -1.2
       },
       {
        "key": "research-academia",
        "label": "研究學術",
-       "current_count": 16,
-       "previous_count": 30,
-       "current_share_pct": 3.5,
-       "previous_share_pct": 4.7,
-       "delta_pp": -1.2
+       "current_count": 17,
+       "previous_count": 32,
+       "current_share_pct": 3.6,
+       "previous_share_pct": 4.9,
+       "delta_pp": -1.3
+      },
+      {
+       "key": "security",
+       "label": "資安",
+       "current_count": 36,
+       "previous_count": 42,
+       "current_share_pct": 7.7,
+       "previous_share_pct": 6.4,
+       "delta_pp": 1.3
+      },
+      {
+       "key": "data-analytics",
+       "label": "資料分析",
+       "current_count": 13,
+       "previous_count": 11,
+       "current_share_pct": 2.8,
+       "previous_share_pct": 1.7,
+       "delta_pp": 1.1
       }
      ],
      "E4_task_mix": [
@@ -707,37 +721,37 @@
        "key": "generate",
        "label": "生成",
        "count": 99,
-       "share_pct": 21.7
+       "share_pct": 21.5
       },
       {
        "key": "configure",
        "label": "配置",
        "count": 86,
-       "share_pct": 18.9
-      },
-      {
-       "key": "analyze",
-       "label": "分析",
-       "count": 65,
-       "share_pct": 14.3
+       "share_pct": 18.7
       },
       {
        "key": "verify",
        "label": "驗證",
-       "count": 65,
+       "count": 67,
+       "share_pct": 14.6
+      },
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 66,
        "share_pct": 14.3
       },
       {
        "key": "orchestrate",
        "label": "調度",
        "count": 58,
-       "share_pct": 12.7
+       "share_pct": 12.6
       },
       {
        "key": "transform",
        "label": "轉換",
-       "count": 45,
-       "share_pct": 9.9
+       "count": 46,
+       "share_pct": 10.0
       },
       {
        "key": "retrieve",
@@ -752,45 +766,45 @@
        "label": "配置",
        "current_count": 86,
        "previous_count": 108,
-       "current_share_pct": 18.9,
-       "previous_share_pct": 17.1,
+       "current_share_pct": 18.7,
+       "previous_share_pct": 16.9,
        "delta_pp": 1.8
       },
       {
        "key": "analyze",
        "label": "分析",
-       "current_count": 65,
-       "previous_count": 100,
+       "current_count": 66,
+       "previous_count": 102,
        "current_share_pct": 14.3,
-       "previous_share_pct": 15.8,
+       "previous_share_pct": 16.0,
        "delta_pp": -1.6
       },
       {
        "key": "orchestrate",
        "label": "調度",
        "current_count": 58,
-       "previous_count": 88,
-       "current_share_pct": 12.7,
-       "previous_share_pct": 13.9,
-       "delta_pp": -1.2
+       "previous_count": 90,
+       "current_share_pct": 12.6,
+       "previous_share_pct": 14.1,
+       "delta_pp": -1.5
       },
       {
        "key": "transform",
        "label": "轉換",
-       "current_count": 45,
+       "current_count": 46,
        "previous_count": 55,
-       "current_share_pct": 9.9,
-       "previous_share_pct": 8.7,
-       "delta_pp": 1.2
+       "current_share_pct": 10.0,
+       "previous_share_pct": 8.6,
+       "delta_pp": 1.4
       },
       {
        "key": "generate",
        "label": "生成",
        "current_count": 99,
-       "previous_count": 133,
-       "current_share_pct": 21.7,
+       "previous_count": 134,
+       "current_share_pct": 21.5,
        "previous_share_pct": 21.0,
-       "delta_pp": 0.7
+       "delta_pp": 0.5
       },
       {
        "key": "retrieve",
@@ -798,17 +812,17 @@
        "current_count": 38,
        "previous_count": 56,
        "current_share_pct": 8.3,
-       "previous_share_pct": 8.9,
+       "previous_share_pct": 8.8,
        "delta_pp": -0.5
       },
       {
        "key": "verify",
        "label": "驗證",
-       "current_count": 65,
-       "previous_count": 92,
-       "current_share_pct": 14.3,
+       "current_count": 67,
+       "previous_count": 93,
+       "current_share_pct": 14.6,
        "previous_share_pct": 14.6,
-       "delta_pp": -0.3
+       "delta_pp": -0.0
       }
      ],
      "E6_maturity": {
@@ -816,44 +830,44 @@
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 245,
-        "share_pct": 53.7
+        "count": 248,
+        "share_pct": 53.6
        },
        {
         "key": "production",
         "label": "production",
-        "count": 198,
-        "share_pct": 43.4
+        "count": 202,
+        "share_pct": 43.6
        },
        {
         "key": "toy",
         "label": "toy",
         "count": 13,
-        "share_pct": 2.9
+        "share_pct": 2.8
        }
       ],
       "production_document_proxy": {
-       "count": 198,
-       "eligible_n": 456,
-       "pct": 43.4
+       "count": 202,
+       "eligible_n": 463,
+       "pct": 43.6
       },
       "agent_target_proxy": {
-       "count": 78,
-       "eligible_n": 456,
-       "pct": 17.1
+       "count": 79,
+       "eligible_n": 465,
+       "pct": 17.0
       },
       "warning": "document labels are intent/proxy, not deployment or outcome verification"
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 0.829,
+       "normalized": 0.833,
        "categories": 18,
-       "n": 456
+       "n": 468
       },
       "task_entropy": {
-       "normalized": 0.976,
+       "normalized": 0.977,
        "categories": 7,
-       "n": 456
+       "n": 460
       }
      },
      "E8_eda_ic": {
@@ -881,57 +895,57 @@
       "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
      },
      "E9_finance": {
-      "finance_n": 16,
+      "finance_n": 18,
       "task_mix": [
        {
         "key": "analyze",
         "label": "分析",
-        "count": 6,
-        "share_pct": 37.5
+        "count": 7,
+        "share_pct": 41.2
        },
        {
         "key": "retrieve",
         "label": "檢索",
         "count": 4,
-        "share_pct": 25.0
+        "share_pct": 23.5
        },
        {
         "key": "orchestrate",
         "label": "調度",
         "count": 2,
-        "share_pct": 12.5
+        "share_pct": 11.8
        },
        {
         "key": "generate",
         "label": "生成",
         "count": 2,
-        "share_pct": 12.5
+        "share_pct": 11.8
        },
        {
         "key": "configure",
         "label": "配置",
         "count": 1,
-        "share_pct": 6.2
+        "share_pct": 5.9
        },
        {
         "key": "verify",
         "label": "驗證",
         "count": 1,
-        "share_pct": 6.2
+        "share_pct": 5.9
        }
       ],
       "maturity_mix": [
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 9,
-        "share_pct": 56.2
+        "count": 10,
+        "share_pct": 58.8
        },
        {
         "key": "production",
         "label": "production",
         "count": 7,
-        "share_pct": 43.8
+        "share_pct": 41.2
        }
       ],
       "current_recommendation_states": {
@@ -943,53 +957,43 @@
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 456,
-      "comparison_domain_eligible_n": 632,
+      "archive_domain_eligible_n": 468,
+      "comparison_domain_eligible_n": 652,
       "minimum_shift_support": 5
      }
     },
     "ai": {
      "scale": "month",
      "period_id": "2026-06",
-     "headline": "repo_created 史料 cohort 樣本量下降，軟體開發與 AI Agent 工具仍為主結構，法務合規與醫療生技比重明顯萎縮",
-     "executive_summary": "本期無 first_seen 新發現（discovered_n 為零），所有觀察都來自 repo_created 史料 cohort。archive_n 較上期下降，需注意 completeness 對最新 cohort 的限制。domain mix 仍以軟體開發、AI Agent 工具為主體，法務合規與醫療生技份額下滑幅度較大，但這屬於公開 GitHub repo_created 分布變化，不代表企業內部採用趨勢，且样本本身可能受索引不完整影響。",
+     "headline": "軟體開發仍是主體，本月更值得注意的是專業領域的可見度落差",
+     "executive_summary": "依公開專案的建立日期觀察，軟體開發的比重仍高，法務合規與醫療生技則明顯變少。不過本月可見的整體史料也比前一期少，因此這更像公開程度與搜尋完整度的共同結果，不能直接解讀成真實需求轉移。",
      "structural_changes": [
-      "軟體開發份額由前期上升，但絕對 archive_n 下降，顯示整體 cohort 縮小而非該領域擴張 (E3)",
-      "法務合規與醫療生技份額均下滑超過負二個百分點，樣本基數本就偏小，需謹慎解讀 (E3)",
-      "task mix 中配置類上升、分析與調度類下降，顯示 repo_created cohort 描述性偏向設定型技能 (E5)",
-      "maturity mix 中 production 標籤占比逾四成，但此為作者文件 proxy，非部署或成效證明 (E6)"
+      "軟體開發的比重上升，但整體可見樣本縮小，不能把比重增加當成絕對成長",
+      "法務合規與醫療生技下降幅度較大，恰好也是企業內部資料最不容易公開的領域"
      ],
-     "eda_ic_readout": "hardware_eda_n 僅五筆，owner_fit_provisional 多屬 adjacent，wifi_areas 為空，taxonomy_validation 為 BLOCKED，樣本嚴重不足，無法對 WiFi baseband ASIC 或 RTL/front-end EDA 做出任何判讀 (E8)",
-     "finance_readout": "finance_n 為十六筆，task mix 以分析與檢索為主，maturity mix workflow 略高於 production，樣本量偏小僅供觀察方向，不構成研究廣度結論 (E9)",
-     "contrarian_view": "法務合規與醫療生技份額下滑也可能只是公開 GitHub repo_created 索引噪音或搜尋不完整所致，而非該領域技能真實減少；公開資料本就低估企業內部法務、醫療實況 (E3, time_contract)",
+     "eda_ic_readout": "數位晶片設計相關材料仍然很少，分類方法也尚未完成可靠度確認。目前只能挑出候選做人工閱讀，不能據此選擇工具或更動設計流程。",
+     "finance_readout": "財經材料開始看得出資料分析與查找是常見用途，但樣本仍偏少。較穩健的用法是改善資料來源、財報整理與反方論證，而不是產生買賣結論。",
+     "contrarian_view": "專業領域變少，可能只是公開平台越來越偏向容易展示的通用工具；它不一定代表企業對專業能力的需求下降。",
      "actions": [
-      "持續追蹤下期 archive_n 是否回穩，確認本期下降是否為索引不完整所致",
-      "對法務合規與醫療生技的下滑份額另做人工抽樣核實",
-      "待 golden validation 完成前，不對 EDA_IC 發布任何結論",
-      "財經類樣本累積至可支撑最小份額後才做趨勢判讀"
+      "對下降最多的專業領域做來源抽樣，分辨真實減少與搜尋缺口",
+      "晶片與財經候選只做人工驗證，不因比重變化直接升級採用"
      ],
      "falsifiers": [
-      "若下期同 cohort 回補後 archive_n 回升且法務合規份額回升，說明本期為索引缺口而非結構變化",
-      "若 EDA_IC golden validation 通過且樣本擴大，可重新評估 WiFi/ASIC 判讀",
-      "若財經類樣本擴大且 task mix 穩定重複出現，可提升 confidence",
-      "若下期 production 標籤占比不隨作者行為變化而變動，可強化 proxy 解讀"
+      "若後續補齊索引後專業領域迅速回升，本月差異就主要是資料缺口",
+      "若相同結構在多個完整月份持續重現，才可提升對長期變化的信心"
      ],
      "caveats": [
-      "本期無 first_seen 新發現可比對，僅有 repo_created 史料視角",
-      "repo_created cohort 為索引不完整，最新期尤須謹慎",
-      "EDA_IC taxonomy 為 provisional，未過 golden validation",
-      "maturity 標籤為作者意圖 proxy，非部署或成效證明"
+      "專案建立日期不是技能被安裝或採用的日期",
+      "公開平台會系統性低估公司內部的晶片、金融、法務與醫療工作"
      ],
-     "confidence": "LOW",
+     "confidence": "MEDIUM",
      "evidence_ids": [
       "E1",
-      "E2",
       "E3",
       "E5",
       "E6",
       "E8",
-      "E9",
-      "E10"
+      "E9"
      ]
     }
    }
@@ -997,7 +1001,7 @@
   "quarter": {
    "2026-Q2": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T05:47:07.608995+00:00",
+    "generated_at": "2026-07-28T08:20:52.274604+00:00",
     "run_date": "2026-07-28",
     "period": {
      "scale": "quarter",
@@ -1012,8 +1016,8 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 1919,
-      "archive_previous_n": 2055,
+      "archive_n": 1965,
+      "archive_previous_n": 2139,
       "discovered_n": 0,
       "discovered_previous_n": 0
      },
@@ -1021,49 +1025,49 @@
       {
        "key": "software-dev",
        "label": "軟體開發",
-       "count": 519,
-       "share_pct": 27.0
+       "count": 525,
+       "share_pct": 26.7
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
-       "count": 297,
-       "share_pct": 15.5
+       "count": 301,
+       "share_pct": 15.3
       },
       {
        "key": "personal-productivity",
        "label": "個人生產力",
-       "count": 143,
-       "share_pct": 7.5
+       "count": 144,
+       "share_pct": 7.3
       },
       {
        "key": "design-creative",
        "label": "設計創意",
-       "count": 130,
+       "count": 133,
        "share_pct": 6.8
       },
       {
        "key": "security",
        "label": "資安",
-       "count": 116,
-       "share_pct": 6.0
+       "count": 123,
+       "share_pct": 6.3
       },
       {
        "key": "devops-infra",
        "label": "DevOps 基礎設施",
-       "count": 104,
-       "share_pct": 5.4
+       "count": 110,
+       "share_pct": 5.6
       },
       {
        "key": "ops-admin",
        "label": "營運行政",
        "count": 85,
-       "share_pct": 4.4
+       "share_pct": 4.3
       },
       {
-       "key": "marketing-growth",
-       "label": "行銷成長",
-       "count": 81,
+       "key": "research-academia",
+       "label": "研究學術",
+       "count": 83,
        "share_pct": 4.2
       }
      ],
@@ -1071,65 +1075,65 @@
       {
        "key": "software-dev",
        "label": "軟體開發",
-       "current_count": 519,
-       "previous_count": 625,
-       "current_share_pct": 27.0,
-       "previous_share_pct": 30.4,
-       "delta_pp": -3.4
+       "current_count": 525,
+       "previous_count": 641,
+       "current_share_pct": 26.7,
+       "previous_share_pct": 30.0,
+       "delta_pp": -3.2
       },
       {
        "key": "personal-productivity",
        "label": "個人生產力",
-       "current_count": 143,
-       "previous_count": 108,
-       "current_share_pct": 7.5,
-       "previous_share_pct": 5.3,
-       "delta_pp": 2.2
+       "current_count": 144,
+       "previous_count": 112,
+       "current_share_pct": 7.3,
+       "previous_share_pct": 5.2,
+       "delta_pp": 2.1
       },
       {
        "key": "ai-agent-tooling",
        "label": "AI Agent 工具",
-       "current_count": 297,
-       "previous_count": 346,
-       "current_share_pct": 15.5,
-       "previous_share_pct": 16.8,
-       "delta_pp": -1.4
-      },
-      {
-       "key": "writing-content",
-       "label": "寫作內容",
-       "current_count": 73,
-       "previous_count": 52,
-       "current_share_pct": 3.8,
-       "previous_share_pct": 2.5,
-       "delta_pp": 1.3
-      },
-      {
-       "key": "devops-infra",
-       "label": "DevOps 基礎設施",
-       "current_count": 104,
-       "previous_count": 133,
-       "current_share_pct": 5.4,
-       "previous_share_pct": 6.5,
-       "delta_pp": -1.1
-      },
-      {
-       "key": "healthcare-bio",
-       "label": "醫療生技",
-       "current_count": 38,
-       "previous_count": 63,
-       "current_share_pct": 2.0,
-       "previous_share_pct": 3.1,
-       "delta_pp": -1.1
+       "current_count": 301,
+       "previous_count": 354,
+       "current_share_pct": 15.3,
+       "previous_share_pct": 16.5,
+       "delta_pp": -1.2
       },
       {
        "key": "legal-compliance",
        "label": "法務合規",
-       "current_count": 47,
+       "current_count": 51,
        "previous_count": 30,
-       "current_share_pct": 2.4,
-       "previous_share_pct": 1.5,
-       "delta_pp": 1.0
+       "current_share_pct": 2.6,
+       "previous_share_pct": 1.4,
+       "delta_pp": 1.2
+      },
+      {
+       "key": "writing-content",
+       "label": "寫作內容",
+       "current_count": 75,
+       "previous_count": 55,
+       "current_share_pct": 3.8,
+       "previous_share_pct": 2.6,
+       "delta_pp": 1.2
+      },
+      {
+       "key": "healthcare-bio",
+       "label": "醫療生技",
+       "current_count": 40,
+       "previous_count": 64,
+       "current_share_pct": 2.0,
+       "previous_share_pct": 3.0,
+       "delta_pp": -1.0
+      },
+      {
+       "key": "devops-infra",
+       "label": "DevOps 基礎設施",
+       "current_count": 110,
+       "previous_count": 140,
+       "current_share_pct": 5.6,
+       "previous_share_pct": 6.5,
+       "delta_pp": -0.9
       },
       {
        "key": "education-training",
@@ -1137,97 +1141,97 @@
        "current_count": 37,
        "previous_count": 22,
        "current_share_pct": 1.9,
-       "previous_share_pct": 1.1,
+       "previous_share_pct": 1.0,
        "delta_pp": 0.9
       },
       {
        "key": "design-creative",
        "label": "設計創意",
-       "current_count": 130,
-       "previous_count": 122,
+       "current_count": 133,
+       "previous_count": 129,
        "current_share_pct": 6.8,
-       "previous_share_pct": 5.9,
-       "delta_pp": 0.8
+       "previous_share_pct": 6.0,
+       "delta_pp": 0.7
       },
       {
-       "key": "security",
-       "label": "資安",
-       "current_count": 116,
-       "previous_count": 108,
-       "current_share_pct": 6.0,
-       "previous_share_pct": 5.3,
-       "delta_pp": 0.8
+       "key": "marketing-growth",
+       "label": "行銷成長",
+       "current_count": 82,
+       "previous_count": 103,
+       "current_share_pct": 4.2,
+       "previous_share_pct": 4.8,
+       "delta_pp": -0.6
       }
      ],
      "E4_task_mix": [
       {
        "key": "generate",
        "label": "生成",
-       "count": 419,
+       "count": 422,
        "share_pct": 21.8
       },
       {
        "key": "configure",
        "label": "配置",
        "count": 328,
-       "share_pct": 17.1
+       "share_pct": 17.0
       },
       {
        "key": "orchestrate",
        "label": "調度",
-       "count": 285,
+       "count": 288,
        "share_pct": 14.9
       },
       {
        "key": "verify",
        "label": "驗證",
-       "count": 271,
-       "share_pct": 14.1
+       "count": 277,
+       "share_pct": 14.3
       },
       {
        "key": "analyze",
        "label": "分析",
-       "count": 266,
+       "count": 269,
        "share_pct": 13.9
       },
       {
        "key": "retrieve",
        "label": "檢索",
        "count": 178,
-       "share_pct": 9.3
+       "share_pct": 9.2
       },
       {
        "key": "transform",
        "label": "轉換",
-       "count": 172,
-       "share_pct": 9.0
+       "count": 173,
+       "share_pct": 8.9
       }
      ],
      "E5_task_shifts": [
       {
        "key": "orchestrate",
        "label": "調度",
-       "current_count": 285,
-       "previous_count": 363,
+       "current_count": 288,
+       "previous_count": 366,
        "current_share_pct": 14.9,
-       "previous_share_pct": 17.7,
-       "delta_pp": -2.8
+       "previous_share_pct": 17.5,
+       "delta_pp": -2.6
       },
       {
        "key": "analyze",
        "label": "分析",
-       "current_count": 266,
-       "previous_count": 241,
+       "current_count": 269,
+       "previous_count": 244,
        "current_share_pct": 13.9,
-       "previous_share_pct": 11.7,
-       "delta_pp": 2.1
+       "previous_share_pct": 11.6,
+       "delta_pp": 2.3
       },
       {
        "key": "transform",
        "label": "轉換",
-       "current_count": 172,
-       "previous_count": 142,
-       "current_share_pct": 9.0,
+       "current_count": 173,
+       "previous_count": 145,
+       "current_share_pct": 8.9,
        "previous_share_pct": 6.9,
        "delta_pp": 2.0
       },
@@ -1235,37 +1239,37 @@
        "key": "retrieve",
        "label": "檢索",
        "current_count": 178,
-       "previous_count": 227,
-       "current_share_pct": 9.3,
-       "previous_share_pct": 11.1,
-       "delta_pp": -1.8
+       "previous_count": 229,
+       "current_share_pct": 9.2,
+       "previous_share_pct": 10.9,
+       "delta_pp": -1.7
       },
       {
        "key": "configure",
        "label": "配置",
        "current_count": 328,
-       "previous_count": 326,
-       "current_share_pct": 17.1,
-       "previous_share_pct": 15.9,
+       "previous_count": 331,
+       "current_share_pct": 17.0,
+       "previous_share_pct": 15.8,
        "delta_pp": 1.2
       },
       {
        "key": "verify",
        "label": "驗證",
-       "current_count": 271,
-       "previous_count": 305,
-       "current_share_pct": 14.1,
-       "previous_share_pct": 14.9,
-       "delta_pp": -0.7
+       "current_count": 277,
+       "previous_count": 318,
+       "current_share_pct": 14.3,
+       "previous_share_pct": 15.2,
+       "delta_pp": -0.9
       },
       {
        "key": "generate",
        "label": "生成",
-       "current_count": 419,
-       "previous_count": 449,
+       "current_count": 422,
+       "previous_count": 463,
        "current_share_pct": 21.8,
-       "previous_share_pct": 21.9,
-       "delta_pp": -0.0
+       "previous_share_pct": 22.1,
+       "delta_pp": -0.3
       }
      ],
      "E6_maturity": {
@@ -1273,44 +1277,44 @@
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 1051,
+        "count": 1069,
         "share_pct": 54.8
        },
        {
         "key": "production",
         "label": "production",
-        "count": 782,
+        "count": 797,
         "share_pct": 40.8
        },
        {
         "key": "toy",
         "label": "toy",
         "count": 86,
-        "share_pct": 4.5
+        "share_pct": 4.4
        }
       ],
       "production_document_proxy": {
-       "count": 782,
-       "eligible_n": 1919,
+       "count": 797,
+       "eligible_n": 1952,
        "pct": 40.8
       },
       "agent_target_proxy": {
-       "count": 292,
-       "eligible_n": 1918,
+       "count": 296,
+       "eligible_n": 1948,
        "pct": 15.2
       },
       "warning": "document labels are intent/proxy, not deployment or outcome verification"
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 0.85,
+       "normalized": 0.854,
        "categories": 18,
-       "n": 1919
+       "n": 1965
       },
       "task_entropy": {
        "normalized": 0.979,
        "categories": 7,
-       "n": 1919
+       "n": 1935
       }
      },
      "E8_eda_ic": {
@@ -1353,37 +1357,37 @@
       "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
      },
      "E9_finance": {
-      "finance_n": 71,
+      "finance_n": 73,
       "task_mix": [
        {
         "key": "analyze",
         "label": "分析",
-        "count": 40,
-        "share_pct": 56.3
+        "count": 41,
+        "share_pct": 56.9
        },
        {
         "key": "orchestrate",
         "label": "調度",
         "count": 9,
-        "share_pct": 12.7
+        "share_pct": 12.5
        },
        {
         "key": "retrieve",
         "label": "檢索",
         "count": 8,
-        "share_pct": 11.3
+        "share_pct": 11.1
        },
        {
         "key": "generate",
         "label": "生成",
         "count": 6,
-        "share_pct": 8.5
+        "share_pct": 8.3
        },
        {
         "key": "verify",
         "label": "驗證",
         "count": 6,
-        "share_pct": 8.5
+        "share_pct": 8.3
        },
        {
         "key": "configure",
@@ -1396,14 +1400,14 @@
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 42,
-        "share_pct": 59.2
+        "count": 43,
+        "share_pct": 59.7
        },
        {
         "key": "production",
         "label": "production",
         "count": 28,
-        "share_pct": 39.4
+        "share_pct": 38.9
        },
        {
         "key": "toy",
@@ -1421,53 +1425,47 @@
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 1919,
-      "comparison_domain_eligible_n": 2055,
+      "archive_domain_eligible_n": 1965,
+      "comparison_domain_eligible_n": 2139,
       "minimum_shift_support": 5
      }
     },
     "ai": {
      "scale": "quarter",
      "period_id": "2026-Q2",
-     "headline": "季度 repo_created cohort 顯示軟體開發份額持續收縮、分析與轉換類任務上升，EDA_IC 與財經樣本均不足以支撐可信判讀",
-     "executive_summary": "本季同樣無 first_seen 新發現，全部觀察基於 repo_created 史料。軟體開發份額較上季下降，個人生產力、寫作內容份額上升；task mix 顯示分析與轉換類上升、調度與檢索下降。EDA_IC 樣本仍極小且 taxonomy_validation 為 BLOCKED，財經樣本增至七十一筆但仍偏小，僅可視為觀察方向。",
+     "headline": "技能正從單純生成緩慢移向分析與資料轉換，專業工程仍藏在公開資料之外",
+     "executive_summary": "本季的公開史料顯示，軟體開發仍是最大類別，但集中程度略為下降；個人生產力與寫作內容則變得更常見。任務描述方面，分析與資料轉換增加，單純查找與工作調度減少，顯示技能開始承接更完整的處理流程。這是供給內容的改變，不是企業採用率的證明。",
      "structural_changes": [
-      "軟體開發份額連續下滑，但仍為最大類別，顯示集中度緩慢分散而非結構崩解 (E3)",
-      "個人生產力、寫作內容、法務合規份額同步上升，可能反映公開 repo 建立行為的季節性而非需求轉移 (E3)",
-      "task mix 中分析與轉換類上升，調度與檢索下降，顯示 repo_created cohort 描述行為略偏向處理型任務 (E5)",
-      "EDA_IC 樣本量由前期五筆增至十七筆，wifi_areas 首次出現 phy-baseband，但仍為 provisional 且未過 golden validation (E8)"
+      "公開技能不再只強調生成，也更常描述分析、轉換與設定工作",
+      "軟體開發仍居主體，但其他日常知識工作逐步分散了它的比重",
+      "領域分散可能代表能力外溢，也可能只是更多非技術使用者開始公開自己的方法"
      ],
-     "eda_ic_readout": "hardware_eda_n 十七筆中 owner_fit_provisional 呈 supporting、adjacent、exclude 三分，wifi_areas 出現 phy-baseband 類別，但 taxonomy_validation 仍為 BLOCKED，不能視為正確率或 signoff，且 FPGA、embedded 等非 owner-direct 項目仍混雜在 hardware_target_provisional 中 (E8)",
-     "finance_readout": "finance_n 七十一筆，task mix 以分析為主導超過半數，maturity mix workflow 略高於 production，樣本量已具備初步觀察基礎，但仍不足以支撐長期趨勢結論，且僅限資料、財報、估值、論點與風險研究範疇 (E9)",
-     "contrarian_view": "軟體開發份額下滑可能只是其他類別 repo_created 基數擴大的稀釋效果，而非該領域本身技能產出減少；EDA_IC 樣本擴大到十七筆也可能只是搜尋範圍調整而非真實供給增加 (E3, E8)",
+     "eda_ic_readout": "電子設計自動化與數位晶片設計材料略有增加，也開始出現無線網路基頻相關描述；但其中仍混有嵌入式系統與可程式化邏輯裝置內容。最適合試行的方向是規格整理、模擬除錯與跨階段交接，不能把公開文件當成工具執行證明。",
+     "finance_readout": "財經研究材料已有較清楚的共同方向，核心是分析、資料整理與論點檢查。它們適合建立可重算的研究流程，但仍不能接觸帳戶憑證，也不能把模型評分改寫成交易指令。",
+     "contrarian_view": "這些變化也可能只是公開平台的自我選擇：容易展示的個人生產力與寫作方法更常公開，晶片與機構財務流程則多半留在組織內部。",
      "actions": [
-      "針對 EDA_IC phy-baseband 首次出現的樣本進行 golden validation 排程",
-      "對財經類七十一筆樣本做 owner-direct 邊界複核，排除交易執行相關混入",
-      "追蹤軟體開發份額下滑是否為稀釋效果，需比對絕對 count 而非僅份額",
-      "確認法務合規、寫作內容上升是否為索引擴充所致"
+      "晶片設計只挑能留下輸入版本、執行紀錄與失敗條件的方法做隔離試行",
+      "財經研究只挑能追溯一手來源、重算公式並保留反方證據的方法",
+      "下一季用相同分類與搜尋範圍重做比較，避免把規則變動誤認成生態變動"
      ],
      "falsifiers": [
-      "若 golden validation 完成後 phy-baseband 樣本無法通過，需撤回相關判讀",
-      "若下季軟體開發絕對 count 止跌回升，稀釋假說可被推翻",
-      "若財經樣本擴大後任務分布出現大幅偏移，需重新評估研究廣度",
-      "若下季 EDA_IC owner_fit exclude 比例大幅升高，需下修 adjacent/supporting 判讀"
+      "若下一季分析與轉換的比重回落，這次變化可能只是短期題材",
+      "若人工抽樣發現晶片候選多數仍是非直接相關內容，專業供給增加的說法就不成立",
+      "若公開與非公開來源呈現相反方向，本文只能代表公開平台"
      ],
      "caveats": [
-      "本季無 first_seen 新發現可比對",
-      "EDA_IC taxonomy 為 provisional，未過 golden validation，禁止當正確率或 signoff",
-      "財經樣本仍屬觀察層級，不足以支撐趨勢結論",
-      "repo_created cohort 低估企業內部 IC、金融、法務、醫療實況"
+      "文件自述可投入使用，不等於真的部署或產生成效",
+      "最新期間可能受搜尋索引尚未補齊影響",
+      "公開資料不能代表公司內部的專業工作全貌"
      ],
-     "confidence": "LOW",
+     "confidence": "MEDIUM",
      "evidence_ids": [
       "E1",
-      "E2",
       "E3",
       "E5",
       "E6",
       "E8",
-      "E9",
-      "E10"
+      "E9"
      ]
     }
    }
@@ -1477,7 +1475,7 @@
  "latest": {
   "day": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-07-28T05:47:07.609033+00:00",
+   "generated_at": "2026-07-28T08:20:52.274667+00:00",
    "run_date": "2026-07-28",
    "period": {
     "scale": "day",
@@ -1492,39 +1490,78 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 0,
+     "archive_n": 4,
      "archive_previous_n": 1,
      "discovered_n": 0,
      "discovered_previous_n": 5405
     },
-    "E2_domain_mix": [],
+    "E2_domain_mix": [
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "count": 2,
+      "share_pct": 50.0
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "count": 2,
+      "share_pct": 50.0
+     }
+    ],
     "E3_domain_shifts": [],
-    "E4_task_mix": [],
+    "E4_task_mix": [
+     {
+      "key": "verify",
+      "label": "驗證",
+      "count": 2,
+      "share_pct": 50.0
+     },
+     {
+      "key": "generate",
+      "label": "生成",
+      "count": 1,
+      "share_pct": 25.0
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "count": 1,
+      "share_pct": 25.0
+     }
+    ],
     "E5_task_shifts": [],
     "E6_maturity": {
-     "mix": [],
+     "mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 4,
+       "share_pct": 100.0
+      }
+     ],
      "production_document_proxy": {
       "count": 0,
-      "eligible_n": 0,
-      "pct": null
+      "eligible_n": 4,
+      "pct": 0.0
      },
      "agent_target_proxy": {
-      "count": 0,
-      "eligible_n": 0,
-      "pct": null
+      "count": 2,
+      "eligible_n": 4,
+      "pct": 50.0
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
     },
     "E7_diversity": {
      "domain_entropy": {
-      "normalized": 0.0,
-      "categories": 0,
-      "n": 0
+      "normalized": 1.0,
+      "categories": 2,
+      "n": 4
      },
      "task_entropy": {
-      "normalized": 0.0,
-      "categories": 0,
-      "n": 0
+      "normalized": 0.946,
+      "categories": 3,
+      "n": 4
      }
     },
     "E8_eda_ic": {
@@ -1549,7 +1586,7 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 0,
+     "archive_domain_eligible_n": 4,
      "comparison_domain_eligible_n": 1,
      "minimum_shift_support": 5
     }
@@ -1557,51 +1594,37 @@
    "ai": {
     "scale": "day",
     "period_id": "2026-07-27",
-    "headline": "本日 repo_created 與 first_seen 兩個 cohort 均無有效樣本，無法產生任何結構性判讀",
-    "executive_summary": "本日 archive_n 為零、discovered_n 亦為零，前一日 discovered_previous_n 雖高但屬前一期事件不應併入本日解讀。所有 domain mix、task mix、maturity mix 皆為空集合，EDA_IC 與財經證據亦全數缺失，本日僅能記錄「無資料」狀態，不可推論任何趨勢或結構變化。",
+    "headline": "今天沒有足夠的新資料，最好的判斷是暫時不下結論",
+    "executive_summary": "今天沒有可供比較的當期樣本。這不是技能生態停滯的證明，更可能是觀察窗口與資料更新節奏造成的空白。與其拿前一天的資料補洞，本期應保留空白，等待下一次採集確認。",
     "structural_changes": [
-     "本日 archive_n 與 discovered_n 均為零，無結構可分析 (E1)",
-     "domain mix、task mix 皆為空集合，無法計算份額變化 (E2, E4)",
-     "maturity mix 為空，production_document_proxy 與 agent_target_proxy 皆無 pct 值 (E6)",
-     "diversity entropy 為零，樣本數為零，屬技術性空值而非真實均質狀態 (E7)"
+     "沒有足夠材料判斷領域或任務結構是否改變",
+     "前一期的大量新發現屬於另一個觀察期間，不能拿來填補今天"
     ],
-    "eda_ic_readout": "hardware_eda_n 為零，無任何證據可供 WiFi baseband ASIC 或 RTL/front-end EDA 判讀 (E8)",
-    "finance_readout": "finance_n 為零，無任何財經研究相關證據可供判讀 (E9)",
-    "contrarian_view": "本日的零樣本很可能只是資料抓取排程或時間切點問題，而非市場真實停滯；不應將其誤讀為技能產出或發現的中斷 (E1, time_contract)",
+    "eda_ic_readout": "今天沒有新的電子設計自動化或數位晶片設計材料，因此不調整無線網路基頻設計的採用清單。",
+    "finance_readout": "今天也沒有新的財經研究材料，既有候選方法維持原狀，不增加任何方向性判斷。",
+    "contrarian_view": "這個空白也可能是採集流程漏跑，而不是單純沒有新項目；只有下一次讀回資料庫後才能分辨。",
     "actions": [
-     "核實本日資料管線是否正常執行，排除排程或抓取失敗的可能",
-     "確認前一日 discovered_previous_n 的高值是否已正確歸屬至對應期間",
-     "若管線正常，記錄本日為真實空窗期並持續觀察後續日期是否恢復",
-     "暫緩發布任何以本日資料為基礎的日層級判讀"
+     "下一次採集完成後讀回資料庫，確認今天的空白是否被補齊"
     ],
     "falsifiers": [
-     "若後續重跑資料管線發現本日實際有 archive_n 或 discovered_n 記錄，說明本日為抓取缺失",
-     "若下一日資料同樣為零，需懷疑管線持續故障",
-     "若補齊本日資料後 domain/task mix 出現非空集合，本次「無資料」判讀即被推翻",
-     "若確認 discovered_previous_n 分配錯誤，需重新核算前後期界線"
+     "後續讀回若補出今天的樣本，本文對資料空白的解釋就必須重寫",
+     "若連續多日都沒有新資料，應優先檢查採集流程而非解讀市場"
     ],
     "caveats": [
-     "本日所有 evidence 欄位皆為空或零值，不構成任何可判讀證據",
-     "discovered_previous_n 的異常高值屬前期事件，不應影響本日判讀",
-     "日層級樣本本就最容易受管線或時間切點問題影響",
-     "此判讀完全基於缺乏資料，confidence 應維持最低"
+     "單日空白不能代表長期趨勢",
+     "前一期資料不應移入今天來製造內容"
     ],
     "confidence": "LOW",
     "evidence_ids": [
      "E1",
-     "E2",
-     "E4",
-     "E6",
-     "E7",
      "E8",
-     "E9",
-     "E10"
+     "E9"
     ]
    }
   },
   "week": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-07-28T05:47:07.609018+00:00",
+   "generated_at": "2026-07-28T08:20:52.274621+00:00",
    "run_date": "2026-07-28",
    "period": {
     "scale": "week",
@@ -1616,47 +1639,47 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 46,
-     "archive_previous_n": 67,
+     "archive_n": 47,
+     "archive_previous_n": 68,
      "discovered_n": 5405,
      "discovered_previous_n": 0
     },
     "E2_domain_mix": [
      {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 9,
+      "share_pct": 19.1
+     },
+     {
       "key": "devops-infra",
       "label": "DevOps 基礎設施",
       "count": 9,
-      "share_pct": 19.6
-     },
-     {
-      "key": "software-dev",
-      "label": "軟體開發",
-      "count": 8,
-      "share_pct": 17.4
+      "share_pct": 19.1
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
       "count": 5,
-      "share_pct": 10.9
+      "share_pct": 10.6
      },
      {
       "key": "ops-admin",
       "label": "營運行政",
       "count": 5,
-      "share_pct": 10.9
+      "share_pct": 10.6
      },
      {
       "key": "design-creative",
       "label": "設計創意",
       "count": 5,
-      "share_pct": 10.9
+      "share_pct": 10.6
      },
      {
       "key": "finance-investing",
       "label": "財經投資",
       "count": 3,
-      "share_pct": 6.5
+      "share_pct": 6.4
      },
      {
       "key": "security",
@@ -1675,28 +1698,28 @@
      {
       "key": "software-dev",
       "label": "軟體開發",
-      "current_count": 8,
+      "current_count": 9,
       "previous_count": 25,
-      "current_share_pct": 17.4,
-      "previous_share_pct": 37.3,
-      "delta_pp": -19.9
+      "current_share_pct": 19.1,
+      "previous_share_pct": 36.8,
+      "delta_pp": -17.6
      },
      {
       "key": "devops-infra",
       "label": "DevOps 基礎設施",
       "current_count": 9,
       "previous_count": 6,
-      "current_share_pct": 19.6,
-      "previous_share_pct": 9.0,
-      "delta_pp": 10.6
+      "current_share_pct": 19.1,
+      "previous_share_pct": 8.8,
+      "delta_pp": 10.3
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
       "current_count": 5,
       "previous_count": 11,
-      "current_share_pct": 10.9,
-      "previous_share_pct": 16.4,
+      "current_share_pct": 10.6,
+      "previous_share_pct": 16.2,
       "delta_pp": -5.5
      },
      {
@@ -1704,26 +1727,17 @@
       "label": "設計創意",
       "current_count": 5,
       "previous_count": 4,
-      "current_share_pct": 10.9,
-      "previous_share_pct": 6.0,
-      "delta_pp": 4.9
-     },
-     {
-      "key": "ops-admin",
-      "label": "營運行政",
-      "current_count": 5,
-      "previous_count": 4,
-      "current_share_pct": 10.9,
-      "previous_share_pct": 6.0,
-      "delta_pp": 4.9
+      "current_share_pct": 10.6,
+      "previous_share_pct": 5.9,
+      "delta_pp": 4.8
      },
      {
       "key": "research-academia",
       "label": "研究學術",
       "current_count": 1,
       "previous_count": 4,
-      "current_share_pct": 2.2,
-      "previous_share_pct": 6.0,
+      "current_share_pct": 2.1,
+      "previous_share_pct": 5.9,
       "delta_pp": -3.8
      },
      {
@@ -1731,9 +1745,18 @@
       "label": "財經投資",
       "current_count": 3,
       "previous_count": 2,
-      "current_share_pct": 6.5,
-      "previous_share_pct": 3.0,
-      "delta_pp": 3.5
+      "current_share_pct": 6.4,
+      "previous_share_pct": 2.9,
+      "delta_pp": 3.4
+     },
+     {
+      "key": "ops-admin",
+      "label": "營運行政",
+      "current_count": 5,
+      "previous_count": 5,
+      "current_share_pct": 10.6,
+      "previous_share_pct": 7.4,
+      "delta_pp": 3.3
      },
      {
       "key": "security",
@@ -1741,7 +1764,7 @@
       "current_count": 2,
       "previous_count": 4,
       "current_share_pct": 4.3,
-      "previous_share_pct": 6.0,
+      "previous_share_pct": 5.9,
       "delta_pp": -1.6
      }
     ],
@@ -1860,25 +1883,25 @@
        "key": "production",
        "label": "production",
        "count": 24,
-       "share_pct": 52.2
+       "share_pct": 51.1
       },
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 21,
-       "share_pct": 45.7
+       "count": 22,
+       "share_pct": 46.8
       },
       {
        "key": "toy",
        "label": "toy",
        "count": 1,
-       "share_pct": 2.2
+       "share_pct": 2.1
       }
      ],
      "production_document_proxy": {
       "count": 24,
-      "eligible_n": 46,
-      "pct": 52.2
+      "eligible_n": 47,
+      "pct": 51.1
      },
      "agent_target_proxy": {
       "count": 5,
@@ -1889,9 +1912,9 @@
     },
     "E7_diversity": {
      "domain_entropy": {
-      "normalized": 0.905,
+      "normalized": 0.899,
       "categories": 13,
-      "n": 46
+      "n": 47
      },
      "task_entropy": {
       "normalized": 0.949,
@@ -1957,59 +1980,48 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 46,
-     "comparison_domain_eligible_n": 67,
+     "archive_domain_eligible_n": 47,
+     "comparison_domain_eligible_n": 68,
      "minimum_shift_support": 5
     }
    },
    "ai": {
     "scale": "week",
     "period_id": "2026-W30",
-    "headline": "本週 first_seen 新發現樣本暴增而 repo_created cohort 樣本量偏小，兩個時間軸出現明顯分歧，需分開解讀",
-    "executive_summary": "本週 discovered_n 大幅高於前期（前期為零），顯示 radar 監測範圍或機制在本週出現重大變化；同時 repo_created archive_n 僅四十六筆，較前期六十七筆下降，樣本本就偏小。domain mix 中 DevOps 基礎設施份額上升、軟體開發份額大幅下滑，task mix 中生成與調度上升、驗證與配置下降，但樣本規模小，波動易受個案影響，不宜視為趨勢。",
+    "headline": "本週看似湧入大量新項目，真正的訊號卻是觀察範圍改變",
+    "executive_summary": "本系統在本週首次收進大量資料，但依公開專案建立日期歸入本週的樣本反而偏少。兩個現象放在一起，更像收集機制補齊了先前看不到的內容，而不是技能供給突然爆發。開發維運類比重上升、軟體開發類下降，目前只能當成待驗證線索。",
     "structural_changes": [
-     "discovered_n 由零躍升至五千餘筆，顯示監測機制本身在本週出現重大變化，需先確認是否為系統性事件而非需求變化 (E1)",
-     "軟體開發份額由前期三分之一以上驟降至不到二成，但樣本基數小，個案影響力大 (E3)",
-     "DevOps 基礎設施份額上升逾十個百分點，為本週最大結構變化，仍需以樣本量偏小為前提解讀 (E3)",
-     "task mix 中驗證類份額大幅下降、調度與生成類上升，可能反映極少數 repo 的任務標記差異 (E5)"
+     "新發現的跳升遠大於同期史料變化，顯示觀察系統本身是主要變因",
+     "生成與工作調度的描述變多，驗證與設定的描述變少，但少量樣本很容易被個別專案扭曲"
     ],
-    "eda_ic_readout": "hardware_eda_n 僅兩筆，owner_fit_provisional 分屬 adjacent 與 supporting 各一筆，wifi_areas 為空，taxonomy_validation 仍為 BLOCKED，樣本遠低於可判讀門檻，無法對 WiFi baseband ASIC 或 RTL/front-end EDA 做出任何結論 (E8)",
-    "finance_readout": "finance_n 僅三筆，task mix 以檢索為主，樣本量極小，不足以支撐任何研究廣度或方向性判讀 (E9)",
-    "contrarian_view": "discovered_n 的暴增很可能是 radar 監測範圍或索引機制本身的變動（例如新資料源上線），而非真實市場出現大量新技能；在確認機制變化前，不應將其解讀為採用或供給的躍升 (E1, time_contract)",
+    "eda_ic_readout": "電子設計自動化與數位晶片設計的樣本太少，也沒有直接對應無線網路基頻設計的內容。本週不宜因此調整採用清單。",
+    "finance_readout": "財經內容同樣稀少，主要集中在資料查找與初步分析，還不足以說明研究方法正在轉向。",
+    "contrarian_view": "如果後續人工抽樣發現這批項目來自彼此獨立且近期活躍的來源，那麼供給加速的解釋才值得重新討論。",
     "actions": [
-     "優先核實 discovered_n 暴增是否來自監測機制或資料源變更而非真實新增",
-     "待 discovered_n 事件確認後，重新評估本週 domain/task mix 是否受該事件污染",
-     "對 DevOps 基礎設施份額上升的具體 repo 進行人工抽樣核實",
-     "在樣本量回升前，暫緩對本週 EDA_IC 與財經類做任何方向性結論"
+     "抽樣檢查大量新發現是否來自一次性搜尋擴張或舊資料補回",
+     "下一完整週再比較同一套搜尋範圍，確認領域變化是否重現"
     ],
     "falsifiers": [
-     "若下週 discovered_n 回落至個位數或零，說明本週為一次性系統事件",
-     "若人工抽樣顯示 DevOps 基礎設施上升集中於少數 repo，份額變化即為個案而非結構",
-     "若 archive_n 持續維持在同等低位，需下修對本週判讀的 confidence",
-     "若 discovered_n 暴增後對應的 domain mix 與 archive cohort 高度不一致，需懷疑資料源污染"
+     "若下一週新發現回到低量，這次跳升就較可能是一次性補回",
+     "若領域變化分散於許多獨立來源並持續重現，系統事件的解釋就會變弱"
     ],
     "caveats": [
-     "discovered_n 與 archive_n 分屬不同時間軸，不可直接相加比較",
-     "本週兩個 cohort 樣本量均偏小，minimum_shift_support 門檻下判讀信心低",
-     "EDA_IC 與財經樣本均個位數，僅供留意方向，不構成結論",
-     "repo_created 最新期存在索引不完整風險"
+     "本週首次找到的項目與本週建立的公開專案是兩種不同時間",
+     "專業晶片與財經工作常不公開，公開資料會低估真實活動"
     ],
     "confidence": "LOW",
     "evidence_ids": [
      "E1",
-     "E2",
      "E3",
      "E5",
-     "E6",
      "E8",
-     "E9",
-     "E10"
+     "E9"
     ]
    }
   },
   "month": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-07-28T05:47:07.608974+00:00",
+   "generated_at": "2026-07-28T08:20:52.274583+00:00",
    "run_date": "2026-07-28",
    "period": {
     "scale": "month",
@@ -2024,8 +2036,8 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 456,
-     "archive_previous_n": 632,
+     "archive_n": 468,
+     "archive_previous_n": 652,
      "discovered_n": 0,
      "discovered_previous_n": 0
     },
@@ -2033,106 +2045,106 @@
      {
       "key": "software-dev",
       "label": "軟體開發",
-      "count": 132,
-      "share_pct": 28.9
+      "count": 133,
+      "share_pct": 28.4
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
-      "count": 71,
-      "share_pct": 15.6
+      "count": 72,
+      "share_pct": 15.4
      },
      {
       "key": "security",
       "label": "資安",
-      "count": 34,
-      "share_pct": 7.5
+      "count": 36,
+      "share_pct": 7.7
      },
      {
       "key": "personal-productivity",
       "label": "個人生產力",
-      "count": 31,
+      "count": 32,
       "share_pct": 6.8
      },
      {
       "key": "design-creative",
       "label": "設計創意",
-      "count": 27,
-      "share_pct": 5.9
+      "count": 28,
+      "share_pct": 6.0
      },
      {
       "key": "devops-infra",
       "label": "DevOps 基礎設施",
-      "count": 23,
-      "share_pct": 5.0
+      "count": 24,
+      "share_pct": 5.1
      },
      {
       "key": "marketing-growth",
       "label": "行銷成長",
-      "count": 22,
-      "share_pct": 4.8
+      "count": 23,
+      "share_pct": 4.9
      },
      {
       "key": "writing-content",
       "label": "寫作內容",
       "count": 21,
-      "share_pct": 4.6
+      "share_pct": 4.5
      }
     ],
     "E3_domain_shifts": [
      {
-      "key": "software-dev",
-      "label": "軟體開發",
-      "current_count": 132,
-      "previous_count": 158,
-      "current_share_pct": 28.9,
-      "previous_share_pct": 25.0,
-      "delta_pp": 3.9
-     },
-     {
       "key": "legal-compliance",
       "label": "法務合規",
-      "current_count": 5,
-      "previous_count": 31,
-      "current_share_pct": 1.1,
-      "previous_share_pct": 4.9,
-      "delta_pp": -3.8
+      "current_count": 6,
+      "previous_count": 34,
+      "current_share_pct": 1.3,
+      "previous_share_pct": 5.2,
+      "delta_pp": -3.9
+     },
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "current_count": 133,
+      "previous_count": 161,
+      "current_share_pct": 28.4,
+      "previous_share_pct": 24.7,
+      "delta_pp": 3.7
      },
      {
       "key": "healthcare-bio",
       "label": "醫療生技",
       "current_count": 8,
-      "previous_count": 26,
-      "current_share_pct": 1.8,
+      "previous_count": 27,
+      "current_share_pct": 1.7,
       "previous_share_pct": 4.1,
       "delta_pp": -2.4
      },
      {
-      "key": "design-creative",
-      "label": "設計創意",
-      "current_count": 27,
-      "previous_count": 51,
-      "current_share_pct": 5.9,
-      "previous_share_pct": 8.1,
-      "delta_pp": -2.1
-     },
-     {
       "key": "marketing-growth",
       "label": "行銷成長",
-      "current_count": 22,
+      "current_count": 23,
       "previous_count": 19,
-      "current_share_pct": 4.8,
-      "previous_share_pct": 3.0,
-      "delta_pp": 1.8
+      "current_share_pct": 4.9,
+      "previous_share_pct": 2.9,
+      "delta_pp": 2.0
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
-      "current_count": 71,
-      "previous_count": 109,
-      "current_share_pct": 15.6,
+      "current_count": 72,
+      "previous_count": 112,
+      "current_share_pct": 15.4,
       "previous_share_pct": 17.2,
-      "delta_pp": -1.7
+      "delta_pp": -1.8
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "current_count": 28,
+      "previous_count": 51,
+      "current_share_pct": 6.0,
+      "previous_share_pct": 7.8,
+      "delta_pp": -1.8
      },
      {
       "key": "education-training",
@@ -2140,35 +2152,35 @@
       "current_count": 12,
       "previous_count": 8,
       "current_share_pct": 2.6,
-      "previous_share_pct": 1.3,
-      "delta_pp": 1.4
-     },
-     {
-      "key": "security",
-      "label": "資安",
-      "current_count": 34,
-      "previous_count": 39,
-      "current_share_pct": 7.5,
-      "previous_share_pct": 6.2,
+      "previous_share_pct": 1.2,
       "delta_pp": 1.3
-     },
-     {
-      "key": "finance-investing",
-      "label": "財經投資",
-      "current_count": 16,
-      "previous_count": 30,
-      "current_share_pct": 3.5,
-      "previous_share_pct": 4.7,
-      "delta_pp": -1.2
      },
      {
       "key": "research-academia",
       "label": "研究學術",
-      "current_count": 16,
-      "previous_count": 30,
-      "current_share_pct": 3.5,
-      "previous_share_pct": 4.7,
-      "delta_pp": -1.2
+      "current_count": 17,
+      "previous_count": 32,
+      "current_share_pct": 3.6,
+      "previous_share_pct": 4.9,
+      "delta_pp": -1.3
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "current_count": 36,
+      "previous_count": 42,
+      "current_share_pct": 7.7,
+      "previous_share_pct": 6.4,
+      "delta_pp": 1.3
+     },
+     {
+      "key": "data-analytics",
+      "label": "資料分析",
+      "current_count": 13,
+      "previous_count": 11,
+      "current_share_pct": 2.8,
+      "previous_share_pct": 1.7,
+      "delta_pp": 1.1
      }
     ],
     "E4_task_mix": [
@@ -2176,37 +2188,37 @@
       "key": "generate",
       "label": "生成",
       "count": 99,
-      "share_pct": 21.7
+      "share_pct": 21.5
      },
      {
       "key": "configure",
       "label": "配置",
       "count": 86,
-      "share_pct": 18.9
-     },
-     {
-      "key": "analyze",
-      "label": "分析",
-      "count": 65,
-      "share_pct": 14.3
+      "share_pct": 18.7
      },
      {
       "key": "verify",
       "label": "驗證",
-      "count": 65,
+      "count": 67,
+      "share_pct": 14.6
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "count": 66,
       "share_pct": 14.3
      },
      {
       "key": "orchestrate",
       "label": "調度",
       "count": 58,
-      "share_pct": 12.7
+      "share_pct": 12.6
      },
      {
       "key": "transform",
       "label": "轉換",
-      "count": 45,
-      "share_pct": 9.9
+      "count": 46,
+      "share_pct": 10.0
      },
      {
       "key": "retrieve",
@@ -2221,45 +2233,45 @@
       "label": "配置",
       "current_count": 86,
       "previous_count": 108,
-      "current_share_pct": 18.9,
-      "previous_share_pct": 17.1,
+      "current_share_pct": 18.7,
+      "previous_share_pct": 16.9,
       "delta_pp": 1.8
      },
      {
       "key": "analyze",
       "label": "分析",
-      "current_count": 65,
-      "previous_count": 100,
+      "current_count": 66,
+      "previous_count": 102,
       "current_share_pct": 14.3,
-      "previous_share_pct": 15.8,
+      "previous_share_pct": 16.0,
       "delta_pp": -1.6
      },
      {
       "key": "orchestrate",
       "label": "調度",
       "current_count": 58,
-      "previous_count": 88,
-      "current_share_pct": 12.7,
-      "previous_share_pct": 13.9,
-      "delta_pp": -1.2
+      "previous_count": 90,
+      "current_share_pct": 12.6,
+      "previous_share_pct": 14.1,
+      "delta_pp": -1.5
      },
      {
       "key": "transform",
       "label": "轉換",
-      "current_count": 45,
+      "current_count": 46,
       "previous_count": 55,
-      "current_share_pct": 9.9,
-      "previous_share_pct": 8.7,
-      "delta_pp": 1.2
+      "current_share_pct": 10.0,
+      "previous_share_pct": 8.6,
+      "delta_pp": 1.4
      },
      {
       "key": "generate",
       "label": "生成",
       "current_count": 99,
-      "previous_count": 133,
-      "current_share_pct": 21.7,
+      "previous_count": 134,
+      "current_share_pct": 21.5,
       "previous_share_pct": 21.0,
-      "delta_pp": 0.7
+      "delta_pp": 0.5
      },
      {
       "key": "retrieve",
@@ -2267,17 +2279,17 @@
       "current_count": 38,
       "previous_count": 56,
       "current_share_pct": 8.3,
-      "previous_share_pct": 8.9,
+      "previous_share_pct": 8.8,
       "delta_pp": -0.5
      },
      {
       "key": "verify",
       "label": "驗證",
-      "current_count": 65,
-      "previous_count": 92,
-      "current_share_pct": 14.3,
+      "current_count": 67,
+      "previous_count": 93,
+      "current_share_pct": 14.6,
       "previous_share_pct": 14.6,
-      "delta_pp": -0.3
+      "delta_pp": -0.0
      }
     ],
     "E6_maturity": {
@@ -2285,44 +2297,44 @@
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 245,
-       "share_pct": 53.7
+       "count": 248,
+       "share_pct": 53.6
       },
       {
        "key": "production",
        "label": "production",
-       "count": 198,
-       "share_pct": 43.4
+       "count": 202,
+       "share_pct": 43.6
       },
       {
        "key": "toy",
        "label": "toy",
        "count": 13,
-       "share_pct": 2.9
+       "share_pct": 2.8
       }
      ],
      "production_document_proxy": {
-      "count": 198,
-      "eligible_n": 456,
-      "pct": 43.4
+      "count": 202,
+      "eligible_n": 463,
+      "pct": 43.6
      },
      "agent_target_proxy": {
-      "count": 78,
-      "eligible_n": 456,
-      "pct": 17.1
+      "count": 79,
+      "eligible_n": 465,
+      "pct": 17.0
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
     },
     "E7_diversity": {
      "domain_entropy": {
-      "normalized": 0.829,
+      "normalized": 0.833,
       "categories": 18,
-      "n": 456
+      "n": 468
      },
      "task_entropy": {
-      "normalized": 0.976,
+      "normalized": 0.977,
       "categories": 7,
-      "n": 456
+      "n": 460
      }
     },
     "E8_eda_ic": {
@@ -2350,57 +2362,57 @@
      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
     },
     "E9_finance": {
-     "finance_n": 16,
+     "finance_n": 18,
      "task_mix": [
       {
        "key": "analyze",
        "label": "分析",
-       "count": 6,
-       "share_pct": 37.5
+       "count": 7,
+       "share_pct": 41.2
       },
       {
        "key": "retrieve",
        "label": "檢索",
        "count": 4,
-       "share_pct": 25.0
+       "share_pct": 23.5
       },
       {
        "key": "orchestrate",
        "label": "調度",
        "count": 2,
-       "share_pct": 12.5
+       "share_pct": 11.8
       },
       {
        "key": "generate",
        "label": "生成",
        "count": 2,
-       "share_pct": 12.5
+       "share_pct": 11.8
       },
       {
        "key": "configure",
        "label": "配置",
        "count": 1,
-       "share_pct": 6.2
+       "share_pct": 5.9
       },
       {
        "key": "verify",
        "label": "驗證",
        "count": 1,
-       "share_pct": 6.2
+       "share_pct": 5.9
       }
      ],
      "maturity_mix": [
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 9,
-       "share_pct": 56.2
+       "count": 10,
+       "share_pct": 58.8
       },
       {
        "key": "production",
        "label": "production",
        "count": 7,
-       "share_pct": 43.8
+       "share_pct": 41.2
       }
      ],
      "current_recommendation_states": {
@@ -2412,59 +2424,49 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 456,
-     "comparison_domain_eligible_n": 632,
+     "archive_domain_eligible_n": 468,
+     "comparison_domain_eligible_n": 652,
      "minimum_shift_support": 5
     }
    },
    "ai": {
     "scale": "month",
     "period_id": "2026-06",
-    "headline": "repo_created 史料 cohort 樣本量下降，軟體開發與 AI Agent 工具仍為主結構，法務合規與醫療生技比重明顯萎縮",
-    "executive_summary": "本期無 first_seen 新發現（discovered_n 為零），所有觀察都來自 repo_created 史料 cohort。archive_n 較上期下降，需注意 completeness 對最新 cohort 的限制。domain mix 仍以軟體開發、AI Agent 工具為主體，法務合規與醫療生技份額下滑幅度較大，但這屬於公開 GitHub repo_created 分布變化，不代表企業內部採用趨勢，且样本本身可能受索引不完整影響。",
+    "headline": "軟體開發仍是主體，本月更值得注意的是專業領域的可見度落差",
+    "executive_summary": "依公開專案的建立日期觀察，軟體開發的比重仍高，法務合規與醫療生技則明顯變少。不過本月可見的整體史料也比前一期少，因此這更像公開程度與搜尋完整度的共同結果，不能直接解讀成真實需求轉移。",
     "structural_changes": [
-     "軟體開發份額由前期上升，但絕對 archive_n 下降，顯示整體 cohort 縮小而非該領域擴張 (E3)",
-     "法務合規與醫療生技份額均下滑超過負二個百分點，樣本基數本就偏小，需謹慎解讀 (E3)",
-     "task mix 中配置類上升、分析與調度類下降，顯示 repo_created cohort 描述性偏向設定型技能 (E5)",
-     "maturity mix 中 production 標籤占比逾四成，但此為作者文件 proxy，非部署或成效證明 (E6)"
+     "軟體開發的比重上升，但整體可見樣本縮小，不能把比重增加當成絕對成長",
+     "法務合規與醫療生技下降幅度較大，恰好也是企業內部資料最不容易公開的領域"
     ],
-    "eda_ic_readout": "hardware_eda_n 僅五筆，owner_fit_provisional 多屬 adjacent，wifi_areas 為空，taxonomy_validation 為 BLOCKED，樣本嚴重不足，無法對 WiFi baseband ASIC 或 RTL/front-end EDA 做出任何判讀 (E8)",
-    "finance_readout": "finance_n 為十六筆，task mix 以分析與檢索為主，maturity mix workflow 略高於 production，樣本量偏小僅供觀察方向，不構成研究廣度結論 (E9)",
-    "contrarian_view": "法務合規與醫療生技份額下滑也可能只是公開 GitHub repo_created 索引噪音或搜尋不完整所致，而非該領域技能真實減少；公開資料本就低估企業內部法務、醫療實況 (E3, time_contract)",
+    "eda_ic_readout": "數位晶片設計相關材料仍然很少，分類方法也尚未完成可靠度確認。目前只能挑出候選做人工閱讀，不能據此選擇工具或更動設計流程。",
+    "finance_readout": "財經材料開始看得出資料分析與查找是常見用途，但樣本仍偏少。較穩健的用法是改善資料來源、財報整理與反方論證，而不是產生買賣結論。",
+    "contrarian_view": "專業領域變少，可能只是公開平台越來越偏向容易展示的通用工具；它不一定代表企業對專業能力的需求下降。",
     "actions": [
-     "持續追蹤下期 archive_n 是否回穩，確認本期下降是否為索引不完整所致",
-     "對法務合規與醫療生技的下滑份額另做人工抽樣核實",
-     "待 golden validation 完成前，不對 EDA_IC 發布任何結論",
-     "財經類樣本累積至可支撑最小份額後才做趨勢判讀"
+     "對下降最多的專業領域做來源抽樣，分辨真實減少與搜尋缺口",
+     "晶片與財經候選只做人工驗證，不因比重變化直接升級採用"
     ],
     "falsifiers": [
-     "若下期同 cohort 回補後 archive_n 回升且法務合規份額回升，說明本期為索引缺口而非結構變化",
-     "若 EDA_IC golden validation 通過且樣本擴大，可重新評估 WiFi/ASIC 判讀",
-     "若財經類樣本擴大且 task mix 穩定重複出現，可提升 confidence",
-     "若下期 production 標籤占比不隨作者行為變化而變動，可強化 proxy 解讀"
+     "若後續補齊索引後專業領域迅速回升，本月差異就主要是資料缺口",
+     "若相同結構在多個完整月份持續重現，才可提升對長期變化的信心"
     ],
     "caveats": [
-     "本期無 first_seen 新發現可比對，僅有 repo_created 史料視角",
-     "repo_created cohort 為索引不完整，最新期尤須謹慎",
-     "EDA_IC taxonomy 為 provisional，未過 golden validation",
-     "maturity 標籤為作者意圖 proxy，非部署或成效證明"
+     "專案建立日期不是技能被安裝或採用的日期",
+     "公開平台會系統性低估公司內部的晶片、金融、法務與醫療工作"
     ],
-    "confidence": "LOW",
+    "confidence": "MEDIUM",
     "evidence_ids": [
      "E1",
-     "E2",
      "E3",
      "E5",
      "E6",
      "E8",
-     "E9",
-     "E10"
+     "E9"
     ]
    }
   },
   "quarter": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-07-28T05:47:07.608995+00:00",
+   "generated_at": "2026-07-28T08:20:52.274604+00:00",
    "run_date": "2026-07-28",
    "period": {
     "scale": "quarter",
@@ -2479,8 +2481,8 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 1919,
-     "archive_previous_n": 2055,
+     "archive_n": 1965,
+     "archive_previous_n": 2139,
      "discovered_n": 0,
      "discovered_previous_n": 0
     },
@@ -2488,49 +2490,49 @@
      {
       "key": "software-dev",
       "label": "軟體開發",
-      "count": 519,
-      "share_pct": 27.0
+      "count": 525,
+      "share_pct": 26.7
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
-      "count": 297,
-      "share_pct": 15.5
+      "count": 301,
+      "share_pct": 15.3
      },
      {
       "key": "personal-productivity",
       "label": "個人生產力",
-      "count": 143,
-      "share_pct": 7.5
+      "count": 144,
+      "share_pct": 7.3
      },
      {
       "key": "design-creative",
       "label": "設計創意",
-      "count": 130,
+      "count": 133,
       "share_pct": 6.8
      },
      {
       "key": "security",
       "label": "資安",
-      "count": 116,
-      "share_pct": 6.0
+      "count": 123,
+      "share_pct": 6.3
      },
      {
       "key": "devops-infra",
       "label": "DevOps 基礎設施",
-      "count": 104,
-      "share_pct": 5.4
+      "count": 110,
+      "share_pct": 5.6
      },
      {
       "key": "ops-admin",
       "label": "營運行政",
       "count": 85,
-      "share_pct": 4.4
+      "share_pct": 4.3
      },
      {
-      "key": "marketing-growth",
-      "label": "行銷成長",
-      "count": 81,
+      "key": "research-academia",
+      "label": "研究學術",
+      "count": 83,
       "share_pct": 4.2
      }
     ],
@@ -2538,65 +2540,65 @@
      {
       "key": "software-dev",
       "label": "軟體開發",
-      "current_count": 519,
-      "previous_count": 625,
-      "current_share_pct": 27.0,
-      "previous_share_pct": 30.4,
-      "delta_pp": -3.4
+      "current_count": 525,
+      "previous_count": 641,
+      "current_share_pct": 26.7,
+      "previous_share_pct": 30.0,
+      "delta_pp": -3.2
      },
      {
       "key": "personal-productivity",
       "label": "個人生產力",
-      "current_count": 143,
-      "previous_count": 108,
-      "current_share_pct": 7.5,
-      "previous_share_pct": 5.3,
-      "delta_pp": 2.2
+      "current_count": 144,
+      "previous_count": 112,
+      "current_share_pct": 7.3,
+      "previous_share_pct": 5.2,
+      "delta_pp": 2.1
      },
      {
       "key": "ai-agent-tooling",
       "label": "AI Agent 工具",
-      "current_count": 297,
-      "previous_count": 346,
-      "current_share_pct": 15.5,
-      "previous_share_pct": 16.8,
-      "delta_pp": -1.4
-     },
-     {
-      "key": "writing-content",
-      "label": "寫作內容",
-      "current_count": 73,
-      "previous_count": 52,
-      "current_share_pct": 3.8,
-      "previous_share_pct": 2.5,
-      "delta_pp": 1.3
-     },
-     {
-      "key": "devops-infra",
-      "label": "DevOps 基礎設施",
-      "current_count": 104,
-      "previous_count": 133,
-      "current_share_pct": 5.4,
-      "previous_share_pct": 6.5,
-      "delta_pp": -1.1
-     },
-     {
-      "key": "healthcare-bio",
-      "label": "醫療生技",
-      "current_count": 38,
-      "previous_count": 63,
-      "current_share_pct": 2.0,
-      "previous_share_pct": 3.1,
-      "delta_pp": -1.1
+      "current_count": 301,
+      "previous_count": 354,
+      "current_share_pct": 15.3,
+      "previous_share_pct": 16.5,
+      "delta_pp": -1.2
      },
      {
       "key": "legal-compliance",
       "label": "法務合規",
-      "current_count": 47,
+      "current_count": 51,
       "previous_count": 30,
-      "current_share_pct": 2.4,
-      "previous_share_pct": 1.5,
-      "delta_pp": 1.0
+      "current_share_pct": 2.6,
+      "previous_share_pct": 1.4,
+      "delta_pp": 1.2
+     },
+     {
+      "key": "writing-content",
+      "label": "寫作內容",
+      "current_count": 75,
+      "previous_count": 55,
+      "current_share_pct": 3.8,
+      "previous_share_pct": 2.6,
+      "delta_pp": 1.2
+     },
+     {
+      "key": "healthcare-bio",
+      "label": "醫療生技",
+      "current_count": 40,
+      "previous_count": 64,
+      "current_share_pct": 2.0,
+      "previous_share_pct": 3.0,
+      "delta_pp": -1.0
+     },
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "current_count": 110,
+      "previous_count": 140,
+      "current_share_pct": 5.6,
+      "previous_share_pct": 6.5,
+      "delta_pp": -0.9
      },
      {
       "key": "education-training",
@@ -2604,97 +2606,97 @@
       "current_count": 37,
       "previous_count": 22,
       "current_share_pct": 1.9,
-      "previous_share_pct": 1.1,
+      "previous_share_pct": 1.0,
       "delta_pp": 0.9
      },
      {
       "key": "design-creative",
       "label": "設計創意",
-      "current_count": 130,
-      "previous_count": 122,
+      "current_count": 133,
+      "previous_count": 129,
       "current_share_pct": 6.8,
-      "previous_share_pct": 5.9,
-      "delta_pp": 0.8
+      "previous_share_pct": 6.0,
+      "delta_pp": 0.7
      },
      {
-      "key": "security",
-      "label": "資安",
-      "current_count": 116,
-      "previous_count": 108,
-      "current_share_pct": 6.0,
-      "previous_share_pct": 5.3,
-      "delta_pp": 0.8
+      "key": "marketing-growth",
+      "label": "行銷成長",
+      "current_count": 82,
+      "previous_count": 103,
+      "current_share_pct": 4.2,
+      "previous_share_pct": 4.8,
+      "delta_pp": -0.6
      }
     ],
     "E4_task_mix": [
      {
       "key": "generate",
       "label": "生成",
-      "count": 419,
+      "count": 422,
       "share_pct": 21.8
      },
      {
       "key": "configure",
       "label": "配置",
       "count": 328,
-      "share_pct": 17.1
+      "share_pct": 17.0
      },
      {
       "key": "orchestrate",
       "label": "調度",
-      "count": 285,
+      "count": 288,
       "share_pct": 14.9
      },
      {
       "key": "verify",
       "label": "驗證",
-      "count": 271,
-      "share_pct": 14.1
+      "count": 277,
+      "share_pct": 14.3
      },
      {
       "key": "analyze",
       "label": "分析",
-      "count": 266,
+      "count": 269,
       "share_pct": 13.9
      },
      {
       "key": "retrieve",
       "label": "檢索",
       "count": 178,
-      "share_pct": 9.3
+      "share_pct": 9.2
      },
      {
       "key": "transform",
       "label": "轉換",
-      "count": 172,
-      "share_pct": 9.0
+      "count": 173,
+      "share_pct": 8.9
      }
     ],
     "E5_task_shifts": [
      {
       "key": "orchestrate",
       "label": "調度",
-      "current_count": 285,
-      "previous_count": 363,
+      "current_count": 288,
+      "previous_count": 366,
       "current_share_pct": 14.9,
-      "previous_share_pct": 17.7,
-      "delta_pp": -2.8
+      "previous_share_pct": 17.5,
+      "delta_pp": -2.6
      },
      {
       "key": "analyze",
       "label": "分析",
-      "current_count": 266,
-      "previous_count": 241,
+      "current_count": 269,
+      "previous_count": 244,
       "current_share_pct": 13.9,
-      "previous_share_pct": 11.7,
-      "delta_pp": 2.1
+      "previous_share_pct": 11.6,
+      "delta_pp": 2.3
      },
      {
       "key": "transform",
       "label": "轉換",
-      "current_count": 172,
-      "previous_count": 142,
-      "current_share_pct": 9.0,
+      "current_count": 173,
+      "previous_count": 145,
+      "current_share_pct": 8.9,
       "previous_share_pct": 6.9,
       "delta_pp": 2.0
      },
@@ -2702,37 +2704,37 @@
       "key": "retrieve",
       "label": "檢索",
       "current_count": 178,
-      "previous_count": 227,
-      "current_share_pct": 9.3,
-      "previous_share_pct": 11.1,
-      "delta_pp": -1.8
+      "previous_count": 229,
+      "current_share_pct": 9.2,
+      "previous_share_pct": 10.9,
+      "delta_pp": -1.7
      },
      {
       "key": "configure",
       "label": "配置",
       "current_count": 328,
-      "previous_count": 326,
-      "current_share_pct": 17.1,
-      "previous_share_pct": 15.9,
+      "previous_count": 331,
+      "current_share_pct": 17.0,
+      "previous_share_pct": 15.8,
       "delta_pp": 1.2
      },
      {
       "key": "verify",
       "label": "驗證",
-      "current_count": 271,
-      "previous_count": 305,
-      "current_share_pct": 14.1,
-      "previous_share_pct": 14.9,
-      "delta_pp": -0.7
+      "current_count": 277,
+      "previous_count": 318,
+      "current_share_pct": 14.3,
+      "previous_share_pct": 15.2,
+      "delta_pp": -0.9
      },
      {
       "key": "generate",
       "label": "生成",
-      "current_count": 419,
-      "previous_count": 449,
+      "current_count": 422,
+      "previous_count": 463,
       "current_share_pct": 21.8,
-      "previous_share_pct": 21.9,
-      "delta_pp": -0.0
+      "previous_share_pct": 22.1,
+      "delta_pp": -0.3
      }
     ],
     "E6_maturity": {
@@ -2740,44 +2742,44 @@
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 1051,
+       "count": 1069,
        "share_pct": 54.8
       },
       {
        "key": "production",
        "label": "production",
-       "count": 782,
+       "count": 797,
        "share_pct": 40.8
       },
       {
        "key": "toy",
        "label": "toy",
        "count": 86,
-       "share_pct": 4.5
+       "share_pct": 4.4
       }
      ],
      "production_document_proxy": {
-      "count": 782,
-      "eligible_n": 1919,
+      "count": 797,
+      "eligible_n": 1952,
       "pct": 40.8
      },
      "agent_target_proxy": {
-      "count": 292,
-      "eligible_n": 1918,
+      "count": 296,
+      "eligible_n": 1948,
       "pct": 15.2
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
     },
     "E7_diversity": {
      "domain_entropy": {
-      "normalized": 0.85,
+      "normalized": 0.854,
       "categories": 18,
-      "n": 1919
+      "n": 1965
      },
      "task_entropy": {
       "normalized": 0.979,
       "categories": 7,
-      "n": 1919
+      "n": 1935
      }
     },
     "E8_eda_ic": {
@@ -2820,37 +2822,37 @@
      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
     },
     "E9_finance": {
-     "finance_n": 71,
+     "finance_n": 73,
      "task_mix": [
       {
        "key": "analyze",
        "label": "分析",
-       "count": 40,
-       "share_pct": 56.3
+       "count": 41,
+       "share_pct": 56.9
       },
       {
        "key": "orchestrate",
        "label": "調度",
        "count": 9,
-       "share_pct": 12.7
+       "share_pct": 12.5
       },
       {
        "key": "retrieve",
        "label": "檢索",
        "count": 8,
-       "share_pct": 11.3
+       "share_pct": 11.1
       },
       {
        "key": "generate",
        "label": "生成",
        "count": 6,
-       "share_pct": 8.5
+       "share_pct": 8.3
       },
       {
        "key": "verify",
        "label": "驗證",
        "count": 6,
-       "share_pct": 8.5
+       "share_pct": 8.3
       },
       {
        "key": "configure",
@@ -2863,14 +2865,14 @@
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 42,
-       "share_pct": 59.2
+       "count": 43,
+       "share_pct": 59.7
       },
       {
        "key": "production",
        "label": "production",
        "count": 28,
-       "share_pct": 39.4
+       "share_pct": 38.9
       },
       {
        "key": "toy",
@@ -2888,53 +2890,47 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 1919,
-     "comparison_domain_eligible_n": 2055,
+     "archive_domain_eligible_n": 1965,
+     "comparison_domain_eligible_n": 2139,
      "minimum_shift_support": 5
     }
    },
    "ai": {
     "scale": "quarter",
     "period_id": "2026-Q2",
-    "headline": "季度 repo_created cohort 顯示軟體開發份額持續收縮、分析與轉換類任務上升，EDA_IC 與財經樣本均不足以支撐可信判讀",
-    "executive_summary": "本季同樣無 first_seen 新發現，全部觀察基於 repo_created 史料。軟體開發份額較上季下降，個人生產力、寫作內容份額上升；task mix 顯示分析與轉換類上升、調度與檢索下降。EDA_IC 樣本仍極小且 taxonomy_validation 為 BLOCKED，財經樣本增至七十一筆但仍偏小，僅可視為觀察方向。",
+    "headline": "技能正從單純生成緩慢移向分析與資料轉換，專業工程仍藏在公開資料之外",
+    "executive_summary": "本季的公開史料顯示，軟體開發仍是最大類別，但集中程度略為下降；個人生產力與寫作內容則變得更常見。任務描述方面，分析與資料轉換增加，單純查找與工作調度減少，顯示技能開始承接更完整的處理流程。這是供給內容的改變，不是企業採用率的證明。",
     "structural_changes": [
-     "軟體開發份額連續下滑，但仍為最大類別，顯示集中度緩慢分散而非結構崩解 (E3)",
-     "個人生產力、寫作內容、法務合規份額同步上升，可能反映公開 repo 建立行為的季節性而非需求轉移 (E3)",
-     "task mix 中分析與轉換類上升，調度與檢索下降，顯示 repo_created cohort 描述行為略偏向處理型任務 (E5)",
-     "EDA_IC 樣本量由前期五筆增至十七筆，wifi_areas 首次出現 phy-baseband，但仍為 provisional 且未過 golden validation (E8)"
+     "公開技能不再只強調生成，也更常描述分析、轉換與設定工作",
+     "軟體開發仍居主體，但其他日常知識工作逐步分散了它的比重",
+     "領域分散可能代表能力外溢，也可能只是更多非技術使用者開始公開自己的方法"
     ],
-    "eda_ic_readout": "hardware_eda_n 十七筆中 owner_fit_provisional 呈 supporting、adjacent、exclude 三分，wifi_areas 出現 phy-baseband 類別，但 taxonomy_validation 仍為 BLOCKED，不能視為正確率或 signoff，且 FPGA、embedded 等非 owner-direct 項目仍混雜在 hardware_target_provisional 中 (E8)",
-    "finance_readout": "finance_n 七十一筆，task mix 以分析為主導超過半數，maturity mix workflow 略高於 production，樣本量已具備初步觀察基礎，但仍不足以支撐長期趨勢結論，且僅限資料、財報、估值、論點與風險研究範疇 (E9)",
-    "contrarian_view": "軟體開發份額下滑可能只是其他類別 repo_created 基數擴大的稀釋效果，而非該領域本身技能產出減少；EDA_IC 樣本擴大到十七筆也可能只是搜尋範圍調整而非真實供給增加 (E3, E8)",
+    "eda_ic_readout": "電子設計自動化與數位晶片設計材料略有增加，也開始出現無線網路基頻相關描述；但其中仍混有嵌入式系統與可程式化邏輯裝置內容。最適合試行的方向是規格整理、模擬除錯與跨階段交接，不能把公開文件當成工具執行證明。",
+    "finance_readout": "財經研究材料已有較清楚的共同方向，核心是分析、資料整理與論點檢查。它們適合建立可重算的研究流程，但仍不能接觸帳戶憑證，也不能把模型評分改寫成交易指令。",
+    "contrarian_view": "這些變化也可能只是公開平台的自我選擇：容易展示的個人生產力與寫作方法更常公開，晶片與機構財務流程則多半留在組織內部。",
     "actions": [
-     "針對 EDA_IC phy-baseband 首次出現的樣本進行 golden validation 排程",
-     "對財經類七十一筆樣本做 owner-direct 邊界複核，排除交易執行相關混入",
-     "追蹤軟體開發份額下滑是否為稀釋效果，需比對絕對 count 而非僅份額",
-     "確認法務合規、寫作內容上升是否為索引擴充所致"
+     "晶片設計只挑能留下輸入版本、執行紀錄與失敗條件的方法做隔離試行",
+     "財經研究只挑能追溯一手來源、重算公式並保留反方證據的方法",
+     "下一季用相同分類與搜尋範圍重做比較，避免把規則變動誤認成生態變動"
     ],
     "falsifiers": [
-     "若 golden validation 完成後 phy-baseband 樣本無法通過，需撤回相關判讀",
-     "若下季軟體開發絕對 count 止跌回升，稀釋假說可被推翻",
-     "若財經樣本擴大後任務分布出現大幅偏移，需重新評估研究廣度",
-     "若下季 EDA_IC owner_fit exclude 比例大幅升高，需下修 adjacent/supporting 判讀"
+     "若下一季分析與轉換的比重回落，這次變化可能只是短期題材",
+     "若人工抽樣發現晶片候選多數仍是非直接相關內容，專業供給增加的說法就不成立",
+     "若公開與非公開來源呈現相反方向，本文只能代表公開平台"
     ],
     "caveats": [
-     "本季無 first_seen 新發現可比對",
-     "EDA_IC taxonomy 為 provisional，未過 golden validation，禁止當正確率或 signoff",
-     "財經樣本仍屬觀察層級，不足以支撐趨勢結論",
-     "repo_created cohort 低估企業內部 IC、金融、法務、醫療實況"
+     "文件自述可投入使用，不等於真的部署或產生成效",
+     "最新期間可能受搜尋索引尚未補齊影響",
+     "公開資料不能代表公司內部的專業工作全貌"
     ],
-    "confidence": "LOW",
+    "confidence": "MEDIUM",
     "evidence_ids": [
      "E1",
-     "E2",
      "E3",
      "E5",
      "E6",
      "E8",
-     "E9",
-     "E10"
+     "E9"
     ]
    }
   }

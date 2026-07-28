@@ -1,5 +1,66 @@
 # Mac Agent Worklog — refresh canonical corpus and finish Wiki ingest
 
+## 2026-07-28 final Windows handoff — reader-safe articles and current snapshot
+
+- `PROVEN`: canonical corpus is now 42,242 unique rows, with 6,577 seed labels and
+  35,665 local-model labels. Master SHA-256 is
+  `3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6`.
+- `PROVEN`: rolling Release `corpus-latest` was replaced and read back with asset digest
+  `sha256:b3f856d160bf816b6fb3fe1fd3b3887fee46f40a7778fe67d5303720caddbd01`.
+- `PROVEN`: stored day, week, month and quarter prose was rewritten as reader-facing
+  Traditional Chinese mini-editorials. The dispatcher now reschedules any old prose that fails
+  the current jargon/readability validator; the public page hides unsafe legacy prose until repair.
+- `PROVEN`: local dashboard visually renders the opinion text first and keeps numeric evidence in
+  a collapsed section. Zero-sample periods no longer print internal fields, evidence IDs or rows of zeroes.
+- `UNKNOWN`: no Windows run proves the canonical Mac has `scikit-learn`, has reloaded the LaunchAgent,
+  or will produce the 2026-07-29 scheduled `execution_context=launchd` marker.
+
+Canonical Mac next action after this commit reaches `main`:
+
+```bash
+git pull --ff-only
+python3 -m pip install -r requirements-ml.txt
+./bin/install_launchd.sh
+./bin/check_launchd.sh
+launchctl kickstart -k "gui/$UID/com.hsin.skills-radar"
+```
+
+The immediate kickstart is only a canary. The unattended schedule is proven only after a real
+08:30 run publishes a matching live Pages health marker with `execution_context=launchd`.
+
+## 2026-07-28 root cause — launchd could not resolve `gh`
+
+- `PROVEN`: the scheduled 08:30 collector crashed in `harvest_delta.py` with
+  `FileNotFoundError: 'gh'`.
+- `PROVEN`: the old shell runner ignored that exit status, converted the crash into
+  「今日無新增 skill」, and continued toward a false local PASS.
+- `PROVEN`: the repaired runner now checks both `command -v gh` and `gh auth status`, then uses
+  `update_corpus.py` to persist a read-back manifest. Collector, classify, merge, train,
+  editorial, privacy, or health failure stops publish.
+- `PROVEN`: the daily research AI output is now one evidence-bounded Traditional Chinese
+  editorial. `research/insights/` is archive-only, avoiding a second daily AI call.
+- `UNKNOWN`: launchd recovery is not proven until the canonical Mac reloads the plist and a
+  scheduled run publishes `execution_context=launchd` for live Pages readback.
+- `PROVEN`: a recovery spike of 1,012 public rows exceeded the per-batch Claude budget on
+  Windows. The daily runner now caps LLM seed labelling at 180 rows; larger deltas use the
+  existing local classifier and retain field-confidence gates. This is model labelling, not
+  new LLM seed evidence.
+
+Mac reload and canary:
+
+```bash
+git pull --ff-only
+command -v gh
+gh auth status
+./bin/install_launchd.sh
+./bin/check_launchd.sh
+launchctl kickstart -k "gui/$UID/com.hsin.skills-radar"
+```
+
+After the canary, require today's `data/corpus_update_manifest.json` to be `SUCCESS`, require
+both `research/editorials/YYYY-MM-DD.md` and `docs/editorials/YYYY-MM-DD.html`, then read back
+live Pages. A manual canary can recover data but does not prove the next 08:30 schedule fired.
+
 ## RESOLVED on 2026-07-28 — use the new recoverable baseline
 
 The old 610-row Mac LLM output was not recoverable from Git or Release, and remote `main`

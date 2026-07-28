@@ -24,7 +24,12 @@ class PipelineHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             write(root / "daily/2026-07-28.md", "daily")
-            write(root / "research/insights/2026-07-28.md", "insight")
+            write(root / "research/editorials/2026-07-28.md", "editorial")
+            write(root / "docs/editorials/2026-07-28.html", "editorial html")
+            write(root / "data/corpus_update_manifest.json", {
+                "run_date": "2026-07-28", "status": "SUCCESS", "new_rows": 0,
+                "after": {"rows": 1}, "run_context": "launchd",
+            })
             write(root / "corpus/daily_skill_recommendations.json", {
                 "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
                 "corpus_freshness": {"status": "CURRENT"},
@@ -41,7 +46,12 @@ class PipelineHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             write(root / "daily/2026-07-28.md", "daily")
-            write(root / "research/insights/2026-07-28.md", "insight")
+            write(root / "research/editorials/2026-07-28.md", "editorial")
+            write(root / "docs/editorials/2026-07-28.html", "editorial html")
+            write(root / "data/corpus_update_manifest.json", {
+                "run_date": "2026-07-28", "status": "SUCCESS", "new_rows": 0,
+                "after": {"rows": 1}, "run_context": "manual",
+            })
             write(root / "corpus/daily_skill_recommendations.json", {
                 "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
                 "corpus_freshness": {"status": "CURRENT"},
@@ -65,6 +75,26 @@ class PipelineHealthTests(unittest.TestCase):
             })
             health = build_health("2026-07-28", privacy_passed=True, root=root)
         self.assertEqual(health["status"], "FAIL")
+
+    def test_failed_collector_can_never_be_health_pass(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write(root / "daily/2026-07-28.md", "daily")
+            write(root / "research/editorials/2026-07-28.md", "editorial")
+            write(root / "docs/editorials/2026-07-28.html", "editorial html")
+            write(root / "data/corpus_update_manifest.json", {
+                "run_date": "2026-07-28", "status": "FAILED", "new_rows": 0,
+            })
+            write(root / "corpus/daily_skill_recommendations.json", {
+                "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
+                "corpus_freshness": {"status": "CURRENT"},
+            })
+            write(root / "data/timescale_summary_status.json", {
+                "run_date": "2026-07-28", "status": "AI_GENERATED",
+            })
+            health = build_health("2026-07-28", privacy_passed=True, root=root)
+        self.assertEqual(health["status"], "FAIL")
+        self.assertEqual(health["gates"]["corpus_update"], "FAILED")
 
 
 if __name__ == "__main__":

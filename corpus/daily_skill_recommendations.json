@@ -1,19 +1,19 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-28",
- "generated_at": "2026-07-28T05:44:36.326545+00:00",
+ "generated_at": "2026-07-28T08:02:41.379182+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
-  "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+  "master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
   "actual": {
-   "rows": 41230,
+   "rows": 42242,
    "seed": 6577,
-   "model": 34653
+   "model": 35665
   },
   "expected": {
    "seed": 6577,
-   "model": 34653
+   "model": 35665
   },
   "population_claims_allowed": false,
   "note": "master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。"

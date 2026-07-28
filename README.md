@@ -30,10 +30,12 @@
 
 ## 專題研究
 
+- [每日觀點文章](research/editorials/2026-07-28.md)：
+  以當日 corpus manifest、四尺度 evidence、EDA_IC 與財經研究清單生成；包含核心主張、反方觀點與證偽條件。
 - [每日 EDA_IC／財經投資研究 Skill 建議](research/recommendations/2026-07-28.md)：
   每日 08:30 以 deterministic gate 更新；`pilot` 只代表可進入隔離評估，不代表已安裝、已上線或通過正確性驗證。
-- 日／週／月／季 AI Summary：單一 08:30 dispatcher 只分析上一個完整期，依 `period_id` 補跑漏期；
-  AI narrative 與 deterministic evidence cards 分離，沒有 fresh canonical corpus 就不產生摘要。
+- 日／週／月／季觀點：每天早上由同一個排程補齊尚未完成的週期；正文以繁中短篇文章呈現，
+  數據依據收在可展開區塊。沒有完整資料就明說不足，不用空值硬湊結論。
 - [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
   排除 FPGA、embedded、board/PCB、analog/RF；canonical corpus 與 candidate catalog 已 CURRENT，
   但 secondary taxonomy golden validation 仍為 `BLOCKED`，因此只可作候選路由，不是 EDA runtime proof。
@@ -50,6 +52,9 @@ bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 
 bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
 bin/build_daily_recommendations.py  產生 EDA_IC／財經投資研究的每日採用候選、摘要與風險 gate
 bin/timescale_summaries.py  日／週／月／季 evidence、AI summary、完整期與 catch-up dispatcher
+bin/update_corpus.py  區分 collector FAILED、有效零增量與真實新增，寫入 corpus update manifest
+bin/build_editorial_evidence.py  組合每日觀點的 source-bounded evidence ledger
+bin/render_editorial.py  將通過 citation/no-trade 驗收的 Markdown 安全轉成 HTML
 bin/build_corpus_snapshot.py  驗證並壓縮 canonical corpus，產生 Release manifest
 bin/write_pipeline_health.py  公開最後一次本機 gate 狀態；remote/Pages 仍須另做 readback
 bin/install_launchd.sh  在 canonical Mac 安裝/重載每日 08:30 dispatcher
@@ -59,11 +64,13 @@ data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
 data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序
 daily/YYYY-MM-DD.md 每日簡報
+research/editorials/YYYY-MM-DD.md 每日繁中觀點文章
 ```
 
 排程：launchd `com.hsin.skills-radar` 每日 08:30 執行 dispatcher；日摘要每天、週摘要每週一、
 月摘要每月一日、季摘要每季首月一日更新上一完整期。離線後補跑缺少的 `period_id`。
-Mac 安裝/重載：`./bin/install_launchd.sh`；稽核：`./bin/check_launchd.sh`。
+Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或重載：`./bin/install_launchd.sh`；
+稽核：`./bin/check_launchd.sh`。安裝器會確認 GitHub 登入、Python 套件及文章模型均可從排程環境找到。
 自 2026-07-29 起，09:30 watchdog 另要求 health marker 的 `execution_context=launchd`；人工補跑不算排程證明。
 手動跑一次：`~/skills-radar/bin/run_daily.sh`
 
@@ -72,3 +79,7 @@ Mac 安裝/重載：`./bin/install_launchd.sh`；稽核：`./bin/check_launchd.s
 - [2026-07-28](daily/2026-07-28.md)
 - [2026-07-27](daily/2026-07-27.md)
 - [2026-07-26](daily/2026-07-26.md)
+
+## 每日觀點文章
+
+- [2026-07-28](research/editorials/2026-07-28.md)

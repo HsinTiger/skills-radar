@@ -102,9 +102,15 @@ if todo:
             r[f + "_conf"] = round(conf, 3)
         r["label_source"] = "model"
     report["n_predicted"] = len(todo)
-    with open(MASTER, "w", encoding="utf-8") as fh:
-        for r in rows:
-            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    master_tmp = MASTER + ".tmp"
+    try:
+        with open(master_tmp, "w", encoding="utf-8", newline="\n") as fh:
+            for r in rows:
+                fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+        os.replace(master_tmp, MASTER)
+    finally:
+        if os.path.exists(master_tmp):
+            os.unlink(master_tmp)
     conf = [r.get("domain_conf", 0) for r in todo]
     report["pred_conf"] = {
         "mean": round(float(np.mean(conf)), 3),
@@ -113,6 +119,14 @@ if todo:
     }
     print(f"\n已預測 {len(todo)} 筆（domain 信心 ≥0.6 佔 {report['pred_conf']['pct_above_0.6']}%）")
 
-json.dump(report, open(os.path.join(ROOT, "corpus", "model_report.json"), "w"),
-          ensure_ascii=False, indent=1)
+report_path = os.path.join(ROOT, "corpus", "model_report.json")
+report_tmp = report_path + ".tmp"
+try:
+    with open(report_tmp, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(report, handle, ensure_ascii=False, indent=1)
+        handle.write("\n")
+    os.replace(report_tmp, report_path)
+finally:
+    if os.path.exists(report_tmp):
+        os.unlink(report_tmp)
 print(f"\n報告 → corpus/model_report.json")

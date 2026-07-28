@@ -1,18 +1,35 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-28",
- "completed_at": "2026-07-28T05:54:25.282257+00:00",
+ "completed_at": "2026-07-28T08:28:03.865044+00:00",
  "status": "PASS",
  "gates": {
+  "corpus_update": "SUCCESS",
   "daily_brief": "PASS",
   "daily_recommendations": "PASS",
-  "legacy_opportunity_insight": "PASS",
+  "editorial_markdown": "PASS",
+  "editorial_html": "PASS",
+  "legacy_opportunity_insight": "ARCHIVE_ONLY",
   "timescale_dispatch": "AI_GENERATED",
   "privacy": "PASS",
   "master_freshness": "CURRENT"
  },
+ "corpus_update": {
+  "status": "SUCCESS",
+  "new_rows": 1012,
+  "rows_after": 42242,
+  "run_context": "manual_recovery"
+ },
  "timescale": {
   "updated_periods": [
+   {
+    "scale": "day",
+    "period_id": "2026-07-27"
+   },
+   {
+    "scale": "week",
+    "period_id": "2026-W30"
+   },
    {
     "scale": "month",
     "period_id": "2026-06"
@@ -20,14 +37,6 @@
    {
     "scale": "quarter",
     "period_id": "2026-Q2"
-   },
-   {
-    "scale": "week",
-    "period_id": "2026-W30"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-07-27"
    }
   ],
   "due": [
@@ -65,6 +74,8 @@
  },
  "schedule_contract": {
   "dispatcher": "daily 08:30 Asia/Taipei",
+  "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
+  "execution_context": "manual_recovery",
   "day": "previous complete day",
   "week": "previous complete Monday-Sunday week",
   "month": "previous complete calendar month",
@@ -72,5 +83,5 @@
   "catch_up": "missing period_id only"
  },
  "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK",
- "claim_boundary": "local PASS does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome"
+ "claim_boundary": "local PASS proves a successful public collector readback plus required local artifacts; it does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome"
 }

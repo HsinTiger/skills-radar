@@ -27,6 +27,18 @@ class LaunchdScheduleTests(unittest.TestCase):
             contract["StartCalendarInterval"] = {"Hour": 9, "Minute": 30}
             self.assertIn("StartCalendarInterval must be daily 08:30", validate_contract(contract, root))
 
+    def test_installer_and_audit_preflight_runtime_dependencies(self):
+        installer = (ROOT / "bin" / "install_launchd.sh").read_text(encoding="utf-8")
+        auditor = (ROOT / "bin" / "check_launchd.sh").read_text(encoding="utf-8")
+        self.assertIn("command -v gh", installer)
+        self.assertIn("gh auth status", installer)
+        self.assertIn("import numpy, sklearn", installer)
+        self.assertIn("command -v agy", installer)
+        self.assertIn("installed PATH cannot resolve gh", auditor)
+        self.assertIn("gh auth status", auditor)
+        self.assertIn("import numpy, sklearn", auditor)
+        self.assertIn("installed PATH cannot resolve agy or claude", auditor)
+
 
 if __name__ == "__main__":
     unittest.main()

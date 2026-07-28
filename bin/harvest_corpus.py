@@ -11,7 +11,7 @@ harvest_corpus.py — 蒐集公開 SKILL.md 語料，作為「開發者行為」
 - 每個 repo 最多取 N 個 skill，避免單一大型 repo（或其 fork）灌爆分佈。
 - 只讀文字 metadata，不下載、不執行任何程式碼。
 """
-import json, os, re, subprocess, sys, time, urllib.request
+import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
@@ -27,25 +27,39 @@ SIZE_BUCKETS = [
 
 def gh(path):
     for attempt in range(4):
-        r = subprocess.run(["gh", "api", path], capture_output=True, text=True, timeout=90)
+        r = subprocess.run(
+            ["gh", "api", path], capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=90,
+        )
         if r.returncode == 0:
             try:
                 return json.loads(r.stdout)
-            except Exception:
-                return {}
+            except Exception as exc:
+                return {"_error": f"invalid gh JSON: {exc}"}
         if "rate limit" in r.stderr.lower() or "403" in r.stderr:
             time.sleep(20 * (attempt + 1))
             continue
         return {"_error": r.stderr.strip()[:160]}
     return {"_error": "retry exhausted"}
 
+def search_path(bucket, page):
+    query = urllib.parse.urlencode({
+        "q": f"filename:SKILL.md size:{bucket}",
+        "per_page": 100,
+        "page": page,
+    })
+    return f"search/code?{query}"
+
 def search_skill_files():
     """分層抽樣：對每個大小級距翻頁，取得跨領域的 SKILL.md 清單"""
     found = {}
     for bucket in SIZE_BUCKETS:
         for page in range(1, 11):          # code search 上限 1000 筆/query
-            q = f"filename:SKILL.md+size:{bucket}"
-            d = gh(f"search/code?q={q}&per_page=100&page={page}")
+            d = gh(search_path(bucket, page))
+            if "_error" in d:
+                raise RuntimeError(f"GitHub code search failed for bucket={bucket} page={page}: {d['_error']}")
+            if "items" not in d:
+                raise RuntimeError(f"GitHub code search returned no items field for bucket={bucket} page={page}")
             items = d.get("items") or []
             if not items:
                 break
@@ -62,6 +76,8 @@ def search_skill_files():
             time.sleep(6.5)                 # code search 限 30 req/min
             if len(items) < 100:
                 break
+    if not found:
+        raise RuntimeError("GitHub code search completed without any SKILL.md results")
     return found
 
 def fetch_raw(repo, path):

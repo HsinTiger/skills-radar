@@ -23,10 +23,24 @@ MASTER = os.path.join(CORPUS, "master.jsonl")
 def load_seen():
     s = set()
     if os.path.exists(SEEN):
-        for line in open(SEEN, encoding="utf-8", errors="replace"):
-            p = line.rstrip("\n").split("\t")
-            if len(p) == 2:
-                s.add((p[0], p[1]))
+        with open(SEEN, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                p = line.rstrip("\n").split("\t")
+                if len(p) == 2:
+                    s.add((p[0], p[1]))
+    # seen.tsv is only an optimization and may be absent after restoring the canonical
+    # Release snapshot on another machine.  master.jsonl is the authority; without this
+    # fallback a recovery host would append rediscovered rows as false daily additions.
+    if os.path.exists(MASTER):
+        with open(MASTER, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                try:
+                    row = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                repo, path = row.get("repo"), row.get("path")
+                if repo and path:
+                    s.add((repo, path))
     return s
 
 def main():

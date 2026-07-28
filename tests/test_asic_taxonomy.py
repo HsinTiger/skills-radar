@@ -204,9 +204,11 @@ class AsicTaxonomyTests(unittest.TestCase):
         )
         self.assertEqual({row["name"] for row in chosen}, {"unlabelled", "model"})
 
-    def test_generic_classifier_does_not_reuse_old_batch_outputs(self):
+    def test_generic_classifier_cleans_fresh_runs_and_validates_resume_outputs(self):
         script = (ROOT / "bin" / "classify.sh").read_text(encoding="utf-8")
-        self.assertIn('rm -f "$WORK"/*.jsonl "$OUTD"/*.jsonl', script)
+        self.assertIn('if [ "$MODE" != "resume" ]', script)
+        self.assertIn('rm -f "$OUTD"/*.jsonl "$OUTD"/*.raw', script)
+        self.assertIn('if [ "$existing" -eq "$expected" ]', script)
         self.assertNotIn('[ -s "$OUTD/$base.jsonl" ]', script)
 
     def test_generic_merge_marks_new_labels_as_llm(self):
