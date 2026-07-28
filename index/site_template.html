@@ -73,6 +73,11 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
 .sumcard .body{font-size:.86rem;margin-top:.5rem;white-space:pre-wrap;line-height:1.6}
 .sched{display:flex;flex-wrap:wrap;gap:1rem;font-size:.82rem;margin-top:.4rem}
 .sched b{font-variant-numeric:tabular-nums}
+.evidence-grid{display:grid;gap:.65rem;margin-top:.8rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.evidence-card{border:1px solid var(--line);border-radius:8px;padding:.7rem;background:var(--panel)}
+.evidence-card b{display:block;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.evidence-card span{font-size:.75rem;color:var(--dim)}
+.ai-grid{display:grid;gap:.75rem;margin-top:.8rem}@media(min-width:720px){.ai-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -99,6 +104,7 @@ footer{margin-top:4rem;padding-top:1.25rem;border-top:1px solid var(--line);colo
   <button id="btn-day" aria-pressed="false">日級視角</button>
   <button id="btn-week" aria-pressed="false">週級視角</button>
   <button id="btn-month" aria-pressed="true">月級視角</button>
+  <button id="btn-quarter" aria-pressed="false">季級視角</button>
 </div>
 <p class="lede" id="view-desc"></p>
 <div class="note" id="next-update"></div>
@@ -210,10 +216,21 @@ function spark(arr){
 
 function render(){
   const v = D[mode];
-  const label = mode === "day" ? "日" : mode === "week" ? "週" : "月";
+  const label = mode === "day" ? "日" : mode === "week" ? "週" : mode === "month" ? "月" : "季";
   $("#btn-day").setAttribute("aria-pressed", mode === "day");
   $("#btn-week").setAttribute("aria-pressed", mode === "week");
   $("#btn-month").setAttribute("aria-pressed", mode === "month");
+  $("#btn-quarter").setAttribute("aria-pressed", mode === "quarter");
+  renderSummary();
+  if (!v) {
+    $("#view-desc").textContent = `${label}級資料尚未由 fresh canonical corpus 重建。`;
+    $("#trend-range").textContent = "等待有效資料";
+    $("#trend-body").innerHTML = "";
+    $("#niche-body").innerHTML = "";
+    renderSchedule();
+    renderDiscovery();
+    return;
+  }
   $("#view-desc").textContent =
     `目前為${label}級視角，涵蓋最近 ${v.periods.length} ${mode === "day" ? "天" : label}（${v.periods[0]} 起）。` +
     (mode === "day" ? "日級粒度雜訊大，且最近 2–3 天因搜尋索引落差會明顯偏低，看趨勢不要看單日。" : "");
@@ -231,7 +248,7 @@ function render(){
       <td>${spark(v.stack[g.domain])}</td></tr>`;
   }).join("");
 
-  const niches = D[mode === "month" ? "niche_month" : "niche_week"];
+  const niches = D[mode === "quarter" ? "niche_quarter" : mode === "month" ? "niche_month" : "niche_week"] || [];
   $("#niche-body").innerHTML = niches.slice(0, 8).map(nc => {
     const mom = nc.momentum;
     const hot = mom !== null && mom > 0;
@@ -335,14 +352,20 @@ function nextBoundary(kind){
   if (kind === "week"){ const x = new Date(d); const dow = (x.getDay()+6)%7;
     x.setDate(x.getDate() + (7-dow)); x.setHours(0,0,0,0); return x; }
   if (kind === "month"){ return new Date(d.getFullYear(), d.getMonth()+1, 1); }
+  if (kind === "quarter"){
+    const nextMonth = (Math.floor(d.getMonth()/3)+1)*3;
+    return new Date(d.getFullYear() + (nextMonth >= 12 ? 1 : 0), nextMonth % 12, 1);
+  }
   const x = new Date(d); x.setDate(x.getDate()+1); x.setHours(0,0,0,0); return x;
 }
 
 function renderSchedule(){
   const nr = nextRun();
   const b = nextBoundary(mode);
-  const label = mode === "day" ? "日" : mode === "week" ? "週" : "月";
-  const bLabel = mode === "day" ? "新的一天" : mode === "week" ? "新的一週（週一）" : "新的一月（1 號）";
+  const ph = D.pipeline_health || {};
+  const label = mode === "day" ? "日" : mode === "week" ? "週" : mode === "month" ? "月" : "季";
+  const bLabel = mode === "day" ? "新的一天" : mode === "week" ? "新的一週（週一）"
+    : mode === "month" ? "新的一月（1 號）" : "新的一季（季首月 1 號）";
   $("#next-update").innerHTML =
     `<div class="sched">
        <span>🔄 <b>下次資料更新</b>：${fmtDT(nr)}（${untilText(nr)}）</span>
@@ -350,33 +373,54 @@ function renderSchedule(){
      </div>
      <div style="margin-top:.5rem">
        排程：launchd <code>${(D.schedule||{}).job || "com.hsin.skills-radar"}</code>
-       每日 ${pad((D.schedule||{}).hour ?? 8)}:${pad((D.schedule||{}).minute ?? 30)} 執行
-       → 增量採集 → 分類 → 重算訊號 → 重建本頁 → 自動部署。
-       <strong>三個視角每天都會一起重算</strong>，差別只在時間軸的分桶粒度。
+       每日 ${pad((D.schedule||{}).hour ?? 8)}:${pad((D.schedule||{}).minute ?? 30)} dispatcher 執行。
+       日摘要每天更新前一日；週摘要於週一更新上一完整週；月摘要於月初更新上一完整月；
+       季摘要於季初更新上一完整季。離線後依 <code>period_id</code> 補跑缺期，不重算成功期。
+       <br><strong>最近 pipeline health</strong>：${esc(ph.status || "NOT_RUN")} · ${esc(ph.report_date || "尚無日期")}
+       · remote publish 必須另做 Git/Pages readback，不能由本機 PASS 推定。
      </div>`;
 }
 
 function renderSummary(){
-  const s = D.summary || {};
-  if (!s.insight && !s.ecosystem) { $("#summary-card").innerHTML = ""; return; }
-  let h = '<div class="sumcard"><div class="kicker">每日 AI 摘要</div>';
-  if (s.insight){
-    h += `<h3>${esc(s.insight.headline)}</h3>
-          <div class="meta">機會訊號解讀 · ${esc(s.insight.date)}</div>`;
-    if (s.insight.short) h += `<details><summary>短期看法（一個月內）</summary>
-          <div class="body">${esc(s.insight.short)}</div></details>`;
-    if (s.insight.mid) h += `<details><summary>中期看法（一季內）</summary>
-          <div class="body">${esc(s.insight.mid)}</div></details>`;
+  const ts = D.timescale_summary || {};
+  const record = (ts.latest || {})[mode];
+  const label = mode === "day" ? "日" : mode === "week" ? "週" : mode === "month" ? "月" : "季";
+  if (!record || record.status !== "AI_GENERATED") {
+    const status = ((ts.status || {}).status || "NOT_RUN");
+    $("#summary-card").innerHTML = `<div class="sumcard">
+      <div class="kicker">${label}級 AI Summary</div>
+      <h3>尚未產生經證據驗證的${label}級摘要</h3>
+      <div class="meta">狀態：${esc(status)}。排程存在不等於成功；需 period record、freshness 與遠端發布三者一致。</div>
+    </div>`;
+    return;
   }
-  if (s.ecosystem){
-    h += `<div style="margin-top:.9rem;padding-top:.7rem;border-top:1px solid var(--line)">
-            <div class="meta">生態動態 · ${esc(s.ecosystem.date)}</div>
-            <div style="font-size:.9rem;margin-top:.3rem">${esc(s.ecosystem.headline)}</div>`;
-    if (s.ecosystem.official) h += `<details><summary>官方變動</summary>
-            <div class="body">${esc(s.ecosystem.official)}</div></details>`;
-    h += `</div>`;
-  }
-  $("#summary-card").innerHTML = h + "</div>";
+  const ai = record.ai || {}, e = record.evidence || {}, sample = e.E1_sample || {};
+  const proxy = ((e.E6_maturity || {}).production_document_proxy || {});
+  const agent = ((e.E6_maturity || {}).agent_target_proxy || {});
+  const entropy = ((e.E7_diversity || {}).domain_entropy || {});
+  const shifts = (e.E3_domain_shifts || []).slice(0,4);
+  const list = xs => `<ul>${(xs || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+  let h = `<div class="sumcard"><div class="kicker">${label}級 AI Summary · ${esc(record.period.period_id)}</div>
+    <h3>${esc(ai.headline)}</h3>
+    <div class="meta">${esc(record.period.start)}～${esc(record.period.end)} · confidence ${esc(ai.confidence)} · ${esc(record.status)}</div>
+    <p>${esc(ai.executive_summary)}</p>
+    <div class="evidence-grid">
+      <div class="evidence-card"><b>${sample.archive_n ?? "—"}</b><span>repo_created cohort</span></div>
+      <div class="evidence-card"><b>${sample.discovered_n ?? "—"}</b><span>本期 radar 新發現</span></div>
+      <div class="evidence-card"><b>${proxy.pct ?? "—"}${proxy.pct == null ? "" : "%"}</b><span>文件標示 production proxy</span></div>
+      <div class="evidence-card"><b>${agent.pct ?? "—"}${agent.pct == null ? "" : "%"}</b><span>文件標示 agent-facing proxy</span></div>
+      <div class="evidence-card"><b>${entropy.normalized ?? "—"}</b><span>領域多樣性 entropy</span></div>
+    </div>`;
+  if (shifts.length) h += `<details open><summary>最大領域份額變化（deterministic）</summary>
+    <div class="body">${shifts.map(x => `${esc(x.label)} ${x.delta_pp > 0 ? "+" : ""}${x.delta_pp}pp`).join("、")}</div></details>`;
+  h += `<details open><summary>結構判讀</summary><div class="body">${list(ai.structural_changes)}</div></details>
+    <div class="ai-grid"><div class="card"><div class="kicker">EDA_IC</div><p>${esc(ai.eda_ic_readout)}</p></div>
+    <div class="card"><div class="kicker">財經投資研究</div><p>${esc(ai.finance_readout)}</p></div></div>
+    <details><summary>非共識／反方解讀</summary><div class="body">${esc(ai.contrarian_view)}</div></details>
+    <details><summary>下一步與證偽訊號</summary><div class="body"><strong>行動</strong>${list(ai.actions)}<strong>證偽</strong>${list(ai.falsifiers)}</div></details>
+    <details><summary>資料限制與 evidence IDs</summary><div class="body">${list(ai.caveats)}${esc((ai.evidence_ids || []).join("、"))}</div></details>
+    <p class="pain">雙時鐘：first_seen 是 radar 首次觀察；repo_created 是 repository 建立 cohort，兩者都不是 skill 實際採用時間。</p></div>`;
+  $("#summary-card").innerHTML = h;
 }
 
 function renderDiscovery(){
@@ -440,8 +484,11 @@ if (G) {
 $("#btn-day").onclick = () => { mode = "day"; render(); };
 $("#btn-week").onclick = () => { mode = "week"; render(); };
 $("#btn-month").onclick = () => { mode = "month"; render(); };
-renderSummary();
+$("#btn-quarter").onclick = () => { mode = "quarter"; render(); };
 render();
+fetch("pipeline_health.json", {cache:"no-store"}).then(r => r.ok ? r.json() : null).then(x => {
+  if (x) { D.pipeline_health = x; renderSchedule(); }
+}).catch(() => {});
 </script>
 </body>
 </html>

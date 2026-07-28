@@ -71,6 +71,8 @@ def bucket(r, mode):
     if mode == "month":
         return d[:7]
     dt = datetime.strptime(d, "%Y-%m-%d")
+    if mode == "quarter":
+        return f"{dt.year}-Q{((dt.month - 1) // 3) + 1}"
     monday = dt - timedelta(days=dt.weekday())
     return monday.strftime("%Y-%m-%d")
 
@@ -114,7 +116,7 @@ def build_view(mode, keep):
 # ---------- 利基：沒人注意到但做得起來的 ----------
 def niches(mode):
     """把結構性缺口 × 該領域近期熱度，挑出「需求在成長、能力卻缺席」的組合"""
-    view = build_view(mode, 12 if mode == "month" else 16)
+    view = build_view(mode, 12 if mode in {"month", "quarter"} else 16)
     grow = {g["domain"]: g for g in view["growth"]}
     out = []
     for g in opp["B1_task_gaps"]:
@@ -214,6 +216,23 @@ def read_summary():
         }
     return out
 
+def read_timescale_summary():
+    """Read only validated, period-keyed summaries; never infer success from a scheduled job."""
+    history_path = os.path.join(ROOT, "data", "timescale_summaries.json")
+    status_path = os.path.join(ROOT, "data", "timescale_summary_status.json")
+    history = {}
+    status = {"status": "NOT_RUN", "updated_periods": []}
+    if os.path.exists(history_path):
+        history = json.load(open(history_path, encoding="utf-8"))
+    if os.path.exists(status_path):
+        status = json.load(open(status_path, encoding="utf-8"))
+    periods = history.get("periods", {})
+    return {
+        "latest": history.get("latest", {}),
+        "status": status,
+        "period_counts": {scale: len(records) for scale, records in periods.items()},
+    }
+
 def eda_gaps():
     """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
     hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
@@ -245,13 +264,18 @@ data = {
     "day": build_view("day", 30),
     "week": build_view("week", 16),
     "month": build_view("month", 12),
+    "quarter": build_view("quarter", 12),
     "discovery": daily_discovery(),
     "summary": read_summary(),
+    "timescale_summary": read_timescale_summary(),
+    "pipeline_health": (json.load(open(os.path.join(ROOT, "data", "pipeline_health.json"), encoding="utf-8"))
+                        if os.path.exists(os.path.join(ROOT, "data", "pipeline_health.json")) else None),
     "schedule": {"hour": 8, "minute": 30, "tz": "Asia/Taipei",
                  "cadence": "每日", "job": "com.hsin.skills-radar"},
     "niche_day": niches("week"),
     "niche_week": niches("week"),
     "niche_month": niches("month"),
+    "niche_quarter": niches("quarter"),
     "traction": [{**t, "zh": DOM_ZH.get(t["domain"], t["domain"])} for t in opp["A_traction"]],
     "unfinished": [{**u, "zh": DOM_ZH.get(u["domain"], u["domain"])} for u in opp["B2_unfinished"]],
     "niche_pros": opp["B3_niche_professions"][:18],
@@ -266,4 +290,4 @@ tpl = open(os.path.join(ROOT, "index", "site_template.html"), encoding="utf-8").
 page = tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
 open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page)
 print(f"站台完成：{N} 筆樣本 → docs/index.html ({len(page)//1024} KB)")
-print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")
+print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、季級 {len(data['quarter']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")

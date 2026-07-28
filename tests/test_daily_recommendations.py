@@ -128,7 +128,10 @@ class DailyRecommendationTests(unittest.TestCase):
     def test_daily_pipeline_builds_recommendations_before_publish(self):
         script = (ROOT / "bin" / "daily_research.sh").read_text(encoding="utf-8")
         self.assertIn('build_daily_recommendations.py --date "$DATE"', script)
+        self.assertIn('timescale_summaries.py --date "$DATE"', script)
+        self.assertIn('write_pipeline_health.py --date "$DATE" --privacy-passed', script)
         self.assertLess(script.index("build_daily_recommendations.py"), script.index("build_site.py"))
+        self.assertLess(script.index("timescale_summaries.py"), script.index("build_site.py"))
 
 
 if __name__ == "__main__":

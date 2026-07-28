@@ -138,3 +138,48 @@ Required readback:
 2. EDA scope excludes FPGA, embedded, PCB and analog/RF; source review does not equal EDA runtime proof.
 3. Finance is research-only. Any trading execution, broker/wallet credential or private-key path stays excluded.
 4. `pilot` means isolated evaluation only; it is not installed, live, profitable or production-proven.
+
+---
+
+# 2026-07-28 audit — scheduled update missed; cadence dispatcher handoff
+
+## Proven remote state
+
+- Remote `main` and Pages were still at `a37462c` during the 2026-07-28 audit.
+- Pages returned HTTP 200 but contained no `2026-07-28` report and still showed `PREVIEW_STALE_CORPUS`.
+- Windows master remains stale: seed/model `5937/35293`; model report expects `6547/34683`.
+- Therefore the existence of launchd is not proof that the 2026-07-28 run or publish succeeded.
+
+## New cadence contract
+
+The daily 08:30 launchd job is now a dispatcher. It updates only closed periods and retries missing
+`period_id` values without recomputing successful periods:
+
+- day: previous complete day;
+- week: previous complete Monday-Sunday week;
+- month: previous complete calendar month;
+- quarter: previous complete calendar quarter.
+
+On 2026-07-28 the initial due set is `2026-07-27`, `2026-W30`, `2026-06`, and `2026-Q2`.
+
+## Required Mac recovery and proof
+
+```bash
+git pull --ff-only
+# Restore/verify the canonical 6547-seed / 34683-model master first.
+python3 bin/timescale_summaries.py --date 2026-07-28 --plan-only
+python3 -m unittest discover -s tests -v
+bash -n bin/daily_research.sh bin/run_daily.sh
+~/skills-radar/bin/run_daily.sh
+```
+
+Required readback after the run:
+
+1. `data/pipeline_health.json` and `docs/pipeline_health.json` must report the current date and `PASS`
+   (or an explicitly explained `PARTIAL`), with `master_freshness=CURRENT`.
+2. `data/timescale_summaries.json` must contain validated records for every due period above.
+3. Remote `main` must advance, then Pages `/pipeline_health.json` and the dashboard must be read back.
+4. `AI_GENERATED` proves validated summary structure only; it does not prove skill correctness, EDA signoff,
+   actual deployment, or investment outcome.
+5. The GitHub 09:30 freshness watchdog must turn green only after the current health marker is pushed;
+   the watchdog detects failure but cannot replace the Mac canonical run.

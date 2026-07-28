@@ -51,6 +51,12 @@ python3 bin/build_daily_recommendations.py --date "$DATE" >> "$LOG" 2>&1 || {
   log "STOP: 每日 skill 建議清單產生失敗"; exit 1;
 }
 
+# 3.6 各尺度獨立 cadence dispatcher（零 token evidence + due period 才用 AI）
+# 日/週/月/季只更新上一個完整期；依 period_id 補跑，不重算成功期。
+python3 bin/timescale_summaries.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: 多尺度摘要 freshness/evidence gate 失敗"; exit 1;
+}
+
 # 4. 洞察專區（唯一的 LLM 步驟，輸入只有訊號表）
 OUT="$ROOT/research/insights/$DATE.md"
 mkdir -p "$ROOT/research/insights"
@@ -85,5 +91,18 @@ python3 bin/check_privacy.py >> "$LOG" 2>&1 || { log "STOP: 個資檢查未通�
 
 # 5. 稽核（零 token）：數字必須回溯得到訊號表
 python3 bin/validate_research.py "$DATE" >> "$LOG" 2>&1 || log "WARN: 稽核有異常，見 log"
+
+# 5.5 公開 health marker：本機 gate 與 remote publish 證據分開。
+python3 bin/write_pipeline_health.py --date "$DATE" --privacy-passed >> "$LOG" 2>&1 || {
+  log "STOP: pipeline health 核心 gate 未通過"; exit 1;
+}
+
+# health marker 要進入自足式頁面；重建後再跑一次 privacy gate。
+python3 bin/build_site.py >> "$LOG" 2>&1 || {
+  log "STOP: health marker 寫入後重建頁面失敗"; exit 1;
+}
+python3 bin/check_privacy.py >> "$LOG" 2>&1 || {
+  log "STOP: 最終頁面個資檢查未通過"; exit 1;
+}
 
 log "=== research done (新增 $NEW) ==="

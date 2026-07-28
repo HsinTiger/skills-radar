@@ -78,6 +78,9 @@ aggregate.py / opportunity.py / eda_deepdive.py / scan_injection.py / cluster.py
 build_daily_recommendations.py → corpus/daily_skill_recommendations.json
                                → research/recommendations/YYYY-MM-DD.md
                                → docs/recommendations/*.html
+timescale_summaries.py          → corpus/timescale_evidence.json
+                               → data/timescale_summaries.json（依 period_id 保存）
+                               → data/timescale_summary_status.json
 prompt_opportunity.txt → agy 解讀 → research/insights/YYYY-MM-DD.md
 wiki_ingest.py         → data/wiki_history.json + research/wiki/*.md + docs/wiki/*.html
 build_site.py          → docs/index.html（自足式單檔）
@@ -97,8 +100,17 @@ python3 bin/harvest_targeted.py --list   # 看有哪些主題詞表
 python3 bin/harvest_targeted.py wifi     # 跑單一主題過取樣
 python3 bin/train_classifier.py          # 重訓分類器（種子變動後必跑）
 python3 bin/build_daily_recommendations.py --date 2026-07-27  # 重建兩類採用建議
+python3 bin/timescale_summaries.py --date 2026-07-28 --plan-only  # 查看日週月季缺期與 freshness
 python3 bin/wiki_lint.py                 # 跨報告矛盾偵測
 ```
+
+多尺度摘要只處理完整期：日＝前一日、週＝前一個週一至週日、月＝前一曆月、季＝前一曆季。
+第一次啟用各建一份最新完整期；之後逐一補齊缺少的 `period_id`。已成功期不重跑，避免浪費 token。
+`first_seen` 與 `repo_created` 是兩個不同時鐘，前者是 radar 首次發現，後者只是 repo 建立時間，
+兩者都不能寫成 skill 實際採用時間。
+
+GitHub Actions 的 `freshness-watch.yml` 每日 09:30（Asia/Taipei）檢查已推送的 health marker。
+它只負責把漏跑、stale 或 AI summary 失敗變成紅燈，不能取代 Mac canonical runtime 或修復資料。
 
 新增一個研究主題：在 `bin/harvest_targeted.py` 的 `TOPICS` 加詞表 → 跑採集 →
 抽樣送 `classify.sh` 標註 → 重訓 → 分析。**抽樣標註這步不可省**，見下。

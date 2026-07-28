@@ -1,0 +1,59 @@
+{
+ "schema_version": 1,
+ "report_date": "2026-07-28",
+ "completed_at": "2026-07-28T03:06:52.695619+00:00",
+ "status": "FAIL",
+ "gates": {
+  "daily_brief": "FAIL",
+  "daily_recommendations": "FAIL",
+  "legacy_opportunity_insight": "PARTIAL",
+  "timescale_dispatch": "BLOCKED_STALE_CORPUS",
+  "privacy": "PASS",
+  "master_freshness": "STALE"
+ },
+ "timescale": {
+  "updated_periods": [],
+  "due": [
+   {
+    "scale": "month",
+    "period_id": "2026-06",
+    "start": "2026-06-01",
+    "end": "2026-06-30"
+   },
+   {
+    "scale": "quarter",
+    "period_id": "2026-Q2",
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   {
+    "scale": "week",
+    "period_id": "2026-W30",
+    "start": "2026-07-20",
+    "end": "2026-07-26"
+   },
+   {
+    "scale": "day",
+    "period_id": "2026-07-27",
+    "start": "2026-07-27",
+    "end": "2026-07-27"
+   }
+  ],
+  "backlog": {
+   "day": 0,
+   "week": 0,
+   "month": 0,
+   "quarter": 0
+  }
+ },
+ "schedule_contract": {
+  "dispatcher": "daily 08:30 Asia/Taipei",
+  "day": "previous complete day",
+  "week": "previous complete Monday-Sunday week",
+  "month": "previous complete calendar month",
+  "quarter": "previous complete calendar quarter",
+  "catch_up": "missing period_id only"
+ },
+ "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK",
+ "claim_boundary": "local PASS does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome"
+}
