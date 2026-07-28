@@ -1,43 +1,43 @@
 {
- "n_seed": 6547,
- "n_predicted": 34683,
+ "n_seed": 6577,
+ "n_predicted": 34653,
  "fields": {
   "domain": {
-   "cv_accuracy": 0.729,
-   "cv_std": 0.008,
-   "majority_baseline": 0.333,
-   "lift_over_baseline": 0.396,
+   "cv_accuracy": 0.724,
+   "cv_std": 0.01,
+   "majority_baseline": 0.334,
+   "lift_over_baseline": 0.39,
    "n_classes": 18,
-   "n_train": 6547
+   "n_train": 6577
   },
   "task": {
-   "cv_accuracy": 0.664,
+   "cv_accuracy": 0.65,
    "cv_std": 0.018,
-   "majority_baseline": 0.233,
-   "lift_over_baseline": 0.431,
+   "majority_baseline": 0.231,
+   "lift_over_baseline": 0.419,
    "n_classes": 7,
-   "n_train": 6547
+   "n_train": 6577
   },
   "target": {
-   "cv_accuracy": 0.636,
-   "cv_std": 0.008,
-   "majority_baseline": 0.369,
-   "lift_over_baseline": 0.267,
+   "cv_accuracy": 0.628,
+   "cv_std": 0.006,
+   "majority_baseline": 0.366,
+   "lift_over_baseline": 0.262,
    "n_classes": 5,
-   "n_train": 6547
+   "n_train": 6577
   },
   "maturity": {
-   "cv_accuracy": 0.687,
-   "cv_std": 0.015,
-   "majority_baseline": 0.523,
-   "lift_over_baseline": 0.165,
+   "cv_accuracy": 0.684,
+   "cv_std": 0.007,
+   "majority_baseline": 0.53,
+   "lift_over_baseline": 0.154,
    "n_classes": 3,
-   "n_train": 6547
+   "n_train": 6577
   }
  },
  "pred_conf": {
-  "mean": 0.506,
-  "pct_above_0.6": 36.2,
-  "pct_above_0.8": 18.9
+  "mean": 0.485,
+  "pct_above_0.6": 33.7,
+  "pct_above_0.8": 14.4
  }
 }

@@ -18,20 +18,13 @@ if [ ! -s "$FACTS" ]; then
 fi
 log "facts: $FACTS ($(wc -c < "$FACTS") bytes)"
 
-# 2. 產簡報（厚重工作外包 agy）
-TMP=$(mktemp)
-{ sed "s/YYYY-MM-DD/$DATE/" "$ROOT/index/prompt_daily.txt"; cat "$FACTS"; } > "$TMP"
-agy --print="$(cat "$TMP")" --mode=accept-edits > "$OUT.new" 2>>"$LOG"
-rm -f "$TMP"
-
-# 3. 驗收：必須有骨架且非空，否則不覆蓋
-if [ -s "$OUT.new" ] && grep -q "## 🎯 策略建議" "$OUT.new" && grep -q "### 長期" "$OUT.new"; then
-  mv "$OUT.new" "$OUT"
-  log "ok: $OUT ($(wc -c < "$OUT") bytes)"
-else
-  log "FAIL: 簡報不合規，保留 .new 供檢查"
+# 2-3. 產簡報並驗收。Mac 優先 agy；無 agy 時使用無工具 Claude CLI。
+if ! /usr/bin/env python3 "$ROOT/bin/generate_ai_artifact.py" daily \
+    --date "$DATE" --input "$FACTS" --output "$OUT" >> "$LOG" 2>&1; then
+  log "FAIL: 每日簡報 AI provider 或結構驗收失敗"
   exit 1
 fi
+log "ok: $OUT ($(wc -c < "$OUT") bytes)"
 
 # 4. 零輸出偵測（吃過這個虧：排程默默產出空檔沒人發現）
 SIZE=$(wc -c < "$OUT")
@@ -53,9 +46,14 @@ if ! "$ROOT/bin/daily_research.sh" >> "$LOG" 2>&1; then
   exit 1
 fi
 
-# 6.8 每週一發佈語料快照到 Release（不進 git 歷史）
+# 6.8 每次成功 run 更新 rolling Release；否則 tracked model report 會再次
+# 與可下載 master 漂移。週一另外保留 immutable dated archive。
+"$ROOT/bin/publish_snapshot.sh" corpus-latest >> "$LOG" 2>&1 || {
+  log "STOP: canonical rolling snapshot 發佈或 digest readback 失敗"; exit 1;
+}
 if [ "$(date +%u)" = "1" ]; then
-  "$ROOT/bin/publish_snapshot.sh" >> "$LOG" 2>&1 || log "WARN: 快照發佈失敗"
+  "$ROOT/bin/publish_snapshot.sh" "corpus-$(date +%Y%m%d)" >> "$LOG" 2>&1 \
+    || log "WARN: weekly dated archive 發佈失敗；rolling snapshot 已成功"
 fi
 
 # 7. 推 repo

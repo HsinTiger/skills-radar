@@ -1,5 +1,36 @@
 # Mac Agent Worklog — refresh canonical corpus and finish Wiki ingest
 
+## RESOLVED on 2026-07-28 — use the new recoverable baseline
+
+The old 610-row Mac LLM output was not recoverable from Git or Release, and remote `main`
+never received it. Windows therefore created a new bounded, auditable relabel baseline instead
+of pretending to reconstruct the missing labels.
+
+- `PROVEN`: 640 public rows were sampled evenly across `targeted-eda2` / `targeted-wifi`
+  and eight topic tiers; every `repo+path` and output index is unique.
+- `PROVEN`: strict merge accepted all 640 valid LLM labels, then the local classifier retrained.
+- `PROVEN`: canonical counts are now `rows=41230`, `seed=6577`, `model=34653`.
+- `PROVEN`: master SHA-256 is
+  `6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd`.
+- `PROVEN`: rolling Release tag `corpus-latest` has asset SHA-256
+  `6727d6ced0055ab13ea15c444873274c5331b20283a06f2fcb44c0273510fb00`.
+- `PROVEN`: day `2026-07-27`, week `2026-W30`, month `2026-06`, and quarter
+  `2026-Q2` are all `AI_GENERATED`; local health is `PASS` with `master_freshness=CURRENT`.
+
+Mac next action:
+
+```bash
+git pull --ff-only
+gh release download corpus-latest --pattern master.jsonl.gz --dir corpus --clobber
+gzip -dc corpus/master.jsonl.gz > corpus/master.jsonl
+python3 bin/timescale_summaries.py --date "$(date +%F)" --plan-only
+```
+
+Do **not** republish or merge the older `6547/34683` master over this baseline.  First verify
+the exact master hash and counts above.  `bin/run_daily.sh` now publishes `corpus-latest` on
+every successful run and keeps the Monday dated archive separately, so tracked reports and
+the downloadable corpus cannot silently drift again.
+
 ## Owner intent
 
 Windows agent will push the neutral-sample policy fix, freshness gate, cumulative Domain Wiki implementation,

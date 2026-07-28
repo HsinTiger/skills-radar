@@ -385,18 +385,32 @@ def validate_ai_output(raw: str, due: list[dict]) -> list[dict]:
     return summaries
 
 
-def invoke_agy(evidence_doc: dict, timeout: int) -> str:
-    executable = shutil.which("agy")
-    if not executable:
-        raise RuntimeError("agy executable not found")
+def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
+              claude_model: str = "claude-sonnet-5", max_budget_usd: float = 1.0) -> str:
     template = PROMPT.read_text(encoding="utf-8")
     prompt = template + "\n\n以下是本次唯一可用的 evidence JSON：\n" + json.dumps(evidence_doc, ensure_ascii=False)
+    agy = shutil.which("agy") if provider in {"auto", "agy"} else None
+    claude = ((shutil.which("claude.cmd") or shutil.which("claude"))
+              if provider in {"auto", "claude"} else None)
+    if agy:
+        command = [agy, f"--print={prompt}", "--mode=accept-edits"]
+        input_text = None
+    elif claude:
+        command = [
+            claude, "--print", "--bare", "--tools", "", "--model", claude_model,
+            "--effort", "low", "--max-budget-usd", str(max_budget_usd),
+            "--no-session-persistence", "--permission-mode", "dontAsk",
+        ]
+        input_text = prompt
+    else:
+        raise RuntimeError(f"AI provider not found: {provider}")
     result = subprocess.run(
-        [executable, f"--print={prompt}", "--mode=accept-edits"],
-        cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout,
+        command, input=input_text, cwd=ROOT, capture_output=True, text=True,
+        encoding="utf-8", errors="replace", timeout=timeout,
     )
     if result.returncode != 0:
-        raise RuntimeError(f"agy failed rc={result.returncode}: {result.stderr[-500:]}")
+        detail = (result.stderr or result.stdout)[-500:]
+        raise RuntimeError(f"AI provider failed rc={result.returncode}: {detail}")
     return result.stdout
 
 
@@ -443,6 +457,9 @@ def parse_args(argv=None):
     parser.add_argument("--status-output", type=Path, default=STATUS_OUT)
     parser.add_argument("--plan-only", action="store_true")
     parser.add_argument("--ai-output", type=Path, help="validated offline/test AI JSON instead of invoking agy")
+    parser.add_argument("--ai-provider", choices=("auto", "agy", "claude"), default="auto")
+    parser.add_argument("--claude-model", default="claude-sonnet-5")
+    parser.add_argument("--max-ai-budget-usd", type=float, default=1.0)
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument("--max-periods", type=int, default=31)
     return parser.parse_args(argv)
@@ -484,7 +501,11 @@ def main(argv=None) -> int:
     args.evidence_output.parent.mkdir(parents=True, exist_ok=True)
     args.evidence_output.write_text(json.dumps(evidence_doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     try:
-        raw = args.ai_output.read_text(encoding="utf-8") if args.ai_output else invoke_agy(evidence_doc, args.timeout)
+        raw = (args.ai_output.read_text(encoding="utf-8") if args.ai_output else
+               invoke_ai(
+                   evidence_doc, args.timeout, args.ai_provider,
+                   args.claude_model, args.max_ai_budget_usd,
+               ))
         summaries = validate_ai_output(raw, due)
     except Exception as exc:
         status = {**plan, "status": "AI_BLOCKED", "error": str(exc), "updated_periods": []}

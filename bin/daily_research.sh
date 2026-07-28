@@ -59,17 +59,10 @@ python3 bin/timescale_summaries.py --date "$DATE" >> "$LOG" 2>&1 || {
 
 # 4. 洞察專區（唯一的 LLM 步驟，輸入只有訊號表）
 OUT="$ROOT/research/insights/$DATE.md"
-mkdir -p "$ROOT/research/insights"
-TMP=$(mktemp)
-{ sed "s/YYYY-MM-DD/$DATE/" index/prompt_opportunity.txt; cat corpus/opportunity.json; } > "$TMP"
-agy --print="$(cat "$TMP")" --mode=accept-edits > "$OUT.new" 2>>"$LOG"
-rm -f "$TMP"
-
-if [ -s "$OUT.new" ] && grep -q "## 二、沒人發現的機會" "$OUT.new" && grep -q "## 四、中期看法" "$OUT.new"; then
-  mv "$OUT.new" "$OUT"; log "洞察專區 ok ($(wc -c < "$OUT") bytes)"
-else
-  log "FAIL: 洞察專區不合規，保留 .new"; rm -f "$OUT.new"
-fi
+python3 bin/generate_ai_artifact.py insight --date "$DATE" --output "$OUT" >> "$LOG" 2>&1 || {
+  log "FAIL: 洞察專區 AI provider 或結構驗收失敗"; exit 1;
+}
+log "洞察專區 ok ($(wc -c < "$OUT") bytes)"
 
 # 4.5 累積式 Domain Wiki ingest（零 token；同日證據變動必須人工附 revision note）
 python3 bin/wiki_ingest.py --date "$DATE" >> "$LOG" 2>&1 || {

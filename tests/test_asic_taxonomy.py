@@ -15,6 +15,8 @@ from harvest_targeted import TOPICS, TOPIC_POLICY  # noqa: E402
 from merge_asic_classified import validate_label  # noqa: E402
 from sample_asic_labels import select  # noqa: E402
 from sample_domain_labels import select as select_domain  # noqa: E402
+from classify_domain_claude import validate_labels  # noqa: E402
+from merge_classified import validate_classifications  # noqa: E402
 
 
 def hardware_row(**overrides):
@@ -188,6 +190,20 @@ class AsicTaxonomyTests(unittest.TestCase):
         chosen = select_domain(rows, {"targeted-asic", "targeted-wifi-asic"}, n=10, seed=0)
         self.assertEqual({row["name"] for row in chosen}, {"one", "two"})
 
+    def test_domain_recovery_may_explicitly_audit_model_rows(self):
+        rows = [
+            {"name": "unlabelled", "description": "ASIC RTL", "sample": "targeted-asic"},
+            {"name": "model", "description": "OFDM RTL", "sample": "targeted-wifi-asic",
+             "domain": "software-dev", "label_source": "model"},
+            {"name": "seed", "description": "ASIC", "sample": "targeted-asic",
+             "domain": "hardware-eda", "label_source": "llm"},
+        ]
+        chosen = select_domain(
+            rows, {"targeted-asic", "targeted-wifi-asic"}, n=10, seed=0,
+            include_model=True,
+        )
+        self.assertEqual({row["name"] for row in chosen}, {"unlabelled", "model"})
+
     def test_generic_classifier_does_not_reuse_old_batch_outputs(self):
         script = (ROOT / "bin" / "classify.sh").read_text(encoding="utf-8")
         self.assertIn('rm -f "$WORK"/*.jsonl "$OUTD"/*.jsonl', script)
@@ -195,7 +211,32 @@ class AsicTaxonomyTests(unittest.TestCase):
 
     def test_generic_merge_marks_new_labels_as_llm(self):
         script = (ROOT / "bin" / "merge_classified.py").read_text(encoding="utf-8")
-        self.assertIn('d["label_source"] = "llm"', script)
+        self.assertIn('row["label_source"] = "llm"', script)
+
+    def test_generic_merge_rejects_missing_duplicate_and_invalid_labels(self):
+        valid = {
+            "i": 0, "domain": "hardware-eda", "profession": "IC 設計工程師",
+            "task": "verify", "target": "team", "maturity": "workflow",
+            "pain": "追查 RTL 失敗", "injection_suspect": False,
+        }
+        self.assertEqual(validate_classifications([valid], 1), [])
+        errors = validate_classifications([valid, dict(valid)], 2)
+        self.assertTrue(any("duplicate index" in error for error in errors))
+        self.assertTrue(any("missing indices" in error for error in errors))
+        errors = validate_classifications([dict(valid, domain="fpga")], 1)
+        self.assertTrue(any("invalid domain" in error for error in errors))
+
+    def test_recovery_label_validation_requires_complete_unique_enums(self):
+        valid = [{
+            "i": 0, "domain": "hardware-eda", "profession": "IC 設計工程師",
+            "task": "verify", "target": "team", "maturity": "workflow",
+            "pain": "手動追查 RTL 失敗", "injection_suspect": False,
+        }]
+        self.assertEqual(validate_labels(valid, {0}), [])
+        invalid = [dict(valid[0], domain="fpga", i=1)]
+        errors = validate_labels(invalid, {0})
+        self.assertTrue(any("unexpected index" in error for error in errors))
+        self.assertTrue(any("missing indices" in error for error in errors))
 
 
 if __name__ == "__main__":

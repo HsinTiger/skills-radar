@@ -1,22 +1,22 @@
 {
  "schema_version": 1,
- "report_date": "2026-07-27",
- "generated_at": "2026-07-27T05:28:50.112507+00:00",
- "status": "PREVIEW_STALE_CORPUS",
+ "report_date": "2026-07-28",
+ "generated_at": "2026-07-28T05:44:36.326545+00:00",
+ "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
-  "status": "STALE",
-  "master_sha256": "433d17d3a4abd2501ce94e514948c73c88d9dae9d95f64367552496fa6739e18",
+  "status": "CURRENT",
+  "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
   "actual": {
    "rows": 41230,
-   "seed": 5937,
-   "model": 35293
+   "seed": 6577,
+   "model": 34653
   },
   "expected": {
-   "seed": 6547,
-   "model": 34683
+   "seed": 6577,
+   "model": 34653
   },
   "population_claims_allowed": false,
-  "note": "master 與 model report 不對齊；本次只能作預覽，需由 canonical runtime 刷新後再決策。"
+  "note": "master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。"
  },
  "policy": {
   "states": {
@@ -73,7 +73,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -116,7 +116,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -158,7 +158,7 @@
       "commit_verified": true,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -199,7 +199,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -243,7 +243,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -283,7 +283,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -323,7 +323,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -367,7 +367,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -409,7 +409,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -453,7 +453,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -494,7 +494,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "do_not_claim": [
       "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
@@ -535,7 +535,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "legacy-llm",
@@ -574,11 +574,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.685,
+      "domain_conf": 0.696,
       "stars_repo_level": 3622
      },
      "do_not_claim": [
@@ -612,11 +612,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.622,
+      "domain_conf": 0.651,
       "stars_repo_level": 511
      },
      "do_not_claim": [
@@ -652,7 +652,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "legacy-llm",
@@ -693,7 +693,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "legacy-llm",
@@ -733,11 +733,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.67,
+      "domain_conf": 0.735,
       "stars_repo_level": 231
      },
      "do_not_claim": [
@@ -775,11 +775,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.829,
+      "domain_conf": 0.857,
       "stars_repo_level": 27770
      },
      "do_not_claim": [
@@ -815,7 +815,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "legacy-llm",
@@ -830,6 +830,47 @@
     }
    ],
    "excluded": [
+    {
+     "name": "lease-optimizer",
+     "repo": "tinh2/skills-hub-registry",
+     "path": "analysis/lease-optimizer/SKILL.md",
+     "source_commit": "UNKNOWN",
+     "source_url": "https://github.com/tinh2/skills-hub-registry/blob/HEAD/analysis/lease-optimizer/SKILL.md",
+     "license": "UNKNOWN",
+     "category": "finance-investing",
+     "owner_fit": "research-support",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 34,
+     "summary": "執行對帳、現金流與財務報表的一致性檢查。",
+     "use_in_investment_research": "適合作為研究資料品質 gate，不取代會計師簽核。",
+     "capabilities": [
+      "accounting-control"
+     ],
+     "risks": [
+      "corpus 規則式掃描標記 injection_suspect",
+      "未找到明確 research-only／no-trade boundary"
+     ],
+     "source_review": {
+      "status": "PENDING",
+      "grade": null,
+      "reviewed_at": null,
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "evidence": {
+      "first_seen": "2026-07-26",
+      "label_source": "llm",
+      "domain_conf": null,
+      "stars_repo_level": 8
+     },
+     "do_not_claim": [
+      "不執行交易、不接觸券商帳號／錢包／credential",
+      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
+      "第三方輸出不得直接成為買賣指令"
+     ]
+    },
     {
      "name": "trade",
      "repo": "zubair-trabzada/ai-trading-hermes",
@@ -858,11 +899,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.948,
+      "domain_conf": 0.962,
       "stars_repo_level": 21
      },
      "do_not_claim": [
@@ -901,11 +942,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.698,
+      "domain_conf": 0.761,
       "stars_repo_level": 0
      },
      "do_not_claim": [
@@ -944,11 +985,11 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.615,
+      "domain_conf": 0.678,
       "stars_repo_level": 2
      },
      "do_not_claim": [
@@ -987,7 +1028,7 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "legacy-llm",
@@ -1001,67 +1042,24 @@
      ]
     },
     {
-     "name": "joinquant-skill",
-     "repo": "gaaiyun/joinquant-skill",
-     "path": "SKILL.md",
+     "name": "gate-dex-wallet",
+     "repo": "gate/gate-skills",
+     "path": "skills/gate-dex-wallet/SKILL.md",
      "source_commit": "UNKNOWN",
-     "source_url": "https://github.com/gaaiyun/joinquant-skill/blob/HEAD/SKILL.md",
+     "source_url": "https://github.com/gate/gate-skills/blob/HEAD/skills/gate-dex-wallet/SKILL.md",
      "license": "UNKNOWN",
      "category": "finance-investing",
      "owner_fit": "research-support",
      "recommendation": "exclude",
      "recommendation_zh": "排除",
-     "score": -8,
-     "summary": "用回測與基準比較檢查研究假說。",
-     "use_in_investment_research": "必須揭露樣本外、交易成本、資料洩漏與存活者偏差；回測不等於獲利證明。",
-     "capabilities": [
-      "backtest-research"
-     ],
-     "risks": [
-      "含交易執行或實盤語意",
-      "回測可能有資料洩漏、過度擬合、交易成本與存活者偏差",
-      "未找到明確 research-only／no-trade boundary"
-     ],
-     "source_review": {
-      "status": "PENDING",
-      "grade": null,
-      "reviewed_at": null,
-      "commit_verified": false,
-      "runtime_proof": "NOT_RUN"
-     },
-     "evidence_freshness": "STALE",
-     "evidence": {
-      "first_seen": "2026-07-26",
-      "label_source": "model",
-      "domain_conf": 0.638,
-      "stars_repo_level": 61
-     },
-     "do_not_claim": [
-      "不執行交易、不接觸券商帳號／錢包／credential",
-      "回測、模型分數或 repo stars 不等於獲利、正確性或安全證明",
-      "第三方輸出不得直接成為買賣指令"
-     ]
-    },
-    {
-     "name": "web3-polymarket",
-     "repo": "elophanto/EloPhanto",
-     "path": "skills/web3-polymarket/SKILL.md",
-     "source_commit": "UNKNOWN",
-     "source_url": "https://github.com/elophanto/EloPhanto/blob/HEAD/skills/web3-polymarket/SKILL.md",
-     "license": "UNKNOWN",
-     "category": "finance-investing",
-     "owner_fit": "research-support",
-     "recommendation": "exclude",
-     "recommendation_zh": "排除",
-     "score": -13,
+     "score": -5,
      "summary": "取得並正規化市場／總經資料，保留時間戳、來源與缺值狀態。",
      "use_in_investment_research": "先做資料 readback 與 corporate-action 檢查，再供研究模型使用。",
      "capabilities": [
       "market-macro-data"
      ],
      "risks": [
-      "含價格／方向預測或交易訊號語意；不得直接形成交易決策",
-      "可能接觸券商、錢包、私鑰或 API credential",
+      "含交易執行或實盤語意",
       "未找到明確 research-only／no-trade boundary"
      ],
      "source_review": {
@@ -1071,12 +1069,12 @@
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
-     "evidence_freshness": "STALE",
+     "evidence_freshness": "CURRENT",
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.828,
-      "stars_repo_level": 115
+      "domain_conf": 0.663,
+      "stars_repo_level": 33
      },
      "do_not_claim": [
       "不執行交易、不接觸券商帳號／錢包／credential",

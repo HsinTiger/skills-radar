@@ -1,147 +1,145 @@
 {
- "n_eda_total": 1359,
- "n_targeted": 809,
+ "n_eda_total": 1098,
+ "n_targeted": 1062,
  "conf_min": 0.6,
- "n_llm_labeled": 132,
- "n_neutral": 550,
+ "n_llm_labeled": 130,
+ "n_neutral": 36,
  "global_baseline": {
   "task_pct": {
-   "generate": 24.6,
-   "verify": 18.4,
-   "configure": 17.9,
-   "analyze": 16.0,
-   "orchestrate": 11.5,
-   "retrieve": 5.8,
-   "transform": 5.7
+   "generate": 22.0,
+   "configure": 17.0,
+   "orchestrate": 15.5,
+   "verify": 15.0,
+   "analyze": 12.5,
+   "retrieve": 9.9,
+   "transform": 8.0
   },
-  "production_pct": 48.4,
-  "verify_pct": 18.4
+  "production_pct": 42.3,
+  "verify_pct": 15.0
  },
  "layers": [
   {
    "label": "核心晶片設計",
-   "n": 608,
+   "n": 652,
    "task_pct": {
-    "generate": 41.1,
-    "orchestrate": 19.4,
-    "verify": 18.8,
-    "analyze": 10.7,
-    "configure": 6.9,
-    "transform": 2.6,
-    "retrieve": 0.5
+    "orchestrate": 35.1,
+    "generate": 31.3,
+    "verify": 18.7,
+    "analyze": 9.2,
+    "configure": 3.4,
+    "transform": 1.9,
+    "retrieve": 0.4
    },
    "maturity_pct": {
-    "production": 50.8,
-    "workflow": 49.0,
-    "toy": 0.2
+    "production": 51.2,
+    "workflow": 48.8
    },
    "top_professions": {
-    "unknown": 556,
+    "unknown": 598,
     "IC設計工程師": 15,
-    "IC 設計工程師": 8,
-    "晶片驗證工程師": 7,
-    "FPGA工程師": 3,
+    "IC 設計工程師": 6,
+    "晶片驗證工程師": 6,
+    "FPGA工程師": 4,
     "硬體工程師": 3,
     "PCB設計工程師": 2,
-    "韌體工程師": 2,
     "FPGA 工程師": 1,
-    "數字電路驗證工程師": 1
+    "數字電路驗證工程師": 1,
+    "數位相路驗證工程師": 1
    },
    "median_stars": 1,
-   "verify_pct": 18.8,
-   "production_pct": 50.8
+   "verify_pct": 18.7,
+   "production_pct": 51.2
   },
   {
    "label": "驗證",
-   "n": 32,
+   "n": 36,
    "task_pct": {
-    "analyze": 31.2,
-    "verify": 18.8,
-    "generate": 18.8,
-    "configure": 18.8,
-    "transform": 9.4,
-    "orchestrate": 3.1
+    "analyze": 36.8,
+    "verify": 31.6,
+    "generate": 21.1,
+    "transform": 5.3,
+    "configure": 5.3
    },
    "maturity_pct": {
-    "production": 53.1,
-    "workflow": 43.8,
-    "toy": 3.1
+    "production": 62.5,
+    "workflow": 29.2,
+    "toy": 8.3
    },
    "top_professions": {
-    "unknown": 22,
+    "unknown": 24,
     "IC 設計工程師": 3,
     "晶片驗證工程師": 2,
+    "IC驗證工程師": 2,
     "IC 設計驗證工程師": 1,
     "FPGA工程師": 1,
     "電路模擬演算法工程師": 1,
     "DV驗證工程師": 1,
     "光電工程師": 1
    },
-   "median_stars": 3,
-   "verify_pct": 18.8,
-   "production_pct": 53.1
+   "median_stars": 1,
+   "verify_pct": 31.6,
+   "production_pct": 62.5
   },
   {
    "label": "鄰接硬體",
-   "n": 719,
+   "n": 410,
    "task_pct": {
-    "generate": 56.3,
-    "configure": 22.9,
-    "retrieve": 11.3,
-    "analyze": 4.2,
-    "orchestrate": 2.4,
-    "verify": 2.2,
-    "transform": 0.7
+    "configure": 29.4,
+    "retrieve": 21.0,
+    "orchestrate": 13.4,
+    "generate": 11.8,
+    "verify": 11.8,
+    "analyze": 9.2,
+    "transform": 3.4
    },
    "maturity_pct": {
-    "workflow": 82.3,
-    "production": 17.5,
-    "toy": 0.1
+    "workflow": 59.8,
+    "production": 40.2
    },
    "top_professions": {
-    "unknown": 649,
-    "韌體工程師": 14,
-    "嵌入式工程師": 10,
-    "機器人工程師": 10,
-    "硬體工程師": 6,
-    "嵌入式韌體工程師": 4,
+    "unknown": 346,
+    "機器人工程師": 9,
+    "韌體工程師": 8,
+    "嵌入式工程師": 7,
+    "嵌入式軟體工程師": 3,
+    "硬體工程師": 3,
     "IC設計工程師": 2,
-    "嵌入式軟體工程師": 2,
-    "機構工程師": 2,
-    "電磁模擬工程師": 2
+    "嵌入式韌體工程師": 2,
+    "嵌入式系統工程師": 2,
+    "嵌入式硬體工程師": 2
    },
-   "median_stars": 0,
-   "verify_pct": 2.2,
-   "production_pct": 17.5
+   "median_stars": 1,
+   "verify_pct": 11.8,
+   "production_pct": 40.2
   }
  ],
  "pain_themes": {
   "核心晶片設計": {
-   "驗證與回歸": 34,
-   "時序與收斂": 19,
-   "合成與實作": 19,
-   "波形與除錯": 17,
-   "程式碼生成": 11,
-   "規格與文件": 10,
+   "驗證與回歸": 40,
+   "合成與實作": 21,
+   "波形與除錯": 19,
+   "時序與收斂": 18,
+   "程式碼生成": 12,
+   "規格與文件": 11,
    "跨工具轉換": 2,
    "工具鏈與環境": 1
   },
   "驗證": {
-   "驗證與回歸": 5,
-   "波形與除錯": 3,
+   "驗證與回歸": 7,
+   "波形與除錯": 4,
+   "工具鏈與環境": 2,
    "程式碼生成": 1,
-   "工具鏈與環境": 1,
    "時序與收斂": 1
   },
   "鄰接硬體": {
-   "波形與除錯": 15,
-   "工具鏈與環境": 7,
+   "波形與除錯": 16,
+   "工具鏈與環境": 6,
+   "驗證與回歸": 5,
    "規格與文件": 5,
-   "程式碼生成": 4,
-   "驗證與回歸": 3,
-   "跨工具轉換": 2,
-   "時序與收斂": 2,
-   "合成與實作": 2
+   "程式碼生成": 3,
+   "合成與實作": 2,
+   "跨工具轉換": 1,
+   "時序與收斂": 1
   }
  },
  "top_core": [
@@ -177,8 +175,8 @@
    "repo": "a5c-ai/babysitter",
    "stars": 1587,
    "name": "uvm-methodology",
-   "task": "generate",
-   "maturity": "production",
+   "task": null,
+   "maturity": null,
    "pain": null,
    "terms": [
     "systemverilog"
@@ -189,30 +187,7 @@
    "stars": 1587,
    "name": "rtl-linting",
    "task": "verify",
-   "maturity": "production",
-   "pain": null,
-   "terms": [
-    "systemverilog",
-    "verilog"
-   ]
-  },
-  {
-   "repo": "a5c-ai/babysitter",
-   "stars": 1587,
-   "name": "formal-verification",
-   "task": "generate",
-   "maturity": "toy",
-   "pain": null,
-   "terms": [
-    "systemverilog"
-   ]
-  },
-  {
-   "repo": "a5c-ai/babysitter",
-   "stars": 1587,
-   "name": "fsm-design",
-   "task": "generate",
-   "maturity": "workflow",
+   "maturity": null,
    "pain": null,
    "terms": [
     "systemverilog",
@@ -224,7 +199,7 @@
    "stars": 1587,
    "name": "verilog-sv-language",
    "task": "generate",
-   "maturity": "workflow",
+   "maturity": null,
    "pain": null,
    "terms": [
     "RTL",
@@ -236,8 +211,8 @@
    "repo": "a5c-ai/babysitter",
    "stars": 1587,
    "name": "hdl-simulation",
-   "task": "generate",
-   "maturity": "workflow",
+   "task": null,
+   "maturity": null,
    "pain": null,
    "terms": [
     "systemverilog",
@@ -249,7 +224,7 @@
    "stars": 1587,
    "name": "sva-assertions",
    "task": "generate",
-   "maturity": "workflow",
+   "maturity": null,
    "pain": null,
    "terms": [
     "systemverilog",
@@ -271,8 +246,8 @@
    "repo": "a5c-ai/babysitter",
    "stars": 1587,
    "name": "synthesis-optimization",
-   "task": "analyze",
-   "maturity": "production",
+   "task": null,
+   "maturity": null,
    "pain": null,
    "terms": [
     "systemverilog",
@@ -284,7 +259,7 @@
    "stars": 1587,
    "name": "cdc-analysis",
    "task": "generate",
-   "maturity": "workflow",
+   "maturity": null,
    "pain": null,
    "terms": [
     "clock domain crossing"
@@ -308,7 +283,7 @@
    "repo": "aklofas/kicad-happy",
    "stars": 817,
    "name": "kicad",
-   "task": "analyze",
+   "task": null,
    "maturity": "production",
    "pain": null,
    "terms": [
@@ -332,17 +307,6 @@
   {
    "repo": "hashgraph-online/awesome-codex-plugins",
    "stars": 707,
-   "name": "kicad",
-   "task": "analyze",
-   "maturity": "production",
-   "pain": null,
-   "terms": [
-    "netlist"
-   ]
-  },
-  {
-   "repo": "hashgraph-online/awesome-codex-plugins",
-   "stars": 707,
    "name": "simulink-solver-profiler-analyzer",
    "task": "analyze",
    "maturity": "workflow",
@@ -355,7 +319,7 @@
    "repo": "hashgraph-online/awesome-codex-plugins",
    "stars": 707,
    "name": "spice",
-   "task": "verify",
+   "task": null,
    "maturity": "production",
    "pain": null,
    "terms": [
@@ -379,7 +343,7 @@
    "stars": 519,
    "name": "verilog-sv-language",
    "task": "generate",
-   "maturity": "workflow",
+   "maturity": null,
    "pain": null,
    "terms": [
     "verilog"
@@ -463,7 +427,7 @@
    "repo": "chuanseng-ng/digital-chip-design-agents",
    "stars": 169,
    "name": "rtl-design",
-   "task": "orchestrate",
+   "task": null,
    "maturity": "production",
    "pain": null,
    "terms": [
@@ -506,6 +470,42 @@
     "systemverilog",
     "verilog"
    ]
+  },
+  {
+   "repo": "chuanseng-ng/digital-chip-design-agents",
+   "stars": 169,
+   "name": "physical-design",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": null,
+   "terms": [
+    "floorplan",
+    "netlist"
+   ]
+  },
+  {
+   "repo": "chuanseng-ng/digital-chip-design-agents",
+   "stars": 169,
+   "name": "functional-verification",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "UVM 晶片驗證流程複雜需多 Agent 協同",
+   "terms": [
+    "systemverilog",
+    "verilog"
+   ]
+  },
+  {
+   "repo": "chuanseng-ng/digital-chip-design-agents",
+   "stars": 169,
+   "name": "fpga-emulation",
+   "task": "orchestrate",
+   "maturity": "production",
+   "pain": "ASIC設計搬到FPGA驗證流程繁瑣易漏步",
+   "terms": [
+    "clock domain crossing",
+    "peripheral register spec"
+   ]
   }
  ],
  "top_verif": [
@@ -526,11 +526,19 @@
    "pain": "SerDes 高速傳輸系統訊號完整性模擬複雜耗時"
   },
   {
+   "repo": "ECNU-ICALK/AutoSkill",
+   "stars": 531,
+   "name": "linux_terminal_simulator",
+   "task": "generate",
+   "maturity": "toy",
+   "pain": "缺乏真實VCS/UVM環境時難以模擬終端輸出"
+  },
+  {
    "repo": "diodeinc/pcb",
    "stars": 379,
    "name": "spice-sim",
-   "task": "generate",
-   "maturity": "workflow",
+   "task": null,
+   "maturity": null,
    "pain": null
   },
   {
@@ -554,22 +562,14 @@
    "stars": 34,
    "name": "test-hw-xc7k480t",
    "task": "verify",
-   "maturity": "production",
+   "maturity": null,
    "pain": null
   },
   {
    "repo": "easyzoom/aix-skills",
    "stars": 22,
    "name": "hardware-interface-debug",
-   "task": "analyze",
-   "maturity": "workflow",
-   "pain": null
-  },
-  {
-   "repo": "easyzoom/aix-skills",
-   "stars": 22,
-   "name": "epd-integration",
-   "task": "configure",
+   "task": null,
    "maturity": "workflow",
    "pain": null
   },
@@ -577,7 +577,7 @@
    "repo": "sean-galloway/RTLDesignSherpa",
    "stars": 17,
    "name": "uart-harness",
-   "task": "transform",
+   "task": null,
    "maturity": "production",
    "pain": null
   },
@@ -593,7 +593,7 @@
    "repo": "chuanseng-ng/analog-chip-design-agents",
    "stars": 17,
    "name": "ams-verification",
-   "task": "verify",
+   "task": null,
    "maturity": "production",
    "pain": null
   },
@@ -609,8 +609,8 @@
    "repo": "sfoulad/foulad-eink",
    "stars": 12,
    "name": "CrossPoint Reader Development Guide",
-   "task": "configure",
-   "maturity": "workflow",
+   "task": null,
+   "maturity": null,
    "pain": null
   },
   {
@@ -634,15 +634,23 @@
    "stars": 3,
    "name": "wavedrom",
    "task": "generate",
-   "maturity": "production",
+   "maturity": null,
    "pain": null
   },
   {
    "repo": "shark0304/personal-embeded-debug-skill",
    "stars": 3,
    "name": "embedded-debug",
-   "task": "analyze",
+   "task": null,
    "maturity": "production",
+   "pain": null
+  },
+  {
+   "repo": "tuya/tuyaopen-ide-manifests",
+   "stars": 2,
+   "name": "tuyaopen/peripheral-ir",
+   "task": null,
+   "maturity": "workflow",
    "pain": null
   },
   {
@@ -657,24 +665,32 @@
    "repo": "2nth-ai/skills",
    "stars": 1,
    "name": "Embedded Firmware Development",
-   "task": "configure",
-   "maturity": "workflow",
+   "task": null,
+   "maturity": null,
    "pain": null
   },
   {
    "repo": "P47Phoenix/Claude-Plugins",
    "stars": 1,
    "name": "electrical-engineer",
-   "task": "generate",
+   "task": null,
    "maturity": "workflow",
+   "pain": null
+  },
+  {
+   "repo": "Cao1014/LLM_EDA",
+   "stars": 0,
+   "name": "verification — Debug, Testbench & Simulation",
+   "task": null,
+   "maturity": null,
    "pain": null
   },
   {
    "repo": "faisal-shah/agent-skills",
    "stars": 0,
    "name": "elmer-fem",
-   "task": "transform",
-   "maturity": "production",
+   "task": null,
+   "maturity": null,
    "pain": null
   },
   {
@@ -690,22 +706,6 @@
    "stars": 0,
    "name": "simulation-verification",
    "task": "verify",
-   "maturity": "production",
-   "pain": null
-  },
-  {
-   "repo": "hyojun01/ClaudeAutoHLS",
-   "stars": 0,
-   "name": "hls-synth-sim",
-   "task": "configure",
-   "maturity": "workflow",
-   "pain": "Vitis HLS 綜合與仿真指令複雜易忘記"
-  },
-  {
-   "repo": "wxinxiang8-ai/mspm0g3507-dev",
-   "stars": 0,
-   "name": "mspm0g3507-dev",
-   "task": "configure",
    "maturity": "production",
    "pain": null
   }

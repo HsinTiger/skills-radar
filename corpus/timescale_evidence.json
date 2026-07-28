@@ -1,0 +1,1353 @@
+{
+ "schema_version": 1,
+ "run_date": "2026-07-28",
+ "freshness": {
+  "status": "CURRENT",
+  "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+  "actual_seed": 6577,
+  "actual_model": 34653,
+  "expected_seed": 6577,
+  "expected_model": 34653
+ },
+ "periods": [
+  {
+   "scale": "month",
+   "scale_zh": "月",
+   "period": {
+    "scale": "month",
+    "period_id": "2026-06",
+    "start": "2026-06-01",
+    "end": "2026-06-30"
+   },
+   "previous_period": {
+    "scale": "month",
+    "period_id": "2026-05",
+    "start": "2026-05-01",
+    "end": "2026-05-31"
+   },
+   "time_contract": {
+    "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+    "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+    "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+   },
+   "freshness": {
+    "status": "CURRENT",
+    "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+    "actual_seed": 6577,
+    "actual_model": 34653,
+    "expected_seed": 6577,
+    "expected_model": 34653
+   },
+   "evidence": {
+    "E1_sample": {
+     "archive_n": 456,
+     "archive_previous_n": 632,
+     "discovered_n": 0,
+     "discovered_previous_n": 0
+    },
+    "E2_domain_mix": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 132,
+      "share_pct": 28.9
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "count": 71,
+      "share_pct": 15.6
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "count": 34,
+      "share_pct": 7.5
+     },
+     {
+      "key": "personal-productivity",
+      "label": "個人生產力",
+      "count": 31,
+      "share_pct": 6.8
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "count": 27,
+      "share_pct": 5.9
+     },
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "count": 23,
+      "share_pct": 5.0
+     },
+     {
+      "key": "marketing-growth",
+      "label": "行銷成長",
+      "count": 22,
+      "share_pct": 4.8
+     },
+     {
+      "key": "writing-content",
+      "label": "寫作內容",
+      "count": 21,
+      "share_pct": 4.6
+     }
+    ],
+    "E3_domain_shifts": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "current_count": 132,
+      "previous_count": 158,
+      "current_share_pct": 28.9,
+      "previous_share_pct": 25.0,
+      "delta_pp": 3.9
+     },
+     {
+      "key": "legal-compliance",
+      "label": "法務合規",
+      "current_count": 5,
+      "previous_count": 31,
+      "current_share_pct": 1.1,
+      "previous_share_pct": 4.9,
+      "delta_pp": -3.8
+     },
+     {
+      "key": "healthcare-bio",
+      "label": "醫療生技",
+      "current_count": 8,
+      "previous_count": 26,
+      "current_share_pct": 1.8,
+      "previous_share_pct": 4.1,
+      "delta_pp": -2.4
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "current_count": 27,
+      "previous_count": 51,
+      "current_share_pct": 5.9,
+      "previous_share_pct": 8.1,
+      "delta_pp": -2.1
+     },
+     {
+      "key": "marketing-growth",
+      "label": "行銷成長",
+      "current_count": 22,
+      "previous_count": 19,
+      "current_share_pct": 4.8,
+      "previous_share_pct": 3.0,
+      "delta_pp": 1.8
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "current_count": 71,
+      "previous_count": 109,
+      "current_share_pct": 15.6,
+      "previous_share_pct": 17.2,
+      "delta_pp": -1.7
+     },
+     {
+      "key": "education-training",
+      "label": "教育訓練",
+      "current_count": 12,
+      "previous_count": 8,
+      "current_share_pct": 2.6,
+      "previous_share_pct": 1.3,
+      "delta_pp": 1.4
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "current_count": 34,
+      "previous_count": 39,
+      "current_share_pct": 7.5,
+      "previous_share_pct": 6.2,
+      "delta_pp": 1.3
+     },
+     {
+      "key": "finance-investing",
+      "label": "財經投資",
+      "current_count": 16,
+      "previous_count": 30,
+      "current_share_pct": 3.5,
+      "previous_share_pct": 4.7,
+      "delta_pp": -1.2
+     },
+     {
+      "key": "research-academia",
+      "label": "研究學術",
+      "current_count": 16,
+      "previous_count": 30,
+      "current_share_pct": 3.5,
+      "previous_share_pct": 4.7,
+      "delta_pp": -1.2
+     }
+    ],
+    "E4_task_mix": [
+     {
+      "key": "generate",
+      "label": "生成",
+      "count": 99,
+      "share_pct": 21.7
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "count": 86,
+      "share_pct": 18.9
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "count": 65,
+      "share_pct": 14.3
+     },
+     {
+      "key": "verify",
+      "label": "驗證",
+      "count": 65,
+      "share_pct": 14.3
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "count": 58,
+      "share_pct": 12.7
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "count": 45,
+      "share_pct": 9.9
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "count": 38,
+      "share_pct": 8.3
+     }
+    ],
+    "E5_task_shifts": [
+     {
+      "key": "configure",
+      "label": "配置",
+      "current_count": 86,
+      "previous_count": 108,
+      "current_share_pct": 18.9,
+      "previous_share_pct": 17.1,
+      "delta_pp": 1.8
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "current_count": 65,
+      "previous_count": 100,
+      "current_share_pct": 14.3,
+      "previous_share_pct": 15.8,
+      "delta_pp": -1.6
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "current_count": 58,
+      "previous_count": 88,
+      "current_share_pct": 12.7,
+      "previous_share_pct": 13.9,
+      "delta_pp": -1.2
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "current_count": 45,
+      "previous_count": 55,
+      "current_share_pct": 9.9,
+      "previous_share_pct": 8.7,
+      "delta_pp": 1.2
+     },
+     {
+      "key": "generate",
+      "label": "生成",
+      "current_count": 99,
+      "previous_count": 133,
+      "current_share_pct": 21.7,
+      "previous_share_pct": 21.0,
+      "delta_pp": 0.7
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "current_count": 38,
+      "previous_count": 56,
+      "current_share_pct": 8.3,
+      "previous_share_pct": 8.9,
+      "delta_pp": -0.5
+     },
+     {
+      "key": "verify",
+      "label": "驗證",
+      "current_count": 65,
+      "previous_count": 92,
+      "current_share_pct": 14.3,
+      "previous_share_pct": 14.6,
+      "delta_pp": -0.3
+     }
+    ],
+    "E6_maturity": {
+     "mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 245,
+       "share_pct": 53.7
+      },
+      {
+       "key": "production",
+       "label": "production",
+       "count": 198,
+       "share_pct": 43.4
+      },
+      {
+       "key": "toy",
+       "label": "toy",
+       "count": 13,
+       "share_pct": 2.9
+      }
+     ],
+     "production_document_proxy": {
+      "count": 198,
+      "eligible_n": 456,
+      "pct": 43.4
+     },
+     "agent_target_proxy": {
+      "count": 78,
+      "eligible_n": 456,
+      "pct": 17.1
+     },
+     "warning": "document labels are intent/proxy, not deployment or outcome verification"
+    },
+    "E7_diversity": {
+     "domain_entropy": {
+      "normalized": 0.829,
+      "categories": 18,
+      "n": 456
+     },
+     "task_entropy": {
+      "normalized": 0.976,
+      "categories": 7,
+      "n": 456
+     }
+    },
+    "E8_eda_ic": {
+     "hardware_eda_n": 5,
+     "owner_fit_provisional": {
+      "adjacent": 4,
+      "exclude": 1
+     },
+     "hardware_target_provisional": {
+      "generic": 4,
+      "fpga": 1
+     },
+     "top_asic_stages": [
+      {
+       "key": "lint-cdc-rdc",
+       "count": 1
+      },
+      {
+       "key": "simulation-debug",
+       "count": 1
+      }
+     ],
+     "wifi_areas": [],
+     "taxonomy_validation": "BLOCKED",
+     "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+    },
+    "E9_finance": {
+     "finance_n": 16,
+     "task_mix": [
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 6,
+       "share_pct": 37.5
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "count": 4,
+       "share_pct": 25.0
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "count": 2,
+       "share_pct": 12.5
+      },
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 2,
+       "share_pct": 12.5
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 1,
+       "share_pct": 6.2
+      },
+      {
+       "key": "verify",
+       "label": "驗證",
+       "count": 1,
+       "share_pct": 6.2
+      }
+     ],
+     "maturity_mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 9,
+       "share_pct": 56.2
+      },
+      {
+       "key": "production",
+       "label": "production",
+       "count": 7,
+       "share_pct": 43.8
+      }
+     ],
+     "current_recommendation_states": {
+      "pilot": 3,
+      "watch": 5
+     },
+     "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+    },
+    "E10_quality": {
+     "neutral_population_only": true,
+     "targeted_rows_excluded": true,
+     "archive_domain_eligible_n": 456,
+     "comparison_domain_eligible_n": 632,
+     "minimum_shift_support": 5
+    }
+   }
+  },
+  {
+   "scale": "quarter",
+   "scale_zh": "季",
+   "period": {
+    "scale": "quarter",
+    "period_id": "2026-Q2",
+    "start": "2026-04-01",
+    "end": "2026-06-30"
+   },
+   "previous_period": {
+    "scale": "quarter",
+    "period_id": "2026-Q1",
+    "start": "2026-01-01",
+    "end": "2026-03-31"
+   },
+   "time_contract": {
+    "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+    "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+    "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+   },
+   "freshness": {
+    "status": "CURRENT",
+    "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+    "actual_seed": 6577,
+    "actual_model": 34653,
+    "expected_seed": 6577,
+    "expected_model": 34653
+   },
+   "evidence": {
+    "E1_sample": {
+     "archive_n": 1919,
+     "archive_previous_n": 2055,
+     "discovered_n": 0,
+     "discovered_previous_n": 0
+    },
+    "E2_domain_mix": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 519,
+      "share_pct": 27.0
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "count": 297,
+      "share_pct": 15.5
+     },
+     {
+      "key": "personal-productivity",
+      "label": "個人生產力",
+      "count": 143,
+      "share_pct": 7.5
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "count": 130,
+      "share_pct": 6.8
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "count": 116,
+      "share_pct": 6.0
+     },
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "count": 104,
+      "share_pct": 5.4
+     },
+     {
+      "key": "ops-admin",
+      "label": "營運行政",
+      "count": 85,
+      "share_pct": 4.4
+     },
+     {
+      "key": "marketing-growth",
+      "label": "行銷成長",
+      "count": 81,
+      "share_pct": 4.2
+     }
+    ],
+    "E3_domain_shifts": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "current_count": 519,
+      "previous_count": 625,
+      "current_share_pct": 27.0,
+      "previous_share_pct": 30.4,
+      "delta_pp": -3.4
+     },
+     {
+      "key": "personal-productivity",
+      "label": "個人生產力",
+      "current_count": 143,
+      "previous_count": 108,
+      "current_share_pct": 7.5,
+      "previous_share_pct": 5.3,
+      "delta_pp": 2.2
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "current_count": 297,
+      "previous_count": 346,
+      "current_share_pct": 15.5,
+      "previous_share_pct": 16.8,
+      "delta_pp": -1.4
+     },
+     {
+      "key": "writing-content",
+      "label": "寫作內容",
+      "current_count": 73,
+      "previous_count": 52,
+      "current_share_pct": 3.8,
+      "previous_share_pct": 2.5,
+      "delta_pp": 1.3
+     },
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "current_count": 104,
+      "previous_count": 133,
+      "current_share_pct": 5.4,
+      "previous_share_pct": 6.5,
+      "delta_pp": -1.1
+     },
+     {
+      "key": "healthcare-bio",
+      "label": "醫療生技",
+      "current_count": 38,
+      "previous_count": 63,
+      "current_share_pct": 2.0,
+      "previous_share_pct": 3.1,
+      "delta_pp": -1.1
+     },
+     {
+      "key": "legal-compliance",
+      "label": "法務合規",
+      "current_count": 47,
+      "previous_count": 30,
+      "current_share_pct": 2.4,
+      "previous_share_pct": 1.5,
+      "delta_pp": 1.0
+     },
+     {
+      "key": "education-training",
+      "label": "教育訓練",
+      "current_count": 37,
+      "previous_count": 22,
+      "current_share_pct": 1.9,
+      "previous_share_pct": 1.1,
+      "delta_pp": 0.9
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "current_count": 130,
+      "previous_count": 122,
+      "current_share_pct": 6.8,
+      "previous_share_pct": 5.9,
+      "delta_pp": 0.8
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "current_count": 116,
+      "previous_count": 108,
+      "current_share_pct": 6.0,
+      "previous_share_pct": 5.3,
+      "delta_pp": 0.8
+     }
+    ],
+    "E4_task_mix": [
+     {
+      "key": "generate",
+      "label": "生成",
+      "count": 419,
+      "share_pct": 21.8
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "count": 328,
+      "share_pct": 17.1
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "count": 285,
+      "share_pct": 14.9
+     },
+     {
+      "key": "verify",
+      "label": "驗證",
+      "count": 271,
+      "share_pct": 14.1
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "count": 266,
+      "share_pct": 13.9
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "count": 178,
+      "share_pct": 9.3
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "count": 172,
+      "share_pct": 9.0
+     }
+    ],
+    "E5_task_shifts": [
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "current_count": 285,
+      "previous_count": 363,
+      "current_share_pct": 14.9,
+      "previous_share_pct": 17.7,
+      "delta_pp": -2.8
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "current_count": 266,
+      "previous_count": 241,
+      "current_share_pct": 13.9,
+      "previous_share_pct": 11.7,
+      "delta_pp": 2.1
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "current_count": 172,
+      "previous_count": 142,
+      "current_share_pct": 9.0,
+      "previous_share_pct": 6.9,
+      "delta_pp": 2.0
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "current_count": 178,
+      "previous_count": 227,
+      "current_share_pct": 9.3,
+      "previous_share_pct": 11.1,
+      "delta_pp": -1.8
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "current_count": 328,
+      "previous_count": 326,
+      "current_share_pct": 17.1,
+      "previous_share_pct": 15.9,
+      "delta_pp": 1.2
+     },
+     {
+      "key": "verify",
+      "label": "驗證",
+      "current_count": 271,
+      "previous_count": 305,
+      "current_share_pct": 14.1,
+      "previous_share_pct": 14.9,
+      "delta_pp": -0.7
+     },
+     {
+      "key": "generate",
+      "label": "生成",
+      "current_count": 419,
+      "previous_count": 449,
+      "current_share_pct": 21.8,
+      "previous_share_pct": 21.9,
+      "delta_pp": -0.0
+     }
+    ],
+    "E6_maturity": {
+     "mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 1051,
+       "share_pct": 54.8
+      },
+      {
+       "key": "production",
+       "label": "production",
+       "count": 782,
+       "share_pct": 40.8
+      },
+      {
+       "key": "toy",
+       "label": "toy",
+       "count": 86,
+       "share_pct": 4.5
+      }
+     ],
+     "production_document_proxy": {
+      "count": 782,
+      "eligible_n": 1919,
+      "pct": 40.8
+     },
+     "agent_target_proxy": {
+      "count": 292,
+      "eligible_n": 1918,
+      "pct": 15.2
+     },
+     "warning": "document labels are intent/proxy, not deployment or outcome verification"
+    },
+    "E7_diversity": {
+     "domain_entropy": {
+      "normalized": 0.85,
+      "categories": 18,
+      "n": 1919
+     },
+     "task_entropy": {
+      "normalized": 0.979,
+      "categories": 7,
+      "n": 1919
+     }
+    },
+    "E8_eda_ic": {
+     "hardware_eda_n": 17,
+     "owner_fit_provisional": {
+      "supporting": 5,
+      "adjacent": 6,
+      "exclude": 6
+     },
+     "hardware_target_provisional": {
+      "generic": 11,
+      "embedded": 5,
+      "fpga": 1
+     },
+     "top_asic_stages": [
+      {
+       "key": "simulation-debug",
+       "count": 5
+      },
+      {
+       "key": "spec-architecture",
+       "count": 4
+      },
+      {
+       "key": "lint-cdc-rdc",
+       "count": 2
+      },
+      {
+       "key": "integration-handoff",
+       "count": 1
+      }
+     ],
+     "wifi_areas": [
+      {
+       "key": "phy-baseband",
+       "count": 3
+      }
+     ],
+     "taxonomy_validation": "BLOCKED",
+     "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+    },
+    "E9_finance": {
+     "finance_n": 71,
+     "task_mix": [
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 40,
+       "share_pct": 56.3
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "count": 9,
+       "share_pct": 12.7
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "count": 8,
+       "share_pct": 11.3
+      },
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 6,
+       "share_pct": 8.5
+      },
+      {
+       "key": "verify",
+       "label": "驗證",
+       "count": 6,
+       "share_pct": 8.5
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 2,
+       "share_pct": 2.8
+      }
+     ],
+     "maturity_mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 42,
+       "share_pct": 59.2
+      },
+      {
+       "key": "production",
+       "label": "production",
+       "count": 28,
+       "share_pct": 39.4
+      },
+      {
+       "key": "toy",
+       "label": "toy",
+       "count": 1,
+       "share_pct": 1.4
+      }
+     ],
+     "current_recommendation_states": {
+      "pilot": 3,
+      "watch": 5
+     },
+     "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+    },
+    "E10_quality": {
+     "neutral_population_only": true,
+     "targeted_rows_excluded": true,
+     "archive_domain_eligible_n": 1919,
+     "comparison_domain_eligible_n": 2055,
+     "minimum_shift_support": 5
+    }
+   }
+  },
+  {
+   "scale": "week",
+   "scale_zh": "週",
+   "period": {
+    "scale": "week",
+    "period_id": "2026-W30",
+    "start": "2026-07-20",
+    "end": "2026-07-26"
+   },
+   "previous_period": {
+    "scale": "week",
+    "period_id": "2026-W29",
+    "start": "2026-07-13",
+    "end": "2026-07-19"
+   },
+   "time_contract": {
+    "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+    "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+    "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+   },
+   "freshness": {
+    "status": "CURRENT",
+    "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+    "actual_seed": 6577,
+    "actual_model": 34653,
+    "expected_seed": 6577,
+    "expected_model": 34653
+   },
+   "evidence": {
+    "E1_sample": {
+     "archive_n": 46,
+     "archive_previous_n": 67,
+     "discovered_n": 5405,
+     "discovered_previous_n": 0
+    },
+    "E2_domain_mix": [
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "count": 9,
+      "share_pct": 19.6
+     },
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 8,
+      "share_pct": 17.4
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "count": 5,
+      "share_pct": 10.9
+     },
+     {
+      "key": "ops-admin",
+      "label": "營運行政",
+      "count": 5,
+      "share_pct": 10.9
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "count": 5,
+      "share_pct": 10.9
+     },
+     {
+      "key": "finance-investing",
+      "label": "財經投資",
+      "count": 3,
+      "share_pct": 6.5
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "count": 2,
+      "share_pct": 4.3
+     },
+     {
+      "key": "hardware-eda",
+      "label": "硬體 / EDA",
+      "count": 2,
+      "share_pct": 4.3
+     }
+    ],
+    "E3_domain_shifts": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "current_count": 8,
+      "previous_count": 25,
+      "current_share_pct": 17.4,
+      "previous_share_pct": 37.3,
+      "delta_pp": -19.9
+     },
+     {
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "current_count": 9,
+      "previous_count": 6,
+      "current_share_pct": 19.6,
+      "previous_share_pct": 9.0,
+      "delta_pp": 10.6
+     },
+     {
+      "key": "ai-agent-tooling",
+      "label": "AI Agent 工具",
+      "current_count": 5,
+      "previous_count": 11,
+      "current_share_pct": 10.9,
+      "previous_share_pct": 16.4,
+      "delta_pp": -5.5
+     },
+     {
+      "key": "design-creative",
+      "label": "設計創意",
+      "current_count": 5,
+      "previous_count": 4,
+      "current_share_pct": 10.9,
+      "previous_share_pct": 6.0,
+      "delta_pp": 4.9
+     },
+     {
+      "key": "ops-admin",
+      "label": "營運行政",
+      "current_count": 5,
+      "previous_count": 4,
+      "current_share_pct": 10.9,
+      "previous_share_pct": 6.0,
+      "delta_pp": 4.9
+     },
+     {
+      "key": "research-academia",
+      "label": "研究學術",
+      "current_count": 1,
+      "previous_count": 4,
+      "current_share_pct": 2.2,
+      "previous_share_pct": 6.0,
+      "delta_pp": -3.8
+     },
+     {
+      "key": "finance-investing",
+      "label": "財經投資",
+      "current_count": 3,
+      "previous_count": 2,
+      "current_share_pct": 6.5,
+      "previous_share_pct": 3.0,
+      "delta_pp": 3.5
+     },
+     {
+      "key": "security",
+      "label": "資安",
+      "current_count": 2,
+      "previous_count": 4,
+      "current_share_pct": 4.3,
+      "previous_share_pct": 6.0,
+      "delta_pp": -1.6
+     }
+    ],
+    "E4_task_mix": [
+     {
+      "key": "generate",
+      "label": "生成",
+      "count": 12,
+      "share_pct": 26.1
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "count": 9,
+      "share_pct": 19.6
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "count": 8,
+      "share_pct": 17.4
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "count": 5,
+      "share_pct": 10.9
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "count": 5,
+      "share_pct": 10.9
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "count": 4,
+      "share_pct": 8.7
+     },
+     {
+      "key": "verify",
+      "label": "驗證",
+      "count": 3,
+      "share_pct": 6.5
+     }
+    ],
+    "E5_task_shifts": [
+     {
+      "key": "verify",
+      "label": "驗證",
+      "current_count": 3,
+      "previous_count": 12,
+      "current_share_pct": 6.5,
+      "previous_share_pct": 18.2,
+      "delta_pp": -11.7
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "current_count": 8,
+      "previous_count": 6,
+      "current_share_pct": 17.4,
+      "previous_share_pct": 9.1,
+      "delta_pp": 8.3
+     },
+     {
+      "key": "generate",
+      "label": "生成",
+      "current_count": 12,
+      "previous_count": 12,
+      "current_share_pct": 26.1,
+      "previous_share_pct": 18.2,
+      "delta_pp": 7.9
+     },
+     {
+      "key": "configure",
+      "label": "配置",
+      "current_count": 9,
+      "previous_count": 17,
+      "current_share_pct": 19.6,
+      "previous_share_pct": 25.8,
+      "delta_pp": -6.2
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "current_count": 5,
+      "previous_count": 10,
+      "current_share_pct": 10.9,
+      "previous_share_pct": 15.2,
+      "delta_pp": -4.3
+     },
+     {
+      "key": "retrieve",
+      "label": "檢索",
+      "current_count": 5,
+      "previous_count": 5,
+      "current_share_pct": 10.9,
+      "previous_share_pct": 7.6,
+      "delta_pp": 3.3
+     },
+     {
+      "key": "transform",
+      "label": "轉換",
+      "current_count": 4,
+      "previous_count": 4,
+      "current_share_pct": 8.7,
+      "previous_share_pct": 6.1,
+      "delta_pp": 2.6
+     }
+    ],
+    "E6_maturity": {
+     "mix": [
+      {
+       "key": "production",
+       "label": "production",
+       "count": 24,
+       "share_pct": 52.2
+      },
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 21,
+       "share_pct": 45.7
+      },
+      {
+       "key": "toy",
+       "label": "toy",
+       "count": 1,
+       "share_pct": 2.2
+      }
+     ],
+     "production_document_proxy": {
+      "count": 24,
+      "eligible_n": 46,
+      "pct": 52.2
+     },
+     "agent_target_proxy": {
+      "count": 5,
+      "eligible_n": 46,
+      "pct": 10.9
+     },
+     "warning": "document labels are intent/proxy, not deployment or outcome verification"
+    },
+    "E7_diversity": {
+     "domain_entropy": {
+      "normalized": 0.905,
+      "categories": 13,
+      "n": 46
+     },
+     "task_entropy": {
+      "normalized": 0.949,
+      "categories": 7,
+      "n": 46
+     }
+    },
+    "E8_eda_ic": {
+     "hardware_eda_n": 2,
+     "owner_fit_provisional": {
+      "adjacent": 1,
+      "supporting": 1
+     },
+     "hardware_target_provisional": {
+      "generic": 2
+     },
+     "top_asic_stages": [
+      {
+       "key": "spec-architecture",
+       "count": 1
+      }
+     ],
+     "wifi_areas": [],
+     "taxonomy_validation": "BLOCKED",
+     "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+    },
+    "E9_finance": {
+     "finance_n": 3,
+     "task_mix": [
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "count": 2,
+       "share_pct": 66.7
+      },
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 1,
+       "share_pct": 33.3
+      }
+     ],
+     "maturity_mix": [
+      {
+       "key": "production",
+       "label": "production",
+       "count": 2,
+       "share_pct": 66.7
+      },
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 1,
+       "share_pct": 33.3
+      }
+     ],
+     "current_recommendation_states": {
+      "pilot": 3,
+      "watch": 5
+     },
+     "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+    },
+    "E10_quality": {
+     "neutral_population_only": true,
+     "targeted_rows_excluded": true,
+     "archive_domain_eligible_n": 46,
+     "comparison_domain_eligible_n": 67,
+     "minimum_shift_support": 5
+    }
+   }
+  },
+  {
+   "scale": "day",
+   "scale_zh": "日",
+   "period": {
+    "scale": "day",
+    "period_id": "2026-07-27",
+    "start": "2026-07-27",
+    "end": "2026-07-27"
+   },
+   "previous_period": {
+    "scale": "day",
+    "period_id": "2026-07-26",
+    "start": "2026-07-26",
+    "end": "2026-07-26"
+   },
+   "time_contract": {
+    "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+    "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+    "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+   },
+   "freshness": {
+    "status": "CURRENT",
+    "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+    "actual_seed": 6577,
+    "actual_model": 34653,
+    "expected_seed": 6577,
+    "expected_model": 34653
+   },
+   "evidence": {
+    "E1_sample": {
+     "archive_n": 0,
+     "archive_previous_n": 1,
+     "discovered_n": 0,
+     "discovered_previous_n": 5405
+    },
+    "E2_domain_mix": [],
+    "E3_domain_shifts": [],
+    "E4_task_mix": [],
+    "E5_task_shifts": [],
+    "E6_maturity": {
+     "mix": [],
+     "production_document_proxy": {
+      "count": 0,
+      "eligible_n": 0,
+      "pct": null
+     },
+     "agent_target_proxy": {
+      "count": 0,
+      "eligible_n": 0,
+      "pct": null
+     },
+     "warning": "document labels are intent/proxy, not deployment or outcome verification"
+    },
+    "E7_diversity": {
+     "domain_entropy": {
+      "normalized": 0.0,
+      "categories": 0,
+      "n": 0
+     },
+     "task_entropy": {
+      "normalized": 0.0,
+      "categories": 0,
+      "n": 0
+     }
+    },
+    "E8_eda_ic": {
+     "hardware_eda_n": 0,
+     "owner_fit_provisional": {},
+     "hardware_target_provisional": {},
+     "top_asic_stages": [],
+     "wifi_areas": [],
+     "taxonomy_validation": "BLOCKED",
+     "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+    },
+    "E9_finance": {
+     "finance_n": 0,
+     "task_mix": [],
+     "maturity_mix": [],
+     "current_recommendation_states": {
+      "pilot": 3,
+      "watch": 5
+     },
+     "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+    },
+    "E10_quality": {
+     "neutral_population_only": true,
+     "targeted_rows_excluded": true,
+     "archive_domain_eligible_n": 0,
+     "comparison_domain_eligible_n": 1,
+     "minimum_shift_support": 5
+    }
+   }
+  }
+ ]
+}

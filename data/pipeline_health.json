@@ -1,18 +1,35 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-28",
- "completed_at": "2026-07-28T03:06:52.695619+00:00",
- "status": "FAIL",
+ "completed_at": "2026-07-28T05:54:25.282257+00:00",
+ "status": "PASS",
  "gates": {
-  "daily_brief": "FAIL",
-  "daily_recommendations": "FAIL",
-  "legacy_opportunity_insight": "PARTIAL",
-  "timescale_dispatch": "BLOCKED_STALE_CORPUS",
+  "daily_brief": "PASS",
+  "daily_recommendations": "PASS",
+  "legacy_opportunity_insight": "PASS",
+  "timescale_dispatch": "AI_GENERATED",
   "privacy": "PASS",
-  "master_freshness": "STALE"
+  "master_freshness": "CURRENT"
  },
  "timescale": {
-  "updated_periods": [],
+  "updated_periods": [
+   {
+    "scale": "month",
+    "period_id": "2026-06"
+   },
+   {
+    "scale": "quarter",
+    "period_id": "2026-Q2"
+   },
+   {
+    "scale": "week",
+    "period_id": "2026-W30"
+   },
+   {
+    "scale": "day",
+    "period_id": "2026-07-27"
+   }
+  ],
   "due": [
    {
     "scale": "month",

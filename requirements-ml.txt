@@ -1,0 +1,4 @@
+# Local zero-token classifier / clustering dependencies.
+numpy>=2,<3
+scikit-learn>=1.6,<2
+tzdata>=2025

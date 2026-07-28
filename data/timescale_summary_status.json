@@ -1,12 +1,12 @@
 {
  "run_date": "2026-07-28",
  "freshness": {
-  "status": "STALE",
-  "master_sha256": "433d17d3a4abd2501ce94e514948c73c88d9dae9d95f64367552496fa6739e18",
-  "actual_seed": 5937,
-  "actual_model": 35293,
-  "expected_seed": 6547,
-  "expected_model": 34683
+  "status": "CURRENT",
+  "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+  "actual_seed": 6577,
+  "actual_model": 34653,
+  "expected_seed": 6577,
+  "expected_model": 34653
  },
  "due": [
   {
@@ -40,6 +40,23 @@
   "month": 0,
   "quarter": 0
  },
- "status": "BLOCKED_STALE_CORPUS",
- "updated_periods": []
+ "status": "AI_GENERATED",
+ "updated_periods": [
+  {
+   "scale": "month",
+   "period_id": "2026-06"
+  },
+  {
+   "scale": "quarter",
+   "period_id": "2026-Q2"
+  },
+  {
+   "scale": "week",
+   "period_id": "2026-W30"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-27"
+  }
+ ]
 }

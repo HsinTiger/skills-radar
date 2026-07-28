@@ -1,0 +1,17 @@
+{
+ "schema_version": 1,
+ "snapshot_date": "2026-07-28",
+ "canonical_status": "CURRENT",
+ "release_tag": "corpus-latest",
+ "asset_name": "master.jsonl.gz",
+ "counts": {
+  "rows": 41230,
+  "unique_keys": 41230,
+  "seed": 6577,
+  "model": 34653
+ },
+ "master_sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
+ "gzip_sha256": "6727d6ced0055ab13ea15c444873274c5331b20283a06f2fcb44c0273510fb00",
+ "gzip_bytes": 20557865,
+ "claim_boundary": "Release digest proves corpus bytes, not skill correctness or EDA runtime proof"
+}

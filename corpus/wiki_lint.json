@@ -1,6 +1,8 @@
 {
- "n_files": 7,
- "n_metrics_tracked": 3,
+ "n_files": 12,
+ "n_metrics_tracked": 2,
  "n_conflicts": 0,
- "conflicts": []
+ "conflicts": [],
+ "n_wiki_errors": 0,
+ "wiki_errors": []
 }

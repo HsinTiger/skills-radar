@@ -3,11 +3,13 @@ data/launchd.*
 daily/*.new
 corpus/.batches/
 corpus/.classified/
+corpus/.classified-recovery/
 corpus/.asic-batches/
 corpus/.asic-classified/
 corpus/asic-classify.log
 __pycache__/
 *.pyc
+.venv/
 corpus/classify.log
 
 # 語料原始檔不進版控：74MB 且持續成長，會撞 GitHub 100MB 硬限制。
@@ -16,6 +18,7 @@ corpus/classify.log
 # 改為每週上傳壓縮快照到 GitHub Release（bin/publish_snapshot.sh），repo 只留分析產出。
 corpus/*.jsonl
 corpus/*.jsonl.gz
+corpus/model_report.*-before-recovery.json
 corpus/seen.tsv
 corpus/.batches/
 corpus/.classified/

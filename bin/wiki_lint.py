@@ -33,6 +33,9 @@ METRICS = {
     "語料規模": ([r"(\d{1,3}(?:,\d{3})+)\s*(?:筆|個)\s*(?:公開\s*)?(?:SKILL|skill|樣本)"], None),
     "注入掃描命中率": ([r"命中[^\n。]{0,16}?(\d{1,2}(?:\.\d{1,2})?)\s*%"], r"(掃描|注入|injection)"),
 }
+EXTERNAL_CORPUS_MARKERS = re.compile(
+    r"Snyk|ToxicSkills|GitHub\s*上有|外部(?:研究|資料集)|論文(?:掃描|樣本)", re.I
+)
 
 def collect(path):
     """從一份報告抽出所有可追蹤的量化宣稱。
@@ -42,7 +45,8 @@ def collect(path):
       · 前後雙向窗口     → 誤配「healthcare-bio（53.4%）…遠高於總體平均（42.3%）」
     規則：限定詞必須與數字同句，且出現在數字之前。
     """
-    t = open(path, encoding="utf-8", errors="replace").read()
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        t = fh.read()
     if "<!-- WIKI-LINT:SUPERSEDED -->" in t:
         return defaultdict(list)
     found = defaultdict(list)
@@ -52,6 +56,10 @@ def collect(path):
         if not sent.strip():
             continue
         for name, (pats, require) in METRICS.items():
+            # Named external studies and the GitHub-wide universe are not this
+            # project's corpus size.  Comparing them creates a false conflict.
+            if name == "語料規模" and EXTERNAL_CORPUS_MARKERS.search(sent):
+                continue
             for p in pats:
                 for m in re.finditer(p, sent):
                     try:

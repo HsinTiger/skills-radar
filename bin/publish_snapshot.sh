@@ -1,23 +1,44 @@
 #!/bin/bash
-# 把語料快照上傳到 GitHub Release，避免塞進 git 歷史。
-# 原始 master.jsonl 約 75MB 且每日成長；壓縮後約 20MB。
-# git 每天存一份 20MB 的二進位檔，一個月就是 600MB 歷史——所以走 Release 而非版控。
-set -uo pipefail
-ROOT="$HOME/skills-radar"
-cd "$ROOT" || exit 1
-TAG="corpus-$(date +%Y%m%d)"
+# Validate and publish the canonical corpus outside git history.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+PYTHON_BIN="${PYTHON_BIN:-python3}"
+TAG="${1:-corpus-latest}"
+SNAPSHOT_DATE="${SNAPSHOT_DATE:-$(date +%Y-%m-%d)}"
 GZ="corpus/master.jsonl.gz"
+MANIFEST="data/corpus_snapshot_manifest.json"
 
-gzip -9 -c corpus/master.jsonl > "$GZ" || exit 1
-SIZE=$(ls -lh "$GZ" | awk '{print $5}')
-N=$(wc -l < corpus/master.jsonl | tr -d ' ')
+"$PYTHON_BIN" bin/build_corpus_snapshot.py \
+  --date "$SNAPSHOT_DATE" --release-tag "$TAG" \
+  --gzip-output "$GZ" --manifest "$MANIFEST"
 
-gh release create "$TAG" "$GZ" \
-  --title "語料快照 $(date +%Y-%m-%d)" \
-  --notes "樣本 ${N} 筆，壓縮後 ${SIZE}。
+ROWS=$("$PYTHON_BIN" -c "import json; print(json.load(open('$MANIFEST', encoding='utf-8'))['counts']['rows'])")
+SEED=$("$PYTHON_BIN" -c "import json; print(json.load(open('$MANIFEST', encoding='utf-8'))['counts']['seed'])")
+MODEL=$("$PYTHON_BIN" -c "import json; print(json.load(open('$MANIFEST', encoding='utf-8'))['counts']['model'])")
+MASTER_SHA=$("$PYTHON_BIN" -c "import json; print(json.load(open('$MANIFEST', encoding='utf-8'))['master_sha256'])")
+GZIP_SHA=$("$PYTHON_BIN" -c "import json; print(json.load(open('$MANIFEST', encoding='utf-8'))['gzip_sha256'])")
+NOTES="Canonical corpus snapshot ${SNAPSHOT_DATE}.
 
-解壓後為 JSON Lines，每行一筆 skill 的 metadata 與分類標籤。
-\`sample\` 欄位標示抽樣方式：neutral（中立分層抽樣，可用於估計比例）／
-targeted-*（主題過取樣，**不可**用於估計比例，僅供該主題內部結構分析）。" \
-  2>/dev/null || gh release upload "$TAG" "$GZ" --clobber
-echo "已發佈 $TAG（${N} 筆 / ${SIZE}）"
+rows=${ROWS}; seed=${SEED}; model=${MODEL}
+master_sha256=${MASTER_SHA}
+gzip_sha256=${GZIP_SHA}
+
+sample=neutral is eligible for population estimates; targeted-* is topic oversampling and must not be used for population proportions."
+
+if gh release view "$TAG" >/dev/null 2>&1; then
+  gh release upload "$TAG" "$GZ" --clobber
+  gh release edit "$TAG" --title "語料 rolling snapshot ${SNAPSHOT_DATE}" --notes "$NOTES"
+else
+  gh release create "$TAG" "$GZ" \
+    --title "語料 rolling snapshot ${SNAPSHOT_DATE}" --notes "$NOTES"
+fi
+
+REMOTE_DIGEST=$(gh release view "$TAG" --json assets \
+  --jq '.assets[] | select(.name=="master.jsonl.gz") | .digest')
+if [ "$REMOTE_DIGEST" != "sha256:${GZIP_SHA}" ]; then
+  echo "release digest mismatch: local=sha256:${GZIP_SHA} remote=${REMOTE_DIGEST}" >&2
+  exit 1
+fi
+echo "published ${TAG}: rows=${ROWS} seed/model=${SEED}/${MODEL} digest=${REMOTE_DIGEST}"
