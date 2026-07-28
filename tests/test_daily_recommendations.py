@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "bin"))
 from build_daily_recommendations import (  # noqa: E402
     build_eda,
     build_finance,
+    catalog_freshness,
     classify_finance_candidate,
     render_html,
     snapshot_freshness,
@@ -45,6 +46,20 @@ def finance_row(**overrides):
 
 
 class DailyRecommendationTests(unittest.TestCase):
+    def test_catalog_must_match_current_master_before_owner_review(self):
+        current = catalog_freshness({
+            "status": "CURRENT_CANDIDATE_CATALOG",
+            "snapshot": {"sha256": "abc", "model_alignment": {"status": "CURRENT"},
+                         "taxonomy_validation": {"status": "BLOCKED"}},
+        }, FRESH)
+        stale = catalog_freshness({
+            "status": "CURRENT_CANDIDATE_CATALOG",
+            "snapshot": {"sha256": "old", "model_alignment": {"status": "CURRENT"}},
+        }, FRESH)
+        self.assertEqual(current["status"], "CURRENT")
+        self.assertEqual(current["taxonomy_validation"], "BLOCKED")
+        self.assertEqual(stale["status"], "STALE")
+
     def test_freshness_reports_stale_instead_of_silent_pass(self):
         rows = [finance_row(label_source=None)]
         with tempfile.TemporaryDirectory() as tmp:
@@ -76,6 +91,42 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn("/blob/" + "a" * 40, item["source_url"])
         self.assertEqual(item["owner_dossier"]["automation_role"], "design-intent-compiler")
         self.assertEqual(len(result["all_reviewed"]), 1)
+
+    def test_frontend_architecture_outranks_simulation_at_same_grade(self):
+        reviews = {"reviews": [
+            {"grade": "B", "repo": "r/sim", "path": "sim/SKILL.md", "commit": "a",
+             "fit": ["VCS", "simulation-debug"], "dependencies": [], "risk": [], "decision": "sim"},
+            {"grade": "B", "repo": "r/rtl", "path": "rtl/SKILL.md", "commit": "b",
+             "fit": ["microarchitecture", "RTL design"], "dependencies": [], "risk": [], "decision": "rtl"},
+        ]}
+        result = build_eda(reviews, {"candidates": []}, FRESH)
+        self.assertEqual(result["recommendations"][0]["repo"], "r/rtl")
+        self.assertEqual(result["recommendations"][0]["priority_reason"], "前端核心：spec/fixed-point/microarchitecture/RTL")
+
+    def test_grade_d_is_excluded_and_review_name_is_preserved(self):
+        reviews = {"reviews": [
+            {"name": "unsafe-cdc-template", "grade": "D", "repo": "r/bad", "path": "SKILL.md",
+             "commit": "deadbeef", "fit": ["CDC", "RTL design"], "dependencies": [],
+             "risk": ["unsafe multi-bit 2FF CDC"], "decision": "明確排除"},
+        ]}
+        result = build_eda(reviews, {"candidates": []}, FRESH)
+        self.assertEqual(result["recommendations"], [])
+        self.assertEqual(result["excluded"][0]["name"], "unsafe-cdc-template")
+        self.assertEqual(result["excluded"][0]["owner_fit"], "exclude")
+
+    def test_daily_eda_portfolio_keeps_frontend_lifecycle_coverage(self):
+        reviews = {"reviews": [
+            {"grade": "A", "repo": "r/arch", "path": "a", "commit": "a", "fit": ["microarchitecture"], "dependencies": [], "risk": [], "decision": "arch"},
+            {"grade": "B", "repo": "r/cdc", "path": "b", "commit": "b", "fit": ["CDC", "RDC"], "dependencies": [], "risk": [], "decision": "cdc"},
+            {"grade": "B", "repo": "r/lec", "path": "c", "commit": "c", "fit": ["LEC", "equivalence"], "dependencies": [], "risk": [], "decision": "lec"},
+            {"grade": "B", "repo": "r/formal", "path": "d", "commit": "d", "fit": ["SVA", "formal"], "dependencies": [], "risk": [], "decision": "formal"},
+            {"grade": "A", "repo": "r/wave", "path": "e", "commit": "e", "fit": ["VCS", "Verdi", "FSDB"], "dependencies": [], "risk": [], "decision": "wave"},
+            {"grade": "A", "repo": "r/synth", "path": "f", "commit": "f", "fit": ["logic synthesis"], "dependencies": [], "risk": [], "decision": "synth"},
+        ]}
+        result = build_eda(reviews, {"candidates": []}, FRESH)
+        self.assertEqual({item["repo"] for item in result["recommendations"]}, {
+            "r/arch", "r/cdc", "r/lec", "r/formal", "r/wave", "r/synth",
+        })
 
     def test_finance_trade_execution_and_credentials_are_excluded(self):
         item = classify_finance_candidate(finance_row(

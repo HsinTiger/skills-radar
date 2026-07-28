@@ -75,7 +75,7 @@ def cycle_views(history: dict, domain: str) -> list[dict]:
             actions = {
                 "day": ["檢查新候選是否改變 pinned source、license、dependency 或風險；沒有就維持清單。"],
                 "week": ["只挑一個公開 toy block canary，留下 design/verification intent 與 exact evidence manifest。"],
-                "month": ["檢查 spec→SVA/TB→VCS/Verdi→DC/PT 各 gate 是否仍有無人負責的斷點。"],
+                "month": ["檢查 spec→SVA/TB→VCS/Verdi→DC/LEC/ECO 各 gate 是否仍有無人負責的斷點。"],
                 "quarter": ["只把跨至少三個 block 可重現的 contract 提升為公司級 skill；其餘維持 experiment。"],
             }[scale]
             falsifiers = ["若實際 canary 無法重現、需要外傳內部資訊或不能產生 tool readback，該 skill 應降級或退役。"]
@@ -158,11 +158,11 @@ def eda_automation_roadmap(items: list[dict]) -> dict:
             "proof": "同一 clock edge sampling、API readback、compile/sim status 與 denominator。",
         },
         {
-            "order": 5, "id": "signoff", "title": "Synthesis／STA claim governor",
+            "order": 5, "id": "synthesis", "title": "Synthesis／LEC／ECO claim governor",
             "skills": _skills_for_role(items, role_field, "synthesis-evidence-governor"),
-            "deliverable": "RTL/filelist/tool/library/corner manifest；lint、DC、LEC、PrimeTime、power claims 分層。",
-            "owner_gate": "SDC、library、corner、threshold 與 waiver 只取自 internal golden flow。",
-            "proof": "真實 DC／LEC／PrimeTime／power report readback；各 gate 不互相替代。",
+            "deliverable": "RTL/filelist/tool/library/constraint manifest；lint、DC、LEC 與前端 ECO claims 分層。",
+            "owner_gate": "library、constraint、ECO boundary、threshold 與 waiver 只取自 internal golden flow；不延伸到 P&R/physical signoff。",
+            "proof": "真實 DC／Formality/LEC／ECO report readback；各 gate 不互相替代。",
         },
         {
             "order": 6, "id": "learn", "title": "Evidence-backed learning loop",
@@ -183,12 +183,12 @@ def eda_automation_roadmap(items: list[dict]) -> dict:
         "first_90_day_focus": [
             "零到三十天：建立 intent schema、evidence manifest 與非機密 ready/valid canary。",
             "三十一到六十天：接 VCS compile/elaborate/sim 與只讀 Verdi/FSDB evidence。",
-            "六十一到九十天：接 DC、Formality/LEC、PrimeTime named-corner evidence；自動改 RTL 保留在最後。",
+            "六十一到九十天：接 DC、Formality/LEC 與前端 ECO evidence；自動改 RTL 保留在最後。",
         ],
         "internal_skill_suite": [
             "wifi-bbdd-intent-compiler", "fixed-point-bittrue-contract", "rtl-artifact-generator",
             "spec-bound-sva-generator", "vcs-evidence-runner", "verdi-fsdb-analysis",
-            "dc-pt-evidence", "claim-boundary-auditor",
+            "synthesis-lec-eco-evidence", "claim-boundary-auditor",
         ],
         "cadence_contract": {
             "day": "source/review/evidence drift tape; no trend claim",
@@ -277,7 +277,7 @@ def build_report(recommendations: dict, history: dict, health: dict, report_date
                 "cycles": eda_cycles, "skills": eda_items,
                 "source_review": {"reviewed": sum(_reviewed(x) for x in eda_items), "total": len(eda_items)},
                 "roadmap": eda_automation_roadmap(eda_items),
-                "claim_boundary": "public source review != VCS/Verdi/DC/PrimeTime/formal runtime proof",
+                "claim_boundary": "public source review != VCS/Verdi/DC/Formality/LEC/ECO runtime proof",
             },
             "finance-investing": {
                 "slug": "investing", "title": "財經投資研究專區",

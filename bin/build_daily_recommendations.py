@@ -152,6 +152,23 @@ def snapshot_freshness(rows: list[dict], report: dict, master_path: Path) -> dic
     }
 
 
+def catalog_freshness(catalog: dict, freshness: dict) -> dict:
+    snapshot = catalog.get("snapshot", {})
+    current = (
+        catalog.get("status") == "CURRENT_CANDIDATE_CATALOG"
+        and snapshot.get("sha256") == freshness.get("master_sha256")
+        and snapshot.get("model_alignment", {}).get("status") == "CURRENT"
+    )
+    return {
+        "status": "CURRENT" if current else "STALE",
+        "catalog_status": catalog.get("status", "MISSING"),
+        "catalog_sha256": snapshot.get("sha256"),
+        "master_sha256": freshness.get("master_sha256"),
+        "taxonomy_validation": snapshot.get("taxonomy_validation", {}).get("status", "UNKNOWN"),
+        "claim_boundary": "catalog CURRENT permits candidate routing only; taxonomy validation and EDA runtime are separate gates",
+    }
+
+
 def github_url(repo: str, path: str, commit: str | None) -> str:
     ref = commit if commit and commit != "UNKNOWN" else "HEAD"
     return f"https://github.com/{repo}/blob/{ref}/{quote(path, safe='/._-')}"
@@ -163,6 +180,11 @@ def _matches(text: str, patterns) -> bool:
 
 def _eda_use(fit: list[str]) -> str:
     joined = " ".join(fit).lower()
+    if any(x in joined for x in (
+        "architecture", "microarchitecture", "fixed-point", "fixed point",
+        "design intent", "rtl design", "systemverilog rtl", "spec",
+    )):
+        return "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。"
     if any(x in joined for x in ("fsdb", "simulation", "vcs", "verdi", "coverage")):
         return "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。"
     if any(x in joined for x in ("cycle contract", "rtl design", "handoff")):
@@ -172,7 +194,7 @@ def _eda_use(fit: list[str]) -> str:
     if any(x in joined for x in ("sva", "formal", "assertion")):
         return "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。"
     if any(x in joined for x in ("synthesis", "lint", "lec", "sdc")):
-        return "引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。"
+        return "引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。"
     return "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。"
 
 
@@ -183,7 +205,15 @@ def _eda_owner_dossier(fit: list[str], recommendation: str) -> dict:
     to install or execute third-party content in a company flow.
     """
     joined = " ".join(fit).lower()
-    if any(word in joined for word in ("fsdb", "simulation", "vcs", "verdi", "coverage")):
+    if any(word in joined for word in (
+        "architecture", "microarchitecture", "fixed-point", "fixed point",
+        "design intent", "rtl design", "systemverilog rtl", "spec-to-rtl",
+    )):
+        role = "design-intent-compiler"
+        fit_reason = "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。"
+        experiment = "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。"
+        evidence = ["owner-approved design intent", "cycle-by-cycle trace", "interface/reset invariants", "handoff readback"]
+    elif any(word in joined for word in ("fsdb", "simulation", "vcs", "verdi", "coverage")):
         role = "simulation-evidence-extractor"
         fit_reason = "最貼近你高頻的 VCS／Verdi 除錯與 coverage 證據整理，可先降低人工翻波形與重建上下文的成本。"
         experiment = "在公開 ready/valid toy datapath 上，以既有 compile/sim 命令產生 FSDB，再只讀抽取同一 clock edge 的事件與 coverage denominator。"
@@ -195,9 +225,9 @@ def _eda_owner_dossier(fit: list[str], recommendation: str) -> dict:
         evidence = ["requirement-to-property mapping", "assumption ledger", "proof engine/result", "vacuity 與 counterexample review"]
     elif any(word in joined for word in ("synthesis", "lint", "lec", "sdc", "inference")):
         role = "synthesis-evidence-governor"
-        fit_reason = "可把 lint、綜合、LEC、時序與功耗的不同 claim 分層，防止單一綠燈被升格成 ASIC signoff。"
-        experiment = "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 SDC、library、corner 與命令仍由既有 golden flow 提供。"
-        evidence = ["RTL/filelist hash", "tool/library/corner manifest", "synthesis/LEC/STA 分離結果", "失敗條件與 artifact readback"]
+        fit_reason = "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。"
+        experiment = "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。"
+        evidence = ["RTL/filelist hash", "tool/library/constraint manifest", "synthesis/LEC/ECO 分離結果", "失敗條件與 artifact readback"]
     elif any(word in joined for word in ("testbench", "scoreboard", "ready-valid")):
         role = "testbench-contract-adapter"
         fit_reason = "能補強 bounded wait、payload integrity、scoreboard 與參數組合，適合變成跨 block 的 verification factory 元件。"
@@ -220,7 +250,7 @@ def _eda_owner_dossier(fit: list[str], recommendation: str) -> dict:
         "required_evidence": evidence,
         "promotion_gate": (
             "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；"
-            "只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。"
+            "只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。"
         ),
         "kill_criteria": [
             "要求自動修改產品 RTL 或繞過 owner approval",
@@ -229,6 +259,59 @@ def _eda_owner_dossier(fit: list[str], recommendation: str) -> dict:
         ],
         "portfolio_state": recommendation,
     }
+
+
+def _eda_frontend_priority(fit: list[str]) -> tuple[int, str]:
+    text = " ".join(fit).lower()
+    if any(word in text for word in ("physical", "place", "route", "post-layout", "backend")):
+        return -25, "超出前端範圍"
+    if any(word in text for word in (
+        "architecture", "microarchitecture", "fixed-point", "fixed point", "rtl design",
+        "systemverilog rtl", "cycle contract", "spec-to-rtl",
+    )):
+        return 30, "前端核心：spec/fixed-point/microarchitecture/RTL"
+    if any(word in text for word in ("sva", "formal", "assertion", "property")):
+        return 20, "前端 formal/SVA"
+    if any(word in text for word in ("eco", "equivalence", "lec", "lint", "cdc", "rdc")):
+        return 24, "前端 quality/synthesis/ECO"
+    if any(word in text for word in ("testbench", "uvm", "simulation", "vcs", "verdi", "fsdb")):
+        return 15, "前端 simulation/debug"
+    if "synthesis" in text:
+        return 10, "前端邊界：logic synthesis"
+    return 0, "支援性 procedure"
+
+
+def _select_eda_portfolio(items: list[dict], limit: int = 8) -> list[dict]:
+    """Keep the daily list lifecycle-complete instead of eight near-duplicates."""
+    eligible = [item for item in items if item["recommendation"] != "exclude"]
+    slots = (
+        ("architecture", "microarchitecture", "fixed-point", "rtl design"),
+        ("cdc", "rdc"),
+        ("sva", "formal", "assertion", "property"),
+        ("equivalence", "lec"),
+        ("simulation", "vcs", "verdi", "fsdb", "waveform"),
+        ("synthesis", "lint"),
+    )
+    selected: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for patterns in slots:
+        for item in eligible:
+            key = (item.get("repo", ""), item.get("path", ""))
+            text = " ".join(item.get("capabilities", [])).lower()
+            if key not in seen and any(
+                re.search(rf"\b{re.escape(pattern)}\b", text) for pattern in patterns
+            ):
+                selected.append(item)
+                seen.add(key)
+                break
+    for item in eligible:
+        key = (item.get("repo", ""), item.get("path", ""))
+        if key not in seen:
+            selected.append(item)
+            seen.add(key)
+        if len(selected) >= limit:
+            break
+    return selected[:limit]
 
 
 def _finance_owner_dossier(capabilities: list[str], recommendation: str) -> dict:
@@ -284,14 +367,19 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
         decision_text = review.get("decision", "")
         if grade in {"A", "B"}:
             recommendation = "pilot"
+        elif grade == "D":
+            recommendation = "exclude"
         elif grade == "C" and any(word in decision_text for word in ("不要安裝", "不納入", "不直接引用")):
             recommendation = "exclude"
         else:
             recommendation = "watch"
         commit = review.get("commit") or "UNKNOWN"
-        owner_fit = candidate.get("owner_fit") or ("direct" if grade == "A" else "supporting")
+        owner_fit = review.get("owner_fit") or candidate.get("owner_fit") or (
+            "direct" if grade == "A" else "exclude" if grade == "D" else "supporting"
+        )
+        frontend_priority, priority_reason = _eda_frontend_priority(review.get("fit", []))
         item = {
-            "name": candidate.get("name") or Path(review.get("path", "SKILL.md")).parent.name or "skill",
+            "name": review.get("name") or candidate.get("name") or Path(review.get("path", "SKILL.md")).parent.name or "skill",
             "repo": review.get("repo"),
             "path": review.get("path"),
             "source_commit": commit,
@@ -303,9 +391,12 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
             "recommendation_zh": STATUS_ZH[recommendation],
             "score": (
                 grade_score.get(grade, 0)
+                + frontend_priority
                 + (5 if owner_fit == "direct" else 0)
                 + (3 if review.get("commit_verified") else 0)
             ),
+            "frontend_priority": frontend_priority,
+            "priority_reason": priority_reason,
             "summary": decision_text,
             "use_in_next_rtl_design": _eda_use(review.get("fit", [])),
             "capabilities": review.get("fit", []),
@@ -320,20 +411,20 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
             },
             "evidence_freshness": freshness["status"],
             "do_not_claim": [
-                "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+                "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
                 "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff",
             ],
         }
         item["owner_dossier"] = _eda_owner_dossier(item["capabilities"], recommendation)
         items.append(item)
     items.sort(key=lambda x: (-x["score"], x["repo"], x["path"]))
-    recommendations = [x for x in items if x["recommendation"] != "exclude"][:8]
+    recommendations = _select_eda_portfolio(items)
     excluded = [x for x in items if x["recommendation"] == "exclude"][:6]
     counts = Counter(x["recommendation"] for x in items)
     return {
         "label": "EDA / 數位 IC（WiFi baseband ASIC）",
-        "scope": "規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、synthesis/STA/power 與 RTL integration。",
-        "excluded_scope": "FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna。",
+        "scope": "規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、logic synthesis、LEC 與前端 ECO。",
+        "excluded_scope": "FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna，以及 P&R/CTS/route/physical signoff。",
         "summary": (
             f"已審 {len(items)} 個來源；{counts.get('pilot', 0)} 個可沙盒試行、"
             f"{counts.get('watch', 0)} 個待補證據、{counts.get('exclude', 0)} 個排除。"
@@ -650,6 +741,7 @@ main{{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}}a{{color:var(--ac
 def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: dict,
                  master_path: Path, report_date: str, finance_reviews: dict | None = None) -> dict:
     freshness = snapshot_freshness(rows, model_report, master_path)
+    catalog_state = catalog_freshness(catalog, freshness)
     categories = {
         "EDA_IC": build_eda(reviews, catalog, freshness),
         "finance-investing": build_finance(rows, freshness, finance_reviews),
@@ -663,7 +755,7 @@ def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: d
         and item.get("source_commit") not in {None, "", "UNKNOWN"}
         for item in displayed
     )
-    if freshness["status"] != "CURRENT":
+    if freshness["status"] != "CURRENT" or catalog_state["status"] != "CURRENT":
         status = "PREVIEW_STALE_CORPUS"
     elif not source_review_ready:
         status = "PARTIAL_SOURCE_REVIEW"
@@ -675,6 +767,7 @@ def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: d
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "status": status,
         "corpus_freshness": freshness,
+        "asic_catalog_freshness": catalog_state,
         "policy": {
             "states": STATUS_ZH,
             "adopt_requires": "owner approval plus domain runtime proof",

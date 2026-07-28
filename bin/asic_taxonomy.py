@@ -24,7 +24,7 @@ HARDWARE_TARGETS = {
 ASIC_STAGES = {
     "spec-architecture", "algorithm-to-architecture", "fixed-point",
     "microarchitecture", "rtl-design", "lint-cdc-rdc", "formal-assertion",
-    "simulation-debug", "uvm-verification", "synthesis-sta-power",
+    "simulation-debug", "uvm-verification", "synthesis-lec-eco",
     "integration-handoff", "dft", "physical",
 }
 WIFI_AREAS = {
@@ -114,10 +114,10 @@ STAGE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         r"\b(uvm|functional\s+coverage|code\s+coverage|constrained[ -]?random|"
         r"scoreboard|sequence(?:r)?|verification\s+plan|coverage\s+closure)\b"
     )),
-    ("synthesis-sta-power", _rx(
-        r"\b(logic\s+synthesis|synthesis|design\s+compiler|genus|primetime|tempus|"
-        r"static\s+timing|\bsta\b|sdc|timing\s+constraint|upf|power\s+intent|"
-        r"timing[/ ]area[/ ]power|\bqor\b)\b"
+    ("synthesis-lec-eco", _rx(
+        r"\b(logic\s+synthesis|rtl\s+synthesis|synthesis|design\s+compiler|genus|"
+        r"formality|conformal|logical\s+equivalence|equivalence\s+checking|\blec\b|"
+        r"front[ -]?end\s+eco|rtl\s+eco|engineering\s+change\s+order|\bqor\b)\b"
     )),
     ("integration-handoff", _rx(
         r"\b(soc\s+integration|ip\s+integration|top[ -]?level\s+integration|ip[ -]?xact|"
@@ -165,7 +165,7 @@ WIFI_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
 DIRECT_STAGES = {
     "spec-architecture", "algorithm-to-architecture", "fixed-point",
     "microarchitecture", "rtl-design", "lint-cdc-rdc", "formal-assertion",
-    "simulation-debug", "uvm-verification", "synthesis-sta-power",
+    "simulation-debug", "uvm-verification", "synthesis-lec-eco",
     "integration-handoff",
 }
 

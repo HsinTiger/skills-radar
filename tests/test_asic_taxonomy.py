@@ -124,6 +124,14 @@ class AsicTaxonomyTests(unittest.TestCase):
         self.assertEqual(result["owner_fit"], "supporting")
         self.assertEqual(result["taxonomy_basis"], "llm-golden-v1")
 
+    def test_synthesis_lec_eco_is_frontend_boundary_without_sta_power(self):
+        result = classify_row(hardware_row(
+            name="Frontend ECO equivalence",
+            description="Design Compiler RTL synthesis, Formality LEC, and front-end ECO",
+        ))
+        self.assertIn("synthesis-lec-eco", result["asic_stages"])
+        self.assertNotIn("synthesis-sta-power", result["asic_stages"])
+
     def test_owner_topics_do_not_search_excluded_areas(self):
         banned = ("fpga", "vivado", "quartus", "vitis", "xilinx", "esp32", "mcu",
                   "firmware", "pcb", "antenna", "s-parameter", "rf front")
@@ -134,6 +142,12 @@ class AsicTaxonomyTests(unittest.TestCase):
             )
             for word in banned:
                 self.assertNotIn(word, terms, f"{topic} contains excluded search term {word}")
+        asic_terms = " ".join(
+            term.lower() for tier in TOPICS["asic"].values() for term in tier
+        )
+        self.assertIn("front end eco", asic_terms)
+        for word in ("primetime", "place and route", "clock tree", "physical signoff"):
+            self.assertNotIn(word, asic_terms)
 
     def test_strict_llm_label_validation(self):
         valid = {

@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-28 09:13 UTC",
+ "generated": "2026-07-28 12:01 UTC",
  "n_total": 5573,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
@@ -3755,7 +3755,7 @@
  "pipeline_health": {
   "schema_version": 1,
   "report_date": "2026-07-28",
-  "completed_at": "2026-07-28T09:13:06.230265+00:00",
+  "completed_at": "2026-07-28T12:01:01.956672+00:00",
   "status": "PASS",
   "gates": {
    "corpus_update": "SUCCESS",
@@ -5681,22 +5681,22 @@
   }
  ],
  "eda": {
-  "n": 211,
+  "n": 210,
   "chip_n": 13,
   "neutral_n": 10,
-  "targeted_n": 201,
+  "targeted_n": 200,
   "pct_of_corpus": 0.18,
   "task": {
    "驗證": 30,
    "生成": 18,
    "調度": 13,
    "分析": 12,
-   "配置": 6,
+   "配置": 5,
    "轉換": 5,
    "檢索": 2
   },
   "maturity": {
-   "workflow": 83,
+   "workflow": 82,
    "production": 71,
    "toy": 1
   },
@@ -5929,7 +5929,7 @@
     "repo": "arpitg1304/robotics-agent-skills"
    }
   ],
-  "verify_pct": 14.2,
+  "verify_pct": 14.3,
   "global_verify_pct": 15.3
  },
  "security": {
@@ -6722,12 +6722,12 @@
   "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
  },
  "eda_gaps": {
-  "n_hw": 211,
+  "n_hw": 210,
   "tasks": [
    {
     "task": "retrieve",
     "zh": "檢索",
-    "hw_pct": 2.3,
+    "hw_pct": 2.4,
     "global_pct": 9.8,
     "ratio": 0.24,
     "n": 2,
@@ -6747,10 +6747,10 @@
    {
     "task": "configure",
     "zh": "配置",
-    "hw_pct": 7.0,
+    "hw_pct": 5.9,
     "global_pct": 17.0,
-    "ratio": 0.41,
-    "n": 6,
+    "ratio": 0.35,
+    "n": 5,
     "samples": [
      {
       "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
@@ -6768,11 +6768,6 @@
       "name": "robotics-design-patterns"
      },
      {
-      "pain": "晶片上遊更新時決策記錄與配置同步容易出錯",
-      "stars": 31,
-      "name": "update-design"
-     },
-     {
       "pain": "控制手臂運動規劃與逆運動學解算編寫複雜",
       "stars": 12,
       "name": "ros2-moveit"
@@ -6787,9 +6782,9 @@
    {
     "task": "transform",
     "zh": "轉換",
-    "hw_pct": 5.8,
+    "hw_pct": 5.9,
     "global_pct": 7.9,
-    "ratio": 0.73,
+    "ratio": 0.74,
     "n": 5,
     "samples": [
      {
@@ -6822,9 +6817,9 @@
    {
     "task": "generate",
     "zh": "生成",
-    "hw_pct": 20.9,
+    "hw_pct": 21.2,
     "global_pct": 22.0,
-    "ratio": 0.95,
+    "ratio": 0.96,
     "n": 18,
     "samples": [
      {
@@ -6862,9 +6857,9 @@
    {
     "task": "orchestrate",
     "zh": "調度",
-    "hw_pct": 15.1,
+    "hw_pct": 15.3,
     "global_pct": 15.5,
-    "ratio": 0.97,
+    "ratio": 0.99,
     "n": 13,
     "samples": [
      {
@@ -6902,9 +6897,9 @@
    {
     "task": "analyze",
     "zh": "分析",
-    "hw_pct": 14.0,
+    "hw_pct": 14.1,
     "global_pct": 12.5,
-    "ratio": 1.12,
+    "ratio": 1.13,
     "n": 12,
     "samples": [
      {
@@ -6942,9 +6937,9 @@
    {
     "task": "verify",
     "zh": "驗證",
-    "hw_pct": 34.9,
+    "hw_pct": 35.3,
     "global_pct": 15.3,
-    "ratio": 2.29,
+    "ratio": 2.31,
     "n": 30,
     "samples": [
      {

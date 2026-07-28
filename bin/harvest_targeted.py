@@ -46,11 +46,15 @@ TOPICS = {
         "spec-architecture": [
             "ASIC microarchitecture specification", "hardware architecture RTL",
             "cycle accurate model RTL", "algorithm to RTL fixed point",
+            "RTL architecture review", "RTL design specification skill",
+            "fixed point microarchitecture SystemVerilog", "bit true RTL design",
         ],
         "rtl-design": [
             "ASIC RTL SystemVerilog", "synthesizable SystemVerilog ASIC",
             "ready valid RTL", "pipeline RTL microarchitecture",
             "clock reset RTL design", "low power RTL design",
+            "SystemVerilog RTL design skill", "RTL code review skill",
+            "RTL quality review", "RTL refactoring synthesis preserving",
         ],
         "lint-cdc-rdc": [
             "ASIC RTL lint", "clock domain crossing ASIC", "reset domain crossing RTL",
@@ -68,9 +72,10 @@ TOPICS = {
             "UVM testbench ASIC", "functional coverage SystemVerilog",
             "constrained random RTL verification", "scoreboard reference model UVM",
         ],
-        "synthesis-sta-power": [
-            "Design Compiler ASIC", "PrimeTime STA RTL", "SDC constraint ASIC",
-            "UPF power intent RTL", "logic synthesis ASIC",
+        "synthesis-lec-eco": [
+            "Design Compiler RTL synthesis", "logic synthesis ASIC",
+            "RTL synthesis review", "logical equivalence LEC RTL",
+            "RTL ECO synthesis", "front end ECO equivalence",
         ],
         "integration-registers": [
             "ASIC IP integration RTL", "SystemRDL CSR RTL", "IP-XACT RTL integration",

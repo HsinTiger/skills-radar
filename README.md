@@ -43,6 +43,8 @@
 - [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
   排除 FPGA、embedded、board/PCB、analog/RF；canonical corpus 與 candidate catalog 已 CURRENT，
   但 secondary taxonomy golden validation 仍為 `BLOCKED`，因此只可作候選路由，不是 EDA runtime proof。
+- [RTL Front-end Skill Deep Dive（2026-07-28）](research/RTL_FRONTEND_SKILL_DEEP_DIVE_2026-07-28.md)：
+  聚焦 spec／fixed-point／uArch／SystemVerilog RTL／CDC・RDC／formal／VCS・Verdi，邊界只到 logic synthesis、LEC 與 frontend ECO。
 
 ## 這個系統怎麼運作
 

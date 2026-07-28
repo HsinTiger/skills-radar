@@ -15,14 +15,54 @@ main{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}a{color:var(--accen
 <div class="notice"><strong>READY_FOR_OWNER_REVIEW</strong>：master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。<br>財經類只供研究，不授權交易、帳號或 credential 操作。</div>
 
 <section><h2>EDA / 數位 IC（WiFi baseband ASIC）</h2>
-<p>已審 13 個來源；5 個可沙盒試行、5 個待補證據、3 個排除。本頁列出前 8 個非排除候選；完整 13 個 dossier 見 EDA 專區。</p><p class="muted">範圍：規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、synthesis/STA/power 與 RTL integration。<br>排除：FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna。</p>
+<p>已審 26 個來源；15 個可沙盒試行、6 個待補證據、5 個排除。本頁列出前 8 個非排除候選；完整 26 個 dossier 見 EDA 專區。</p><p class="muted">範圍：規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、logic synthesis、LEC 與前端 ECO。<br>排除：FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna，以及 P&amp;R/CTS/route/physical signoff。</p>
 <div class="grid">
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/simra-tech/OpenADA/blob/939fe803882956b9e6c34e0270f82ba8bbdfe991/skills/review-rtl-architecture/SKILL.md">review-rtl-architecture</a></h3>
+  <p class="repo">simra-tech/OpenADA · commit 939fe803882956b9e6c34e0270f82ba8bbdfe991</p>
+  <p>優先改編：作為 RTL architecture review 與 evidence-governor 骨架；不複製工具命令，需用真實 parser/lint/VCS/DC/CDC/formal gate 回填。</p><p><strong>引用：</strong>在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。</p>
+  <details><summary>風險與限制</summary><ul><li>OpenADA runtime was not executed</li><li>v1alpha1 lacks general parameter override and library/waiver provenance roles</li><li>OpenADA-specific contract must map to internal filelist/tool evidence</li><li>clean lint remains non-functional evidence</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/nlsundeep/Hardware-Design-Agent-Workflow/blob/5a53e85f43337872a6dc19817a6234b27f258b00/.claude/skills/hw-cdc/SKILL.md">hw-cdc</a></h3>
+  <p class="repo">nlsundeep/Hardware-Design-Agent-Workflow · commit 5a53e85f43337872a6dc19817a6234b27f258b00</p>
+  <p>優先抽取 claim boundary 與 crossing inventory schema；真 CDC/RDC tool run 才能升級 PASS。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
+  <details><summary>風險與限制</summary><ul><li>repository has no detected license</li><li>no executable proprietary-tool adapter or report schema in this file</li><li>depends on repo-local baseline mechanisms</li><li>structural pattern matching can miss reconvergence and protocol semantics</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/chuanseng-ng/digital-chip-design-agents/blob/d9ec7f93343ecdd7bd7d886ef28563f8c5960308/plugins/formal/skills/formal-verification/SKILL.md">formal-verification</a></h3>
+  <p class="repo">chuanseng-ng/digital-chip-design-agents · commit d9ec7f93343ecdd7bd7d886ef28563f8c5960308</p>
+  <p>只採 property/assumption/vacuity/CEX/LEC stage model；刪除 assumed-correct shortcut，所有 PASS 綁定真 formal report 與 owner-approved waiver。</p><p><strong>引用：</strong>只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。</p>
+  <details><summary>風險與限制</summary><ul><li>over-broad signoff wording without exact report schemas</li><li>assumed-correct shortcut is unacceptable for hard gates</li><li>generic constraint prescriptions need qualification</li><li>writes repo-local memory and delegates to unavailable orchestrator</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/vibeic/vibe-ic/blob/93ff966d3258ab2b1abc914abf72d9ef72d3648b/vibe-ic-marketplace/plugins/vibe-ic/skills/equivalence-check/SKILL.md">equivalence-check</a></h3>
+  <p class="repo">vibeic/vibe-ic · commit 93ff966d3258ab2b1abc914abf72d9ef72d3648b</p>
+  <p>優先改編 LEC substance gate schema；用內部 Formality/Conformal canonical report readback 實作，不把 Yosys PASS 升格為產品 ECO signoff。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
+  <details><summary>風險與限制</summary><ul><li>MCP-EDA/Yosys integration is not the internal flow</li><li>commercial parsing claim was not runtime-tested</li><li>test/scan/black-box/state mapping needs tool-specific contracts</li><li>no Formality/Conformal evidence was run</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/L1Ban404-computer-architecture/systemverilog-waveform-debug-skill/blob/3af2c119a59d2a1ffaef0774c0e2de52bc990e3b/SKILL.md">systemverilog-waveform-debug</a></h3>
+  <p class="repo">L1Ban404-computer-architecture/systemverilog-waveform-debug-skill · commit 3af2c119a59d2a1ffaef0774c0e2de52bc990e3b</p>
+  <p>優先改編方法：provenance、earliest divergence、bounded probe 與 falsifier；必須接真 FSDB/Verdi readback，公開側只保留獲准摘要。</p><p><strong>引用：</strong>在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。</p>
+  <details><summary>風險與限制</summary><ul><li>no native FSDB support</li><li>VCS/Verdi flow needs an approved FSDB adapter</li><li>offline waveform cannot prove simulator scheduling regions</li><li>tool/scripts were not executed</li></ul></details>
+</article>
 <article class="card">
   <div><span class="status pilot">沙盒試行</span>
   <span class="review">REVIEWED / A</span></div>
   <h3><a href="https://github.com/simra-tech/OpenADA/blob/92895d8f7f6150c9332e51642cfb2b08ccf1886d/skills/assess-synthesis-and-inference/SKILL.md">assess-synthesis-and-inference</a></h3>
   <p class="repo">simra-tech/OpenADA · commit 92895d8f7f6150c9332e51642cfb2b08ccf1886d</p>
-  <p>優先改編 evidence manifest 與 claim boundary；不要把 OpenADA/Yosys 命令直接帶進現有商用 EDA flow。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。</p>
+  <p>優先改編 evidence manifest 與 claim boundary；不要把 OpenADA/Yosys 命令直接帶進現有商用 EDA flow。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
   <details><summary>風險與限制</summary><ul><li>commit unsigned</li><li>OpenADA runtime unavailable here</li><li>open-source contract needs mapping to proprietary OA/NX flow</li></ul></details>
 </article>
 <article class="card">
@@ -36,50 +76,10 @@ main{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}a{color:var(--accen
 <article class="card">
   <div><span class="status pilot">沙盒試行</span>
   <span class="review">REVIEWED / B</span></div>
-  <h3><a href="https://github.com/xlsynth/bedrock-rtl/blob/33720f657d214e96826144d13d223e0a6534bae1/.codex/skills/write-sim-testbench/SKILL.md">write-sim-testbench</a></h3>
-  <p class="repo">xlsynth/bedrock-rtl · commit 33720f657d214e96826144d13d223e0a6534bae1</p>
-  <p>抽取 testbench checklist 與 timeout/data-integrity 原則；重寫成現有 testbench framework。</p><p><strong>引用：</strong>在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。</p>
-  <details><summary>風險與限制</summary><ul><li>repository-specific helpers and BUILD targets</li><li>Verilator portability is not VCS signoff</li></ul></details>
-</article>
-<article class="card">
-  <div><span class="status pilot">沙盒試行</span>
-  <span class="review">REVIEWED / B</span></div>
-  <h3><a href="https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-property-inference/SKILL.md">rtl-property-inference</a></h3>
-  <p class="repo">ArabelaTso/Skills-4-SE · commit 3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35</p>
-  <p>只用來產生 candidate properties；每一條需綁 spec requirement 並在正式 formal flow 證明。</p><p><strong>引用：</strong>只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。</p>
-  <details><summary>風險與限制</summary><ul><li>inferring intent from RTL can reproduce existing bugs</li><li>liveness/fairness assumptions need owner confirmation</li><li>no actual proof execution</li></ul></details>
-</article>
-<article class="card">
-  <div><span class="status pilot">沙盒試行</span>
-  <span class="review">REVIEWED / B</span></div>
-  <h3><a href="https://github.com/kh7272723-star/digital-front-end-skill/blob/92c9780c71639123eae2709683643d4d2d22004e/SKILL.md">digital-front-end-skill</a></h3>
-  <p class="repo">kh7272723-star/digital-front-end-skill · commit 92c9780c71639123eae2709683643d4d2d22004e</p>
-  <p>只抽取 cycle contract、claim ledger、false-pass audit；不整包安裝。</p><p><strong>引用：</strong>在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。</p>
-  <details><summary>風險與限制</summary><ul><li>no detected repository license</li><li>very large instruction surface</li><li>many project-local scripts not reviewed</li><li>Icarus evidence is narrower than VCS</li></ul></details>
-</article>
-<article class="card">
-  <div><span class="status watch">觀察／待審</span>
-  <span class="review">REVIEWED / C</span></div>
-  <h3><a href="https://github.com/chuanseng-ng/digital-chip-design-agents/blob/9bdd652fb7518c4acbf94d1183d37e5b0a3454f2/plugins/synthesis/skills/logic-synthesis/SKILL.md">logic-synthesis</a></h3>
-  <p class="repo">chuanseng-ng/digital-chip-design-agents · commit 9bdd652fb7518c4acbf94d1183d37e5b0a3454f2</p>
-  <p>只參考 stage inventory；所有 SDC、corner、threshold 與 signoff 規則必須以專案 owner/golden flow 為準。</p><p><strong>引用：</strong>在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。</p>
-  <details><summary>風險與限制</summary><ul><li>generic clock uncertainty defaults</li><li>blanket false-path guidance can hide real CDC paths</li><li>writes project memory</li><li>cannot run standalone</li></ul></details>
-</article>
-<article class="card">
-  <div><span class="status watch">觀察／待審</span>
-  <span class="review">REVIEWED / C</span></div>
-  <h3><a href="https://github.com/vibeic/vibe-ic/blob/a627b3b599b24455a32214ecb86dcce3ad193a3c/vibe-ic-marketplace/plugins/vibe-ic/skills/rtl-repair/SKILL.md">rtl-repair</a></h3>
-  <p class="repo">vibeic/vibe-ic · commit a627b3b599b24455a32214ecb86dcce3ad193a3c</p>
-  <p>只參考 root-cause grouping/minimal diff；不可授權自動改 RTL 或以 compliance PASS 代表 EDA PASS。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。</p>
-  <details><summary>風險與限制</summary><ul><li>mental re-check instead of actual compile/sim</li><li>format compliance can be mistaken for correctness</li><li>unsupported 20-40 percent claim</li><li>automatic RTL mutation</li></ul></details>
-</article>
-<article class="card">
-  <div><span class="status watch">觀察／待審</span>
-  <span class="review">REVIEWED / C</span></div>
-  <h3><a href="https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-specification-consistency-checker/SKILL.md">rtl-specification-consistency-checker</a></h3>
-  <p class="repo">ArabelaTso/Skills-4-SE · commit 3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35</p>
-  <p>只採 requirement matrix 格式；禁止把靜態閱讀升格成 satisfied/PASS。</p><p><strong>引用：</strong>只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。</p>
-  <details><summary>風險與限制</summary><ul><li>allows satisfied classification from inspection</li><li>no compile/sim/formal evidence contract</li><li>suggested fixes can precede proof</li></ul></details>
+  <h3><a href="https://github.com/babyworm/rtl-agent-team/blob/ca43e220af36492be516996b137dafb1922c2d88/skills/rtl-p3-uarch-policy/SKILL.md">rtl-p3-uarch-policy</a></h3>
+  <p class="repo">babyworm/rtl-agent-team · commit ca43e220af36492be516996b137dafb1922c2d88</p>
+  <p>只抽取 intent schema、traceability、bit-true BFM gate 與 throughput invariant；不採固定 threshold、命名或 agent topology。</p><p><strong>引用：</strong>在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。</p>
+  <details><summary>風險與限制</summary><ul><li>fixed SRAM and buffering thresholds are technology-specific</li><li>rigid naming and artifact layout</li><li>multi-agent review rounds are attention-heavy</li><li>some advisory criteria conflict with final hard-checklist wording</li></ul></details>
 </article></div><p class="gate"><strong>採用 gate：</strong>先抽取 procedure → owner 核准 → toy design canary → internal golden-flow proof → 才能採用。</p></section>
 <section><h2>財經投資研究</h2>
 <p>今日選出 5 個研究候選：2 個沙盒試行、3 個觀察；5 個已完成 pinned source review。</p><p class="muted">範圍：市場／總經資料、財報與盈餘品質、估值、產業鏈論點、風險與回測方法。<br>排除：自動下單、實盤交易、券商／錢包／私鑰／credential 操作，以及無證據的獲利承諾。</p>

@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-07-28T09:02:43.612661+00:00",
+ "generated_at": "2026-07-28T11:57:26.672793+00:00",
  "status": "CURRENT_CANDIDATE_CATALOG",
  "canonical_use": "BLOCKED",
  "snapshot": {
@@ -38,14 +38,14 @@
   "deduplicated_candidates": 669,
   "owner_fit": {
    "exclude": 406,
-   "supporting": 215,
-   "adjacent": 35,
+   "supporting": 214,
+   "adjacent": 36,
    "direct": 13
   },
   "provisional_grade": {
    "D": 406,
-   "B": 206,
-   "C": 44,
+   "B": 205,
+   "C": 45,
    "A": 13
   },
   "hardware_target": {
@@ -62,7 +62,7 @@
    "rtl-design": 306,
    "simulation-debug": 280,
    "spec-architecture": 191,
-   "synthesis-sta-power": 119,
+   "synthesis-lec-eco": 110,
    "microarchitecture": 104,
    "lint-cdc-rdc": 91,
    "uvm-verification": 82,
@@ -105,7 +105,7 @@
     "lint-cdc-rdc",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "direct",
@@ -136,7 +136,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "formal-assertion",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "direct",
@@ -166,7 +166,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "direct",
@@ -195,7 +195,7 @@
    "asic_stages": [
     "spec-architecture",
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff",
     "physical"
    ],
@@ -227,38 +227,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "direct",
-   "owner_fit_reason": "ASIC RTL/front-end EDA 直接適用",
-   "fit_score": 88,
-   "provisional_grade": "A",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "RoyTr16/tiny-connect-four:.github/skills/tt-gate-level-sim/SKILL.md",
-   "repo": "RoyTr16/tiny-connect-four",
-   "path": ".github/skills/tt-gate-level-sim/SKILL.md",
-   "name": "tt-gate-level-sim",
-   "stars": 0,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.663,
-   "injection_suspect": false,
-   "content_signature": "ae054925636e5a5b",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "RoyTr16/tiny-connect-four/.github/skills/tt-gate-level-sim/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "asic",
-   "asic_stages": [
-    "rtl-design",
-    "formal-assertion",
-    "simulation-debug",
-    "synthesis-sta-power",
-    "physical"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "direct",
@@ -288,7 +257,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "direct",
@@ -317,7 +286,7 @@
    "asic_stages": [
     "rtl-design",
     "formal-assertion",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -357,6 +326,36 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
+   "id": "RoyTr16/tiny-connect-four:.github/skills/tt-gate-level-sim/SKILL.md",
+   "repo": "RoyTr16/tiny-connect-four",
+   "path": ".github/skills/tt-gate-level-sim/SKILL.md",
+   "name": "tt-gate-level-sim",
+   "stars": 0,
+   "sample": "targeted-eda",
+   "label_source": "model",
+   "domain_conf": 0.663,
+   "injection_suspect": false,
+   "content_signature": "ae054925636e5a5b",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "RoyTr16/tiny-connect-four/.github/skills/tt-gate-level-sim/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "asic",
+   "asic_stages": [
+    "rtl-design",
+    "formal-assertion",
+    "simulation-debug",
+    "physical"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "direct",
+   "owner_fit_reason": "ASIC RTL/front-end EDA 直接適用",
+   "fit_score": 86,
+   "provisional_grade": "A",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
    "id": "n0sig/asic-design-plugins:plugins/digital-asic-backend/skills/run-fc/SKILL.md",
    "repo": "n0sig/asic-design-plugins",
    "path": "plugins/digital-asic-backend/skills/run-fc/SKILL.md",
@@ -375,7 +374,7 @@
    "hardware_target": "asic",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -404,7 +403,7 @@
    "hardware_target": "asic",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -432,7 +431,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "asic",
    "asic_stages": [
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -579,7 +578,7 @@
     "spec-architecture",
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff"
    ],
    "wifi_areas": [],
@@ -673,7 +672,8 @@
     "microarchitecture",
     "rtl-design",
     "formal-assertion",
-    "simulation-debug"
+    "simulation-debug",
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -706,7 +706,7 @@
     "lint-cdc-rdc",
     "simulation-debug",
     "uvm-verification",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -799,7 +799,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -893,7 +893,8 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "uvm-verification"
+    "uvm-verification",
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -924,7 +925,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -955,7 +956,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -987,7 +988,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "formal-assertion",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1020,7 +1021,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1051,7 +1052,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1144,38 +1145,7 @@
     "lint-cdc-rdc",
     "simulation-debug",
     "uvm-verification",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "supporting",
-   "owner_fit_reason": "通用數位 RTL/EDA 程序，可抽取後改編",
-   "fit_score": 58,
-   "provisional_grade": "B",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "nlsundeep/Hardware-Design-Agent-Workflow:.claude/skills/hw-feature/SKILL.md",
-   "repo": "nlsundeep/Hardware-Design-Agent-Workflow",
-   "path": ".claude/skills/hw-feature/SKILL.md",
-   "name": "hw-feature",
-   "stars": 0,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.638,
-   "injection_suspect": false,
-   "content_signature": "c408f8ed10d1eb70",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "nlsundeep/Hardware-Design-Agent-Workflow/.claude/skills/hw-feature/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "generic",
-   "asic_stages": [
-    "spec-architecture",
-    "rtl-design",
-    "lint-cdc-rdc",
-    "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1237,7 +1207,7 @@
     "algorithm-to-architecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1388,7 +1358,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "uvm-verification",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1478,7 +1448,7 @@
     "spec-architecture",
     "rtl-design",
     "formal-assertion",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1538,7 +1508,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1658,7 +1628,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "dft"
    ],
    "wifi_areas": [],
@@ -1719,7 +1689,7 @@
     "spec-architecture",
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1749,7 +1719,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1870,7 +1840,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -1900,7 +1870,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -2053,6 +2023,36 @@
     "rtl-design",
     "simulation-debug",
     "uvm-verification"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "supporting",
+   "owner_fit_reason": "通用數位 RTL/EDA 程序，可抽取後改編",
+   "fit_score": 56,
+   "provisional_grade": "B",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "nlsundeep/Hardware-Design-Agent-Workflow:.claude/skills/hw-feature/SKILL.md",
+   "repo": "nlsundeep/Hardware-Design-Agent-Workflow",
+   "path": ".claude/skills/hw-feature/SKILL.md",
+   "name": "hw-feature",
+   "stars": 0,
+   "sample": "targeted-eda",
+   "label_source": "model",
+   "domain_conf": 0.638,
+   "injection_suspect": false,
+   "content_signature": "c408f8ed10d1eb70",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "nlsundeep/Hardware-Design-Agent-Workflow/.claude/skills/hw-feature/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "generic",
+   "asic_stages": [
+    "spec-architecture",
+    "rtl-design",
+    "lint-cdc-rdc",
+    "simulation-debug"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -2559,7 +2559,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -2768,7 +2768,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -3002,37 +3002,6 @@
     "spec-architecture",
     "microarchitecture",
     "rtl-design"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "supporting",
-   "owner_fit_reason": "通用數位 RTL/EDA 程序，可抽取後改編",
-   "fit_score": 54,
-   "provisional_grade": "B",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "Paradicat/demo:agent_pack/skills/ip-design/SKILL.md.bak2",
-   "repo": "Paradicat/demo",
-   "path": "agent_pack/skills/ip-design/SKILL.md.bak2",
-   "name": "ip-design",
-   "stars": 1,
-   "sample": "targeted-eda",
-   "label_source": "llm",
-   "domain_conf": 0.415,
-   "injection_suspect": false,
-   "content_signature": "47bfb1ef014e9274",
-   "duplicate_count": 3,
-   "duplicate_sources": [
-    "Paradicat/demo/agent_pack/skills/ip-design/SKILL.md.bak2",
-    "Paradicat/demo/skill_pack-v0.2.14/ip-design/SKILL.md.bak2",
-    "Paradicat/demo/skill_pack-v0.2.17/ip-design/SKILL.md.bak2"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "generic",
-   "asic_stages": [
-    "spec-architecture",
-    "rtl-design",
-    "synthesis-sta-power"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -4322,7 +4291,7 @@
    "hardware_target": "generic",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -4351,6 +4320,36 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "supporting",
+   "owner_fit_reason": "通用數位 RTL/EDA 程序，可抽取後改編",
+   "fit_score": 52,
+   "provisional_grade": "B",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "Paradicat/demo:agent_pack/skills/ip-design/SKILL.md.bak2",
+   "repo": "Paradicat/demo",
+   "path": "agent_pack/skills/ip-design/SKILL.md.bak2",
+   "name": "ip-design",
+   "stars": 1,
+   "sample": "targeted-eda",
+   "label_source": "llm",
+   "domain_conf": 0.415,
+   "injection_suspect": false,
+   "content_signature": "47bfb1ef014e9274",
+   "duplicate_count": 3,
+   "duplicate_sources": [
+    "Paradicat/demo/agent_pack/skills/ip-design/SKILL.md.bak2",
+    "Paradicat/demo/skill_pack-v0.2.14/ip-design/SKILL.md.bak2",
+    "Paradicat/demo/skill_pack-v0.2.17/ip-design/SKILL.md.bak2"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "generic",
+   "asic_stages": [
+    "spec-architecture",
+    "rtl-design"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -4406,7 +4405,7 @@
    "hardware_target": "generic",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -5025,7 +5024,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "uvm-verification",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -5056,7 +5055,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -5086,7 +5085,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -5116,7 +5115,7 @@
     "rtl-design",
     "formal-assertion",
     "uvm-verification",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -5146,7 +5145,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "uvm-verification",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "dft",
     "physical"
    ],
@@ -5178,7 +5177,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -5550,33 +5549,6 @@
    "hardware_target": "generic",
    "asic_stages": [
     "rtl-design"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "supporting",
-   "owner_fit_reason": "通用數位 RTL/EDA 程序，可抽取後改編",
-   "fit_score": 50,
-   "provisional_grade": "B",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "VLSIDA/HighTide:.claude/skills/update-design/SKILL.md",
-   "repo": "VLSIDA/HighTide",
-   "path": ".claude/skills/update-design/SKILL.md",
-   "name": "update-design",
-   "stars": 31,
-   "sample": "targeted-eda",
-   "label_source": "llm",
-   "domain_conf": 0.295,
-   "injection_suspect": false,
-   "content_signature": "088c996cc9199b2d",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "VLSIDA/HighTide/.claude/skills/update-design/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "generic",
-   "asic_stages": [
-    "synthesis-sta-power"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -6477,7 +6449,7 @@
    "asic_stages": [
     "spec-architecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -6678,7 +6650,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "mixed",
    "asic_stages": [
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "supporting",
@@ -6882,6 +6854,7 @@
     "formal-assertion",
     "simulation-debug",
     "uvm-verification",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -6914,7 +6887,7 @@
     "formal-assertion",
     "simulation-debug",
     "uvm-verification",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -6976,7 +6949,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -7006,7 +6979,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff",
     "physical"
    ],
@@ -7067,7 +7040,7 @@
    "asic_stages": [
     "rtl-design",
     "formal-assertion",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -7097,7 +7070,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -7265,6 +7238,31 @@
    "duplicate_sources": [
     "tensormux/kernel-skills/skills/portability/port-cuda-kernel-to-hip/SKILL.md",
     "wenyi-li/awesome-agent-kernel-skills/port-cuda-kernel-to-hip/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "generic",
+   "asic_stages": [],
+   "wifi_areas": [],
+   "owner_fit": "adjacent",
+   "owner_fit_reason": "硬體相關但缺少可直接映射到 ASIC RTL 的證據",
+   "fit_score": 22,
+   "provisional_grade": "C",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "VLSIDA/HighTide:.claude/skills/update-design/SKILL.md",
+   "repo": "VLSIDA/HighTide",
+   "path": ".claude/skills/update-design/SKILL.md",
+   "name": "update-design",
+   "stars": 31,
+   "sample": "targeted-eda",
+   "label_source": "llm",
+   "domain_conf": 0.295,
+   "injection_suspect": false,
+   "content_signature": "088c996cc9199b2d",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "VLSIDA/HighTide/.claude/skills/update-design/SKILL.md"
    ],
    "source_pin_status": "UNPINNED",
    "hardware_target": "generic",
@@ -7712,36 +7710,6 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
-   "id": "tuya/tuyaopen-ide-manifests:skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md",
-   "repo": "tuya/tuyaopen-ide-manifests",
-   "path": "skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md",
-   "name": "tuyaos-hardware-vibe-coding",
-   "stars": 2,
-   "sample": "targeted-eda2",
-   "label_source": "model",
-   "domain_conf": 0.61,
-   "injection_suspect": false,
-   "content_signature": "be4f973acb8c04ca",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "tuya/tuyaopen-ide-manifests/skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "embedded",
-   "asic_stages": [
-    "spec-architecture",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [
-    "phy-baseband"
-   ],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "hardware_target=embedded 不在 WiFi ASIC RTL scope",
-   "fit_score": 19,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
    "id": "dtsong/claude-code-windows-setup:skills/council/sentinel/embedded-architecture/SKILL.md",
    "repo": "dtsong/claude-code-windows-setup",
    "path": "skills/council/sentinel/embedded-architecture/SKILL.md",
@@ -7943,6 +7911,35 @@
    "hardware_target": "embedded",
    "asic_stages": [
     "simulation-debug"
+   ],
+   "wifi_areas": [
+    "phy-baseband"
+   ],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "hardware_target=embedded 不在 WiFi ASIC RTL scope",
+   "fit_score": 17,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "tuya/tuyaopen-ide-manifests:skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md",
+   "repo": "tuya/tuyaopen-ide-manifests",
+   "path": "skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md",
+   "name": "tuyaos-hardware-vibe-coding",
+   "stars": 2,
+   "sample": "targeted-eda2",
+   "label_source": "model",
+   "domain_conf": 0.61,
+   "injection_suspect": false,
+   "content_signature": "be4f973acb8c04ca",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "tuya/tuyaopen-ide-manifests/skills/embedded/tuyaos-hardware-vibe-coding/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "embedded",
+   "asic_stages": [
+    "spec-architecture"
    ],
    "wifi_areas": [
     "phy-baseband"
@@ -9295,7 +9292,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -9327,7 +9324,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9358,7 +9355,7 @@
     "lint-cdc-rdc",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -9390,7 +9387,7 @@
     "lint-cdc-rdc",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9421,7 +9418,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9515,7 +9512,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff",
     "physical"
    ],
@@ -9549,7 +9546,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -9581,7 +9578,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff"
    ],
    "wifi_areas": [],
@@ -9676,7 +9673,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9741,7 +9738,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9774,7 +9771,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -9954,7 +9951,7 @@
     "spec-architecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10014,7 +10011,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10044,7 +10041,7 @@
     "spec-architecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10105,7 +10102,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10136,7 +10133,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10166,7 +10163,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10225,7 +10222,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff",
     "dft",
     "physical"
@@ -10258,7 +10255,7 @@
     "microarchitecture",
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10288,37 +10285,7 @@
     "microarchitecture",
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
-   "fit_score": 8,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "USTC0825HY/PHD_USTC_HY_SKILL:skills/fpga-cdc-reset-timing/SKILL.md",
-   "repo": "USTC0825HY/PHD_USTC_HY_SKILL",
-   "path": "skills/fpga-cdc-reset-timing/SKILL.md",
-   "name": "fpga-cdc-reset-timing",
-   "stars": 0,
-   "sample": "targeted-eda2",
-   "label_source": "model",
-   "domain_conf": 0.871,
-   "injection_suspect": false,
-   "content_signature": "afe4731954c05f7f",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "USTC0825HY/PHD_USTC_HY_SKILL/skills/fpga-cdc-reset-timing/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "fpga",
-   "asic_stages": [
-    "rtl-design",
-    "lint-cdc-rdc",
-    "formal-assertion",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10449,7 +10416,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10485,7 +10452,7 @@
    "asic_stages": [
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10516,7 +10483,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10548,7 +10515,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10578,7 +10545,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff"
    ],
    "wifi_areas": [],
@@ -10610,7 +10577,7 @@
    "asic_stages": [
     "microarchitecture",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10639,7 +10606,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10728,36 +10695,7 @@
    "asic_stages": [
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
-   "fit_score": 6,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "LNC0831/oh-my-fpga:skills/cdc-audit/SKILL.md",
-   "repo": "LNC0831/oh-my-fpga",
-   "path": "skills/cdc-audit/SKILL.md",
-   "name": "cdc-audit",
-   "stars": 10,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.621,
-   "injection_suspect": false,
-   "content_signature": "deaf480220e90640",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "LNC0831/oh-my-fpga/skills/cdc-audit/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "fpga",
-   "asic_stages": [
-    "rtl-design",
-    "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10788,7 +10726,7 @@
    "asic_stages": [
     "microarchitecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10817,7 +10755,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10846,7 +10784,7 @@
    "asic_stages": [
     "rtl-design",
     "uvm-verification",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10904,7 +10842,7 @@
    "asic_stages": [
     "spec-architecture",
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -10935,7 +10873,7 @@
    "asic_stages": [
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -11022,7 +10960,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -11196,7 +11134,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -11225,7 +11163,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -11342,7 +11280,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -11410,6 +11348,35 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
+   "id": "USTC0825HY/PHD_USTC_HY_SKILL:skills/fpga-cdc-reset-timing/SKILL.md",
+   "repo": "USTC0825HY/PHD_USTC_HY_SKILL",
+   "path": "skills/fpga-cdc-reset-timing/SKILL.md",
+   "name": "fpga-cdc-reset-timing",
+   "stars": 0,
+   "sample": "targeted-eda2",
+   "label_source": "model",
+   "domain_conf": 0.871,
+   "injection_suspect": false,
+   "content_signature": "afe4731954c05f7f",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "USTC0825HY/PHD_USTC_HY_SKILL/skills/fpga-cdc-reset-timing/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "fpga",
+   "asic_stages": [
+    "rtl-design",
+    "lint-cdc-rdc",
+    "formal-assertion"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
+   "fit_score": 6,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
    "id": "mthudaa/Microelectronic-Block-Generator:designs/notebooks/chipathon2026-D/pi-custom-mbg/SKILL.md",
    "repo": "mthudaa/Microelectronic-Block-Generator",
    "path": "designs/notebooks/chipathon2026-D/pi-custom-mbg/SKILL.md",
@@ -11461,7 +11428,7 @@
     "lint-cdc-rdc",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "dft"
    ],
    "wifi_areas": [],
@@ -12192,25 +12159,25 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
-   "id": "LNC0831/oh-my-fpga:skills/constraints-authoring/SKILL.md",
+   "id": "LNC0831/oh-my-fpga:skills/cdc-audit/SKILL.md",
    "repo": "LNC0831/oh-my-fpga",
-   "path": "skills/constraints-authoring/SKILL.md",
-   "name": "constraints-authoring",
+   "path": "skills/cdc-audit/SKILL.md",
+   "name": "cdc-audit",
    "stars": 10,
    "sample": "targeted-eda",
-   "label_source": "llm",
-   "domain_conf": 0.134,
+   "label_source": "model",
+   "domain_conf": 0.621,
    "injection_suspect": false,
-   "content_signature": "29732abd0dd69ae4",
+   "content_signature": "deaf480220e90640",
    "duplicate_count": 1,
    "duplicate_sources": [
-    "LNC0831/oh-my-fpga/skills/constraints-authoring/SKILL.md"
+    "LNC0831/oh-my-fpga/skills/cdc-audit/SKILL.md"
    ],
    "source_pin_status": "UNPINNED",
    "hardware_target": "fpga",
    "asic_stages": [
-    "spec-architecture",
-    "synthesis-sta-power"
+    "rtl-design",
+    "lint-cdc-rdc"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12238,7 +12205,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12464,7 +12431,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12492,7 +12459,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12632,7 +12599,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -12689,7 +12656,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12718,34 +12685,6 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
-   "fit_score": 4,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "konosubakonoakua/xilinx-skills:vivado-constraints/SKILL.md",
-   "repo": "konosubakonoakua/xilinx-skills",
-   "path": "vivado-constraints/SKILL.md",
-   "name": "vivado-constraints",
-   "stars": 2,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.895,
-   "injection_suspect": false,
-   "content_signature": "85349b4c8b1f5675",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "konosubakonoakua/xilinx-skills/vivado-constraints/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "fpga",
-   "asic_stages": [
-    "lint-cdc-rdc",
-    "synthesis-sta-power"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -12915,7 +12854,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -13097,35 +13036,6 @@
    "wifi_areas": [],
    "owner_fit": "exclude",
    "owner_fit_reason": "hardware_target=embedded 不在 WiFi ASIC RTL scope",
-   "fit_score": 4,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "MikeTreml/MissionControl:library/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
-   "repo": "MikeTreml/MissionControl",
-   "path": "library/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
-   "name": "timing-constraints",
-   "stars": 1,
-   "sample": "targeted-eda2",
-   "label_source": "model",
-   "domain_conf": 0.812,
-   "injection_suspect": false,
-   "content_signature": "82de3a1fed9ba033",
-   "duplicate_count": 2,
-   "duplicate_sources": [
-    "MaTriXy/babysitter-codex/upstream/babysitter/skills/babysit/process/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
-    "MikeTreml/MissionControl/library/specializations/fpga-programming/skills/timing-constraints/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "fpga",
-   "asic_stages": [
-    "spec-architecture",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
    "fit_score": 4,
    "provisional_grade": "D",
    "taxonomy_basis": "deterministic-secondary-v1"
@@ -13323,7 +13233,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -13380,7 +13290,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -13464,7 +13374,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -13605,7 +13515,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -13969,7 +13879,7 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "lint-cdc-rdc",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -13999,7 +13909,7 @@
    "asic_stages": [
     "spec-architecture",
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "integration-handoff"
    ],
    "wifi_areas": [],
@@ -14030,7 +13940,7 @@
     "rtl-design",
     "formal-assertion",
     "simulation-debug",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -14060,7 +13970,7 @@
     "rtl-design",
     "simulation-debug",
     "uvm-verification",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -14090,7 +14000,7 @@
     "rtl-design",
     "lint-cdc-rdc",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -14263,7 +14173,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "fpga",
    "asic_stages": [
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -15018,6 +14928,33 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
+   "id": "LNC0831/oh-my-fpga:skills/constraints-authoring/SKILL.md",
+   "repo": "LNC0831/oh-my-fpga",
+   "path": "skills/constraints-authoring/SKILL.md",
+   "name": "constraints-authoring",
+   "stars": 10,
+   "sample": "targeted-eda",
+   "label_source": "llm",
+   "domain_conf": 0.134,
+   "injection_suspect": false,
+   "content_signature": "29732abd0dd69ae4",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "LNC0831/oh-my-fpga/skills/constraints-authoring/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "fpga",
+   "asic_stages": [
+    "spec-architecture"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
+   "fit_score": 2,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
    "id": "Dev-Dennis-040/openclaw-agency-skills:skills/engineering/engineering-embedded-firmware-engineer/SKILL.md",
    "repo": "Dev-Dennis-040/openclaw-agency-skills",
    "path": "skills/engineering/engineering-embedded-firmware-engineer/SKILL.md",
@@ -15143,7 +15080,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "fpga",
    "asic_stages": [
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -15390,7 +15327,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "fpga",
    "asic_stages": [
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -15418,6 +15355,33 @@
    "hardware_target": "fpga",
    "asic_stages": [
     "simulation-debug"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
+   "fit_score": 2,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "konosubakonoakua/xilinx-skills:vivado-constraints/SKILL.md",
+   "repo": "konosubakonoakua/xilinx-skills",
+   "path": "vivado-constraints/SKILL.md",
+   "name": "vivado-constraints",
+   "stars": 2,
+   "sample": "targeted-eda",
+   "label_source": "model",
+   "domain_conf": 0.895,
+   "injection_suspect": false,
+   "content_signature": "85349b4c8b1f5675",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "konosubakonoakua/xilinx-skills/vivado-constraints/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "fpga",
+   "asic_stages": [
+    "lint-cdc-rdc"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -15866,6 +15830,34 @@
    "taxonomy_basis": "deterministic-secondary-v1"
   },
   {
+   "id": "MikeTreml/MissionControl:library/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
+   "repo": "MikeTreml/MissionControl",
+   "path": "library/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
+   "name": "timing-constraints",
+   "stars": 1,
+   "sample": "targeted-eda2",
+   "label_source": "model",
+   "domain_conf": 0.812,
+   "injection_suspect": false,
+   "content_signature": "82de3a1fed9ba033",
+   "duplicate_count": 2,
+   "duplicate_sources": [
+    "MaTriXy/babysitter-codex/upstream/babysitter/skills/babysit/process/specializations/fpga-programming/skills/timing-constraints/SKILL.md",
+    "MikeTreml/MissionControl/library/specializations/fpga-programming/skills/timing-constraints/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "fpga",
+   "asic_stages": [
+    "spec-architecture"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "hardware_target=fpga 不在 WiFi ASIC RTL scope",
+   "fit_score": 2,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
    "id": "therebelrobot/microcontroller-base:.roo/skills/XIAO-SAMD21-TinyGo/SKILL.md",
    "repo": "therebelrobot/microcontroller-base",
    "path": ".roo/skills/XIAO-SAMD21-TinyGo/SKILL.md",
@@ -16215,7 +16207,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "fpga",
    "asic_stages": [
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -17094,43 +17086,7 @@
    "asic_stages": [
     "rtl-design",
     "lint-cdc-rdc",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "含明確 FPGA tool/device/bitstream flow",
-   "fit_score": 1,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "majiayu000/claude-skill-registry:skills/development/systemverilog/SKILL.md",
-   "repo": "majiayu000/claude-skill-registry",
-   "path": "skills/development/systemverilog/SKILL.md",
-   "name": "systemverilog",
-   "stars": 519,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.896,
-   "injection_suspect": false,
-   "content_signature": "e9b74352ee16c867",
-   "duplicate_count": 15,
-   "duplicate_sources": [
-    "David-Li0406/meta-skill-evloving/skill-flow/data/skills-refined-36k/skillsmp/systemverilog/SKILL.md",
-    "Mindrally/skills/systemverilog/SKILL.md",
-    "Stef-vvv/claudecode_self_repo/.agents/skills/systemverilog/SKILL.md",
-    "Stef-vvv/claudecode_self_repo/.claude/skills/systemverilog/SKILL.md",
-    "VRIL-LABS/skill-jam/skills/ai-ml/skills-main-2/skills-main/systemverilog/SKILL.md",
-    "bouclem/skills/SKILLS/LANGUAGES/OTHER/001-systemverilog/SKILL.md",
-    "claudianus/superliora/packages/agent-core/src/skill/catalog/mindrally-systemverilog/SKILL.md",
-    "d-subrahmanyam/deno-fresh-microservices/.agents/skills/systemverilog/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "mixed",
-   "asic_stages": [
-    "rtl-design",
-    "lint-cdc-rdc",
-    "synthesis-sta-power"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -17159,37 +17115,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power"
-   ],
-   "wifi_areas": [],
-   "owner_fit": "exclude",
-   "owner_fit_reason": "含明確 FPGA tool/device/bitstream flow",
-   "fit_score": 1,
-   "provisional_grade": "D",
-   "taxonomy_basis": "deterministic-secondary-v1"
-  },
-  {
-   "id": "Lucian-prog/FPGA:.opencode/skills/digital-ic/SKILL.md",
-   "repo": "Lucian-prog/FPGA",
-   "path": ".opencode/skills/digital-ic/SKILL.md",
-   "name": "digital-ic",
-   "stars": 0,
-   "sample": "targeted-eda",
-   "label_source": "model",
-   "domain_conf": 0.761,
-   "injection_suspect": false,
-   "content_signature": "5c3f3c310ae745d6",
-   "duplicate_count": 1,
-   "duplicate_sources": [
-    "Lucian-prog/FPGA/.opencode/skills/digital-ic/SKILL.md"
-   ],
-   "source_pin_status": "UNPINNED",
-   "hardware_target": "mixed",
-   "asic_stages": [
-    "lint-cdc-rdc",
-    "uvm-verification",
-    "synthesis-sta-power",
-    "dft"
+    "synthesis-lec-eco"
    ],
    "wifi_areas": [],
    "owner_fit": "exclude",
@@ -17218,7 +17144,7 @@
    "asic_stages": [
     "rtl-design",
     "simulation-debug",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -17306,6 +17232,41 @@
    "wifi_areas": [],
    "owner_fit": "exclude",
    "owner_fit_reason": "hardware_target=board-pcb 不在 WiFi ASIC RTL scope",
+   "fit_score": 0,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "majiayu000/claude-skill-registry:skills/development/systemverilog/SKILL.md",
+   "repo": "majiayu000/claude-skill-registry",
+   "path": "skills/development/systemverilog/SKILL.md",
+   "name": "systemverilog",
+   "stars": 519,
+   "sample": "targeted-eda",
+   "label_source": "model",
+   "domain_conf": 0.896,
+   "injection_suspect": false,
+   "content_signature": "e9b74352ee16c867",
+   "duplicate_count": 15,
+   "duplicate_sources": [
+    "David-Li0406/meta-skill-evloving/skill-flow/data/skills-refined-36k/skillsmp/systemverilog/SKILL.md",
+    "Mindrally/skills/systemverilog/SKILL.md",
+    "Stef-vvv/claudecode_self_repo/.agents/skills/systemverilog/SKILL.md",
+    "Stef-vvv/claudecode_self_repo/.claude/skills/systemverilog/SKILL.md",
+    "VRIL-LABS/skill-jam/skills/ai-ml/skills-main-2/skills-main/systemverilog/SKILL.md",
+    "bouclem/skills/SKILLS/LANGUAGES/OTHER/001-systemverilog/SKILL.md",
+    "claudianus/superliora/packages/agent-core/src/skill/catalog/mindrally-systemverilog/SKILL.md",
+    "d-subrahmanyam/deno-fresh-microservices/.agents/skills/systemverilog/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "mixed",
+   "asic_stages": [
+    "rtl-design",
+    "lint-cdc-rdc"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "含明確 FPGA tool/device/bitstream flow",
    "fit_score": 0,
    "provisional_grade": "D",
    "taxonomy_basis": "deterministic-secondary-v1"
@@ -17407,7 +17368,7 @@
    "hardware_target": "mixed",
    "asic_stages": [
     "rtl-design",
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -18242,7 +18203,7 @@
    "source_pin_status": "UNPINNED",
    "hardware_target": "mixed",
    "asic_stages": [
-    "synthesis-sta-power",
+    "synthesis-lec-eco",
     "physical"
    ],
    "wifi_areas": [],
@@ -18584,6 +18545,35 @@
    "wifi_areas": [],
    "owner_fit": "exclude",
    "owner_fit_reason": "hardware_target=embedded 不在 WiFi ASIC RTL scope",
+   "fit_score": 0,
+   "provisional_grade": "D",
+   "taxonomy_basis": "deterministic-secondary-v1"
+  },
+  {
+   "id": "Lucian-prog/FPGA:.opencode/skills/digital-ic/SKILL.md",
+   "repo": "Lucian-prog/FPGA",
+   "path": ".opencode/skills/digital-ic/SKILL.md",
+   "name": "digital-ic",
+   "stars": 0,
+   "sample": "targeted-eda",
+   "label_source": "model",
+   "domain_conf": 0.761,
+   "injection_suspect": false,
+   "content_signature": "5c3f3c310ae745d6",
+   "duplicate_count": 1,
+   "duplicate_sources": [
+    "Lucian-prog/FPGA/.opencode/skills/digital-ic/SKILL.md"
+   ],
+   "source_pin_status": "UNPINNED",
+   "hardware_target": "mixed",
+   "asic_stages": [
+    "lint-cdc-rdc",
+    "uvm-verification",
+    "dft"
+   ],
+   "wifi_areas": [],
+   "owner_fit": "exclude",
+   "owner_fit_reason": "含明確 FPGA tool/device/bitstream flow",
    "fit_score": 0,
    "provisional_grade": "D",
    "taxonomy_basis": "deterministic-secondary-v1"

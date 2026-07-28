@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-28",
- "generated_at": "2026-07-28T09:13:07.404861+00:00",
+ "generated_at": "2026-07-28T12:01:04.245782+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
@@ -35,8 +35,8 @@
   "EDA_IC": {
    "slug": "eda-ic",
    "title": "EDA／數位 IC 設計專區",
-   "scope": "規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、synthesis/STA/power 與 RTL integration。",
-   "excluded_scope": "FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna。",
+   "scope": "規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、logic synthesis、LEC 與前端 ECO。",
+   "excluded_scope": "FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna，以及 P&R/CTS/route/physical signoff。",
    "cycles": [
     {
      "scale": "day",
@@ -137,7 +137,7 @@
      "context": "月尺度檢查 automation portfolio 是否真的補到 fixed-point、cycle contract 與證據鏈，而不是累積更多工具名稱。",
      "counterpoint": "公開 skill 供給很可能低估公司內數位 IC 實務；secondary taxonomy 目前為 BLOCKED，因此候選數與關鍵字命中不能替代人工審查或 NX runtime evidence。",
      "next_actions": [
-      "檢查 spec→SVA/TB→VCS/Verdi→DC/PT 各 gate 是否仍有無人負責的斷點。"
+      "檢查 spec→SVA/TB→VCS/Verdi→DC/LEC/ECO 各 gate 是否仍有無人負責的斷點。"
      ],
      "falsifiers": [
       "若實際 canary 無法重現、需要外傳內部資訊或不能產生 tool readback，該 skill 應降級或退役。"
@@ -245,6 +245,71 @@
    ],
    "skills": [
     {
+     "name": "review-rtl-architecture",
+     "repo": "simra-tech/OpenADA",
+     "path": "skills/review-rtl-architecture/SKILL.md",
+     "source_commit": "939fe803882956b9e6c34e0270f82ba8bbdfe991",
+     "source_url": "https://github.com/simra-tech/OpenADA/blob/939fe803882956b9e6c34e0270f82ba8bbdfe991/skills/review-rtl-architecture/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 138,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "優先改編：作為 RTL architecture review 與 evidence-governor 骨架；不複製工具命令，需用真實 parser/lint/VCS/DC/CDC/formal gate 回填。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "spec-architecture",
+      "microarchitecture",
+      "RTL architecture review",
+      "lint/elaboration evidence",
+      "synthesis-readiness triage"
+     ],
+     "dependencies": [
+      "OpenADA CLI",
+      "openada.operation/rtl.lint/v1alpha1",
+      "installed native lint/elaboration backend"
+     ],
+     "risks": [
+      "OpenADA runtime was not executed",
+      "v1alpha1 lacks general parameter override and library/waiver provenance roles",
+      "OpenADA-specific contract must map to internal filelist/tool evidence",
+      "clean lint remains non-functional evidence"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
      "name": "assess-synthesis-and-inference",
      "repo": "simra-tech/OpenADA",
      "path": "skills/assess-synthesis-and-inference/SKILL.md",
@@ -255,9 +320,11 @@
      "owner_fit": "direct",
      "recommendation": "pilot",
      "recommendation_zh": "沙盒試行",
-     "score": 105,
+     "score": 129,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
      "summary": "優先改編 evidence manifest 與 claim boundary；不要把 OpenADA/Yosys 命令直接帶進現有商用 EDA flow。",
-     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。",
+     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。",
      "capabilities": [
       "lint",
       "logic synthesis",
@@ -277,26 +344,92 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "A",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
       "automation_role": "synthesis-evidence-governor",
-      "personalized_fit": "可把 lint、綜合、LEC、時序與功耗的不同 claim 分層，防止單一綠燈被升格成 ASIC signoff。",
-      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 SDC、library、corner 與命令仍由既有 golden flow 提供。",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
       "required_evidence": [
        "RTL/filelist hash",
-       "tool/library/corner manifest",
-       "synthesis/LEC/STA 分離結果",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
        "失敗條件與 artifact readback"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "systemverilog-waveform-debug",
+     "repo": "L1Ban404-computer-architecture/systemverilog-waveform-debug-skill",
+     "path": "SKILL.md",
+     "source_commit": "3af2c119a59d2a1ffaef0774c0e2de52bc990e3b",
+     "source_url": "https://github.com/L1Ban404-computer-architecture/systemverilog-waveform-debug-skill/blob/3af2c119a59d2a1ffaef0774c0e2de52bc990e3b/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 118,
+     "frontend_priority": 15,
+     "priority_reason": "前端 simulation/debug",
+     "summary": "優先改編方法：provenance、earliest divergence、bounded probe 與 falsifier；必須接真 FSDB/Verdi readback，公開側只保留獲准摘要。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "simulation-debug",
+      "waveform provenance",
+      "protocol/pipeline/FSM/reset/X triage",
+      "RTL source mapping"
+     ],
+     "dependencies": [
+      "Python 3.10+",
+      "bundled wave_debug.py",
+      "VCD or FST",
+      "optional pywellen/fst2vcd and Verilator authority backend"
+     ],
+     "risks": [
+      "no native FSDB support",
+      "VCS/Verdi flow needs an approved FSDB adapter",
+      "offline waveform cannot prove simulator scheduling regions",
+      "tool/scripts were not executed",
+      "signal names and waveforms are confidential artifacts"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "simulation-evidence-extractor",
+      "personalized_fit": "最貼近你高頻的 VCS／Verdi 除錯與 coverage 證據整理，可先降低人工翻波形與重建上下文的成本。",
+      "first_experiment": "在公開 ready/valid toy datapath 上，以既有 compile/sim 命令產生 FSDB，再只讀抽取同一 clock edge 的事件與 coverage denominator。",
+      "required_evidence": [
+       "工具版本與輸入 commit",
+       "compile/sim exit status",
+       "FSDB/API readback",
+       "coverage denominator 與查詢 JSON"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -316,7 +449,9 @@
      "owner_fit": "supporting",
      "recommendation": "pilot",
      "recommendation_zh": "沙盒試行",
-     "score": 100,
+     "score": 115,
+     "frontend_priority": 15,
+     "priority_reason": "前端 simulation/debug",
      "summary": "優先改編：保留 runtime/API preflight、同一 clock edge 取樣、coverage denominator 與 JSON evidence contract；不直接複製整包。",
      "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
      "capabilities": [
@@ -338,13 +473,13 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "A",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
@@ -357,7 +492,7 @@
        "FSDB/API readback",
        "coverage denominator 與查詢 JSON"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -367,57 +502,63 @@
      }
     },
     {
-     "name": "write-sim-testbench",
-     "repo": "xlsynth/bedrock-rtl",
-     "path": ".codex/skills/write-sim-testbench/SKILL.md",
-     "source_commit": "33720f657d214e96826144d13d223e0a6534bae1",
-     "source_url": "https://github.com/xlsynth/bedrock-rtl/blob/33720f657d214e96826144d13d223e0a6534bae1/.codex/skills/write-sim-testbench/SKILL.md",
-     "license": "Apache-2.0",
+     "name": "rtl-p3-uarch-policy",
+     "repo": "babyworm/rtl-agent-team",
+     "path": "skills/rtl-p3-uarch-policy/SKILL.md",
+     "source_commit": "ca43e220af36492be516996b137dafb1922c2d88",
+     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/ca43e220af36492be516996b137dafb1922c2d88/skills/rtl-p3-uarch-policy/SKILL.md",
+     "license": "MIT",
      "category": "EDA_IC",
      "owner_fit": "supporting",
      "recommendation": "pilot",
      "recommendation_zh": "沙盒試行",
-     "score": 83,
-     "summary": "抽取 testbench checklist 與 timeout/data-integrity 原則；重寫成現有 testbench framework。",
-     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "score": 113,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "只抽取 intent schema、traceability、bit-true BFM gate 與 throughput invariant；不採固定 threshold、命名或 agent topology。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
      "capabilities": [
-      "SystemVerilog testbench",
-      "scoreboard",
-      "ready-valid",
-      "VCS"
+      "microarchitecture",
+      "requirement decomposition",
+      "clock/protocol/storage planning",
+      "bit-true reference-model gate",
+      "throughput/PPA intent"
      ],
      "dependencies": [
-      "Bedrock RTL helpers",
-      "Bazel",
-      "VCS/Verilator"
+      "full rtl-agent-team artifact schema",
+      "upstream requirements",
+      "C reference model and BFMs",
+      "multiple repo-local reviewer agents"
      ],
      "risks": [
-      "repository-specific helpers and BUILD targets",
-      "Verilator portability is not VCS signoff"
+      "fixed SRAM and buffering thresholds are technology-specific",
+      "rigid naming and artifact layout",
+      "multi-agent review rounds are attention-heavy",
+      "some advisory criteria conflict with final hard-checklist wording"
      ],
      "source_review": {
       "status": "REVIEWED",
       "grade": "B",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": true,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
-      "automation_role": "simulation-evidence-extractor",
-      "personalized_fit": "最貼近你高頻的 VCS／Verdi 除錯與 coverage 證據整理，可先降低人工翻波形與重建上下文的成本。",
-      "first_experiment": "在公開 ready/valid toy datapath 上，以既有 compile/sim 命令產生 FSDB，再只讀抽取同一 clock edge 的事件與 coverage denominator。",
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
       "required_evidence": [
-       "工具版本與輸入 commit",
-       "compile/sim exit status",
-       "FSDB/API readback",
-       "coverage denominator 與查詢 JSON"
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -427,56 +568,195 @@
      }
     },
     {
-     "name": "rtl-property-inference",
-     "repo": "ArabelaTso/Skills-4-SE",
-     "path": "skills/rtl-property-inference/SKILL.md",
-     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
-     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-property-inference/SKILL.md",
-     "license": "Apache-2.0",
+     "name": "rtl-quality-reviewer",
+     "repo": "learner-ran/agent-for-ic-design",
+     "path": ".agents/skills/rtl-quality-reviewer/SKILL.md",
+     "source_commit": "44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e",
+     "source_url": "https://github.com/learner-ran/agent-for-ic-design/blob/44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e/.agents/skills/rtl-quality-reviewer/SKILL.md",
+     "license": "NOASSERTION",
      "category": "EDA_IC",
      "owner_fit": "supporting",
      "recommendation": "pilot",
      "recommendation_zh": "沙盒試行",
-     "score": 80,
-     "summary": "只用來產生 candidate properties；每一條需綁 spec requirement 並在正式 formal flow 證明。",
-     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "score": 113,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "採用為人工/AI second-pass checklist；外加 requirement ID、evidence path/hash 與 gate status，narrative 不得替代 EDA。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
      "capabilities": [
-      "SVA candidate generation",
-      "formal-assertion",
-      "vacuity awareness"
+      "RTL design",
+      "RTL review",
+      "signedness/width/reset/protocol",
+      "lint/synthesis report sanity",
+      "DV/PPA gap review"
      ],
      "dependencies": [
-      "manual RTL/spec review",
-      "project formal tool"
+      "frozen spec and plan",
+      "RTL/TB/diff/reports supplied by caller"
      ],
      "risks": [
-      "inferring intent from RTL can reproduce existing bugs",
-      "liveness/fairness assumptions need owner confirmation",
-      "no actual proof execution"
+      "repository has no detected license",
+      "pure narrative review with no machine evidence manifest",
+      "PASS_WITH_RISKS remains subjective",
+      "no fixed-point oracle or requirement-trace schema"
      ],
      "source_review": {
       "status": "REVIEWED",
       "grade": "B",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
-      "automation_role": "spec-linked-property-candidate",
-      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
-      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
       "required_evidence": [
-       "requirement-to-property mapping",
-       "assumption ledger",
-       "proof engine/result",
-       "vacuity 與 counterexample review"
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "spec-planner",
+     "repo": "learner-ran/agent-for-ic-design",
+     "path": ".agents/skills/spec-planner/SKILL.md",
+     "source_commit": "44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e",
+     "source_url": "https://github.com/learner-ran/agent-for-ic-design/blob/44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e/.agents/skills/spec-planner/SKILL.md",
+     "license": "NOASSERTION",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 113,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "高價值 supporting pattern：抽取 frozen-spec、ambiguity、arithmetic 與 protocol contract，改成 owner-governed intent artifact。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "spec-architecture",
+      "microarchitecture",
+      "fixed-point",
+      "frozen-spec gate",
+      "valid-ready/reset contracts",
+      "PPA and verification planning"
+     ],
+     "dependencies": [
+      "approved/frozen spec",
+      "project AGENTS.md",
+      "requirement-to-spec upstream",
+      "RTL generator and simulator downstream"
+     ],
+     "risks": [
+      "repository has no detected license",
+      "project-local path conventions",
+      "default process/tool assumptions must not leak",
+      "approval status must be persisted instead of remaining conversational"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "systemverilog-rtl-generator",
+     "repo": "learner-ran/agent-for-ic-design",
+     "path": ".agents/skills/systemverilog-rtl-generator/SKILL.md",
+     "source_commit": "44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e",
+     "source_url": "https://github.com/learner-ran/agent-for-ic-design/blob/44252fcfb97c67fd4d8e02f0266d3bbd6e142d8e/.agents/skills/systemverilog-rtl-generator/SKILL.md",
+     "license": "NOASSERTION",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 113,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "可作內部 RTL-authoring guardrail；只在 intent 已凍結後產 candidate patch，接受條件是 compile/sim/lint/LEC 真實證據。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "RTL design",
+      "synthesizable SystemVerilog RTL",
+      "minimal RTL ECO/fix",
+      "FSM/datapath/control",
+      "valid-ready",
+      "explicit arithmetic semantics"
+     ],
+     "dependencies": [
+      "approved RTL plan",
+      "frozen spec",
+      "project AGENTS.md",
+      "simulator downstream"
+     ],
+     "risks": [
+      "repository has no detected license",
+      "no built-in compile/lint/sim/LEC gate",
+      "project path and subagent assumptions",
+      "AI-generated RTL needs an independent oracle and ECO equivalence evidence"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -496,9 +776,11 @@
      "owner_fit": "supporting",
      "recommendation": "pilot",
      "recommendation_zh": "沙盒試行",
-     "score": 80,
+     "score": 110,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
      "summary": "只抽取 cycle contract、claim ledger、false-pass audit；不整包安裝。",
-     "use_in_next_rtl_design": "在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
      "capabilities": [
       "cycle contract",
       "RTL design",
@@ -519,13 +801,13 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "B",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
@@ -538,13 +820,517 @@
        "interface/reset invariants",
        "handoff readback"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
        "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
       ],
       "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "hw-cdc",
+     "repo": "nlsundeep/Hardware-Design-Agent-Workflow",
+     "path": ".claude/skills/hw-cdc/SKILL.md",
+     "source_commit": "5a53e85f43337872a6dc19817a6234b27f258b00",
+     "source_url": "https://github.com/nlsundeep/Hardware-Design-Agent-Workflow/blob/5a53e85f43337872a6dc19817a6234b27f258b00/.claude/skills/hw-cdc/SKILL.md",
+     "license": "NOASSERTION",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 107,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
+     "summary": "優先抽取 claim boundary 與 crossing inventory schema；真 CDC/RDC tool run 才能升級 PASS。",
+     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。",
+     "capabilities": [
+      "CDC",
+      "RDC",
+      "lint",
+      "diff-scoped RTL review",
+      "signoff claim boundary"
+     ],
+     "dependencies": [
+      "repo signoff profile",
+      "configured Questa/SpyGlass/vendor command or repo CDC script",
+      "baseline domain map",
+      "project report templates"
+     ],
+     "risks": [
+      "repository has no detected license",
+      "no executable proprietary-tool adapter or report schema in this file",
+      "depends on repo-local baseline mechanisms",
+      "structural pattern matching can miss reconvergence and protocol semantics"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "synthesis-evidence-governor",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
+      "required_evidence": [
+       "RTL/filelist hash",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
+       "失敗條件與 artifact readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "equivalence-check",
+     "repo": "vibeic/vibe-ic",
+     "path": "vibe-ic-marketplace/plugins/vibe-ic/skills/equivalence-check/SKILL.md",
+     "source_commit": "93ff966d3258ab2b1abc914abf72d9ef72d3648b",
+     "source_url": "https://github.com/vibeic/vibe-ic/blob/93ff966d3258ab2b1abc914abf72d9ef72d3648b/vibe-ic-marketplace/plugins/vibe-ic/skills/equivalence-check/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 107,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
+     "summary": "優先改編 LEC substance gate schema；用內部 Formality/Conformal canonical report readback 實作，不把 Yosys PASS 升格為產品 ECO signoff。",
+     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。",
+     "capabilities": [
+      "LEC",
+      "equivalence",
+      "pre/post front-end ECO",
+      "RTL-to-gate",
+      "anti-vacuous evidence gate"
+     ],
+     "dependencies": [
+      "MCP-EDA eda_lvs yosys_equiv mode",
+      "Yosys or external Formality/Conformal",
+      "machine-readable LEC report"
+     ],
+     "risks": [
+      "MCP-EDA/Yosys integration is not the internal flow",
+      "commercial parsing claim was not runtime-tested",
+      "test/scan/black-box/state mapping needs tool-specific contracts",
+      "no Formality/Conformal evidence was run"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "synthesis-evidence-governor",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
+      "required_evidence": [
+       "RTL/filelist hash",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
+       "失敗條件與 artifact readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "formal-verification",
+     "repo": "chuanseng-ng/digital-chip-design-agents",
+     "path": "plugins/formal/skills/formal-verification/SKILL.md",
+     "source_commit": "d9ec7f93343ecdd7bd7d886ef28563f8c5960308",
+     "source_url": "https://github.com/chuanseng-ng/digital-chip-design-agents/blob/d9ec7f93343ecdd7bd7d886ef28563f8c5960308/plugins/formal/skills/formal-verification/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "adjacent",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 103,
+     "frontend_priority": 20,
+     "priority_reason": "前端 formal/SVA",
+     "summary": "只採 property/assumption/vacuity/CEX/LEC stage model；刪除 assumed-correct shortcut，所有 PASS 綁定真 formal report 與 owner-approved waiver。",
+     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "capabilities": [
+      "SVA",
+      "formal verification",
+      "assumption and vacuity review",
+      "counterexample triage",
+      "LEC/post-ECO"
+     ],
+     "dependencies": [
+      "repo formal orchestrator",
+      "SymbiYosys or commercial formal tool",
+      "project memory/run-state files"
+     ],
+     "risks": [
+      "over-broad signoff wording without exact report schemas",
+      "assumed-correct shortcut is unacceptable for hard gates",
+      "generic constraint prescriptions need qualification",
+      "writes repo-local memory and delegates to unavailable orchestrator"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "spec-linked-property-candidate",
+      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
+      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
+      "required_evidence": [
+       "requirement-to-property mapping",
+       "assumption ledger",
+       "proof engine/result",
+       "vacuity 與 counterexample review"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "rtl-property-inference",
+     "repo": "ArabelaTso/Skills-4-SE",
+     "path": "skills/rtl-property-inference/SKILL.md",
+     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
+     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-property-inference/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 100,
+     "frontend_priority": 20,
+     "priority_reason": "前端 formal/SVA",
+     "summary": "只用來產生 candidate properties；每一條需綁 spec requirement 並在正式 formal flow 證明。",
+     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "capabilities": [
+      "SVA candidate generation",
+      "formal-assertion",
+      "vacuity awareness"
+     ],
+     "dependencies": [
+      "manual RTL/spec review",
+      "project formal tool"
+     ],
+     "risks": [
+      "inferring intent from RTL can reproduce existing bugs",
+      "liveness/fairness assumptions need owner confirmation",
+      "no actual proof execution"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "spec-linked-property-candidate",
+      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
+      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
+      "required_evidence": [
+       "requirement-to-property mapping",
+       "assumption ledger",
+       "proof engine/result",
+       "vacuity 與 counterexample review"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "prepare-rtl-for-synth",
+     "repo": "Emin017/skills",
+     "path": "prepare-rtl-for-synth/SKILL.md",
+     "source_commit": "40f7471ee1e4a03a2074e2bd7e336c5c10bde16a",
+     "source_url": "https://github.com/Emin017/skills/blob/40f7471ee1e4a03a2074e2bd7e336c5c10bde16a/prepare-rtl-for-synth/SKILL.md",
+     "license": "NOASSERTION",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 98,
+     "frontend_priority": 10,
+     "priority_reason": "前端邊界：logic synthesis",
+     "summary": "只採方法、不複製內容：建立 behavior-preserving synth-prep checklist；修改後仍需 VCS/DC/LEC 實證。",
+     "use_in_next_rtl_design": "在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。",
+     "capabilities": [
+      "logic synthesis",
+      "synthesis front-end",
+      "parser compatibility",
+      "generated RTL",
+      "SRAM/macro handoff"
+     ],
+     "dependencies": [
+      "target parser/synthesis frontend",
+      "bundled references",
+      "extract_memory_ports.py for macro inventory"
+     ],
+     "risks": [
+      "repository has no detected license",
+      "Yosys/yosys-slang and Chisel emphasis needs commercial-flow mapping",
+      "syntax success does not prove semantic equivalence or QoR",
+      "referenced scripts were not executed"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "synthesis-evidence-governor",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
+      "required_evidence": [
+       "RTL/filelist hash",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
+       "失敗條件與 artifact readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "write-sim-testbench",
+     "repo": "xlsynth/bedrock-rtl",
+     "path": ".codex/skills/write-sim-testbench/SKILL.md",
+     "source_commit": "33720f657d214e96826144d13d223e0a6534bae1",
+     "source_url": "https://github.com/xlsynth/bedrock-rtl/blob/33720f657d214e96826144d13d223e0a6534bae1/.codex/skills/write-sim-testbench/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 98,
+     "frontend_priority": 15,
+     "priority_reason": "前端 simulation/debug",
+     "summary": "抽取 testbench checklist 與 timeout/data-integrity 原則；重寫成現有 testbench framework。",
+     "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
+     "capabilities": [
+      "SystemVerilog testbench",
+      "scoreboard",
+      "ready-valid",
+      "VCS"
+     ],
+     "dependencies": [
+      "Bedrock RTL helpers",
+      "Bazel",
+      "VCS/Verilator"
+     ],
+     "risks": [
+      "repository-specific helpers and BUILD targets",
+      "Verilator portability is not VCS signoff"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "simulation-evidence-extractor",
+      "personalized_fit": "最貼近你高頻的 VCS／Verdi 除錯與 coverage 證據整理，可先降低人工翻波形與重建上下文的成本。",
+      "first_experiment": "在公開 ready/valid toy datapath 上，以既有 compile/sim 命令產生 FSDB，再只讀抽取同一 clock edge 的事件與 coverage denominator。",
+      "required_evidence": [
+       "工具版本與輸入 commit",
+       "compile/sim exit status",
+       "FSDB/API readback",
+       "coverage denominator 與查詢 JSON"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "rtl-specification-consistency-checker",
+     "repo": "ArabelaTso/Skills-4-SE",
+     "path": "skills/rtl-specification-consistency-checker/SKILL.md",
+     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
+     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-specification-consistency-checker/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 80,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "只採 requirement matrix 格式；禁止把靜態閱讀升格成 satisfied/PASS。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "spec-to-RTL traceability"
+     ],
+     "dependencies": [
+      "specification",
+      "RTL",
+      "manual analysis"
+     ],
+     "risks": [
+      "allows satisfied classification from inspection",
+      "no compile/sim/formal evidence contract",
+      "suggested fixes can precede proof"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "rtl-p4-implement",
+     "repo": "babyworm/rtl-agent-team",
+     "path": "skills/rtl-p4-implement/SKILL.md",
+     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
+     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p4-implement/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 80,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "只參考 wave ordering；不直接引用。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "spec-to-RTL staged workflow"
+     ],
+     "dependencies": [
+      "p4 orchestrator agent",
+      "upstream phase artifacts",
+      "compliance checker"
+     ],
+     "risks": [
+      "thin router rather than standalone procedure",
+      "proceeds when prerequisite missing",
+      "large delegated mutation scope"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "exclude"
      }
     },
     {
@@ -558,7 +1344,9 @@
      "owner_fit": "direct",
      "recommendation": "watch",
      "recommendation_zh": "觀察／待審",
-     "score": 55,
+     "score": 79,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
      "summary": "只參考 stage inventory；所有 SDC、corner、threshold 與 signoff 規則必須以專案 owner/golden flow 為準。",
      "use_in_next_rtl_design": "在寫 RTL 前先固化 cycle contract；交接時分開結構、功能與 signoff 證據。",
      "capabilities": [
@@ -581,26 +1369,208 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
       "automation_role": "synthesis-evidence-governor",
-      "personalized_fit": "可把 lint、綜合、LEC、時序與功耗的不同 claim 分層，防止單一綠燈被升格成 ASIC signoff。",
-      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 SDC、library、corner 與命令仍由既有 golden flow 提供。",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
       "required_evidence": [
        "RTL/filelist hash",
-       "tool/library/corner manifest",
-       "synthesis/LEC/STA 分離結果",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
        "失敗條件與 artifact readback"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "rtl-repair",
+     "repo": "vibeic/vibe-ic",
+     "path": "vibe-ic-marketplace/plugins/vibe-ic/skills/rtl-repair/SKILL.md",
+     "source_commit": "a627b3b599b24455a32214ecb86dcce3ad193a3c",
+     "source_url": "https://github.com/vibeic/vibe-ic/blob/a627b3b599b24455a32214ecb86dcce3ad193a3c/vibe-ic-marketplace/plugins/vibe-ic/skills/rtl-repair/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "direct",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 79,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
+     "summary": "只參考 root-cause grouping/minimal diff；不可授權自動改 RTL 或以 compliance PASS 代表 EDA PASS。",
+     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。",
+     "capabilities": [
+      "RTL repair",
+      "lint/synthesis feedback"
+     ],
+     "dependencies": [
+      "bundled compliance scripts",
+      "other vibe-ic skills"
+     ],
+     "risks": [
+      "mental re-check instead of actual compile/sim",
+      "format compliance can be mistaken for correctness",
+      "unsupported 20-40 percent claim",
+      "automatic RTL mutation"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "synthesis-evidence-governor",
+      "personalized_fit": "可把 lint、綜合、LEC 與前端 ECO 的不同 claim 分層，防止單一綠燈被升格成 RTL 正確或後端 signoff。",
+      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 library、constraint、ECO 與命令仍由既有 golden flow 提供。",
+      "required_evidence": [
+       "RTL/filelist hash",
+       "tool/library/constraint manifest",
+       "synthesis/LEC/ECO 分離結果",
+       "失敗條件與 artifact readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "rtl-equivalence-checker",
+     "repo": "ArabelaTso/Skills-4-SE",
+     "path": "skills/rtl-equivalence-checker/SKILL.md",
+     "source_commit": "0f00a4fc37905ec9d69a3413b51efefd57e9a997",
+     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/0f00a4fc37905ec9d69a3413b51efefd57e9a997/skills/rtl-equivalence-checker/SKILL.md",
+     "license": "Apache-2.0",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 77,
+     "frontend_priority": 24,
+     "priority_reason": "前端 quality/synthesis/ECO",
+     "summary": "只作 diff pre-triage；不得宣稱等價，也不得取代 Formality/Conformal。",
+     "use_in_next_rtl_design": "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。",
+     "capabilities": [
+      "equivalence",
+      "RTL diff pre-triage",
+      "front-end ECO"
+     ],
+     "dependencies": [
+      "text or AST comparison",
+      "downstream Formality/Conformal for authority"
+     ],
+     "risks": [
+      "heuristic comparison cannot prove sequential or combinational equivalence",
+      "may miss synthesis semantics and state mapping",
+      "must never replace LEC"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "procedure-review-candidate",
+      "personalized_fit": "目前只能作 procedure 來源，尚未顯示足夠的 WiFi ASIC RTL 直接適配性。",
+      "first_experiment": "只在公開 toy design 做人工 source review，不安裝、不寫入 RTL、不連公司工具。",
+      "required_evidence": [
+       "pinned source commit",
+       "license",
+       "review notes",
+       "explicit non-adoption decision"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "rtl-p5s-sva-check",
+     "repo": "babyworm/rtl-agent-team",
+     "path": "skills/rtl-p5s-sva-check/SKILL.md",
+     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
+     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p5s-sva-check/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 70,
+     "frontend_priority": 20,
+     "priority_reason": "前端 formal/SVA",
+     "summary": "只參考 proof-stage vocabulary；正式 property、assumption、engine 與 completeness 由內部 formal owner 定義。",
+     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
+     "capabilities": [
+      "formal/SVA"
+     ],
+     "dependencies": [
+      "p5s orchestrator agent",
+      "sv2v",
+      "SymbiYosys/Yosys"
+     ],
+     "risks": [
+      "thin router",
+      "full SystemVerilog/tool compatibility unknown",
+      "open-source proof does not equal internal formal signoff"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "spec-linked-property-candidate",
+      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
+      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
+      "required_evidence": [
+       "requirement-to-property mapping",
+       "assumption ledger",
+       "proof engine/result",
+       "vacuity 與 counterexample review"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -620,7 +1590,9 @@
      "owner_fit": "direct",
      "recommendation": "exclude",
      "recommendation_zh": "排除",
-     "score": 55,
+     "score": 70,
+     "frontend_priority": 15,
+     "priority_reason": "前端 simulation/debug",
      "summary": "不要安裝；FSDB 批次分析改採已審查的 x-npi 方法，執行命令由內部 golden flow 提供。",
      "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
      "capabilities": [
@@ -643,13 +1615,13 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
@@ -662,7 +1634,126 @@
        "FSDB/API readback",
        "coverage denominator 與查詢 JSON"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "exclude"
+     }
+    },
+    {
+     "name": "assertion-design",
+     "repo": "majiayu000/claude-skill-registry",
+     "path": "skills/data/assertion-design/SKILL.md",
+     "source_commit": "e1fe50f7feb4ee1b172c178cf8f9a390a5de7a10",
+     "source_url": "https://github.com/majiayu000/claude-skill-registry/blob/e1fe50f7feb4ee1b172c178cf8f9a390a5de7a10/skills/data/assertion-design/SKILL.md",
+     "license": "MIT",
+     "category": "EDA_IC",
+     "owner_fit": "supporting",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 70,
+     "frontend_priority": 20,
+     "priority_reason": "前端 formal/SVA",
+     "summary": "只參考檔案分離與命名；不得複製 assertion 範例到產品 RTL。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "SVA",
+      "executable specification"
+     ],
+     "dependencies": [
+      "project-specific directories",
+      "DSim/MCP workflow"
+     ],
+     "risks": [
+      "several protocol/SVA examples need syntax and normative review",
+      "rigid project policy presented as universal",
+      "unbounded properties can hang or pass vacuously"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "spec-linked-property-candidate",
+      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
+      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
+      "required_evidence": [
+       "requirement-to-property mapping",
+       "assumption ledger",
+       "proof engine/result",
+       "vacuity 與 counterexample review"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
+      "kill_criteria": [
+       "要求自動修改產品 RTL 或繞過 owner approval",
+       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "sv-design",
+     "repo": "codejunkie99/gateflow-cli",
+     "path": "packages/claude-plugin/skills/sv-design/SKILL.md",
+     "source_commit": "339c75023186d738f330510a45dbbb50b8b19467",
+     "source_url": "https://github.com/codejunkie99/gateflow-cli/blob/339c75023186d738f330510a45dbbb50b8b19467/packages/claude-plugin/skills/sv-design/SKILL.md",
+     "license": "NOASSERTION",
+     "category": "EDA_IC",
+     "owner_fit": "exclude",
+     "recommendation": "exclude",
+     "recommendation_zh": "排除",
+     "score": 33,
+     "frontend_priority": 30,
+     "priority_reason": "前端核心：spec/fixed-point/microarchitecture/RTL",
+     "summary": "明確排除：多 bit CDC 範例不安全，不可成為 WiFi ASIC RTL skill 來源。",
+     "use_in_next_rtl_design": "在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。",
+     "capabilities": [
+      "RTL design",
+      "CDC template"
+     ],
+     "dependencies": [
+      "Gateflow plugin conventions"
+     ],
+     "risks": [
+      "multi-bit CDC through independent 2FF flops can produce incoherent words",
+      "overgeneralized CDC guidance",
+      "repository has no detected license"
+     ],
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "D",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
+      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
+     ],
+     "owner_dossier": {
+      "automation_role": "design-intent-compiler",
+      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
+      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "required_evidence": [
+       "owner-approved design intent",
+       "cycle-by-cycle trace",
+       "interface/reset invariants",
+       "handoff readback"
+      ],
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -682,7 +1773,9 @@
      "owner_fit": "direct",
      "recommendation": "exclude",
      "recommendation_zh": "排除",
-     "score": 55,
+     "score": 30,
+     "frontend_priority": -25,
+     "priority_reason": "超出前端範圍",
      "summary": "只作後段鄰接參考；不納入 RTL 設計 skill bundle。",
      "use_in_next_rtl_design": "在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。",
      "capabilities": [
@@ -702,13 +1795,13 @@
      "source_review": {
       "status": "REVIEWED",
       "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
       "commit_verified": false,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
@@ -721,7 +1814,7 @@
        "FSDB/API readback",
        "coverage denominator 與查詢 JSON"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
@@ -731,300 +1824,72 @@
      }
     },
     {
-     "name": "rtl-repair",
+     "name": "eco-plan",
      "repo": "vibeic/vibe-ic",
-     "path": "vibe-ic-marketplace/plugins/vibe-ic/skills/rtl-repair/SKILL.md",
-     "source_commit": "a627b3b599b24455a32214ecb86dcce3ad193a3c",
-     "source_url": "https://github.com/vibeic/vibe-ic/blob/a627b3b599b24455a32214ecb86dcce3ad193a3c/vibe-ic-marketplace/plugins/vibe-ic/skills/rtl-repair/SKILL.md",
+     "path": "vibe-ic-marketplace/plugins/vibe-ic/skills/eco-plan/SKILL.md",
+     "source_commit": "93ff966d3258ab2b1abc914abf72d9ef72d3648b",
+     "source_url": "https://github.com/vibeic/vibe-ic/blob/93ff966d3258ab2b1abc914abf72d9ef72d3648b/vibe-ic-marketplace/plugins/vibe-ic/skills/eco-plan/SKILL.md",
      "license": "Apache-2.0",
      "category": "EDA_IC",
-     "owner_fit": "direct",
-     "recommendation": "watch",
-     "recommendation_zh": "觀察／待審",
-     "score": 55,
-     "summary": "只參考 root-cause grouping/minimal diff；不可授權自動改 RTL 或以 compliance PASS 代表 EDA PASS。",
-     "use_in_next_rtl_design": "引用 evidence manifest 與 claim boundary；命令、SDC、library、corner 以 golden flow 為準。",
-     "capabilities": [
-      "RTL repair",
-      "lint/synthesis feedback"
-     ],
-     "dependencies": [
-      "bundled compliance scripts",
-      "other vibe-ic skills"
-     ],
-     "risks": [
-      "mental re-check instead of actual compile/sim",
-      "format compliance can be mistaken for correctness",
-      "unsupported 20-40 percent claim",
-      "automatic RTL mutation"
-     ],
-     "source_review": {
-      "status": "REVIEWED",
-      "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
-      "runtime_proof": "NOT_RUN"
-     },
-     "evidence_freshness": "CURRENT",
-     "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
-      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
-     ],
-     "owner_dossier": {
-      "automation_role": "synthesis-evidence-governor",
-      "personalized_fit": "可把 lint、綜合、LEC、時序與功耗的不同 claim 分層，防止單一綠燈被升格成 ASIC signoff。",
-      "first_experiment": "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 SDC、library、corner 與命令仍由既有 golden flow 提供。",
-      "required_evidence": [
-       "RTL/filelist hash",
-       "tool/library/corner manifest",
-       "synthesis/LEC/STA 分離結果",
-       "失敗條件與 artifact readback"
-      ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
-      "kill_criteria": [
-       "要求自動修改產品 RTL 或繞過 owner approval",
-       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
-       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
-      ],
-      "portfolio_state": "watch"
-     }
-    },
-    {
-     "name": "rtl-specification-consistency-checker",
-     "repo": "ArabelaTso/Skills-4-SE",
-     "path": "skills/rtl-specification-consistency-checker/SKILL.md",
-     "source_commit": "3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35",
-     "source_url": "https://github.com/ArabelaTso/Skills-4-SE/blob/3ec09ea2bbf8b8626aea4e1bdd769de66b0adc35/skills/rtl-specification-consistency-checker/SKILL.md",
-     "license": "Apache-2.0",
-     "category": "EDA_IC",
-     "owner_fit": "supporting",
-     "recommendation": "watch",
-     "recommendation_zh": "觀察／待審",
-     "score": 50,
-     "summary": "只採 requirement matrix 格式；禁止把靜態閱讀升格成 satisfied/PASS。",
-     "use_in_next_rtl_design": "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。",
-     "capabilities": [
-      "spec-to-RTL traceability"
-     ],
-     "dependencies": [
-      "specification",
-      "RTL",
-      "manual analysis"
-     ],
-     "risks": [
-      "allows satisfied classification from inspection",
-      "no compile/sim/formal evidence contract",
-      "suggested fixes can precede proof"
-     ],
-     "source_review": {
-      "status": "REVIEWED",
-      "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
-      "runtime_proof": "NOT_RUN"
-     },
-     "evidence_freshness": "CURRENT",
-     "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
-      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
-     ],
-     "owner_dossier": {
-      "automation_role": "design-intent-compiler",
-      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
-      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
-      "required_evidence": [
-       "owner-approved design intent",
-       "cycle-by-cycle trace",
-       "interface/reset invariants",
-       "handoff readback"
-      ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
-      "kill_criteria": [
-       "要求自動修改產品 RTL 或繞過 owner approval",
-       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
-       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
-      ],
-      "portfolio_state": "watch"
-     }
-    },
-    {
-     "name": "rtl-p4-implement",
-     "repo": "babyworm/rtl-agent-team",
-     "path": "skills/rtl-p4-implement/SKILL.md",
-     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
-     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p4-implement/SKILL.md",
-     "license": "MIT",
-     "category": "EDA_IC",
-     "owner_fit": "supporting",
+     "owner_fit": "exclude",
      "recommendation": "exclude",
      "recommendation_zh": "排除",
-     "score": 50,
-     "summary": "只參考 wave ordering；不直接引用。",
+     "score": -22,
+     "frontend_priority": -25,
+     "priority_reason": "超出前端範圍",
+     "summary": "明確排除：這是 post-P&R physical ECO，不是 RTL／synthesis 邊界內的 frontend ECO。",
      "use_in_next_rtl_design": "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。",
      "capabilities": [
-      "spec-to-RTL staged workflow"
+      "post-layout physical ECO",
+      "spare-cell",
+      "metal-only",
+      "backend"
      ],
      "dependencies": [
-      "p4 orchestrator agent",
-      "upstream phase artifacts",
-      "compliance checker"
+      "placed-and-routed database",
+      "spare-cell inventory",
+      "physical implementation flow"
      ],
      "risks": [
-      "thin router rather than standalone procedure",
-      "proceeds when prerequisite missing",
-      "large delegated mutation scope"
+      "outside RTL front-end ownership",
+      "would pollute front-end ECO classification",
+      "requires backend authority and physical signoff evidence"
      ],
      "source_review": {
       "status": "REVIEWED",
-      "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
+      "grade": "D",
+      "reviewed_at": "2026-07-28T20:00:00+08:00",
+      "commit_verified": true,
       "runtime_proof": "NOT_RUN"
      },
      "evidence_freshness": "CURRENT",
      "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
+      "source review 不等於 VCS/Verdi/DC/Formality/ECO runtime PASS",
       "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
      ],
      "owner_dossier": {
-      "automation_role": "design-intent-compiler",
-      "personalized_fit": "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。",
-      "first_experiment": "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。",
+      "automation_role": "procedure-review-candidate",
+      "personalized_fit": "目前只能作 procedure 來源，尚未顯示足夠的 WiFi ASIC RTL 直接適配性。",
+      "first_experiment": "只在公開 toy design 做人工 source review，不安裝、不寫入 RTL、不連公司工具。",
       "required_evidence": [
-       "owner-approved design intent",
-       "cycle-by-cycle trace",
-       "interface/reset invariants",
-       "handoff readback"
+       "pinned source commit",
+       "license",
+       "review notes",
+       "explicit non-adoption decision"
       ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
+      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／Formality/LEC 或 ECO evidence 能提升對應 claim。",
       "kill_criteria": [
        "要求自動修改產品 RTL 或繞過 owner approval",
        "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
        "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
       ],
       "portfolio_state": "exclude"
-     }
-    },
-    {
-     "name": "rtl-p5s-sva-check",
-     "repo": "babyworm/rtl-agent-team",
-     "path": "skills/rtl-p5s-sva-check/SKILL.md",
-     "source_commit": "f6d869fe4511a8273998f25ca31daf1890aa1a49",
-     "source_url": "https://github.com/babyworm/rtl-agent-team/blob/f6d869fe4511a8273998f25ca31daf1890aa1a49/skills/rtl-p5s-sva-check/SKILL.md",
-     "license": "MIT",
-     "category": "EDA_IC",
-     "owner_fit": "supporting",
-     "recommendation": "watch",
-     "recommendation_zh": "觀察／待審",
-     "score": 50,
-     "summary": "只參考 proof-stage vocabulary；正式 property、assumption、engine 與 completeness 由內部 formal owner 定義。",
-     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
-     "capabilities": [
-      "formal/SVA"
-     ],
-     "dependencies": [
-      "p5s orchestrator agent",
-      "sv2v",
-      "SymbiYosys/Yosys"
-     ],
-     "risks": [
-      "thin router",
-      "full SystemVerilog/tool compatibility unknown",
-      "open-source proof does not equal internal formal signoff"
-     ],
-     "source_review": {
-      "status": "REVIEWED",
-      "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
-      "runtime_proof": "NOT_RUN"
-     },
-     "evidence_freshness": "CURRENT",
-     "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
-      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
-     ],
-     "owner_dossier": {
-      "automation_role": "spec-linked-property-candidate",
-      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
-      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
-      "required_evidence": [
-       "requirement-to-property mapping",
-       "assumption ledger",
-       "proof engine/result",
-       "vacuity 與 counterexample review"
-      ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
-      "kill_criteria": [
-       "要求自動修改產品 RTL 或繞過 owner approval",
-       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
-       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
-      ],
-      "portfolio_state": "watch"
-     }
-    },
-    {
-     "name": "assertion-design",
-     "repo": "majiayu000/claude-skill-registry",
-     "path": "skills/data/assertion-design/SKILL.md",
-     "source_commit": "e1fe50f7feb4ee1b172c178cf8f9a390a5de7a10",
-     "source_url": "https://github.com/majiayu000/claude-skill-registry/blob/e1fe50f7feb4ee1b172c178cf8f9a390a5de7a10/skills/data/assertion-design/SKILL.md",
-     "license": "MIT",
-     "category": "EDA_IC",
-     "owner_fit": "supporting",
-     "recommendation": "watch",
-     "recommendation_zh": "觀察／待審",
-     "score": 50,
-     "summary": "只參考檔案分離與命名；不得複製 assertion 範例到產品 RTL。",
-     "use_in_next_rtl_design": "只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。",
-     "capabilities": [
-      "SVA",
-      "executable specification"
-     ],
-     "dependencies": [
-      "project-specific directories",
-      "DSim/MCP workflow"
-     ],
-     "risks": [
-      "several protocol/SVA examples need syntax and normative review",
-      "rigid project policy presented as universal",
-      "unbounded properties can hang or pass vacuously"
-     ],
-     "source_review": {
-      "status": "REVIEWED",
-      "grade": "C",
-      "reviewed_at": "2026-07-27T11:53:41+08:00",
-      "commit_verified": false,
-      "runtime_proof": "NOT_RUN"
-     },
-     "evidence_freshness": "CURRENT",
-     "do_not_claim": [
-      "source review 不等於 VCS/Verdi/DC/PrimeTime runtime PASS",
-      "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff"
-     ],
-     "owner_dossier": {
-      "automation_role": "spec-linked-property-candidate",
-      "personalized_fit": "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。",
-      "first_experiment": "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。",
-      "required_evidence": [
-       "requirement-to-property mapping",
-       "assumption ledger",
-       "proof engine/result",
-       "vacuity 與 counterexample review"
-      ],
-      "promotion_gate": "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。",
-      "kill_criteria": [
-       "要求自動修改產品 RTL 或繞過 owner approval",
-       "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
-       "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容"
-      ],
-      "portfolio_state": "watch"
      }
     }
    ],
    "source_review": {
-    "reviewed": 13,
-    "total": 13
+    "reviewed": 26,
+    "total": 26
    },
    "roadmap": {
     "thesis": "對 WiFi baseband ASIC，先自動化意圖與證據，再自動化 RTL mutation。最有價值的不是把第三方 skill 整包裝進公司環境，而是抽出可審查契約，由 OA 產 deterministic bundle、NX 跑真實 EDA、證據回流後才升級 claim。",
@@ -1035,6 +1900,11 @@
       "id": "intent",
       "title": "設計意圖編譯器",
       "skills": [
+       "review-rtl-architecture",
+       "rtl-p3-uarch-policy",
+       "rtl-quality-reviewer",
+       "spec-planner",
+       "systemverilog-rtl-generator",
        "digital-front-end-skill",
        "rtl-specification-consistency-checker"
       ],
@@ -1056,6 +1926,7 @@
       "id": "formal",
       "title": "Spec-linked property factory",
       "skills": [
+       "formal-verification",
        "rtl-property-inference",
        "rtl-p5s-sva-check",
        "assertion-design"
@@ -1069,6 +1940,7 @@
       "id": "debug",
       "title": "VCS／Verdi 證據萃取器",
       "skills": [
+       "systemverilog-waveform-debug",
        "x-npi",
        "write-sim-testbench"
       ],
@@ -1078,16 +1950,19 @@
      },
      {
       "order": 5,
-      "id": "signoff",
-      "title": "Synthesis／STA claim governor",
+      "id": "synthesis",
+      "title": "Synthesis／LEC／ECO claim governor",
       "skills": [
        "assess-synthesis-and-inference",
+       "hw-cdc",
+       "equivalence-check",
+       "prepare-rtl-for-synth",
        "logic-synthesis",
        "rtl-repair"
       ],
-      "deliverable": "RTL/filelist/tool/library/corner manifest；lint、DC、LEC、PrimeTime、power claims 分層。",
-      "owner_gate": "SDC、library、corner、threshold 與 waiver 只取自 internal golden flow。",
-      "proof": "真實 DC／LEC／PrimeTime／power report readback；各 gate 不互相替代。"
+      "deliverable": "RTL/filelist/tool/library/constraint manifest；lint、DC、LEC 與前端 ECO claims 分層。",
+      "owner_gate": "library、constraint、ECO boundary、threshold 與 waiver 只取自 internal golden flow；不延伸到 P&R/physical signoff。",
+      "proof": "真實 DC／Formality/LEC／ECO report readback；各 gate 不互相替代。"
      },
      {
       "order": 6,
@@ -1102,7 +1977,7 @@
     "first_90_day_focus": [
      "零到三十天：建立 intent schema、evidence manifest 與非機密 ready/valid canary。",
      "三十一到六十天：接 VCS compile/elaborate/sim 與只讀 Verdi/FSDB evidence。",
-     "六十一到九十天：接 DC、Formality/LEC、PrimeTime named-corner evidence；自動改 RTL 保留在最後。"
+     "六十一到九十天：接 DC、Formality/LEC 與前端 ECO evidence；自動改 RTL 保留在最後。"
     ],
     "internal_skill_suite": [
      "wifi-bbdd-intent-compiler",
@@ -1111,7 +1986,7 @@
      "spec-bound-sva-generator",
      "vcs-evidence-runner",
      "verdi-fsdb-analysis",
-     "dc-pt-evidence",
+     "synthesis-lec-eco-evidence",
      "claim-boundary-auditor"
     ],
     "cadence_contract": {
@@ -1121,7 +1996,7 @@
      "quarter": "cross-block reuse, retirement and operating-model decisions"
     }
    },
-   "claim_boundary": "public source review != VCS/Verdi/DC/PrimeTime/formal runtime proof"
+   "claim_boundary": "public source review != VCS/Verdi/DC/Formality/LEC/ECO runtime proof"
   },
   "finance-investing": {
    "slug": "investing",
