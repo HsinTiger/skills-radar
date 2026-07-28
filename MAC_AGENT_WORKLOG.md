@@ -233,4 +233,5 @@ The installed job must be `com.hsin.skills-radar`, daily at 08:30 with `TZ=Asia/
 scheduled health marker should expose `schedule_contract.execution_context=launchd`.  A manual run
 may recover current data, but it is not proof that launchd fired.  The 09:30 GitHub watchdog now
 downloads live Pages and requires it to equal the checked-out `docs/pipeline_health.json`; checking
-remote Git alone is no longer accepted as publish proof.
+remote Git alone is no longer accepted as publish proof.  Starting with report date `2026-07-29`,
+the watchdog also fails unless `schedule_contract.execution_context` is exactly `launchd`.

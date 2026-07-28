@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LAUNCHD_PROOF_REQUIRED_FROM = "2026-07-29"
 
 
 def validate_health(health, expected_date):
@@ -25,6 +26,10 @@ def validate_health(health, expected_date):
     timescale = health.get("gates", {}).get("timescale_dispatch")
     if timescale not in {"AI_GENERATED", "NO_PERIOD_DUE"}:
         errors.append(f"timescale_dispatch={timescale} is not successful")
+    if expected_date >= LAUNCHD_PROOF_REQUIRED_FROM:
+        context = health.get("schedule_contract", {}).get("execution_context")
+        if context != "launchd":
+            errors.append(f"execution_context={context} expected=launchd")
     return errors
 
 

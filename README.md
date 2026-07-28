@@ -64,6 +64,7 @@ daily/YYYY-MM-DD.md 每日簡報
 排程：launchd `com.hsin.skills-radar` 每日 08:30 執行 dispatcher；日摘要每天、週摘要每週一、
 月摘要每月一日、季摘要每季首月一日更新上一完整期。離線後補跑缺少的 `period_id`。
 Mac 安裝/重載：`./bin/install_launchd.sh`；稽核：`./bin/check_launchd.sh`。
+自 2026-07-29 起，09:30 watchdog 另要求 health marker 的 `execution_context=launchd`；人工補跑不算排程證明。
 手動跑一次：`~/skills-radar/bin/run_daily.sh`
 
 ## 歷史簡報
