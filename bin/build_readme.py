@@ -12,6 +12,8 @@ def web_path(path):
 dailies = sorted(glob.glob("daily/*.md"), reverse=True)
 recommendations = sorted(glob.glob("research/recommendations/*.md"), reverse=True)
 editorials = sorted(glob.glob("research/editorials/*.md"), reverse=True)
+eda_zones = sorted(glob.glob("research/zones/eda-ic/*.md"), reverse=True)
+investing_zones = sorted(glob.glob("research/zones/investing/*.md"), reverse=True)
 hist = []
 if os.path.exists("data/history.jsonl"):
     for line in open("data/history.jsonl"):
@@ -82,6 +84,10 @@ readme = f"""# Skills Radar
 
 {editorial_line}
 {recommendation_line}
+- [EDA／數位 IC 設計專區]({web_path(eda_zones[0]) if eda_zones else 'docs/eda-ic/index.html'})：
+  逐 skill dossier、日／週／月／季 AI 觀點，以及 WiFi baseband ASIC automation 建置路線；排除 FPGA／embedded／PCB／analog-RF。
+- [財經投資研究專區]({web_path(investing_zones[0]) if investing_zones else 'docs/investing/index.html'})：
+  逐 skill 研究 gate 與多週期觀點；只做可追溯、可重算研究，不連帳戶、不下單。
 - 日／週／月／季觀點：每天早上由同一個排程補齊尚未完成的週期；正文以繁中短篇文章呈現，
   數據依據收在可展開區塊。沒有完整資料就明說不足，不用空值硬湊結論。
 - [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
@@ -99,6 +105,7 @@ bin/build_readme.py 重建本頁
 bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 docs/wiki 實體頁面
 bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
 bin/build_daily_recommendations.py  產生 EDA_IC／財經投資研究的每日採用候選、摘要與風險 gate
+bin/build_domain_zones.py  建立兩個獨立專區、逐 skill dossier、多週期文章與個人化採用路線
 bin/timescale_summaries.py  日／週／月／季 evidence、AI summary、完整期與 catch-up dispatcher
 bin/update_corpus.py  區分 collector FAILED、有效零增量與真實新增，寫入 corpus update manifest
 bin/build_editorial_evidence.py  組合每日觀點的 source-bounded evidence ledger

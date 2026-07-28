@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-28 08:28 UTC",
+ "generated": "2026-07-28 09:13 UTC",
  "n_total": 5573,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
@@ -3755,12 +3755,13 @@
  "pipeline_health": {
   "schema_version": 1,
   "report_date": "2026-07-28",
-  "completed_at": "2026-07-28T08:28:03.865044+00:00",
+  "completed_at": "2026-07-28T09:13:06.230265+00:00",
   "status": "PASS",
   "gates": {
    "corpus_update": "SUCCESS",
    "daily_brief": "PASS",
    "daily_recommendations": "PASS",
+   "domain_zones": "PASS",
    "editorial_markdown": "PASS",
    "editorial_html": "PASS",
    "legacy_opportunity_insight": "ARCHIVE_ONLY",
@@ -5680,26 +5681,154 @@
   }
  ],
  "eda": {
-  "n": 1098,
-  "chip_n": 268,
-  "neutral_n": 36,
-  "targeted_n": 1062,
-  "pct_of_corpus": 0.65,
+  "n": 211,
+  "chip_n": 13,
+  "neutral_n": 10,
+  "targeted_n": 201,
+  "pct_of_corpus": 0.18,
   "task": {
-   "調度": 108,
-   "生成": 100,
-   "驗證": 69,
-   "配置": 45,
-   "分析": 42,
-   "檢索": 26,
-   "轉換": 10
+   "驗證": 30,
+   "生成": 18,
+   "調度": 13,
+   "分析": 12,
+   "配置": 6,
+   "轉換": 5,
+   "檢索": 2
   },
   "maturity": {
-   "toy": 2,
-   "workflow": 417,
-   "production": 380
+   "workflow": 83,
+   "production": 71,
+   "toy": 1
   },
   "chip": [
+   {
+    "stars": 169,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 169,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "chuanseng-ng/digital-chip-design-agents"
+   },
+   {
+    "stars": 23,
+    "task": null,
+    "task_zh": "",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "cike128/eda-sim"
+   },
+   {
+    "stars": 17,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "simra-tech/OpenADA"
+   },
+   {
+    "stars": 17,
+    "task": null,
+    "task_zh": "",
+    "maturity": "workflow",
+    "profession": null,
+    "pain": null,
+    "repo": "simra-tech/OpenADA"
+   },
+   {
+    "stars": 16,
+    "task": null,
+    "task_zh": "",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "vibeic/vibe-ic"
+   },
+   {
+    "stars": 5,
+    "task": null,
+    "task_zh": "",
+    "maturity": null,
+    "profession": null,
+    "pain": null,
+    "repo": "dtsong/my-claude-setup"
+   },
+   {
+    "stars": 1,
+    "task": null,
+    "task_zh": "",
+    "maturity": null,
+    "profession": null,
+    "pain": null,
+    "repo": "learner-ran/agent-for-ic-design"
+   },
+   {
+    "stars": 0,
+    "task": null,
+    "task_zh": "",
+    "maturity": null,
+    "profession": null,
+    "pain": null,
+    "repo": "n0sig/asic-design-plugins"
+   },
+   {
+    "stars": 0,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "IC 設計工程師",
+    "pain": "執行 Synopsys FC 晶片合成分佈下命令繁瑣",
+    "repo": "n0sig/asic-design-plugins"
+   },
+   {
+    "stars": 0,
+    "task": null,
+    "task_zh": "",
+    "maturity": null,
+    "profession": null,
+    "pain": null,
+    "repo": "RoyTr16/tiny-connect-four"
+   },
+   {
+    "stars": 0,
+    "task": "verify",
+    "task_zh": "驗證",
+    "maturity": "production",
+    "profession": null,
+    "pain": null,
+    "repo": "RoyTr16/tiny-connect-four"
+   },
+   {
+    "stars": 0,
+    "task": null,
+    "task_zh": "",
+    "maturity": null,
+    "profession": null,
+    "pain": null,
+    "repo": "Emin017/skills"
+   }
+  ],
+  "adjacent": [
+   {
+    "stars": 13876,
+    "task": "orchestrate",
+    "task_zh": "調度",
+    "maturity": "production",
+    "profession": "IC設計工程師",
+    "pain": "手動調參探索電腦架構與 EDA 設計空間低效",
+    "repo": "wanshuiyin/Auto-claude-code-research-in-sleep"
+   },
    {
     "stars": 3081,
     "task": "orchestrate",
@@ -5719,66 +5848,39 @@
     "repo": "tenstorrent/tt-metal"
    },
    {
-    "stars": 1587,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1587,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1586,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "toy",
-    "profession": "IC 設計驗證工程師",
-    "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時",
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1094,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "picoruby/picoruby"
-   },
-   {
-    "stars": 817,
+    "stars": 1089,
     "task": null,
     "task_zh": "",
     "maturity": "production",
     "profession": null,
     "pain": null,
-    "repo": "aklofas/kicad-happy"
+    "repo": "espressif/esp-dl"
    },
    {
-    "stars": 817,
-    "task": "verify",
-    "task_zh": "驗證",
+    "stars": 1039,
+    "task": "orchestrate",
+    "task_zh": "調度",
     "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "aklofas/kicad-happy"
+    "profession": "電腦架構研究員",
+    "pain": "電腦架構設計空間探索參數調校需人工重複",
+    "repo": "OpenLAIR/dr-claw"
+   },
+   {
+    "stars": 757,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "production",
+    "profession": "嵌入式韌體工程師",
+    "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
+    "repo": "LeoKemp223/embed-ai-tool"
    },
    {
     "stars": 707,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
+    "task": "analyze",
+    "task_zh": "分析",
+    "maturity": "workflow",
+    "profession": "控制系統工程師",
+    "pain": "Simulink 模型求解器效能瓶頸難以分析排解",
     "repo": "hashgraph-online/awesome-codex-plugins"
    },
    {
@@ -5800,15 +5902,6 @@
     "repo": "majiayu000/claude-skill-registry"
    },
    {
-    "stars": 379,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "diodeinc/pcb"
-   },
-   {
     "stars": 333,
     "task": "verify",
     "task_zh": "驗證",
@@ -5818,6 +5911,15 @@
     "repo": "vsfteam/vsf"
    },
    {
+    "stars": 330,
+    "task": "configure",
+    "task_zh": "配置",
+    "maturity": "workflow",
+    "profession": "嵌入式工程師",
+    "pain": "難以直接透過代碼控制硬體指示燈",
+    "repo": "glebis/claude-skills"
+   },
+   {
     "stars": 324,
     "task": "configure",
     "task_zh": "配置",
@@ -5825,2405 +5927,9 @@
     "profession": "機器人工程師",
     "pain": "設計機器人系統軟體架構缺乏標準設計模式",
     "repo": "arpitg1304/robotics-agent-skills"
-   },
-   {
-    "stars": 199,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Mindrally/skills"
-   },
-   {
-    "stars": 199,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "IC 設計工程師",
-    "pain": "FPGA與ASIC開發缺乏統一的SystemVerilog規範",
-    "repo": "Mindrally/skills"
-   },
-   {
-    "stars": 169,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 169,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 169,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 169,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 169,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "晶片驗證工程師",
-    "pain": "UVM 晶片驗證流程複雜需多 Agent 協同",
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 169,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "IC設計工程師",
-    "pain": "ASIC設計搬到FPGA驗證流程繁瑣易漏步",
-    "repo": "chuanseng-ng/digital-chip-design-agents"
-   },
-   {
-    "stars": 148,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "mohitmishra786/low-level-dev-skills"
-   },
-   {
-    "stars": 139,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "ArabelaTso/Skills-4-SE"
-   },
-   {
-    "stars": 139,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "ArabelaTso/Skills-4-SE"
-   },
-   {
-    "stars": 139,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "ArabelaTso/Skills-4-SE"
-   },
-   {
-    "stars": 69,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Tibsfox/gsd-skill-creator"
-   },
-   {
-    "stars": 64,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "晶片驗證工程師",
-    "pain": "晶片驗證時大規模 FSDB 波形手動分析效率低下",
-    "repo": "BLANK2077/xverif"
-   },
-   {
-    "stars": 48,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "mirekez/cpphdl"
-   },
-   {
-    "stars": 46,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "znlgis/opengis-skills"
-   },
-   {
-    "stars": 43,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": "retrieve",
-    "task_zh": "檢索",
-    "maturity": "workflow",
-    "profession": "IC設計/驗證工程師",
-    "pain": "新用戶不熟悉RTL agent team流程與指令",
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 43,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "babyworm/rtl-agent-team"
-   },
-   {
-    "stars": 38,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "bjwanneng/veriflow-cc"
-   },
-   {
-    "stars": 36,
-    "task": "transform",
-    "task_zh": "轉換",
-    "maturity": "production",
-    "profession": "IC 設計工程師",
-    "pain": "各種 RTL 解析工具輸出格式不一影響下游對接",
-    "repo": "amoslee2026/Babel"
-   },
-   {
-    "stars": 36,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "amoslee2026/Babel"
-   },
-   {
-    "stars": 36,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "itgoyo/hermes-skills"
-   },
-   {
-    "stars": 35,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "oaslananka/kicad-mcp-pro"
-   },
-   {
-    "stars": 35,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "PCB設計工程師",
-    "pain": "自動佈局產出的 KiCad 電路圖缺乏人工繪製質感",
-    "repo": "oaslananka/kicad-mcp-pro"
-   },
-   {
-    "stars": 35,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "oaslananka/kicad-mcp-pro"
-   },
-   {
-    "stars": 34,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "mpskex/chisel-npu"
-   },
-   {
-    "stars": 31,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "晶片設計工程師",
-    "pain": "晶片上遊更新時決策記錄與配置同步容易出錯",
-    "repo": "VLSIDA/HighTide"
-   },
-   {
-    "stars": 30,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Zubax/holoso"
-   },
-   {
-    "stars": 27,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "clanker-lover/spicebridge"
-   },
-   {
-    "stars": 26,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "從布爾邏輯規格手動推導與轉換閘級電路繁瑣",
-    "repo": "pjt222/agent-almanac"
-   },
-   {
-    "stars": 26,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "pjt222/agent-almanac"
-   },
-   {
-    "stars": 26,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "pjt222/agent-almanac"
-   },
-   {
-    "stars": 26,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "pjt222/agent-almanac"
-   },
-   {
-    "stars": 25,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": "醫療設備工程師",
-    "pain": "醫療設備加密選型缺乏可驗證的合規標準",
-    "repo": "AminAlam/meddev-agent-skills"
-   },
-   {
-    "stars": 24,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "IC 設計工程師",
-    "pain": "OpenROAD 佈線修時序耗時過長或死迴圈",
-    "repo": "The-OpenROAD-Project/bazel-orfs"
-   },
-   {
-    "stars": 23,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Verdvana/Verdvana.github.io"
-   },
-   {
-    "stars": 22,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Seeed-Studio/ai-skills"
-   },
-   {
-    "stars": 21,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Cognitohazard/ltspice-mcp"
-   },
-   {
-    "stars": 21,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Cognitohazard/ltspice-mcp"
-   },
-   {
-    "stars": 19,
-    "task": "transform",
-    "task_zh": "轉換",
-    "maturity": "production",
-    "profession": "IC設計工程師",
-    "pain": "手動將 Excel 暫存器表轉為 RTL 代碼易錯",
-    "repo": "siliconpeasant/vibe_soc"
-   },
-   {
-    "stars": 17,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "majiayu000/claude-skill-registry-data"
-   },
-   {
-    "stars": 17,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "majiayu000/claude-skill-registry-data"
-   },
-   {
-    "stars": 17,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "simra-tech/OpenADA"
-   },
-   {
-    "stars": 17,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "DV驗證工程師",
-    "pain": "晶片驗證 Testbench 缺乏正交維度的架構選擇",
-    "repo": "sean-galloway/RTLDesignSherpa"
-   },
-   {
-    "stars": 17,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "chuanseng-ng/analog-chip-design-agents"
-   },
-   {
-    "stars": 16,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "vibeic/vibe-ic"
-   },
-   {
-    "stars": 15,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "mattpainter701/kicad_automations"
-   },
-   {
-    "stars": 15,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "mattpainter701/kicad_automations"
-   },
-   {
-    "stars": 12,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "clowlove/Hermes-House"
-   },
-   {
-    "stars": 11,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "IC 設計工程師",
-    "pain": "手寫 RTL 程式碼容易不符合可綜合標準",
-    "repo": "gabrielmoreira/agent-skills-mirror"
-   },
-   {
-    "stars": 10,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "FPGA 工程師",
-    "pain": "FPGA 仿真正常但上板失敗，難以除錯時序問題",
-    "repo": "LNC0831/oh-my-fpga"
-   },
-   {
-    "stars": 10,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "FPGA工程師",
-    "pain": "人工撰寫 Vivado XDC 時序約束容易遺漏錯誤",
-    "repo": "LNC0831/oh-my-fpga"
-   },
-   {
-    "stars": 9,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "luokai0/ai-agent-skills-by-luo-kai"
-   },
-   {
-    "stars": 8,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "機器人工程師",
-    "pain": "機器人軟體架構缺乏標準化設計模式與安全機制",
-    "repo": "KJdotIO/innex1-rover"
-   },
-   {
-    "stars": 8,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "wweiyi2004/minifpga-quartus-skill"
-   },
-   {
-    "stars": 7,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "tools-only/X-Skills"
-   },
-   {
-    "stars": 7,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "tools-only/X-Skills"
-   },
-   {
-    "stars": 7,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "447662/Agent_IC_design_for_vivado"
-   },
-   {
-    "stars": 7,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "447662/Agent_IC_design_for_vivado"
-   },
-   {
-    "stars": 7,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Midstall/claude-for-hardware"
-   },
-   {
-    "stars": 6,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "gHashTag/trinity"
-   },
-   {
-    "stars": 6,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "gHashTag/trinity"
-   },
-   {
-    "stars": 6,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "ndpvt-web/arxiv-claude-skills"
-   },
-   {
-    "stars": 6,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "cyl-0411/cyl0411-skills"
-   },
-   {
-    "stars": 5,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "oniondas/duck-rtl"
-   },
-   {
-    "stars": 5,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "dtsong/my-claude-setup"
-   },
-   {
-    "stars": 5,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "硬體工程師",
-    "pain": "QSpice 電路圖零件佈局混亂難以閱讀",
-    "repo": "kh6570/HAbedini-qspice-mcp"
-   },
-   {
-    "stars": 4,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "晶片驗證工程師",
-    "pain": "晶片 API Mock 實作後缺乏驗證機制易退化",
-    "repo": "tenstorrent/tt-emule"
-   },
-   {
-    "stars": 4,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "paulpas/agent-skill-router"
-   },
-   {
-    "stars": 4,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "itgoyo/multica-skills"
-   },
-   {
-    "stars": 4,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "tipoLi5890/akcli"
-   },
-   {
-    "stars": 4,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "tipoLi5890/akcli"
-   },
-   {
-    "stars": 4,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "sandboxcom/gludd"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "pan224/skill"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "rustyqt/skills"
-   },
-   {
-    "stars": 3,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": "晶片架構研究員",
-    "pain": "評估 3D 晶片熱模擬工具精確度與開銷困難",
-    "repo": "qhjqhj00/research-skills-pool"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "codejunkie99/gateflow-cli"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "codejunkie99/gateflow-cli"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "rtl-buddy/rtl_buddy"
-   },
-   {
-    "stars": 3,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "數位電路設計工程師",
-    "pain": "從低階邏輯門建構電路並適應模擬器時序困難",
-    "repo": "genuineknowledge/psi-agent"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "HermeticOrmus/LibreEmbed-Claude-Code"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "folsie/anlogic-fpga-workflow"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "folsie/anlogic-fpga-workflow"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "folsie/anlogic-fpga-workflow"
-   },
-   {
-    "stars": 3,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "folsie/anlogic-fpga-workflow"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "lspaya05/YoloV8n-NPU"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "xsw632/ChipAgent"
-   },
-   {
-    "stars": 2,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "somyadashora/sd-dotfiles"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "ceasonen/research-skills"
-   },
-   {
-    "stars": 2,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "ceasonen/research-skills"
-   },
-   {
-    "stars": 2,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "MikeCheng1208/BattleTree"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "rajivhasija79-bit/DV-Skills"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "george11642/george-plugins"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "george11642/george-plugins"
-   },
-   {
-    "stars": 2,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "FPGA設計工程師",
-    "pain": "Vivado 時序違規與 QoR 報告分析極度耗時",
-    "repo": "konosubakonoakua/xilinx-skills"
-   },
-   {
-    "stars": 2,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "george11642/RISC-V-FPGA-Processors"
-   },
-   {
-    "stars": 2,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "硬體工程師",
-    "pain": "使用 GUI 編輯電路圖難以版本控制與自動化",
-    "repo": "quick-brown-bot/hexapod"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Paradicat/demo"
-   },
-   {
-    "stars": 1,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "RTL IP 設計中規格、程式碼與測試同步繁瑣",
-    "repo": "Paradicat/demo"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "gz-lenk/Robit"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "gz-lenk/Robit"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "gz-lenk/Robit"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "KishoreDamam/VLSI-agkit"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "KishoreDamam/VLSI-agkit"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MikeTreml/MissionControl"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MikeTreml/MissionControl"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "ssparkOAO/sr_core_lite"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "claudianus/superliora"
-   },
-   {
-    "stars": 1,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "claudianus/superliora"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "lvmeimei888-lab/icarus-verilog-skills"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Liyb65/quartus-lite-23.1-mcp-server"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "makabaka165/fpga-multi-agent-team"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "learner-ran/agent-for-ic-design"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "learner-ran/agent-for-ic-design"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "learner-ran/agent-for-ic-design"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "晶片驗證工程師",
-    "pain": "SystemVerilog 斷言與時序驗證設計複雜",
-    "repo": "tangyangchao578-art/icer_skill_package"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "tangyangchao578-art/icer_skill_package"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "gHashTag/trinity-fpga"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "dtsong/claude-code-windows-setup"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "dtsong/claude-code-wsl-setup"
-   },
-   {
-    "stars": 1,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "YuunqiLiu/RTLCodingStyle"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "poi82999/silicontoai"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "poi82999/silicontoai"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "poi82999/silicontoai"
-   },
-   {
-    "stars": 1,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "hyndex/Schematics-and-PCB-Skills"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "hyndex/Schematics-and-PCB-Skills"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "HikerPan/embedded-development-skills"
-   },
-   {
-    "stars": 1,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "ni/labview-fpga-hdl-tools"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "2nth-ai/skills"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "kenchangh/kicad-schematic"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "P47Phoenix/Claude-Plugins"
-   },
-   {
-    "stars": 1,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "production",
-    "profession": "韌體工程師",
-    "pain": "FPGA 燒錄指令繁雜且易混淆硬體型號",
-    "repo": "Pla4ma/VEX.RELEASE"
-   },
-   {
-    "stars": 1,
-    "task": "retrieve",
-    "task_zh": "檢索",
-    "maturity": "workflow",
-    "profession": "韌體工程師",
-    "pain": "嵌入式晶片腳位與開發庫規格繁雜查閱耗時",
-    "repo": "therebelrobot/microcontroller-base"
-   },
-   {
-    "stars": 1,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "嵌入式 AI工程師",
-    "pain": "邊緣晶片神經網絡算子實作與量化對齊困難",
-    "repo": "youkorr/s3_vision"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "AvatarSD/KiSkill"
-   },
-   {
-    "stars": 1,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "PD工程師",
-    "pain": "從RTL手動整理floorplan建議耗時易漏",
-    "repo": "Paradicat/demo"
-   },
-   {
-    "stars": 1,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Paradicat/demo"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "together2329/brian_hw"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "om-scogo/skillsh-scraper"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "om-scogo/skillsh-scraper"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Lucian-prog/FPGA"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Lucian-prog/FPGA"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "IC 設計缺乏統一 Verilog 程式碼規範",
-    "repo": "Lucian-prog/FPGA"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "makabaka165/verilog-fpga-assistant"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Stef-vvv/claudecode_self_repo"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Stef-vvv/claudecode_self_repo"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "NeuralBlitz/Mito"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "CLI-stack/rosenhorn_agent_flow"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Porrrrrrg/Formal-Aware-AI-DV-Copilot"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Porrrrrrg/Formal-Aware-AI-DV-Copilot"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Porrrrrrg/Formal-Aware-AI-DV-Copilot"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MaTriXy/babysitter-codex"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MaTriXy/babysitter-codex"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "David-Li0406/meta-skill-evloving"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "David-Li0406/meta-skill-evloving"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "David-Li0406/meta-skill-evloving"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "David-Li0406/meta-skill-evloving"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "qingyin-alice-zhong/edge_npu_verif"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "晶片驗證工程師",
-    "pain": "從規格書撰寫 SystemVerilog 覆蓋率計畫耗時",
-    "repo": "qingyin-alice-zhong/edge_npu_verif"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "MameMame777/FT4232Hmin"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "MameMame777/FT4232Hmin"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MameMame777/FT4232Hmin"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "GhostOf0days/codex-quant-skills"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "GhostOf0days/codex-quant-skills"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "zzjjjy1020128/fpga_awp_template_for_cc"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "workik-ai/skills"
-   },
-   {
-    "stars": 0,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "workflow",
-    "profession": "FPGA邏輯設計工程師",
-    "pain": "C/C++ 轉 RTL 時 Pragma 與介面配置複雜",
-    "repo": "Euler0525/dotfiles"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "lakabuji-arch/fpga-ai-toolkit"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "pwd6164/llm-vivado"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "pwd6164/llm-vivado"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "RISC-V RTL 生成與語法檢查流程繁瑣",
-    "repo": "etewe333/eda_first"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "晶片驗證工程師",
-    "pain": "HDL 穩定後需手動撰寫 SVA 斷言與覆蓋率",
-    "repo": "remane-allin/hdl-workflow-platform"
-   },
-   {
-    "stars": 0,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "IC設計工程師",
-    "pain": "晶片設計需求到 RTL/UVM 實現缺乏架構門禁",
-    "repo": "remane-allin/hdl-workflow-platform"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "remane-allin/hdl-workflow-platform"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "remane-allin/hdl-workflow-platform"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "impakt73/ai-rust-hw-dev"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "lakabuji-arch/ANN_"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "lakabuji-arch/ADC_board"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "JohnNuwan/EVA_CORE"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "團隊 Verilog RTL 程式碼風格不一",
-    "repo": "charlesjiangxm/Charles-Inventory"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "EasyMoneyTiger/ReverseNetlistAgent"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Cao1014/LLM_EDA"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "hsiang0103/OOO"
-   },
-   {
-    "stars": 0,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "IC 設計工程師",
-    "pain": "執行 Synopsys FC 晶片合成分佈下命令繁瑣",
-    "repo": "n0sig/asic-design-plugins"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Chicken7878/skill4codex"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Seradorr/opencode"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "TsutamachiChitose/verilog-asic-design-skill"
-   },
-   {
-    "stars": 0,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "IC 設計工程師",
-    "pain": "大型 RTL 設計建置與模組驗證無法平行調度",
-    "repo": "RedClaus/cortex"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "Biggo03/uart_ip"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "d-subrahmanyam/deno-fresh-microservices"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "julio211916/TlantiCAD-Studio-V0.1-alpha"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "AvlKP/ldpc-personal"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "RoyTr16/tiny-connect-four"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "dtg-lucifer/nextjs-trpc-frontend-template"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "ziyabicilecommerce-hub/ai-cash-machine"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "czh-ee-2023/zotero-aris"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "curryfromuestc/dev-guide"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "MameMame777/AXIUART_BASE"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "MameMame777/AXIUART_BASE"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "FPGA工程師",
-    "pain": "FPGA 開發中時序收斂與 AXI 介面設計複雜",
-    "repo": "VRIL-LABS/skill-jam"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "NayCheno/mico"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "ethanol777/Hermes"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "WilliamZzZzZzZz/pcie-axi-bridge"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Emin017/skills"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "hayotbekismoilov/All-Software"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "workflow",
-    "profession": "IC設計驗證資深工程師",
-    "pain": "晶片設計專案庫之規格與可重現性審查標準不一",
-    "repo": "VLSIDA/skillz"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "mcsaver/oscpu"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": "硬體工程師",
-    "pain": "需手動為電路圖子模組建立 SPICE 測試平台模擬",
-    "repo": "ConcertoNotes/codex-plugins"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "evilcomputer12/claude-skills-pack"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "swangneu/ltspice-to-kicad-workflow"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "lightrail-dev/new"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "dieguscl/dotfiles"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "lgili/skillex"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "電路模擬演算法工程師",
-    "pain": "電力電子模擬引擎出現不收斂或數值震盪",
-    "repo": "lgili/skillex"
-   },
-   {
-    "stars": 0,
-    "task": "verify",
-    "task_zh": "驗證",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "lgili/skillex"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Dropio12/Cherry-Hardware-Agent"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "helicopterrun/kicad-product-workflow"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "jl-grey-man/cm5-carrier"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Zhantongoscar/Industrial-Logic-Arena"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "arcnode-io/dlr-pcb"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "production",
-    "profession": "硬體工程師",
-    "pain": "無法直接從描述快速生成可供模擬的 KiCad 圖",
-    "repo": "richardhapb/dotfiles"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Lightiam/tapeout_07"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "mattpainter701/my-claude-setup"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "saifelden1/MyAiStack"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "JonathanLiu1401/ltspice-plugin"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "TheTrickeyOne/claude-harness"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "autocloudarc-manufacturing-group/ghcp-digital-patterning-system-completed"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "光電工程師",
-    "pain": "晶圓微腔大範圍掃瞄量測與數據整理繁瑣",
-    "repo": "pacebryanht57urv-sudo/daily_note_v2"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "bmorphism/boxxy"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "endlesshi/rtl-to-camodel-skill"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "rhCat/skillChip"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "Birkemosen/heatvalve-6"
-   },
-   {
-    "stars": 0,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "production",
-    "profession": "IoT 韌體工程師",
-    "pain": "根據不同硬體晶片撰寫正確 ESPHome 設定",
-    "repo": "emeraldwalk/skills"
-   },
-   {
-    "stars": 0,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "therebelrobot/dinodeck-2026"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "OctavioQuinter3/Mecatronica-Iot-Skill"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "ricardomb-tech/claude-skills"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "qingyin-alice-zhong/edge_npu_verif"
-   },
-   {
-    "stars": 0,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "GPU核心開發工程師",
-    "pain": "動態生成的kernel程式碼容易產生無效C++型別字串",
-    "repo": "kjuhwa/skills-hub"
-   },
-   {
-    "stars": 0,
-    "task": "retrieve",
-    "task_zh": "檢索",
-    "maturity": "workflow",
-    "profession": "嵌入式系統工程師",
-    "pain": "多種硬體裝置整合缺乏統一抽象介面文件",
-    "repo": "digimap2000/auracle_now_moved"
-   },
-   {
-    "stars": 0,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "USTC0825HY/PHD_USTC_HY_SKILL"
-   },
-   {
-    "stars": 0,
-    "task": "analyze",
-    "task_zh": "分析",
-    "maturity": "production",
-    "profession": "FPGA工程師",
-    "pain": "時序報告解讀與收斂決策需人工比對大量數據",
-    "repo": "USTC0825HY/PHD_USTC_HY_SKILL"
-   },
-   {
-    "stars": 0,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "類比IC設計工程師",
-    "pain": "類比IC從規格到量產全流程缺乏自動化銜接",
-    "repo": "mthudaa/Microelectronic-Block-Generator"
    }
   ],
-  "adjacent": [
-   {
-    "stars": 86565,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "ruvnet/RuView"
-   },
-   {
-    "stars": 86515,
-    "task": "configure",
-    "task_zh": "配置",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "ruvnet/RuView"
-   },
-   {
-    "stars": 13876,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "IC設計工程師",
-    "pain": "手動調參探索電腦架構與 EDA 設計空間低效",
-    "repo": "wanshuiyin/Auto-claude-code-research-in-sleep"
-   },
-   {
-    "stars": 10738,
-    "task": null,
-    "task_zh": "",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "Jeffallan/claude-skills"
-   },
-   {
-    "stars": 6994,
-    "task": null,
-    "task_zh": "",
-    "maturity": "workflow",
-    "profession": null,
-    "pain": null,
-    "repo": "hathach/tinyusb"
-   },
-   {
-    "stars": 3538,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": "硬體工程師",
-    "pain": "電子電路設計與 PCB 佈局自動化執行難",
-    "repo": "atopile/atopile"
-   },
-   {
-    "stars": 3082,
-    "task": "orchestrate",
-    "task_zh": "調度",
-    "maturity": "production",
-    "profession": null,
-    "pain": null,
-    "repo": "brycewang-stanford/Auto-Empirical-Research-Skills"
-   },
-   {
-    "stars": 1587,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1587,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1587,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1587,
-    "task": "generate",
-    "task_zh": "生成",
-    "maturity": "workflow",
-    "profession": "IC設計工程師",
-    "pain": "撰寫符合 IEEE 標準的可合成 VHDL 門檻高",
-    "repo": "a5c-ai/babysitter"
-   },
-   {
-    "stars": 1587,
-    "task": null,
-    "task_zh": "",
-    "maturity": null,
-    "profession": null,
-    "pain": null,
-    "repo": "a5c-ai/babysitter"
-   }
-  ],
-  "verify_pct": 6.3,
+  "verify_pct": 14.2,
   "global_verify_pct": 15.3
  },
  "security": {
@@ -9016,105 +6722,40 @@
   "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
  },
  "eda_gaps": {
-  "n_hw": 1098,
+  "n_hw": 211,
   "tasks": [
-   {
-    "task": "transform",
-    "zh": "轉換",
-    "hw_pct": 2.5,
-    "global_pct": 7.9,
-    "ratio": 0.31,
-    "n": 10,
-    "samples": [
-     {
-      "pain": "硬體 EDA 工具報錯資訊過於晦澀難以解讀",
-      "stars": 96,
-      "name": "gf-errors"
-     },
-     {
-      "pain": "CUDA 核心移植到 HIP 需大量手動改寫且易出錯",
-      "stars": 47,
-      "name": "Skill: Port a CUDA Kernel to HIP"
-     },
-     {
-      "pain": "各種 RTL 解析工具輸出格式不一影響下游對接",
-      "stars": 36,
-      "name": "bb-parse-ast"
-     },
-     {
-      "pain": "手動將 Excel 暫存器表轉為 RTL 代碼易錯",
-      "stars": 19,
-      "name": "excel-yml-gen"
-     },
-     {
-      "pain": "手動從賽道設計圖讀取紅色標註文字",
-      "stars": 7,
-      "name": "line-design-info-extractor"
-     },
-     {
-      "pain": "硬體 IP 核心設定檔版本升級與欄位補全繁瑣",
-      "stars": 1,
-      "name": "af-migrate-manifest"
-     }
-    ]
-   },
    {
     "task": "retrieve",
     "zh": "檢索",
-    "hw_pct": 6.5,
+    "hw_pct": 2.3,
     "global_pct": 9.8,
-    "ratio": 0.66,
-    "n": 26,
+    "ratio": 0.24,
+    "n": 2,
     "samples": [
-     {
-      "pain": "ESP32 SIMD 向量化指令手動優化門檻高",
-      "stars": 1089,
-      "name": "esp32p4-simd"
-     },
      {
       "pain": "新用戶不熟悉RTL agent team流程與指令",
       "stars": 43,
       "name": "rat-tutorial"
      },
      {
-      "pain": "I2C驅動API選用與設定查閱耗時",
-      "stars": 22,
-      "name": "zephyr-i2c"
-     },
-     {
-      "pain": "硬體拓樸與韌體細節分散難以快速查閱",
-      "stars": 6,
-      "name": "nucleo"
-     },
-     {
-      "pain": "東芝半導體元件料號與封裝代碼複雜難查",
-      "stars": 3,
-      "name": "toshiba"
-     },
-     {
-      "pain": "嵌入式晶片腳位與開發庫規格繁雜查閱耗時",
-      "stars": 1,
-      "name": "xiao-nrf54l15-sense-arduino"
+      "pain": "跨平台ISH register map資訊分散難查詢",
+      "stars": 0,
+      "name": "FV-ISH Registers Skill — ISH Register Maps & MMIO Definition"
      }
     ]
    },
    {
     "task": "configure",
     "zh": "配置",
-    "hw_pct": 11.2,
+    "hw_pct": 7.0,
     "global_pct": 17.0,
-    "ratio": 0.66,
-    "n": 45,
+    "ratio": 0.41,
+    "n": 6,
     "samples": [
      {
       "pain": "嵌入式開發工具鏈複雜且指令模糊難判斷",
       "stars": 757,
       "name": "embed-ai-tool"
-     },
-     {
-      "pain": "設計與部署 IoT 感測器網路時缺乏架構指引",
-      "stars": 563,
-      "name": "iot-sensor-network"
      },
      {
       "pain": "難以直接透過代碼控制硬體指示燈",
@@ -9132,105 +6773,60 @@
       "name": "update-design"
      },
      {
-      "pain": "手動更新 EDA 工具鏈並驗證 QoR 耗時費力",
-      "stars": 31,
-      "name": "upgrade-tools"
+      "pain": "控制手臂運動規劃與逆運動學解算編寫複雜",
+      "stars": 12,
+      "name": "ros2-moveit"
+     },
+     {
+      "pain": "SystemVerilog 轉 C++ 模擬與測試平台撰寫複雜",
+      "stars": 0,
+      "name": "verilator"
      }
     ]
    },
    {
-    "task": "analyze",
-    "zh": "分析",
-    "hw_pct": 10.5,
-    "global_pct": 12.5,
-    "ratio": 0.84,
-    "n": 42,
+    "task": "transform",
+    "zh": "轉換",
+    "hw_pct": 5.8,
+    "global_pct": 7.9,
+    "ratio": 0.73,
+    "n": 5,
     "samples": [
      {
-      "pain": "頻譜與濾波分析步驟繁瑣需標準化流程",
-      "stars": 870,
-      "name": "signal-processing"
-     },
-     {
-      "pain": "SerDes 高速傳輸系統訊號完整性模擬複雜耗時",
-      "stars": 837,
-      "name": "matlab-model-serdes-systems"
-     },
-     {
-      "pain": "Simulink 模型求解器效能瓶頸難以分析排解",
-      "stars": 707,
-      "name": "simulink-solver-profiler-analyzer"
-     },
-     {
-      "pain": "OpenROAD 佈線修時序耗時過長或死迴圈",
-      "stars": 24,
-      "name": "repair-timing-grt"
-     },
-     {
-      "pain": "手動分析 FSDB 波形與排查模擬錯誤低效",
-      "stars": 23,
-      "name": "fsdb-analysis"
-     },
-     {
-      "pain": "LoRa PHY與MAC層問題難以定位除錯",
-      "stars": 23,
-      "name": "Skill: LoRa / LoRaWAN Debugging"
-     }
-    ]
-   },
-   {
-    "task": "verify",
-    "zh": "驗證",
-    "hw_pct": 17.2,
-    "global_pct": 15.3,
-    "ratio": 1.13,
-    "n": 69,
-    "samples": [
-     {
-      "pain": "晶片暫存器寫入與指令間競態條件難排查",
-      "stars": 1605,
-      "name": "mmio-race-audit"
-     },
-     {
-      "pain": "手動撰寫 UVM 測試平台與覆蓋率驗證耗時",
-      "stars": 1586,
-      "name": "hardware-verification-uvm"
-     },
-     {
-      "pain": "暫存器級驅動除錯與新晶片移植耗時繁瑣",
-      "stars": 333,
-      "name": "vsf-hal-driver"
-     },
-     {
-      "pain": "IP模組實例化後常缺實作難以人工掃描發現",
+      "pain": "硬體 EDA 工具報錯資訊過於晦澀難以解讀",
       "stars": 96,
-      "name": "gf-ip-detect"
+      "name": "gf-errors"
      },
      {
-      "pain": "STM32韌體編譯燒錄與除錯操作繁瑣",
-      "stars": 43,
-      "name": "stm32-debug"
+      "pain": "各種 RTL 解析工具輸出格式不一影響下游對接",
+      "stars": 36,
+      "name": "bb-parse-ast"
      },
      {
-      "pain": "多人協作的 SystemVerilog 規範難統一",
-      "stars": 43,
-      "name": "systemverilog"
+      "pain": "手動將 Excel 暫存器表轉為 RTL 代碼易錯",
+      "stars": 19,
+      "name": "excel-yml-gen"
+     },
+     {
+      "pain": "硬體 IP 核心設定檔版本升級與欄位補全繁瑣",
+      "stars": 1,
+      "name": "af-migrate-manifest"
+     },
+     {
+      "pain": "手動清理 SystemVerilog 程式碼標頭耗時",
+      "stars": 0,
+      "name": "sv-cleanup"
      }
     ]
    },
    {
     "task": "generate",
     "zh": "生成",
-    "hw_pct": 25.0,
+    "hw_pct": 20.9,
     "global_pct": 22.0,
-    "ratio": 1.14,
-    "n": 100,
+    "ratio": 0.95,
+    "n": 18,
     "samples": [
-     {
-      "pain": "撰寫符合 IEEE 標準的可合成 VHDL 門檻高",
-      "stars": 1587,
-      "name": "vhdl-language"
-     },
      {
       "pain": "缺乏真實VCS/UVM環境時難以模擬終端輸出",
       "stars": 531,
@@ -9242,39 +6838,39 @@
       "name": "assertion-design"
      },
      {
-      "pain": "FPGA與ASIC開發缺乏統一的SystemVerilog規範",
-      "stars": 199,
-      "name": "systemverilog"
-     },
-     {
       "pain": "晶片驗證時大規模 FSDB 波形手動分析效率低下",
       "stars": 64,
       "name": "x-npi"
      },
      {
-      "pain": "工業通訊協定 Modbus 與 CANopen 開發門檻高",
-      "stars": 57,
-      "name": "industrial"
+      "pain": "從布爾邏輯規格手動推導與轉換閘級電路繁瑣",
+      "stars": 26,
+      "name": "design-logic-circuit"
+     },
+     {
+      "pain": "建立硬體 IP 核所需的跨硬體、測試與驅動結構繁瑣",
+      "stars": 12,
+      "name": "create-ip"
+     },
+     {
+      "pain": "從低階邏輯門建構電路並適應模擬器時序困難",
+      "stars": 3,
+      "name": "digital-circuit-construction"
      }
     ]
    },
    {
     "task": "orchestrate",
     "zh": "調度",
-    "hw_pct": 27.0,
+    "hw_pct": 15.1,
     "global_pct": 15.5,
-    "ratio": 1.74,
-    "n": 108,
+    "ratio": 0.97,
+    "n": 13,
     "samples": [
      {
       "pain": "手動調參探索電腦架構與 EDA 設計空間低效",
       "stars": 13876,
       "name": "dse-loop"
-     },
-     {
-      "pain": "電子電路設計與 PCB 佈局自動化執行難",
-      "stars": 3538,
-      "name": "agent"
      },
      {
       "pain": "手動調整晶片架構參數尋求最佳化耗時",
@@ -9287,14 +6883,99 @@
       "name": "aris-dse-loop"
      },
      {
-      "pain": "編譯並燒錄 ESP 韌體需多步驟手動操作",
-      "stars": 196,
-      "name": "flash"
+      "pain": "3D 列印從建模到切片列印流程切換過於繁瑣",
+      "stars": 63,
+      "name": "claw3d"
      },
      {
-      "pain": "UVM 晶片驗證流程複雜需多 Agent 協同",
-      "stars": 169,
-      "name": "functional-verification"
+      "pain": "執行 Synopsys FC 晶片合成分佈下命令繁瑣",
+      "stars": 0,
+      "name": "run-fc"
+     },
+     {
+      "pain": "大型 RTL 設計建置與模組驗證無法平行調度",
+      "stars": 0,
+      "name": "gf-build"
+     }
+    ]
+   },
+   {
+    "task": "analyze",
+    "zh": "分析",
+    "hw_pct": 14.0,
+    "global_pct": 12.5,
+    "ratio": 1.12,
+    "n": 12,
+    "samples": [
+     {
+      "pain": "Simulink 模型求解器效能瓶頸難以分析排解",
+      "stars": 707,
+      "name": "simulink-solver-profiler-analyzer"
+     },
+     {
+      "pain": "手動分析 FSDB 波形與排查模擬錯誤低效",
+      "stars": 23,
+      "name": "fsdb-analysis"
+     },
+     {
+      "pain": "晶片驗證 Testbench 缺乏正交維度的架構選擇",
+      "stars": 17,
+      "name": "rds-dv-axes"
+     },
+     {
+      "pain": "跨品牌PLC語法規範不同且人工審查繁瑣",
+      "stars": 8,
+      "name": "plc-skill"
+     },
+     {
+      "pain": "評估 3D 晶片熱模擬工具精確度與開銷困難",
+      "stars": 3,
+      "name": "comet-thermal-sim-eval"
+     },
+     {
+      "pain": "光柵繞射效率模擬缺乏驗證過的能量守恆建模流程",
+      "stars": 0,
+      "name": "comsol-grating-simulation"
+     }
+    ]
+   },
+   {
+    "task": "verify",
+    "zh": "驗證",
+    "hw_pct": 34.9,
+    "global_pct": 15.3,
+    "ratio": 2.29,
+    "n": 30,
+    "samples": [
+     {
+      "pain": "晶片暫存器寫入與指令間競態條件難排查",
+      "stars": 1605,
+      "name": "mmio-race-audit"
+     },
+     {
+      "pain": "暫存器級驅動除錯與新晶片移植耗時繁瑣",
+      "stars": 333,
+      "name": "vsf-hal-driver"
+     },
+     {
+      "pain": "多人協作的 SystemVerilog 規範難統一",
+      "stars": 43,
+      "name": "systemverilog"
+     },
+     {
+      "pain": "醫療設備加密選型缺乏可驗證的合規標準",
+      "stars": 25,
+      "name": "Encryption for Medical Devices"
+     },
+     {
+      "pain": "晶片 API Mock 實作後缺乏驗證機制易退化",
+      "stars": 4,
+      "name": "verify-mock"
+     },
+     {
+      "pain": "SystemVerilog 斷言與時序驗證設計複雜",
+      "stars": 1,
+      "name": "assertion-based-verification"
      }
     ]
    }

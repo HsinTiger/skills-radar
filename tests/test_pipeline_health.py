@@ -19,6 +19,14 @@ def write(path, value):
         path.write_text(str(value), encoding="utf-8")
 
 
+def write_zones(root, status="READY_FOR_OWNER_REVIEW"):
+    write(root / "corpus/domain_zones.json", {
+        "report_date": "2026-07-28", "status": status,
+    })
+    write(root / "docs/eda-ic/index.html", "eda")
+    write(root / "docs/investing/index.html", "investing")
+
+
 class PipelineHealthTests(unittest.TestCase):
     def test_pass_requires_current_outputs_and_timescale_dispatch(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -37,6 +45,7 @@ class PipelineHealthTests(unittest.TestCase):
             write(root / "data/timescale_summary_status.json", {
                 "run_date": "2026-07-28", "status": "AI_GENERATED", "updated_periods": [],
             })
+            write_zones(root)
             health = build_health("2026-07-28", privacy_passed=True, root=root, run_context="launchd")
         self.assertEqual(health["status"], "PASS")
         self.assertEqual(health["remote_publish"], "NOT_PROVEN_UNTIL_REMOTE_READBACK")
@@ -59,6 +68,7 @@ class PipelineHealthTests(unittest.TestCase):
             write(root / "data/timescale_summary_status.json", {
                 "run_date": "2026-07-28", "status": "AI_BLOCKED", "updated_periods": [],
             })
+            write_zones(root, "PARTIAL")
             health = build_health("2026-07-28", privacy_passed=True, root=root)
         self.assertEqual(health["status"], "PARTIAL")
         self.assertEqual(health["gates"]["timescale_dispatch"], "AI_BLOCKED")
@@ -92,6 +102,7 @@ class PipelineHealthTests(unittest.TestCase):
             write(root / "data/timescale_summary_status.json", {
                 "run_date": "2026-07-28", "status": "AI_GENERATED",
             })
+            write_zones(root)
             health = build_health("2026-07-28", privacy_passed=True, root=root)
         self.assertEqual(health["status"], "FAIL")
         self.assertEqual(health["gates"]["corpus_update"], "FAILED")

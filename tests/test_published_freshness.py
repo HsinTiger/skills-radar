@@ -51,6 +51,7 @@ class PublishedFreshnessTests(unittest.TestCase):
             "gates": {
                 "master_freshness": "CURRENT", "timescale_dispatch": "AI_GENERATED",
                 "corpus_update": "SUCCESS", "editorial_markdown": "PASS", "editorial_html": "PASS",
+                "domain_zones": "PASS",
             },
             "schedule_contract": {"execution_context": "manual"},
         }
@@ -68,6 +69,7 @@ class PublishedFreshnessTests(unittest.TestCase):
         self.assertTrue(any("corpus_update" in error for error in errors))
         self.assertTrue(any("editorial_markdown" in error for error in errors))
         self.assertTrue(any("editorial_html" in error for error in errors))
+        self.assertTrue(any("domain_zones" in error for error in errors))
 
     @patch("check_published_freshness.urlopen")
     def test_live_readback_uses_cache_buster(self, mocked):

@@ -74,6 +74,12 @@ python3 bin/opportunity.py >> "$LOG" 2>&1 || {
   log "STOP: opportunity 失敗，不使用舊訊號表繼續"; exit 1;
 }
 
+# 3.4 owner-scoped ASIC catalog 必須與本次 master 對齊。它只作 candidate
+# routing；secondary taxonomy 未過 golden validation 前仍不能作 adoption claim。
+python3 bin/build_asic_catalog.py >> "$LOG" 2>&1 || {
+  log "STOP: ASIC candidate catalog 與 canonical master 不對齊"; exit 1;
+}
+
 # 3.5 每日 owner-facing 建議清單（零 token）
 # EDA/IC 只引用已審來源；財經類只允許研究用途，交易／credential 風險會降級或排除。
 python3 bin/build_daily_recommendations.py --date "$DATE" >> "$LOG" 2>&1 || {
@@ -107,6 +113,9 @@ python3 bin/wiki_ingest.py --date "$DATE" >> "$LOG" 2>&1 || {
 }
 
 # 4.6 重建前端頁面（零 token）
+python3 bin/build_domain_zones.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: EDA/投資專區產生失敗"; exit 1;
+}
 python3 bin/build_site.py >> "$LOG" 2>&1 || {
   log "STOP: build_site 失敗，不推送 stale 頁面"; exit 1;
 }
@@ -124,7 +133,10 @@ python3 bin/write_pipeline_health.py --date "$DATE" --privacy-passed >> "$LOG" 2
   log "STOP: pipeline health 核心 gate 未通過"; exit 1;
 }
 
-# health marker 要進入自足式頁面；重建後再跑一次 privacy gate。
+# health marker 要進入自足式頁面；兩個專區與首頁都重建後再跑 privacy gate。
+python3 bin/build_domain_zones.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: health marker 寫入後重建專區失敗"; exit 1;
+}
 python3 bin/build_site.py >> "$LOG" 2>&1 || {
   log "STOP: health marker 寫入後重建頁面失敗"; exit 1;
 }

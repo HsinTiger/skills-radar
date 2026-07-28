@@ -28,15 +28,22 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
     daily_ok = nonempty(root / "daily" / f"{report_date}.md")
     editorial_md_ok = nonempty(root / "research" / "editorials" / f"{report_date}.md")
     editorial_html_ok = nonempty(root / "docs" / "editorials" / f"{report_date}.html")
+    zones = load(root / "corpus" / "domain_zones.json", {})
+    zones_ran = (
+        zones.get("report_date") == report_date
+        and nonempty(root / "docs" / "eda-ic" / "index.html")
+        and nonempty(root / "docs" / "investing" / "index.html")
+    )
+    zones_ok = zones_ran and zones.get("status") == "READY_FOR_OWNER_REVIEW"
     update_current = update.get("run_date") == report_date
     update_ok = update_current and update.get("status") == "SUCCESS"
     rec_ok = rec.get("report_date") == report_date and rec.get("status") == "READY_FOR_OWNER_REVIEW"
     ts_ran = ts.get("run_date") == report_date
     ts_ok = ts_ran and ts.get("status") in {"AI_GENERATED", "NO_PERIOD_DUE"}
-    core_ok = update_ok and daily_ok and rec_ok and privacy_passed and ts_ran
+    core_ok = update_ok and daily_ok and rec_ok and zones_ran and privacy_passed and ts_ran
     if not core_ok:
         status = "FAIL"
-    elif not editorial_md_ok or not editorial_html_ok or not ts_ok:
+    elif not editorial_md_ok or not editorial_html_ok or not ts_ok or not zones_ok:
         status = "PARTIAL"
     else:
         status = "PASS"
@@ -50,6 +57,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
             "corpus_update": update.get("status", "NOT_RUN") if update_current else "NOT_RUN",
             "daily_brief": "PASS" if daily_ok else "FAIL",
             "daily_recommendations": "PASS" if rec_ok else "FAIL",
+            "domain_zones": "PASS" if zones_ok else "FAIL",
             "editorial_markdown": "PASS" if editorial_md_ok else "MISSING",
             "editorial_html": "PASS" if editorial_html_ok else "MISSING",
             "legacy_opportunity_insight": "ARCHIVE_ONLY",

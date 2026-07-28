@@ -1,12 +1,13 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-28",
- "completed_at": "2026-07-28T08:28:03.865044+00:00",
+ "completed_at": "2026-07-28T09:13:06.230265+00:00",
  "status": "PASS",
  "gates": {
   "corpus_update": "SUCCESS",
   "daily_brief": "PASS",
   "daily_recommendations": "PASS",
+  "domain_zones": "PASS",
   "editorial_markdown": "PASS",
   "editorial_html": "PASS",
   "legacy_opportunity_insight": "ARCHIVE_ONLY",

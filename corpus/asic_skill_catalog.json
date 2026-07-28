@@ -1,18 +1,18 @@
 {
  "schema_version": 1,
- "generated_at": "2026-07-28T05:44:32.888533+00:00",
+ "generated_at": "2026-07-28T09:02:43.612661+00:00",
  "status": "CURRENT_CANDIDATE_CATALOG",
  "canonical_use": "BLOCKED",
  "snapshot": {
   "path": "corpus\\master.jsonl",
-  "sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd",
-  "n_rows": 41230,
+  "sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "n_rows": 42242,
   "model_alignment": {
    "status": "CURRENT",
    "actual_seed": 6577,
-   "actual_model": 34653,
+   "actual_model": 35665,
    "expected_seed": 6577,
-   "expected_model": 34653
+   "expected_model": 35665
   },
   "taxonomy_validation": {
    "status": "BLOCKED",

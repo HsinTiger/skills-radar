@@ -6,7 +6,7 @@ build_site.py — 產生知識庫前端頁面 docs/index.html。零 token。
 注意：這代表「這個 skill 所在的 repo 何時建立」，不是 skill 何時被寫出來，
 更不是它何時被使用。頁面上必須標明這個限制。
 """
-import json, os, re, html
+import json, os, re, html, hashlib
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from statistics import median
@@ -33,6 +33,36 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
         rows.append(r)
 
 require_model_report_alignment(rows_all, os.path.join(ROOT, "corpus", "model_report.json"))
+
+catalog_path = os.path.join(ROOT, "corpus", "asic_skill_catalog.json")
+asic_catalog = json.load(open(catalog_path, encoding="utf-8"))
+master_hasher = hashlib.sha256()
+with open(MASTER, "rb") as master_fh:
+    for block in iter(lambda: master_fh.read(1024 * 1024), b""):
+        master_hasher.update(block)
+master_digest = master_hasher.hexdigest()
+catalog_snapshot = asic_catalog.get("snapshot", {})
+if (asic_catalog.get("status") != "CURRENT_CANDIDATE_CATALOG"
+        or catalog_snapshot.get("sha256") != master_digest):
+    raise ValueError("ASIC catalog is stale; run bin/build_asic_catalog.py before build_site.py")
+
+ASIC_OWNER_KEYS = {
+    (item.get("repo"), item.get("path")): item
+    for item in asic_catalog.get("candidates", [])
+    if item.get("owner_fit") in {"direct", "supporting"}
+    and item.get("hardware_target") in {"asic", "generic"}
+}
+
+OWNER_SCOPE_EXCLUDE = re.compile(
+    r"\b(?:FPGA|Vivado|Quartus|Vitis|Xilinx|ESP32|STM32|MCU|firmware|PCB|antenna|"
+    r"LoRa(?:WAN)?|Zigbee|Bluetooth|UWB|Sub[- ]?GHz)\b|S-parameter|類比|射頻",
+    re.I,
+)
+
+
+def owner_scope_row(row):
+    text = " ".join(str(row.get(key) or "") for key in ("name", "path", "description", "pain"))
+    return not OWNER_SCOPE_EXCLUDE.search(text)
 
 opp = json.load(open(OPP, encoding="utf-8"))
 N = len(rows)
@@ -134,13 +164,18 @@ def niches(mode):
     return out
 
 # ---------- EDA / IC 專區 ----------
-CHIP_PAT = re.compile(r"晶片|IC|RTL|UVM|FPGA|時序|閘級|佈線|OpenROAD|驗證平台|覆蓋率|布爾", re.I)
 def eda_section():
-    neutral_eda = [r for r in rows if r.get("domain") == "hardware-eda"]
-    # 過取樣樣本要通過信心門檻才採用（關鍵字正則誤判率實測 75.6%，已棄用）
-    eda = [r for r in rows_all if r.get("domain") == "hardware-eda"
-           and label_is_eligible(r, "domain")]
-    chip = [r for r in eda if CHIP_PAT.search((r.get("pain") or "") + (r.get("name") or ""))]
+    # The owner zone is catalog-routed, not broad hardware keyword search.  This
+    # keeps FPGA/embedded/PCB/analog-RF material out even when descriptions also
+    # mention RTL or ASIC.
+    eda = [
+        r for r in rows_all
+        if (r.get("repo"), r.get("path")) in ASIC_OWNER_KEYS
+        and label_is_eligible(r, "domain")
+        and owner_scope_row(r)
+    ]
+    neutral_eda = [r for r in eda if neutral_for(r, "domain")]
+    chip = [r for r in eda if ASIC_OWNER_KEYS[(r.get("repo"), r.get("path"))].get("owner_fit") == "direct"]
     others = [r for r in eda if r not in chip]
     def fmt(rs):
         return [{"stars": r.get("stars") or 0,
@@ -246,9 +281,13 @@ def read_latest_editorial():
     return {"date": date, "title": title, "href": f"editorials/{date}.html"}
 
 def eda_gaps():
-    """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
-    hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
-          and label_is_eligible(r, "domain")]
+    """Owner-scoped ASIC/RTL ability gaps; excluded hardware never enters."""
+    hw = [
+        r for r in rows_all
+        if (r.get("repo"), r.get("path")) in ASIC_OWNER_KEYS
+        and label_is_eligible(r, "domain")
+        and owner_scope_row(r)
+    ]
     gt = Counter(r.get("task") for r in rows if label_is_eligible(r, "task"))
     gn = sum(gt.values()) or 1
     ht = Counter(r.get("task") for r in hw if label_is_eligible(r, "task"))

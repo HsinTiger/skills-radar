@@ -1,5 +1,40 @@
 # Mac Agent Worklog — refresh canonical corpus and finish Wiki ingest
 
+## 2026-07-28 Windows handoff — separate EDA/IC and investing research zones
+
+- `PROVEN`: `docs/eda-ic/` and `docs/investing/` are now separate owner-facing zones with
+  day/week/month/quarter period-keyed pages, full current skill dossiers, explicit canaries,
+  evidence requirements, kill criteria and adoption boundaries.
+- `PROVEN`: the ASIC candidate catalog was rebuilt against the current 42,242-row master;
+  catalog/master SHA-256 now matches.  The secondary ASIC taxonomy still has zero golden rows
+  and remains `BLOCKED`, so it is routing evidence only.
+- `PROVEN`: the old dashboard EDA list no longer uses broad hardware keyword matches.  It now
+  requires owner-scoped ASIC/generic + direct/supporting routing and excludes FPGA, embedded,
+  PCB, analog/RF and non-WiFi wireless-specific material at display time.
+- `PROVEN`: all 13 current EDA sources have static review dossiers; runtime proof remains
+  `NOT_RUN`.  The finance zone now contains eight pinned source reviews: A=2, B=1, C=2, D=3.
+  D-grade trading/position/credential paths are excluded.
+- `PROVEN`: the daily pipeline now rebuilds the ASIC catalog before recommendations, builds both
+  zones after the timescale dispatcher, and requires `domain_zones=PASS` in pipeline health.
+- `PROVEN`: 89 unit tests, privacy scan, HTML structural/local-link audit and `git diff --check`
+  passed on Windows.
+- `UNKNOWN`: unattended launchd recovery remains unproven.  The current health marker correctly
+  says `execution_context=manual_recovery`; only a real scheduled 08:30 run may change this to
+  `launchd`.
+
+Canonical Mac next action after pull:
+
+```bash
+git pull --ff-only
+./bin/install_launchd.sh
+./bin/check_launchd.sh
+python3 -m unittest discover -s tests -v
+python3 bin/check_privacy.py
+```
+
+Do not manually rewrite the health marker to `launchd`.  After the next real scheduled run,
+require live Pages readback of `/pipeline_health.json`, `/eda-ic/` and `/investing/`.
+
 ## 2026-07-28 final Windows handoff — reader-safe articles and current snapshot
 
 - `PROVEN`: canonical corpus is now 42,242 unique rows, with 6,577 seed labels and

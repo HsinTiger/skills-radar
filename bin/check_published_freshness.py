@@ -35,6 +35,8 @@ def validate_health(health, expected_date):
             errors.append(f"editorial_markdown={gates.get('editorial_markdown')} expected=PASS")
         if gates.get("editorial_html") != "PASS":
             errors.append(f"editorial_html={gates.get('editorial_html')} expected=PASS")
+        if gates.get("domain_zones") != "PASS":
+            errors.append(f"domain_zones={gates.get('domain_zones')} expected=PASS")
     if expected_date >= LAUNCHD_PROOF_REQUIRED_FROM:
         context = health.get("schedule_contract", {}).get("execution_context")
         if context != "launchd":

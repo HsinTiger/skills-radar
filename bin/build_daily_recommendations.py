@@ -25,6 +25,7 @@ MASTER = ROOT / "corpus" / "master.jsonl"
 MODEL_REPORT = ROOT / "corpus" / "model_report.json"
 ASIC_CATALOG = ROOT / "corpus" / "asic_skill_catalog.json"
 ASIC_REVIEWS = ROOT / "corpus" / "asic_skill_reviews.json"
+FINANCE_REVIEWS = ROOT / "corpus" / "finance_skill_reviews.json"
 OUTPUT_JSON = ROOT / "corpus" / "daily_skill_recommendations.json"
 RESEARCH_DIR = ROOT / "research" / "recommendations"
 DOCS_DIR = ROOT / "docs" / "recommendations"
@@ -175,6 +176,104 @@ def _eda_use(fit: list[str]) -> str:
     return "只抽取可審查的 procedure/checklist，先在非機密 toy design 驗證。"
 
 
+def _eda_owner_dossier(fit: list[str], recommendation: str) -> dict:
+    """Translate a public skill review into the owner's ASIC automation contract.
+
+    The result deliberately describes an adaptation role, never an instruction
+    to install or execute third-party content in a company flow.
+    """
+    joined = " ".join(fit).lower()
+    if any(word in joined for word in ("fsdb", "simulation", "vcs", "verdi", "coverage")):
+        role = "simulation-evidence-extractor"
+        fit_reason = "最貼近你高頻的 VCS／Verdi 除錯與 coverage 證據整理，可先降低人工翻波形與重建上下文的成本。"
+        experiment = "在公開 ready/valid toy datapath 上，以既有 compile/sim 命令產生 FSDB，再只讀抽取同一 clock edge 的事件與 coverage denominator。"
+        evidence = ["工具版本與輸入 commit", "compile/sim exit status", "FSDB/API readback", "coverage denominator 與查詢 JSON"]
+    elif any(word in joined for word in ("sva", "formal", "assertion", "property")):
+        role = "spec-linked-property-candidate"
+        fit_reason = "適合把 cycle contract 與不變量轉成候選 SVA，但必須保留 spec requirement、assume/assert/cover 與 vacuity 邊界。"
+        experiment = "對公開 FIFO 或 ready/valid toy block 產生少量候選 property；owner 逐條連回 requirement，再由正式工具 proof。"
+        evidence = ["requirement-to-property mapping", "assumption ledger", "proof engine/result", "vacuity 與 counterexample review"]
+    elif any(word in joined for word in ("synthesis", "lint", "lec", "sdc", "inference")):
+        role = "synthesis-evidence-governor"
+        fit_reason = "可把 lint、綜合、LEC、時序與功耗的不同 claim 分層，防止單一綠燈被升格成 ASIC signoff。"
+        experiment = "只移植 manifest 與 claim boundary 到公開 toy RTL；實際 SDC、library、corner 與命令仍由既有 golden flow 提供。"
+        evidence = ["RTL/filelist hash", "tool/library/corner manifest", "synthesis/LEC/STA 分離結果", "失敗條件與 artifact readback"]
+    elif any(word in joined for word in ("testbench", "scoreboard", "ready-valid")):
+        role = "testbench-contract-adapter"
+        fit_reason = "能補強 bounded wait、payload integrity、scoreboard 與參數組合，適合變成跨 block 的 verification factory 元件。"
+        experiment = "在既有 testbench framework 重寫 checklist，不帶入 repository helper；以 timeout、背壓、reset 與資料完整性 canary 驗證。"
+        evidence = ["stimulus/seed manifest", "bounded timeout", "scoreboard mismatch log", "coverage 與 rerun readback"]
+    elif any(word in joined for word in ("cycle contract", "rtl design", "spec", "handoff")):
+        role = "design-intent-compiler"
+        fit_reason = "最適合放在 RTL 之前，把 latency、reset、backpressure、fixed-point 與介面不變量編譯成可審查契約。"
+        experiment = "以公開 toy datapath 建立一頁 design intent、cycle table、assertion candidates 與交接 manifest，再由另一個 agent 只靠 bundle 重現。"
+        evidence = ["owner-approved design intent", "cycle-by-cycle trace", "interface/reset invariants", "handoff readback"]
+    else:
+        role = "procedure-review-candidate"
+        fit_reason = "目前只能作 procedure 來源，尚未顯示足夠的 WiFi ASIC RTL 直接適配性。"
+        experiment = "只在公開 toy design 做人工 source review，不安裝、不寫入 RTL、不連公司工具。"
+        evidence = ["pinned source commit", "license", "review notes", "explicit non-adoption decision"]
+    return {
+        "automation_role": role,
+        "personalized_fit": fit_reason,
+        "first_experiment": experiment,
+        "required_evidence": evidence,
+        "promotion_gate": (
+            "owner 核准後，先通過公開 toy design canary，再以核准的 deterministic bundle 進 NX；"
+            "只有真實 VCS／Verdi／DC／PrimeTime 或 formal evidence 能提升對應 claim。"
+        ),
+        "kill_criteria": [
+            "要求自動修改產品 RTL 或繞過 owner approval",
+            "把 parser/lint/open-source PASS 宣稱成產品功能、PPA 或 signoff PASS",
+            "無法 pin source/license，或需要外傳內部訊號、license、PDK、SDC 與報告內容",
+        ],
+        "portfolio_state": recommendation,
+    }
+
+
+def _finance_owner_dossier(capabilities: list[str], recommendation: str) -> dict:
+    primary = capabilities[0] if capabilities else "research-source"
+    specs = {
+        "accounting-control": (
+            "research-data-control", "先把對帳、現金流與報表一致性變成資料品質 gate。",
+            "用公開財報與手工算例核對 period、currency、公式與例外，不接任何帳戶。",
+        ),
+        "thesis-research": (
+            "thesis-and-disconfirmation", "最適合建立論點、反證、待查問題與來源鏈，降低只蒐集支持材料的偏誤。",
+            "選一家公司公開 filing，讓第二位讀者只靠來源 ledger 重建正反論點。",
+        ),
+        "fundamental-valuation": (
+            "reproducible-valuation", "可把財報正規化、估值假設與敏感度分開，讓結論可重算。",
+            "以公開財報建立 baseline/bull/bear 三組假設，逐格保留來源、單位與公式。",
+        ),
+        "market-macro-data": (
+            "market-data-provenance", "可補強價格與總經資料的 timestamp、revision、corporate action 與缺值 readback。",
+            "以公開指數資料測試重抓、調整前後價格與缺值處理，禁止輸出交易訊號。",
+        ),
+        "forensic-risk": (
+            "risk-and-counterevidence", "適合把異常訊號轉成待查證問題，而不是直接定性或下交易結論。",
+            "用已公開的歷史案例檢查規則是否能分開 red flag、證據與仍未知事項。",
+        ),
+        "backtest-research": (
+            "hypothesis-falsification", "只能用來反駁研究假說，不能把漂亮回測當成獲利證明。",
+            "以固定公開資料重跑含成本與樣本外切分的 baseline，列出 leakage 與 survivorship 檢查。",
+        ),
+    }
+    role, fit_reason, experiment = specs.get(primary, (
+        "research-source", "目前只適合作為研究來源候選，尚未完成可採用性審查。",
+        "pin commit 與 license，完成無工具執行的逐檔 source review。",
+    ))
+    return {
+        "research_role": role,
+        "personalized_fit": fit_reason,
+        "first_experiment": experiment,
+        "required_evidence": ["一手來源與時間戳", "公式/轉換 readback", "反方證據", "可由第二位讀者重算"],
+        "promotion_gate": "source/security review → 無 credential 離線 canary → owner review；永不自動下單。",
+        "kill_criteria": ["要求券商、錢包、API key、私鑰或 seed phrase", "直接輸出買賣指令", "以回測、stars 或模型分數承諾獲利"],
+        "portfolio_state": recommendation,
+    }
+
+
 def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
     catalog = {(r.get("repo"), r.get("path")): r for r in catalog_doc.get("candidates", [])}
     items = []
@@ -202,7 +301,11 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
             "owner_fit": owner_fit,
             "recommendation": recommendation,
             "recommendation_zh": STATUS_ZH[recommendation],
-            "score": grade_score.get(grade, 0) + (3 if review.get("commit_verified") else 0),
+            "score": (
+                grade_score.get(grade, 0)
+                + (5 if owner_fit == "direct" else 0)
+                + (3 if review.get("commit_verified") else 0)
+            ),
             "summary": decision_text,
             "use_in_next_rtl_design": _eda_use(review.get("fit", [])),
             "capabilities": review.get("fit", []),
@@ -221,6 +324,7 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
                 "parser、lint 或 open-source tool PASS 不等於產品 RTL 正確或 signoff",
             ],
         }
+        item["owner_dossier"] = _eda_owner_dossier(item["capabilities"], recommendation)
         items.append(item)
     items.sort(key=lambda x: (-x["score"], x["repo"], x["path"]))
     recommendations = [x for x in items if x["recommendation"] != "exclude"][:8]
@@ -233,9 +337,11 @@ def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
         "summary": (
             f"已審 {len(items)} 個來源；{counts.get('pilot', 0)} 個可沙盒試行、"
             f"{counts.get('watch', 0)} 個待補證據、{counts.get('exclude', 0)} 個排除。"
+            f"本頁列出前 {len(recommendations)} 個非排除候選；完整 {len(items)} 個 dossier 見 EDA 專區。"
         ),
         "recommendations": recommendations,
         "excluded": excluded,
+        "all_reviewed": items,
         "adoption_gate": "先抽取 procedure → owner 核准 → toy design canary → internal golden-flow proof → 才能採用。",
     }
 
@@ -304,7 +410,7 @@ def classify_finance_candidate(row: dict, freshness: dict) -> dict | None:
         recommendation = "watch"
 
     source_commit = row.get("source_commit") or "UNKNOWN"
-    return {
+    item = {
         "name": row.get("name") or Path(row.get("path", "SKILL.md")).parent.name or "skill",
         "repo": row.get("repo"),
         "path": row.get("path"),
@@ -341,15 +447,51 @@ def classify_finance_candidate(row: dict, freshness: dict) -> dict | None:
         ],
         "_primary": primary,
     }
+    item["owner_dossier"] = _finance_owner_dossier(capabilities, recommendation)
+    return item
 
 
-def build_finance(rows: list[dict], freshness: dict) -> dict:
+def apply_finance_review(item: dict, review: dict, reviewed_at: str | None) -> dict:
+    """Apply a pinned, human-readable source review without executing the skill."""
+    grade = review.get("grade", "D")
+    decision = review.get("recommendation") or {
+        "A": "pilot", "B": "watch", "C": "watch", "D": "exclude",
+    }.get(grade, "exclude")
+    item["recommendation"] = decision
+    item["recommendation_zh"] = STATUS_ZH[decision]
+    item["source_commit"] = review.get("commit") or item.get("source_commit") or "UNKNOWN"
+    item["source_url"] = github_url(item.get("repo", ""), item.get("path", ""), item["source_commit"])
+    item["license"] = review.get("license") or item.get("license") or "UNKNOWN"
+    item["summary"] = review.get("decision") or item.get("summary")
+    item["dependencies"] = review.get("dependencies", [])
+    item["risks"] = list(dict.fromkeys(review.get("risk", []) + item.get("risks", [])))
+    item["source_review"] = {
+        "status": "REVIEWED",
+        "grade": grade,
+        "reviewed_at": reviewed_at,
+        "commit_verified": bool(review.get("commit_verified")),
+        "runtime_proof": "NOT_RUN",
+        "review_scope": "static source review only; third-party instructions were not executed",
+    }
+    item["owner_dossier"] = _finance_owner_dossier(item.get("capabilities", []), decision)
+    return item
+
+
+def build_finance(rows: list[dict], freshness: dict, reviews_doc: dict | None = None) -> dict:
+    reviews_doc = reviews_doc or {}
+    reviews = {
+        (review.get("repo"), review.get("path")): review
+        for review in reviews_doc.get("reviews", [])
+    }
     candidates = []
     seen = set()
     for row in rows:
         item = classify_finance_candidate(row, freshness)
         if not item:
             continue
+        review = reviews.get((item.get("repo"), item.get("path")))
+        if review:
+            item = apply_finance_review(item, review, reviews_doc.get("reviewed_at"))
         key = (item["repo"], item["path"])
         if key in seen:
             continue
@@ -357,8 +499,13 @@ def build_finance(rows: list[dict], freshness: dict) -> dict:
         candidates.append(item)
     candidates.sort(key=lambda x: (-x["score"], x["repo"] or "", x["path"] or ""))
 
+    reviewed_candidates = [
+        item for item in candidates
+        if item.get("source_review", {}).get("status") == "REVIEWED"
+    ]
+    selection_pool = reviewed_candidates or candidates
     selected, repo_seen, capability_counts = [], set(), Counter()
-    for item in candidates:
+    for item in selection_pool:
         if item["recommendation"] == "exclude" or item["repo"] in repo_seen:
             continue
         primary = item["_primary"]
@@ -369,8 +516,13 @@ def build_finance(rows: list[dict], freshness: dict) -> dict:
         capability_counts[primary] += 1
         if len(selected) == 8:
             break
-    excluded = [x for x in candidates if x["recommendation"] == "exclude"][:6]
-    for item in selected + excluded:
+    excluded = [x for x in selection_pool if x["recommendation"] == "exclude"][:6]
+    review_queue = [
+        x for x in candidates
+        if x.get("source_review", {}).get("status") != "REVIEWED"
+        and x["recommendation"] != "exclude"
+    ][:8]
+    for item in selected + excluded + review_queue:
         item.pop("_primary", None)
     counts = Counter(x["recommendation"] for x in selected)
     return {
@@ -379,10 +531,12 @@ def build_finance(rows: list[dict], freshness: dict) -> dict:
         "excluded_scope": "自動下單、實盤交易、券商／錢包／私鑰／credential 操作，以及無證據的獲利承諾。",
         "summary": (
             f"今日選出 {len(selected)} 個研究候選：{counts.get('pilot', 0)} 個沙盒試行、"
-            f"{counts.get('watch', 0)} 個觀察；全部仍待逐檔 source review。"
+            f"{counts.get('watch', 0)} 個觀察；"
+            f"{sum(x.get('source_review', {}).get('status') == 'REVIEWED' for x in selected)} 個已完成 pinned source review。"
         ),
         "recommendations": selected,
         "excluded": excluded,
+        "review_queue": review_queue,
         "adoption_gate": "先 pin commit 與 license → source/security review → 無 credential 的離線資料 canary → owner 核准。",
     }
 
@@ -494,23 +648,39 @@ main{{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}}a{{color:var(--ac
 
 
 def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: dict,
-                 master_path: Path, report_date: str) -> dict:
+                 master_path: Path, report_date: str, finance_reviews: dict | None = None) -> dict:
     freshness = snapshot_freshness(rows, model_report, master_path)
     categories = {
         "EDA_IC": build_eda(reviews, catalog, freshness),
-        "finance-investing": build_finance(rows, freshness),
+        "finance-investing": build_finance(rows, freshness, finance_reviews),
     }
+    displayed = []
+    for category in categories.values():
+        displayed.extend(category.get("recommendations", []))
+        displayed.extend(category.get("excluded", []))
+    source_review_ready = bool(displayed) and all(
+        item.get("source_review", {}).get("status") == "REVIEWED"
+        and item.get("source_commit") not in {None, "", "UNKNOWN"}
+        for item in displayed
+    )
+    if freshness["status"] != "CURRENT":
+        status = "PREVIEW_STALE_CORPUS"
+    elif not source_review_ready:
+        status = "PARTIAL_SOURCE_REVIEW"
+    else:
+        status = "READY_FOR_OWNER_REVIEW"
     return {
         "schema_version": 1,
         "report_date": report_date,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "status": "READY_FOR_OWNER_REVIEW" if freshness["status"] == "CURRENT" else "PREVIEW_STALE_CORPUS",
+        "status": status,
         "corpus_freshness": freshness,
         "policy": {
             "states": STATUS_ZH,
             "adopt_requires": "owner approval plus domain runtime proof",
             "finance_boundary": "research only; no trade execution, brokerage/wallet access or credentials",
             "population_trend_claims": "forbidden in this recommendation artifact",
+            "source_review_ready": source_review_ready,
         },
         "categories": categories,
     }
@@ -529,7 +699,7 @@ def main(argv=None) -> int:
     rows = read_rows(args.master)
     report = build_report(
         rows, read_json(MODEL_REPORT, {}), read_json(ASIC_CATALOG, {}),
-        read_json(ASIC_REVIEWS, {}), args.master, args.date,
+        read_json(ASIC_REVIEWS, {}), args.master, args.date, read_json(FINANCE_REVIEWS, {}),
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

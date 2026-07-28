@@ -1,0 +1,257 @@
+{
+ "schema_version": 1,
+ "reviewed_at": "2026-07-28",
+ "method": "GitHub API metadata plus full pinned SKILL text review; third-party text treated as untrusted; nothing executed",
+ "grade_contract": {
+  "A": "research-only pilot candidate",
+  "B": "useful but blocked pending named remediation",
+  "C": "extract procedure only; do not install bundle",
+  "D": "exclude from owner research stack"
+ },
+ "reviews": [
+  {
+   "repo": "anthropics/knowledge-work-plugins",
+   "path": "finance/skills/reconciliation/SKILL.md",
+   "commit": "2d6f7e22dd25593f0f748010430ef86f19659735",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "5f212646c3827aa0d2b88137ade6829cb520ec03",
+   "license": "Apache-2.0",
+   "grade": "A",
+   "fit": ["accounting-control", "data-quality-gate", "fundamental-input-validation"],
+   "dependencies": [],
+   "evidence": [
+    "explicit no-financial-advice and qualified-professional review boundary",
+    "documentation, segregation, root-cause and retention controls",
+    "numeric thresholds are explicitly illustrative"
+   ],
+   "risk": [
+    "illustrative materiality thresholds must never become defaults",
+    "public-company research use transfers the reconciliation method, not the stated accounting purpose"
+   ],
+   "decision": "Pin and adapt its reconciliation manifest/checklist to public filings; offline fixtures only; retain human review.",
+   "recommendation": "pilot",
+   "source_urls_read": [
+    "https://github.com/anthropics/knowledge-work-plugins/blob/2d6f7e22dd25593f0f748010430ef86f19659735/finance/skills/reconciliation/SKILL.md"
+   ]
+  },
+  {
+   "repo": "muxuuu/serenity-skill",
+   "path": "SKILL.md",
+   "commit": "d23e6e4b5125daaf1b4d56ddf15b56faa96e497d",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "a139f330ed3297ef8ab0750ed4aba7fd7e1217e8",
+   "license": "MIT",
+   "grade": "A",
+   "fit": ["thesis-research", "semiconductor-supply-chain", "evidence-grading", "falsification"],
+   "dependencies": [
+    "live web/search/filing/market-data/browser tools for current claims",
+    "bundled evidence-ladder and risk-and-compliance references",
+    "other bundled source/playbook/style resources named by SKILL"
+   ],
+   "evidence": [
+    "public-material methodology and user-controlled decisions",
+    "primary-source preference and explicit evidence grading",
+    "forbids guaranteed returns, direct buy/sell, rumors, MNPI and invented facts",
+    "weak sources are leads only and cannot support top rank alone"
+   ],
+   "risk": [
+    "large current scans can be costly and tool-dependent",
+    "candidate ranking can become de-facto advice unless enforced as research priority only",
+    "only the two critical boundary references received full content review"
+   ],
+   "decision": "Best personalized finance pilot for public semiconductor/WiFi/EDA value-chain research; allow read-only public sources, require citations/falsifiers, forbid positions/orders/credentials.",
+   "recommendation": "pilot",
+   "source_urls_read": [
+    "https://github.com/muxuuu/serenity-skill/blob/d23e6e4b5125daaf1b4d56ddf15b56faa96e497d/SKILL.md",
+    "https://github.com/muxuuu/serenity-skill/blob/d23e6e4b5125daaf1b4d56ddf15b56faa96e497d/references/evidence-ladder.md",
+    "https://github.com/muxuuu/serenity-skill/blob/d23e6e4b5125daaf1b4d56ddf15b56faa96e497d/references/risk-and-compliance.md"
+   ]
+  },
+  {
+   "repo": "evolution-foundation/evo-nexus",
+   "path": ".claude/skills/fin-financial-statements/SKILL.md",
+   "commit": "f805ed7601e3cf75f4dbf422db237c374281724a",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "18c398f1a8d52f99e3d64ba57e198ef118907c81",
+   "license": "NOASSERTION",
+   "grade": "B",
+   "fit": ["financial-statement-normalization", "variance-analysis", "fundamental-input-preparation"],
+   "dependencies": [
+    "optional ERP/data-warehouse connector",
+    "user-provided spreadsheet/trial-balance fallback",
+    "referenced ../../CONNECTORS.md is missing at pinned commit"
+   ],
+   "evidence": [
+    "no-financial-advice and qualified-professional review boundary",
+    "connector or user-data collection boundary",
+    "variance calculations, thresholds and outputs"
+   ],
+   "risk": [
+    "repository license unresolved",
+    "broken CONNECTORS.md reference",
+    "connected enterprise data is outside the public research-only boundary",
+    "generated statements must not be treated as issuer-reported truth"
+   ],
+   "decision": "Watch until license and broken reference resolve; if used, copy only the public-filing normalization/variance checklist into an isolated adapter.",
+   "recommendation": "watch",
+   "source_urls_read": [
+    "https://github.com/evolution-foundation/evo-nexus/blob/f805ed7601e3cf75f4dbf422db237c374281724a/.claude/skills/fin-financial-statements/SKILL.md"
+   ],
+   "missing_reference": "https://github.com/evolution-foundation/evo-nexus/blob/f805ed7601e3cf75f4dbf422db237c374281724a/.claude/CONNECTORS.md"
+  },
+  {
+   "repo": "kyegomez/swarms",
+   "path": "examples/single_agent/capabilities/skills/financial-analysis/SKILL.md",
+   "commit": "2e41657e1d7a2362e3d23b43f7ca20d5788aa71f",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "0a2352b67dc872d166a045c055f8ea3f310780be",
+   "license": "Apache-2.0",
+   "grade": "C",
+   "fit": ["fundamental-valuation", "sensitivity-analysis", "ratio-checklist"],
+   "dependencies": [],
+   "evidence": [
+    "data verification, DCF/comparables and sensitivity checklist",
+    "output includes investment recommendation",
+    "no explicit no-trade, citation or freshness contract in the full file"
+   ],
+   "risk": [
+    "generic checklist can produce unsupported precision",
+    "investment-recommendation output crosses the research-only boundary",
+    "no source hierarchy, as-of dates, accounting normalization or reproducibility gate"
+   ],
+   "decision": "Do not install; extract only a valuation/sensitivity checklist behind provenance and citation gates.",
+   "recommendation": "watch",
+   "source_urls_read": [
+    "https://github.com/kyegomez/swarms/blob/2e41657e1d7a2362e3d23b43f7ca20d5788aa71f/examples/single_agent/capabilities/skills/financial-analysis/SKILL.md"
+   ]
+  },
+  {
+   "repo": "FerroxLabs/wayland",
+   "path": "src/process/resources/bundled-workflows/bodies/wayland-cashflow-batch-review/SKILL.md",
+   "commit": "2b3b60e11edd7331f96aa2b08dc83342ff2c9e5d",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "7397a61c8663735356233d01cab28350b08a5035",
+   "license": "AGPL-3.0",
+   "grade": "C",
+   "fit": ["accounting-control", "cashflow-reconciliation", "deterministic-input-gate"],
+   "dependencies": [
+    "finance-cashflow child skill",
+    "named finance-forecast dependency unresolved at pinned tree",
+    "optional Stripe/ledger/database/Google Sheets connectors",
+    "bank CSV input"
+   ],
+   "evidence": [
+    "deterministic bank-CSV parse and halt-on-empty",
+    "connected external-source paths",
+    "finance-forecast variance dependency",
+    "red/yellow/green output"
+   ],
+   "risk": [
+    "sensitive bank/accounting data",
+    "external connector/credential surface",
+    "unresolved child dependency",
+    "AGPL obligations and low fit to public investment research"
+   ],
+   "decision": "Do not install the workflow; at most extract halt-on-empty and reconciliation invariants for public-data fixtures.",
+   "recommendation": "watch",
+   "source_urls_read": [
+    "https://github.com/FerroxLabs/wayland/blob/2b3b60e11edd7331f96aa2b08dc83342ff2c9e5d/src/process/resources/bundled-workflows/bodies/wayland-cashflow-batch-review/SKILL.md",
+    "https://github.com/FerroxLabs/wayland/blob/2b3b60e11edd7331f96aa2b08dc83342ff2c9e5d/resources/bundled-extensions/business-finance/skills/finance-cashflow/SKILL.md"
+   ]
+  },
+  {
+   "repo": "BruceLanLan/augur",
+   "path": "src/skills/augur-serenity/SKILL.md",
+   "commit": "8f9f3eb672c8cd48058f74fee854fd6a62333449",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "96caa825e4e198950d4657f0e10854732147570d",
+   "license": "MIT",
+   "grade": "D",
+   "fit": ["semiconductor-supply-chain-theme"],
+   "dependencies": ["augur-mcp", "yfinance", "StockTwits/news via MCP", "workspace/config mutation tools"],
+   "evidence": [
+    "unverified performance claims",
+    "trading horizon, conviction bet and exit instructions",
+    "options/position sizing and bullish/bearish thresholds",
+    "MCP consensus/Kelly position/config/workspace mutations"
+   ],
+   "risk": [
+    "direct trading and position-sizing guidance",
+    "unverified profit claims",
+    "external MCP runtime and mutable configuration",
+    "social-sentiment and model-consensus signals can be mistaken for evidence"
+   ],
+   "decision": "Exclude whole skill. Independently restate only supply-chain mapping and red-team questions without its persona, signals, performance, options or position logic.",
+   "recommendation": "exclude",
+   "source_urls_read": [
+    "https://github.com/BruceLanLan/augur/blob/8f9f3eb672c8cd48058f74fee854fd6a62333449/src/skills/augur-serenity/SKILL.md"
+   ]
+  },
+  {
+   "repo": "HKUDS/Vibe-Trading",
+   "path": "agent/SKILL.md",
+   "commit": "836caa7cc483ac2dfed39499033ccd0c56b2a88f",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "2941fc1f54332fd6c95396c94234b0ae9fc0701d",
+   "license": "MIT",
+   "grade": "D",
+   "fit": ["backtest-research", "market-data", "factor-analysis"],
+   "dependencies": [
+    "pip package vibe-trading-ai and local MCP/FastAPI",
+    "optional market-data and model API keys",
+    "optional broker logins and OAuth",
+    "external MCP servers and local config"
+   ],
+   "evidence": [
+    "install, MCP and API-key surface",
+    "broker CSV, shadow signals and optional broker/data credentials",
+    "reads account, positions and orders through connector OAuth",
+    "external MCP wildcard tools and operator-enabled subprocess injection"
+   ],
+   "risk": [
+    "credential and brokerage-account surface prohibited by owner boundary",
+    "large dependency and external-MCP attack surface",
+    "trade-journal/position privacy",
+    "backtest leakage, overfit, cost and survivorship risks"
+   ],
+   "decision": "Exclude the full skill/package. A future review may separately assess an offline local-CSV backtest component with network and credentials disabled.",
+   "recommendation": "exclude",
+   "source_urls_read": [
+    "https://github.com/HKUDS/Vibe-Trading/blob/836caa7cc483ac2dfed39499033ccd0c56b2a88f/agent/SKILL.md"
+   ]
+  },
+  {
+   "repo": "xuboyuebobb/investorskills",
+   "path": "skills/fengliu-reverse-weakhand/SKILL.md",
+   "commit": "24e9110d495de1547d28a4b0049786dc403dbc4a",
+   "commit_verified": true,
+   "file_exists": true,
+   "file_sha": "f041ff0c266cd319fb2e94c251c754e14cc13d50",
+   "license": "MIT",
+   "grade": "D",
+   "fit": ["contrarian-thesis", "invalidation-check"],
+   "dependencies": [],
+   "evidence": [
+    "instructs position sizing and adding as evidence improves",
+    "outputs Asymmetric Long verdict and Action Plan",
+    "separates facts/assumptions and says not financial advice"
+   ],
+   "risk": [
+    "position-sizing and directional verdict violate the research-only boundary despite disclaimer",
+    "no source hierarchy, current-data contract or reproducible calculations"
+   ],
+   "decision": "Exclude as a callable skill; independently reuse only consensus-challenge and invalidation questions.",
+   "recommendation": "exclude",
+   "source_urls_read": [
+    "https://github.com/xuboyuebobb/investorskills/blob/24e9110d495de1547d28a4b0049786dc403dbc4a/skills/fengliu-reverse-weakhand/SKILL.md"
+   ]
+  }
+ ]
+}
