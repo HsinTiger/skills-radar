@@ -8,14 +8,19 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-28](daily/2026-07-28.md)
+## 最新一期：[2026-07-29](daily/2026-07-29.md)
 
-**今日一句話**：生態快速轉向「特權隔離（Privilege Separation）」與「Harness 工程治理」，今日官方 GitHub 資料因擷取工具異常無事實更新。
+**今日一句話**：官方數據因資料收集階段未安裝 `gh` CLI 而無變更紀錄；社群與學術界高度集中於「Agent 上下文污染隔離（Taint Confinement）」與「Claude Code 本地 Session 記憶 / 隱私防護工具」。
 
 **短期建議（一週內）**
 
-1. **建立 Substack / 市場監控 Pipeline 的「讀寫特權分離」**：將網路爬蟲與外部資料抓取模組限縮在無本機檔案寫入與 Shell 執行權限的純解析環境，嚴禁將未過濾的網頁原文直接丟給帶有高執行權限的本機 CLI（Claude Code / agy）。
-2. **導入 Token 佔用率診斷（Context Profiling）工具驗證**：針對既有 IC 知識庫 pipeline，檢查是否有重複載入厚重 prompt 的情況，清理不必要的 context 消耗。
+1. **Pipeline 前置防護關卡建置**：檢視 Substack、IC/WiFi 知識庫發布流程。在外呼 Claude Code 或大模型前，導入本機端語法/Regex 檢查層（參考 `Hamza` 思維），確保內網暫存檔、API key 與未公開 baseband spec 在 request 送出前強制遮蔽。
+2. **評估 Sessiongrep 本地記憶機制**：
+   - **目標**：解決多條 Pipeline 與 CLI 輪替作業時的 context 檢索斷層。
+   - **驗證步驟**：
+     1. `git clone https://github.com/braincompany/sessiongrep` 至本地 scratch 目錄。
+     2. 檢查原始碼是否包含任何外連 HTTP 請求或遙測（telemetry）程式碼。
+     3. 確認資料僅寫入本地 SQLite/Vector DB 後，先以測試 Session 驗證讀寫效能與穩定度。
 
 ## 生態指標
 
@@ -40,6 +45,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-07-29](daily/2026-07-29.md)
 - [2026-07-28](daily/2026-07-28.md)
 - [2026-07-27](daily/2026-07-27.md)
 - [2026-07-26](daily/2026-07-26.md)

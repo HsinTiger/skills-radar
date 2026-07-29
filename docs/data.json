@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-28 00:34 UTC",
+ "generated": "2026-07-29 00:34 UTC",
  "n_total": 24944,
  "global_production_pct": 48.4,
  "global_task_pct": {
@@ -1807,15 +1807,15 @@
  },
  "summary": {
   "insight": {
-   "date": "2026-07-28",
-   "headline": "Agent 落地已裂解為兩極：具備明確規範與死板標準的「高壓稽核領域」上線率突破 60%，而仰賴多步驟與開放互動的「業務與硬體設計領域」則高達 75% 滯留在做一半的泥淖中。",
-   "short": "1. **重構個人 CLI Pipeline：從「生成 (Generate)」全面改為「稽核 (Verify)」**：\n   推論：數據顯示 Verify 在數據分析（ratio 0.11）、運維（ratio 0.14）、發文內容（ratio 0.17）均呈現嚴重結構性缺口。應立即在個人的電子報發文與知識庫 Pipeline 中，加入自動化 Format 檢測與 Fact-checking 的門檻模組。\n2. **開發晶片設計 / EDA 腳本的「語法與規則稽核工具 (Verify/Configure)」**：\n   推論：`hardware-eda` 累積了 748 個 Workflow 但上線率僅 24.4%，代表需求極大卻缺乏最後一哩路。利用 agy / ccr 建立專門針對 TCL/Verilog 腳本規範的 static-analysis skill，能立刻提高自動化腳本的可用性。",
-   "mid": "1. **賭「專業領域 Agent 稽核層（Audit Layer）」將大於「通用 Agent 工具」**：\n   - **賭的立場**：未來一季，市場資源會從「開發通用 Agent 框架」轉向「針對特定領域寫死 Verify / Check 模組」。\n   - **反證 / 證明我錯的訊號**：若 `ai-agent-tooling` 的 production_pct（目前 62.6%）繼續上升突破 75%，且其他專業領域的 completion_ratio（如 EDA 目前 0.25）未見提升，代表通用 Agent 依然吸乾所有資源，專業稽核層需求尚未爆發。\n2. **賭「硬體 EDA 自動化將出現專屬 Middle-layer 介面」**：\n   - **賭的立場**：`hardware-eda` 75% 做一半的原因是缺乏連接 EDA API 的標準化抽象層，一季內開源社群將出現專門對接 EDA 邏輯的適配器。\n   - **反證 / 證明我錯的訊號**：若 `hardware-eda` 的總樣本數（目前 n=996）在下一季顯著下滑，或 production_pct 降至 20% 以下，代表工程師放棄用 LLM 做 EDA 自動化，退回傳統手寫腳本。"
+   "date": "2026-07-29",
+   "headline": "Agent 的 Production 戰場已全面轉向「規範極度明確、容錯率低、以 Verify/Configure 為主的硬核領域」（如法務與資安），而看似熱門的開放式創作與行銷領域則多數停留在玩具原型階段。",
+   "short": "1. **強化個人自動化 Pipeline 的「二度驗證（Verify）」機制**\n   - **行動**：基於數據（Data Analytics 的 Verify 缺口 ratio 為 0.11），在現有技術 KB 與市場監控 Pipeline 中，加入二元斷言（Assertions）與自動對帳邏輯。在 AI 輸出資料後，強制執行結構與數值合理性檢查，避免無感吸收幻覺資訊。\n2. **切入 Hardware-EDA 的「高集中度痛點」CLI 工具開發**\n   - **行動**：`hardware-eda` 的痛點多樣性極低（B4 Pain Diversity 僅 0.07，996 個樣本只有 69 種痛點），代表痛點極度收斂。應立即將手邊常用的 Register Map 轉代碼、C/C++ 轉 RTL 腳本打包成符合 Agent 呼叫規範的 CLI 工具，供團隊內部呼叫。\n3. **全面避開 Sales-CRM 與 Personal Productivity 的產品開發**\n   - **行動**：這兩個領域完成率低（0.20 與 0.26），且 Pain Diversity 高（0.38 與 0.36），需求過於碎片化且無統一邊界，極難打造標準化產品。",
+   "mid": "1. **賭「靜態規範與封閉法規稽核」將全面工具化並吃掉垂直市場**\n   - **立場與推論**：推論：未來一季內，法務（Production 68.4%）與資安（63.2%）的成功模式將複製到硬體 EDA 與 BIM 等領域。能夠提供「靜態規範自動檢查」的 Agent 模組將成為 B2B 標配。\n   - **證明我錯的訊號**：若三個月後 `hardware-eda` 的 Production 上線率仍卡在 24.4% 甚至下滑，且 Verify 類任務 ratio 未見顯著提升（目前 transform 比率僅 0.23）。\n2. **賭 AI Agent 的價值重心在「給 Agent 用的基礎設施」，而非 B2C 應用**\n   - **立場與推論**：`ai-agent-tooling` 中「給 Agent 用的比例」高達 60.5%（Production 62.6%），說明目前的真金白銀都在 Agent 彼此呼叫的工具鏈（如 MCP、CLI 工具）。中期內，B2B/DevTool 的變現能力將遠高於面向終端消費者的應用。\n   - **證明我錯的訊號**：若 `sales-crm` 或 `writing-content` 的 Production 上線率在下一季突破 50%（目前分別為 19.2% 與 30.3%）。"
   },
   "ecosystem": {
-   "date": "2026-07-28",
-   "headline": "生態快速轉向「特權隔離（Privilege Separation）」與「Harness 工程治理」，今日官方 GitHub 資料因擷取工具異常無事實更新。",
-   "official": "今日官方無變動（資料擷取階段 `gh` CLI 工具丟失，無法讀取 `anthropics/*` 倉庫之即時 Commit 與 Release 變動）。"
+   "date": "2026-07-29",
+   "headline": "官方數據因資料收集階段未安裝 `gh` CLI 而無變更紀錄；社群與學術界高度集中於「Agent 上下文污染隔離（Taint Confinement）」與「Claude Code 本地 Session 記憶 / 隱私防護工具」。",
+   "official": "今日官方無變動。（資料收集階段執行環境缺少 `gh` 工具，無法連線 GitHub API 讀取 `anthropics/*` 最新狀態。）"
   }
  },
  "schedule": {
@@ -3093,8 +3093,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "software-dev",
-    "devops-infra"
+    "devops-infra",
+    "software-dev"
    ],
    "pains": [
     "撰寫端到端測試缺乏統一規範與架構",
@@ -3294,8 +3294,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "software-dev",
-    "other"
+    "other",
+    "software-dev"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
