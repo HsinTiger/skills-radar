@@ -1,0 +1,91 @@
+{
+ "schema_version": 1,
+ "reviewed_at": "2026-07-29",
+ "status": "WATCHLIST_PROPOSED",
+ "purpose": "Track first-hand AI, agent, systems, hardware and digital-design methodology without confusing social reach with technical proof.",
+ "source_status": {
+  "x": {
+   "status": "AUTH_REQUIRED_IN_CODEX_BROWSER",
+   "observed_at": "2026-07-29",
+   "boundary": "Read-only after owner login; no follow, like, repost, reply, cookie export or private-session scraping."
+  },
+  "reddit": {
+   "status": "PARTIAL_PUBLIC_RSS",
+   "observed_at": "2026-07-29",
+   "boundary": "No account required. r/MachineLearning RSS returned HTTP 200; other feeds may rate-limit and must fail closed. Reddit is discovery-only and claims must be traced upstream."
+  },
+  "github": {
+   "status": "AVAILABLE",
+   "observed_at": "2026-07-29",
+   "boundary": "Repository, release, issue and commit metadata plus pinned source review; popularity does not prove correctness or deployment."
+  },
+  "blogs": {
+   "status": "PUBLIC_PRIMARY_OR_FIRST_HAND",
+   "observed_at": "2026-07-29",
+   "boundary": "Prefer author or organization originals and preserve published/updated dates."
+  }
+ },
+ "tracks": [
+  {
+   "id": "frontier-model-teams",
+   "title": "前沿模型開發團隊",
+   "question": "模型能力、training/inference、tool use、eval 與產品界面正在往哪裡移動？"
+  },
+  {
+   "id": "agent-builders",
+   "title": "Agent／AI Engineering 實作者",
+   "question": "哪些 harness、context、evaluation、coding-agent 方法已從 demo 走向可恢復系統？"
+  },
+  {
+   "id": "silicon-valley-systems",
+   "title": "矽谷 systems 與技術領袖",
+   "question": "長周期的 systems、產品與組織判斷，哪些會改變 AI 工程方法？"
+  },
+  {
+   "id": "ai-hardware-eda",
+   "title": "AI Hardware／EDA／Digital Design",
+   "question": "模型、算力、記憶體、晶片設計與驗證工具之間出現哪些可實作交叉點？"
+  }
+ ],
+ "experts": [
+  {"name": "OpenAI", "track": "frontier-model-teams", "x": "OpenAI", "primary": "https://openai.com/news/", "why": "models, agents, evals and developer platform", "authority": "P0_OFFICIAL"},
+  {"name": "Anthropic", "track": "frontier-model-teams", "x": "AnthropicAI", "primary": "https://www.anthropic.com/engineering", "why": "agent engineering, evaluations and model behavior", "authority": "P0_OFFICIAL"},
+  {"name": "Google DeepMind", "track": "frontier-model-teams", "x": "GoogleDeepMind", "primary": "https://deepmind.google/discover/blog/", "why": "frontier research, agents and scientific systems", "authority": "P0_OFFICIAL"},
+  {"name": "xAI", "track": "frontier-model-teams", "x": "xai", "primary": "https://x.ai/news", "why": "frontier models and large-scale training/inference", "authority": "P0_OFFICIAL"},
+  {"name": "Meta AI", "track": "frontier-model-teams", "x": "AIatMeta", "primary": "https://ai.meta.com/blog/", "why": "open models, research and infrastructure", "authority": "P0_OFFICIAL"},
+  {"name": "Mistral AI", "track": "frontier-model-teams", "x": "MistralAI", "primary": "https://mistral.ai/news", "why": "open and efficient model systems", "authority": "P0_OFFICIAL"},
+  {"name": "Hugging Face", "track": "frontier-model-teams", "x": "huggingface", "primary": "https://huggingface.co/blog", "why": "open-model tooling, datasets and on-prem techniques", "authority": "P0_OFFICIAL"},
+  {"name": "DeepSeek", "track": "frontier-model-teams", "x": null, "primary": "https://github.com/deepseek-ai", "why": "open model and inference implementation", "authority": "P0_OFFICIAL_GITHUB"},
+  {"name": "Qwen", "track": "frontier-model-teams", "x": null, "primary": "https://github.com/QwenLM", "why": "open model, multimodal and agent ecosystem", "authority": "P0_OFFICIAL_GITHUB"},
+  {"name": "Andrej Karpathy", "track": "agent-builders", "x": "karpathy", "primary": "https://github.com/karpathy", "why": "LLM education, coding agents and implementation-first explanations", "authority": "P1_FIRST_HAND"},
+  {"name": "Simon Willison", "track": "agent-builders", "x": "simonw", "primary": "https://simonwillison.net/", "why": "rapid first-hand model/tool experiments and security observations", "authority": "P1_FIRST_HAND"},
+  {"name": "Hamel Husain", "track": "agent-builders", "x": "HamelHusain", "primary": "https://hamel.dev/", "why": "evaluation-driven AI engineering and coding-agent practice", "authority": "P1_FIRST_HAND"},
+  {"name": "Chip Huyen", "track": "agent-builders", "x": "chipro", "primary": "https://huyenchip.com/", "why": "production AI systems and agent design", "authority": "P1_FIRST_HAND"},
+  {"name": "swyx", "track": "agent-builders", "x": "swyx", "primary": "https://www.latent.space/", "why": "AI engineering ecosystem and practitioner interviews", "authority": "P1_FIRST_HAND"},
+  {"name": "Noam Brown", "track": "agent-builders", "x": "polynoamial", "primary": "https://noambrown.github.io/", "why": "reasoning, search and learning systems", "authority": "P1_FIRST_HAND"},
+  {"name": "Jim Fan", "track": "agent-builders", "x": "DrJimFan", "primary": "https://research.nvidia.com/person/jim-fan", "why": "embodied agents and foundation-model research", "authority": "P1_FIRST_HAND"},
+  {"name": "Demis Hassabis", "track": "silicon-valley-systems", "x": "demishassabis", "primary": "https://deepmind.google/discover/blog/", "why": "frontier research direction and scientific AI", "authority": "P1_FIRST_HAND"},
+  {"name": "Yann LeCun", "track": "silicon-valley-systems", "x": "ylecun", "primary": "https://ai.meta.com/people/yann-lecun/", "why": "contrarian model architecture and research critique", "authority": "P1_FIRST_HAND"},
+  {"name": "Jeff Dean", "track": "silicon-valley-systems", "x": "JeffDean", "primary": "https://research.google/people/jeff/", "why": "large-scale systems, ML infrastructure and research direction", "authority": "P1_FIRST_HAND"},
+  {"name": "John Carmack", "track": "silicon-valley-systems", "x": "ID_AA_Carmack", "primary": null, "why": "systems engineering, performance and AI research judgement", "authority": "P1_FIRST_HAND_X"},
+  {"name": "Dylan Patel", "track": "ai-hardware-eda", "x": "dylan522p", "primary": "https://semianalysis.com/", "why": "AI compute, semiconductor supply chain and infrastructure", "authority": "P1_P2_INDUSTRY"},
+  {"name": "NVIDIA AI", "track": "ai-hardware-eda", "x": "NVIDIAAI", "primary": "https://developer.nvidia.com/blog/", "why": "accelerated computing, inference and developer systems", "authority": "P0_OFFICIAL"},
+  {"name": "Tom Verbeure", "track": "ai-hardware-eda", "x": "tomverbeure", "primary": "https://tomverbeure.github.io/", "why": "digital design, architecture and implementation deep dives", "authority": "P1_FIRST_HAND"},
+  {"name": "ZipCPU", "track": "ai-hardware-eda", "x": null, "primary": "https://zipcpu.com/", "why": "formal verification, RTL and reproducible hardware engineering", "authority": "P1_FIRST_HAND"}
+ ],
+ "reddit": [
+  {"name": "r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/new/.rss", "status": "HTTP_200_2026-07-29", "use": "paper and first-hand implementation discovery"},
+  {"name": "r/LocalLLaMA", "url": "https://www.reddit.com/r/LocalLLaMA/new/.rss", "status": "RATE_LIMITED_2026-07-29", "use": "open-model implementation and inference discovery"},
+  {"name": "r/LanguageTechnology", "url": "https://www.reddit.com/r/LanguageTechnology/new/.rss", "status": "RATE_LIMITED_2026-07-29", "use": "NLP implementation and research discovery"}
+ ],
+ "daily_card_contract": [
+  "author and platform",
+  "canonical URL and published_at",
+  "first-hand claim or implementation detail",
+  "methodology extracted",
+  "counterpoint or missing evidence",
+  "IC automation translation",
+  "what would falsify or promote the idea"
+ ],
+ "claim_boundary": "A watchlist is not endorsement. Social posts and Reddit threads are discovery evidence; important technical claims must be traced to code, paper, official documentation or reproducible experiment."
+}

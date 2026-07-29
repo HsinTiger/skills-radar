@@ -115,13 +115,53 @@ class DomainZoneTests(unittest.TestCase):
                                   "all_reviewed": [harness], "strategic_thesis": {"potential_track": "Evidence Harness"}},
             },
         }
+        quiet = skill("quiet-method", "ai")
+        quiet["repo"] = "example/quiet"
+        rec["categories"]["ai-automation"]["all_reviewed"].append(quiet)
         ai_history = {"started_at": "2026-07-28", "observations": [{}], "latest": {
-            "date": "2026-07-28", "review_count": 1, "grade_counts": {"A": 1},
+            "date": "2026-07-28", "review_count": 2, "grade_counts": {"A": 2},
+            "repo_metrics": [
+                {"repo": "example/repo", "stars": 60000},
+                {"repo": "example/quiet", "stars": 781},
+            ],
         }}
-        page = render_html(build_report(rec, history(), {}, "2026-07-28", ai_history), "ai-automation")
+        watchlist = {
+            "status": "WATCHLIST_PROPOSED",
+            "source_status": {
+                "x": {"status": "AUTH_REQUIRED_IN_CODEX_BROWSER", "observed_at": "2026-07-29",
+                      "boundary": "Read-only after owner login; no private-session scraping."},
+                "reddit": {"status": "PARTIAL_PUBLIC_RSS", "observed_at": "2026-07-29",
+                           "boundary": "Public discovery only."},
+            },
+            "tracks": [{"id": "frontier", "title": "前沿模型開發團隊", "question": "模型往哪裡走？"}],
+            "experts": [{"name": "OpenAI", "track": "frontier", "x": "OpenAI",
+                         "primary": "https://openai.com/news/", "why": "models and evals",
+                         "authority": "P0_OFFICIAL"}],
+            "reddit": [{"name": "r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/new/.rss",
+                        "status": "HTTP_200", "use": "discovery"}],
+            "daily_card_contract": ["canonical URL", "IC automation translation"],
+            "claim_boundary": "No unverified post claims.",
+        }
+        page = render_html(build_report(rec, history(), {}, "2026-07-28", ai_history, watchlist), "ai-automation")
         self.assertIn("分析面板計畫：從每日訊號到季度押注", page)
         self.assertIn("RTL／DV Evidence Kernel", page)
         self.assertIn("Jupyter notebook", page)
+        self.assertIn("IC Design Automation：從環境到驗證的 build-up 路線", page)
+        self.assertIn("Reference Model／Scoreboard 分責", page)
+        self.assertIn("False-PASS mutation test", page)
+        self.assertIn("time-to-first-trustworthy-failure", page)
+        self.assertIn("requires_owner_approval=True", page)
+        self.assertIn("GITHUB BREAKOUT LAB", page)
+        self.assertIn("OUTLIER_ATTENTION", page)
+        self.assertIn("QUIET_HIGH_SIGNAL", page)
+        self.assertIn("Stars 是稀缺注意力", page)
+        self.assertIn("社群大神與前沿團隊", page)
+        self.assertIn("AUTH_REQUIRED_IN_CODEX_BROWSER", page)
+        self.assertIn("PARTIAL_PUBLIC_RSS", page)
+        self.assertIn("OpenAI", page)
+        self.assertIn("durable-run", page)
+        self.assertIn("quiet-method", page)
+        self.assertNotIn("UNVERIFIED_TWEET_BODY", page)
 
 
 if __name__ == "__main__":

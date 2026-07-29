@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "report_date": "2026-07-29",
- "generated_at": "2026-07-29T09:37:02.370007+00:00",
+ "generated_at": "2026-07-29T10:17:34.433197+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
@@ -3817,6 +3817,718 @@
      "nx_context": "SNAPSHOT_ONLY"
     },
     "thesis": "Evidence-Governed Domain Agent Harness"
+   },
+   "ic_automation_blueprint": {
+    "status": "PROPOSED_REQUIRES_OWNER_APPROVAL",
+    "context": "OA_CONTEXT=PARTIAL · NX_CONTEXT=SNAPSHOT_ONLY",
+    "north_star": "把每次 IC 設計變更壓成可恢復的 intent→execution→evidence→decision loop；工程師只需要看變更邊界、最早可信失敗與真正需要裁定的問題。",
+    "principles": [
+     "先建 evidence kernel，再考慮自動產生或修改 RTL。",
+     "AI 可提出 candidate；只有 deterministic gate 與真實工具 readback 能提升 claim。",
+     "最快的迭代不是少跑驗證，而是更早得到可定位、可重播的失敗。",
+     "把 owner attention 當受限資源，但不得靠隱藏風險或降低 verification integrity 節省。"
+    ],
+    "layers": [
+     {
+      "id": "environment",
+      "title": "1. 可重現環境底座",
+      "goal": "任何核准 worker 都能從乾淨 checkout，以單一入口重現同一個 stage。",
+      "build": [
+       "repo-owned control plane；流程狀態不只存在 agent 對話",
+       "tool capability registry：版本、license/preflight、輸入輸出、side effect、timeout 與 fallback",
+       "content-addressed artifact store、固定 seed、相對路徑、原子寫入、idempotent rerun"
+      ],
+      "artifacts": [
+       "tool_capabilities.json",
+       "run_manifest.json",
+       "environment_readback.json"
+      ],
+      "proof": "clean-checkout replay、版本/readback 相符、缺工具或權限時 fail closed",
+      "attention": "工程師不再反覆追問『跑的是哪一版、哪個工具、哪個目錄』。",
+      "skills": [
+       "MCP Reference Servers",
+       "LangGraph",
+       "Agentic Harness Engineering"
+      ]
+     },
+     {
+      "id": "iteration",
+      "title": "2. 加速迭代與失敗重播",
+      "goal": "每次變更先跑最便宜且足以推翻 claim 的 gate，再逐級升級。",
+      "build": [
+       "diff impact map：變更 requirement/module/interface/assertion 對應受影響測試與 EDA stage",
+       "fast/medium/signoff 三速 queue、checkpoint/resume、cache validity 與 duplicate-run suppression",
+       "保存 first failing seed、最早 divergence、輸入版本、工具版本與最小 replay command"
+      ],
+      "artifacts": [
+       "impact_map.json",
+       "gate_plan.json",
+       "failure_replay.json"
+      ],
+      "proof": "另一個 worker 可重現同一最早失敗；cache miss/hit 理由可讀回",
+      "attention": "把『重跑整包再看海量 log』改成『先看最小失敗與受影響 cone』。",
+      "skills": [
+       "LangGraph",
+       "systemverilog-waveform-debug",
+       "rtl-equivalence-checker"
+      ]
+     },
+     {
+      "id": "accuracy",
+      "title": "3. 準確度與 false-PASS 防線",
+      "goal": "準確度先定義成 claim 可追溯、oracle 可重現、弱 gate 不冒充強 gate。",
+      "build": [
+       "design intent／verification intent schema：width、signedness、fixed-point、cycle、reset、protocol、non-goal",
+       "requirement→assertion/test/coverage/evidence traceability；每個 UNKNOWN 保留 owner/next check",
+       "negative fixture、mutation、vacuity、X/unknown、boundary 與 stale-golden 檢查"
+      ],
+      "artifacts": [
+       "design_intent.yaml",
+       "verification_intent.yaml",
+       "claim_ledger.jsonl"
+      ],
+      "proof": "故意植入的 false PASS 能被擋下；每個 PASS 可回到 oracle、輸入、版本與 exact gate",
+      "attention": "工程師不用重讀整份報告，只審未證實假設、衝突與 promotion decision。",
+      "skills": [
+       "spec-planner",
+       "rtl-p3-uarch-policy",
+       "rtl-quality-reviewer"
+      ]
+     },
+     {
+      "id": "attention",
+      "title": "4. 認知負載與 owner decision surface",
+      "goal": "每次只呈現三件事：改了什麼、最早可信失敗在哪、哪個問題必須由 owner 決定。",
+      "build": [
+       "resumable checkpoint：intent、assumption、evidence、failure、decision、exact next action",
+       "相同結果自動折疊；新風險、authority conflict、irreversible action 才打斷 owner",
+       "把零散問題批次化成 recommendation／alternatives／consequences／default decision packet"
+      ],
+      "artifacts": [
+       "checkpoint.json",
+       "decision_packet.md",
+       "owner_disposition.json"
+      ],
+      "proof": "handoff 不需重講背景；可量測 interruption、重複提問、恢復工時與 owner correction",
+      "attention": "AI 承接記憶與可逆執行，人保留高價值架構判斷與不可逆裁定。",
+      "skills": [
+       "Agentic Harness Engineering",
+       "Headroom",
+       "Langfuse"
+      ]
+     },
+     {
+      "id": "eda",
+      "title": "5. EDA 方法論與 typed evidence adapter",
+      "goal": "每個 EDA stage 只回答自己有權回答的問題，輸出 typed evidence 而非自然語言 PASS。",
+      "build": [
+       "adapter 共通 contract：tool/version/command/input hash/corner/seed/status/report hash/line/quote",
+       "lint、compile/elaboration、simulation、CDC/RDC、formal、synthesis、LEC 分開建 authority 與失敗型別",
+       "先做 mock/conformance adapter；進 NX 後再用核准報告校準 parser 與 negative fixture"
+      ],
+      "artifacts": [
+       "eda_capabilities.json",
+       "evidence_manifest.json",
+       "gate_result.json"
+      ],
+      "proof": "unknown format、空報告、零 compared points、缺 corner/version 或 parser ambiguity 一律不升級 claim",
+      "attention": "把不同工具 log 統一成可排序 failure taxonomy，但保留原始 report provenance。",
+      "skills": [
+       "review-rtl-architecture",
+       "hw-cdc",
+       "prepare-rtl-for-synth",
+       "equivalence-check"
+      ]
+     },
+     {
+      "id": "verification",
+      "title": "6. Verification factory",
+      "goal": "把單點 testbench 經驗轉成可跨 block 重用的 oracle、observer、assertion、coverage 與 replay pattern。",
+      "build": [
+       "Reference Model 是 expected 唯一來源；Scoreboard 只負責配對與 bit-true compare",
+       "cycle/reset/valid-ready/backpressure contract 加上多節點 observer，找 earliest divergence",
+       "directed boundary、constrained-random、assertion/formal、coverage hole、ECO equivalence 各自有 exit gate"
+      ],
+      "artifacts": [
+       "verification_plan.yaml",
+       "traceability_matrix.json",
+       "coverage_ledger.json"
+      ],
+      "proof": "正常、邊界、故障注入與 stale/misaligned oracle 都能得到預期 verdict；重跑結果一致",
+      "attention": "debug 從『最後輸出錯了』縮成『哪個 contract、哪個節點、哪個 cycle 首次偏離』。",
+      "skills": [
+       "formal-verification",
+       "systemverilog-waveform-debug",
+       "equivalence-check"
+      ]
+     }
+    ],
+    "iteration_ladder": [
+     {
+      "tier": "G0 · Intake/Preflight",
+      "when": "每次 task／環境變更",
+      "gates": "intent/schema、source pin、tool capability、permission、golden/version readback",
+      "stop": "輸入不完整、authority 衝突、tool/version 不符就停止。"
+     },
+     {
+      "tier": "G1 · Fast structural",
+      "when": "每次 RTL／TB candidate diff",
+      "gates": "format/parser、compile/elaboration、lint、width/signedness/X/reset 靜態檢查",
+      "stop": "只證明結構 gate；不得寫成功能 PASS。"
+     },
+     {
+      "tier": "G2 · Block behavior",
+      "when": "G1 通過後",
+      "gates": "directed smoke、bit-true oracle、cycle assertions、boundary/mutation negative tests",
+      "stop": "先保留 first failure；不要用後續大量錯誤淹沒 root cause。"
+     },
+     {
+      "tier": "G3 · Regression/debug",
+      "when": "checkpoint／合併前",
+      "gates": "impact-selected regression、fixed seeds、multi-node earliest divergence、coverage holes",
+      "stop": "coverage 數字缺 denominator 或 waiver 無 owner disposition，不能 closure。"
+     },
+     {
+      "tier": "G4 · Structural proof",
+      "when": "跨 clock/reset、控制協定或高風險變更",
+      "gates": "CDC/RDC、SVA/formal、assumption/vacuity、counterexample replay",
+      "stop": "inconclusive、vacuous、unreachable 與 proven 必須分開。"
+     },
+     {
+      "tier": "G5 · Synthesis/ECO promotion",
+      "when": "RTL frozen／frontend ECO",
+      "gates": "synthesis report、constraint/corner readback、LEC substance、rollback bundle",
+      "stop": "沒有 compared points、unproven points=0 與真實 report readback，不宣稱 equivalence。"
+     },
+     {
+      "tier": "G6 · Owner disposition",
+      "when": "任何 sign-off 或 source mutation 前",
+      "gates": "Claim／Evidence／Risk、waiver、residual risk、owner accept/reject/defer/verify",
+      "stop": "AI narrative、unit test 或 parser PASS 永不自動升格 sign-off。"
+     }
+    ],
+    "verification_patterns": [
+     {
+      "priority": "P0",
+      "name": "Contract-to-check traceability",
+      "pattern": "每個 requirement 綁定 assertion/test/coverage/oracle/evidence；未綁定即 UNKNOWN。",
+      "catches": "漏驗需求、文件與 RTL 認知漂移、沒有證據的 satisfied claim。"
+     },
+     {
+      "priority": "P0",
+      "name": "Reference Model／Scoreboard 分責",
+      "pattern": "Reference Model 唯一產生 expected；Scoreboard 只做 transaction pairing 與 bit-true compare。",
+      "catches": "oracle 與 checker 同錯、scoreboard 隱藏計算、debug 無法判斷誰錯。"
+     },
+     {
+      "priority": "P0",
+      "name": "Cycle／Reset／Protocol contract",
+      "pattern": "明列 latency、valid-ready、bubble/backpressure、reset window、flush 與例外；用 assertion 執行化。",
+      "catches": "off-by-one、reset race、gap 才出現的錯位、吞吐與資料配對錯誤。"
+     },
+     {
+      "priority": "P0",
+      "name": "Multi-observer earliest divergence",
+      "pattern": "在高資訊量中間節點保存 act/exp 與 cycle metadata，先找第一個可信偏離。",
+      "catches": "只看到最終 mismatch、波形 probe 無界擴張、跨 pipeline 猜 root cause。"
+     },
+     {
+      "priority": "P0",
+      "name": "False-PASS mutation test",
+      "pattern": "故意破壞 width、signedness、latency、reset、golden freshness 或 compared-points，確認 gate 會失敗。",
+      "catches": "checker 沒接上、vacuous property、空報告 PASS、stale golden 與弱 gate 冒充強 gate。"
+     },
+     {
+      "priority": "P1",
+      "name": "Atomic transaction-field alignment",
+      "pattern": "transaction、driver、monitor、sequence、reference input schema 視為同一原子變更並做欄位 diff。",
+      "catches": "欄位漏抄造成 X-taint、driver/monitor semantic drift、可跑但答案錯。"
+     },
+     {
+      "priority": "P1",
+      "name": "Golden provenance and differential oracle",
+      "pattern": "golden 綁 source/version/parameter/seed/hash；必要時以兩個獨立 oracle 做 differential check。",
+      "catches": "不同批次 golden 混用、reference 版本漂移、模型與 RTL 同源錯誤。"
+     },
+     {
+      "priority": "P1",
+      "name": "Formal assumption／vacuity audit",
+      "pattern": "assert/assume/cover 分離，保存 PROVEN/CEX/VACUOUS/INCONCLUSIVE/UNREACHABLE。",
+      "catches": "過度 constraint、property 根本未觸發、bounded proof 被誤稱完整。"
+     },
+     {
+      "priority": "P1",
+      "name": "Coverage with denominator and holes",
+      "pattern": "coverage 必帶 scope、denominator、unreachable/waiver、對應 requirement 與未覆蓋樣本。",
+      "catches": "漂亮百分比掩蓋沒採到的功能、coverage closure 無需求語意。"
+     },
+     {
+      "priority": "P0",
+      "name": "ECO equivalence plus rollback",
+      "pattern": "保存 before/after cone、intent、LEC compared/unproven points、simulation delta 與可回退版本。",
+      "catches": "heuristic diff 被誤稱等價、ECO 修 A 壞 B、無法重播或回退。"
+     }
+    ],
+    "mvp": [
+     {
+      "phase": "0–30 天 · Control plane",
+      "build": "intent schema、capability registry、run/evidence manifest、mock adapters、owner decision packet",
+      "exit": "公開 toy task 可 clean-checkout 重跑；缺工具/權限/證據會 fail closed。"
+     },
+     {
+      "phase": "31–60 天 · Verification kernel",
+      "build": "toy fixed-point datapath、Reference Model/Scoreboard、cycle/reset assertions、multi-observer、五種 mutation",
+      "exit": "每種故障都得到預期 verdict，另一個 worker 可重現 earliest divergence。"
+     },
+     {
+      "phase": "61–90 天 · NX adapter canary",
+      "build": "經 owner 核准後，只接一條真實 compile/sim/report readback；再評估 CDC/formal/synthesis/LEC",
+      "exit": "tool/version/command/input/report hash 可對帳；沒有真 EDA evidence 就停在 experiment。"
+     }
+    ],
+    "metrics": [
+     "time-to-first-trustworthy-failure，而非單純 job wall time",
+     "clean-checkout replay success 與 failure reproduction success",
+     "false-PASS mutations caught／total injected",
+     "requirement-to-evidence completeness 與 UNKNOWN aging",
+     "owner interruptions、重複 context requests、handoff recovery effort",
+     "waiver 數、vacuous/inconclusive proof 數與未關閉 coverage holes"
+    ],
+    "reuse_ledger": [
+     {
+      "candidate": "intent／manifest／finding／evidence contracts",
+      "decision": "REUSE_AS_IS",
+      "boundary": "只重用 schema 與 fail-closed semantics"
+     },
+     {
+      "candidate": "spec→schema→generated verification artifact",
+      "decision": "ADAPT",
+      "boundary": "公開抽象；內部來源與路徑不得外流"
+     },
+     {
+      "candidate": "Reference Model、Scoreboard、multi-observer patterns",
+      "decision": "ADAPT",
+      "boundary": "每個 block 重新綁 cycle、golden 與 coverage contract"
+     },
+     {
+      "candidate": "typed VCS/Verdi/DC/LEC evidence adapters",
+      "decision": "NEW_EXPERIMENT",
+      "boundary": "需核准 NX canary 與真實 report golden fixtures"
+     },
+     {
+      "candidate": "autonomous RTL repair／sign-off",
+      "decision": "BLOCKED_FOR_EVIDENCE",
+      "boundary": "無 owner approval、negative tests、sim/formal/LEC 證據不得啟用"
+     }
+    ],
+    "owner_decision": {
+     "recommendation": "第一個 MVP 選 RTL／DV Evidence Kernel，先完成公開 toy datapath 的五種 false-PASS mutation 與 replay bundle。",
+     "alternative": "若先做 tool registry，環境治理更快，但短期無法證明 verification value。",
+     "default_if_deferred": "維持公開 blueprint 與 mock adapter，不進 NX、不改任何產品 RTL。",
+     "requires_owner_approval": true
+    }
+   },
+   "github_breakout_lab": {
+    "status": "BASELINE_ONLY",
+    "history_days": 1,
+    "thesis": "Stars 是稀缺注意力與出圈程度的強訊號：用來決定先拆誰；source review、release/commit、failure model、tests 與 canary 才決定學什麼、能否採用。",
+    "ranked": [
+     {
+      "name": "MCP Reference Servers",
+      "repo": "modelcontextprotocol/servers",
+      "stars": 89011,
+      "star_delta": null,
+      "bucket": "OUTLIER_ATTENTION",
+      "grade": "A",
+      "recommendation": "pilot",
+      "commit_drift": false,
+      "pushed_at": "2026-07-26T03:16:32Z",
+      "implementation_fit": "工具愈多，動態 discovery、allowlist、scope 與 version pin 比把所有工具描述塞進 prompt 更重要。",
+      "first_experiment": "建立兩個只讀 toy tools 與一個拒絕型 canary，驗證 schema discovery、root restriction 與 unknown-tool fail closed。"
+     },
+     {
+      "name": "Headroom",
+      "repo": "headroomlabs-ai/headroom",
+      "stars": 63020,
+      "star_delta": null,
+      "bucket": "OUTLIER_ATTENTION",
+      "grade": "B",
+      "recommendation": "watch",
+      "commit_drift": false,
+      "pushed_at": "2026-07-28T23:59:54Z",
+      "implementation_fit": "長任務需要壓縮脈絡，但設計約束與失敗證據不能因省 token 被靜默丟失。",
+      "first_experiment": "在去識別化公開 trace 上做壓縮／不壓縮對照，逐項檢查 constraint retention、取回率與任務結果。"
+     },
+     {
+      "name": "Agent-Reach",
+      "repo": "Panniantong/Agent-Reach",
+      "stars": 62006,
+      "star_delta": null,
+      "bucket": "OUTLIER_ATTENTION",
+      "grade": "B",
+      "recommendation": "watch",
+      "commit_drift": false,
+      "pushed_at": "2026-07-25T10:20:07Z",
+      "implementation_fit": "把網站能力視為可探測、可降級的 adapter，而不是讓 agent 自行繞過平台限制。",
+      "first_experiment": "只用公開 Web、RSS 與 GitHub fixture 建立 capability registry、doctor 與 ordered fallback；所有登入型 channel 保持停用。"
+     },
+     {
+      "name": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "stars": 38394,
+      "star_delta": null,
+      "bucket": "BREAKOUT_SCALE",
+      "grade": "A",
+      "recommendation": "pilot",
+      "commit_drift": false,
+      "pushed_at": "2026-07-28T18:34:13Z",
+      "implementation_fit": "長時間 EDA 任務必須能 checkpoint、重試、取消與恢復，且流程真相不能只存在 agent 對話。",
+      "first_experiment": "用公開多步驟任務模擬中斷、重入與重複 side effect，驗證 checkpoint conformance 與 idempotence。"
+     },
+     {
+      "name": "Langfuse",
+      "repo": "langfuse/langfuse",
+      "stars": 32063,
+      "star_delta": null,
+      "bucket": "BREAKOUT_SCALE",
+      "grade": "B",
+      "recommendation": "watch",
+      "commit_drift": true,
+      "pushed_at": "2026-07-29T07:34:33Z",
+      "implementation_fit": "trace 只有在能連回輸入版本、工具呼叫、artifact 與評測 oracle 時才有工程價值。",
+      "first_experiment": "對公開 task set 收集已脫敏 trace，建立 failure taxonomy、eval linkage、retention 與 telemetry-off readback。"
+     },
+     {
+      "name": "Composio",
+      "repo": "ComposioHQ/composio",
+      "stars": 29431,
+      "star_delta": null,
+      "bucket": "BREAKOUT_SCALE",
+      "grade": "C",
+      "recommendation": "watch",
+      "commit_drift": false,
+      "pushed_at": "2026-07-29T05:59:27Z",
+      "implementation_fit": "可借用 runtime discovery 與 scoped session，但不能把外部帳號和不可逆 action 交給通用控制平面。",
+      "first_experiment": "以本地 mock tools 模擬 session、runtime discovery 與 owner approval；不連任何真實帳號或 hosted action。"
+     },
+     {
+      "name": "E2B",
+      "repo": "e2b-dev/E2B",
+      "stars": 13161,
+      "star_delta": null,
+      "bucket": "BREAKOUT_SCALE",
+      "grade": "B",
+      "recommendation": "watch",
+      "commit_drift": false,
+      "pushed_at": "2026-07-28T14:34:34Z",
+      "implementation_fit": "agent 產生的命令需要隔離，但工程內網、EDA license 與機密資料不能送入外部 sandbox。",
+      "first_experiment": "只在公開 fixture 驗證 deny-by-default network、ephemeral credential、filesystem boundary 與 artifact export。"
+     },
+     {
+      "name": "Agentic Harness Engineering",
+      "repo": "china-qijizhifeng/agentic-harness-engineering",
+      "stars": 780,
+      "star_delta": null,
+      "bucket": "QUIET_HIGH_SIGNAL",
+      "grade": "A",
+      "recommendation": "pilot",
+      "commit_drift": false,
+      "pushed_at": "2026-06-14T16:03:21Z",
+      "implementation_fit": "最貼近你要搭建的 ASIC automation：每次改 system rule、tool、memory 或 middleware 都有失敗證據、預期修復與回歸清單。",
+      "first_experiment": "以公開 toy RTL 任務建立最小 change manifest，讓另一個 agent 重跑前後版本並核對預測修復與回歸。"
+     }
+    ],
+    "lenses": [
+     "Reach：star level、star velocity、fork／contributor／release activity；辨認已出圈與正在加速的項目。",
+     "Implementation：state model、adapter boundary、failure/retry、test topology、artifact schema 與 negative cases。",
+     "Transfer：哪些方法可改編成 IC intent、EDA evidence、debug replay、verification factory；哪些只是 web/SaaS 假設。",
+     "Durability：模型原生能力若吸收功能後，domain schema、oracle、evidence、permission 與 recovery 是否仍有價值。"
+    ],
+    "velocity_boundary": "目前 observation tape 只有一個真實日快照，不能計算可靠 star velocity；第二個完整日後才顯示 delta，週/月尺度再判斷 breakout。",
+    "quiet_signal_rule": "保留 grade A 但 stars 尚低的 quiet high-signal 專案；它們可能比熱門 framework 更接近工程方法論。"
+   },
+   "expert_methodology_desk": {
+    "status": "WATCHLIST_PROPOSED",
+    "source_status": {
+     "x": {
+      "status": "AUTH_REQUIRED_IN_CODEX_BROWSER",
+      "observed_at": "2026-07-29",
+      "boundary": "Read-only after owner login; no follow, like, repost, reply, cookie export or private-session scraping."
+     },
+     "reddit": {
+      "status": "PARTIAL_PUBLIC_RSS",
+      "observed_at": "2026-07-29",
+      "boundary": "No account required. r/MachineLearning RSS returned HTTP 200; other feeds may rate-limit and must fail closed. Reddit is discovery-only and claims must be traced upstream."
+     },
+     "github": {
+      "status": "AVAILABLE",
+      "observed_at": "2026-07-29",
+      "boundary": "Repository, release, issue and commit metadata plus pinned source review; popularity does not prove correctness or deployment."
+     },
+     "blogs": {
+      "status": "PUBLIC_PRIMARY_OR_FIRST_HAND",
+      "observed_at": "2026-07-29",
+      "boundary": "Prefer author or organization originals and preserve published/updated dates."
+     }
+    },
+    "tracks": [
+     {
+      "id": "frontier-model-teams",
+      "title": "前沿模型開發團隊",
+      "question": "模型能力、training/inference、tool use、eval 與產品界面正在往哪裡移動？",
+      "experts": [
+       {
+        "name": "OpenAI",
+        "track": "frontier-model-teams",
+        "x": "OpenAI",
+        "primary": "https://openai.com/news/",
+        "why": "models, agents, evals and developer platform",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Anthropic",
+        "track": "frontier-model-teams",
+        "x": "AnthropicAI",
+        "primary": "https://www.anthropic.com/engineering",
+        "why": "agent engineering, evaluations and model behavior",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Google DeepMind",
+        "track": "frontier-model-teams",
+        "x": "GoogleDeepMind",
+        "primary": "https://deepmind.google/discover/blog/",
+        "why": "frontier research, agents and scientific systems",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "xAI",
+        "track": "frontier-model-teams",
+        "x": "xai",
+        "primary": "https://x.ai/news",
+        "why": "frontier models and large-scale training/inference",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Meta AI",
+        "track": "frontier-model-teams",
+        "x": "AIatMeta",
+        "primary": "https://ai.meta.com/blog/",
+        "why": "open models, research and infrastructure",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Mistral AI",
+        "track": "frontier-model-teams",
+        "x": "MistralAI",
+        "primary": "https://mistral.ai/news",
+        "why": "open and efficient model systems",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Hugging Face",
+        "track": "frontier-model-teams",
+        "x": "huggingface",
+        "primary": "https://huggingface.co/blog",
+        "why": "open-model tooling, datasets and on-prem techniques",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "DeepSeek",
+        "track": "frontier-model-teams",
+        "x": null,
+        "primary": "https://github.com/deepseek-ai",
+        "why": "open model and inference implementation",
+        "authority": "P0_OFFICIAL_GITHUB"
+       },
+       {
+        "name": "Qwen",
+        "track": "frontier-model-teams",
+        "x": null,
+        "primary": "https://github.com/QwenLM",
+        "why": "open model, multimodal and agent ecosystem",
+        "authority": "P0_OFFICIAL_GITHUB"
+       }
+      ]
+     },
+     {
+      "id": "agent-builders",
+      "title": "Agent／AI Engineering 實作者",
+      "question": "哪些 harness、context、evaluation、coding-agent 方法已從 demo 走向可恢復系統？",
+      "experts": [
+       {
+        "name": "Andrej Karpathy",
+        "track": "agent-builders",
+        "x": "karpathy",
+        "primary": "https://github.com/karpathy",
+        "why": "LLM education, coding agents and implementation-first explanations",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Simon Willison",
+        "track": "agent-builders",
+        "x": "simonw",
+        "primary": "https://simonwillison.net/",
+        "why": "rapid first-hand model/tool experiments and security observations",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Hamel Husain",
+        "track": "agent-builders",
+        "x": "HamelHusain",
+        "primary": "https://hamel.dev/",
+        "why": "evaluation-driven AI engineering and coding-agent practice",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Chip Huyen",
+        "track": "agent-builders",
+        "x": "chipro",
+        "primary": "https://huyenchip.com/",
+        "why": "production AI systems and agent design",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "swyx",
+        "track": "agent-builders",
+        "x": "swyx",
+        "primary": "https://www.latent.space/",
+        "why": "AI engineering ecosystem and practitioner interviews",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Noam Brown",
+        "track": "agent-builders",
+        "x": "polynoamial",
+        "primary": "https://noambrown.github.io/",
+        "why": "reasoning, search and learning systems",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Jim Fan",
+        "track": "agent-builders",
+        "x": "DrJimFan",
+        "primary": "https://research.nvidia.com/person/jim-fan",
+        "why": "embodied agents and foundation-model research",
+        "authority": "P1_FIRST_HAND"
+       }
+      ]
+     },
+     {
+      "id": "silicon-valley-systems",
+      "title": "矽谷 systems 與技術領袖",
+      "question": "長周期的 systems、產品與組織判斷，哪些會改變 AI 工程方法？",
+      "experts": [
+       {
+        "name": "Demis Hassabis",
+        "track": "silicon-valley-systems",
+        "x": "demishassabis",
+        "primary": "https://deepmind.google/discover/blog/",
+        "why": "frontier research direction and scientific AI",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Yann LeCun",
+        "track": "silicon-valley-systems",
+        "x": "ylecun",
+        "primary": "https://ai.meta.com/people/yann-lecun/",
+        "why": "contrarian model architecture and research critique",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "Jeff Dean",
+        "track": "silicon-valley-systems",
+        "x": "JeffDean",
+        "primary": "https://research.google/people/jeff/",
+        "why": "large-scale systems, ML infrastructure and research direction",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "John Carmack",
+        "track": "silicon-valley-systems",
+        "x": "ID_AA_Carmack",
+        "primary": null,
+        "why": "systems engineering, performance and AI research judgement",
+        "authority": "P1_FIRST_HAND_X"
+       }
+      ]
+     },
+     {
+      "id": "ai-hardware-eda",
+      "title": "AI Hardware／EDA／Digital Design",
+      "question": "模型、算力、記憶體、晶片設計與驗證工具之間出現哪些可實作交叉點？",
+      "experts": [
+       {
+        "name": "Dylan Patel",
+        "track": "ai-hardware-eda",
+        "x": "dylan522p",
+        "primary": "https://semianalysis.com/",
+        "why": "AI compute, semiconductor supply chain and infrastructure",
+        "authority": "P1_P2_INDUSTRY"
+       },
+       {
+        "name": "NVIDIA AI",
+        "track": "ai-hardware-eda",
+        "x": "NVIDIAAI",
+        "primary": "https://developer.nvidia.com/blog/",
+        "why": "accelerated computing, inference and developer systems",
+        "authority": "P0_OFFICIAL"
+       },
+       {
+        "name": "Tom Verbeure",
+        "track": "ai-hardware-eda",
+        "x": "tomverbeure",
+        "primary": "https://tomverbeure.github.io/",
+        "why": "digital design, architecture and implementation deep dives",
+        "authority": "P1_FIRST_HAND"
+       },
+       {
+        "name": "ZipCPU",
+        "track": "ai-hardware-eda",
+        "x": null,
+        "primary": "https://zipcpu.com/",
+        "why": "formal verification, RTL and reproducible hardware engineering",
+        "authority": "P1_FIRST_HAND"
+       }
+      ]
+     }
+    ],
+    "reddit": [
+     {
+      "name": "r/MachineLearning",
+      "url": "https://www.reddit.com/r/MachineLearning/new/.rss",
+      "status": "HTTP_200_2026-07-29",
+      "use": "paper and first-hand implementation discovery"
+     },
+     {
+      "name": "r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/new/.rss",
+      "status": "RATE_LIMITED_2026-07-29",
+      "use": "open-model implementation and inference discovery"
+     },
+     {
+      "name": "r/LanguageTechnology",
+      "url": "https://www.reddit.com/r/LanguageTechnology/new/.rss",
+      "status": "RATE_LIMITED_2026-07-29",
+      "use": "NLP implementation and research discovery"
+     }
+    ],
+    "daily_card_contract": [
+     "author and platform",
+     "canonical URL and published_at",
+     "first-hand claim or implementation detail",
+     "methodology extracted",
+     "counterpoint or missing evidence",
+     "IC automation translation",
+     "what would falsify or promote the idea"
+    ],
+    "cadence": [
+     "日：只記本人新貼文／原始 repo、method delta、反證與一個 IC translation；沒有新文就不硬寫。",
+     "週：將貼文聚成 model、agent harness、coding、systems、AI hardware/EDA thesis，找共識與矛盾。",
+     "月：選一個方法做 public reproducible canary；只有 code/paper/tool evidence 才能 promotion。",
+     "季：淘汰只剩人物聲量的主題，保留跨來源、跨任務重現的工程方法。"
+    ],
+    "claim_boundary": "A watchlist is not endorsement. Social posts and Reddit threads are discovery evidence; important technical claims must be traced to code, paper, official documentation or reproducible experiment."
    },
    "intelligence_brief": {
     "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
