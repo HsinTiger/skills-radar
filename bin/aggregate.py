@@ -110,8 +110,16 @@ out["top_by_stars"] = [
     {k: r.get(k) for k in ("repo", "domain", "profession", "task", "maturity", "pain", "stars")}
     for r in sorted(rows, key=lambda r: -(r.get("stars") or 0))[:40]]
 
-json.dump(out, open(os.path.join(ROOT, "corpus", "aggregate.json"), "w"),
-          ensure_ascii=False, indent=1)
+output_path = os.path.join(ROOT, "corpus", "aggregate.json")
+temporary = output_path + ".tmp"
+try:
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(out, handle, ensure_ascii=False, indent=1)
+        handle.write("\n")
+    os.replace(temporary, output_path)
+finally:
+    if os.path.exists(temporary):
+        os.unlink(temporary)
 print(f"聚合完成：{N} 筆")
 for k in ("domain", "task", "maturity"):
     print(f"\n{k}:")

@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bin"))
 
 from build_daily_recommendations import (  # noqa: E402
+    build_ai_automation,
     build_eda,
     build_finance,
     catalog_freshness,
@@ -46,6 +47,24 @@ def finance_row(**overrides):
 
 
 class DailyRecommendationTests(unittest.TestCase):
+    def test_ai_automation_reviews_are_pinned_and_login_paths_remain_watch(self):
+        reviews = {"reviewed_at": "2026-07-29", "strategic_thesis": {"headline": "h"}, "reviews": [
+            {"name": "reach", "repo": "r/reach", "path": "SKILL.md", "commit": "a" * 40,
+             "commit_verified": True, "license": "MIT", "grade": "B", "recommendation": "watch",
+             "role": "reach-routing", "fit": ["doctor"], "dependencies": ["cookie"],
+             "risk": ["login session"], "evidence": ["fallback"], "decision": "public only"},
+            {"name": "govern", "repo": "r/govern", "path": "SKILL.md", "commit": "b" * 40,
+             "commit_verified": True, "license": "MIT", "grade": "A", "recommendation": "pilot",
+             "role": "harness-governance", "fit": ["manifest"], "dependencies": [],
+             "risk": [], "evidence": ["rollback"], "decision": "pilot manifest"},
+        ]}
+        result = build_ai_automation(reviews, FRESH)
+        by_name = {item["name"]: item for item in result["recommendations"]}
+        self.assertEqual(by_name["reach"]["recommendation"], "watch")
+        self.assertEqual(by_name["govern"]["recommendation"], "pilot")
+        self.assertEqual(by_name["reach"]["source_review"]["runtime_proof"], "NOT_RUN")
+        self.assertEqual(by_name["govern"]["owner_dossier"]["harness_role"], "harness-change-governor")
+
     def test_catalog_must_match_current_master_before_owner_review(self):
         current = catalog_freshness({
             "status": "CURRENT_CANDIDATE_CATALOG",
@@ -207,6 +226,7 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn("SKILLS_RADAR_MAX_LLM_DELTA", script)
         self.assertIn("使用本機模型並保留 confidence gate", script)
         self.assertIn('build_daily_recommendations.py --date "$DATE"', script)
+        self.assertIn('build_ai_automation_history.py --date "$DATE"', script)
         self.assertIn("build_asic_catalog.py", script)
         self.assertIn('build_domain_zones.py --date "$DATE"', script)
         self.assertIn('timescale_summaries.py --date "$DATE"', script)

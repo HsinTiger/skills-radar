@@ -1,0 +1,332 @@
+{
+ "schema_version": 1,
+ "started_at": "2026-07-29",
+ "updated_at": "2026-07-29T09:18:37.699846+00:00",
+ "observations": [
+  {
+   "date": "2026-07-29",
+   "observed_at": "2026-07-29T09:18:37.699846+00:00",
+   "status": "BASELINE_ONLY",
+   "history_days": 1,
+   "evidence_hash": "b46918b9d50d9b693fe05fd66e9ea1baf403faa26941ec667d84c38cb73fa497",
+   "review_count": 8,
+   "grade_counts": {
+    "B": 4,
+    "A": 3,
+    "C": 1
+   },
+   "recommendation_counts": {
+    "watch": 5,
+    "pilot": 3
+   },
+   "role_counts": {
+    "reach-routing": 1,
+    "context-compression": 1,
+    "harness-governance": 1,
+    "durable-orchestration": 1,
+    "observability-evaluation": 1,
+    "sandbox": 1,
+    "tool-discovery": 1,
+    "integration-control-plane": 1
+   },
+   "repo_metrics": [
+    {
+     "repo": "ComposioHQ/composio",
+     "role": "integration-control-plane",
+     "grade": "C",
+     "recommendation": "watch",
+     "pinned_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+     "observed_head": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+     "commit_drift": false,
+     "stars": 29431,
+     "pushed_at": "2026-07-29T05:59:27Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "Panniantong/Agent-Reach",
+     "role": "reach-routing",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+     "observed_head": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+     "commit_drift": false,
+     "stars": 62006,
+     "pushed_at": "2026-07-25T10:20:07Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "china-qijizhifeng/agentic-harness-engineering",
+     "role": "harness-governance",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+     "observed_head": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+     "commit_drift": false,
+     "stars": 780,
+     "pushed_at": "2026-06-14T16:03:21Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "e2b-dev/E2B",
+     "role": "sandbox",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+     "observed_head": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+     "commit_drift": false,
+     "stars": 13161,
+     "pushed_at": "2026-07-28T14:34:34Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "headroomlabs-ai/headroom",
+     "role": "context-compression",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+     "observed_head": "1588f5e04144af5de8398810ea3893c6e623309c",
+     "commit_drift": false,
+     "stars": 63020,
+     "pushed_at": "2026-07-28T23:59:54Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "langchain-ai/langgraph",
+     "role": "durable-orchestration",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+     "observed_head": "41341457342327166d72fc11952ab28fb61ec0bf",
+     "commit_drift": false,
+     "stars": 38394,
+     "pushed_at": "2026-07-28T18:34:13Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "langfuse/langfuse",
+     "role": "observability-evaluation",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+     "observed_head": "6d2988fcc050afcbee4dc28fec31669dc688c013",
+     "commit_drift": true,
+     "stars": 32063,
+     "pushed_at": "2026-07-29T07:34:33Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "modelcontextprotocol/servers",
+     "role": "tool-discovery",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "d31124c982401739917fd817c2a59db344529c16",
+     "observed_head": "d31124c982401739917fd817c2a59db344529c16",
+     "commit_drift": false,
+     "stars": 89011,
+     "pushed_at": "2026-07-26T03:16:32Z",
+     "metadata_source": "daily_fact"
+    }
+   ],
+   "change_since_previous": {
+    "status": "INSUFFICIENT_HISTORY",
+    "star_delta": {},
+    "source_drift_repos": [
+     "langfuse/langfuse"
+    ]
+   },
+   "analysis": {
+    "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
+    "claim": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
+    "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
+    "potential_track": "Evidence-Governed Domain Agent Harness",
+    "owner_specialization": "聚焦高風險工程與 ASIC automation：把設計意圖、驗證意圖、確定性執行包、真實工具證據與 owner approval 串成一條可稽核鏈，而不是投入通用爬蟲或提示工程。",
+    "catalysts": [
+     "工具數量增加後，動態發現與最小權限路由比把所有工具塞進上下文更重要",
+     "長任務與多代理協作需要 conversation 外的 checkpoint、重試、取消與 readback",
+     "企業開始要求 trace、evaluation、sandbox、資料邊界與人類核准能同時成立",
+     "模型價格與能力收斂，使 domain evidence contract 成為更持久的差異化資產"
+    ],
+    "leading_indicators": [
+     "開源專案是否從 agent demo 轉向 checkpoint、conformance、doctor 與 rollback",
+     "工具整合是否改採 runtime discovery、scoped auth 與可撤銷 session",
+     "evaluation 是否能連回確切輸入、工具呼叫、輸出與失敗分類",
+     "sandbox 是否提供網路、檔案、credential 與 artifact 的明確政策及 readback",
+     "同一 evidence contract 是否能跨至少三個 domain task 重現"
+    ],
+    "falsifiers": [
+     "原生模型平台在不犧牲可攜性下完整吸收 durable state、evaluation 與 policy control",
+     "增加 harness 層後沒有降低失敗重現時間或 owner 介入次數",
+     "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
+     "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
+    ],
+    "confidence": "MEDIUM",
+    "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
+   },
+   "claim_boundary": "GitHub metadata and static source review only; stars, commits and README claims do not prove adoption, security, runtime reliability, EDA correctness or business value",
+   "revision_history": []
+  }
+ ],
+ "latest": {
+  "date": "2026-07-29",
+  "observed_at": "2026-07-29T09:18:37.699846+00:00",
+  "status": "BASELINE_ONLY",
+  "history_days": 1,
+  "evidence_hash": "b46918b9d50d9b693fe05fd66e9ea1baf403faa26941ec667d84c38cb73fa497",
+  "review_count": 8,
+  "grade_counts": {
+   "B": 4,
+   "A": 3,
+   "C": 1
+  },
+  "recommendation_counts": {
+   "watch": 5,
+   "pilot": 3
+  },
+  "role_counts": {
+   "reach-routing": 1,
+   "context-compression": 1,
+   "harness-governance": 1,
+   "durable-orchestration": 1,
+   "observability-evaluation": 1,
+   "sandbox": 1,
+   "tool-discovery": 1,
+   "integration-control-plane": 1
+  },
+  "repo_metrics": [
+   {
+    "repo": "ComposioHQ/composio",
+    "role": "integration-control-plane",
+    "grade": "C",
+    "recommendation": "watch",
+    "pinned_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+    "observed_head": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+    "commit_drift": false,
+    "stars": 29431,
+    "pushed_at": "2026-07-29T05:59:27Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "Panniantong/Agent-Reach",
+    "role": "reach-routing",
+    "grade": "B",
+    "recommendation": "watch",
+    "pinned_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+    "observed_head": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+    "commit_drift": false,
+    "stars": 62006,
+    "pushed_at": "2026-07-25T10:20:07Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "china-qijizhifeng/agentic-harness-engineering",
+    "role": "harness-governance",
+    "grade": "A",
+    "recommendation": "pilot",
+    "pinned_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+    "observed_head": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+    "commit_drift": false,
+    "stars": 780,
+    "pushed_at": "2026-06-14T16:03:21Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "e2b-dev/E2B",
+    "role": "sandbox",
+    "grade": "B",
+    "recommendation": "watch",
+    "pinned_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+    "observed_head": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+    "commit_drift": false,
+    "stars": 13161,
+    "pushed_at": "2026-07-28T14:34:34Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "headroomlabs-ai/headroom",
+    "role": "context-compression",
+    "grade": "B",
+    "recommendation": "watch",
+    "pinned_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+    "observed_head": "1588f5e04144af5de8398810ea3893c6e623309c",
+    "commit_drift": false,
+    "stars": 63020,
+    "pushed_at": "2026-07-28T23:59:54Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "langchain-ai/langgraph",
+    "role": "durable-orchestration",
+    "grade": "A",
+    "recommendation": "pilot",
+    "pinned_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+    "observed_head": "41341457342327166d72fc11952ab28fb61ec0bf",
+    "commit_drift": false,
+    "stars": 38394,
+    "pushed_at": "2026-07-28T18:34:13Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "langfuse/langfuse",
+    "role": "observability-evaluation",
+    "grade": "B",
+    "recommendation": "watch",
+    "pinned_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+    "observed_head": "6d2988fcc050afcbee4dc28fec31669dc688c013",
+    "commit_drift": true,
+    "stars": 32063,
+    "pushed_at": "2026-07-29T07:34:33Z",
+    "metadata_source": "daily_fact"
+   },
+   {
+    "repo": "modelcontextprotocol/servers",
+    "role": "tool-discovery",
+    "grade": "A",
+    "recommendation": "pilot",
+    "pinned_commit": "d31124c982401739917fd817c2a59db344529c16",
+    "observed_head": "d31124c982401739917fd817c2a59db344529c16",
+    "commit_drift": false,
+    "stars": 89011,
+    "pushed_at": "2026-07-26T03:16:32Z",
+    "metadata_source": "daily_fact"
+   }
+  ],
+  "change_since_previous": {
+   "status": "INSUFFICIENT_HISTORY",
+   "star_delta": {},
+   "source_drift_repos": [
+    "langfuse/langfuse"
+   ]
+  },
+  "analysis": {
+   "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
+   "claim": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
+   "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
+   "potential_track": "Evidence-Governed Domain Agent Harness",
+   "owner_specialization": "聚焦高風險工程與 ASIC automation：把設計意圖、驗證意圖、確定性執行包、真實工具證據與 owner approval 串成一條可稽核鏈，而不是投入通用爬蟲或提示工程。",
+   "catalysts": [
+    "工具數量增加後，動態發現與最小權限路由比把所有工具塞進上下文更重要",
+    "長任務與多代理協作需要 conversation 外的 checkpoint、重試、取消與 readback",
+    "企業開始要求 trace、evaluation、sandbox、資料邊界與人類核准能同時成立",
+    "模型價格與能力收斂，使 domain evidence contract 成為更持久的差異化資產"
+   ],
+   "leading_indicators": [
+    "開源專案是否從 agent demo 轉向 checkpoint、conformance、doctor 與 rollback",
+    "工具整合是否改採 runtime discovery、scoped auth 與可撤銷 session",
+    "evaluation 是否能連回確切輸入、工具呼叫、輸出與失敗分類",
+    "sandbox 是否提供網路、檔案、credential 與 artifact 的明確政策及 readback",
+    "同一 evidence contract 是否能跨至少三個 domain task 重現"
+   ],
+   "falsifiers": [
+    "原生模型平台在不犧牲可攜性下完整吸收 durable state、evaluation 與 policy control",
+    "增加 harness 層後沒有降低失敗重現時間或 owner 介入次數",
+    "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
+    "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
+   ],
+   "confidence": "MEDIUM",
+   "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
+  },
+  "claim_boundary": "GitHub metadata and static source review only; stars, commits and README claims do not prove adoption, security, runtime reliability, EDA correctness or business value",
+  "revision_history": []
+ },
+ "history_contract": "append one real daily observation; same-day evidence changes retain a revision marker; never synthesize observations before started_at"
+}

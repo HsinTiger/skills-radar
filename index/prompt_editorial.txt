@@ -13,6 +13,8 @@ evidence ledger。請寫一篇有鮮明主張、可讀性像產業部落格，�
 - `production_document_proxy_pct` 不是實際上線率、部署率或成效。
 - EDA 只討論 WiFi baseband ASIC、RTL/front-end 與可移植的 evidence contract；排除 FPGA、embedded、PCB、analog/RF。
 - 財經只做資料、財報、估值、論點與風險研究；不得給交易指令、價格預測或獲利暗示。
+- AI Agent／Automation 專區只談公開來源、harness contract 與可逆 canary；不得把 stars、README 宣稱或平台覆蓋升格為採用證據。
+- 涉及 cookie、私人 session、自動登入、反反爬、CAPTCHA、住宅代理或不可逆外部 action 的路線必須明確排除。
 - 若需重申財經邊界，只寫「只作研究，不提供交易指令」；不要列舉買進、賣出、做多或做空等詞。
 - 若每日 collector 成功但 new_rows 為零，要寫成「有效的零增量」；若資料不足，要降低語氣，不可硬湊趨勢。
 - 觀點要回答「所以呢」：這對下一個 RTL 設計、研究流程或 skill 評估有何影響。
@@ -22,7 +24,7 @@ evidence ledger。請寫一篇有鮮明主張、可讀性像產業部落格，�
   「暫存器傳輸級設計（RTL）」；後文才可用縮寫。不要使用 cohort、proxy、entropy 等資料術語，
   改寫成「同一期樣本」、「文件自述指標」、「領域分散程度」。
 - 若某尺度沒有有效樣本，只用一句自然語言交代資料不足；不要列出一排零、空值或欄位名稱。
-- 除品牌 Skills Radar 與必要的 AI、GitHub、EDA、WiFi、ASIC、RTL 外，正文不得使用其他英文單字。
+- 除品牌 Skills Radar 與必要的 AI、Agent、Automation、GitHub、EDA、WiFi、ASIC、RTL 外，正文不得使用其他英文單字。
   所有流程詞都翻成自然繁中；使用全形中文標點，不在中文句子中使用半形逗號或冒號。
 
 只輸出 Markdown，不要 code fence、開場寒暄或附加說明。結構必須完全包含：
@@ -50,6 +52,10 @@ evidence ledger。請寫一篇有鮮明主張、可讀性像產業部落格，�
 ## 財經研究
 
 只談研究工作流與資料可信度，清楚保留 no-trade boundary。
+
+## AI Agent／Automation
+
+用產業專欄方式說明今日 harness thesis、反方觀點、催化劑、領先指標與最值得 owner 深耕的專業方向；引用 `〔AI 自動化清單〕`。
 
 ## 反方觀點
 

@@ -331,3 +331,33 @@ may recover current data, but it is not proof that launchd fired.  The 09:30 Git
 downloads live Pages and requires it to equal the checked-out `docs/pipeline_health.json`; checking
 remote Git alone is no longer accepted as publish proof.  Starting with report date `2026-07-29`,
 the watchdog also fails unless `schedule_contract.execution_context` is exactly `launchd`.
+
+---
+
+# 2026-07-29 Windows recovery — cumulative corpus delta and AI harness research desk
+
+## Proven local recovery
+
+- The canonical master was updated and locally classified at `42,407` rows: `6,577` seed rows and
+  `35,830` model rows. The `165` rows first seen on 2026-07-29 are all `label_source=model`; no new
+  LLM seed evidence is claimed.
+- `harvest_delta.load_seen()` now treats `master.jsonl` as the sole authority whenever it exists.
+  A stale `seen.tsv` can no longer permanently hide a path absent from master.
+- `delta-YYYY-MM-DD.jsonl` is cumulative across same-date recovery runs. The corpus manifest keeps
+  `daily_baseline`, date-level `new_rows`, and invocation-level `run_new_rows` separate.
+- The recovery scan found 64 currently searchable paths absent from master, but none returned usable
+  content through the fetch/parse gate. They were not inserted or marked complete and remain retryable.
+- Windows JSON producers for aggregate, opportunity and injection scan now write UTF-8 atomically.
+- The AI Application / Agent Harness / Automation zone contains eight pinned reviews, a daily
+  observation tape, four research horizons, three ASIC-front-end niche hypotheses and a reader-facing
+  editorial. Agent-Reach remains WATCH; no cookie, private-session, auto-login or anti-bot path ran.
+- Local gates: 103 unit tests PASS, privacy PASS, Wiki lint PASS, pipeline health PASS.
+
+## Mac owner action and proof boundary
+
+1. Pull the pushed commit with `git pull --ff-only`.
+2. Do not rewrite or discard the preserved 2026-07-29 daily baseline or cumulative delta.
+3. Let the next real scheduled job run under the installed LaunchAgent, then read back
+   `docs/pipeline_health.json` from live Pages.
+4. Only a marker created by that job may report `execution_context=launchd`. This Windows recovery
+   must remain `manual_recovery`; local PASS and Pages publication do not prove the Mac scheduler fired.

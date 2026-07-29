@@ -33,6 +33,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
         zones.get("report_date") == report_date
         and nonempty(root / "docs" / "eda-ic" / "index.html")
         and nonempty(root / "docs" / "investing" / "index.html")
+        and nonempty(root / "docs" / "ai-automation" / "index.html")
     )
     zones_ok = zones_ran and zones.get("status") == "READY_FOR_OWNER_REVIEW"
     update_current = update.get("run_date") == report_date

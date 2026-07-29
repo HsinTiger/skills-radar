@@ -67,7 +67,7 @@ LLM 種子建立於此欄位加入前，缺值視為 legacy LLM；新資料不�
 ```
 harvest_corpus.py      中立分層抽樣（依檔案大小遞迴切分區）
 harvest_targeted.py    主題過取樣（wifi / eda2 詞表，可擴充）
-harvest_delta.py       每日增量（靠 corpus/seen.tsv 比對，只抓沒看過的）
+harvest_delta.py       每日增量（以 master.jsonl 為唯一 authority；seen.tsv 只供無 master 時 bootstrap）
         ↓ corpus/master.jsonl（JSON Lines，只增不改）
 classify.sh            派 agy 標註（只標種子，數百筆）
 train_classifier.py    TF-IDF + LogReg，用種子訓練後標全量（零 token）

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills Radar 觀點 — 2026-07-29</title>
+<style>
+:root{--bg:#fbfaf8;--panel:#fff;--ink:#1c1b19;--dim:#6b6660;--line:#e6e2db;--accent:#a74718}
+@media(prefers-color-scheme:dark){:root{--bg:#151413;--panel:#1e1d1b;--ink:#ece8e2;--dim:#aaa29a;--line:#35312d;--accent:#e08050}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.85}
+main{max-width:760px;margin:auto;padding:2.5rem 1.25rem 5rem}nav{font-size:.9rem;margin-bottom:2.5rem}a{color:var(--accent)}h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.15;letter-spacing:-.035em}h2{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.2rem}p{margin:1rem 0}blockquote{margin:1.5rem 0;padding:1rem 1.2rem;border-left:4px solid var(--accent);background:var(--panel);color:var(--dim)}
+li{margin:.55rem 0}code,.cite{font-family:ui-monospace,"SF Mono",monospace;font-size:.86em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:.05rem .28rem}footer{margin-top:4rem;color:var(--dim);font-size:.82rem}
+</style></head><body><main><nav><a href="../index.html">← Skills Radar</a> · <a href="index.html">所有觀點</a></nav>
+<h1>Skills Radar 觀點 — 2026-07-29</h1>
+<blockquote>本文由 AI 依當日可查證資料生成；觀點不等於實際部署、晶片設計簽核或投資建議。</blockquote>
+<h2>核心觀點</h2>
+<p>代理技術的競爭重心，正在從「模型能不能多做一件事」移到「整條執行鏈能不能被治理」。真正稀缺的不是再加一個資訊入口，而是讓來源、工具權限、持久狀態、失敗復原、評測結果與人工核准連成一條可回讀的證據鏈。公開專案已經出現這些零件，但仍不能把供給熱度當成企業採用。<span class="cite">〔AI 自動化清單〕</span></p>
+<p>這對你的意義很直接。最值得累積的能力不是通用爬取，也不是大量提示技巧，而是「證據治理型領域代理控制層」。它可先在公開材料上驗證，再把設計意圖與驗證意圖編成確定性執行包，交由核准環境的真實工具產生證據。這條路比自動生成更多 RTL 更慢，卻更接近 WiFi ASIC 前端設計真正缺少的可靠交接層。<span class="cite">〔EDA 清單〕</span><span class="cite">〔AI 自動化清單〕</span></p>
+<h2>資料庫今天發生什麼</h2>
+<p>今天的公開資料採集成功，資料庫由 42,242 筆增加到 42,407 筆，當日累積新增 165 筆。這次更新由人工復原執行，因此只能證明本機採集與回讀完成，不能證明無人值守排程今天曾正常觸發。<span class="cite">〔今日採集〕</span></p>
+<p>新增資料已由既有種子訓練的本機分類器處理，不是新的人工作答，也不是新的大型模型黃金標籤。這個界線很重要，因為資料量擴大不會自動提高分類可靠度；低信心資料仍應被排除在比例判斷之外。<span class="cite">〔今日採集〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>多尺度判讀</h2>
+<p>日尺度的史料樣本過少，今天適合確認資料鏈與時間定義，不適合宣稱供給結構改變。系統首次看到某個項目的日期，和該公開專案的建立日期是兩個不同時鐘；兩者不能相加，也不能互相證明採用成長。<span class="cite">〔日觀察〕</span></p>
+<p>週尺度顯示大量新發現更可能來自觀察範圍補齊，而不是技能供給突然爆發。月尺度仍以軟體開發為主，但專業領域本來就較少公開，不能把可見度下降解讀成需求消失。季尺度才適合檢查調度與驗證等結構是否反覆出現，並決定是否值得建立可複用的控制層。<span class="cite">〔週觀察〕</span><span class="cite">〔月觀察〕</span><span class="cite">〔季觀察〕</span></p>
+<h2>EDA／WiFi ASIC</h2>
+<p>下一個 RTL 設計最先值得引用的，不是自動寫碼，而是三種方法。第一種是週期契約，在動手前固定資料何時進出、重設期間的允許行為與例外。第二種是證據清單，把輸入版本、工具版本、命令、產物與失敗條件綁在一起。第三種是主張稽核，把語法檢查、功能模擬、合成與等價性檢查分開，不讓較弱的通過結果冒充晶片簽核。<span class="cite">〔EDA 清單〕</span></p>
+<p>利基點也因此更清楚。可先做 RTL 與驗證證據核心、EDA 工具能力登錄表，以及前端工程變更的失敗重播。公開玩具設計只能驗證格式、權限與復原流程；產品正確性仍要由核准環境的正式模擬、波形除錯、合成與等價性檢查回讀提升。可程式化邏輯、韌體、電路板、類比射頻與實體設計不在這條研究線內。<span class="cite">〔EDA 清單〕</span></p>
+<h2>財經研究</h2>
+<p>財經技能的可取部分，是公開資料來源分級、財報數字對帳、估值假設留痕、反方論證與重現性。最危險的做法則是把缺少日期與來源的模板，包裝成精確結論。這個專區只作研究，不提供交易指令，也不連接帳戶、錢包或私人憑證。<span class="cite">〔財經清單〕</span></p>
+<p>對你最有幫助的用法，是把半導體、WiFi 與 EDA 價值鏈研究做成可審計的論點簿。每個判斷都要保留原始公開來源、適用日期、相反證據與會推翻結論的條件。這種研究紀律與晶片證據治理相通，但不能把文件整理能力誤認為投資成效。<span class="cite">〔財經清單〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>AI Agent／Automation</h2>
+<p>今天的專區完成 8 個固定版本來源審查，其中 3 個只適合進入公開資料的小型試行，5 個維持觀察或只抽取契約。最值得採用的共同模式，是能力探測、有順序的替代路徑、持久檢查點、負向權限測試、變更清單、復原與結果回讀。任何需要私人登入、自動登入、匯入登入憑證、繞過平台限制或執行不可逆外部動作的路線都應排除。<span class="cite">〔AI 自動化清單〕</span></p>
+<p>這個趨勢若成立，待爆發的不是單一代理產品，而是能把不同模型與工具當成可替換工作者的控制層。領先指標應是公開專案是否開始提供失敗分類、檢查點一致性、最小權限、負向測試與回復證據，而不是 GitHub 收藏數或支援平台數。你的專精方向應落在高風險工程的領域證據契約，並以 WiFi ASIC 前端工作作為最嚴格的驗證場。<span class="cite">〔AI 自動化清單〕</span></p>
+<h2>反方觀點</h2>
+<p>這個判斷可能被兩件事推翻。其一，模型平台若原生吸收持久狀態、工具發現、評測與隔離能力，而且仍保持可攜性，獨立控制層的價值會快速變薄。其二，若加入治理層後沒有縮短失敗重現時間，沒有減少重複說明，也沒有提高證據完整性，那麼它只是增加流程負擔。<span class="cite">〔AI 自動化清單〕</span></p>
+<p>另一個替代解釋是，今日看到的熱度只是公開專案行銷與資料補收，而不是需求轉變。專業晶片、金融、法務與醫療工作常留在內部系統，公開 GitHub 天生會低估它們。除非相同模式在後續完整周期與獨立來源中重現，否則本文只是一個待驗證的因果假說。<span class="cite">〔週觀察〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>接下來怎麼驗證</h2>
+<ul>
+<li>日尺度只記來源漂移、安全邊界與一個可逆行動，不用單日聲量決定採用。</li>
+<li>週尺度選一條公開玩具設計，留下設計意圖、驗證意圖、檢查點、失敗分類、回復與回讀證據。</li>
+<li>月尺度淘汰功能重疊的框架，只保留可替換格式契約、負向測試與可機器讀取產物。</li>
+<li>季尺度要求同一證據契約跨多種高風險任務重現，再決定是否升格成個人專業與產品假設。</li>
+</ul>
+<p>若公開試行不能攔住假的通過結果，若壓縮脈絡後遺失重要約束，或若另一個工作者無法只靠交接包重現結果，就應降低優先級，而不是增加更多代理功能。<span class="cite">〔EDA 清單〕</span><span class="cite">〔AI 自動化清單〕</span></p>
+<h2>證據與限制</h2>
+<p>文中的「今日採集」只證明公開資料採集與本機回讀；「日觀察、週觀察、月觀察、季觀察」依完整周期保存不同時間定義；三份清單則來自固定版本的公開來源審查。這些證據能支持研究排序，不能證明工具已安裝、已部署或適合公司環境。</p>
+<p>公開 GitHub 樣本偏向願意公開工作的開發者，會低估公司內部與受監管領域。公開專案建立日期不是技能建立或採用日期，文件自述的成熟度也不是實際上線率。分類器與晶片次分類仍需持續抽樣驗證，所有比例都必須保留信心門檻與樣本邊界。<span class="cite">〔資料限制〕</span></p><footer>文章日期：2026-07-29 · 由 AI 依可查證資料生成</footer></main></body></html>

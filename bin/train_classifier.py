@@ -13,7 +13,7 @@ train_classifier.py — 用 LLM 標好的種子樣本訓練本機分類器，再
 - 每個欄位都會輸出交叉驗證準確率；準確率不夠的欄位不該拿來下結論。
 - 預測結果會標上 `label_source: model` 與信心值，跟 LLM 標的分開存，不可混為一談。
 """
-import json, os, sys
+import hashlib, json, os, sys
 import numpy as np
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -57,7 +57,7 @@ if not todo:
     print("沒有待標樣本，只做交叉驗證")
 
 X_seed = [text_of(r) for r in seed]
-report = {"n_seed": len(seed), "n_predicted": 0, "fields": {}}
+report = {"n_seed": len(seed), "n_predicted": 0, "n_total": len(rows), "fields": {}}
 models = {}
 
 for f in FIELDS:
@@ -119,6 +119,10 @@ if todo:
     }
     print(f"\n已預測 {len(todo)} 筆（domain 信心 ≥0.6 佔 {report['pred_conf']['pct_above_0.6']}%）")
 
+with open(MASTER, "rb") as handle:
+    master_digest = hashlib.sha256(handle.read()).hexdigest()
+report["master_sha256"] = master_digest
+
 report_path = os.path.join(ROOT, "corpus", "model_report.json")
 report_tmp = report_path + ".tmp"
 try:
@@ -130,3 +134,37 @@ finally:
     if os.path.exists(report_tmp):
         os.unlink(report_tmp)
 print(f"\n報告 → corpus/model_report.json")
+
+# Attach the exact classification boundary to today's successful collector
+# manifest.  This makes a manual/local-model recovery distinguishable from new
+# LLM seed evidence without changing the collector's SUCCESS claim.
+manifest_path = os.path.join(ROOT, "data", "corpus_update_manifest.json")
+if os.path.exists(manifest_path):
+    try:
+        with open(manifest_path, encoding="utf-8") as handle:
+            manifest = json.load(handle)
+        if manifest.get("status") == "SUCCESS":
+            manifest["classification"] = {
+                "status": "MODEL_PREDICTED",
+                "method": "local_classifier_from_existing_seed_set",
+                "llm_seed_rows": report.get("n_seed"),
+                "model_rows": report.get("n_predicted"),
+                "model_report_master_sha256": master_digest,
+                "domain_cv_accuracy": report.get("fields", {}).get("domain", {}).get("cv_accuracy"),
+                "domain_model_confidence_at_least_0_6_pct": report.get("pred_conf", {}).get("pct_above_0.6"),
+                "claim_boundary": (
+                    "new and existing non-seed rows were labelled by the local classifier; "
+                    "they are not new LLM or human seed evidence and remain subject to field-confidence gates"
+                ),
+            }
+            temporary = manifest_path + ".tmp"
+            try:
+                with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+                    json.dump(manifest, handle, ensure_ascii=False, indent=1)
+                    handle.write("\n")
+                os.replace(temporary, manifest_path)
+            finally:
+                if os.path.exists(temporary):
+                    os.unlink(temporary)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        print(f"WARN: classification manifest annotation failed: {exc}", file=sys.stderr)

@@ -14,6 +14,7 @@ recommendations = sorted(glob.glob("research/recommendations/*.md"), reverse=Tru
 editorials = sorted(glob.glob("research/editorials/*.md"), reverse=True)
 eda_zones = sorted(glob.glob("research/zones/eda-ic/*.md"), reverse=True)
 investing_zones = sorted(glob.glob("research/zones/investing/*.md"), reverse=True)
+ai_automation_zones = sorted(glob.glob("research/zones/ai-automation/*.md"), reverse=True)
 hist = []
 if os.path.exists("data/history.jsonl"):
     for line in open("data/history.jsonl"):
@@ -53,14 +54,14 @@ index = "## 歷史簡報\n\n" + "\n".join(
 latest_date = os.path.basename(dailies[0])[:-3] if dailies else "UNKNOWN"
 latest_recommendation = recommendations[0] if recommendations else None
 recommendation_line = (
-    f"- [每日 EDA_IC／財經投資研究 Skill 建議]({web_path(latest_recommendation)})：\n"
+    f"- [每日 EDA_IC／財經投資／AI Harness Skill 建議]({web_path(latest_recommendation)})：\n"
     "  每日 08:30 以 deterministic gate 更新；`pilot` 只代表可進入隔離評估，不代表已安裝、已上線或通過正確性驗證。"
     if latest_recommendation else
-    "- 每日 EDA_IC／財經投資研究 Skill 建議尚未產生。"
+    "- 每日 EDA_IC／財經投資／AI Harness Skill 建議尚未產生。"
 )
 editorial_line = (
     f"- [每日觀點文章]({web_path(editorials[0])})：\n"
-    "  以當日 corpus manifest、四尺度 evidence、EDA_IC 與財經研究清單生成；包含核心主張、反方觀點與證偽條件。"
+    "  以當日 corpus manifest、四尺度 evidence、EDA_IC、財經與 AI harness 清單生成；包含核心主張、反方觀點與證偽條件。"
     if editorials else
     "- 每日觀點文章尚未產生。"
 )
@@ -88,6 +89,8 @@ readme = f"""# Skills Radar
   逐 skill dossier、日／週／月／季 AI 觀點，以及 WiFi baseband ASIC automation 建置路線；排除 FPGA／embedded／PCB／analog-RF。
 - [財經投資研究專區]({web_path(investing_zones[0]) if investing_zones else 'docs/investing/index.html'})：
   逐 skill 研究 gate 與多週期觀點；只做可追溯、可重算研究，不連帳戶、不下單。
+- [AI 應用／Agent Harness／Automation 情報專區]({web_path(ai_automation_zones[0]) if ai_automation_zones else 'docs/ai-automation/index.html'})：
+  pinned source dossier、每日 observation tape、專業情報 thesis、反方觀點、催化劑、領先指標與個人化 ASIC automation 路線。
 - 日／週／月／季觀點：每天早上由同一個排程補齊尚未完成的週期；正文以繁中短篇文章呈現，
   數據依據收在可展開區塊。沒有完整資料就明說不足，不用空值硬湊結論。
 - [WiFi ASIC RTL / EDA Skill 適用性研究（2026-07-27）](research/ASIC_WIFI_SKILL_FIT_2026-07-27.md)：
@@ -95,6 +98,8 @@ readme = f"""# Skills Radar
   但 secondary taxonomy golden validation 仍為 `BLOCKED`，因此只可作候選路由，不是 EDA runtime proof。
 - [RTL Front-end Skill Deep Dive（2026-07-28）](research/RTL_FRONTEND_SKILL_DEEP_DIVE_2026-07-28.md)：
   聚焦 spec／fixed-point／uArch／SystemVerilog RTL／CDC・RDC／formal／VCS・Verdi，邊界只到 logic synthesis、LEC 與 frontend ECO。
+- [AI Harness／Automation Deep Dive（2026-07-29）](research/AI_HARNESS_AUTOMATION_DEEP_DIVE_2026-07-29.md)：
+  深讀 Agent-Reach 與七個互補候選，提出 Evidence-Governed Domain Agent Harness 趨勢與九十天專精路線。
 
 ## 這個系統怎麼運作
 
@@ -106,8 +111,9 @@ bin/run_daily.sh    主流程：抓取 → AI provider 產簡報 → 驗收 → 
 bin/build_readme.py 重建本頁
 bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 docs/wiki 實體頁面
 bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
-bin/build_daily_recommendations.py  產生 EDA_IC／財經投資研究的每日採用候選、摘要與風險 gate
-bin/build_domain_zones.py  建立兩個獨立專區、逐 skill dossier、多週期文章與個人化採用路線
+bin/build_ai_automation_history.py  保存第三專區的真實每日 observation tape，不回填假歷史
+bin/build_daily_recommendations.py  產生 EDA_IC／財經投資／AI harness 的每日採用候選、摘要與風險 gate
+bin/build_domain_zones.py  建立三個獨立專區、逐 skill dossier、多週期文章與個人化採用路線
 bin/timescale_summaries.py  日／週／月／季 evidence、AI summary、完整期與 catch-up dispatcher
 bin/update_corpus.py  區分 collector FAILED、有效零增量與真實新增，寫入 corpus update manifest
 bin/build_editorial_evidence.py  組合每日觀點的 source-bounded evidence ledger
@@ -120,6 +126,7 @@ bin/check_published_freshness.py  GitHub Actions 每日 09:30 回讀 live Pages�
 data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
 data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序
+data/ai_automation_history.json  AI harness 專區每日 pinned-source／metadata observation tape
 daily/YYYY-MM-DD.md 每日簡報
 research/editorials/YYYY-MM-DD.md 每日繁中觀點文章
 ```

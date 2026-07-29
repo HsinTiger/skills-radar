@@ -1,6 +1,7 @@
 {
  "n_seed": 6577,
- "n_predicted": 35665,
+ "n_predicted": 35830,
+ "n_total": 42407,
  "fields": {
   "domain": {
    "cv_accuracy": 0.724,
@@ -38,6 +39,7 @@
  "pred_conf": {
   "mean": 0.482,
   "pct_above_0.6": 33.2,
-  "pct_above_0.8": 14.2
- }
+  "pct_above_0.8": 14.1
+ },
+ "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75"
 }

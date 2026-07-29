@@ -1,64 +1,64 @@
 {
- "n_total": 5573,
+ "n_total": 5621,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
   "model_conf_min": 0.6,
-  "n_domain": 5573,
-  "n_task": 5473,
-  "n_maturity": 5530,
-  "n_target": 5494
+  "n_domain": 5621,
+  "n_task": 5499,
+  "n_maturity": 5563,
+  "n_target": 5525
  },
- "global_production_pct": 42.2,
+ "global_production_pct": 42.4,
  "global_task_pct": {
   "generate": 22.0,
   "transform": 7.9,
   "analyze": 12.5,
-  "verify": 15.3,
+  "verify": 15.4,
   "orchestrate": 15.5,
   "retrieve": 9.8,
-  "configure": 17.0
+  "configure": 16.9
  },
  "A_traction": [
   {
    "domain": "legal-compliance",
-   "n": 93,
-   "n_maturity": 91,
+   "n": 95,
+   "n_maturity": 93,
    "n_target": 91,
-   "production_pct": 64.8,
-   "vs_global_production": 22.6,
+   "production_pct": 65.6,
+   "vs_global_production": 23.2,
    "median_stars": 36,
    "p90_stars": 1381,
    "agent_facing_pct": 1.1
   },
   {
-   "domain": "security",
-   "n": 288,
-   "n_maturity": 284,
-   "n_target": 278,
+   "domain": "devops-infra",
+   "n": 362,
+   "n_maturity": 354,
+   "n_target": 351,
    "production_pct": 64.1,
    "vs_global_production": 21.8,
-   "median_stars": 19,
-   "p90_stars": 1283,
-   "agent_facing_pct": 9.4
-  },
-  {
-   "domain": "devops-infra",
-   "n": 354,
-   "n_maturity": 346,
-   "n_target": 346,
-   "production_pct": 63.3,
-   "vs_global_production": 21.1,
    "median_stars": 13,
    "p90_stars": 471,
-   "agent_facing_pct": 9.0
+   "agent_facing_pct": 8.8
+  },
+  {
+   "domain": "security",
+   "n": 292,
+   "n_maturity": 287,
+   "n_target": 279,
+   "production_pct": 64.1,
+   "vs_global_production": 21.8,
+   "median_stars": 18,
+   "p90_stars": 1283,
+   "agent_facing_pct": 9.3
   },
   {
    "domain": "healthcare-bio",
-   "n": 120,
-   "n_maturity": 119,
-   "n_target": 119,
-   "production_pct": 52.9,
-   "vs_global_production": 10.7,
+   "n": 122,
+   "n_maturity": 120,
+   "n_target": 121,
+   "production_pct": 53.3,
+   "vs_global_production": 11.0,
    "median_stars": 17,
    "p90_stars": 1593,
    "agent_facing_pct": 2.5
@@ -69,65 +69,65 @@
    "n_maturity": 129,
    "n_target": 129,
    "production_pct": 52.7,
-   "vs_global_production": 10.5,
+   "vs_global_production": 10.4,
    "median_stars": 16,
    "p90_stars": 475,
    "agent_facing_pct": 13.2
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 861,
-   "n_maturity": 855,
-   "n_target": 859,
-   "production_pct": 45.6,
-   "vs_global_production": 3.4,
+   "n": 866,
+   "n_maturity": 858,
+   "n_target": 862,
+   "production_pct": 45.7,
+   "vs_global_production": 3.3,
    "median_stars": 9,
-   "p90_stars": 639,
-   "agent_facing_pct": 60.0
+   "p90_stars": 634,
+   "agent_facing_pct": 60.1
   },
   {
    "domain": "finance-investing",
-   "n": 192,
-   "n_maturity": 190,
+   "n": 194,
+   "n_maturity": 192,
    "n_target": 187,
-   "production_pct": 44.2,
-   "vs_global_production": 2.0,
+   "production_pct": 44.3,
+   "vs_global_production": 1.9,
    "median_stars": 21,
    "p90_stars": 475,
    "agent_facing_pct": 12.8
   },
   {
    "domain": "software-dev",
-   "n": 1849,
-   "n_maturity": 1840,
-   "n_target": 1827,
-   "production_pct": 41.2,
-   "vs_global_production": -1.0,
+   "n": 1864,
+   "n_maturity": 1850,
+   "n_target": 1838,
+   "production_pct": 41.1,
+   "vs_global_production": -1.2,
    "median_stars": 9,
    "p90_stars": 521,
-   "agent_facing_pct": 12.1
+   "agent_facing_pct": 12.0
   },
   {
    "domain": "ops-admin",
-   "n": 255,
-   "n_maturity": 254,
-   "n_target": 253,
-   "production_pct": 39.0,
-   "vs_global_production": -3.3,
+   "n": 258,
+   "n_maturity": 256,
+   "n_target": 256,
+   "production_pct": 39.5,
+   "vs_global_production": -2.9,
    "median_stars": 10,
-   "p90_stars": 511,
-   "agent_facing_pct": 7.1
+   "p90_stars": 531,
+   "agent_facing_pct": 7.0
   },
   {
    "domain": "design-creative",
-   "n": 335,
-   "n_maturity": 332,
-   "n_target": 326,
-   "production_pct": 38.0,
-   "vs_global_production": -4.3,
+   "n": 338,
+   "n_maturity": 333,
+   "n_target": 329,
+   "production_pct": 37.8,
+   "vs_global_production": -4.5,
    "median_stars": 12,
    "p90_stars": 590,
-   "agent_facing_pct": 7.4
+   "agent_facing_pct": 7.3
   },
   {
    "domain": "hardware-eda",
@@ -135,43 +135,43 @@
    "n_maturity": 36,
    "n_target": 36,
    "production_pct": 36.1,
-   "vs_global_production": -6.1,
+   "vs_global_production": -6.2,
    "median_stars": 9,
    "p90_stars": 330,
    "agent_facing_pct": 22.2
   },
   {
    "domain": "marketing-growth",
-   "n": 210,
+   "n": 211,
    "n_maturity": 208,
    "n_target": 208,
    "production_pct": 35.6,
-   "vs_global_production": -6.7,
+   "vs_global_production": -6.8,
    "median_stars": 22,
    "p90_stars": 573,
    "agent_facing_pct": 2.4
   },
   {
    "domain": "writing-content",
-   "n": 173,
-   "n_maturity": 171,
-   "n_target": 170,
-   "production_pct": 28.7,
-   "vs_global_production": -13.6,
+   "n": 175,
+   "n_maturity": 172,
+   "n_target": 172,
+   "production_pct": 28.5,
+   "vs_global_production": -13.9,
    "median_stars": 25,
-   "p90_stars": 440,
-   "agent_facing_pct": 1.8
+   "p90_stars": 444,
+   "agent_facing_pct": 1.7
   },
   {
    "domain": "sales-crm",
-   "n": 53,
+   "n": 54,
    "n_maturity": 53,
-   "n_target": 51,
+   "n_target": 52,
    "production_pct": 28.3,
-   "vs_global_production": -13.9,
+   "vs_global_production": -14.0,
    "median_stars": 40,
    "p90_stars": 248,
-   "agent_facing_pct": 3.9
+   "agent_facing_pct": 3.8
   },
   {
    "domain": "research-academia",
@@ -179,7 +179,7 @@
    "n_maturity": 201,
    "n_target": 194,
    "production_pct": 26.9,
-   "vs_global_production": -15.4,
+   "vs_global_production": -15.5,
    "median_stars": 20,
    "p90_stars": 868,
    "agent_facing_pct": 5.2
@@ -190,7 +190,7 @@
    "n_maturity": 307,
    "n_target": 308,
    "production_pct": 21.2,
-   "vs_global_production": -21.1,
+   "vs_global_production": -21.2,
    "median_stars": 6,
    "p90_stars": 274,
    "agent_facing_pct": 5.2
@@ -201,7 +201,7 @@
    "n_maturity": 78,
    "n_target": 78,
    "production_pct": 16.7,
-   "vs_global_production": -25.6,
+   "vs_global_production": -25.7,
    "median_stars": 6,
    "p90_stars": 296,
    "agent_facing_pct": 2.6
@@ -212,7 +212,7 @@
    "n_maturity": 36,
    "n_target": 34,
    "production_pct": 11.1,
-   "vs_global_production": -31.1,
+   "vs_global_production": -31.2,
    "median_stars": 11,
    "p90_stars": 531,
    "agent_facing_pct": 2.9
@@ -222,9 +222,9 @@
   {
    "domain": "healthcare-bio",
    "task": "generate",
-   "domain_n": 117,
+   "domain_n": 119,
    "observed": 1,
-   "expected": 25.8,
+   "expected": 26.1,
    "ratio_vs_global": 0.04
   },
   {
@@ -232,7 +232,7 @@
    "task": "verify",
    "domain_n": 305,
    "observed": 3,
-   "expected": 46.5,
+   "expected": 46.9,
    "ratio_vs_global": 0.06
   },
   {
@@ -248,13 +248,13 @@
    "task": "orchestrate",
    "domain_n": 284,
    "observed": 6,
-   "expected": 44.1,
+   "expected": 44.0,
    "ratio_vs_global": 0.14
   },
   {
    "domain": "finance-investing",
    "task": "transform",
-   "domain_n": 185,
+   "domain_n": 186,
    "observed": 2,
    "expected": 14.7,
    "ratio_vs_global": 0.14
@@ -262,17 +262,25 @@
   {
    "domain": "legal-compliance",
    "task": "orchestrate",
-   "domain_n": 89,
+   "domain_n": 90,
    "observed": 2,
-   "expected": 13.8,
+   "expected": 13.9,
    "ratio_vs_global": 0.14
   },
   {
    "domain": "design-creative",
    "task": "analyze",
-   "domain_n": 334,
+   "domain_n": 336,
    "observed": 7,
-   "expected": 41.7,
+   "expected": 42.0,
+   "ratio_vs_global": 0.17
+  },
+  {
+   "domain": "writing-content",
+   "task": "configure",
+   "domain_n": 169,
+   "observed": 5,
+   "expected": 28.6,
    "ratio_vs_global": 0.17
   },
   {
@@ -280,39 +288,31 @@
    "task": "verify",
    "domain_n": 78,
    "observed": 2,
-   "expected": 11.9,
+   "expected": 12.0,
    "ratio_vs_global": 0.17
   },
   {
    "domain": "design-creative",
    "task": "configure",
-   "domain_n": 334,
+   "domain_n": 336,
    "observed": 10,
-   "expected": 56.6,
-   "ratio_vs_global": 0.18
-  },
-  {
-   "domain": "writing-content",
-   "task": "configure",
-   "domain_n": 168,
-   "observed": 5,
-   "expected": 28.5,
+   "expected": 56.9,
    "ratio_vs_global": 0.18
   },
   {
    "domain": "writing-content",
    "task": "orchestrate",
-   "domain_n": 168,
+   "domain_n": 169,
    "observed": 5,
-   "expected": 26.1,
+   "expected": 26.2,
    "ratio_vs_global": 0.19
   },
   {
    "domain": "design-creative",
    "task": "orchestrate",
-   "domain_n": 334,
+   "domain_n": 336,
    "observed": 13,
-   "expected": 51.8,
+   "expected": 52.0,
    "ratio_vs_global": 0.25
   },
   {
@@ -320,15 +320,15 @@
    "task": "verify",
    "domain_n": 129,
    "observed": 5,
-   "expected": 19.7,
+   "expected": 19.8,
    "ratio_vs_global": 0.25
   },
   {
    "domain": "healthcare-bio",
    "task": "configure",
-   "domain_n": 117,
+   "domain_n": 119,
    "observed": 5,
-   "expected": 19.8,
+   "expected": 20.2,
    "ratio_vs_global": 0.25
   },
   {
@@ -336,7 +336,7 @@
    "task": "generate",
    "domain_n": 284,
    "observed": 16,
-   "expected": 62.5,
+   "expected": 62.4,
    "ratio_vs_global": 0.26
   },
   {
@@ -350,9 +350,17 @@
   {
    "domain": "devops-infra",
    "task": "generate",
-   "domain_n": 345,
+   "domain_n": 350,
    "observed": 21,
-   "expected": 76.0,
+   "expected": 76.9,
+   "ratio_vs_global": 0.27
+  },
+  {
+   "domain": "writing-content",
+   "task": "analyze",
+   "domain_n": 169,
+   "observed": 6,
+   "expected": 21.1,
    "ratio_vs_global": 0.28
   },
   {
@@ -360,55 +368,47 @@
    "task": "verify",
    "domain_n": 248,
    "observed": 11,
-   "expected": 37.8,
+   "expected": 38.2,
    "ratio_vs_global": 0.29
   },
   {
    "domain": "finance-investing",
    "task": "configure",
-   "domain_n": 185,
+   "domain_n": 186,
    "observed": 9,
-   "expected": 31.4,
+   "expected": 31.5,
    "ratio_vs_global": 0.29
-  },
-  {
-   "domain": "writing-content",
-   "task": "analyze",
-   "domain_n": 168,
-   "observed": 6,
-   "expected": 21.0,
-   "ratio_vs_global": 0.29
-  },
-  {
-   "domain": "ai-agent-tooling",
-   "task": "analyze",
-   "domain_n": 851,
-   "observed": 34,
-   "expected": 106.2,
-   "ratio_vs_global": 0.32
   },
   {
    "domain": "marketing-growth",
    "task": "verify",
    "domain_n": 207,
    "observed": 10,
-   "expected": 31.6,
+   "expected": 31.8,
+   "ratio_vs_global": 0.31
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "task": "analyze",
+   "domain_n": 854,
+   "observed": 34,
+   "expected": 106.7,
    "ratio_vs_global": 0.32
   },
   {
    "domain": "devops-infra",
    "task": "transform",
-   "domain_n": 345,
+   "domain_n": 350,
    "observed": 9,
-   "expected": 27.4,
-   "ratio_vs_global": 0.33
+   "expected": 27.8,
+   "ratio_vs_global": 0.32
   },
   {
    "domain": "legal-compliance",
    "task": "configure",
-   "domain_n": 89,
+   "domain_n": 90,
    "observed": 5,
-   "expected": 15.1,
+   "expected": 15.3,
    "ratio_vs_global": 0.33
   },
   {
@@ -458,8 +458,8 @@
   },
   {
    "domain": "writing-content",
-   "n": 171,
-   "workflow": 116,
+   "n": 172,
+   "workflow": 117,
    "production": 49,
    "completion_ratio": 0.3
   },
@@ -479,44 +479,44 @@
   },
   {
    "domain": "design-creative",
-   "n": 332,
+   "n": 333,
    "workflow": 200,
    "production": 126,
    "completion_ratio": 0.39
   },
   {
    "domain": "ops-admin",
-   "n": 254,
+   "n": 256,
    "workflow": 149,
-   "production": 99,
+   "production": 101,
    "completion_ratio": 0.4
   },
   {
    "domain": "software-dev",
-   "n": 1840,
-   "workflow": 1037,
-   "production": 759,
+   "n": 1850,
+   "workflow": 1045,
+   "production": 761,
    "completion_ratio": 0.42
   },
   {
    "domain": "finance-investing",
-   "n": 190,
-   "workflow": 101,
-   "production": 84,
+   "n": 192,
+   "workflow": 102,
+   "production": 85,
    "completion_ratio": 0.45
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 855,
-   "workflow": 364,
-   "production": 390,
+   "n": 858,
+   "workflow": 365,
+   "production": 392,
    "completion_ratio": 0.52
   },
   {
    "domain": "healthcare-bio",
-   "n": 119,
+   "n": 120,
    "workflow": 54,
-   "production": 63,
+   "production": 64,
    "completion_ratio": 0.54
   },
   {
@@ -527,24 +527,24 @@
    "completion_ratio": 0.54
   },
   {
-   "domain": "devops-infra",
-   "n": 346,
-   "workflow": 117,
-   "production": 219,
+   "domain": "security",
+   "n": 287,
+   "workflow": 99,
+   "production": 184,
    "completion_ratio": 0.65
   },
   {
-   "domain": "security",
-   "n": 284,
-   "workflow": 98,
-   "production": 182,
-   "completion_ratio": 0.65
+   "domain": "devops-infra",
+   "n": 354,
+   "workflow": 117,
+   "production": 227,
+   "completion_ratio": 0.66
   },
   {
    "domain": "legal-compliance",
-   "n": 91,
+   "n": 93,
    "workflow": 31,
-   "production": 59,
+   "production": 61,
    "completion_ratio": 0.66
   }
  ],
@@ -568,9 +568,9 @@
    "n": 8,
    "production": 6,
    "domains": [
-    "data-analytics",
+    "software-dev",
     "devops-infra",
-    "software-dev"
+    "data-analytics"
    ],
    "pains": [
     "忘記 DBeaver 快捷鍵與 SSH 隧道配置",
@@ -585,8 +585,8 @@
    "production": 5,
    "domains": [
     "ops-admin",
-    "ai-agent-tooling",
-    "software-dev"
+    "software-dev",
+    "ai-agent-tooling"
    ],
    "pains": [
     "團隊任務文檔結構紊亂且資訊歸屬權責不清",
@@ -600,8 +600,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "security",
-    "devops-infra"
+    "devops-infra",
+    "security"
    ],
    "pains": [
     "傳統網路連線排查工具輸出格式難以解析",
@@ -727,8 +727,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "marketing-growth",
-    "design-creative"
+    "design-creative",
+    "marketing-growth"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -756,8 +756,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "other",
-    "software-dev"
+    "software-dev",
+    "other"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
@@ -939,8 +939,8 @@
    "n": 4,
    "production": 3,
    "domains": [
-    "data-analytics",
-    "devops-infra"
+    "devops-infra",
+    "data-analytics"
    ],
    "pains": [
     "資料庫 Agent 權限與核心技能未規範",
@@ -996,9 +996,9 @@
    "n": 8,
    "production": 3,
    "domains": [
+    "ops-admin",
     "data-analytics",
-    "personal-productivity",
-    "ops-admin"
+    "personal-productivity"
    ],
    "pains": [
     "未解答問題未能自動記錄並指派給專家",
@@ -1066,9 +1066,9 @@
   },
   {
    "domain": "writing-content",
-   "n": 173,
+   "n": 175,
    "unique_pains": 164,
-   "diversity": 0.95
+   "diversity": 0.94
   },
   {
    "domain": "data-analytics",
@@ -1078,26 +1078,14 @@
   },
   {
    "domain": "sales-crm",
-   "n": 53,
+   "n": 54,
    "unique_pains": 50,
-   "diversity": 0.94
-  },
-  {
-   "domain": "ops-admin",
-   "n": 255,
-   "unique_pains": 235,
-   "diversity": 0.92
+   "diversity": 0.93
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 861,
+   "n": 866,
    "unique_pains": 794,
-   "diversity": 0.92
-  },
-  {
-   "domain": "devops-infra",
-   "n": 354,
-   "unique_pains": 324,
    "diversity": 0.92
   },
   {
@@ -1107,22 +1095,34 @@
    "diversity": 0.91
   },
   {
-   "domain": "software-dev",
-   "n": 1849,
-   "unique_pains": 1661,
+   "domain": "ops-admin",
+   "n": 258,
+   "unique_pains": 235,
+   "diversity": 0.91
+  },
+  {
+   "domain": "devops-infra",
+   "n": 362,
+   "unique_pains": 324,
    "diversity": 0.9
   },
   {
    "domain": "marketing-growth",
-   "n": 210,
+   "n": 211,
    "unique_pains": 189,
    "diversity": 0.9
   },
   {
+   "domain": "software-dev",
+   "n": 1864,
+   "unique_pains": 1661,
+   "diversity": 0.89
+  },
+  {
    "domain": "finance-investing",
-   "n": 192,
+   "n": 194,
    "unique_pains": 172,
-   "diversity": 0.9
+   "diversity": 0.89
   },
   {
    "domain": "other",
@@ -1138,27 +1138,27 @@
   },
   {
    "domain": "legal-compliance",
-   "n": 93,
+   "n": 95,
    "unique_pains": 82,
-   "diversity": 0.88
+   "diversity": 0.86
   },
   {
    "domain": "design-creative",
-   "n": 335,
+   "n": 338,
    "unique_pains": 288,
-   "diversity": 0.86
+   "diversity": 0.85
   },
   {
    "domain": "healthcare-bio",
-   "n": 120,
+   "n": 122,
    "unique_pains": 103,
-   "diversity": 0.86
+   "diversity": 0.84
   },
   {
    "domain": "security",
-   "n": 288,
+   "n": 292,
    "unique_pains": 237,
-   "diversity": 0.82
+   "diversity": 0.81
   }
  ],
  "B5_by_first_seen": {
@@ -1181,6 +1181,16 @@
    "design-creative": 11,
    "finance-investing": 10,
    "ops-admin": 7
+  },
+  "2026-07-29": {
+   "software-dev": 15,
+   "devops-infra": 8,
+   "ai-agent-tooling": 5,
+   "security": 4,
+   "ops-admin": 3,
+   "design-creative": 3,
+   "finance-investing": 2,
+   "healthcare-bio": 2
   }
  }
 }

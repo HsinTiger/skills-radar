@@ -44,6 +44,35 @@ class HarvestCorpusTests(unittest.TestCase):
                 seen = harvest_delta.load_seen()
         self.assertEqual(seen, {("owner/repo", "skills/a/SKILL.md")})
 
+    def test_stale_seen_cache_cannot_hide_row_absent_from_master(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            master = root / "master.jsonl"
+            seen_path = root / "seen.tsv"
+            master.write_text(
+                json.dumps({"repo": "owner/repo", "path": "skills/a/SKILL.md"}) + "\n",
+                encoding="utf-8",
+            )
+            seen_path.write_text(
+                "owner/repo\tskills/a/SKILL.md\nowner/ghost\tskills/missing/SKILL.md\n",
+                encoding="utf-8",
+            )
+            with patch.object(harvest_delta, "MASTER", str(master)), \
+                 patch.object(harvest_delta, "SEEN", str(seen_path)):
+                seen = harvest_delta.load_seen()
+        self.assertEqual(seen, {("owner/repo", "skills/a/SKILL.md")})
+
+    def test_same_day_delta_merge_is_cumulative(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            delta = Path(tmp) / "delta.jsonl"
+            first = {"repo": "owner/a", "path": "SKILL.md"}
+            second = {"repo": "owner/b", "path": "skills/b/SKILL.md"}
+            delta.write_text(json.dumps(first) + "\n", encoding="utf-8")
+            count = harvest_delta.merge_daily_delta(str(delta), [second])
+            rows = [json.loads(line) for line in delta.read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(count, 2)
+        self.assertEqual(rows, [first, second])
+
 
 if __name__ == "__main__":
     unittest.main()

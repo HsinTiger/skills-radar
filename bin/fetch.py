@@ -22,6 +22,14 @@ REPOS = [
     ("anthropics/claude-code", 1, "Claude Code 本體（changelog / issue 風向）"),
     ("ComposioHQ/awesome-claude-skills", 3, "最大社群精選清單"),
     ("travisvn/awesome-claude-skills", 3, "Claude Code 取向的社群清單"),
+    ("Panniantong/Agent-Reach", 3, "公開資訊 reach routing 候選；登入型 channel 僅作風險觀察"),
+    ("headroomlabs-ai/headroom", 3, "context compression 與 reversible retrieval 候選"),
+    ("china-qijizhifeng/agentic-harness-engineering", 3, "harness change/evidence contract 候選"),
+    ("langchain-ai/langgraph", 2, "durable orchestration 與 checkpoint conformance 候選"),
+    ("langfuse/langfuse", 2, "agent observability/evaluation 候選"),
+    ("e2b-dev/E2B", 2, "sandbox contract 候選；外部執行邊界需另審"),
+    ("modelcontextprotocol/servers", 1, "MCP steering-group reference implementations"),
+    ("ComposioHQ/composio", 3, "runtime tool discovery 與 scoped session pattern 候選"),
 ]
 
 def gh(path, params=None):
@@ -30,7 +38,10 @@ def gh(path, params=None):
     if params:
         url += "?" + urllib.parse.urlencode(params)
     try:
-        out = subprocess.run(["gh", "api", url], capture_output=True, text=True, timeout=60)
+        out = subprocess.run(
+            ["gh", "api", url], capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=60,
+        )
         if out.returncode != 0:
             return {"_error": out.stderr.strip()[:200]}
         return json.loads(out.stdout)
@@ -52,6 +63,43 @@ def clip(s, n=300):
     s = (s or "").replace("\r", " ").replace("\n", " ").strip()
     return s[:n]
 
+
+def write_json(path, value):
+    temporary = path + ".tmp"
+    try:
+        with open(temporary, "w", encoding="utf-8", newline="\n") as fh:
+            json.dump(value, fh, ensure_ascii=False, indent=1)
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+
+def upsert_daily_history(path, record):
+    """Keep one metric snapshot per date; a same-day rerun replaces that date."""
+    records_by_date = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                try:
+                    value = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                day = value.get("date")
+                if day and day != record["date"]:
+                    records_by_date[day] = value
+    records_by_date[record["date"]] = record
+    records = [records_by_date[day] for day in sorted(records_by_date)]
+    temporary = path + ".tmp"
+    try:
+        with open(temporary, "w", encoding="utf-8", newline="\n") as fh:
+            for value in records:
+                fh.write(json.dumps(value, ensure_ascii=False) + "\n")
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
 # ---------- 各來源抓取 ----------
 
 def fetch_repo(full, tier, why, days):
@@ -60,11 +108,18 @@ def fetch_repo(full, tier, why, days):
         return {"repo": full, "tier": tier, "why": why, "error": info["_error"]}
     commits = gh(f"repos/{full}/commits", {"since": since_iso(days), "per_page": 30})
     releases = gh(f"repos/{full}/releases", {"per_page": 3})
+    branch = info.get("default_branch") or "HEAD"
+    head = gh(f"repos/{full}/commits/{branch}")
     out = {
         "repo": full, "tier": tier, "why": why,
         "stars": info.get("stargazers_count"),
         "pushed_at": info.get("pushed_at"),
         "open_issues": info.get("open_issues_count"),
+        "head_sha": head.get("sha") if isinstance(head, dict) else None,
+        "head_verified": (
+            ((head.get("commit") or {}).get("verification") or {}).get("verified")
+            if isinstance(head, dict) else None
+        ),
         "commits": [], "releases": [],
     }
     if isinstance(commits, list):
@@ -163,7 +218,8 @@ def main():
     prev = {}
     if os.path.exists(SNAP):
         try:
-            prev = json.load(open(SNAP))
+            with open(SNAP, encoding="utf-8") as fh:
+                prev = json.load(fh)
         except Exception:
             prev = {}
 
@@ -201,14 +257,15 @@ def main():
     cur["diff"] = diff
 
     os.makedirs(DATA, exist_ok=True)
-    json.dump(cur, open(SNAP, "w"), ensure_ascii=False, indent=1)
-    with open(os.path.join(DATA, "history.jsonl"), "a") as fh:
-        fh.write(json.dumps({"date": now.strftime("%Y-%m-%d"),
-                             "stars": {r["repo"]: r.get("stars") for r in cur["repos"]},
-                             "official_skill_count": {k: len(v) for k, v in cur["official_skills"].items()},
-                             "plugin_count": len(cur["official_plugins"])}, ensure_ascii=False) + "\n")
+    write_json(SNAP, cur)
+    upsert_daily_history(os.path.join(DATA, "history.jsonl"), {
+        "date": now.strftime("%Y-%m-%d"),
+        "stars": {r["repo"]: r.get("stars") for r in cur["repos"]},
+        "official_skill_count": {k: len(v) for k, v in cur["official_skills"].items()},
+        "plugin_count": len(cur["official_plugins"]),
+    })
     out_path = os.path.join(DATA, f"facts-{now.strftime('%Y-%m-%d')}.json")
-    json.dump(cur, open(out_path, "w"), ensure_ascii=False, indent=1)
+    write_json(out_path, cur)
     print(out_path)
 
 if __name__ == "__main__":

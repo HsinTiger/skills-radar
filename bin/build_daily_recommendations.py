@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the daily owner-facing EDA/IC and finance skill recommendations.
+"""Build the daily owner-facing EDA/IC, finance, and AI harness recommendations.
 
 This is a deterministic consumer of the radar corpus.  It never executes a
 third-party skill, never treats repository popularity as correctness, and
@@ -26,6 +26,7 @@ MODEL_REPORT = ROOT / "corpus" / "model_report.json"
 ASIC_CATALOG = ROOT / "corpus" / "asic_skill_catalog.json"
 ASIC_REVIEWS = ROOT / "corpus" / "asic_skill_reviews.json"
 FINANCE_REVIEWS = ROOT / "corpus" / "finance_skill_reviews.json"
+AI_AUTOMATION_REVIEWS = ROOT / "corpus" / "ai_automation_skill_reviews.json"
 OUTPUT_JSON = ROOT / "corpus" / "daily_skill_recommendations.json"
 RESEARCH_DIR = ROOT / "research" / "recommendations"
 DOCS_DIR = ROOT / "docs" / "recommendations"
@@ -357,6 +358,148 @@ def _finance_owner_dossier(capabilities: list[str], recommendation: str) -> dict
     }
 
 
+def _ai_automation_owner_dossier(role: str, recommendation: str) -> dict:
+    specs = {
+        "reach-routing": (
+            "public-intake-router",
+            "把網站能力視為可探測、可降級的 adapter，而不是讓 agent 自行繞過平台限制。",
+            "只用公開 Web、RSS 與 GitHub fixture 建立 capability registry、doctor 與 ordered fallback；所有登入型 channel 保持停用。",
+            ["adapter capability readback", "active backend and failure reason", "public-source provenance", "zero credential access"],
+        ),
+        "context-compression": (
+            "reversible-context-layer",
+            "長任務需要壓縮脈絡，但設計約束與失敗證據不能因省 token 被靜默丟失。",
+            "在去識別化公開 trace 上做壓縮／不壓縮對照，逐項檢查 constraint retention、取回率與任務結果。",
+            ["uncompressed holdout", "constraint-retention score", "retrieval log", "task outcome and token readback"],
+        ),
+        "harness-governance": (
+            "harness-change-governor",
+            "最貼近你要搭建的 ASIC automation：每次改 system rule、tool、memory 或 middleware 都有失敗證據、預期修復與回歸清單。",
+            "以公開 toy RTL 任務建立最小 change manifest，讓另一個 agent 重跑前後版本並核對預測修復與回歸。",
+            ["failure trace", "change manifest", "before/after task set", "rollback and owner disposition"],
+        ),
+        "durable-orchestration": (
+            "durable-state-machine",
+            "長時間 EDA 任務必須能 checkpoint、重試、取消與恢復，且流程真相不能只存在 agent 對話。",
+            "用公開多步驟任務模擬中斷、重入與重複 side effect，驗證 checkpoint conformance 與 idempotence。",
+            ["checkpoint schema", "resume trace", "idempotence key", "cancellation and recovery readback"],
+        ),
+        "observability-evaluation": (
+            "evidence-and-eval-rail",
+            "trace 只有在能連回輸入版本、工具呼叫、artifact 與評測 oracle 時才有工程價值。",
+            "對公開 task set 收集已脫敏 trace，建立 failure taxonomy、eval linkage、retention 與 telemetry-off readback。",
+            ["sanitized trace", "task/eval linkage", "retention policy", "telemetry and redaction readback"],
+        ),
+        "sandbox": (
+            "least-privilege-execution",
+            "agent 產生的命令需要隔離，但工程內網、EDA license 與機密資料不能送入外部 sandbox。",
+            "只在公開 fixture 驗證 deny-by-default network、ephemeral credential、filesystem boundary 與 artifact export。",
+            ["network policy", "filesystem boundary", "process and artifact manifest", "credential absence proof"],
+        ),
+        "tool-discovery": (
+            "typed-tool-registry",
+            "工具愈多，動態 discovery、allowlist、scope 與 version pin 比把所有工具描述塞進 prompt 更重要。",
+            "建立兩個只讀 toy tools 與一個拒絕型 canary，驗證 schema discovery、root restriction 與 unknown-tool fail closed。",
+            ["pinned server and schema", "allowlist readback", "root/scope restriction", "negative authorization test"],
+        ),
+        "integration-control-plane": (
+            "approval-gated-tool-router",
+            "可借用 runtime discovery 與 scoped session，但不能把外部帳號和不可逆 action 交給通用控制平面。",
+            "以本地 mock tools 模擬 session、runtime discovery 與 owner approval；不連任何真實帳號或 hosted action。",
+            ["local session scope", "tool allowlist", "approval receipt", "no external credential or side effect"],
+        ),
+    }
+    internal_role, fit_reason, experiment, evidence = specs.get(role, (
+        "review-candidate", "目前只有概念適配性，尚未形成可驗證的 harness contract。",
+        "先完成 pinned source、license、dependency 與 threat-boundary review。",
+        ["pinned source", "license", "dependency graph", "explicit non-adoption decision"],
+    ))
+    return {
+        "harness_role": internal_role,
+        "personalized_fit": fit_reason,
+        "first_experiment": experiment,
+        "required_evidence": evidence,
+        "promotion_gate": (
+            "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → "
+            "only then package a deterministic domain adapter; public results never prove internal EDA correctness"
+        ),
+        "kill_criteria": [
+            "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+            "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+            "cannot reproduce failure, rollback state, tool scope and exact artifact readback",
+        ],
+        "portfolio_state": recommendation,
+    }
+
+
+def build_ai_automation(reviews_doc: dict, freshness: dict) -> dict:
+    grade_score = {"A": 100, "B": 75, "C": 45, "D": 0}
+    role_priority = {
+        "harness-governance": 20, "durable-orchestration": 18,
+        "observability-evaluation": 16, "tool-discovery": 15,
+        "sandbox": 14, "context-compression": 12,
+        "reach-routing": 10, "integration-control-plane": 6,
+    }
+    items = []
+    for review in reviews_doc.get("reviews", []):
+        grade = review.get("grade", "D")
+        recommendation = review.get("recommendation") or {
+            "A": "pilot", "B": "watch", "C": "watch", "D": "exclude",
+        }.get(grade, "exclude")
+        role = review.get("role", "review-candidate")
+        commit = review.get("commit") or "UNKNOWN"
+        item = {
+            "name": review.get("name") or Path(review.get("path", "README.md")).stem,
+            "artifact_type": review.get("artifact_type", "unknown"),
+            "repo": review.get("repo"), "path": review.get("path"),
+            "source_commit": commit,
+            "source_url": github_url(review.get("repo", ""), review.get("path", ""), commit),
+            "license": review.get("license", "UNKNOWN"),
+            "category": "ai-automation", "owner_fit": role,
+            "recommendation": recommendation,
+            "recommendation_zh": STATUS_ZH[recommendation],
+            "score": grade_score.get(grade, 0) + role_priority.get(role, 0)
+                     + (3 if review.get("commit_verified") else 0),
+            "summary": review.get("decision", ""),
+            "use_in_ai_automation": review.get("decision", ""),
+            "capabilities": review.get("fit", []),
+            "dependencies": review.get("dependencies", []),
+            "risks": review.get("risk", []),
+            "evidence": review.get("evidence", []),
+            "stars_snapshot": review.get("stars_snapshot"),
+            "source_review": {
+                "status": "REVIEWED", "grade": grade,
+                "reviewed_at": reviews_doc.get("reviewed_at"),
+                "commit_verified": bool(review.get("commit_verified")),
+                "runtime_proof": "NOT_RUN",
+                "review_scope": "static pinned-source review; no third-party code or credential path executed",
+            },
+            "evidence_freshness": freshness["status"],
+            "do_not_claim": [
+                "stars and README claims are not adoption, reliability or security proof",
+                "public canary does not prove internal engineering or EDA correctness",
+            ],
+        }
+        item["owner_dossier"] = _ai_automation_owner_dossier(role, recommendation)
+        items.append(item)
+    items.sort(key=lambda x: (-x["score"], x.get("repo") or "", x.get("path") or ""))
+    recommendations = [item for item in items if item["recommendation"] != "exclude"]
+    excluded = [item for item in items if item["recommendation"] == "exclude"]
+    counts = Counter(item["recommendation"] for item in items)
+    return {
+        "label": "AI 應用／Agent Harness／Automation",
+        "scope": "公開資訊入口、context 管理、durable orchestration、tool discovery、evaluation/observability、sandbox 與 integration control plane。",
+        "excluded_scope": "私人貼文、未授權登入、cookie/session 匯入、反反爬或 CAPTCHA 規避、不可逆外部 action，以及公司機密或 EDA 資料外傳。",
+        "summary": (
+            f"已完成 {len(items)} 個 pinned source review：{counts.get('pilot', 0)} 個可進入公開資料 canary、"
+            f"{counts.get('watch', 0)} 個只觀察或抽取 contract、{counts.get('exclude', 0)} 個排除。"
+        ),
+        "recommendations": recommendations,
+        "excluded": excluded,
+        "all_reviewed": items,
+        "strategic_thesis": reviews_doc.get("strategic_thesis", {}),
+        "adoption_gate": "只抽取 contract → 公開 fixture canary → failure/recovery/evidence readback → owner 核准；不直接安裝第三方 bundle。",
+    }
 def build_eda(reviews_doc: dict, catalog_doc: dict, freshness: dict) -> dict:
     catalog = {(r.get("repo"), r.get("path")): r for r in catalog_doc.get("candidates", [])}
     items = []
@@ -647,7 +790,9 @@ def render_markdown(report: dict) -> str:
         "> 財經清單只供研究工具評估，不構成投資建議，也不授權任何交易或 credential 操作。",
         "",
     ]
-    for key in ("EDA_IC", "finance-investing"):
+    for key in ("EDA_IC", "finance-investing", "ai-automation"):
+        if key not in report["categories"]:
+            continue
         category = report["categories"][key]
         lines += [
             f"## {category['label']}", "", category["summary"], "",
@@ -657,7 +802,9 @@ def render_markdown(report: dict) -> str:
             "|---|---|---|---|---|---|",
         ]
         for item in category["recommendations"]:
-            use = item.get("use_in_next_rtl_design") or item.get("use_in_investment_research")
+            use = (item.get("use_in_next_rtl_design")
+                   or item.get("use_in_investment_research")
+                   or item.get("use_in_ai_automation"))
             review = item["source_review"]
             review_text = f"{review['status']}"
             if review.get("grade"):
@@ -696,11 +843,15 @@ def render_html(report: dict) -> str:
         return html.escape(str(value or "—"))
 
     sections = []
-    for key in ("EDA_IC", "finance-investing"):
+    for key in ("EDA_IC", "finance-investing", "ai-automation"):
+        if key not in report["categories"]:
+            continue
         category = report["categories"][key]
         cards = []
         for item in category["recommendations"]:
-            use = item.get("use_in_next_rtl_design") or item.get("use_in_investment_research")
+            use = (item.get("use_in_next_rtl_design")
+                   or item.get("use_in_investment_research")
+                   or item.get("use_in_ai_automation"))
             risks = "".join(f"<li>{esc(r)}</li>" for r in item.get("risks", [])[:4]) or "<li>未驗證</li>"
             cards.append(f"""
 <article class="card">
@@ -739,12 +890,14 @@ main{{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}}a{{color:var(--ac
 
 
 def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: dict,
-                 master_path: Path, report_date: str, finance_reviews: dict | None = None) -> dict:
+                 master_path: Path, report_date: str, finance_reviews: dict | None = None,
+                 ai_automation_reviews: dict | None = None) -> dict:
     freshness = snapshot_freshness(rows, model_report, master_path)
     catalog_state = catalog_freshness(catalog, freshness)
     categories = {
         "EDA_IC": build_eda(reviews, catalog, freshness),
         "finance-investing": build_finance(rows, freshness, finance_reviews),
+        "ai-automation": build_ai_automation(ai_automation_reviews or {}, freshness),
     }
     displayed = []
     for category in categories.values():
@@ -772,6 +925,7 @@ def build_report(rows: list[dict], model_report: dict, catalog: dict, reviews: d
             "states": STATUS_ZH,
             "adopt_requires": "owner approval plus domain runtime proof",
             "finance_boundary": "research only; no trade execution, brokerage/wallet access or credentials",
+            "ai_automation_boundary": "public sources and public fixtures only; no private sessions, anti-bot bypass, irreversible actions or confidential engineering data",
             "population_trend_claims": "forbidden in this recommendation artifact",
             "source_review_ready": source_review_ready,
         },
@@ -793,6 +947,7 @@ def main(argv=None) -> int:
     report = build_report(
         rows, read_json(MODEL_REPORT, {}), read_json(ASIC_CATALOG, {}),
         read_json(ASIC_REVIEWS, {}), args.master, args.date, read_json(FINANCE_REVIEWS, {}),
+        read_json(AI_AUTOMATION_REVIEWS, {}),
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -805,7 +960,8 @@ def main(argv=None) -> int:
     print(
         f"daily recommendations: {args.date}; status={report['status']}; "
         f"EDA={len(report['categories']['EDA_IC']['recommendations'])}; "
-        f"finance={len(report['categories']['finance-investing']['recommendations'])}"
+        f"finance={len(report['categories']['finance-investing']['recommendations'])}; "
+        f"ai-automation={len(report['categories']['ai-automation']['recommendations'])}"
     )
     return 0
 

@@ -10,10 +10,10 @@
 
 ## Current evidence
 
-- `PROVEN` 中立且可用的 domain 樣本：**354**（母體 6.35%）
-- `PROVEN` production：**63.3%**（maturity 有效樣本 346）
-- `PROVEN` agent target：**9.0%**（target 有效樣本 346）
-- `PROVEN` 最新 evidence：2026-07-28 r2
+- `PROVEN` 中立且可用的 domain 樣本：**362**（母體 6.44%）
+- `PROVEN` production：**64.1%**（maturity 有效樣本 354）
+- `PROVEN` agent target：**8.8%**（target 有效樣本 351）
+- `PROVEN` 最新 evidence：2026-07-29 r1
 - `UNKNOWN` 私有／企業內 skill 的採用比例、實際使用頻率與業務成效。
 
 ### Task distribution
@@ -22,16 +22,16 @@
 |---|---:|
 | 配置 (`configure`) | 42.3% |
 | 調度 (`orchestrate`) | 21.4% |
-| 驗證 (`verify`) | 13.0% |
-| 分析 (`analyze`) | 9.0% |
-| 生成 (`generate`) | 6.1% |
+| 驗證 (`verify`) | 13.4% |
+| 分析 (`analyze`) | 8.9% |
+| 生成 (`generate`) | 6.0% |
 
 ### Structural signals
 
 | missing task | observed / expected | ratio |
 |---|---:|---:|
-| 生成 (`generate`) | 21 / 76.0 | 0.28x |
-| 轉換 (`transform`) | 9 / 27.4 | 0.33x |
+| 生成 (`generate`) | 21 / 76.9 | 0.27x |
+| 轉換 (`transform`) | 9 / 27.8 | 0.32x |
 
 `PROVEN` 僅限 observed/expected 計算；把缺口解讀成產品機會仍是 `ASSUMED`，需 owner 判斷。
 
@@ -41,12 +41,13 @@
 |---|---:|---:|---:|---:|---:|---|
 | 2026-07-28 | 1 | 338 | 6.25% | 62.4% | +0 | initial ingest |
 | 2026-07-28 | 2 | 354 | 6.35% | 63.3% | +168 | corpus recovery 1012 rows and editorial migration |
+| 2026-07-29 | 1 | 362 | 6.44% | 64.1% | +48 | scheduled evidence ingest |
 
 ## Evidence contract
 
 - 中立抽樣限定；所有 `targeted-*` 排除於母體統計。
 - 模型欄位信心門檻：`0.6`；各欄位分開判定。
 - Wiki 不收錄第三方原文；質性例子須另經 injection 與 privacy 檢查。
-- master SHA-256：`3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6`
+- master SHA-256：`aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75`
 
 [返回 Wiki index](README.md)

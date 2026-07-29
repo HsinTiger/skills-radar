@@ -150,6 +150,155 @@
       "E9"
      ]
     }
+   },
+   "2026-07-28": {
+    "status": "AI_GENERATED",
+    "generated_at": "2026-07-29T09:28:20.117747+00:00",
+    "run_date": "2026-07-29",
+    "period": {
+     "scale": "day",
+     "period_id": "2026-07-28",
+     "start": "2026-07-28",
+     "end": "2026-07-28"
+    },
+    "time_contract": {
+     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+     "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+     "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+    },
+    "evidence": {
+     "E1_sample": {
+      "archive_n": 2,
+      "archive_previous_n": 4,
+      "discovered_n": 168,
+      "discovered_previous_n": 0
+     },
+     "E2_domain_mix": [
+      {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "count": 1,
+       "share_pct": 50.0
+      },
+      {
+       "key": "ops-admin",
+       "label": "營運行政",
+       "count": 1,
+       "share_pct": 50.0
+      }
+     ],
+     "E3_domain_shifts": [],
+     "E4_task_mix": [
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 1,
+       "share_pct": 100.0
+      }
+     ],
+     "E5_task_shifts": [],
+     "E6_maturity": {
+      "mix": [
+       {
+        "key": "workflow",
+        "label": "workflow",
+        "count": 1,
+        "share_pct": 100.0
+       }
+      ],
+      "production_document_proxy": {
+       "count": 0,
+       "eligible_n": 1,
+       "pct": 0.0
+      },
+      "agent_target_proxy": {
+       "count": 0,
+       "eligible_n": 1,
+       "pct": 0.0
+      },
+      "warning": "document labels are intent/proxy, not deployment or outcome verification"
+     },
+     "E7_diversity": {
+      "domain_entropy": {
+       "normalized": 1.0,
+       "categories": 2,
+       "n": 2
+      },
+      "task_entropy": {
+       "normalized": 0.0,
+       "categories": 1,
+       "n": 1
+      }
+     },
+     "E8_eda_ic": {
+      "hardware_eda_n": 0,
+      "owner_fit_provisional": {},
+      "hardware_target_provisional": {},
+      "top_asic_stages": [],
+      "wifi_areas": [],
+      "taxonomy_validation": "BLOCKED",
+      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+     },
+     "E9_finance": {
+      "finance_n": 0,
+      "task_mix": [],
+      "maturity_mix": [],
+      "current_recommendation_states": {
+       "pilot": 2,
+       "watch": 3
+      },
+      "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+     },
+     "E10_quality": {
+      "neutral_population_only": true,
+      "targeted_rows_excluded": true,
+      "archive_domain_eligible_n": 2,
+      "comparison_domain_eligible_n": 4,
+      "minimum_shift_support": 5
+     }
+    },
+    "ai": {
+     "scale": "day",
+     "period_id": "2026-07-28",
+     "headline": "本期樣本量太小，任何結構性結論都站不住腳",
+     "executive_summary": "這一天系統依專案建立日期歸入本期的樣本只有兩筆，另有大量以本系統首次觀察為準的新發現項目，但兩種計數的時間定義不同，不能直接相加或互相印證。由於符合品質門檻可比對的樣本數遠低於做比較所需的最低門檻，今天不足以判斷領域或任務組合是否真的出現變化，只能記錄目前看到的樣子。",
+     "structural_changes": [
+      "依專案建立日期歸入本期的樣本僅兩筆，分別落在軟體開發與營運行政兩個領域，各占一半",
+      "任務型態上這兩筆樣本都被標記為生成類，沒有其他任務型態出現",
+      "文件自述已投入使用的比例為零，代表沒有樣本聲稱進入實際佈署"
+     ],
+     "eda_ic_readout": "本期沒有任何樣本落在晶片設計相關範圍內，且次分類本身尚未通過驗證，因此完全無法對特殊應用積體電路或暫存器傳輸級設計做出判讀。",
+     "finance_readout": "本期沒有財經研究相關樣本可供判讀，僅有既有觀察清單裡分別標記為試行與觀察中的項目，但這些狀態與今天的新增證據無關，不能當作今天的財經研究結論。",
+     "contrarian_view": "值得留意的是，如果只看依專案建立日期歸類的樣本會覺得數量在萎縮，但同一天以本系統首次觀察為準的新發現項目卻出現大量增長；這種落差更可能反映資料蒐集節奏或索引時間差，而不是實際供給量的真實變化。",
+     "actions": [
+      "把依專案建立日期歸類與依系統首次觀察歸類的兩套計數分開存放並各自標示時間定義，避免混用",
+      "針對新發現項目大量增加的這一天，回頭確認資料來源是否有批次補登或索引延遲",
+      "累積更多天數的樣本後再重新檢視領域與任務組合是否出現真正的結構變化",
+      "暫緩對今天的比例數字做任何對外陳述，先標註為觀察不足"
+     ],
+     "falsifiers": [
+      "後續數天若依專案建立日期歸類的樣本持續維持在極低水準，代表萎縮可能是真實訊號而非取樣噪音",
+      "若新發現項目的暴增只集中在這一天且之後迅速回落，應懷疑是一次性資料抓取異常",
+      "若後續样本中出現晶片設計相關項目且能通過分類驗證，才能開始討論相關領域的判讀",
+      "若財經研究樣本開始穩定出現，才具備建立財經觀點的基礎"
+     ],
+     "caveats": [
+      "本期樣本量遠低於做比較所需的最低支持門檻，任何比例都可能因單一樣本大幅擺動",
+      "文件自述已投入使用的標籤只是作者自我陳述，不代表實際佈署或成效",
+      "晶片設計次分類尚未通過驗證，任何相關描述只能算暫定，不能當作正確結果",
+      "最新一天的依專案建立日期樣本可能因搜尋索引尚未完整收錄而被低估"
+     ],
+     "confidence": "LOW",
+     "evidence_ids": [
+      "E1",
+      "E2",
+      "E4",
+      "E6",
+      "E8",
+      "E9",
+      "E10"
+     ]
+    }
    }
   },
   "week": {
@@ -1475,13 +1624,13 @@
  "latest": {
   "day": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-07-28T08:20:52.274667+00:00",
-   "run_date": "2026-07-28",
+   "generated_at": "2026-07-29T09:28:20.117747+00:00",
+   "run_date": "2026-07-29",
    "period": {
     "scale": "day",
-    "period_id": "2026-07-27",
-    "start": "2026-07-27",
-    "end": "2026-07-27"
+    "period_id": "2026-07-28",
+    "start": "2026-07-28",
+    "end": "2026-07-28"
    },
    "time_contract": {
     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
@@ -1490,44 +1639,32 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 4,
-     "archive_previous_n": 1,
-     "discovered_n": 0,
-     "discovered_previous_n": 5405
+     "archive_n": 2,
+     "archive_previous_n": 4,
+     "discovered_n": 168,
+     "discovered_previous_n": 0
     },
     "E2_domain_mix": [
      {
-      "key": "ai-agent-tooling",
-      "label": "AI Agent 工具",
-      "count": 2,
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 1,
       "share_pct": 50.0
      },
      {
-      "key": "security",
-      "label": "資安",
-      "count": 2,
+      "key": "ops-admin",
+      "label": "營運行政",
+      "count": 1,
       "share_pct": 50.0
      }
     ],
     "E3_domain_shifts": [],
     "E4_task_mix": [
      {
-      "key": "verify",
-      "label": "驗證",
-      "count": 2,
-      "share_pct": 50.0
-     },
-     {
       "key": "generate",
       "label": "生成",
       "count": 1,
-      "share_pct": 25.0
-     },
-     {
-      "key": "configure",
-      "label": "配置",
-      "count": 1,
-      "share_pct": 25.0
+      "share_pct": 100.0
      }
     ],
     "E5_task_shifts": [],
@@ -1536,19 +1673,19 @@
       {
        "key": "workflow",
        "label": "workflow",
-       "count": 4,
+       "count": 1,
        "share_pct": 100.0
       }
      ],
      "production_document_proxy": {
       "count": 0,
-      "eligible_n": 4,
+      "eligible_n": 1,
       "pct": 0.0
      },
      "agent_target_proxy": {
-      "count": 2,
-      "eligible_n": 4,
-      "pct": 50.0
+      "count": 0,
+      "eligible_n": 1,
+      "pct": 0.0
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
     },
@@ -1556,12 +1693,12 @@
      "domain_entropy": {
       "normalized": 1.0,
       "categories": 2,
-      "n": 4
+      "n": 2
      },
      "task_entropy": {
-      "normalized": 0.946,
-      "categories": 3,
-      "n": 4
+      "normalized": 0.0,
+      "categories": 1,
+      "n": 1
      }
     },
     "E8_eda_ic": {
@@ -1578,47 +1715,59 @@
      "task_mix": [],
      "maturity_mix": [],
      "current_recommendation_states": {
-      "pilot": 3,
-      "watch": 5
+      "pilot": 2,
+      "watch": 3
      },
      "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
     },
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 4,
-     "comparison_domain_eligible_n": 1,
+     "archive_domain_eligible_n": 2,
+     "comparison_domain_eligible_n": 4,
      "minimum_shift_support": 5
     }
    },
    "ai": {
     "scale": "day",
-    "period_id": "2026-07-27",
-    "headline": "今天沒有足夠的新資料，最好的判斷是暫時不下結論",
-    "executive_summary": "今天沒有可供比較的當期樣本。這不是技能生態停滯的證明，更可能是觀察窗口與資料更新節奏造成的空白。與其拿前一天的資料補洞，本期應保留空白，等待下一次採集確認。",
+    "period_id": "2026-07-28",
+    "headline": "本期樣本量太小，任何結構性結論都站不住腳",
+    "executive_summary": "這一天系統依專案建立日期歸入本期的樣本只有兩筆，另有大量以本系統首次觀察為準的新發現項目，但兩種計數的時間定義不同，不能直接相加或互相印證。由於符合品質門檻可比對的樣本數遠低於做比較所需的最低門檻，今天不足以判斷領域或任務組合是否真的出現變化，只能記錄目前看到的樣子。",
     "structural_changes": [
-     "沒有足夠材料判斷領域或任務結構是否改變",
-     "前一期的大量新發現屬於另一個觀察期間，不能拿來填補今天"
+     "依專案建立日期歸入本期的樣本僅兩筆，分別落在軟體開發與營運行政兩個領域，各占一半",
+     "任務型態上這兩筆樣本都被標記為生成類，沒有其他任務型態出現",
+     "文件自述已投入使用的比例為零，代表沒有樣本聲稱進入實際佈署"
     ],
-    "eda_ic_readout": "今天沒有新的電子設計自動化或數位晶片設計材料，因此不調整無線網路基頻設計的採用清單。",
-    "finance_readout": "今天也沒有新的財經研究材料，既有候選方法維持原狀，不增加任何方向性判斷。",
-    "contrarian_view": "這個空白也可能是採集流程漏跑，而不是單純沒有新項目；只有下一次讀回資料庫後才能分辨。",
+    "eda_ic_readout": "本期沒有任何樣本落在晶片設計相關範圍內，且次分類本身尚未通過驗證，因此完全無法對特殊應用積體電路或暫存器傳輸級設計做出判讀。",
+    "finance_readout": "本期沒有財經研究相關樣本可供判讀，僅有既有觀察清單裡分別標記為試行與觀察中的項目，但這些狀態與今天的新增證據無關，不能當作今天的財經研究結論。",
+    "contrarian_view": "值得留意的是，如果只看依專案建立日期歸類的樣本會覺得數量在萎縮，但同一天以本系統首次觀察為準的新發現項目卻出現大量增長；這種落差更可能反映資料蒐集節奏或索引時間差，而不是實際供給量的真實變化。",
     "actions": [
-     "下一次採集完成後讀回資料庫，確認今天的空白是否被補齊"
+     "把依專案建立日期歸類與依系統首次觀察歸類的兩套計數分開存放並各自標示時間定義，避免混用",
+     "針對新發現項目大量增加的這一天，回頭確認資料來源是否有批次補登或索引延遲",
+     "累積更多天數的樣本後再重新檢視領域與任務組合是否出現真正的結構變化",
+     "暫緩對今天的比例數字做任何對外陳述，先標註為觀察不足"
     ],
     "falsifiers": [
-     "後續讀回若補出今天的樣本，本文對資料空白的解釋就必須重寫",
-     "若連續多日都沒有新資料，應優先檢查採集流程而非解讀市場"
+     "後續數天若依專案建立日期歸類的樣本持續維持在極低水準，代表萎縮可能是真實訊號而非取樣噪音",
+     "若新發現項目的暴增只集中在這一天且之後迅速回落，應懷疑是一次性資料抓取異常",
+     "若後續样本中出現晶片設計相關項目且能通過分類驗證，才能開始討論相關領域的判讀",
+     "若財經研究樣本開始穩定出現，才具備建立財經觀點的基礎"
     ],
     "caveats": [
-     "單日空白不能代表長期趨勢",
-     "前一期資料不應移入今天來製造內容"
+     "本期樣本量遠低於做比較所需的最低支持門檻，任何比例都可能因單一樣本大幅擺動",
+     "文件自述已投入使用的標籤只是作者自我陳述，不代表實際佈署或成效",
+     "晶片設計次分類尚未通過驗證，任何相關描述只能算暫定，不能當作正確結果",
+     "最新一天的依專案建立日期樣本可能因搜尋索引尚未完整收錄而被低估"
     ],
     "confidence": "LOW",
     "evidence_ids": [
      "E1",
+     "E2",
+     "E4",
+     "E6",
      "E8",
-     "E9"
+     "E9",
+     "E10"
     ]
    }
   },

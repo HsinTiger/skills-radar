@@ -81,7 +81,11 @@ python3 bin/build_asic_catalog.py >> "$LOG" 2>&1 || {
 }
 
 # 3.5 每日 owner-facing 建議清單（零 token）
-# EDA/IC 只引用已審來源；財經類只允許研究用途，交易／credential 風險會降級或排除。
+# 先保存 AI harness 專區的真實每日 observation；不回填啟用前的假歷史。
+python3 bin/build_ai_automation_history.py --date "$DATE" >> "$LOG" 2>&1 || {
+  log "STOP: AI harness 每日 observation 產生失敗"; exit 1;
+}
+# EDA/IC、AI harness 只引用已審來源；財經類只允許研究用途，交易／credential 風險會降級或排除。
 python3 bin/build_daily_recommendations.py --date "$DATE" >> "$LOG" 2>&1 || {
   log "STOP: 每日 skill 建議清單產生失敗"; exit 1;
 }

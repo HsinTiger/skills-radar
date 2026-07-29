@@ -1439,6 +1439,727 @@
       "change": {
         "n_total_delta": 168
       }
+    },
+    {
+      "date": "2026-07-29",
+      "revision": 1,
+      "revision_note": "scheduled evidence ingest",
+      "policy": {
+        "sample": "neutral only; sample missing, empty, or neutral",
+        "targeted": "all targeted-* excluded from population estimates",
+        "model_conf_min": 0.6,
+        "raw_third_party_text": "excluded"
+      },
+      "overall": {
+        "n_total": 5621,
+        "global_production_pct": 42.4,
+        "global_task_pct": {
+          "generate": 22.0,
+          "transform": 7.9,
+          "analyze": 12.5,
+          "verify": 15.4,
+          "orchestrate": 15.5,
+          "retrieve": 9.8,
+          "configure": 16.9
+        }
+      },
+      "domains": {
+        "software-dev": {
+          "name_zh": "軟體開發",
+          "n": 1864,
+          "share_pct": 33.16,
+          "coverage": {
+            "task": 1832,
+            "maturity": 1850,
+            "target": 1838,
+            "model_domain": 55,
+            "human_or_legacy_domain": 1809
+          },
+          "task_pct": {
+            "generate": 24.7,
+            "verify": 23.0,
+            "configure": 19.3,
+            "orchestrate": 10.8,
+            "analyze": 9.3,
+            "transform": 6.8,
+            "retrieve": 6.1
+          },
+          "maturity_pct": {
+            "workflow": 56.5,
+            "production": 41.1,
+            "toy": 2.4
+          },
+          "production_pct": 41.1,
+          "agent_target_pct": 12.0,
+          "gaps": []
+        },
+        "ai-agent-tooling": {
+          "name_zh": "AI Agent 工具",
+          "n": 866,
+          "share_pct": 15.41,
+          "coverage": {
+            "task": 854,
+            "maturity": 858,
+            "target": 862,
+            "model_domain": 22,
+            "human_or_legacy_domain": 844
+          },
+          "task_pct": {
+            "orchestrate": 31.1,
+            "configure": 29.5,
+            "generate": 12.5,
+            "retrieve": 10.7,
+            "verify": 7.8,
+            "transform": 4.3,
+            "analyze": 4.0
+          },
+          "maturity_pct": {
+            "production": 45.7,
+            "workflow": 42.5,
+            "toy": 11.8
+          },
+          "production_pct": 45.7,
+          "agent_target_pct": 60.1,
+          "gaps": [
+            {
+              "task": "analyze",
+              "observed": 34,
+              "expected": 106.7,
+              "ratio_vs_global": 0.32
+            }
+          ]
+        },
+        "devops-infra": {
+          "name_zh": "DevOps 基礎設施",
+          "n": 362,
+          "share_pct": 6.44,
+          "coverage": {
+            "task": 350,
+            "maturity": 354,
+            "target": 351,
+            "model_domain": 25,
+            "human_or_legacy_domain": 337
+          },
+          "task_pct": {
+            "configure": 42.3,
+            "orchestrate": 21.4,
+            "verify": 13.4,
+            "analyze": 8.9,
+            "generate": 6.0,
+            "retrieve": 5.4,
+            "transform": 2.6
+          },
+          "maturity_pct": {
+            "production": 64.1,
+            "workflow": 33.1,
+            "toy": 2.8
+          },
+          "production_pct": 64.1,
+          "agent_target_pct": 8.8,
+          "gaps": [
+            {
+              "task": "generate",
+              "observed": 21,
+              "expected": 76.9,
+              "ratio_vs_global": 0.27
+            },
+            {
+              "task": "transform",
+              "observed": 9,
+              "expected": 27.8,
+              "ratio_vs_global": 0.32
+            }
+          ]
+        },
+        "design-creative": {
+          "name_zh": "設計創意",
+          "n": 338,
+          "share_pct": 6.01,
+          "coverage": {
+            "task": 336,
+            "maturity": 333,
+            "target": 329,
+            "model_domain": 14,
+            "human_or_legacy_domain": 324
+          },
+          "task_pct": {
+            "generate": 65.8,
+            "transform": 15.2,
+            "verify": 5.7,
+            "retrieve": 4.5,
+            "orchestrate": 3.9,
+            "configure": 3.0,
+            "analyze": 2.1
+          },
+          "maturity_pct": {
+            "workflow": 60.1,
+            "production": 37.8,
+            "toy": 2.1
+          },
+          "production_pct": 37.8,
+          "agent_target_pct": 7.3,
+          "gaps": [
+            {
+              "task": "analyze",
+              "observed": 7,
+              "expected": 42.0,
+              "ratio_vs_global": 0.17
+            },
+            {
+              "task": "configure",
+              "observed": 10,
+              "expected": 56.9,
+              "ratio_vs_global": 0.18
+            },
+            {
+              "task": "orchestrate",
+              "observed": 13,
+              "expected": 52.0,
+              "ratio_vs_global": 0.25
+            }
+          ]
+        },
+        "personal-productivity": {
+          "name_zh": "個人生產力",
+          "n": 308,
+          "share_pct": 5.48,
+          "coverage": {
+            "task": 305,
+            "maturity": 307,
+            "target": 308,
+            "model_domain": 5,
+            "human_or_legacy_domain": 303
+          },
+          "task_pct": {
+            "retrieve": 25.6,
+            "orchestrate": 24.9,
+            "transform": 15.1,
+            "generate": 14.8,
+            "analyze": 10.8,
+            "configure": 7.9,
+            "verify": 1.0
+          },
+          "maturity_pct": {
+            "workflow": 69.7,
+            "production": 21.2,
+            "toy": 9.1
+          },
+          "production_pct": 21.2,
+          "agent_target_pct": 5.2,
+          "gaps": [
+            {
+              "task": "verify",
+              "observed": 3,
+              "expected": 46.9,
+              "ratio_vs_global": 0.06
+            }
+          ]
+        },
+        "security": {
+          "name_zh": "資安",
+          "n": 292,
+          "share_pct": 5.19,
+          "coverage": {
+            "task": 284,
+            "maturity": 287,
+            "target": 279,
+            "model_domain": 27,
+            "human_or_legacy_domain": 265
+          },
+          "task_pct": {
+            "verify": 59.5,
+            "analyze": 15.8,
+            "configure": 8.8,
+            "generate": 5.6,
+            "retrieve": 5.3,
+            "transform": 2.8,
+            "orchestrate": 2.1
+          },
+          "maturity_pct": {
+            "production": 64.1,
+            "workflow": 34.5,
+            "toy": 1.4
+          },
+          "production_pct": 64.1,
+          "agent_target_pct": 9.3,
+          "gaps": [
+            {
+              "task": "orchestrate",
+              "observed": 6,
+              "expected": 44.0,
+              "ratio_vs_global": 0.14
+            },
+            {
+              "task": "generate",
+              "observed": 16,
+              "expected": 62.4,
+              "ratio_vs_global": 0.26
+            }
+          ]
+        },
+        "ops-admin": {
+          "name_zh": "營運行政",
+          "n": 258,
+          "share_pct": 4.59,
+          "coverage": {
+            "task": 248,
+            "maturity": 256,
+            "target": 256,
+            "model_domain": 10,
+            "human_or_legacy_domain": 248
+          },
+          "task_pct": {
+            "orchestrate": 30.6,
+            "retrieve": 15.7,
+            "analyze": 14.1,
+            "configure": 12.9,
+            "generate": 12.1,
+            "transform": 10.1,
+            "verify": 4.4
+          },
+          "maturity_pct": {
+            "workflow": 58.2,
+            "production": 39.5,
+            "toy": 2.3
+          },
+          "production_pct": 39.5,
+          "agent_target_pct": 7.0,
+          "gaps": [
+            {
+              "task": "verify",
+              "observed": 11,
+              "expected": 38.2,
+              "ratio_vs_global": 0.29
+            }
+          ]
+        },
+        "marketing-growth": {
+          "name_zh": "行銷成長",
+          "n": 211,
+          "share_pct": 3.75,
+          "coverage": {
+            "task": 207,
+            "maturity": 208,
+            "target": 208,
+            "model_domain": 9,
+            "human_or_legacy_domain": 202
+          },
+          "task_pct": {
+            "generate": 37.7,
+            "analyze": 27.1,
+            "orchestrate": 17.9,
+            "verify": 4.8,
+            "retrieve": 4.8,
+            "configure": 4.3,
+            "transform": 3.4
+          },
+          "maturity_pct": {
+            "workflow": 63.0,
+            "production": 35.6,
+            "toy": 1.4
+          },
+          "production_pct": 35.6,
+          "agent_target_pct": 2.4,
+          "gaps": [
+            {
+              "task": "configure",
+              "observed": 9,
+              "expected": 35.1,
+              "ratio_vs_global": 0.26
+            },
+            {
+              "task": "verify",
+              "observed": 10,
+              "expected": 31.8,
+              "ratio_vs_global": 0.31
+            }
+          ]
+        },
+        "research-academia": {
+          "name_zh": "研究學術",
+          "n": 203,
+          "share_pct": 3.61,
+          "coverage": {
+            "task": 189,
+            "maturity": 201,
+            "target": 194,
+            "model_domain": 17,
+            "human_or_legacy_domain": 186
+          },
+          "task_pct": {
+            "analyze": 27.0,
+            "retrieve": 20.6,
+            "generate": 18.5,
+            "transform": 10.1,
+            "orchestrate": 9.5,
+            "verify": 8.5,
+            "configure": 5.8
+          },
+          "maturity_pct": {
+            "workflow": 67.7,
+            "production": 26.9,
+            "toy": 5.5
+          },
+          "production_pct": 26.9,
+          "agent_target_pct": 5.2,
+          "gaps": [
+            {
+              "task": "configure",
+              "observed": 11,
+              "expected": 32.0,
+              "ratio_vs_global": 0.34
+            }
+          ]
+        },
+        "finance-investing": {
+          "name_zh": "金融投資",
+          "n": 194,
+          "share_pct": 3.45,
+          "coverage": {
+            "task": 186,
+            "maturity": 192,
+            "target": 187,
+            "model_domain": 12,
+            "human_or_legacy_domain": 182
+          },
+          "task_pct": {
+            "analyze": 45.7,
+            "orchestrate": 17.2,
+            "retrieve": 16.1,
+            "generate": 8.6,
+            "verify": 6.5,
+            "configure": 4.8,
+            "transform": 1.1
+          },
+          "maturity_pct": {
+            "workflow": 53.1,
+            "production": 44.3,
+            "toy": 2.6
+          },
+          "production_pct": 44.3,
+          "agent_target_pct": 12.8,
+          "gaps": [
+            {
+              "task": "transform",
+              "observed": 2,
+              "expected": 14.7,
+              "ratio_vs_global": 0.14
+            },
+            {
+              "task": "configure",
+              "observed": 9,
+              "expected": 31.5,
+              "ratio_vs_global": 0.29
+            }
+          ]
+        },
+        "writing-content": {
+          "name_zh": "寫作內容",
+          "n": 175,
+          "share_pct": 3.11,
+          "coverage": {
+            "task": 169,
+            "maturity": 172,
+            "target": 172,
+            "model_domain": 9,
+            "human_or_legacy_domain": 166
+          },
+          "task_pct": {
+            "generate": 41.4,
+            "transform": 36.7,
+            "verify": 7.1,
+            "retrieve": 5.3,
+            "analyze": 3.6,
+            "orchestrate": 3.0,
+            "configure": 3.0
+          },
+          "maturity_pct": {
+            "workflow": 68.0,
+            "production": 28.5,
+            "toy": 3.5
+          },
+          "production_pct": 28.5,
+          "agent_target_pct": 1.7,
+          "gaps": [
+            {
+              "task": "configure",
+              "observed": 5,
+              "expected": 28.6,
+              "ratio_vs_global": 0.17
+            },
+            {
+              "task": "orchestrate",
+              "observed": 5,
+              "expected": 26.2,
+              "ratio_vs_global": 0.19
+            },
+            {
+              "task": "analyze",
+              "observed": 6,
+              "expected": 21.1,
+              "ratio_vs_global": 0.28
+            }
+          ]
+        },
+        "data-analytics": {
+          "name_zh": "資料分析",
+          "n": 129,
+          "share_pct": 2.29,
+          "coverage": {
+            "task": 129,
+            "maturity": 129,
+            "target": 129,
+            "model_domain": 0,
+            "human_or_legacy_domain": 129
+          },
+          "task_pct": {
+            "analyze": 26.4,
+            "generate": 20.2,
+            "retrieve": 18.6,
+            "transform": 15.5,
+            "configure": 10.1,
+            "orchestrate": 5.4,
+            "verify": 3.9
+          },
+          "maturity_pct": {
+            "production": 52.7,
+            "workflow": 45.7,
+            "toy": 1.6
+          },
+          "production_pct": 52.7,
+          "agent_target_pct": 13.2,
+          "gaps": [
+            {
+              "task": "verify",
+              "observed": 5,
+              "expected": 19.8,
+              "ratio_vs_global": 0.25
+            }
+          ]
+        },
+        "healthcare-bio": {
+          "name_zh": "醫療生技",
+          "n": 122,
+          "share_pct": 2.17,
+          "coverage": {
+            "task": 119,
+            "maturity": 120,
+            "target": 121,
+            "model_domain": 6,
+            "human_or_legacy_domain": 116
+          },
+          "task_pct": {
+            "analyze": 50.4,
+            "retrieve": 19.3,
+            "verify": 9.2,
+            "orchestrate": 8.4,
+            "transform": 7.6,
+            "configure": 4.2,
+            "generate": 0.8
+          },
+          "maturity_pct": {
+            "production": 53.3,
+            "workflow": 45.0,
+            "toy": 1.7
+          },
+          "production_pct": 53.3,
+          "agent_target_pct": 2.5,
+          "gaps": [
+            {
+              "task": "generate",
+              "observed": 1,
+              "expected": 26.1,
+              "ratio_vs_global": 0.04
+            },
+            {
+              "task": "configure",
+              "observed": 5,
+              "expected": 20.2,
+              "ratio_vs_global": 0.25
+            }
+          ]
+        },
+        "legal-compliance": {
+          "name_zh": "法務合規",
+          "n": 95,
+          "share_pct": 1.69,
+          "coverage": {
+            "task": 90,
+            "maturity": 93,
+            "target": 91,
+            "model_domain": 7,
+            "human_or_legacy_domain": 88
+          },
+          "task_pct": {
+            "verify": 34.4,
+            "generate": 25.6,
+            "analyze": 15.6,
+            "retrieve": 10.0,
+            "transform": 6.7,
+            "configure": 5.6,
+            "orchestrate": 2.2
+          },
+          "maturity_pct": {
+            "production": 65.6,
+            "workflow": 33.3,
+            "toy": 1.1
+          },
+          "production_pct": 65.6,
+          "agent_target_pct": 1.1,
+          "gaps": [
+            {
+              "task": "orchestrate",
+              "observed": 2,
+              "expected": 13.9,
+              "ratio_vs_global": 0.14
+            },
+            {
+              "task": "configure",
+              "observed": 5,
+              "expected": 15.3,
+              "ratio_vs_global": 0.33
+            }
+          ]
+        },
+        "education-training": {
+          "name_zh": "教育訓練",
+          "n": 78,
+          "share_pct": 1.39,
+          "coverage": {
+            "task": 78,
+            "maturity": 78,
+            "target": 78,
+            "model_domain": 0,
+            "human_or_legacy_domain": 78
+          },
+          "task_pct": {
+            "generate": 52.6,
+            "retrieve": 14.1,
+            "analyze": 9.0,
+            "orchestrate": 9.0,
+            "configure": 6.4,
+            "transform": 6.4,
+            "verify": 2.6
+          },
+          "maturity_pct": {
+            "workflow": 69.2,
+            "production": 16.7,
+            "toy": 14.1
+          },
+          "production_pct": 16.7,
+          "agent_target_pct": 2.6,
+          "gaps": [
+            {
+              "task": "verify",
+              "observed": 2,
+              "expected": 12.0,
+              "ratio_vs_global": 0.17
+            }
+          ]
+        },
+        "sales-crm": {
+          "name_zh": "銷售 CRM",
+          "n": 54,
+          "share_pct": 0.96,
+          "coverage": {
+            "task": 51,
+            "maturity": 53,
+            "target": 52,
+            "model_domain": 4,
+            "human_or_legacy_domain": 50
+          },
+          "task_pct": {
+            "orchestrate": 25.5,
+            "generate": 23.5,
+            "retrieve": 17.6,
+            "analyze": 15.7,
+            "configure": 13.7,
+            "verify": 2.0,
+            "transform": 2.0
+          },
+          "maturity_pct": {
+            "workflow": 69.8,
+            "production": 28.3,
+            "toy": 1.9
+          },
+          "production_pct": 28.3,
+          "agent_target_pct": 3.8,
+          "gaps": [
+            {
+              "task": "verify",
+              "observed": 1,
+              "expected": 7.8,
+              "ratio_vs_global": 0.13
+            }
+          ]
+        },
+        "hardware-eda": {
+          "name_zh": "硬體 / EDA",
+          "n": 36,
+          "share_pct": 0.64,
+          "coverage": {
+            "task": 36,
+            "maturity": 36,
+            "target": 36,
+            "model_domain": 0,
+            "human_or_legacy_domain": 36
+          },
+          "task_pct": {
+            "configure": 33.3,
+            "orchestrate": 22.2,
+            "generate": 16.7,
+            "verify": 11.1,
+            "analyze": 8.3,
+            "transform": 5.6,
+            "retrieve": 2.8
+          },
+          "maturity_pct": {
+            "workflow": 61.1,
+            "production": 36.1,
+            "toy": 2.8
+          },
+          "production_pct": 36.1,
+          "agent_target_pct": 22.2,
+          "gaps": []
+        },
+        "other": {
+          "name_zh": "其他",
+          "n": 36,
+          "share_pct": 0.64,
+          "coverage": {
+            "task": 36,
+            "maturity": 36,
+            "target": 34,
+            "model_domain": 2,
+            "human_or_legacy_domain": 34
+          },
+          "task_pct": {
+            "generate": 22.2,
+            "analyze": 19.4,
+            "configure": 16.7,
+            "retrieve": 16.7,
+            "verify": 11.1,
+            "orchestrate": 8.3,
+            "transform": 5.6
+          },
+          "maturity_pct": {
+            "toy": 55.6,
+            "workflow": 33.3,
+            "production": 11.1
+          },
+          "production_pct": 11.1,
+          "agent_target_pct": 2.9,
+          "gaps": []
+        }
+      },
+      "provenance": {
+        "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+        "opportunity_sha256": "aeedcece6e489ad1cdf30b37d0e928b817406200aa21a9f1f8e812d78987a643",
+        "master_rows": 42407
+      },
+      "change": {
+        "n_total_delta": 48
+      }
     }
   ]
 }

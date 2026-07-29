@@ -43,6 +43,7 @@ def safe_recommendation(item: dict) -> dict:
         for key in (
             "name", "repo", "recommendation", "owner_fit", "score", "summary",
             "use_in_next_rtl_design", "risks", "evidence_freshness",
+            "use_in_ai_automation", "owner_fit", "source_commit",
         )
         if item.get(key) is not None
     }
@@ -108,6 +109,17 @@ def build(run_date: str, root: Path = ROOT) -> dict:
                 for item in rec["categories"]["finance-investing"].get("recommendations", [])[:8]
             ],
         },
+        "R-AUTO": {
+            "label": rec["categories"]["ai-automation"].get("label"),
+            "summary": rec["categories"]["ai-automation"].get("summary"),
+            "scope": rec["categories"]["ai-automation"].get("scope"),
+            "excluded_scope": rec["categories"]["ai-automation"].get("excluded_scope"),
+            "strategic_thesis": rec["categories"]["ai-automation"].get("strategic_thesis"),
+            "recommendations": [
+                safe_recommendation(item)
+                for item in rec["categories"]["ai-automation"].get("recommendations", [])[:8]
+            ],
+        },
         "Q": {
             "label": "neutral-corpus opportunity signals",
             "n_total": opportunity.get("n_total"),
@@ -127,6 +139,7 @@ def build(run_date: str, root: Path = ROOT) -> dict:
         **{SCALE_LABELS[scale]: f"T-{scale}" for scale in SCALES if f"T-{scale}" in ledger},
         "EDA 清單": "R-EDA",
         "財經清單": "R-FIN",
+        "AI 自動化清單": "R-AUTO",
         "資料限制": "Q",
     }
     return {
@@ -140,7 +153,7 @@ def build(run_date: str, root: Path = ROOT) -> dict:
         "editorial_contract": {
             "language": "Traditional Chinese (Taiwan)",
             "style": "opinionated evidence-led blog article, not a dashboard dump",
-            "required_views": ["thesis", "corpus update", "four timescales", "EDA_IC", "finance", "contrarian", "falsifiers"],
+            "required_views": ["thesis", "corpus update", "four timescales", "EDA_IC", "finance", "AI harness and automation", "contrarian", "falsifiers"],
             "numeric_rule": "every Arabic-number claim must already exist in this evidence JSON",
             "confidentiality": "public evidence only; never infer or include employer or internal IC details",
         },

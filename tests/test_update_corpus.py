@@ -97,6 +97,46 @@ class CorpusUpdateTests(unittest.TestCase):
         self.assertEqual(manifest["run_new_rows"], 0)
         self.assertTrue(manifest["reused_daily_delta"])
 
+    def test_same_day_rerun_reports_cumulative_delta_and_invocation_growth(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self.make_root(tmp)
+            first = {"repo": "c/d", "path": "skills/first/SKILL.md", "first_seen": "2026-07-28"}
+            with (root / "corpus/master.jsonl").open("a", encoding="utf-8") as out:
+                out.write(json.dumps(first) + "\n")
+            (root / "corpus/delta-2026-07-28.jsonl").write_text(
+                json.dumps(first) + "\n", encoding="utf-8",
+            )
+            (root / "data/corpus_update_manifest.json").write_text(
+                json.dumps({
+                    "run_date": "2026-07-28",
+                    "status": "SUCCESS",
+                    "before": {"rows": 1, "sha256": "old", "first_seen_on_run_date": 0},
+                }),
+                encoding="utf-8",
+            )
+            collector = root / "bin/collector.py"
+            collector.write_text(textwrap.dedent("""
+                import json
+                from pathlib import Path
+                root = Path.cwd()
+                first = {"repo": "c/d", "path": "skills/first/SKILL.md", "first_seen": "2026-07-28"}
+                second = {"repo": "e/f", "path": "skills/second/SKILL.md", "first_seen": "2026-07-28"}
+                delta = root / "corpus/delta-2026-07-28.jsonl"
+                delta.write_text(json.dumps(first) + "\\n" + json.dumps(second) + "\\n", encoding="utf-8")
+                with (root / "corpus/master.jsonl").open("a", encoding="utf-8") as out:
+                    out.write(json.dumps(second) + "\\n")
+                print(delta)
+            """), encoding="utf-8")
+            rc, manifest, delta = run_update(
+                "2026-07-28", root, [sys.executable, str(collector)],
+            )
+        self.assertEqual(rc, 0)
+        self.assertTrue(delta.endswith("delta-2026-07-28.jsonl"))
+        self.assertEqual(manifest["new_rows"], 2)
+        self.assertEqual(manifest["run_new_rows"], 1)
+        self.assertEqual(manifest["delta_rows"], 2)
+        self.assertEqual(manifest["daily_baseline"]["rows"], 1)
+
     def test_timeout_persists_failed_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = self.make_root(tmp)

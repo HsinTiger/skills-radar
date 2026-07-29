@@ -137,8 +137,16 @@ def main():
         "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），"
                   "低分不等於安全。用途是決定哪些樣本要人看，不是門禁。",
     }
-    json.dump(out, open(os.path.join(ROOT, "corpus", "injection_scan.json"), "w"),
-              ensure_ascii=False, indent=1)
+    output_path = os.path.join(ROOT, "corpus", "injection_scan.json")
+    temporary = output_path + ".tmp"
+    try:
+        with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(out, handle, ensure_ascii=False, indent=1)
+            handle.write("\n")
+        os.replace(temporary, output_path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
 
     print(f"掃描 {out['n_scanned']:,} 筆，命中 {out['n_flagged']:,} 筆（{out['pct_flagged']}%）")
     print(f"嚴重度：{out['severity_buckets']}")

@@ -1,19 +1,19 @@
 {
  "schema_version": 1,
- "report_date": "2026-07-28",
- "generated_at": "2026-07-28T12:00:01.038623+00:00",
+ "report_date": "2026-07-29",
+ "generated_at": "2026-07-29T09:26:50.668636+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
-  "master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
   "actual": {
-   "rows": 42242,
+   "rows": 42407,
    "seed": 6577,
-   "model": 35665
+   "model": 35830
   },
   "expected": {
    "seed": 6577,
-   "model": 35665
+   "model": 35830
   },
   "population_claims_allowed": false,
   "note": "master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。"
@@ -21,8 +21,8 @@
  "asic_catalog_freshness": {
   "status": "CURRENT",
   "catalog_status": "CURRENT_CANDIDATE_CATALOG",
-  "catalog_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
-  "master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "catalog_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
   "taxonomy_validation": "BLOCKED",
   "claim_boundary": "catalog CURRENT permits candidate routing only; taxonomy validation and EDA runtime are separate gates"
  },
@@ -35,6 +35,7 @@
   },
   "adopt_requires": "owner approval plus domain runtime proof",
   "finance_boundary": "research only; no trade execution, brokerage/wallet access or credentials",
+  "ai_automation_boundary": "public sources and public fixtures only; no private sessions, anti-bot bypass, irreversible actions or confidential engineering data",
   "population_trend_claims": "forbidden in this recommendation artifact",
   "source_review_ready": true
  },
@@ -3533,6 +3534,1186 @@
     }
    ],
    "adoption_gate": "先 pin commit 與 license → source/security review → 無 credential 的離線資料 canary → owner 核准。"
+  },
+  "ai-automation": {
+   "label": "AI 應用／Agent Harness／Automation",
+   "scope": "公開資訊入口、context 管理、durable orchestration、tool discovery、evaluation/observability、sandbox 與 integration control plane。",
+   "excluded_scope": "私人貼文、未授權登入、cookie/session 匯入、反反爬或 CAPTCHA 規避、不可逆外部 action，以及公司機密或 EDA 資料外傳。",
+   "summary": "已完成 8 個 pinned source review：3 個可進入公開資料 canary、5 個只觀察或抽取 contract、0 個排除。",
+   "recommendations": [
+    {
+     "name": "Agentic Harness Engineering",
+     "artifact_type": "harness-audit-skill",
+     "repo": "china-qijizhifeng/agentic-harness-engineering",
+     "path": "skills/agentic-harness-engineering/SKILL.md",
+     "source_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+     "source_url": "https://github.com/china-qijizhifeng/agentic-harness-engineering/blob/faf44bc4aea57413c520bc5711c6ebf628e0da1e/skills/agentic-harness-engineering/SKILL.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "harness-governance",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 123,
+     "summary": "Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.",
+     "use_in_ai_automation": "Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.",
+     "capabilities": [
+      "harness component taxonomy",
+      "trace-led failure analysis",
+      "change manifest",
+      "predicted regression list",
+      "verification and rollback"
+     ],
+     "dependencies": [
+      "project-local HARNESS.md schema",
+      "workspace scanning",
+      "manifest and trace conventions"
+     ],
+     "risks": [
+      "ten-point compliance score can become false precision",
+      "fixed seven-component topology may not fit a smaller domain harness",
+      "workspace initialization and validation scripts were not executed",
+      "paper-derived claims still require local task evidence"
+     ],
+     "evidence": [
+      "separates system rules, tool descriptions, implementations, middleware, skills, sub-agents and long-term memory",
+      "requires failure evidence and root cause before a harness change",
+      "change manifest records expected fixes, regression risks and later verification",
+      "bundled schema and validation scripts make the contract inspectable"
+     ],
+     "stars_snapshot": 780,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "harness-change-governor",
+      "personalized_fit": "最貼近你要搭建的 ASIC automation：每次改 system rule、tool、memory 或 middleware 都有失敗證據、預期修復與回歸清單。",
+      "first_experiment": "以公開 toy RTL 任務建立最小 change manifest，讓另一個 agent 重跑前後版本並核對預測修復與回歸。",
+      "required_evidence": [
+       "failure trace",
+       "change manifest",
+       "before/after task set",
+       "rollback and owner disposition"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "LangGraph",
+     "artifact_type": "durable-orchestration-framework",
+     "repo": "langchain-ai/langgraph",
+     "path": "README.md",
+     "source_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+     "source_url": "https://github.com/langchain-ai/langgraph/blob/41341457342327166d72fc11952ab28fb61ec0bf/README.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "durable-orchestration",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 121,
+     "summary": "Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.",
+     "use_in_ai_automation": "Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.",
+     "capabilities": [
+      "durable execution",
+      "checkpoint persistence",
+      "interrupt and resume",
+      "human approval",
+      "state history"
+     ],
+     "dependencies": [
+      "LangGraph runtime",
+      "checkpoint store",
+      "framework-specific graph and state model"
+     ],
+     "risks": [
+      "framework state model can become the control plane instead of a replaceable worker adapter",
+      "persistence, cancellation and side-effect idempotence still require domain-specific contracts",
+      "no local long-running failure-recovery canary was run"
+     ],
+     "evidence": [
+      "README makes durable execution, human-in-the-loop, memory and debugging first-class capabilities",
+      "checkpoint-conformance package defines executable capability and storage behavior tests",
+      "separate in-memory, SQLite and PostgreSQL checkpoint implementations expose portability boundaries"
+     ],
+     "stars_snapshot": 38394,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "durable-state-machine",
+      "personalized_fit": "長時間 EDA 任務必須能 checkpoint、重試、取消與恢復，且流程真相不能只存在 agent 對話。",
+      "first_experiment": "用公開多步驟任務模擬中斷、重入與重複 side effect，驗證 checkpoint conformance 與 idempotence。",
+      "required_evidence": [
+       "checkpoint schema",
+       "resume trace",
+       "idempotence key",
+       "cancellation and recovery readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "MCP Reference Servers",
+     "artifact_type": "tool-protocol-reference",
+     "repo": "modelcontextprotocol/servers",
+     "path": "README.md",
+     "source_commit": "d31124c982401739917fd817c2a59db344529c16",
+     "source_url": "https://github.com/modelcontextprotocol/servers/blob/d31124c982401739917fd817c2a59db344529c16/README.md",
+     "license": "mixed per server",
+     "category": "ai-automation",
+     "owner_fit": "tool-discovery",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 118,
+     "summary": "Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.",
+     "use_in_ai_automation": "Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.",
+     "capabilities": [
+      "tool and resource schema",
+      "capability discovery",
+      "configurable access control",
+      "reference test server"
+     ],
+     "dependencies": [
+      "MCP SDK and client",
+      "per-server permission and transport policy"
+     ],
+     "risks": [
+      "reference code is not a production security baseline",
+      "server quality, licenses and credential surfaces differ by implementation",
+      "tool descriptions remain an injection and over-privilege surface",
+      "remote registries require provenance and allowlist policy"
+     ],
+     "evidence": [
+      "README now limits this repository to a small set of steering-group reference servers",
+      "official warning says the servers are educational references rather than production-ready solutions",
+      "filesystem reference exposes configurable access roots and the everything server exercises protocol features",
+      "deprecated integrations are moved to an archive instead of silently presented as current"
+     ],
+     "stars_snapshot": 89010,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "typed-tool-registry",
+      "personalized_fit": "工具愈多，動態 discovery、allowlist、scope 與 version pin 比把所有工具描述塞進 prompt 更重要。",
+      "first_experiment": "建立兩個只讀 toy tools 與一個拒絕型 canary，驗證 schema discovery、root restriction 與 unknown-tool fail closed。",
+      "required_evidence": [
+       "pinned server and schema",
+       "allowlist readback",
+       "root/scope restriction",
+       "negative authorization test"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "Langfuse",
+     "artifact_type": "observability-and-evaluation-platform",
+     "repo": "langfuse/langfuse",
+     "path": "README.md",
+     "source_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+     "source_url": "https://github.com/langfuse/langfuse/blob/90b98d009a6d4c4ce46a5a6dc5187b661bfdd804/README.md",
+     "license": "MIT except ee folders",
+     "category": "ai-automation",
+     "owner_fit": "observability-evaluation",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 94,
+     "summary": "Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.",
+     "use_in_ai_automation": "Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.",
+     "capabilities": [
+      "trace",
+      "session",
+      "evaluation",
+      "prompt versioning",
+      "cost and latency metrics",
+      "self-hosting"
+     ],
+     "dependencies": [
+      "SDK instrumentation",
+      "API credentials",
+      "hosted or self-hosted data plane",
+      "database and analytics infrastructure"
+     ],
+     "risks": [
+      "raw prompts, traces and tool arguments can contain confidential engineering context",
+      "default telemetry must be disabled and verified for an isolated deployment",
+      "instrumentation overhead and trace cardinality require retention and redaction policy",
+      "GitHub API license detection is inconclusive because of mixed licensing"
+     ],
+     "evidence": [
+      "traces cover model calls, retrieval, embeddings and agent actions",
+      "project supports datasets, scores and evaluation-oriented integrations",
+      "README discloses default self-hosted usage telemetry and opt-out control",
+      "license boundary explicitly excludes enterprise folders from the repository-wide MIT statement"
+     ],
+     "stars_snapshot": 32062,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "evidence-and-eval-rail",
+      "personalized_fit": "trace 只有在能連回輸入版本、工具呼叫、artifact 與評測 oracle 時才有工程價值。",
+      "first_experiment": "對公開 task set 收集已脫敏 trace，建立 failure taxonomy、eval linkage、retention 與 telemetry-off readback。",
+      "required_evidence": [
+       "sanitized trace",
+       "task/eval linkage",
+       "retention policy",
+       "telemetry and redaction readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Headroom",
+     "artifact_type": "context-compression-layer",
+     "repo": "headroomlabs-ai/headroom",
+     "path": "README.md",
+     "source_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+     "source_url": "https://github.com/headroomlabs-ai/headroom/blob/1588f5e04144af5de8398810ea3893c6e623309c/README.md",
+     "license": "Apache-2.0",
+     "category": "ai-automation",
+     "owner_fit": "context-compression",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 90,
+     "summary": "Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.",
+     "use_in_ai_automation": "Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.",
+     "capabilities": [
+      "content-aware compression",
+      "reversible original retrieval",
+      "cache stability",
+      "compression metrics",
+      "cross-agent context"
+     ],
+     "dependencies": [
+      "local proxy or SDK integration",
+      "optional model and vector dependencies",
+      "provider-specific request interception"
+     ],
+     "risks": [
+      "headline token-saving and benchmark claims were not independently reproduced",
+      "proxy can modify prompts, reasoning effort and tool context, creating silent semantic-loss risk",
+      "wrappers may inject configuration and install additional navigation components",
+      "cross-agent memory and proxy interception expand the sensitive-context boundary"
+     ],
+     "evidence": [
+      "separates content routing, compression, cache alignment and reversible retrieval",
+      "repository includes compression, cache, provider and integration tests",
+      "output savings are labeled measured or estimated with a confidence range",
+      "security policy documents passthrough defaults and no API-key logging claim"
+     ],
+     "stars_snapshot": 63018,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "reversible-context-layer",
+      "personalized_fit": "長任務需要壓縮脈絡，但設計約束與失敗證據不能因省 token 被靜默丟失。",
+      "first_experiment": "在去識別化公開 trace 上做壓縮／不壓縮對照，逐項檢查 constraint retention、取回率與任務結果。",
+      "required_evidence": [
+       "uncompressed holdout",
+       "constraint-retention score",
+       "retrieval log",
+       "task outcome and token readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "E2B",
+     "artifact_type": "remote-code-sandbox",
+     "repo": "e2b-dev/E2B",
+     "path": "README.md",
+     "source_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+     "source_url": "https://github.com/e2b-dev/E2B/blob/cf8296cf8997f98aefd6e8236d4d235f5ab1ddad/README.md",
+     "license": "Apache-2.0",
+     "category": "ai-automation",
+     "owner_fit": "sandbox",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 89,
+     "summary": "Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.",
+     "use_in_ai_automation": "Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.",
+     "capabilities": [
+      "isolated command execution",
+      "sandbox lifecycle",
+      "artifact collection",
+      "self-hosting option"
+     ],
+     "dependencies": [
+      "E2B cloud API or Terraform self-hosting",
+      "SDK and API key",
+      "supported cloud infrastructure"
+     ],
+     "risks": [
+      "default path executes code in an external cloud realm",
+      "API key, network egress, artifact retention and image supply chain require explicit controls",
+      "self-hosting support is limited to named cloud providers in the pinned README",
+      "pinned head commit is unsigned and no domain-specific isolation canary was run"
+     ],
+     "evidence": [
+      "SDK exposes explicit sandbox create, command execution and lifecycle operations",
+      "self-hosting guide is separated into an infrastructure repository",
+      "CLI includes lifecycle, logs and metrics commands"
+     ],
+     "stars_snapshot": 13160,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "least-privilege-execution",
+      "personalized_fit": "agent 產生的命令需要隔離，但工程內網、EDA license 與機密資料不能送入外部 sandbox。",
+      "first_experiment": "只在公開 fixture 驗證 deny-by-default network、ephemeral credential、filesystem boundary 與 artifact export。",
+      "required_evidence": [
+       "network policy",
+       "filesystem boundary",
+       "process and artifact manifest",
+       "credential absence proof"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Agent-Reach",
+     "artifact_type": "skill-plus-capability-router",
+     "repo": "Panniantong/Agent-Reach",
+     "path": "agent_reach/skill/SKILL_en.md",
+     "source_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+     "source_url": "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/agent_reach/skill/SKILL_en.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "reach-routing",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 88,
+     "summary": "Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.",
+     "use_in_ai_automation": "Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.",
+     "capabilities": [
+      "capability registry",
+      "ordered backend fallback",
+      "doctor health probe",
+      "safe and dry-run modes",
+      "public web/RSS/GitHub/YouTube intake"
+     ],
+     "dependencies": [
+      "multiple upstream CLIs and MCP servers",
+      "optional browser sessions or exported cookies for login-backed platforms",
+      "shell execution permission"
+     ],
+     "risks": [
+      "Twitter, Reddit, Facebook, Instagram and XiaoHongShu paths depend on cookies or existing browser sessions",
+      "README explicitly warns of account-ban risk and recommends disposable accounts",
+      "cookie-export workflow grants session-level access and expands credential handling surface",
+      "platform anti-bot changes and the large upstream dependency graph create continuing supply-chain and ToS risk"
+     ],
+     "evidence": [
+      "channel contract exposes unique name, tier, ordered backends and active backend",
+      "doctor degrades one channel exception without taking down the whole report and scrubs URL credentials",
+      "credential-boundary tests prevent doctor from refreshing or creating Twitter, Reddit and XiaoHongShu credentials",
+      "safe and dry-run installation modes are documented"
+     ],
+     "stars_snapshot": 61991,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "public-intake-router",
+      "personalized_fit": "把網站能力視為可探測、可降級的 adapter，而不是讓 agent 自行繞過平台限制。",
+      "first_experiment": "只用公開 Web、RSS 與 GitHub fixture 建立 capability registry、doctor 與 ordered fallback；所有登入型 channel 保持停用。",
+      "required_evidence": [
+       "adapter capability readback",
+       "active backend and failure reason",
+       "public-source provenance",
+       "zero credential access"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Composio",
+     "artifact_type": "integration-control-plane",
+     "repo": "ComposioHQ/composio",
+     "path": "README.md",
+     "source_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+     "source_url": "https://github.com/ComposioHQ/composio/blob/3335bb30134f97b5e12a1c54d6daa821e0d8106e/README.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "integration-control-plane",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 54,
+     "summary": "Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.",
+     "use_in_ai_automation": "Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.",
+     "capabilities": [
+      "runtime tool discovery",
+      "per-user sessions",
+      "authentication abstraction",
+      "hosted MCP endpoint"
+     ],
+     "dependencies": [
+      "Composio API key and hosted service",
+      "connected third-party accounts",
+      "provider adapter or hosted MCP session"
+     ],
+     "risks": [
+      "pre-authenticated actions across external apps create a large blast radius",
+      "hosted session URL, API key and connected-account credentials are sensitive control-plane assets",
+      "intent-to-action defaults are unsuitable for irreversible engineering or publishing operations",
+      "external service availability and policy become runtime dependencies"
+     ],
+     "evidence": [
+      "session abstraction scopes tools to a user and reuses a session identifier across turns",
+      "meta tools discover and authenticate app tools without loading every definition into context",
+      "repository exposes multiple provider adapters and SDK surfaces"
+     ],
+     "stars_snapshot": 29431,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "approval-gated-tool-router",
+      "personalized_fit": "可借用 runtime discovery 與 scoped session，但不能把外部帳號和不可逆 action 交給通用控制平面。",
+      "first_experiment": "以本地 mock tools 模擬 session、runtime discovery 與 owner approval；不連任何真實帳號或 hosted action。",
+      "required_evidence": [
+       "local session scope",
+       "tool allowlist",
+       "approval receipt",
+       "no external credential or side effect"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    }
+   ],
+   "excluded": [],
+   "all_reviewed": [
+    {
+     "name": "Agentic Harness Engineering",
+     "artifact_type": "harness-audit-skill",
+     "repo": "china-qijizhifeng/agentic-harness-engineering",
+     "path": "skills/agentic-harness-engineering/SKILL.md",
+     "source_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+     "source_url": "https://github.com/china-qijizhifeng/agentic-harness-engineering/blob/faf44bc4aea57413c520bc5711c6ebf628e0da1e/skills/agentic-harness-engineering/SKILL.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "harness-governance",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 123,
+     "summary": "Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.",
+     "use_in_ai_automation": "Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.",
+     "capabilities": [
+      "harness component taxonomy",
+      "trace-led failure analysis",
+      "change manifest",
+      "predicted regression list",
+      "verification and rollback"
+     ],
+     "dependencies": [
+      "project-local HARNESS.md schema",
+      "workspace scanning",
+      "manifest and trace conventions"
+     ],
+     "risks": [
+      "ten-point compliance score can become false precision",
+      "fixed seven-component topology may not fit a smaller domain harness",
+      "workspace initialization and validation scripts were not executed",
+      "paper-derived claims still require local task evidence"
+     ],
+     "evidence": [
+      "separates system rules, tool descriptions, implementations, middleware, skills, sub-agents and long-term memory",
+      "requires failure evidence and root cause before a harness change",
+      "change manifest records expected fixes, regression risks and later verification",
+      "bundled schema and validation scripts make the contract inspectable"
+     ],
+     "stars_snapshot": 780,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "harness-change-governor",
+      "personalized_fit": "最貼近你要搭建的 ASIC automation：每次改 system rule、tool、memory 或 middleware 都有失敗證據、預期修復與回歸清單。",
+      "first_experiment": "以公開 toy RTL 任務建立最小 change manifest，讓另一個 agent 重跑前後版本並核對預測修復與回歸。",
+      "required_evidence": [
+       "failure trace",
+       "change manifest",
+       "before/after task set",
+       "rollback and owner disposition"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "LangGraph",
+     "artifact_type": "durable-orchestration-framework",
+     "repo": "langchain-ai/langgraph",
+     "path": "README.md",
+     "source_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+     "source_url": "https://github.com/langchain-ai/langgraph/blob/41341457342327166d72fc11952ab28fb61ec0bf/README.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "durable-orchestration",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 121,
+     "summary": "Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.",
+     "use_in_ai_automation": "Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.",
+     "capabilities": [
+      "durable execution",
+      "checkpoint persistence",
+      "interrupt and resume",
+      "human approval",
+      "state history"
+     ],
+     "dependencies": [
+      "LangGraph runtime",
+      "checkpoint store",
+      "framework-specific graph and state model"
+     ],
+     "risks": [
+      "framework state model can become the control plane instead of a replaceable worker adapter",
+      "persistence, cancellation and side-effect idempotence still require domain-specific contracts",
+      "no local long-running failure-recovery canary was run"
+     ],
+     "evidence": [
+      "README makes durable execution, human-in-the-loop, memory and debugging first-class capabilities",
+      "checkpoint-conformance package defines executable capability and storage behavior tests",
+      "separate in-memory, SQLite and PostgreSQL checkpoint implementations expose portability boundaries"
+     ],
+     "stars_snapshot": 38394,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "durable-state-machine",
+      "personalized_fit": "長時間 EDA 任務必須能 checkpoint、重試、取消與恢復，且流程真相不能只存在 agent 對話。",
+      "first_experiment": "用公開多步驟任務模擬中斷、重入與重複 side effect，驗證 checkpoint conformance 與 idempotence。",
+      "required_evidence": [
+       "checkpoint schema",
+       "resume trace",
+       "idempotence key",
+       "cancellation and recovery readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "MCP Reference Servers",
+     "artifact_type": "tool-protocol-reference",
+     "repo": "modelcontextprotocol/servers",
+     "path": "README.md",
+     "source_commit": "d31124c982401739917fd817c2a59db344529c16",
+     "source_url": "https://github.com/modelcontextprotocol/servers/blob/d31124c982401739917fd817c2a59db344529c16/README.md",
+     "license": "mixed per server",
+     "category": "ai-automation",
+     "owner_fit": "tool-discovery",
+     "recommendation": "pilot",
+     "recommendation_zh": "沙盒試行",
+     "score": 118,
+     "summary": "Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.",
+     "use_in_ai_automation": "Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.",
+     "capabilities": [
+      "tool and resource schema",
+      "capability discovery",
+      "configurable access control",
+      "reference test server"
+     ],
+     "dependencies": [
+      "MCP SDK and client",
+      "per-server permission and transport policy"
+     ],
+     "risks": [
+      "reference code is not a production security baseline",
+      "server quality, licenses and credential surfaces differ by implementation",
+      "tool descriptions remain an injection and over-privilege surface",
+      "remote registries require provenance and allowlist policy"
+     ],
+     "evidence": [
+      "README now limits this repository to a small set of steering-group reference servers",
+      "official warning says the servers are educational references rather than production-ready solutions",
+      "filesystem reference exposes configurable access roots and the everything server exercises protocol features",
+      "deprecated integrations are moved to an archive instead of silently presented as current"
+     ],
+     "stars_snapshot": 89010,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "A",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "typed-tool-registry",
+      "personalized_fit": "工具愈多，動態 discovery、allowlist、scope 與 version pin 比把所有工具描述塞進 prompt 更重要。",
+      "first_experiment": "建立兩個只讀 toy tools 與一個拒絕型 canary，驗證 schema discovery、root restriction 與 unknown-tool fail closed。",
+      "required_evidence": [
+       "pinned server and schema",
+       "allowlist readback",
+       "root/scope restriction",
+       "negative authorization test"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "pilot"
+     }
+    },
+    {
+     "name": "Langfuse",
+     "artifact_type": "observability-and-evaluation-platform",
+     "repo": "langfuse/langfuse",
+     "path": "README.md",
+     "source_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+     "source_url": "https://github.com/langfuse/langfuse/blob/90b98d009a6d4c4ce46a5a6dc5187b661bfdd804/README.md",
+     "license": "MIT except ee folders",
+     "category": "ai-automation",
+     "owner_fit": "observability-evaluation",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 94,
+     "summary": "Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.",
+     "use_in_ai_automation": "Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.",
+     "capabilities": [
+      "trace",
+      "session",
+      "evaluation",
+      "prompt versioning",
+      "cost and latency metrics",
+      "self-hosting"
+     ],
+     "dependencies": [
+      "SDK instrumentation",
+      "API credentials",
+      "hosted or self-hosted data plane",
+      "database and analytics infrastructure"
+     ],
+     "risks": [
+      "raw prompts, traces and tool arguments can contain confidential engineering context",
+      "default telemetry must be disabled and verified for an isolated deployment",
+      "instrumentation overhead and trace cardinality require retention and redaction policy",
+      "GitHub API license detection is inconclusive because of mixed licensing"
+     ],
+     "evidence": [
+      "traces cover model calls, retrieval, embeddings and agent actions",
+      "project supports datasets, scores and evaluation-oriented integrations",
+      "README discloses default self-hosted usage telemetry and opt-out control",
+      "license boundary explicitly excludes enterprise folders from the repository-wide MIT statement"
+     ],
+     "stars_snapshot": 32062,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "evidence-and-eval-rail",
+      "personalized_fit": "trace 只有在能連回輸入版本、工具呼叫、artifact 與評測 oracle 時才有工程價值。",
+      "first_experiment": "對公開 task set 收集已脫敏 trace，建立 failure taxonomy、eval linkage、retention 與 telemetry-off readback。",
+      "required_evidence": [
+       "sanitized trace",
+       "task/eval linkage",
+       "retention policy",
+       "telemetry and redaction readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Headroom",
+     "artifact_type": "context-compression-layer",
+     "repo": "headroomlabs-ai/headroom",
+     "path": "README.md",
+     "source_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+     "source_url": "https://github.com/headroomlabs-ai/headroom/blob/1588f5e04144af5de8398810ea3893c6e623309c/README.md",
+     "license": "Apache-2.0",
+     "category": "ai-automation",
+     "owner_fit": "context-compression",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 90,
+     "summary": "Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.",
+     "use_in_ai_automation": "Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.",
+     "capabilities": [
+      "content-aware compression",
+      "reversible original retrieval",
+      "cache stability",
+      "compression metrics",
+      "cross-agent context"
+     ],
+     "dependencies": [
+      "local proxy or SDK integration",
+      "optional model and vector dependencies",
+      "provider-specific request interception"
+     ],
+     "risks": [
+      "headline token-saving and benchmark claims were not independently reproduced",
+      "proxy can modify prompts, reasoning effort and tool context, creating silent semantic-loss risk",
+      "wrappers may inject configuration and install additional navigation components",
+      "cross-agent memory and proxy interception expand the sensitive-context boundary"
+     ],
+     "evidence": [
+      "separates content routing, compression, cache alignment and reversible retrieval",
+      "repository includes compression, cache, provider and integration tests",
+      "output savings are labeled measured or estimated with a confidence range",
+      "security policy documents passthrough defaults and no API-key logging claim"
+     ],
+     "stars_snapshot": 63018,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "reversible-context-layer",
+      "personalized_fit": "長任務需要壓縮脈絡，但設計約束與失敗證據不能因省 token 被靜默丟失。",
+      "first_experiment": "在去識別化公開 trace 上做壓縮／不壓縮對照，逐項檢查 constraint retention、取回率與任務結果。",
+      "required_evidence": [
+       "uncompressed holdout",
+       "constraint-retention score",
+       "retrieval log",
+       "task outcome and token readback"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "E2B",
+     "artifact_type": "remote-code-sandbox",
+     "repo": "e2b-dev/E2B",
+     "path": "README.md",
+     "source_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+     "source_url": "https://github.com/e2b-dev/E2B/blob/cf8296cf8997f98aefd6e8236d4d235f5ab1ddad/README.md",
+     "license": "Apache-2.0",
+     "category": "ai-automation",
+     "owner_fit": "sandbox",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 89,
+     "summary": "Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.",
+     "use_in_ai_automation": "Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.",
+     "capabilities": [
+      "isolated command execution",
+      "sandbox lifecycle",
+      "artifact collection",
+      "self-hosting option"
+     ],
+     "dependencies": [
+      "E2B cloud API or Terraform self-hosting",
+      "SDK and API key",
+      "supported cloud infrastructure"
+     ],
+     "risks": [
+      "default path executes code in an external cloud realm",
+      "API key, network egress, artifact retention and image supply chain require explicit controls",
+      "self-hosting support is limited to named cloud providers in the pinned README",
+      "pinned head commit is unsigned and no domain-specific isolation canary was run"
+     ],
+     "evidence": [
+      "SDK exposes explicit sandbox create, command execution and lifecycle operations",
+      "self-hosting guide is separated into an infrastructure repository",
+      "CLI includes lifecycle, logs and metrics commands"
+     ],
+     "stars_snapshot": 13160,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": false,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "least-privilege-execution",
+      "personalized_fit": "agent 產生的命令需要隔離，但工程內網、EDA license 與機密資料不能送入外部 sandbox。",
+      "first_experiment": "只在公開 fixture 驗證 deny-by-default network、ephemeral credential、filesystem boundary 與 artifact export。",
+      "required_evidence": [
+       "network policy",
+       "filesystem boundary",
+       "process and artifact manifest",
+       "credential absence proof"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Agent-Reach",
+     "artifact_type": "skill-plus-capability-router",
+     "repo": "Panniantong/Agent-Reach",
+     "path": "agent_reach/skill/SKILL_en.md",
+     "source_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+     "source_url": "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/agent_reach/skill/SKILL_en.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "reach-routing",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 88,
+     "summary": "Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.",
+     "use_in_ai_automation": "Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.",
+     "capabilities": [
+      "capability registry",
+      "ordered backend fallback",
+      "doctor health probe",
+      "safe and dry-run modes",
+      "public web/RSS/GitHub/YouTube intake"
+     ],
+     "dependencies": [
+      "multiple upstream CLIs and MCP servers",
+      "optional browser sessions or exported cookies for login-backed platforms",
+      "shell execution permission"
+     ],
+     "risks": [
+      "Twitter, Reddit, Facebook, Instagram and XiaoHongShu paths depend on cookies or existing browser sessions",
+      "README explicitly warns of account-ban risk and recommends disposable accounts",
+      "cookie-export workflow grants session-level access and expands credential handling surface",
+      "platform anti-bot changes and the large upstream dependency graph create continuing supply-chain and ToS risk"
+     ],
+     "evidence": [
+      "channel contract exposes unique name, tier, ordered backends and active backend",
+      "doctor degrades one channel exception without taking down the whole report and scrubs URL credentials",
+      "credential-boundary tests prevent doctor from refreshing or creating Twitter, Reddit and XiaoHongShu credentials",
+      "safe and dry-run installation modes are documented"
+     ],
+     "stars_snapshot": 61991,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "B",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "public-intake-router",
+      "personalized_fit": "把網站能力視為可探測、可降級的 adapter，而不是讓 agent 自行繞過平台限制。",
+      "first_experiment": "只用公開 Web、RSS 與 GitHub fixture 建立 capability registry、doctor 與 ordered fallback；所有登入型 channel 保持停用。",
+      "required_evidence": [
+       "adapter capability readback",
+       "active backend and failure reason",
+       "public-source provenance",
+       "zero credential access"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    },
+    {
+     "name": "Composio",
+     "artifact_type": "integration-control-plane",
+     "repo": "ComposioHQ/composio",
+     "path": "README.md",
+     "source_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+     "source_url": "https://github.com/ComposioHQ/composio/blob/3335bb30134f97b5e12a1c54d6daa821e0d8106e/README.md",
+     "license": "MIT",
+     "category": "ai-automation",
+     "owner_fit": "integration-control-plane",
+     "recommendation": "watch",
+     "recommendation_zh": "觀察／待審",
+     "score": 54,
+     "summary": "Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.",
+     "use_in_ai_automation": "Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.",
+     "capabilities": [
+      "runtime tool discovery",
+      "per-user sessions",
+      "authentication abstraction",
+      "hosted MCP endpoint"
+     ],
+     "dependencies": [
+      "Composio API key and hosted service",
+      "connected third-party accounts",
+      "provider adapter or hosted MCP session"
+     ],
+     "risks": [
+      "pre-authenticated actions across external apps create a large blast radius",
+      "hosted session URL, API key and connected-account credentials are sensitive control-plane assets",
+      "intent-to-action defaults are unsuitable for irreversible engineering or publishing operations",
+      "external service availability and policy become runtime dependencies"
+     ],
+     "evidence": [
+      "session abstraction scopes tools to a user and reuses a session identifier across turns",
+      "meta tools discover and authenticate app tools without loading every definition into context",
+      "repository exposes multiple provider adapters and SDK surfaces"
+     ],
+     "stars_snapshot": 29431,
+     "source_review": {
+      "status": "REVIEWED",
+      "grade": "C",
+      "reviewed_at": "2026-07-29",
+      "commit_verified": true,
+      "runtime_proof": "NOT_RUN",
+      "review_scope": "static pinned-source review; no third-party code or credential path executed"
+     },
+     "evidence_freshness": "CURRENT",
+     "do_not_claim": [
+      "stars and README claims are not adoption, reliability or security proof",
+      "public canary does not prove internal engineering or EDA correctness"
+     ],
+     "owner_dossier": {
+      "harness_role": "approval-gated-tool-router",
+      "personalized_fit": "可借用 runtime discovery 與 scoped session，但不能把外部帳號和不可逆 action 交給通用控制平面。",
+      "first_experiment": "以本地 mock tools 模擬 session、runtime discovery 與 owner approval；不連任何真實帳號或 hosted action。",
+      "required_evidence": [
+       "local session scope",
+       "tool allowlist",
+       "approval receipt",
+       "no external credential or side effect"
+      ],
+      "promotion_gate": "public fixture source review → isolated canary → measurable failure/recovery evidence → owner approval → only then package a deterministic domain adapter; public results never prove internal EDA correctness",
+      "kill_criteria": [
+       "requires private-session cookies, automatic login, anti-bot or CAPTCHA bypass",
+       "sends confidential context, RTL, logs, credentials, license data or tool reports to an external service",
+       "cannot reproduce failure, rollback state, tool scope and exact artifact readback"
+      ],
+      "portfolio_state": "watch"
+     }
+    }
+   ],
+   "strategic_thesis": {
+    "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
+    "claim": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
+    "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
+    "potential_track": "Evidence-Governed Domain Agent Harness",
+    "owner_specialization": "聚焦高風險工程與 ASIC automation：把設計意圖、驗證意圖、確定性執行包、真實工具證據與 owner approval 串成一條可稽核鏈，而不是投入通用爬蟲或提示工程。",
+    "catalysts": [
+     "工具數量增加後，動態發現與最小權限路由比把所有工具塞進上下文更重要",
+     "長任務與多代理協作需要 conversation 外的 checkpoint、重試、取消與 readback",
+     "企業開始要求 trace、evaluation、sandbox、資料邊界與人類核准能同時成立",
+     "模型價格與能力收斂，使 domain evidence contract 成為更持久的差異化資產"
+    ],
+    "leading_indicators": [
+     "開源專案是否從 agent demo 轉向 checkpoint、conformance、doctor 與 rollback",
+     "工具整合是否改採 runtime discovery、scoped auth 與可撤銷 session",
+     "evaluation 是否能連回確切輸入、工具呼叫、輸出與失敗分類",
+     "sandbox 是否提供網路、檔案、credential 與 artifact 的明確政策及 readback",
+     "同一 evidence contract 是否能跨至少三個 domain task 重現"
+    ],
+    "falsifiers": [
+     "原生模型平台在不犧牲可攜性下完整吸收 durable state、evaluation 與 policy control",
+     "增加 harness 層後沒有降低失敗重現時間或 owner 介入次數",
+     "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
+     "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
+    ],
+    "confidence": "MEDIUM",
+    "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
+   },
+   "adoption_gate": "只抽取 contract → 公開 fixture canary → failure/recovery/evidence readback → owner 核准；不直接安裝第三方 bundle。"
   }
  }
 }

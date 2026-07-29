@@ -25,6 +25,7 @@ def write_zones(root, status="READY_FOR_OWNER_REVIEW"):
     })
     write(root / "docs/eda-ic/index.html", "eda")
     write(root / "docs/investing/index.html", "investing")
+    write(root / "docs/ai-automation/index.html", "ai automation")
 
 
 class PipelineHealthTests(unittest.TestCase):

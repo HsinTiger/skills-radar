@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RECOMMENDATIONS = ROOT / "corpus" / "daily_skill_recommendations.json"
 TIMESCALES = ROOT / "data" / "timescale_summaries.json"
 HEALTH = ROOT / "data" / "pipeline_health.json"
+AI_AUTOMATION_HISTORY = ROOT / "data" / "ai_automation_history.json"
 OUTPUT = ROOT / "corpus" / "domain_zones.json"
 
 SCALES = ("day", "week", "month", "quarter")
@@ -227,28 +228,242 @@ def finance_research_roadmap(items: list[dict]) -> dict:
     }
 
 
-def build_report(recommendations: dict, history: dict, health: dict, report_date: str) -> dict:
+def ai_automation_cycles(ai_history: dict, category: dict, report_date: str) -> list[dict]:
+    observations = ai_history.get("observations", [])
+    latest = ai_history.get("latest") or (observations[-1] if observations else {})
+    thesis = category.get("strategic_thesis", {})
+    run = date.fromisoformat(report_date)
+    iso_year, iso_week, _ = run.isocalendar()
+    period_ids = {
+        "day": report_date,
+        "week": f"{iso_year}-W{iso_week:02d}",
+        "month": run.strftime("%Y-%m"),
+        "quarter": f"{run.year}-Q{((run.month - 1) // 3) + 1}",
+    }
+    thresholds = {"day": 1, "week": 3, "month": 10, "quarter": 30}
+    horizons = {
+        "day": (
+            thesis.get("headline") or "今日先建立可稽核基線",
+            "日尺度只處理 source pin、健康狀態、依賴與風險是否改變；單日星數不構成趨勢。",
+            ["檢查 pinned source、license、credential surface 與 doctor/readback 是否漂移。"],
+        ),
+        "week": (
+            "從工具清單轉向一條可失敗、可恢復的 harness canary",
+            "週尺度應選一個角色缺口做公開 fixture 實驗，量測重試、rollback、context retention 與 owner interruption。",
+            ["只挑一條端到端 canary，留下 before/after trace、checkpoint 與 failure taxonomy。"],
+        ),
+        "month": (
+            "檢查控制平面是否形成，而不是又累積一批 framework",
+            "月尺度看 reach、context、state、tool、eval 與 sandbox 是否有明確接口；沒有 evidence contract 的整合應降級。",
+            ["淘汰重疊元件，保留能產生 artifact readback、負向測試與可替換 adapter 的組合。"],
+        ),
+        "quarter": (
+            "把專精押在 Evidence-Governed Domain Agent Harness",
+            "季尺度才判斷這套方法是否跨多個高風險工程任務重現，並能抽象成不含機密的產品化能力。",
+            ["只有跨至少三種任務重現 attention saving 與 evidence integrity，才升格為可複用平台。"],
+        ),
+    }
+    views = []
+    for scale in SCALES:
+        count = len(observations)
+        enough = count >= thresholds[scale] and latest.get("date") == report_date
+        headline, context, actions = horizons[scale]
+        if not enough and scale != "day":
+            headline = f"{SCALE_ZH[scale]}尺度歷史尚短，先保留觀測而不宣稱趨勢"
+        views.append({
+            "scale": scale, "scale_zh": SCALE_ZH[scale],
+            "status": "AI_GENERATED" if enough else "INSUFFICIENT_HISTORY",
+            "period": {"scale": scale, "period_id": period_ids[scale]},
+            "headline": headline,
+            "lead": thesis.get("claim") or "目前只有初始觀察。",
+            "context": context,
+            "counterpoint": thesis.get("counterpoint") or "公開專案供給不等於實際採用。",
+            "next_actions": actions,
+            "falsifiers": thesis.get("falsifiers", [])[:4],
+            "confidence": thesis.get("confidence", "LOW") if enough else "LOW",
+            "evidence": {
+                "history_started_at": ai_history.get("started_at"),
+                "observation_days": count,
+                "review_count": latest.get("review_count"),
+                "grade_counts": latest.get("grade_counts", {}),
+                "role_counts": latest.get("role_counts", {}),
+                "source_drift_repos": latest.get("change_since_previous", {}).get("source_drift_repos", []),
+            },
+            "claim_boundary": thesis.get("history_boundary") or (
+                "此專區沒有足夠的逐日歷史，不把 cross-sectional review 寫成時間趨勢。"
+            ),
+        })
+    return views
+
+
+def ai_automation_roadmap(items: list[dict], thesis: dict) -> dict:
+    by_role = {}
+    for item in items:
+        by_role.setdefault(item.get("owner_fit"), []).append(item.get("name"))
+    return {
+        "thesis": thesis.get("owner_specialization") or (
+            "建立 evidence-governed domain agent harness，而不是通用 prompt 或爬蟲集合。"
+        ),
+        "stages": [
+            {"order": 1, "title": "Evidence kernel 與 change governance",
+             "deliverable": "先定義 task、intent、approval、failure、artifact 與 claim boundary，再選 framework。",
+             "skills": by_role.get("harness-governance", []),
+             "proof": "change manifest、failure taxonomy、owner disposition 與 rollback readback"},
+            {"order": 2, "title": "Public intake 與 typed tool registry",
+             "deliverable": "公開來源 adapter 具備 capability probe、ordered fallback、allowlist 與 provenance。",
+             "skills": by_role.get("reach-routing", []) + by_role.get("tool-discovery", []),
+             "proof": "active backend、scope、negative authorization 與 source provenance"},
+            {"order": 3, "title": "Durable state 與 reversible context",
+             "deliverable": "讓長任務能中斷續跑，並讓壓縮後的原始證據可按需取回。",
+             "skills": by_role.get("durable-orchestration", []) + by_role.get("context-compression", []),
+             "proof": "checkpoint conformance、idempotence、uncompressed holdout 與 retrieval trace"},
+            {"order": 4, "title": "Evaluation rail 與最小權限執行",
+             "deliverable": "trace 連回 oracle，sandbox 明確限制網路、檔案、credential 與 artifact。",
+             "skills": by_role.get("observability-evaluation", []) + by_role.get("sandbox", []),
+             "proof": "sanitized trace、eval linkage、policy readback 與 isolation negative test"},
+            {"order": 5, "title": "ASIC automation domain adapter",
+             "deliverable": "把設計意圖與驗證意圖編譯成確定性 bundle，工網只跑既有 EDA flow 並回傳證據。",
+             "skills": [],
+             "proof": "公開 toy RTL 先過 canary；內部 claim 只接受核准環境的真實工具證據"},
+        ],
+        "first_90_day_focus": [
+            "前一個月：完成 evidence kernel、tool registry、checkpoint 與負向權限測試。",
+            "第二個月：在公開 toy RTL 串起 intent→candidate artifact→sim/formal evidence 的可恢復流程。",
+            "第三個月：用核准的 deterministic bundle 接現有工具；量測失敗重現時間、owner 介入與證據完整性。",
+        ],
+        "internal_skill_suite": [
+            "intent-compiler", "tool-capability-registry", "durable-run-governor",
+            "evidence-extractor", "claim-auditor", "sandbox-policy-checker",
+        ],
+        "cadence_contract": {
+            "day": "source drift, security boundary and one reversible next action",
+            "week": "one end-to-end canary and failure/recovery evidence",
+            "month": "portfolio overlap, missing interfaces and promotion/demotion",
+            "quarter": "cross-task reuse, attention saving and productizable abstraction",
+        },
+    }
+
+
+def ai_automation_analysis_plan(thesis: dict) -> dict:
+    """Owner-facing research desk contract across four evidence horizons."""
+    return {
+        "objective": (
+            "把公開 skill 供給、pinned source review 與每日 observation tape 轉成可證偽的決策情報，"
+            "並只把能改善 WiFi baseband ASIC 前端設計、驗證、合成或前端 ECO 的方法送入 canary。"
+        ),
+        "decision_rule": (
+            "先看痛點與角色缺口，再看 evidence maturity、權限邊界與可逆性；stars 只作注意力訊號，"
+            "不能單獨升格為採用、可靠性或市場需求證據。"
+        ),
+        "horizons": [
+            {
+                "scale": "day", "scale_zh": "日",
+                "question": "今天有哪些 source、license、依賴、credential surface 或安全邊界漂移？",
+                "inputs": "pinned commit、daily metadata、doctor/readback、change_since_previous",
+                "method": "逐 repo diff；只記新事實、反證與一個可逆 next action",
+                "deliverable": "一張 observation card 與 ADOPT／PILOT／WATCH／REJECT 變更",
+                "work_translation": "避免把漂移的工具或登入型 adapter 帶進 ASIC automation。",
+                "claim_boundary": "單日 stars、commit 數與社群聲量不是趨勢或採用率。",
+            },
+            {
+                "scale": "week", "scale_zh": "週",
+                "question": "哪個 harness 角色缺口值得用一條端到端 canary 驗證？",
+                "inputs": "七角色 coverage、failure taxonomy、checkpoint、owner interruption、rollback trace",
+                "method": "只選一條公開 fixture；比較 before/after failure recovery 與證據完整性",
+                "deliverable": "一份可重跑 canary、負向測試、淘汰條件與 promotion decision",
+                "work_translation": "優先驗證 spec→intent→RTL/SVA→sim evidence 的可恢復交接。",
+                "claim_boundary": "公開 toy PASS 不能升格為 VCS、Verdi、DC、Formality/LEC 或產品 RTL PASS。",
+            },
+            {
+                "scale": "month", "scale_zh": "月",
+                "question": "哪些看似分散的 skills 正收斂成控制平面，哪裡仍有稀缺而高痛的空白？",
+                "inputs": "角色 coverage、promotions/demotions、跨 repo interface、失敗重現時間、重疊成本",
+                "method": "建立 thesis／anti-thesis；淘汰重疊 framework，追蹤可替換 schema 與 evidence contract",
+                "deliverable": "利基地圖、portfolio cut、下一個月的單一能力投資主題",
+                "work_translation": "把通用 pattern 收斂成 intent、tool evidence、debug handoff 與 ECO audit 元件。",
+                "claim_boundary": "供給缺口只是假設；沒有真實使用痛點與 canary，不是市場機會。",
+            },
+            {
+                "scale": "quarter", "scale_zh": "季",
+                "question": "同一 evidence contract 是否跨三類高風險任務重現，值得成為你的專業護城河？",
+                "inputs": "跨任務 reproducibility、owner interruption、recovery effort、evidence integrity、外部需求訊號",
+                "method": "做平台校準與產品化審查；要求可攜 state、可替換 worker 與 realm boundary",
+                "deliverable": "專精押注、停止項目、下一季 build/buy/learn 決策與產品化假設",
+                "work_translation": "評估 Evidence-Governed Domain Agent Harness 是否成為 ASIC automation 核心能力。",
+                "claim_boundary": "內部效率或 demo 不等於付費需求；EDA claim 仍需核准環境真工具證據。",
+            },
+        ],
+        "niche_filters": [
+            "高頻或高代價工程痛點，但公開 skill 供給稀疏",
+            "模型能力提升後仍需要的 domain schema、oracle、evidence 與 approval",
+            "可先用公開 fixture 驗證，之後以 deterministic bundle 進核准環境",
+            "能降低失敗重現時間、重複脈絡說明或 owner interruption，且不犧牲 verification integrity",
+        ],
+        "priority_hypotheses": [
+            {
+                "name": "RTL／DV Evidence Kernel",
+                "why": "把 requirement、cycle contract、assertion、simulation artifact、review claim 與 owner disposition 串成同一 ledger。",
+                "first_canary": "公開 toy datapath 的 intent→RTL/SVA→simulation evidence bundle 與獨立 claim audit。",
+                "promotion_gate": "另一個 worker 可只靠 bundle 重現，且 false-PASS negative test 能被 gate 擋下。",
+            },
+            {
+                "name": "EDA Tool Capability Registry",
+                "why": "把 VCS、Verdi、lint、CDC、synthesis、LEC/ECO 的 capability、preflight、版本與失敗原因型別化。",
+                "first_canary": "先用 mock adapter 驗證 allowlist、negative authorization、artifact manifest 與 fallback，不連公司工具。",
+                "promotion_gate": "進核准環境後，真實 tool/version/command/report readback 能對上相同 schema。",
+            },
+            {
+                "name": "Frontend ECO Failure Replay",
+                "why": "前端 ECO 的稀缺價值不是自動改 RTL，而是保存 root cause、變更邊界、等價性預期與 rollback 證據。",
+                "first_canary": "公開 combinational/sequential toy change 的 before/after cone、test、equivalence expectation 與 rollback trace。",
+                "promotion_gate": "無 owner approval 不改 source；沒有 LEC/正式等價性 readback 不宣稱 ECO 正確。",
+            },
+        ],
+        "workbench": {
+            "production": "deterministic Python builders、versioned JSON evidence、tests 與 Pages readback",
+            "exploration": "Jupyter notebook 僅用於 cohort、trend、niche hypothesis 與圖表探索；結論須回寫受測試的 pipeline",
+            "ai_role": "AI 撰寫 thesis／anti-thesis 與決策敘事，但不能覆寫 evidence ledger 或工具結果",
+            "nx_context": "SNAPSHOT_ONLY",
+        },
+        "thesis": thesis.get("potential_track") or "Evidence-Governed Domain Agent Harness",
+    }
+
+
+def build_report(recommendations: dict, history: dict, health: dict, report_date: str,
+                 ai_history: dict | None = None) -> dict:
+    ai_history = ai_history or {}
     categories = recommendations.get("categories", {})
     eda_category = categories.get("EDA_IC", {})
     finance_category = categories.get("finance-investing", {})
+    ai_category = categories.get("ai-automation", {})
     eda_items = _dedupe(eda_category.get("all_reviewed") or (
         eda_category.get("recommendations", []) + eda_category.get("excluded", [])
     ))
     finance_items = _dedupe(
         finance_category.get("recommendations", []) + finance_category.get("excluded", [])
     )
+    ai_items = _dedupe(ai_category.get("all_reviewed") or (
+        ai_category.get("recommendations", []) + ai_category.get("excluded", [])
+    ))
     eda_cycles = cycle_views(history, "EDA_IC")
     finance_cycles = cycle_views(history, "finance-investing")
+    ai_cycles = ai_automation_cycles(ai_history, ai_category, report_date)
     complete = all(x.get("status") == "AI_GENERATED" for x in eda_cycles + finance_cycles)
     current = (
         recommendations.get("status") == "READY_FOR_OWNER_REVIEW"
         and recommendations.get("corpus_freshness", {}).get("status") == "CURRENT"
     )
-    review_complete = bool(eda_items and finance_items) and all(
+    ai_required = bool(ai_category)
+    review_items = eda_items + finance_items + (ai_items if ai_required else [])
+    review_complete = bool(eda_items and finance_items) and (not ai_required or bool(ai_items)) and all(
         _reviewed(item) and item.get("source_commit") not in {None, "", "UNKNOWN"}
-        for item in eda_items + finance_items
+        for item in review_items
     )
-    status = "READY_FOR_OWNER_REVIEW" if current and complete and review_complete else "PARTIAL"
+    ai_history_current = not ai_required or ai_history.get("latest", {}).get("date") == report_date
+    status = (
+        "READY_FOR_OWNER_REVIEW"
+        if current and complete and review_complete and ai_history_current else "PARTIAL"
+    )
     execution_context = os.environ.get(
         "SKILLS_RADAR_RUN_CONTEXT",
         health.get("schedule_contract", {}).get("execution_context", "UNKNOWN"),
@@ -287,6 +502,25 @@ def build_report(recommendations: dict, history: dict, health: dict, report_date
                 "roadmap": finance_research_roadmap(finance_items),
                 "claim_boundary": "research only; no trade execution, credentials, direction instruction, or profit claim",
             },
+            "ai-automation": {
+                "slug": "ai-automation", "title": "AI 應用／Agent Harness／Automation 情報專區",
+                "scope": ai_category.get("scope"), "excluded_scope": ai_category.get("excluded_scope"),
+                "cycles": ai_cycles, "skills": ai_items,
+                "source_review": {"reviewed": sum(_reviewed(x) for x in ai_items), "total": len(ai_items)},
+                "roadmap": ai_automation_roadmap(ai_items, ai_category.get("strategic_thesis", {})),
+                "analysis_plan": ai_automation_analysis_plan(ai_category.get("strategic_thesis", {})),
+                "intelligence_brief": ai_category.get("strategic_thesis", {}),
+                "observation_tape": {
+                    "started_at": ai_history.get("started_at"),
+                    "days": len(ai_history.get("observations", [])),
+                    "latest": ai_history.get("latest", {}),
+                    "contract": ai_history.get("history_contract"),
+                },
+                "claim_boundary": (
+                    "static public-source review and metadata only; no third-party code, private session, cookie, "
+                    "anti-bot route, hosted action or confidential engineering data was used"
+                ),
+            },
         },
     }
 
@@ -297,11 +531,13 @@ def _esc(value) -> str:
 
 def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     zone = report["zones"][zone_key]
-    other = "finance-investing" if zone_key == "EDA_IC" else "EDA_IC"
-    other_zone = report["zones"][other]
+    zone_links = "".join(
+        f'<a href="{_esc(base_prefix)}{_esc(item["slug"])}/">{_esc(item["title"])}</a>'
+        for key, item in report["zones"].items() if key != zone_key
+    )
     cycles = []
     for view in zone["cycles"]:
-        if view.get("status") != "AI_GENERATED":
+        if not view.get("headline"):
             body = "<p>此尺度尚無通過驗收的完整期文章。</p>"
             period = "missing"
         else:
@@ -321,7 +557,8 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     skills = []
     for item in zone["skills"]:
         dossier = item.get("owner_dossier", {})
-        role = dossier.get("automation_role") or dossier.get("research_role") or "review-candidate"
+        role = (dossier.get("automation_role") or dossier.get("research_role")
+                or dossier.get("harness_role") or "review-candidate")
         review = item.get("source_review", {})
         risks = "".join(f"<li>{_esc(x)}</li>" for x in item.get("risks", [])[:5]) or "<li>尚待逐檔補證據</li>"
         evidence = "".join(f"<li>{_esc(x)}</li>" for x in dossier.get("required_evidence", []))
@@ -342,17 +579,57 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     focus = "".join(f"<li>{_esc(x)}</li>" for x in zone["roadmap"].get("first_90_day_focus", []))
     suite = "".join(f"<code>{_esc(x)}</code> " for x in zone["roadmap"].get("internal_skill_suite", []))
 
+    brief = zone.get("intelligence_brief", {})
+    brief_html = ""
+    if brief:
+        catalysts = "".join(f"<li>{_esc(x)}</li>" for x in brief.get("catalysts", []))
+        indicators = "".join(f"<li>{_esc(x)}</li>" for x in brief.get("leading_indicators", []))
+        falsifiers = "".join(f"<li>{_esc(x)}</li>" for x in brief.get("falsifiers", []))
+        tape = zone.get("observation_tape", {})
+        brief_html = f"""<section class="brief"><div class="eyebrow">STRATEGIC INTELLIGENCE · {_esc(brief.get('confidence'))}</div>
+<h2>{_esc(brief.get('headline'))}</h2><p class="brief-claim">{_esc(brief.get('claim'))}</p>
+<div class="brief-grid"><div><h3>待爆發賽道</h3><p><b>{_esc(brief.get('potential_track'))}</b></p><p>{_esc(brief.get('owner_specialization'))}</p></div>
+<div><h3>反方觀點</h3><p>{_esc(brief.get('counterpoint'))}</p></div></div>
+<div class="brief-grid"><div><h3>催化劑</h3><ul>{catalysts}</ul></div><div><h3>領先指標</h3><ul>{indicators}</ul></div></div>
+<details><summary>什麼會推翻這個 thesis</summary><ul>{falsifiers}</ul></details>
+<p class="meta">Observation tape 自 {_esc(tape.get('started_at'))} 起，現有 {_esc(tape.get('days'))} 個真實日快照；啟用前不回填假歷史。</p></section>"""
+
+    analysis = zone.get("analysis_plan", {})
+    analysis_html = ""
+    if analysis:
+        horizon_cards = []
+        for horizon in analysis.get("horizons", []):
+            horizon_cards.append(f"""<article class="skill"><div class="eyebrow">{_esc(horizon.get('scale_zh'))}尺度研究桌</div>
+<h3>{_esc(horizon.get('question'))}</h3><p><b>方法：</b>{_esc(horizon.get('method'))}</p>
+<p><b>輸出：</b>{_esc(horizon.get('deliverable'))}</p><p><b>對你的工作：</b>{_esc(horizon.get('work_translation'))}</p>
+<details><summary>輸入與 claim boundary</summary><p>{_esc(horizon.get('inputs'))}</p><p>{_esc(horizon.get('claim_boundary'))}</p></details></article>""")
+        filters = "".join(f"<li>{_esc(x)}</li>" for x in analysis.get("niche_filters", []))
+        hypotheses = "".join(
+            f"<li><b>{_esc(x.get('name'))}</b><p>{_esc(x.get('why'))}</p><p class=\"meta\">Canary：{_esc(x.get('first_canary'))}<br>升級 gate：{_esc(x.get('promotion_gate'))}</p></li>"
+            for x in analysis.get("priority_hypotheses", [])
+        )
+        workbench = analysis.get("workbench", {})
+        analysis_html = f"""<section class="roadmap"><div class="eyebrow">RESEARCH DESK CONTRACT · NX_CONTEXT={_esc(workbench.get('nx_context'))}</div>
+<h2>分析面板計畫：從每日訊號到季度押注</h2><p class="lead">{_esc(analysis.get('objective'))}</p><p>{_esc(analysis.get('decision_rule'))}</p>
+<div class="skills">{''.join(horizon_cards)}</div><div class="two"><div><h3>利基篩選器</h3><ul>{filters}</ul></div><div><h3>對你工作最有價值的三個假設</h3><ol>{hypotheses}</ol></div></div>
+<details><summary>分析工具的 authority 邊界</summary><p><b>Production：</b>{_esc(workbench.get('production'))}</p><p><b>Exploration：</b>{_esc(workbench.get('exploration'))}</p><p><b>AI：</b>{_esc(workbench.get('ai_role'))}</p></details></section>"""
+
     schedule = report["schedule_proof"]
     tabs = "".join(
-        f'<a href="{_esc(base_prefix)}{_esc(zone["slug"])}/{_esc(view["scale"])}/{_esc(view.get("period",{}).get("period_id","index"))}.html">{_esc(view["scale_zh"])}</a>'
-        for view in zone["cycles"]
+        (
+            f'<a href="{_esc(base_prefix)}{_esc(zone["slug"])}/{_esc(view["scale"])}/{_esc(view.get("period",{}).get("period_id","index"))}.html">{_esc(view["scale_zh"])}</a>'
+            if view.get("status") == "AI_GENERATED"
+            else f'<a href="#{_esc(view["scale"])}">{_esc(view["scale_zh"])} · 歷史不足</a>'
+        ) for view in zone["cycles"]
     )
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{_esc(zone['title'])} · Skills Radar</title><style>
-:root{{--bg:#f7f5f0;--paper:#fff;--ink:#20201d;--dim:#6e6a62;--line:#ddd7cc;--accent:#9b4b27;--ok:#2d6a4f}}@media(prefers-color-scheme:dark){{:root{{--bg:#151513;--paper:#1e1e1b;--ink:#eeeae2;--dim:#aaa49a;--line:#3a3731;--accent:#e28a5c;--ok:#7ac29b}}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}}main{{max-width:1120px;margin:auto;padding:1.4rem 1.1rem 5rem}}a{{color:var(--accent)}}nav{{display:flex;gap:.9rem;flex-wrap:wrap;padding:.7rem 0}}.hero{{padding:3.3rem 0 2rem;max-width:850px}}h1{{font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin:.3rem 0}}h2{{line-height:1.2}}.eyebrow,.meta{{color:var(--dim);font-size:.84rem}}.notice,.cycle,.skill,.roadmap{{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0}}.notice{{border-left:4px solid var(--accent)}}.lead{{font-size:1.12rem}}.tabs{{display:flex;gap:.5rem;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:.7rem 0;z-index:2}}.tabs a{{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--paper)}}.two,.skills{{display:grid;gap:1rem}}@media(min-width:760px){{.two,.skills{{grid-template-columns:1fr 1fr}}}}pre{{white-space:pre-wrap;overflow:auto;font-size:.75rem}}details summary{{cursor:pointer;color:var(--accent)}}.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}.status{{color:var(--ok)}}
-</style></head><body><main><nav><a href="{_esc(base_prefix)}index.html">Skills Radar</a><a href="{_esc(base_prefix)}{_esc(other_zone['slug'])}/">{_esc(other_zone['title'])}</a><a href="{_esc(base_prefix)}editorials/">總體觀點</a><a href="{_esc(base_prefix)}recommendations/">每日清單</a></nav>
+:root{{--bg:#f7f5f0;--paper:#fff;--ink:#20201d;--dim:#6e6a62;--line:#ddd7cc;--accent:#9b4b27;--ok:#2d6a4f}}@media(prefers-color-scheme:dark){{:root{{--bg:#151513;--paper:#1e1e1b;--ink:#eeeae2;--dim:#aaa49a;--line:#3a3731;--accent:#e28a5c;--ok:#7ac29b}}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}}main{{max-width:1120px;margin:auto;padding:1.4rem 1.1rem 5rem}}a{{color:var(--accent)}}nav{{display:flex;gap:.9rem;flex-wrap:wrap;padding:.7rem 0}}.hero{{padding:3.3rem 0 2rem;max-width:850px}}h1{{font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin:.3rem 0}}h2{{line-height:1.2}}.eyebrow,.meta{{color:var(--dim);font-size:.84rem}}.notice,.cycle,.skill,.roadmap,.brief{{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0}}.notice{{border-left:4px solid var(--accent)}}.lead,.brief-claim{{font-size:1.12rem}}.brief{{border-top:5px solid var(--ink);border-radius:0}}.brief-grid{{display:grid;gap:1rem}}.tabs{{display:flex;gap:.5rem;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:.7rem 0;z-index:2}}.tabs a{{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--paper)}}.two,.skills{{display:grid;gap:1rem}}@media(min-width:760px){{.two,.skills,.brief-grid{{grid-template-columns:1fr 1fr}}}}pre{{white-space:pre-wrap;overflow:auto;font-size:.75rem}}details summary{{cursor:pointer;color:var(--accent)}}.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}.status{{color:var(--ok)}}
+</style></head><body><main><nav><a href="{_esc(base_prefix)}index.html">Skills Radar</a>{zone_links}<a href="{_esc(base_prefix)}editorials/">總體觀點</a><a href="{_esc(base_prefix)}recommendations/">每日清單</a></nav>
 <header class="hero"><div class="eyebrow">owner-personalized research zone · {_esc(report['report_date'])}</div><h1>{_esc(zone['title'])}</h1><p class="lead">{_esc(zone['roadmap']['thesis'])}</p><p>{_esc(zone.get('scope'))}</p><p class="meta">排除：{_esc(zone.get('excluded_scope'))}</p></header>
 <div class="notice"><b class="status">{_esc(report['status'])}</b> · corpus {_esc(report.get('corpus_freshness',{}).get('status'))} · source review {zone['source_review']['reviewed']}/{zone['source_review']['total']}<br>排程來源：<code>{_esc(schedule['execution_context'])}</code>；{_esc(schedule['claim_boundary'])}<br>{_esc(zone['claim_boundary'])}</div>
+{brief_html}
+{analysis_html}
 <section class="roadmap"><h2>為你設計的下一步路線</h2><ol>{''.join(stages)}</ol>{f'<h3>前九十天</h3><ul>{focus}</ul>' if focus else ''}{f'<h3>建議內部 skill suite</h3><p>{suite}</p>' if suite else ''}</section>
 <div class="tabs"><span>週期文章：</span>{tabs}</div>
 <section><h2>多週期 AI 觀點</h2>{''.join(cycles)}</section>
@@ -366,22 +643,53 @@ def render_markdown(report: dict, zone_key: str) -> str:
         f"# {zone['title']} — {report['report_date']}", "",
         f"> 狀態：`{report['status']}`；排程來源：`{report['schedule_proof']['execution_context']}`。",
         f"> {zone['claim_boundary']}", "", zone["roadmap"]["thesis"], "",
-        "## 多週期 AI 觀點", "",
     ]
+    brief = zone.get("intelligence_brief", {})
+    if brief:
+        lines += [
+            "## Strategic Intelligence Brief", "",
+            f"### {brief.get('headline','—')}", "", brief.get("claim", ""), "",
+            f"**待爆發賽道：{brief.get('potential_track','—')}**", "",
+            brief.get("owner_specialization", ""), "",
+            f"反方觀點：{brief.get('counterpoint','—')}", "",
+            "### 催化劑", "",
+            *[f"- {item}" for item in brief.get("catalysts", [])], "",
+            "### 領先指標", "",
+            *[f"- {item}" for item in brief.get("leading_indicators", [])], "",
+        ]
+    analysis = zone.get("analysis_plan", {})
+    if analysis:
+        lines += ["## 分析面板計畫：從每日訊號到季度押注", "", analysis.get("objective", ""), ""]
+        for horizon in analysis.get("horizons", []):
+            lines += [
+                f"### {horizon.get('scale_zh')}尺度：{horizon.get('question')}", "",
+                f"- 方法：{horizon.get('method')}",
+                f"- 輸出：{horizon.get('deliverable')}",
+                f"- 對你的工作：{horizon.get('work_translation')}",
+                f"- 邊界：{horizon.get('claim_boundary')}", "",
+            ]
+        lines += ["### 優先利基假設", ""]
+        for hypothesis in analysis.get("priority_hypotheses", []):
+            lines += [f"- **{hypothesis.get('name')}**：{hypothesis.get('why')}",
+                      f"  - Canary：{hypothesis.get('first_canary')}",
+                      f"  - Promotion gate：{hypothesis.get('promotion_gate')}"]
+        lines += [""]
+    lines += ["## 多週期 AI 觀點", ""]
     for view in zone["cycles"]:
         lines += [
             f"### {view['scale_zh']}尺度 — {view.get('period',{}).get('period_id','MISSING')}", "",
             f"**{view.get('headline','尚無文章')}**", "", view.get("lead", "尚無通過驗收的文章。"), "",
             view.get("context", ""), "", f"反方觀點：{view.get('counterpoint','—')}", "",
         ]
-    lines += ["## ASIC automation／研究路線", ""]
+    lines += ["## Automation／研究路線", ""]
     for stage in zone["roadmap"].get("stages", []):
         lines += [f"### {stage.get('order')}. {stage.get('title')}", "", stage.get("deliverable", ""), "",
                   f"候選：{'、'.join(stage.get('skills', [])) or '尚無'}", "", f"證據：{stage.get('proof')}", ""]
     lines += ["## 逐 Skill dossier", ""]
     for item in zone["skills"]:
         dossier = item.get("owner_dossier", {})
-        role = dossier.get("automation_role") or dossier.get("research_role") or "review-candidate"
+        role = (dossier.get("automation_role") or dossier.get("research_role")
+                or dossier.get("harness_role") or "review-candidate")
         lines += [
             f"### {item.get('name')} — {item.get('recommendation_zh')}", "",
             f"- 來源：[{item.get('repo')}/{item.get('path')}]({item.get('source_url')})",
@@ -398,7 +706,7 @@ def write_outputs(report: dict, root: Path = ROOT) -> None:
     output = root / "corpus" / "domain_zones.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    mapping = {"EDA_IC": "eda-ic", "finance-investing": "investing"}
+    mapping = {"EDA_IC": "eda-ic", "finance-investing": "investing", "ai-automation": "ai-automation"}
     for key, slug in mapping.items():
         docs = root / "docs" / slug
         research = root / "research" / "zones" / slug
@@ -434,12 +742,16 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
     args = parser.parse_args(argv)
-    report = build_report(load(RECOMMENDATIONS), load(TIMESCALES), load(HEALTH, {}), args.date)
+    report = build_report(
+        load(RECOMMENDATIONS), load(TIMESCALES), load(HEALTH, {}), args.date,
+        load(AI_AUTOMATION_HISTORY, {}),
+    )
     write_outputs(report)
     print(
         f"domain zones: {args.date}; status={report['status']}; "
         f"EDA={len(report['zones']['EDA_IC']['skills'])}; "
-        f"finance={len(report['zones']['finance-investing']['skills'])}"
+        f"finance={len(report['zones']['finance-investing']['skills'])}; "
+        f"ai-automation={len(report['zones']['ai-automation']['skills'])}"
     )
     return 0
 

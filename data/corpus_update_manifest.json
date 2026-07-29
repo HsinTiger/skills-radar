@@ -1,42 +1,43 @@
 {
  "schema_version": 1,
- "run_date": "2026-07-28",
+ "run_date": "2026-07-29",
  "status": "SUCCESS",
- "started_at": "2026-07-28T07:24:58.158093+00:00",
- "completed_at": "2026-07-28T07:37:04.117006+00:00",
+ "started_at": "2026-07-29T08:24:54.125582+00:00",
+ "completed_at": "2026-07-29T08:38:08.575392+00:00",
  "collector": "github_code_search_incremental",
  "collector_exit_code": 0,
  "run_context": "manual_recovery",
- "before": {
-  "rows": 42242,
-  "sha256": "df692ace3da67a91a5197e59dd8c01c90458a732277b4038a0a1a82920d9d7d8",
-  "first_seen_on_run_date": 1012
- },
  "daily_baseline": {
-  "rows": 41230,
-  "sha256": "6086cfe264b26a69955234000d532d1a842fbadf2db0d0cb0da7d4d4424c54cd"
+  "rows": 42242,
+  "sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "first_seen_on_run_date": 0
+ },
+ "before": {
+  "rows": 42407,
+  "sha256": "7ffc145f84e4956bdd731600820bfccbcfb99af236cf8f44c2ddf70d0262c929",
+  "first_seen_on_run_date": 165
  },
  "after": {
-  "rows": 42242,
-  "sha256": "df692ace3da67a91a5197e59dd8c01c90458a732277b4038a0a1a82920d9d7d8",
-  "first_seen_on_run_date": 1012
+  "rows": 42407,
+  "sha256": "7ffc145f84e4956bdd731600820bfccbcfb99af236cf8f44c2ddf70d0262c929",
+  "first_seen_on_run_date": 165
  },
- "new_rows": 1012,
+ "new_rows": 165,
  "run_new_rows": 0,
- "delta_file": "delta-2026-07-28.jsonl",
- "delta_rows": 1012,
+ "delta_file": "delta-2026-07-29.jsonl",
+ "delta_rows": 165,
  "reused_daily_delta": true,
- "delta_already_classified": true,
+ "delta_already_classified": false,
+ "validation_error": null,
+ "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows",
  "classification": {
   "status": "MODEL_PREDICTED",
+  "method": "local_classifier_from_existing_seed_set",
   "llm_seed_rows": 6577,
-  "model_rows": 35665,
-  "model_report_master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "model_rows": 35830,
+  "model_report_master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
   "domain_cv_accuracy": 0.724,
   "domain_model_confidence_at_least_0_6_pct": 33.2,
-  "claim_boundary": "The 1,012-row spike was labelled by the existing local classifier, not promoted to LLM or human seed evidence; downstream field-confidence gates remain required."
- },
- "validation_error": null,
- "recovery_note": "A previously detached same-day collector wrote the preserved delta before this complete idempotent search; key uniqueness and master membership were read back before classification.",
- "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows"
+  "claim_boundary": "new and existing non-seed rows were labelled by the local classifier; they are not new LLM or human seed evidence and remain subject to field-confidence gates"
+ }
 }

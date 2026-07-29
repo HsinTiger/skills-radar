@@ -1,65 +1,22 @@
 {
- "run_date": "2026-07-28",
+ "run_date": "2026-07-29",
  "freshness": {
   "status": "CURRENT",
-  "master_sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
   "actual_seed": 6577,
-  "actual_model": 35665,
+  "actual_model": 35830,
   "expected_seed": 6577,
-  "expected_model": 35665
+  "expected_model": 35830
  },
  "due": [
   {
-   "scale": "month",
-   "period_id": "2026-06",
-   "start": "2026-06-01",
-   "end": "2026-06-30"
-  },
-  {
-   "scale": "quarter",
-   "period_id": "2026-Q2",
-   "start": "2026-04-01",
-   "end": "2026-06-30"
-  },
-  {
-   "scale": "week",
-   "period_id": "2026-W30",
-   "start": "2026-07-20",
-   "end": "2026-07-26"
-  },
-  {
    "scale": "day",
-   "period_id": "2026-07-27",
-   "start": "2026-07-27",
-   "end": "2026-07-27"
+   "period_id": "2026-07-28",
+   "start": "2026-07-28",
+   "end": "2026-07-28"
   }
  ],
- "rewrite_due": [
-  {
-   "scale": "month",
-   "period_id": "2026-06",
-   "start": "2026-06-01",
-   "end": "2026-06-30"
-  },
-  {
-   "scale": "quarter",
-   "period_id": "2026-Q2",
-   "start": "2026-04-01",
-   "end": "2026-06-30"
-  },
-  {
-   "scale": "week",
-   "period_id": "2026-W30",
-   "start": "2026-07-20",
-   "end": "2026-07-26"
-  },
-  {
-   "scale": "day",
-   "period_id": "2026-07-27",
-   "start": "2026-07-27",
-   "end": "2026-07-27"
-  }
- ],
+ "rewrite_due": [],
  "backlog": {
   "day": 0,
   "week": 0,
@@ -70,19 +27,7 @@
  "updated_periods": [
   {
    "scale": "day",
-   "period_id": "2026-07-27"
-  },
-  {
-   "scale": "week",
-   "period_id": "2026-W30"
-  },
-  {
-   "scale": "month",
-   "period_id": "2026-06"
-  },
-  {
-   "scale": "quarter",
-   "period_id": "2026-Q2"
+   "period_id": "2026-07-28"
   }
  ]
 }

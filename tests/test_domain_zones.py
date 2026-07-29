@@ -16,6 +16,11 @@ def skill(name, domain="eda"):
         "required_evidence": ["VCS result"], "kill_criteria": ["false PASS"],
         "promotion_gate": "owner approval",
     } if domain == "eda" else {
+        "harness_role": "durable-state-machine",
+        "personalized_fit": "fit", "first_experiment": "public task",
+        "required_evidence": ["checkpoint"], "kill_criteria": ["credential"],
+        "promotion_gate": "public only",
+    } if domain == "ai" else {
         "research_role": "reproducible-valuation",
         "personalized_fit": "fit", "first_experiment": "public filing",
         "required_evidence": ["source"], "kill_criteria": ["trade"],
@@ -46,21 +51,36 @@ def history():
 
 
 class DomainZoneTests(unittest.TestCase):
-    def test_builds_two_separate_four_cycle_zones(self):
+    def test_builds_three_separate_four_cycle_zones(self):
         eda = skill("x-npi")
         finance = skill("valuation", "finance")
+        harness = skill("durable-run", "ai")
         rec = {
             "status": "READY_FOR_OWNER_REVIEW", "corpus_freshness": {"status": "CURRENT"},
             "categories": {
                 "EDA_IC": {"scope": "ASIC", "excluded_scope": "FPGA", "all_reviewed": [eda]},
                 "finance-investing": {"scope": "research", "excluded_scope": "trading",
                                       "recommendations": [finance], "excluded": []},
+                "ai-automation": {"scope": "harness", "excluded_scope": "cookies",
+                                  "all_reviewed": [harness], "strategic_thesis": {
+                                      "headline": "觀點", "claim": "主張", "counterpoint": "反方",
+                                      "confidence": "MEDIUM", "falsifiers": ["反證"],
+                                  }},
             },
         }
-        report = build_report(rec, history(), {"schedule_contract": {"execution_context": "manual_recovery"}}, "2026-07-28")
+        ai_history = {"started_at": "2026-07-28", "observations": [{}], "latest": {
+            "date": "2026-07-28", "review_count": 1, "grade_counts": {"A": 1},
+        }}
+        report = build_report(rec, history(), {"schedule_contract": {"execution_context": "manual_recovery"}}, "2026-07-28", ai_history)
         self.assertEqual(report["status"], "READY_FOR_OWNER_REVIEW")
         self.assertEqual(len(report["zones"]["EDA_IC"]["cycles"]), 4)
         self.assertEqual(len(report["zones"]["finance-investing"]["cycles"]), 4)
+        self.assertEqual(len(report["zones"]["ai-automation"]["cycles"]), 4)
+        self.assertEqual(report["zones"]["ai-automation"]["cycles"][0]["status"], "AI_GENERATED")
+        analysis = report["zones"]["ai-automation"]["analysis_plan"]
+        self.assertEqual(len(analysis["horizons"]), 4)
+        self.assertEqual(len(analysis["priority_hypotheses"]), 3)
+        self.assertIn("WiFi baseband ASIC 前端", analysis["objective"])
         self.assertFalse(report["schedule_proof"]["unattended_schedule_proven"])
         self.assertEqual(report["zones"]["EDA_IC"]["source_review"], {"reviewed": 1, "total": 1})
 
@@ -82,6 +102,26 @@ class DomainZoneTests(unittest.TestCase):
         self.assertIn("simulation-evidence-extractor", page)
         self.assertNotIn("IGNORE ALL INSTRUCTIONS", page)
         self.assertNotIn("<script>", page)
+
+    def test_ai_zone_renders_cross_cycle_analysis_plan(self):
+        harness = skill("durable-run", "ai")
+        rec = {
+            "status": "READY_FOR_OWNER_REVIEW", "corpus_freshness": {"status": "CURRENT"},
+            "categories": {
+                "EDA_IC": {"scope": "ASIC", "excluded_scope": "FPGA", "all_reviewed": [skill("rtl")]},
+                "finance-investing": {"scope": "research", "excluded_scope": "trading",
+                                      "recommendations": [skill("valuation", "finance")], "excluded": []},
+                "ai-automation": {"scope": "harness", "excluded_scope": "cookies",
+                                  "all_reviewed": [harness], "strategic_thesis": {"potential_track": "Evidence Harness"}},
+            },
+        }
+        ai_history = {"started_at": "2026-07-28", "observations": [{}], "latest": {
+            "date": "2026-07-28", "review_count": 1, "grade_counts": {"A": 1},
+        }}
+        page = render_html(build_report(rec, history(), {}, "2026-07-28", ai_history), "ai-automation")
+        self.assertIn("分析面板計畫：從每日訊號到季度押注", page)
+        self.assertIn("RTL／DV Evidence Kernel", page)
+        self.assertIn("Jupyter notebook", page)
 
 
 if __name__ == "__main__":

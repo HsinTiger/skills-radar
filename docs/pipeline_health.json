@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
- "report_date": "2026-07-28",
- "completed_at": "2026-07-28T12:01:01.956672+00:00",
+ "report_date": "2026-07-29",
+ "completed_at": "2026-07-29T09:36:45.828073+00:00",
  "status": "PASS",
  "gates": {
   "corpus_update": "SUCCESS",
@@ -17,53 +17,23 @@
  },
  "corpus_update": {
   "status": "SUCCESS",
-  "new_rows": 1012,
-  "rows_after": 42242,
+  "new_rows": 165,
+  "rows_after": 42407,
   "run_context": "manual_recovery"
  },
  "timescale": {
   "updated_periods": [
    {
     "scale": "day",
-    "period_id": "2026-07-27"
-   },
-   {
-    "scale": "week",
-    "period_id": "2026-W30"
-   },
-   {
-    "scale": "month",
-    "period_id": "2026-06"
-   },
-   {
-    "scale": "quarter",
-    "period_id": "2026-Q2"
+    "period_id": "2026-07-28"
    }
   ],
   "due": [
    {
-    "scale": "month",
-    "period_id": "2026-06",
-    "start": "2026-06-01",
-    "end": "2026-06-30"
-   },
-   {
-    "scale": "quarter",
-    "period_id": "2026-Q2",
-    "start": "2026-04-01",
-    "end": "2026-06-30"
-   },
-   {
-    "scale": "week",
-    "period_id": "2026-W30",
-    "start": "2026-07-20",
-    "end": "2026-07-26"
-   },
-   {
     "scale": "day",
-    "period_id": "2026-07-27",
-    "start": "2026-07-27",
-    "end": "2026-07-27"
+    "period_id": "2026-07-28",
+    "start": "2026-07-28",
+    "end": "2026-07-28"
    }
   ],
   "backlog": {

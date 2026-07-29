@@ -29,7 +29,7 @@ class EditorialEvidenceTests(unittest.TestCase):
         write(root / "corpus/daily_skill_recommendations.json", {
             "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
             "corpus_freshness": {"status": "CURRENT"},
-            "categories": {"EDA_IC": category, "finance-investing": category},
+            "categories": {"EDA_IC": category, "finance-investing": category, "ai-automation": category},
         })
         record = {"status": "AI_GENERATED", "period": {"period_id": "p"}, "ai": {}, "evidence": {}}
         write(root / "data/timescale_summaries.json", {"latest": {"day": record}})
@@ -58,10 +58,10 @@ class EditorialEvidenceTests(unittest.TestCase):
     def test_editorial_requires_blog_structure_citations_and_bounded_numbers(self):
         evidence = {
             "editorial_date": "2026-07-28",
-            "allowed_citations": ["C1", "T-day", "R-EDA", "R-FIN", "Q"],
+            "allowed_citations": ["C1", "T-day", "R-EDA", "R-FIN", "R-AUTO", "Q"],
             "citation_labels": {
                 "今日採集": "C1", "日觀察": "T-day", "EDA 清單": "R-EDA",
-                "財經清單": "R-FIN", "資料限制": "Q",
+                "財經清單": "R-FIN", "AI 自動化清單": "R-AUTO", "資料限制": "Q",
             },
             "evidence_ledger": {
                 "C1": {"daily_new_rows": 0},
@@ -75,7 +75,7 @@ class EditorialEvidenceTests(unittest.TestCase):
             + sections
             + "\n\n"
             + ("這是一段以公開證據建立觀點、說明反方解釋與驗證方法的完整專欄文字。" * 35)
-            + " 〔今日採集〕〔日觀察〕〔EDA 清單〕〔財經清單〕〔資料限制〕"
+            + " 〔今日採集〕〔日觀察〕〔EDA 清單〕〔財經清單〕〔AI 自動化清單〕〔資料限制〕"
         )
         errors = validate_editorial(
             article, evidence, CONFIG["editorial"]["required"], CONFIG["editorial"]["min_chars"],

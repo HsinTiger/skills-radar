@@ -165,8 +165,16 @@ out = {
     "B4_pain_diversity": scarcity,
     "B5_by_first_seen": {k: dict(v.most_common(8)) for k, v in sorted(recent.items())[-10:]},
 }
-json.dump(out, open(os.path.join(ROOT, "corpus", "opportunity.json"), "w"),
-          ensure_ascii=False, indent=1)
+output_path = os.path.join(ROOT, "corpus", "opportunity.json")
+temporary = output_path + ".tmp"
+try:
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(out, handle, ensure_ascii=False, indent=1)
+        handle.write("\n")
+    os.replace(temporary, output_path)
+finally:
+    if os.path.exists(temporary):
+        os.unlink(temporary)
 
 print(f"機會訊號計算完成（樣本 {N}）")
 print(f"\n[A] 上線率高於全體平均（全體 {out['global_production_pct']}%）:")

@@ -34,7 +34,7 @@ CONFIG = {
         "output": lambda day: ROOT / "research" / "editorials" / f"{day}.md",
         "required": (
             "## 核心觀點", "## 資料庫今天發生什麼", "## 多尺度判讀",
-            "## EDA／WiFi ASIC", "## 財經研究", "## 反方觀點",
+            "## EDA／WiFi ASIC", "## 財經研究", "## AI Agent／Automation", "## 反方觀點",
             "## 接下來怎麼驗證", "## 證據與限制",
         ),
         "min_chars": 1000,
@@ -77,7 +77,7 @@ def validate_editorial(text: str, evidence: dict, required: tuple[str, ...], min
     unknown = citations - allowed
     if unknown:
         errors.append(f"unknown evidence citations: {sorted(unknown)}")
-    required_citations = {"今日採集", "EDA 清單", "財經清單", "資料限制"}
+    required_citations = {"今日採集", "EDA 清單", "財經清單", "AI 自動化清單", "資料限制"}
     missing = required_citations - citations
     if missing:
         errors.append(f"missing required evidence citations: {sorted(missing)}")
@@ -93,7 +93,7 @@ def validate_editorial(text: str, evidence: dict, required: tuple[str, ...], min
     if internal_terms:
         errors.append(f"editorial exposes internal field names: {sorted(set(internal_terms))}")
 
-    allowed_ascii = {"Skills", "Radar", "AI", "GitHub", "EDA", "WiFi", "ASIC", "RTL"}
+    allowed_ascii = {"Skills", "Radar", "AI", "Agent", "Automation", "GitHub", "EDA", "WiFi", "ASIC", "RTL"}
     ascii_words = set(re.findall(r"[A-Za-z][A-Za-z-]*", text))
     unexplained = ascii_words - allowed_ascii
     if unexplained:

@@ -59,6 +59,24 @@ def write_atomic(path: Path, value: dict) -> None:
             temporary.unlink()
 
 
+def daily_baseline(manifest_path: Path, run_date: str, before: dict) -> tuple[dict, bool]:
+    """Preserve the first same-date master boundary across recovery reruns."""
+    if not manifest_path.is_file():
+        return dict(before), False
+    try:
+        previous = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return dict(before), False
+    if previous.get("run_date") != run_date:
+        return dict(before), False
+    candidate = previous.get("daily_baseline") or previous.get("before")
+    if not isinstance(candidate, dict) or not isinstance(candidate.get("rows"), int):
+        return dict(before), False
+    if candidate["rows"] > before["rows"]:
+        raise ValueError("same-date daily baseline is newer than the current master")
+    return dict(candidate), True
+
+
 def _delta_rows(stdout: str, root: Path, run_date: str) -> tuple[str | None, int | None, bool]:
     lines = [line.strip() for line in stdout.splitlines() if line.strip()]
     if not lines:
@@ -123,6 +141,7 @@ def run_update(
     master = root / "corpus" / "master.jsonl"
     manifest_path = root / "data" / "corpus_update_manifest.json"
     before = inspect_master(master, run_date)
+    baseline, baseline_preserved = daily_baseline(manifest_path, run_date, before)
     started_at = datetime.now(timezone.utc).isoformat()
     command = command or [sys.executable, str(root / "bin" / "harvest_delta.py")]
     collector_error = None
@@ -155,22 +174,36 @@ def run_update(
         after = inspect_master(master, run_date)
         delta_file, delta_rows, reused_daily_delta = _delta_rows(result.stdout, root, run_date)
         run_new_rows = after["rows"] - before["rows"]
+        # A legacy/recovered host may have today's cumulative delta but no
+        # manifest.  Its verified delta boundary is stronger evidence than
+        # pretending the current invocation started the day.
+        if not baseline_preserved and delta_rows is not None and delta_rows > run_new_rows:
+            recovered_rows = after["rows"] - delta_rows
+            if recovered_rows < 0:
+                raise ValueError("daily delta is larger than the current master")
+            baseline = {"rows": recovered_rows, "source": "recovered_from_existing_delta"}
+        daily_new_rows = after["rows"] - baseline["rows"]
         if run_new_rows < 0:
             raise ValueError("master row count decreased during an append-only update")
-        if reused_daily_delta:
-            if run_new_rows != 0:
-                raise ValueError("collector changed master but returned no delta path")
+        if daily_new_rows < 0:
+            raise ValueError("master row count fell below the preserved daily baseline")
+        if reused_daily_delta and run_new_rows != 0:
+            raise ValueError("collector changed master but returned no delta path")
+        if delta_file:
             delta_already_classified = _validate_delta_in_master(root / "corpus" / delta_file, master)
-        elif delta_rows != run_new_rows:
-            raise ValueError(f"delta/master mismatch: delta={delta_rows} master_growth={run_new_rows}")
+        if delta_rows != daily_new_rows:
+            raise ValueError(
+                f"daily delta/master mismatch: delta={delta_rows} daily_growth={daily_new_rows}"
+            )
         if result.returncode == 0 and collector_error is None:
             status = "SUCCESS"
     except Exception as exc:
         after = inspect_master(master, run_date)
         run_new_rows = after["rows"] - before["rows"]
+        daily_new_rows = after["rows"] - baseline["rows"]
         validation_error = "; ".join(filter(None, (collector_error, str(exc))))
 
-    new_rows = delta_rows if status == "SUCCESS" else max(0, run_new_rows)
+    new_rows = max(0, daily_new_rows)
 
     manifest = {
         "schema_version": 1,
@@ -181,6 +214,7 @@ def run_update(
         "collector": "github_code_search_incremental",
         "collector_exit_code": result.returncode,
         "run_context": os.environ.get("SKILLS_RADAR_RUN_CONTEXT", "manual_or_unknown"),
+        "daily_baseline": baseline,
         "before": before,
         "after": after,
         "new_rows": new_rows,
