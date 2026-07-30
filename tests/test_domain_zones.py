@@ -1,3 +1,4 @@
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -140,6 +141,17 @@ class DomainZoneTests(unittest.TestCase):
             "reddit": [{"name": "r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/new/.rss",
                         "status": "HTTP_200", "use": "discovery"}],
             "daily_card_contract": ["canonical URL", "IC automation translation"],
+            "deployment_brief_contract": {
+                "status": "CONTRACT_READY_NO_LIVE_ISSUE",
+                "title": "AI Deployment Field Brief",
+                "editorial_rule": "No implementation delta, no brief.",
+                "horizons": [{"id": "flash", "cadence": "daily", "title": "Deployment Flash",
+                              "decision": "What changed?", "output": "Three items maximum."}],
+                "story_anatomy": ["Delta", "Mechanism", "Evidence"],
+                "priority_gate": ["FIRST_HAND", "IMPLEMENTATION_DENSE"],
+                "history_contract": "append-only",
+                "live_issue": None,
+            },
             "claim_boundary": "No unverified post claims.",
         }
         page = render_html(build_report(rec, history(), {}, "2026-07-28", ai_history, watchlist), "ai-automation")
@@ -156,12 +168,34 @@ class DomainZoneTests(unittest.TestCase):
         self.assertIn("QUIET_HIGH_SIGNAL", page)
         self.assertIn("Stars 是稀缺注意力", page)
         self.assertIn("社群大神與前沿團隊", page)
+        self.assertIn("AI Deployment Field Brief", page)
+        self.assertIn("CONTRACT_READY_NO_LIVE_ISSUE", page)
+        self.assertIn("Deployment Flash", page)
+        self.assertIn("尚無 live issue", page)
         self.assertIn("AUTH_REQUIRED_IN_CODEX_BROWSER", page)
         self.assertIn("PARTIAL_PUBLIC_RSS", page)
         self.assertIn("OpenAI", page)
         self.assertIn("durable-run", page)
         self.assertIn("quiet-method", page)
         self.assertNotIn("UNVERIFIED_TWEET_BODY", page)
+
+    def test_real_watchlist_has_130_unique_handles_and_deployment_track(self):
+        watchlist = json.loads((ROOT / "data" / "expert_watchlist.json").read_text(encoding="utf-8"))
+        experts = watchlist["experts"]
+        handles = [item["x"].lower() for item in experts]
+        self.assertEqual(len(experts), 130)
+        self.assertEqual(len(handles), len(set(handles)))
+        target_counts = {item["id"]: item["target_count"] for item in watchlist["tracks"]}
+        actual_counts = {
+            track_id: sum(item["track"] == track_id for item in experts)
+            for track_id in target_counts
+        }
+        self.assertEqual(actual_counts, target_counts)
+        deployment = [item for item in experts if item["track"] == "ai-deployment-builders"]
+        self.assertEqual(len(deployment), 30)
+        self.assertTrue(all(item.get("role_type") for item in deployment))
+        self.assertTrue(all(item.get("deployment_layer") for item in deployment))
+        self.assertTrue(all(item.get("source_check") for item in deployment))
 
 
 if __name__ == "__main__":

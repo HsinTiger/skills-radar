@@ -361,3 +361,32 @@ the watchdog also fails unless `schedule_contract.execution_context` is exactly 
    `docs/pipeline_health.json` from live Pages.
 4. Only a marker created by that job may report `execution_context=launchd`. This Windows recovery
    must remain `manual_recovery`; local PASS and Pages publication do not prove the Mac scheduler fired.
+
+---
+
+# 2026-07-30 Windows follow-up — 130-source AI deployment desk and field brief
+
+## Proven local change
+
+- `data/expert_watchlist.json` now contains 130 unique canonical handles across six exact tracks:
+  frontier AI 25, AI research/builders 25, AI deployment/internal engineering 30, aerospace 20,
+  quantum 15, and technology business 15.
+- The 30-person deployment track prioritizes internal engineers, CTOs, technical founders, and core
+  maintainers across eval/observability, inference/compiler runtime, retrieval/agent data, distributed
+  training, secure deployment, and real-time systems. Each primary site returned HTTP 200 on 2026-07-30.
+- The AI zone now renders an `AI Deployment Field Brief` contract with daily flash, weekly method memo,
+  and monthly stack thesis. Six watchlist tracks are collapsed by default and show layer distribution
+  before the reader expands individual sources.
+- Local gates: 104 unit tests PASS, privacy PASS, Wiki lint PASS, JSON total/track/unique-handle checks PASS,
+  and generated HTML static structure readback PASS.
+
+## Evidence boundary and Mac next action
+
+- Public-profile discovery is not technical proof and the watchlist is not proof that any X account was
+  followed. Promote claims only from code, paper, official documentation, release artifacts, or a
+  reproducible experiment.
+- No live deployment brief was fabricated from profile descriptions. The contract remains
+  `CONTRACT_READY_NO_LIVE_ISSUE` until an append-only observation contains a real implementation delta.
+- The 2026-07-30 local build is honestly `PARTIAL` because `data/ai_automation_history.json` still ends on
+  2026-07-29. Pull this change, run the real scheduled intake, and require Pages readback before calling
+  the current issue published or the LaunchAgent healthy.

@@ -365,6 +365,7 @@ def expert_methodology_desk(watchlist: dict) -> dict:
         "tracks": grouped,
         "reddit": watchlist.get("reddit", []),
         "daily_card_contract": watchlist.get("daily_card_contract", []),
+        "deployment_brief_contract": watchlist.get("deployment_brief_contract", {}),
         "cadence": [
             "日：只記本人新貼文／原始 repo、method delta、反證與一個 IC translation；沒有新文就不硬寫。",
             "週：將貼文聚成 model、agent harness、coding、systems、AI hardware/EDA thesis，找共識與矛盾。",
@@ -903,6 +904,32 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     expert = zone.get("expert_methodology_desk", {})
     expert_html = ""
     if expert:
+        deployment_brief = expert.get("deployment_brief_contract", {})
+        deployment_brief_html = ""
+        if deployment_brief:
+            horizon_cards = "".join(
+                f"<article class=\"skill\"><div class=\"eyebrow\">{_esc(item.get('cadence')).upper()} · {_esc(item.get('id')).upper()}</div>"
+                f"<h3>{_esc(item.get('title'))}</h3><p>{_esc(item.get('decision'))}</p>"
+                f"<p class=\"meta\">輸出：{_esc(item.get('output'))}</p></article>"
+                for item in deployment_brief.get("horizons", [])
+            )
+            story_anatomy = "".join(
+                f"<li>{_esc(item)}</li>" for item in deployment_brief.get("story_anatomy", [])
+            )
+            priority_gate = "".join(
+                f"<li>{_esc(item)}</li>" for item in deployment_brief.get("priority_gate", [])
+            )
+            live_issue = deployment_brief.get("live_issue")
+            live_issue_text = (
+                _esc(live_issue)
+                if live_issue
+                else "尚無 live issue；先建立 append-only observation，再由真實新增證據產生第一期。"
+            )
+            deployment_brief_html = f"""<div class="deployment-brief"><div class="eyebrow">AI DEPLOYMENT FIELD BRIEF · {_esc(deployment_brief.get('status'))}</div>
+<h3>{_esc(deployment_brief.get('title'))}</h3><p class="brief-claim">{_esc(deployment_brief.get('editorial_rule'))}</p>
+<div class="skills">{horizon_cards}</div><div class="two"><div><h3>每篇快報的六段骨架</h3><ol>{story_anatomy}</ol></div>
+<div><h3>進入頭條前的四道 gate</h3><ol>{priority_gate}</ol></div></div>
+<p class="notice"><b>目前發刊狀態：</b>{live_issue_text}</p><p class="meta">{_esc(deployment_brief.get('history_contract'))}</p></div>"""
         source_cards = []
         for source_name, source in expert.get("source_status", {}).items():
             source_cards.append(
@@ -913,18 +940,34 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
         track_cards = []
         for track in expert.get("tracks", []):
             people = []
+            layer_counts = {}
             for person in track.get("experts", []):
                 handle = f"@{person.get('x')}" if person.get("x") else "X：未指定"
                 primary = person.get("primary")
                 name = _esc(person.get("name"))
                 name_html = f'<a href="{_esc(primary)}">{name}</a>' if primary else name
+                role = person.get("role_type")
+                layer = person.get("deployment_layer")
+                if layer:
+                    layer_counts[layer] = layer_counts.get(layer, 0) + 1
+                deployment_meta = (
+                    f"<br><span class=\"signal-meta\">角色 {_esc(role)} · layer {_esc(layer)}</span>"
+                    if role or layer else ""
+                )
                 people.append(
                     f"<li><b>{name_html}</b> · {_esc(handle)} · {_esc(person.get('authority'))}"
-                    f"<br><span class=\"meta\">{_esc(person.get('why'))}</span></li>"
+                    f"<br><span class=\"meta\">{_esc(person.get('why'))}</span>{deployment_meta}</li>"
                 )
+            layer_summary = "".join(
+                f"<span>{_esc(layer)} {_esc(count)}</span>"
+                for layer, count in sorted(layer_counts.items())
+            )
+            source_count = len(track.get("experts", []))
             track_cards.append(
                 f"<article class=\"skill\"><div class=\"eyebrow\">EXPERT TRACK</div><h3>{_esc(track.get('title'))}</h3>"
-                f"<p>{_esc(track.get('question'))}</p><ul>{''.join(people)}</ul></article>"
+                f"<p>{_esc(track.get('question'))}</p>"
+                f"<p class=\"track-stats\"><span>{source_count} 位來源</span>{layer_summary}</p>"
+                f"<details><summary>展開人物與一手來源</summary><ul>{''.join(people)}</ul></details></article>"
             )
         cadence = "".join(f"<li>{_esc(item)}</li>" for item in expert.get("cadence", []))
         card_contract = "".join(f"<li>{_esc(item)}</li>" for item in expert.get("daily_card_contract", []))
@@ -935,8 +978,9 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
         )
         expert_html = f"""<section class="brief expert-desk"><div class="eyebrow">EXPERT METHODOLOGY DESK · {_esc(expert.get('status'))}</div>
 <h2>社群大神與前沿團隊：追方法，不追聲量</h2><p class="brief-claim">每則貼文先問「新增了哪個可檢查的方法？」再回到原始碼、paper、官方文件或可重現 canary。</p>
+{deployment_brief_html}
 <h3>來源健康度</h3><div class="skills">{''.join(source_cards)}</div>
-<h3>四條 watchlist</h3><div class="skills">{''.join(track_cards)}</div>
+<h3>{len(expert.get('tracks', []))} 條 watchlist</h3><div class="skills">{''.join(track_cards)}</div>
 <div class="two"><div><h3>跨週期編輯契約</h3><ol>{cadence}</ol></div><div><h3>每日方法論卡片</h3><ol>{card_contract}</ol></div></div>
 <details><summary>Reddit 公開 discovery 與 claim boundary</summary><div class="table-wrap"><table><thead><tr><th>來源</th><th>可用性</th><th>用途</th></tr></thead><tbody>{reddit_rows}</tbody></table></div><p>{_esc(expert.get('claim_boundary'))}</p></details></section>"""
 
@@ -990,7 +1034,7 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     )
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{_esc(zone['title'])} · Skills Radar</title><style>
-:root{{--bg:#f7f5f0;--paper:#fff;--ink:#20201d;--dim:#6e6a62;--line:#ddd7cc;--accent:#9b4b27;--ok:#2d6a4f}}@media(prefers-color-scheme:dark){{:root{{--bg:#151513;--paper:#1e1e1b;--ink:#eeeae2;--dim:#aaa49a;--line:#3a3731;--accent:#e28a5c;--ok:#7ac29b}}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}}main{{max-width:1120px;margin:auto;padding:1.4rem 1.1rem 5rem}}a{{color:var(--accent)}}nav{{display:flex;gap:.9rem;flex-wrap:wrap;padding:.7rem 0}}.hero{{padding:3.3rem 0 2rem;max-width:850px}}h1{{font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin:.3rem 0}}h2{{line-height:1.2}}.eyebrow,.meta{{color:var(--dim);font-size:.84rem}}.notice,.cycle,.skill,.roadmap,.brief{{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0}}.notice{{border-left:4px solid var(--accent)}}.lead,.brief-claim{{font-size:1.12rem}}.brief{{border-top:5px solid var(--ink);border-radius:0}}.blueprint{{border-top-color:var(--accent)}}.breakout{{border-top-color:#7b2cbf}}.expert-desk{{border-top-color:#147d92}}.brief-grid{{display:grid;gap:1rem}}.tabs{{display:flex;gap:.5rem;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:.7rem 0;z-index:2}}.tabs a{{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--paper)}}.two,.skills{{display:grid;gap:1rem}}@media(min-width:760px){{.two,.skills,.brief-grid{{grid-template-columns:1fr 1fr}}}}pre{{white-space:pre-wrap;overflow:auto;font-size:.75rem}}details summary{{cursor:pointer;color:var(--accent)}}.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}.status{{color:var(--ok)}}.table-wrap{{overflow-x:auto;margin:1rem 0}}table{{width:100%;border-collapse:collapse;font-size:.92rem}}th,td{{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:.65rem}}th{{color:var(--dim);font-size:.8rem}}
+:root{{--bg:#f7f5f0;--paper:#fff;--ink:#20201d;--dim:#6e6a62;--line:#ddd7cc;--accent:#9b4b27;--ok:#2d6a4f}}@media(prefers-color-scheme:dark){{:root{{--bg:#151513;--paper:#1e1e1b;--ink:#eeeae2;--dim:#aaa49a;--line:#3a3731;--accent:#e28a5c;--ok:#7ac29b}}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}}main{{max-width:1120px;margin:auto;padding:1.4rem 1.1rem 5rem}}a{{color:var(--accent)}}nav{{display:flex;gap:.9rem;flex-wrap:wrap;padding:.7rem 0}}.hero{{padding:3.3rem 0 2rem;max-width:850px}}h1{{font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin:.3rem 0}}h2{{line-height:1.2}}.eyebrow,.meta{{color:var(--dim);font-size:.84rem}}.notice,.cycle,.skill,.roadmap,.brief{{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0}}.notice{{border-left:4px solid var(--accent)}}.lead,.brief-claim{{font-size:1.12rem}}.brief{{border-top:5px solid var(--ink);border-radius:0}}.blueprint{{border-top-color:var(--accent)}}.breakout{{border-top-color:#7b2cbf}}.expert-desk{{border-top-color:#147d92}}.deployment-brief{{border:1px solid var(--line);border-left:5px solid #147d92;padding:1rem 1.15rem;margin:1.2rem 0;background:var(--paper)}}.signal-meta{{display:inline-block;color:#147d92;font-size:.78rem;margin:.2rem 0 .7rem}}.track-stats{{display:flex;gap:.4rem;flex-wrap:wrap}}.track-stats span{{border:1px solid var(--line);border-radius:999px;padding:.2rem .55rem;color:var(--dim);font-size:.75rem}}.brief-grid{{display:grid;gap:1rem}}.tabs{{display:flex;gap:.5rem;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:.7rem 0;z-index:2}}.tabs a{{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--paper)}}.two,.skills{{display:grid;gap:1rem}}@media(min-width:760px){{.two,.skills,.brief-grid{{grid-template-columns:1fr 1fr}}}}pre{{white-space:pre-wrap;overflow:auto;font-size:.75rem}}details summary{{cursor:pointer;color:var(--accent)}}.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}.status{{color:var(--ok)}}.table-wrap{{overflow-x:auto;margin:1rem 0}}table{{width:100%;border-collapse:collapse;font-size:.92rem}}th,td{{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:.65rem}}th{{color:var(--dim);font-size:.8rem}}
 </style></head><body><main><nav><a href="{_esc(base_prefix)}index.html">Skills Radar</a>{zone_links}<a href="{_esc(base_prefix)}editorials/">總體觀點</a><a href="{_esc(base_prefix)}recommendations/">每日清單</a></nav>
 <header class="hero"><div class="eyebrow">owner-personalized research zone · {_esc(report['report_date'])}</div><h1>{_esc(zone['title'])}</h1><p class="lead">{_esc(zone['roadmap']['thesis'])}</p><p>{_esc(zone.get('scope'))}</p><p class="meta">排除：{_esc(zone.get('excluded_scope'))}</p></header>
 <div class="notice"><b class="status">{_esc(report['status'])}</b> · corpus {_esc(report.get('corpus_freshness',{}).get('status'))} · source review {zone['source_review']['reviewed']}/{zone['source_review']['total']}<br>排程來源：<code>{_esc(schedule['execution_context'])}</code>；{_esc(schedule['claim_boundary'])}<br>{_esc(zone['claim_boundary'])}</div>
@@ -1063,16 +1107,41 @@ def render_markdown(report: dict, zone_key: str) -> str:
     if expert:
         lines += ["## 社群大神與前沿團隊方法論 Desk", "",
                   "每則貼文先問新增了哪個可檢查的方法，再回到原始碼、paper、官方文件或可重現 canary。", "",
-                  "### 來源健康度", ""]
+                  ]
+        deployment_brief = expert.get("deployment_brief_contract", {})
+        if deployment_brief:
+            lines += [f"### {deployment_brief.get('title', 'AI Deployment Field Brief')}", "",
+                      f"> `{deployment_brief.get('status')}`", "",
+                      deployment_brief.get("editorial_rule", ""), "",
+                      "#### 三個發刊尺度", ""]
+            for horizon in deployment_brief.get("horizons", []):
+                lines += [
+                    f"- **{horizon.get('cadence')} · {horizon.get('title')}**：{horizon.get('decision')}",
+                    f"  - 輸出：{horizon.get('output')}",
+                ]
+            lines += ["", "#### 每篇快報的六段骨架", ""]
+            lines += [f"- {item}" for item in deployment_brief.get("story_anatomy", [])]
+            lines += ["", "#### 進入頭條前的 gate", ""]
+            lines += [f"- {item}" for item in deployment_brief.get("priority_gate", [])]
+            lines += ["", "目前尚無 live issue；先建立真實 observation，不以名單或 profile 重建假新聞。", "",
+                      f"> {deployment_brief.get('history_contract')}", ""]
+        lines += ["### 來源健康度", ""]
         for source_name, source in expert.get("source_status", {}).items():
             lines += [f"- **{source_name.upper()} · {source.get('status')}**：{source.get('boundary')}"]
-        lines += ["", "### 四條 watchlist", ""]
+        lines += ["", f"### {len(expert.get('tracks', []))} 條 watchlist", ""]
         for track in expert.get("tracks", []):
             lines += [f"#### {track.get('title')}", "", track.get("question", ""), ""]
             for person in track.get("experts", []):
                 primary = f"[{person.get('name')}]({person.get('primary')})" if person.get("primary") else person.get("name")
                 handle = f"@{person.get('x')}" if person.get("x") else "X：未指定"
-                lines += [f"- **{primary}** · {handle} · `{person.get('authority')}`：{person.get('why')}"]
+                deployment_meta = ""
+                if person.get("role_type") or person.get("deployment_layer"):
+                    deployment_meta = (
+                        f"；角色 `{person.get('role_type', '—')}` · layer `{person.get('deployment_layer', '—')}`"
+                    )
+                lines += [
+                    f"- **{primary}** · {handle} · `{person.get('authority')}`：{person.get('why')}{deployment_meta}"
+                ]
             lines += [""]
         lines += ["### 日／週／月／季契約", ""]
         lines += [f"- {item}" for item in expert.get("cadence", [])]
