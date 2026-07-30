@@ -680,8 +680,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "design-creative",
-    "marketing-growth"
+    "marketing-growth",
+    "design-creative"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -695,8 +695,8 @@
    "n": 6,
    "production": 4,
    "domains": [
-    "software-dev",
-    "ai-agent-tooling"
+    "ai-agent-tooling",
+    "software-dev"
    ],
    "pains": [
     "Go 語言中 Context 傳遞與取消易誤用",
@@ -895,8 +895,8 @@
    "n": 4,
    "production": 3,
    "domains": [
-    "devops-infra",
-    "data-analytics"
+    "data-analytics",
+    "devops-infra"
    ],
    "pains": [
     "資料庫 Agent 權限與核心技能未規範",
@@ -994,8 +994,8 @@
    "n": 3,
    "production": 3,
    "domains": [
-    "software-dev",
-    "ops-admin"
+    "ops-admin",
+    "software-dev"
    ],
    "pains": [
     "企業級 ServiceNow 平台自動化流程繁瑣複雜",

@@ -8,19 +8,14 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-29](daily/2026-07-29.md)
+## 最新一期：[2026-07-30](daily/2026-07-30.md)
 
-**今日一句話**：官方數據因資料收集階段未安裝 `gh` CLI 而無變更紀錄；社群與學術界高度集中於「Agent 上下文污染隔離（Taint Confinement）」與「Claude Code 本地 Session 記憶 / 隱私防護工具」。
+**今日一句話**：Agent 授權邊界與工作流的安全隔離成為學界與社群焦點，從「能做什麼」轉向「如何防止被濫用」。
 
 **短期建議（一週內）**
 
-1. **Pipeline 前置防護關卡建置**：檢視 Substack、IC/WiFi 知識庫發布流程。在外呼 Claude Code 或大模型前，導入本機端語法/Regex 檢查層（參考 `Hamza` 思維），確保內網暫存檔、API key 與未公開 baseband spec 在 request 送出前強制遮蔽。
-2. **評估 Sessiongrep 本地記憶機制**：
-   - **目標**：解決多條 Pipeline 與 CLI 輪替作業時的 context 檢索斷層。
-   - **驗證步驟**：
-     1. `git clone https://github.com/braincompany/sessiongrep` 至本地 scratch 目錄。
-     2. 檢查原始碼是否包含任何外連 HTTP 請求或遙測（telemetry）程式碼。
-     3. 確認資料僅寫入本地 SQLite/Vector DB 後，先以測試 Session 驗證讀寫效能與穩定度。
+- **盤點本機 Pipeline 的 Context 共享機制**：檢視你現有的 AI/IC/WiFi 知識庫與曼報抓取 pipeline。如果負責爬蟲的 Agent 與負責總結/發文的 Agent 共享同一個 context 或是系統讀寫權限，必須立刻切分。將外部抓取的資料視為「受污染 (Tainted)」，僅允許沙盒內的唯讀 Agent 處理，再將淨化後的結構化 JSON 交給下游 Agent。
+- **建立 Token 與執行時間的稽核卡點**：鑒於社群對 API 延遲與成本的反應，如果你的 pipeline 大量依賴 agy / ccr 處理厚重任務，建議寫一支輕量的 bash script 去 parse 執行 log，撈出耗時最長、Token 用量最大的環節，決定哪些步驟該改用輕量模型或純 Python script 取代。
 
 ## 生態指標
 
@@ -45,6 +40,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-07-30](daily/2026-07-30.md)
 - [2026-07-29](daily/2026-07-29.md)
 - [2026-07-28](daily/2026-07-28.md)
 - [2026-07-27](daily/2026-07-27.md)
