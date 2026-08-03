@@ -695,8 +695,8 @@
    "n": 6,
    "production": 4,
    "domains": [
-    "ai-agent-tooling",
-    "software-dev"
+    "software-dev",
+    "ai-agent-tooling"
    ],
    "pains": [
     "Go 語言中 Context 傳遞與取消易誤用",
@@ -739,8 +739,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "other",
-    "software-dev"
+    "software-dev",
+    "other"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",

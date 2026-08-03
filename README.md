@@ -8,14 +8,18 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-30](daily/2026-07-30.md)
+## 最新一期：[2026-08-03](daily/2026-08-03.md)
 
-**今日一句話**：Agent 授權邊界與工作流的安全隔離成為學界與社群焦點，從「能做什麼」轉向「如何防止被濫用」。
+**今日一句話**：學術界證實「純自然語言 Markdown Skills」的邏輯違約率高達 44%，生態前沿正劇烈從「鬆散散文 SOP（Prose Skills）」轉向「強型別、可編譯、確定性的線束套件（Typed Harnesses）」。
 
 **短期建議（一週內）**
 
-- **盤點本機 Pipeline 的 Context 共享機制**：檢視你現有的 AI/IC/WiFi 知識庫與曼報抓取 pipeline。如果負責爬蟲的 Agent 與負責總結/發文的 Agent 共享同一個 context 或是系統讀寫權限，必須立刻切分。將外部抓取的資料視為「受污染 (Tainted)」，僅允許沙盒內的唯讀 Agent 處理，再將淨化後的結構化 JSON 交給下游 Agent。
-- **建立 Token 與執行時間的稽核卡點**：鑒於社群對 API 延遲與成本的反應，如果你的 pipeline 大量依賴 agy / ccr 處理厚重任務，建議寫一支輕量的 bash script 去 parse 執行 log，撈出耗時最長、Token 用量最大的環節，決定哪些步驟該改用輕量模型或純 Python script 取代。
+1. **立即修復背景情報自動抓取機器的 `PATH`**
+   今日的報錯表明你執行 Python 爬蟲腳本的環境（如 crontab 或後台 task）無法識別 `gh`（GitHub CLI）。在腳本內改用環境變數全路徑（如 `/opt/homebrew/bin/gh` 或 `/usr/local/bin/gh`），否則每日的生態觀測將大片失明。
+2. **限縮 Claude Code 與本地 CLI 的默認綁定行為**
+   檢查現有的 Claude Code 與 agy 配置檔。若你有開關能控制「打開檔案夾預設上傳（Attach Open File by Default）」，務必**設為強制停用**，只保留由顯式參數（Explicit Pass-in）或自訂指令遞送的精確 Context。在 Baseband 工作區中更嚴格落實，防止不意間將 IC Draft 送出。
+3. **砍掉現有知識庫 SOP 裡「希望 AI 聰明判斷」的軟散文**
+   在 AI/IC/WiFi 與曼報知識庫的自動化擷取管線中，只要牽涉到 URL 解析、檔案結構檢查、資料轉型，立刻拔除散文說明（例如：「請你仔細讀取並推斷作者後填入」），全數改用正規表示式（Regex）或明確的 Linter Python 工具做死，絕不給 AI 在這些基礎關卡留「44% 跳過步驟」的機會。
 
 ## 生態指標
 
@@ -40,6 +44,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-08-03](daily/2026-08-03.md)
 - [2026-07-30](daily/2026-07-30.md)
 - [2026-07-29](daily/2026-07-29.md)
 - [2026-07-28](daily/2026-07-28.md)

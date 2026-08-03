@@ -20,19 +20,19 @@
     "that"
    ],
    "domain_mix": {
-    "software-dev": 6867,
-    "ai-agent-tooling": 1803,
-    "devops-infra": 1625,
-    "security": 1042,
-    "hardware-eda": 1029
+    "software-dev": 6681,
+    "ai-agent-tooling": 1765,
+    "devops-infra": 1559,
+    "hardware-eda": 1179,
+    "security": 1073
    },
    "task_mix": {
-    "generate": 4574,
-    "analyze": 3997,
-    "configure": 3573,
-    "verify": 2719
+    "generate": 4559,
+    "analyze": 3823,
+    "configure": 3643,
+    "verify": 2771
    },
-   "dispersion": 0.64,
+   "dispersion": 0.65,
    "other_pct": 0.2,
    "samples": [
     {
@@ -85,19 +85,19 @@
     "this skill"
    ],
    "domain_mix": {
-    "design-creative": 1303,
-    "software-dev": 1284,
-    "ai-agent-tooling": 518,
-    "research-academia": 304,
-    "personal-productivity": 217
+    "design-creative": 1358,
+    "software-dev": 1194,
+    "ai-agent-tooling": 504,
+    "research-academia": 316,
+    "personal-productivity": 224
    },
    "task_mix": {
-    "generate": 1967,
-    "orchestrate": 632,
-    "verify": 613,
-    "analyze": 524
+    "generate": 1937,
+    "orchestrate": 650,
+    "verify": 586,
+    "analyze": 548
    },
-   "dispersion": 0.72,
+   "dispersion": 0.71,
    "other_pct": 0.1,
    "samples": [
     {
@@ -150,19 +150,19 @@
     "llm"
    ],
    "domain_mix": {
-    "ai-agent-tooling": 1643,
-    "software-dev": 796,
-    "devops-infra": 280,
-    "research-academia": 225,
-    "marketing-growth": 180
+    "ai-agent-tooling": 1592,
+    "software-dev": 807,
+    "devops-infra": 260,
+    "research-academia": 215,
+    "marketing-growth": 188
    },
    "task_mix": {
-    "orchestrate": 948,
-    "configure": 840,
-    "generate": 759,
-    "verify": 652
+    "orchestrate": 925,
+    "configure": 835,
+    "generate": 794,
+    "verify": 650
    },
-   "dispersion": 0.6,
+   "dispersion": 0.61,
    "other_pct": 0.1,
    "samples": [
     {
@@ -215,17 +215,17 @@
     "tailwind"
    ],
    "domain_mix": {
-    "software-dev": 910,
-    "design-creative": 421,
-    "devops-infra": 8,
-    "ai-agent-tooling": 5,
-    "marketing-growth": 5
+    "software-dev": 907,
+    "design-creative": 418,
+    "data-analytics": 9,
+    "devops-infra": 7,
+    "ai-agent-tooling": 5
    },
    "task_mix": {
-    "generate": 942,
-    "configure": 192,
-    "verify": 182,
-    "transform": 15
+    "generate": 962,
+    "verify": 181,
+    "configure": 172,
+    "transform": 16
    },
    "dispersion": 0.33,
    "other_pct": 0.0,
@@ -281,23 +281,23 @@
    ],
    "domain_mix": {
     "software-dev": 1226,
-    "devops-infra": 50,
-    "hardware-eda": 35,
-    "ai-agent-tooling": 26,
+    "devops-infra": 52,
+    "hardware-eda": 34,
+    "ai-agent-tooling": 25,
     "data-analytics": 7
    },
    "task_mix": {
-    "verify": 917,
-    "generate": 303,
-    "configure": 55,
-    "analyze": 37
+    "verify": 888,
+    "generate": 324,
+    "configure": 63,
+    "analyze": 38
    },
    "dispersion": 0.09,
    "other_pct": 0.1,
    "samples": [
     {
      "name": "qa-only",
-     "pain": null,
+     "pain": "軟體測試時混雜修復邏輯導致報告不夠純粹",
      "stars": 124495,
      "repo": "garrytan/gstack"
     },
@@ -345,16 +345,16 @@
     "code"
    ],
    "domain_mix": {
-    "security": 1136,
-    "software-dev": 70,
+    "security": 1137,
+    "software-dev": 68,
     "devops-infra": 15,
-    "legal-compliance": 10,
+    "legal-compliance": 11,
     "healthcare-bio": 6
    },
    "task_mix": {
-    "verify": 853,
-    "configure": 195,
-    "analyze": 140,
+    "verify": 858,
+    "configure": 210,
+    "analyze": 117,
     "generate": 29
    },
    "dispersion": 0.08,
@@ -362,7 +362,7 @@
    "samples": [
     {
      "name": "securing-kubernetes-on-cloud",
-     "pain": null,
+     "pain": "雲端 K8s 叢集安全加固與權限設定複雜",
      "stars": 26630,
      "repo": "mukul975/Anthropic-Cybersecurity-Skills"
     },
@@ -410,19 +410,19 @@
     "rtos"
    ],
    "domain_mix": {
-    "hardware-eda": 513,
-    "software-dev": 130,
-    "security": 74,
-    "devops-infra": 71,
-    "personal-productivity": 37
+    "hardware-eda": 545,
+    "software-dev": 96,
+    "security": 75,
+    "devops-infra": 67,
+    "personal-productivity": 43
    },
    "task_mix": {
-    "configure": 448,
-    "generate": 138,
-    "analyze": 108,
-    "retrieve": 68
+    "configure": 422,
+    "generate": 163,
+    "analyze": 82,
+    "retrieve": 78
    },
-   "dispersion": 0.4,
+   "dispersion": 0.36,
    "other_pct": 0.0,
    "samples": [
     {
@@ -475,19 +475,19 @@
     "user"
    ],
    "domain_mix": {
-    "design-creative": 532,
-    "marketing-growth": 70,
-    "writing-content": 60,
-    "software-dev": 54,
-    "ai-agent-tooling": 54
+    "design-creative": 519,
+    "writing-content": 67,
+    "marketing-growth": 67,
+    "ai-agent-tooling": 63,
+    "software-dev": 54
    },
    "task_mix": {
-    "generate": 406,
-    "transform": 197,
-    "orchestrate": 93,
-    "configure": 56
+    "generate": 417,
+    "transform": 195,
+    "orchestrate": 74,
+    "configure": 64
    },
-   "dispersion": 0.36,
+   "dispersion": 0.37,
    "other_pct": 0.0,
    "samples": [
     {
@@ -540,19 +540,19 @@
     "this skill"
    ],
    "domain_mix": {
-    "ai-agent-tooling": 142,
-    "research-academia": 137,
-    "hardware-eda": 119,
-    "devops-infra": 89,
-    "software-dev": 64
+    "research-academia": 150,
+    "ai-agent-tooling": 149,
+    "hardware-eda": 118,
+    "devops-infra": 85,
+    "software-dev": 56
    },
    "task_mix": {
-    "configure": 239,
-    "analyze": 173,
-    "generate": 128,
-    "orchestrate": 112
+    "configure": 209,
+    "generate": 173,
+    "analyze": 156,
+    "orchestrate": 109
    },
-   "dispersion": 0.8,
+   "dispersion": 0.78,
    "other_pct": 0.0,
    "samples": [
     {
@@ -605,19 +605,19 @@
     "check dev"
    ],
    "domain_mix": {
-    "software-dev": 189,
-    "ai-agent-tooling": 94,
+    "software-dev": 213,
     "design-creative": 92,
-    "devops-infra": 80,
-    "ops-admin": 58
+    "devops-infra": 69,
+    "ai-agent-tooling": 69,
+    "ops-admin": 69
    },
    "task_mix": {
-    "verify": 290,
-    "orchestrate": 79,
-    "analyze": 72,
+    "verify": 316,
+    "orchestrate": 66,
+    "analyze": 64,
     "generate": 44
    },
-   "dispersion": 0.64,
+   "dispersion": 0.6,
    "other_pct": 0.0,
    "samples": [
     {
@@ -670,19 +670,19 @@
     "and required"
    ],
    "domain_mix": {
-    "software-dev": 197,
-    "devops-infra": 183,
-    "security": 120,
-    "ai-agent-tooling": 5,
-    "design-creative": 5
+    "software-dev": 184,
+    "devops-infra": 170,
+    "security": 136,
+    "marketing-growth": 9,
+    "ai-agent-tooling": 6
    },
    "task_mix": {
-    "generate": 358,
-    "configure": 79,
-    "analyze": 41,
-    "verify": 19
+    "generate": 235,
+    "configure": 128,
+    "verify": 89,
+    "analyze": 50
    },
-   "dispersion": 0.62,
+   "dispersion": 0.64,
    "other_pct": 0.0,
    "samples": [
     {
@@ -735,19 +735,19 @@
     "files"
    ],
    "domain_mix": {
-    "hardware-eda": 338,
-    "software-dev": 95,
-    "devops-infra": 27,
-    "ai-agent-tooling": 7,
+    "hardware-eda": 351,
+    "software-dev": 91,
+    "devops-infra": 22,
+    "ai-agent-tooling": 4,
     "finance-investing": 3
    },
    "task_mix": {
-    "generate": 264,
-    "verify": 55,
-    "analyze": 50,
-    "configure": 43
+    "generate": 267,
+    "analyze": 57,
+    "verify": 46,
+    "configure": 42
    },
-   "dispersion": 0.29,
+   "dispersion": 0.26,
    "other_pct": 0.0,
    "samples": [
     {
@@ -800,19 +800,19 @@
     "esta"
    ],
    "domain_mix": {
-    "software-dev": 149,
-    "ops-admin": 50,
-    "ai-agent-tooling": 43,
-    "devops-infra": 37,
-    "design-creative": 27
+    "software-dev": 144,
+    "devops-infra": 44,
+    "ai-agent-tooling": 44,
+    "ops-admin": 40,
+    "legal-compliance": 27
    },
    "task_mix": {
-    "generate": 232,
-    "configure": 72,
-    "orchestrate": 46,
-    "analyze": 34
+    "generate": 214,
+    "configure": 67,
+    "orchestrate": 51,
+    "retrieve": 42
    },
-   "dispersion": 0.67,
+   "dispersion": 0.68,
    "other_pct": 0.0,
    "samples": [
     {
@@ -869,10 +869,10 @@
     "devops-infra": 3
    },
    "task_mix": {
-    "verify": 246,
-    "analyze": 90,
-    "configure": 24,
-    "retrieve": 11
+    "verify": 248,
+    "analyze": 71,
+    "retrieve": 27,
+    "configure": 22
    },
    "dispersion": 0.01,
    "other_pct": 0.0,
@@ -927,17 +927,17 @@
     "request"
    ],
    "domain_mix": {
-    "software-dev": 330,
-    "devops-infra": 38,
+    "software-dev": 331,
+    "devops-infra": 37,
     "ai-agent-tooling": 6
    },
    "task_mix": {
-    "verify": 177,
-    "orchestrate": 163,
-    "configure": 10,
-    "generate": 10
+    "verify": 182,
+    "orchestrate": 158,
+    "generate": 11,
+    "configure": 10
    },
-   "dispersion": 0.12,
+   "dispersion": 0.11,
    "other_pct": 0.0,
    "samples": [
     {
@@ -948,7 +948,7 @@
     },
     {
      "name": "review-pr",
-     "pain": null,
+     "pain": "本地審查大型 PR 繁瑣且有安全隔離風險",
      "stars": 29140,
      "repo": "nrwl/nx"
     },
@@ -990,14 +990,13 @@
     "objectives deliver"
    ],
    "domain_mix": {
-    "software-dev": 269,
-    "devops-infra": 32
+    "hardware-eda": 300,
+    "software-dev": 1
    },
    "task_mix": {
-    "generate": 300,
-    "configure": 1
+    "generate": 301
    },
-   "dispersion": 0.11,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1057,8 +1056,8 @@
     "personal-productivity": 1
    },
    "task_mix": {
-    "orchestrate": 147,
-    "verify": 59,
+    "orchestrate": 148,
+    "verify": 58,
     "generate": 39,
     "configure": 23
    },
@@ -1115,17 +1114,16 @@
     "principles anti"
    ],
    "domain_mix": {
-    "design-creative": 283,
-    "software-dev": 2,
-    "ai-agent-tooling": 1
+    "design-creative": 285,
+    "software-dev": 1
    },
    "task_mix": {
-    "transform": 238,
+    "transform": 176,
+    "generate": 66,
     "analyze": 38,
-    "verify": 7,
-    "generate": 3
+    "verify": 6
    },
-   "dispersion": 0.01,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1180,14 +1178,14 @@
    "domain_mix": {
     "marketing-growth": 224,
     "design-creative": 39,
-    "sales-crm": 5,
+    "ops-admin": 5,
     "data-analytics": 2,
     "finance-investing": 1
    },
    "task_mix": {
-    "generate": 171,
-    "analyze": 95,
-    "configure": 3,
+    "generate": 155,
+    "analyze": 106,
+    "configure": 8,
     "verify": 1
    },
    "dispersion": 0.17,
@@ -1301,19 +1299,19 @@
     "editing and"
    ],
    "domain_mix": {
-    "data-analytics": 63,
-    "personal-productivity": 62,
-    "ops-admin": 54,
-    "writing-content": 50,
-    "research-academia": 4
+    "personal-productivity": 66,
+    "data-analytics": 62,
+    "writing-content": 53,
+    "ops-admin": 52,
+    "ai-agent-tooling": 2
    },
    "task_mix": {
-    "transform": 142,
-    "generate": 91,
+    "transform": 156,
+    "generate": 76,
     "retrieve": 6,
-    "orchestrate": 1
+    "orchestrate": 2
    },
-   "dispersion": 0.74,
+   "dispersion": 0.72,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1366,8 +1364,7 @@
     "subscriptions create"
    ],
    "domain_mix": {
-    "devops-infra": 208,
-    "ai-agent-tooling": 1
+    "ai-agent-tooling": 209
    },
    "task_mix": {
     "configure": 209
@@ -1425,19 +1422,19 @@
     "vulnerability"
    ],
    "domain_mix": {
-    "security": 95,
-    "finance-investing": 58,
+    "security": 101,
+    "finance-investing": 60,
     "software-dev": 39,
-    "ai-agent-tooling": 6,
-    "devops-infra": 6
+    "ai-agent-tooling": 4,
+    "hardware-eda": 1
    },
    "task_mix": {
-    "verify": 89,
-    "orchestrate": 39,
-    "retrieve": 25,
-    "analyze": 20
+    "verify": 90,
+    "orchestrate": 45,
+    "retrieve": 26,
+    "analyze": 19
    },
-   "dispersion": 0.54,
+   "dispersion": 0.51,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1493,8 +1490,7 @@
     "devops-infra": 202
    },
    "task_mix": {
-    "generate": 199,
-    "configure": 3
+    "configure": 202
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -1549,15 +1545,12 @@
     "performing"
    ],
    "domain_mix": {
-    "security": 199,
-    "personal-productivity": 1
+    "security": 200
    },
    "task_mix": {
-    "verify": 163,
-    "analyze": 36,
-    "retrieve": 1
+    "verify": 200
    },
-   "dispersion": 0.01,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1586,7 +1579,7 @@
     },
     {
      "name": "performing-wireless-security-assessment-with-kismet",
-     "pain": null,
+     "pain": "未經授權的 AP 與隱藏 SSID 難以被被動偵測",
      "stars": 805,
      "repo": "xalgord/xalgorix"
     }
@@ -1613,14 +1606,14 @@
     "personal-productivity": 84,
     "research-academia": 43,
     "ai-agent-tooling": 36,
-    "software-dev": 9,
-    "devops-infra": 9
+    "software-dev": 12,
+    "marketing-growth": 9
    },
    "task_mix": {
-    "retrieve": 115,
-    "transform": 29,
-    "verify": 25,
-    "analyze": 12
+    "retrieve": 112,
+    "transform": 31,
+    "verify": 26,
+    "configure": 11
    },
    "dispersion": 0.58,
    "other_pct": 0.0,
@@ -1675,17 +1668,12 @@
     "javascript"
    ],
    "domain_mix": {
-    "software-dev": 187,
-    "design-creative": 6,
-    "ai-agent-tooling": 3,
-    "data-analytics": 1,
-    "security": 1
+    "data-analytics": 198
    },
    "task_mix": {
-    "generate": 197,
-    "verify": 1
+    "generate": 198
    },
-   "dispersion": 0.06,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -1741,8 +1729,7 @@
     "marketing-growth": 197
    },
    "task_mix": {
-    "generate": 162,
-    "analyze": 35
+    "analyze": 197
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -1855,18 +1842,19 @@
     "editing and"
    ],
    "domain_mix": {
-    "personal-productivity": 137
+    "personal-productivity": 86,
+    "writing-content": 51
    },
    "task_mix": {
-    "generate": 95,
-    "transform": 42
+    "transform": 130,
+    "generate": 7
    },
-   "dispersion": 0.0,
+   "dispersion": 0.37,
    "other_pct": 0.0,
    "samples": [
     {
      "name": "pptx",
-     "pain": null,
+     "pain": "程式化建立與編輯 PPTX 簡報過程繁瑣",
      "stars": 6158,
      "repo": "ThinkInAIXYZ/deepchat"
     },
@@ -1917,8 +1905,7 @@
     "devops-infra": 118
    },
    "task_mix": {
-    "generate": 94,
-    "configure": 24
+    "configure": 118
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -2032,14 +2019,12 @@
     "forms form"
    ],
    "domain_mix": {
-    "marketing-growth": 88,
-    "software-dev": 1
+    "marketing-growth": 89
    },
    "task_mix": {
-    "analyze": 88,
-    "transform": 1
+    "analyze": 89
    },
-   "dispersion": 0.01,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -2092,16 +2077,16 @@
     "mcp composio"
    ],
    "domain_mix": {
-    "marketing-growth": 55,
+    "marketing-growth": 56,
     "ops-admin": 13,
-    "data-analytics": 6,
+    "data-analytics": 5,
     "devops-infra": 3,
     "personal-productivity": 2
    },
    "task_mix": {
     "orchestrate": 85
    },
-   "dispersion": 0.35,
+   "dispersion": 0.34,
    "other_pct": 0.0,
    "samples": [
     {
@@ -2157,7 +2142,8 @@
     "devops-infra": 74
    },
    "task_mix": {
-    "generate": 74
+    "generate": 63,
+    "configure": 11
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -2222,7 +2208,7 @@
    "samples": [
     {
      "name": "performing-wireless-network-penetration-test",
-     "pain": null,
+     "pain": "抓取握手包與破解 WPA 金鑰步驟複雜",
      "stars": 26628,
      "repo": "mukul975/Anthropic-Cybersecurity-Skills"
     },
@@ -2270,7 +2256,7 @@
     "differential"
    ],
    "domain_mix": {
-    "sales-crm": 55
+    "ops-admin": 55
    },
    "task_mix": {
     "analyze": 55
@@ -2328,13 +2314,12 @@
     "practices for"
    ],
    "domain_mix": {
-    "software-dev": 43,
-    "devops-infra": 1
+    "software-dev": 44
    },
    "task_mix": {
     "configure": 44
    },
-   "dispersion": 0.02,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -2390,7 +2375,8 @@
     "software-dev": 40
    },
    "task_mix": {
-    "configure": 40
+    "configure": 39,
+    "generate": 1
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -2619,13 +2605,12 @@
     "checker"
    ],
    "domain_mix": {
-    "research-academia": 23,
-    "ai-agent-tooling": 1
+    "research-academia": 24
    },
    "task_mix": {
     "verify": 24
    },
-   "dispersion": 0.04,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -2636,7 +2621,7 @@
     },
     {
      "name": "proof-checker",
-     "pain": null,
+     "pain": "LaTeX 數學證明推導過程人工檢查易有漏洞",
      "stars": 121,
      "repo": "AI4Scientist/nano-scientist"
     },
@@ -2678,12 +2663,13 @@
     "pipeline"
    ],
    "domain_mix": {
-    "devops-infra": 23
+    "devops-infra": 22,
+    "software-dev": 1
    },
    "task_mix": {
     "orchestrate": 23
    },
-   "dispersion": 0.0,
+   "dispersion": 0.04,
    "other_pct": 0.0,
    "samples": [
     {
@@ -2870,7 +2856,7 @@
     },
     {
      "name": "sveltekit",
-     "pain": null,
+     "pain": "設定 SvelteKit 全端框架與路由架構費時",
      "stars": 4,
      "repo": "anubhavg-icpl/vibe"
     },
@@ -2915,8 +2901,8 @@
     "hardware-eda": 16
    },
    "task_mix": {
-    "generate": 9,
-    "configure": 7
+    "generate": 15,
+    "configure": 1
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -2929,7 +2915,7 @@
     },
     {
      "name": "embedded-systems",
-     "pain": null,
+     "pain": "受限硬體環境下的韌體開發與即時優化困難",
      "stars": 9,
      "repo": "luokai0/ai-agent-skills-by-luo-kai"
     },
@@ -2993,7 +2979,7 @@
     },
     {
      "name": "humanizer",
-     "pain": null,
+     "pain": "AI 產出文字生硬且有明顯機器寫作痕跡",
      "stars": 10,
      "repo": "Demerzels-lab/elsamultiskillagent"
     },
@@ -3149,8 +3135,7 @@
     "hardware-eda": 11
    },
    "task_mix": {
-    "retrieve": 8,
-    "orchestrate": 3
+    "retrieve": 11
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -3205,13 +3190,12 @@
     "categories"
    ],
    "domain_mix": {
-    "security": 6,
-    "ai-agent-tooling": 2
+    "security": 8
    },
    "task_mix": {
     "retrieve": 8
    },
-   "dispersion": 0.25,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -3264,12 +3248,10 @@
     "tabular"
    ],
    "domain_mix": {
-    "ai-agent-tooling": 8
+    "data-analytics": 8
    },
    "task_mix": {
-    "configure": 3,
-    "retrieve": 3,
-    "analyze": 2
+    "orchestrate": 8
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -3327,7 +3309,8 @@
     "security": 7
    },
    "task_mix": {
-    "analyze": 7
+    "verify": 5,
+    "analyze": 2
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -3352,7 +3335,7 @@
     },
     {
      "name": "supply-chain-risk-auditor",
-     "pain": null,
+     "pain": "第三方依賴套件存有軟體供應鏈安全風險",
      "stars": 4,
      "repo": "JantonioFC/skillsbank"
     },
@@ -3386,8 +3369,7 @@
     "devops-infra": 1
    },
    "task_mix": {
-    "orchestrate": 6,
-    "analyze": 1
+    "analyze": 7
    },
    "dispersion": 0.14,
    "other_pct": 0.0,
@@ -3412,7 +3394,7 @@
     },
     {
      "name": "gpd-map-research",
-     "pain": null,
+     "pain": "梳理複雜物理研究專案理論框架與未竟問題",
      "stars": 0,
      "repo": "MichaelsEngineering/get-physics-done-test"
     },
@@ -3558,13 +3540,14 @@
     "generative"
    ],
    "domain_mix": {
-    "marketing-growth": 5
+    "marketing-growth": 4,
+    "ai-agent-tooling": 1
    },
    "task_mix": {
     "analyze": 4,
     "verify": 1
    },
-   "dispersion": 0.0,
+   "dispersion": 0.2,
    "other_pct": 0.0,
    "samples": [
     {
@@ -3620,7 +3603,7 @@
     "software-dev": 5
    },
    "task_mix": {
-    "configure": 5
+    "generate": 5
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -3633,7 +3616,7 @@
     },
     {
      "name": "golang-dependency-injection",
-     "pain": null,
+     "pain": "Go 專案組件高度耦合致測試困難與依賴注入複雜",
      "stars": 0,
      "repo": "constzz/dates-app"
     },
@@ -3975,13 +3958,12 @@
     "collaboratively"
    ],
    "domain_mix": {
-    "software-dev": 1,
-    "design-creative": 1
+    "software-dev": 2
    },
    "task_mix": {
     "verify": 2
    },
-   "dispersion": 0.5,
+   "dispersion": 0.0,
    "other_pct": 0.0,
    "samples": [
     {
@@ -4139,7 +4121,7 @@
     "software-dev": 2
    },
    "task_mix": {
-    "generate": 2
+    "configure": 2
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -4299,7 +4281,7 @@
     "data-analytics": 2
    },
    "task_mix": {
-    "analyze": 2
+    "generate": 2
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -5117,7 +5099,7 @@
     "personal-productivity": 1
    },
    "task_mix": {
-    "configure": 1
+    "generate": 1
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -5318,7 +5300,7 @@
     "ai content"
    ],
    "domain_mix": {
-    "marketing-growth": 1
+    "writing-content": 1
    },
    "task_mix": {
     "orchestrate": 1
@@ -5464,7 +5446,7 @@
    "samples": [
     {
      "name": "awesome-ieee-report",
-     "pain": null,
+     "pain": "將專案程式碼轉為 IEEE 格式論文耗時",
      "stars": 7,
      "repo": "EnesDemir143/awesome-ieee-report"
     }
@@ -5695,7 +5677,7 @@
     "ops-admin": 1
    },
    "task_mix": {
-    "generate": 1
+    "configure": 1
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
@@ -5729,7 +5711,7 @@
     "software-dev": 1
    },
    "task_mix": {
-    "analyze": 1
+    "verify": 1
    },
    "dispersion": 0.0,
    "other_pct": 0.0,
