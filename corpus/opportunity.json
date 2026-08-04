@@ -538,8 +538,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "devops-infra",
-    "software-dev"
+    "software-dev",
+    "devops-infra"
    ],
    "pains": [
     "撰寫端到端測試缺乏統一規範與架構",
@@ -680,8 +680,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "marketing-growth",
-    "design-creative"
+    "design-creative",
+    "marketing-growth"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -895,8 +895,8 @@
    "n": 4,
    "production": 3,
    "domains": [
-    "data-analytics",
-    "devops-infra"
+    "devops-infra",
+    "data-analytics"
    ],
    "pains": [
     "資料庫 Agent 權限與核心技能未規範",
