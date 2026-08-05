@@ -8,14 +8,20 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-08-04](daily/2026-08-04.md)
+## 最新一期：[2026-08-05](daily/2026-08-05.md)
 
-**今日一句話**：純文字描述的 Agent Skills（Prose Skills）在實務執行上的高準確率是個幻想（論文證實僅 56% 遵循率），生態正急速往「編譯為型別限制的 Harness（Typed Harnesses）」與底層 Hook 監控的方向轉移。
+**今日一句話**：學界證實純自然語言形式的 Agent Skills 在執行時有高達 44% 的步驟跳過率與自作聰明的違規發揮，規格驗證絕對不能仰賴 Markdown 的文字指引，生態系正強力轉向「編譯為嚴格型別架構（Typed Harnesses）」與「基於 Git Worktree 的平行非同步架構」。
 
 **短期建議（一週內）**
 
-1. **修復情報 Pipeline 系統環境報錯**：你的日常抓取報告今天全體回報 `[Errno 2] No such file or directory: 'gh'`。請立刻檢查排程（cron / launchd / subagent Sandbox）中的 `PATH` 變數，確保 `gh` 執行檔絕對路徑已載入，別讓 GitHub 變動監控因極致愚蠢的環境參數斷流。
-2. **稽核 Claude Code / agy 權限設定**：參照 HN 「1/6 無效權限設定」情報，立即檢查你本機 CLI 與各種 automation pipeline 的 `.permissions` / ignore 設定檔。針對「唯讀、阻擋 Bash 外發連線、限制專案目錄」的規則，寫一個小模擬腳本用無害指令嘗試做破壞性嘗試，證明你的黑名單是物理有效，而不是心理防線。
+1. **立即實作 Pipeline 底層工具的「快速失敗 (Fail Fast)」機制**  
+   針對今日抓取腳本引發 `[Errno 2]` 卻讓報告繼續前進的架構缺陷，應立刻在市場監控與知識庫的排程腳本最上層加上 dependency 嚴格檢查：
+   ```bash
+   command -v gh >/dev/null 2>&1 || { echo "CRITICAL: gh CLI missing in environment."; exit 1; }
+   ```
+   確保若底層相依損壞，系統立即發出告警並中斷管線，防範產生基於虛假或空數據的錯誤趨勢研判。
+2. **針對 ccr / agy 主機執行空間的 Skills 進行「殭屍洗消」**  
+   徹底清查自訂專案目錄與設定中的散裝 Markdown Skills。凡是沒有在 daily pipeline （如 Substack 或曼報整理）被每天直接命中的 skill 全部移除。越少不相關的 PROMPT 入口，你本地 Agent 執行關鍵任務時越不容易產生安全降級與胡亂發揮。
 
 ## 生態指標
 
@@ -40,6 +46,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-08-05](daily/2026-08-05.md)
 - [2026-08-04](daily/2026-08-04.md)
 - [2026-08-03](daily/2026-08-03.md)
 - [2026-07-30](daily/2026-07-30.md)

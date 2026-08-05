@@ -538,8 +538,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "software-dev",
-    "devops-infra"
+    "devops-infra",
+    "software-dev"
    ],
    "pains": [
     "撰寫端到端測試缺乏統一規範與架構",
@@ -680,8 +680,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "design-creative",
-    "marketing-growth"
+    "marketing-growth",
+    "design-creative"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -739,8 +739,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "software-dev",
-    "other"
+    "other",
+    "software-dev"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
