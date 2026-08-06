@@ -1,5 +1,5 @@
 {
- "n_files": 20,
+ "n_files": 22,
  "n_metrics_tracked": 3,
  "n_conflicts": 1,
  "conflicts": [
@@ -28,6 +28,9 @@
      3984.0
     ],
     "daily/2026-08-05.md": [
+     3984.0
+    ],
+    "daily/2026-08-06.md": [
      3984.0
     ]
    },

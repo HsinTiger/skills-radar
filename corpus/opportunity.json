@@ -739,8 +739,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "other",
-    "software-dev"
+    "software-dev",
+    "other"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
@@ -754,8 +754,8 @@
    "n": 4,
    "production": 4,
    "domains": [
-    "research-academia",
-    "marketing-growth"
+    "marketing-growth",
+    "research-academia"
    ],
    "pains": [
     "產品上架前的市場與競品調研整理繁瑣",
@@ -994,8 +994,8 @@
    "n": 3,
    "production": 3,
    "domains": [
-    "ops-admin",
-    "software-dev"
+    "software-dev",
+    "ops-admin"
    ],
    "pains": [
     "企業級 ServiceNow 平台自動化流程繁瑣複雜",

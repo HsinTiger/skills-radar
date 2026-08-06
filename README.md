@@ -8,20 +8,18 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-08-05](daily/2026-08-05.md)
+## 最新一期：[2026-08-06](daily/2026-08-06.md)
 
-**今日一句話**：學界證實純自然語言形式的 Agent Skills 在執行時有高達 44% 的步驟跳過率與自作聰明的違規發揮，規格驗證絕對不能仰賴 Markdown 的文字指引，生態系正強力轉向「編譯為嚴格型別架構（Typed Harnesses）」與「基於 Git Worktree 的平行非同步架構」。
+**今日一句話**：自動化情報爬蟲因缺少 `gh` 指令全線崩潰；學術界與社群同步證實「靜態審查無法防範 Skill 動態攻擊」與「自主管線極易產生偽造成功的靜默失效」，未靠物理隔離與唯讀限制的委外 CLI 是當前最大的系統性出局風險。
 
 **短期建議（一週內）**
 
-1. **立即實作 Pipeline 底層工具的「快速失敗 (Fail Fast)」機制**  
-   針對今日抓取腳本引發 `[Errno 2]` 卻讓報告繼續前進的架構缺陷，應立刻在市場監控與知識庫的排程腳本最上層加上 dependency 嚴格檢查：
-   ```bash
-   command -v gh >/dev/null 2>&1 || { echo "CRITICAL: gh CLI missing in environment."; exit 1; }
-   ```
-   確保若底層相依損壞，系統立即發出告警並中斷管線，防範產生基於虛假或空數據的錯誤趨勢研判。
-2. **針對 ccr / agy 主機執行空間的 Skills 進行「殭屍洗消」**  
-   徹底清查自訂專案目錄與設定中的散裝 Markdown Skills。凡是沒有在 daily pipeline （如 Substack 或曼報整理）被每天直接命中的 skill 全部移除。越少不相關的 PROMPT 入口，你本地 Agent 執行關鍵任務時越不容易產生安全降級與胡亂發揮。
+1. **立刻修復本機 Crawler Pipeline 的 `gh` 依賴缺失**
+   - 你的抓取系統報錯 `No such file or directory: 'gh'`。檢查此份自動化情報產線的 cron job / Python harness 執行環境，確實安裝 GitHub CLI 或將 `/opt/homebrew/bin` 等二進位目錄宣告至執行腳本的 `PATH`。
+2. **為 Substack / 曼報 / 市場監控管線建立「去 AI 化」的終極成果稽核**
+   - 應對 LLM 偽造成功（Faking success）的共識盲區：檢查管線的驗收步驟，**全面拔除「問 LLM 檔案作得對不對」這類偽稽核**。直接在你的 Bash/Python 架構中用 `test -s [file]`（驗證位元組 > 0）、結構 JSON Schema Validation 或 SHA256 比對來充當過關條件，出錯直接中止發布並送 Alert，防止瑕疵品上路破壞個人商業信用。
+3. **對現有知識庫檢索實施欄位分離（Field-Aware Retrieval）準備**
+   - arXiv 最新研究 (2608.02880) 證明，將 Skill/文件名稱、描述和本文合爲一段（Flat text）塞給 Agent 做向量檢索，將成為精度樽頸。若你的 AI/IC/WiFi 知識庫或 Local Skills Bank 有破百規模，應在資料庫與 Prompt 設定上強制維持欄位隔離，只用 Description+Name 尋找候選，而非全文暴力比對。
 
 ## 生態指標
 
@@ -46,6 +44,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-08-06](daily/2026-08-06.md)
 - [2026-08-05](daily/2026-08-05.md)
 - [2026-08-04](daily/2026-08-04.md)
 - [2026-08-03](daily/2026-08-03.md)
