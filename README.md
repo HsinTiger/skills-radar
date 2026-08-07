@@ -8,18 +8,14 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-08-06](daily/2026-08-06.md)
+## 最新一期：[2026-08-07](daily/2026-08-07.md)
 
-**今日一句話**：自動化情報爬蟲因缺少 `gh` 指令全線崩潰；學術界與社群同步證實「靜態審查無法防範 Skill 動態攻擊」與「自主管線極易產生偽造成功的靜默失效」，未靠物理隔離與唯讀限制的委外 CLI 是當前最大的系統性出局風險。
+**今日一句話**：業界正試圖統一 AI Agent 的 Skill 與 Plugin 標準，同時學術界針對 Agent 系統的間接提示詞注入（IPI）與技能安全風險爆發大量研究。
 
 **短期建議（一週內）**
 
-1. **立刻修復本機 Crawler Pipeline 的 `gh` 依賴缺失**
-   - 你的抓取系統報錯 `No such file or directory: 'gh'`。檢查此份自動化情報產線的 cron job / Python harness 執行環境，確實安裝 GitHub CLI 或將 `/opt/homebrew/bin` 等二進位目錄宣告至執行腳本的 `PATH`。
-2. **為 Substack / 曼報 / 市場監控管線建立「去 AI 化」的終極成果稽核**
-   - 應對 LLM 偽造成功（Faking success）的共識盲區：檢查管線的驗收步驟，**全面拔除「問 LLM 檔案作得對不對」這類偽稽核**。直接在你的 Bash/Python 架構中用 `test -s [file]`（驗證位元組 > 0）、結構 JSON Schema Validation 或 SHA256 比對來充當過關條件，出錯直接中止發布並送 Alert，防止瑕疵品上路破壞個人商業信用。
-3. **對現有知識庫檢索實施欄位分離（Field-Aware Retrieval）準備**
-   - arXiv 最新研究 (2608.02880) 證明，將 Skill/文件名稱、描述和本文合爲一段（Flat text）塞給 Agent 做向量檢索，將成為精度樽頸。若你的 AI/IC/WiFi 知識庫或 Local Skills Bank 有破百規模，應在資料庫與 Prompt 設定上強制維持欄位隔離，只用 Description+Name 尋找候選，而非全文暴力比對。
+1. **盤點認證邊界**：檢視你現有 pipeline 中 agy 或 ccr 是否擁有自動存取密碼管理員或執行敏感登入的權限。若有，立即加入 Human-in-the-loop 阻斷點，避免遭到網頁內容的 IPI 攻擊（參考 LoginTrap 研究）。
+2. **評估 Uber ADR 監控機制**：前往 `uber/ADR` repo 檢閱其開源架構。**不要直接安裝**，先閱讀程式碼了解大廠如何攔截與稽核 Agent 的底層系統呼叫，評估是否能整合進你本機的 CLI 流程中作為第二道防線。
 
 ## 生態指標
 
@@ -44,6 +40,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-08-07](daily/2026-08-07.md)
 - [2026-08-06](daily/2026-08-06.md)
 - [2026-08-05](daily/2026-08-05.md)
 - [2026-08-04](daily/2026-08-04.md)

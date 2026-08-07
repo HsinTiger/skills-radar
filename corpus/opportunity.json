@@ -538,8 +538,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "devops-infra",
-    "software-dev"
+    "software-dev",
+    "devops-infra"
    ],
    "pains": [
     "撰寫端到端測試缺乏統一規範與架構",
@@ -895,8 +895,8 @@
    "n": 4,
    "production": 3,
    "domains": [
-    "devops-infra",
-    "data-analytics"
+    "data-analytics",
+    "devops-infra"
    ],
    "pains": [
     "資料庫 Agent 權限與核心技能未規範",

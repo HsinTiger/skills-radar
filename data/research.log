@@ -1089,3 +1089,140 @@ maturity:
 [validate] 2026-08-06 有 2 個數字查無來源：['100', '99.9']
 [08:40:10] WARN: 稽核有異常，見 log
 [08:40:10] === research done (新增 0) ===
+[08:30:54] === research start 2026-08-07 ===
+[delta] 已知 41471 筆
+Traceback (most recent call last):
+  File "/Users/hsin/skills-radar/bin/harvest_delta.py", line 87, in <module>
+    main()
+  File "/Users/hsin/skills-radar/bin/harvest_delta.py", line 36, in main
+    found = hc.search_skill_files()
+  File "/Users/hsin/skills-radar/bin/harvest_corpus.py", line 48, in search_skill_files
+    d = gh(f"search/code?q={q}&per_page=100&page={page}")
+  File "/Users/hsin/skills-radar/bin/harvest_corpus.py", line 30, in gh
+    r = subprocess.run(["gh", "api", path], capture_output=True, text=True, timeout=90)
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/hsin/opt/anaconda3/lib/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gh'
+[08:30:54] 今日無新增 skill
+種子樣本 6547 筆｜待標 34683 筆｜總計 41230 筆
+  domain     交叉驗證準確率 0.729 ±0.008（多數類基準 0.333，提升 +0.396）
+  task       交叉驗證準確率 0.664 ±0.018（多數類基準 0.233，提升 +0.431）
+  target     交叉驗證準確率 0.636 ±0.008（多數類基準 0.369，提升 +0.267）
+  maturity   交叉驗證準確率 0.687 ±0.015（多數類基準 0.523，提升 +0.165）
+
+已預測 34683 筆（domain 信心 ≥0.6 佔 36.2%）
+
+報告 → corpus/model_report.json
+掃描 41,230 筆，命中 517 筆（1.25%）
+嚴重度：{'高(>=15)': 0, '中(8-14)': 31, '低(1-7)': 486}
+
+樣態分佈：
+   隱藏字元             139
+   憑證竊取             133
+   越權自主              85
+   改動設定或掛鉤           73
+   破壞性操作             36
+   指令覆寫              31
+   隱瞞使用者             12
+   編碼混淆              12
+   外送資料               9
+
+各領域命中率（前 8）：
+   software-dev            124/12483    1.0%
+   security                 94/3475     2.7%
+   ai-agent-tooling         91/4748     1.9%
+   devops-infra             56/2997     1.9%
+   design-creative          47/3787     1.2%
+   personal-productivity    26/1165     2.2%
+   finance-investing        15/789      1.9%
+   ops-admin                12/1457     0.8%
+
+最高分樣本（需人工檢視）：
+    14 | leonardoaraujosantos/my_ai_skills      | 憑證竊取,改動設定或掛鉤
+    14 | elementalsouls/Claude-BugHunter        | 憑證竊取,改動設定或掛鉤
+    14 | Skobyn/talon                           | 憑證竊取,改動設定或掛鉤
+    12 | MFS-code/gstack                        | 破壞性操作
+    12 | gebl/anvil-skill-marketplace           | 破壞性操作
+    12 | soyasis/gstack-private                 | 破壞性操作
+    12 | lyh2/gstack-deepseek                   | 破壞性操作
+    12 | fghaffar/faystack                      | 破壞性操作
+    12 | rmarino550/gstack                      | 破壞性操作
+    12 | mr-daedalium/ostack-saas               | 破壞性操作
+聚合完成：610 筆
+
+domain:
+   software-dev               175   28.7%
+   security                    73   12.0%
+   ai-agent-tooling            56    9.2%
+   devops-infra                42    6.9%
+   data-analytics              34    5.6%
+   hardware-eda                33    5.4%
+   design-creative             32    5.2%
+   research-academia           32    5.2%
+
+task:
+   generate                   149   24.4%
+   verify                     120   19.7%
+   configure                  103   16.9%
+   analyze                     90   14.8%
+   orchestrate                 69   11.3%
+   transform                   40    6.6%
+   retrieve                    39    6.4%
+
+maturity:
+   workflow                   322   52.8%
+   production                 277   45.4%
+   toy                         11    1.8%
+機會訊號計算完成（樣本 24944）
+
+[A] 上線率高於全體平均（全體 48.4%）:
+   legal-compliance       n= 418  production  68.4%  (+20.0)
+   security               n=2410  production  63.2%  (+14.7)
+   ai-agent-tooling       n=3274  production  62.6%  (+14.1)
+   finance-investing      n= 550  production  59.6%  (+11.2)
+   devops-infra           n=2071  production  59.4%  (+11.0)
+   software-dev           n=7067  production  50.7%  (+2.3)
+
+[B1] 能力缺口（該領域這種任務明顯少於全體水準）:
+   legal-compliance       缺 orchestrate 實際   2 / 期望  48.2  (0.04x)
+   sales-crm              缺 verify      實際   1 / 期望  23.9  (0.04x)
+   security               缺 transform   實際  11 / 期望 137.8  (0.08x)
+   design-creative        缺 configure   實際  28 / 期望 364.9  (0.08x)
+   devops-infra           缺 transform   實際  11 / 期望 118.4  (0.09x)
+   legal-compliance       缺 configure   實際   7 / 期望  75.0  (0.09x)
+   research-academia      缺 configure   實際  19 / 期望 187.5  (0.10x)
+   healthcare-bio         缺 configure   實際  10 / 期望 101.2  (0.10x)
+
+[B2] 做一半（完成率最低）:
+   sales-crm              workflow  103 → production   25  完成率 0.2
+   education-training     workflow  114 → production   35  完成率 0.23
+   hardware-eda           workflow  748 → production  243  完成率 0.25
+   other                  workflow   12 → production    4  完成率 0.25
+   personal-productivity  workflow  589 → production  212  完成率 0.26
+   marketing-growth       workflow  784 → production  287  完成率 0.27
+[08:35:27] 洞察專區 ok (    8497 bytes)
+站台完成：24944 筆樣本 → docs/index.html (112 KB)
+  日級 30 天、週級 16 期、月級 12 期、EDA 1359 件（其中晶片相關 254 件）
+[lint] 檢查 24 份報告、3 個指標
+[lint] ⚠️ 發現 1 個指標前後說法不一致：
+
+  ▸ 語料規模：3984.0 ~ 246584.0（相對差 6089.4%）
+      research/DATA_STRATEGY.md: [246584.0]
+      daily/2026-07-28.md: [3984.0]
+      daily/2026-07-29.md: [3984.0]
+      daily/2026-07-30.md: [3984.0]
+      daily/2026-08-03.md: [3984.0]
+      daily/2026-08-04.md: [3984.0]
+      daily/2026-08-05.md: [3984.0]
+      daily/2026-08-06.md: [3984.0]
+      daily/2026-08-07.md: [3984.0]
+
+處置：要嘛修正舊報告，要嘛在新報告中明確說明「為什麼數字變了」。
+[08:35:30] WARN: 發現跨報告矛盾，需人工判斷是修正舊報告還是說明數字為何改變
+[privacy] 通過：未發現雇主名稱或持倉資訊
+[validate] 2026-08-07 通過
+[08:35:30] === research done (新增 0) ===
