@@ -164,11 +164,8 @@ def write_atomic(path: Path, value: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
     try:
-        temporary.write_text(
-            json.dumps(value, ensure_ascii=False, indent=1) + "\n",
-            encoding="utf-8",
-            newline="\n",
-        )
+        with temporary.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(json.dumps(value, ensure_ascii=False, indent=1) + "\n")
         os.replace(temporary, path)
     finally:
         if temporary.exists():

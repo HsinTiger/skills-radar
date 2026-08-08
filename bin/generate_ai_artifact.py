@@ -155,7 +155,8 @@ def write_atomic(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".new")
     try:
-        temporary.write_text(text, encoding="utf-8", newline="\n")
+        with temporary.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(text)
         os.replace(temporary, path)
     finally:
         if temporary.exists():
