@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>缺口 · Skills Radar</title>
+<meta name="description" content="結構性缺口、硬體內部缺口與前緣職業；缺口不等於機會。">
+<link rel="stylesheet" href="assets/radar.css">
+</head>
+<body data-page="niches" data-src="data.json">
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Skills<span>·</span>Radar</a>
+    <div class="navscroll"><nav class="main"><a href="index.html">概覽</a><a href="trends.html">趨勢</a><a href="niches.html" aria-current="page">缺口</a><a href="security.html">安全掃描</a><a href="method.html">方法</a><span class="sep"></span><span class="grp">專區</span><a href="eda-ic/index.html">EDA／IC</a><a href="investing/index.html">投資研究</a><a href="ai-automation/index.html">AI Harness</a><span class="sep"></span><span class="grp">文章</span><a href="editorials/index.html">每日觀點</a><a href="recommendations/index.html">建議清單</a><a href="wiki/index.html">Domain Wiki</a></nav></div>
+  </div>
+</div>
+<main class="wrap">
+<header class="pagehead">
+  <p class="eyebrow">分析 · 缺口</p>
+  <h1>沒人做，跟不該做，是兩回事</h1>
+  <p class="dek">
+    把每個領域的任務組合拿去除以全體分佈，比值明顯偏低的就是結構性缺口。
+    但缺口不等於機會——有些空白是該行業刻意避開的。這頁先把缺口列出來，判斷留給人。
+  </p>
+</header>
+
+<div class="scaletabs" role="group" aria-label="時間尺度">
+  <button data-scale="week" aria-pressed="false">週</button>
+  <button data-scale="month" aria-pressed="true">月</button>
+  <button data-scale="quarter" aria-pressed="false">季</button>
+</div>
+
+<section>
+  <h2>一、結構性缺口</h2>
+  <p class="lede">比值 = 實際件數 ÷ 依全體分佈推算的期望件數。動能標記來自同尺度的佔比變化。</p>
+  <div class="cards two" id="niche-body"></div>
+  <div class="note">
+    <p><strong>缺口不等於機會。</strong>例如醫療生技幾乎沒有「生成」類 skill，那是避免 AI 幻覺造成醫療責任，
+    不是沒人想到。判斷方向錯了比不做更糟——每一條都要先問「這是真空缺，還是合理不存在」。</p>
+  </div>
+</section>
+
+<section>
+  <h2>二、硬體 / EDA 的內部缺口</h2>
+  <p class="lede">
+    以 1.0× 為基準的相對密度。<strong>擁擠的地方是紅海，塌陷的地方才是空缺。</strong>
+  </p>
+  <div id="eda-gaps"></div>
+  <div class="note alarm">
+    <p><strong>這裡的數字目前只是候選路由，不是測量值。</strong>
+    硬體次分類的驗證報告仍是 <code>BLOCKED</code>（人工標註黃金樣本數未達門檻），
+    在補齊之前不能用它做工具選型或改動設計流程。口徑變更史見
+    <a href="method.html">資料邊界與口徑</a>。</p>
+  </div>
+</section>
+
+<section>
+  <h2>三、前緣職業</h2>
+  <p class="lede">樣本很少（個位數）但已經有人推上線的職業。這類訊號脆弱，只當成「值得去看一眼」的線索。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>職業</th><th class="num">樣本</th><th class="num">已上線</th><th>他們說的痛點</th></tr></thead>
+      <tbody id="pros-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="note calm" id="next-update"></div>
+</section>
+
+<footer>
+  <p id="foot-gen" class="loading">載入中…</p>
+  <p>把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作。
+     供給側的公開意願不等於企業採用率。</p>
+  <p><a href="https://github.com/HsinTiger/skills-radar">原始碼與方法</a> ·
+     <a href="method.html">資料邊界與口徑</a> ·
+     <a href="pipeline_health.json">pipeline_health.json</a></p>
+</footer>
+</main>
+<script src="assets/radar.js"></script>
+</body>
+</html>

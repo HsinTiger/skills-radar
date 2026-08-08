@@ -11,6 +11,7 @@ import hashlib
 import html
 import json
 import os
+import site_shell
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 
@@ -302,12 +303,23 @@ def render_research(history):
 
 
 CSS = """
-:root{--bg:#fbfaf8;--panel:#fff;--line:#e6e2db;--ink:#1c1b19;--dim:#6b6660;--accent:#b4501e}
-@media(prefers-color-scheme:dark){:root{--bg:#151413;--panel:#1e1d1b;--line:#332f2b;--ink:#ece8e2;--dim:#9c958c;--accent:#e08050}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.65}
-main{max-width:900px;margin:auto;padding:2rem 1.2rem 5rem}a{color:var(--accent)}h1{border-bottom:2px solid var(--ink);padding-bottom:.7rem}.meta,.unknown{color:var(--dim)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem;text-decoration:none;color:inherit}.card b{display:block}.card span{font-size:.85rem;color:var(--dim)}
-table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:.5rem;border-bottom:1px solid var(--line);text-align:left}td.num,th.num{text-align:right}code{font-size:.88em}nav{margin-bottom:1rem}
+/* Wiki 專屬規則。色票、字級、頂欄一律沿用 assets/radar.css，
+   這裡不得再定義 :root 變數，否則會蓋掉全站主題。 */
+h1{border-bottom:2px solid var(--ink);padding-bottom:.7rem;
+   font-size:clamp(1.6rem,4vw,2.3rem);letter-spacing:-.02em}
+.meta,.unknown{color:var(--dim);font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin-top:1.2rem}
+a.card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+  border-radius:0 0 8px 8px;padding:1rem;text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);display:block}
+a.card:hover{transform:translateY(-2px)}
+.card b{display:block;margin-bottom:.2rem}
+.card span{font-size:.85rem;color:var(--dim)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--panel)}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--line-2);text-align:left}
+th{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+main nav{margin-bottom:1.4rem;font-size:.88rem}
 """.strip()
 
 
@@ -315,8 +327,11 @@ def html_shell(title, body):
     return (
         "<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\">"
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
-        f"<title>{html.escape(title)}</title><link rel=\"stylesheet\" href=\"style.css\"></head>"
-        f"<body><main>{body}</main></body></html>"
+        f"<title>{html.escape(title)} · Skills Radar</title>"
+        + site_shell.head_links("../")
+        + "<link rel=\"stylesheet\" href=\"style.css\"></head><body>"
+        + site_shell.topbar("../", "wiki")
+        + f"<main class=\"wrap\">{body}</main></body></html>"
     )
 
 
@@ -331,7 +346,7 @@ def render_docs(history):
             f'<span>n={metrics["n"]:,} · {metrics["share_pct"]:.2f}% · production {metrics["production_pct"]:.1f}%</span></a>'
         )
     body = (
-        '<nav><a href="../index.html">← Skills Radar</a></nav>'
+        ''
         '<h1>Domain Wiki</h1>'
         '<p>每個領域一頁，累積 evidence history；不收錄第三方原文。</p>'
         f'<p class="meta">最新證據 {html.escape(latest["date"])} r{latest.get("revision", 1)} · '

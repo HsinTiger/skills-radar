@@ -7,6 +7,8 @@ import argparse
 import html
 import os
 from pathlib import Path
+
+import site_shell
 import re
 
 
@@ -74,18 +76,27 @@ def markdown_body(markdown: str) -> tuple[str, str]:
 
 
 def page_html(title: str, body: str, date: str) -> str:
+    TOPBAR = site_shell.topbar("../", "editorials")
     return f"""<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
+<link rel="stylesheet" href="../assets/radar.css">
 <style>
-:root{{--bg:#fbfaf8;--panel:#fff;--ink:#1c1b19;--dim:#6b6660;--line:#e6e2db;--accent:#a74718}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#151413;--panel:#1e1d1b;--ink:#ece8e2;--dim:#aaa29a;--line:#35312d;--accent:#e08050}}}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.85}}
-main{{max-width:760px;margin:auto;padding:2.5rem 1.25rem 5rem}}nav{{font-size:.9rem;margin-bottom:2.5rem}}a{{color:var(--accent)}}h1{{font-size:clamp(2rem,6vw,3.2rem);line-height:1.15;letter-spacing:-.035em}}h2{{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.2rem}}p{{margin:1rem 0}}blockquote{{margin:1.5rem 0;padding:1rem 1.2rem;border-left:4px solid var(--accent);background:var(--panel);color:var(--dim)}}
-li{{margin:.55rem 0}}code,.cite{{font-family:ui-monospace,"SF Mono",monospace;font-size:.86em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:.05rem .28rem}}footer{{margin-top:4rem;color:var(--dim);font-size:.82rem}}
-</style></head><body><main><nav><a href="../index.html">← Skills Radar</a> · <a href="index.html">所有觀點</a></nav>
-{body}<footer>文章日期：{html.escape(date)} · 由 AI 依可查證資料生成</footer></main></body></html>
+article{{max-width:70ch}}
+article h1{{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.15;letter-spacing:-.03em;margin:.2rem 0 1rem}}
+article h2{{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.1rem}}
+article p{{margin:1rem 0}}
+blockquote{{margin:1.5rem 0;padding:.9rem 1.1rem;border-left:3px solid var(--accent);
+  background:var(--panel);color:var(--ink-2);border-radius:0 8px 8px 0}}
+li{{margin:.5rem 0}}
+.cite{{font-family:var(--mono);font-size:.84em;background:var(--panel);
+  border:1px solid var(--line);border-radius:4px;padding:.05rem .28rem}}
+</style></head><body>
+{TOPBAR}
+<main class="wrap"><article>
+{body}</article>
+<footer><p>文章日期 {html.escape(date)} · 由 AI 依當日可查證資料生成</p></footer></main></body></html>
 """
 
 
@@ -113,10 +124,14 @@ def render_all(source_dir: Path, output_dir: Path) -> list[dict]:
         f'<li><a href="{html.escape(item["href"])}">{html.escape(item["title"])}</a></li>'
         for item in entries
     ) or "<li>尚無文章</li>"
+    shell = site_shell.topbar("../", "editorials")
     index = f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Skills Radar 觀點</title>
-<style>body{{max-width:760px;margin:auto;padding:2rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.8}}li{{margin:.8rem 0}}a{{color:#a74718}}</style></head>
-<body><p><a href="../index.html">← Skills Radar</a></p><h1>Skills Radar 觀點</h1><p>由每日可查證資料生成的產業觀點，不把文件自述當成實際部署。</p><ul>{links}</ul></body></html>"""
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>每日觀點 · Skills Radar</title>
+{site_shell.head_links("../")}
+<style>main.wrap{{max-width:70ch}}li{{margin:.6rem 0}}</style></head>
+<body>{shell}<main class="wrap"><h1>Skills Radar 觀點</h1>
+<p class="dek">由每日可查證資料生成的產業觀點，不把文件自述當成實際部署。</p>
+<ul>{links}</ul></main></body></html>"""
     write_atomic(output_dir / "index.html", index)
     return entries
 

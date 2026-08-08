@@ -1,0 +1,61 @@
+<header class="pagehead">
+  <p class="eyebrow">分析 · 趨勢</p>
+  <h1>誰在成長、誰上得了線、誰做到一半</h1>
+  <p class="dek">
+    這頁只回答三個問題：哪些領域的比重在移動、哪些領域真的把 skill 推上線、哪些卡在工作流草稿。
+    三張表用同一份語料、同一個時間尺度，可以直接互相對照。
+  </p>
+</header>
+
+<div class="scaletabs" role="group" aria-label="時間尺度">
+  <button data-scale="day" aria-pressed="false">日</button>
+  <button data-scale="week" aria-pressed="false">週</button>
+  <button data-scale="month" aria-pressed="true">月</button>
+  <button data-scale="quarter" aria-pressed="false">季</button>
+</div>
+<p class="lede" id="view-desc"></p>
+
+<section>
+  <h2>一、出現苗頭的趨勢</h2>
+  <p class="lede">用佔比而非絕對數比較前後兩段，避免被總量起伏帶著走。<span class="m" id="trend-range"></span></p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>領域</th><th class="num">近期</th><th class="num">前期</th><th class="num">佔比變化</th><th>走勢</th></tr></thead>
+      <tbody id="trend-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>二、已經拿到成績的領域</h2>
+  <p class="lede">
+    「文件自述已上線」的比例明顯高於全體平均者。共同點是這些領域<strong>本來就有既存的驗收機制</strong>——
+    CI gate、掃描報告、法條引用——所以 AI 的輸出有東西可以對接。
+  </p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>領域</th><th class="num">樣本</th><th class="num">上線率</th><th class="num">vs 全體</th><th class="num">agent 介面</th></tr></thead>
+      <tbody id="traction-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>三、做一半的領域</h2>
+  <p class="lede">workflow 很多、production 很少。缺的通常不是想像力，是硬性 API 邊界與確定性斷言。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>領域</th><th class="num">workflow</th><th class="num">production</th><th class="num">完成率</th><th>　</th></tr></thead>
+      <tbody id="unfinished-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>四、每日新發現</h2>
+  <div id="discovery-block"></div>
+</section>
+
+<section>
+  <div class="note calm" id="next-update"></div>
+</section>

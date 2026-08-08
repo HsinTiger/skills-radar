@@ -802,10 +802,16 @@ def _esc(value) -> str:
 
 def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
     zone = report["zones"][zone_key]
+    # 導覽用短標籤：完整專區名稱太長，塞進頂欄會把其他項目擠出可視範圍
+    # 以 slug 為鍵：zones 的字典鍵是 EDA_IC / finance-investing / ai-automation，
+    # 和 URL 不一致，用 slug 才不會漏掉
+    NAV_SHORT = {"eda-ic": "EDA／IC", "investing": "投資研究", "ai-automation": "AI Harness"}
     zone_links = "".join(
-        f'<a href="{_esc(base_prefix)}{_esc(item["slug"])}/">{_esc(item["title"])}</a>'
+        f'<a href="{_esc(base_prefix)}{_esc(item["slug"])}/">'
+        f'{_esc(NAV_SHORT.get(item["slug"], item["title"]))}</a>'
         for key, item in report["zones"].items() if key != zone_key
     )
+    nav_self = NAV_SHORT.get(zone["slug"], zone["title"])
     cycles = []
     for view in zone["cycles"]:
         if not view.get("headline"):
@@ -1033,9 +1039,37 @@ def render_html(report: dict, zone_key: str, base_prefix: str = "../") -> str:
         ) for view in zone["cycles"]
     )
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{_esc(zone['title'])} · Skills Radar</title><style>
-:root{{--bg:#f7f5f0;--paper:#fff;--ink:#20201d;--dim:#6e6a62;--line:#ddd7cc;--accent:#9b4b27;--ok:#2d6a4f}}@media(prefers-color-scheme:dark){{:root{{--bg:#151513;--paper:#1e1e1b;--ink:#eeeae2;--dim:#aaa49a;--line:#3a3731;--accent:#e28a5c;--ok:#7ac29b}}}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}}main{{max-width:1120px;min-width:0;margin:auto;padding:1.4rem 1.1rem 5rem}}a{{color:var(--accent)}}nav{{display:flex;gap:.9rem;flex-wrap:wrap;padding:.7rem 0}}.hero{{padding:3.3rem 0 2rem;max-width:850px}}h1{{font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin:.3rem 0}}h2{{line-height:1.2}}.eyebrow,.meta{{color:var(--dim);font-size:.84rem}}.notice,.cycle,.skill,.roadmap,.brief{{min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0}}.notice{{border-left:4px solid var(--accent)}}.lead,.brief-claim{{font-size:1.12rem}}.brief{{border-top:5px solid var(--ink);border-radius:0}}.blueprint{{border-top-color:var(--accent)}}.breakout{{border-top-color:#7b2cbf}}.expert-desk{{border-top-color:#147d92}}.deployment-brief{{min-width:0;border:1px solid var(--line);border-left:5px solid #147d92;padding:1rem 1.15rem;margin:1.2rem 0;background:var(--paper)}}.signal-meta{{display:inline-block;color:#147d92;font-size:.78rem;margin:.2rem 0 .7rem}}.track-stats{{display:flex;gap:.4rem;flex-wrap:wrap}}.track-stats span{{border:1px solid var(--line);border-radius:999px;padding:.2rem .55rem;color:var(--dim);font-size:.75rem}}.brief-grid{{display:grid;gap:1rem;min-width:0}}.tabs{{display:flex;gap:.5rem;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:.7rem 0;z-index:2}}.tabs a{{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--paper)}}.two,.skills{{display:grid;gap:1rem;min-width:0}}@media(min-width:760px){{.two,.skills,.brief-grid{{grid-template-columns:1fr 1fr}}}}pre{{white-space:pre-wrap;max-width:100%;overflow:auto;font-size:.75rem}}details summary{{cursor:pointer;color:var(--accent)}}.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}.status{{color:var(--ok)}}.table-wrap{{width:100%;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;margin:1rem 0}}table{{width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;font-size:.92rem}}th,td{{overflow-wrap:anywhere;word-break:break-word;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:.65rem}}th{{color:var(--dim);font-size:.8rem}}
-</style></head><body><main><nav><a href="{_esc(base_prefix)}index.html">Skills Radar</a>{zone_links}<a href="{_esc(base_prefix)}editorials/">總體觀點</a><a href="{_esc(base_prefix)}recommendations/">每日清單</a></nav>
+<title>{_esc(zone['title'])} · Skills Radar</title>
+<link rel="stylesheet" href="{_esc(base_prefix)}assets/radar.css">
+<style>
+/* 專區特有元件；版面、色票與導覽一律沿用共用的 radar.css */
+.hero{{padding:0 0 1.4rem;max-width:66ch}}
+.hero h1{{font-size:clamp(1.7rem,4.2vw,2.6rem)}}
+.notice,.cycle,.skill,.roadmap,.brief,.deployment-brief{{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.05rem 1.2rem;margin:1rem 0;box-shadow:var(--shadow)}}
+.notice{{border-left:3px solid var(--accent);border-radius:0 10px 10px 0}}
+.brief{{border-top:3px solid var(--ink);border-radius:0 0 10px 10px}}
+.blueprint{{border-top-color:var(--accent)}}.breakout{{border-top-color:var(--signal)}}.expert-desk{{border-top-color:var(--good)}}
+.deployment-brief{{border-left:3px solid var(--good)}}
+.lead,.brief-claim{{font-size:1.06rem;color:var(--ink-2)}}
+.signal-meta{{display:inline-block;color:var(--good);font-family:var(--mono);font-size:.72rem;margin:.2rem 0 .7rem}}
+.track-stats{{display:flex;gap:.4rem;flex-wrap:wrap}}
+.track-stats span{{border:1px solid var(--line);border-radius:999px;padding:.15rem .55rem;color:var(--dim);font-family:var(--mono);font-size:.7rem}}
+.two,.skills,.brief-grid{{display:grid;gap:1rem;min-width:0}}
+@media(min-width:760px){{.two,.skills,.brief-grid{{grid-template-columns:1fr 1fr}}}}
+.tabs{{display:flex;gap:.4rem;flex-wrap:wrap;padding:.7rem 0;margin-bottom:.6rem}}
+.tabs a{{padding:.3rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--panel);text-decoration:none;font-size:.85rem}}
+pre{{white-space:pre-wrap;max-width:100%;overflow:auto;font-size:.74rem;font-family:var(--mono);color:var(--dim)}}
+details summary{{cursor:pointer;font-family:var(--mono);font-size:.76rem;color:var(--accent)}}
+.roadmap ol{{padding-left:1.3rem}}.roadmap li{{margin:1rem 0}}
+.status{{color:var(--good);font-family:var(--mono)}}
+.table-wrap{{width:100%;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;margin:1rem 0;border:1px solid var(--line);border-radius:8px;background:var(--panel)}}
+.table-wrap table{{table-layout:fixed;min-width:0}}
+.table-wrap th,.table-wrap td{{overflow-wrap:anywhere;word-break:break-word}}
+</style></head><body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="{_esc(base_prefix)}index.html">Skills<span>·</span>Radar</a>
+<div class="navscroll"><nav class="main"><a href="{_esc(base_prefix)}index.html">概覽</a><a href="{_esc(base_prefix)}trends.html">趨勢</a><a href="{_esc(base_prefix)}niches.html">缺口</a><a href="{_esc(base_prefix)}security.html">安全掃描</a><a href="{_esc(base_prefix)}method.html">方法</a><span class="sep"></span><span class="grp">專區</span><a href="{_esc(base_prefix)}{_esc(zone["slug"])}/" aria-current="page">{_esc(nav_self)}</a>{zone_links}<span class="sep"></span><span class="grp">文章</span><a href="{_esc(base_prefix)}editorials/">每日觀點</a><a href="{_esc(base_prefix)}recommendations/">建議清單</a><a href="{_esc(base_prefix)}wiki/">Domain Wiki</a></nav></div></div></div>
+<main class="wrap">
 <header class="hero"><div class="eyebrow">owner-personalized research zone · {_esc(report['report_date'])}</div><h1>{_esc(zone['title'])}</h1><p class="lead">{_esc(zone['roadmap']['thesis'])}</p><p>{_esc(zone.get('scope'))}</p><p class="meta">排除：{_esc(zone.get('excluded_scope'))}</p></header>
 <div class="notice"><b class="status">{_esc(report['status'])}</b> · corpus {_esc(report.get('corpus_freshness',{}).get('status'))} · source review {zone['source_review']['reviewed']}/{zone['source_review']['total']}<br>排程來源：<code>{_esc(schedule['execution_context'])}</code>；{_esc(schedule['claim_boundary'])}<br>{_esc(zone['claim_boundary'])}</div>
 {brief_html}

@@ -191,15 +191,25 @@ class TimescaleSummaryTests(unittest.TestCase):
         self.assertEqual(state["status"], "AI_GENERATED")
 
     def test_dashboard_exposes_quarter_and_dual_clock_contract(self):
-        template = (ROOT / "index" / "site_template.html").read_text(encoding="utf-8")
+        # 前端已從單一 site_template.html 拆成多頁（index/site/），
+        # 但契約不變：季尺度要在頁面上、雙時鐘要對讀者說明、
+        # 資料不足與舊文重寫兩種狀態要有專屬文案、內部欄位不得外漏。
+        site = ROOT / "index" / "site"
+        home = (site / "page-home.html").read_text(encoding="utf-8")
+        method = (site / "page-method.html").read_text(encoding="utf-8")
+        script = (site / "radar.js").read_text(encoding="utf-8")
         builder = (ROOT / "bin" / "build_site.py").read_text(encoding="utf-8")
-        self.assertIn('id="btn-quarter"', template)
-        self.assertIn("D.timescale_summary", template)
-        self.assertIn("本系統首次看到的日期", template)
-        self.assertIn("這一期資料不足，先不判讀趨勢", template)
-        self.assertIn("這篇舊摘要正在重寫", template)
-        self.assertNotIn("${x.delta_pp}pp", template)
+        self.assertIn('data-scale="quarter"', home)
+        self.assertIn("D.timescale_summary", script)
+        self.assertIn("repo_created", method)
+        self.assertIn("first_seen", method)
+        self.assertIn("兩個時鐘不能相加", method)
+        self.assertIn("這一期資料不足，先不判讀趨勢", script)
+        self.assertIn("這篇舊摘要正在重寫", script)
+        self.assertNotIn("${x.delta_pp}pp", script)
         self.assertIn('"quarter": build_view("quarter", 12)', builder)
+        self.assertFalse((ROOT / "index" / "site_template.html").exists(),
+                         "舊單頁模板已淘汰，不應復活")
 
 
 if __name__ == "__main__":

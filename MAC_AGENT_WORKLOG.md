@@ -1,3 +1,47 @@
+# Mac Agent Worklog
+
+## 2026-08-08 Mac 端 — 管線復原 + 前端改為多頁
+
+- `PROVEN`：Mac 端從未執行 2026-07-28 的交接（`git pull --ff-only` + `install_launchd.sh`）。
+  後果是本機落後 remote 16 個 commit、舊 runner 每天 push 被拒 12 天、看板凍在 2026-07-29。
+  已合併遠端新架構（衝突一律採遠端版），保留 Mac 端 07-30~08-08 的 daily brief 與 facts。
+- `PROVEN`：Mac 的 `python3` 是 anaconda **3.9.12**，`Path.write_text(..., newline=)` 是 **3.10** 才加入。
+  這害 6 個檔在排程中必崩：`update_corpus` / `render_editorial` / `generate_ai_artifact` /
+  `build_editorial_evidence` / `build_ai_automation_history` / `build_corpus_snapshot`。
+  全部改成 `path.open("w", newline=)`。**請不要再引入 3.10+ 的 runtime 語法**，或先在此註明要換直譯器。
+- `PROVEN`：`corpus/seen.tsv` 會與 Release 的 canonical master 脫節（當時差 1,177 筆），
+  換 master 後必須用 master 的 repo+path 補回 seen.tsv，否則會重抓並產生 duplicate。
+- `PROVEN`：補跑成功。語料 42,407 → **45,452**（新增 3,045），
+  日/週/月/季 backlog 全歸零，`pipeline_health` PASS，已 push 且完成 Pages 回讀。
+  `execution_context` 仍是 `manual_recovery`；要等真正的 08:30 排程跑過才會變 `launchd`。
+- `PROVEN`：GitHub Actions 的 Published freshness watchdog 從 07-29 到 08-07 **連續紅燈十天**。
+  機制正確但通知路徑沒有接到人。這是下一個要修的東西。
+
+### 前端改成多頁（本次）
+
+舊 `docs/index.html` 是 140 KB 單頁、整頁高度 88,275 px（約 90 個螢幕）、六張表 84 列全部堆在一起、
+沒有導覽。已拆成：
+
+| 路徑 | 內容 |
+|---|---|
+| `index.html` | 狀態台：health chip、四尺度摘要、三個專區入口、最新觀點 |
+| `trends.html` | 領域動能 / 已有成績 / 做一半 / 每日新發現 |
+| `niches.html` | 結構性缺口、硬體內部缺口、前緣職業 |
+| `security.html` | 語料惡意內容掃描 + 信任分級 |
+| `method.html` | 兩個時鐘、標籤來源、**口徑變更史** |
+
+- `index/site_template.html` **已刪除**，改為 `index/site/`：`shell.html`、`page-*.html`、
+  `radar.css`、`radar.js`。`bin/build_site.py` 負責組裝並複製 assets。
+- 資料不再內嵌，所有頁面 `fetch` 同源的 `docs/data.json`。每頁 HTML 從 140 KB 降到 3–4 KB。
+- 全站導覽與樣式的唯一來源是 **`bin/site_shell.py`**（`topbar()` / `head_links()`）＋
+  `docs/assets/radar.css`。`build_domain_zones` / `render_editorial` /
+  `build_daily_recommendations` / `wiki_ingest` 都已改用它。
+  **新增任何頁面請一律走這兩個函式，不要再各自寫一份 `<style>` 與 `<nav>`。**
+- `tests/test_timescale_summaries.py::test_dashboard_exposes_quarter_and_dual_clock_contract`
+  已改寫指向新檔案，契約不變（季尺度在頁面上、雙時鐘要說明、
+  資料不足與舊文重寫要有專屬文案、內部欄位不得外漏），另加一條「舊單頁模板不得復活」。
+- 104 個測試、privacy gate 全過。
+
 # Mac Agent Worklog — refresh canonical corpus and finish Wiki ingest
 
 ## 2026-07-28 Windows handoff — separate EDA/IC and investing research zones

@@ -1,0 +1,97 @@
+<header class="pagehead">
+  <p class="eyebrow">方法</p>
+  <h1>這份資料能撐住什麼，不能撐住什麼</h1>
+  <p class="dek">
+    先講限制再講結論。任何一個數字如果不知道它的口徑，就不該拿去做決定。
+  </p>
+</header>
+
+<section>
+  <h2>一、它證明的是供給，不是需求</h2>
+  <p>
+    語料是「有人願意把某種工作方法公開寫成 skill」的紀錄，屬於<strong>揭露性偏好</strong>。
+    它不能證明企業採用率、不能證明那個方法有效，也不能證明公司內部沒有更成熟的做法。
+    在受保密協定與封閉工具鏈約束的領域（例如晶片設計），這個落差是系統性的。
+  </p>
+</section>
+
+<section>
+  <h2>二、兩個時鐘不能相加</h2>
+  <div class="cards two">
+    <div class="card">
+      <div class="meta">檔案時鐘 · repo_created</div>
+      <h3>專案建檔時間</h3>
+      <p class="lede" style="margin:0">受 GitHub 搜尋索引落差影響，<strong>最近幾天必定偏低</strong>。
+      它是「這個 skill 所在的專案何時建立」，不是 skill 何時被寫出來，更不是它何時被使用。</p>
+    </div>
+    <div class="card">
+      <div class="meta">發現時鐘 · first_seen</div>
+      <h3>雷達首次觀察日</h3>
+      <p class="lede" style="margin:0">只在排程確實跑過的日子才有值。系統啟用前不存在，
+      排程中斷的日子也不存在。<strong>它反映的是觀察行為，不是生態活動。</strong></p>
+    </div>
+  </div>
+  <div class="note">
+    <p>日級視角看起來薄，多半是索引落差加上單日樣本太小，<strong>不是生態安靜</strong>。
+    要看趨勢請用週級以上。</p>
+  </div>
+</section>
+
+<section>
+  <h2>三、標籤怎麼來的</h2>
+  <p>
+    少量樣本由 LLM 逐筆標註當種子，其餘由本機分類器（TF-IDF + 校準後的邏輯迴歸）外推。
+    每個欄位都輸出交叉驗證準確率，模型標的一律帶 <code>label_source: model</code> 與信心值，
+    與 LLM 標的分開存，顯示時套用信心門檻。
+  </p>
+  <div class="note alarm">
+    <p><strong>模型只學得到 LLM 標註裡的模式。</strong>LLM 標錯的偏誤會被完整複製並放大；
+    而且模型信心值在分佈偏移時會系統性過度自信——高信心子集的趨勢可能是假象。</p>
+  </div>
+</section>
+
+<section>
+  <h2>四、已知的口徑變更</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>項目</th><th>舊口徑</th><th>現行口徑</th><th>為什麼不可混比</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>母體統計</td>
+          <td>含 targeted-* 過取樣</td>
+          <td>neutral-only，全部 targeted 排除</td>
+          <td>主題專門採集（EDA／WiFi）會讓該領域的佔比虛高數十倍。</td>
+        </tr>
+        <tr>
+          <td>硬體樣本範圍</td>
+          <td>寬鬆 hardware-eda</td>
+          <td>owner-scoped ASIC 路由；排除 FPGA、嵌入式、PCB、類比 RF</td>
+          <td>被排除的領域正是生成類 skill 的大宗，任務密度會整組翻轉。<strong>兩組數字比較出來的「趨勢反轉」是假的。</strong></td>
+        </tr>
+        <tr>
+          <td>是否為晶片設計</td>
+          <td>關鍵字正則</td>
+          <td>分類模型 + 信心門檻</td>
+          <td>正則以人工標註為基準實測誤判率極高——<code>RTL</code> 在網頁開發是 right-to-left，
+              <code>STA</code> 與 <code>timing closure</code> 也大量誤中。</td>
+        </tr>
+        <tr>
+          <td>星數</td>
+          <td>當成 skill 的熱度</td>
+          <td>只當 repo 的熱度</td>
+          <td>星數屬於 repo 不屬於 skill。大型專案附帶的 skill 會繼承整個專案的星數。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>五、發佈與稽核的分界</h2>
+  <p>
+    本機所有 gate 通過只證明「採集成功且必要產物齊全」。
+    它<strong>不證明</strong> git push 成功、Pages 部署成功、skill 內容正確、EDA 簽核，或任何投資結果。
+    遠端發佈必須另做 Pages 回讀才算數。
+  </p>
+  <div class="note calm" id="next-update"></div>
+</section>

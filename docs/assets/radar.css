@@ -1,0 +1,245 @@
+/* Skills Radar — 共用設計系統。由 bin/build_site.py 複製到 docs/assets/radar.css。
+   語彙取自量測儀器：所有數字與狀態一律等寬字，強調色只有一個（petrol），
+   琥珀/玫瑰/綠是語意色（注意／異常／通過），不當裝飾用。 */
+
+:root{
+  --bg:#EEF1F3; --panel:#FFFFFF; --panel-2:#F6F8F9;
+  --ink:#101820; --ink-2:#3B4A56; --dim:#5F6E7A;
+  --line:#D2DAE0; --line-2:#E4E9ED;
+  --accent:#0F5C6B; --accent-soft:#DCEAED; --accent-ink:#0A414C;
+  --signal:#A2570C; --signal-soft:#F3E5D2;
+  --alarm:#8C2740; --alarm-soft:#F2DCE1;
+  --good:#2C6349; --good-soft:#DCEBE3;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --shadow:0 1px 2px rgba(16,24,32,.05),0 4px 14px rgba(16,24,32,.045);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0A1015; --panel:#111A21; --panel-2:#0E161C;
+    --ink:#DBE3E9; --ink-2:#AEBCC7; --dim:#8494A1;
+    --line:#233039; --line-2:#1A242B;
+    --accent:#4FA8B8; --accent-soft:#12303A; --accent-ink:#7FC6D3;
+    --signal:#D9903B; --signal-soft:#33260F;
+    --alarm:#D1697F; --alarm-soft:#331A22;
+    --good:#6FAF8C; --good-soft:#162C22;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1015; --panel:#111A21; --panel-2:#0E161C;
+  --ink:#DBE3E9; --ink-2:#AEBCC7; --dim:#8494A1;
+  --line:#233039; --line-2:#1A242B;
+  --accent:#4FA8B8; --accent-soft:#12303A; --accent-ink:#7FC6D3;
+  --signal:#D9903B; --signal-soft:#33260F;
+  --alarm:#D1697F; --alarm-soft:#331A22;
+  --good:#6FAF8C; --good-soft:#162C22;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.28);
+}
+:root[data-theme="light"]{
+  --bg:#EEF1F3; --panel:#FFFFFF; --panel-2:#F6F8F9;
+  --ink:#101820; --ink-2:#3B4A56; --dim:#5F6E7A;
+  --line:#D2DAE0; --line-2:#E4E9ED;
+  --accent:#0F5C6B; --accent-soft:#DCEAED; --accent-ink:#0A414C;
+  --signal:#A2570C; --signal-soft:#F3E5D2;
+  --alarm:#8C2740; --alarm-soft:#F2DCE1;
+  --good:#2C6349; --good-soft:#DCEBE3;
+  --shadow:0 1px 2px rgba(16,24,32,.05),0 4px 14px rgba(16,24,32,.045);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 clamp(1rem,3.5vw,2rem)}
+/* 內容區與 sticky 頂欄之間要留白；.pagehead 自己不再加 padding-top，避免疊加 */
+main.wrap{padding-top:clamp(1.6rem,4vw,2.4rem)}
+.narrow{max-width:70ch}
+
+/* ---------- 導覽 ---------- */
+.topbar{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:saturate(1.4) blur(8px);
+}
+.topbar .wrap{display:flex; align-items:center; gap:1rem; min-height:52px}
+.brand{
+  font-weight:750; letter-spacing:-.02em; font-size:1rem; text-decoration:none;
+  color:var(--ink); white-space:nowrap; flex:0 0 auto;
+}
+.brand span{color:var(--accent)}
+.navscroll{overflow-x:auto; scrollbar-width:none; flex:1 1 auto; min-width:0}
+.navscroll::-webkit-scrollbar{display:none}
+nav.main{display:flex; gap:.15rem; align-items:center; white-space:nowrap}
+nav.main a{
+  display:inline-block; padding:.35rem .62rem; border-radius:6px;
+  font-size:.86rem; color:var(--ink-2); text-decoration:none; line-height:1.5;
+}
+nav.main a:hover{background:var(--line-2); color:var(--ink)}
+nav.main a[aria-current="page"]{background:var(--accent); color:#fff}
+nav.main .sep{width:1px; height:18px; background:var(--line); margin:0 .5rem; flex:0 0 auto}
+nav.main .grp{
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dim); padding:0 .35rem 0 0; flex:0 0 auto;
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+/* ---------- 頁首 ---------- */
+.pagehead{padding:0 0 1.4rem}
+.eyebrow{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .55rem;
+}
+h1{font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.15; margin:0 0 .6rem;
+   font-weight:750; letter-spacing:-.025em; text-wrap:balance}
+.dek{color:var(--ink-2); font-size:1.02rem; max-width:64ch; margin:0}
+
+h2{font-size:clamp(1.2rem,2.6vw,1.45rem); line-height:1.3; margin:0 0 .35rem;
+   font-weight:700; letter-spacing:-.015em; text-wrap:balance}
+h3{font-size:1rem; font-weight:700; margin:1.6rem 0 .45rem}
+p{margin:0 0 .9rem}
+.lede{color:var(--dim); font-size:.93rem; margin-bottom:1.1rem; max-width:74ch}
+section{margin:0 0 2.6rem}
+hr.rule{border:0; border-top:1px solid var(--line); margin:2.6rem 0}
+a{color:var(--accent)}
+code{font-family:var(--mono); font-size:.86em; background:var(--accent-soft);
+     padding:.08rem .34rem; border-radius:4px; overflow-wrap:anywhere}
+.m,.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+ul.tight{margin:0 0 .9rem; padding-left:1.15rem}
+ul.tight li{margin:0 0 .35rem}
+
+/* ---------- 狀態列 ---------- */
+.readout{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1px; background:var(--line); border:1px solid var(--line); margin:0 0 1.6rem;
+}
+.readout > div{background:var(--panel); padding:.8rem .95rem}
+.readout b{display:block; font-family:var(--mono); font-size:1.4rem; font-weight:600;
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.25}
+.readout small{font-size:.62em; font-weight:500}
+.readout span{display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--dim); margin-top:.28rem}
+
+/* ---------- 狀態晶片 ---------- */
+.chip{
+  display:inline-flex; align-items:center; gap:.35rem; font-family:var(--mono);
+  font-size:.68rem; letter-spacing:.06em; padding:.16rem .5rem; border-radius:4px;
+  border:1px solid var(--line); color:var(--dim); white-space:nowrap;
+}
+.chip.pass{background:var(--good-soft); color:var(--good); border-color:transparent}
+.chip.warn{background:var(--signal-soft); color:var(--signal); border-color:transparent}
+.chip.fail{background:var(--alarm-soft); color:var(--alarm); border-color:transparent}
+.chip.on{background:var(--accent-soft); color:var(--accent-ink); border-color:transparent}
+.chip::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor; flex:0 0 auto}
+
+/* ---------- 卡片 ---------- */
+.card{background:var(--panel); border:1px solid var(--line); border-radius:10px;
+      padding:1.05rem 1.2rem; box-shadow:var(--shadow)}
+.cards{display:grid; gap:.85rem}
+@media(min-width:720px){.cards.two{grid-template-columns:1fr 1fr}
+  .cards.three{grid-template-columns:repeat(3,1fr)}}
+.card h3{margin:0 0 .3rem; font-size:1.02rem}
+.card .meta{font-family:var(--mono); font-size:.7rem; color:var(--dim); letter-spacing:.05em}
+
+/* 專區入口卡 */
+a.zonecard{
+  display:block; text-decoration:none; color:inherit; background:var(--panel);
+  border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:0 0 8px 8px;
+  padding:1rem 1.1rem 1.1rem; box-shadow:var(--shadow);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+a.zonecard:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(16,24,32,.1)}
+a.zonecard .k{font-family:var(--mono); font-size:.63rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--accent); display:block; margin-bottom:.4rem}
+a.zonecard h3{margin:0 0 .35rem; font-size:1.05rem; letter-spacing:-.01em}
+a.zonecard p{margin:0; font-size:.88rem; color:var(--ink-2); line-height:1.6}
+a.zonecard .go{display:inline-block; margin-top:.7rem; font-family:var(--mono);
+  font-size:.72rem; color:var(--accent)}
+
+/* ---------- 尺度切換 ---------- */
+.scaletabs{display:inline-flex; border:1px solid var(--line); border-radius:8px;
+  overflow:hidden; margin:0 0 1.1rem; background:var(--panel)}
+.scaletabs button{
+  background:transparent; border:0; border-right:1px solid var(--line); color:var(--ink-2);
+  padding:.45rem .95rem; font:inherit; font-size:.85rem; cursor:pointer;
+}
+.scaletabs button:last-child{border-right:0}
+.scaletabs button[aria-pressed="true"]{background:var(--accent); color:#fff}
+
+/* ---------- 摘要卡 ---------- */
+.sumcard{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--accent);
+  border-radius:0 0 8px 8px; padding:1.2rem 1.3rem 1.35rem; box-shadow:var(--shadow)}
+.sumcard .kicker{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--dim); margin:0 0 .5rem}
+.sumcard h3{margin:0 0 .45rem; font-size:1.22rem; line-height:1.3; letter-spacing:-.015em}
+.sumcard .meta{font-family:var(--mono); font-size:.72rem; color:var(--dim); margin-bottom:.9rem}
+.sumcard .lede2{font-size:1rem; color:var(--ink-2); margin-bottom:1rem}
+.sumcard h4{font-size:.78rem; font-family:var(--mono); letter-spacing:.11em; text-transform:uppercase;
+  color:var(--dim); margin:1.3rem 0 .45rem; font-weight:500}
+.sumcard ul{margin:0 0 .9rem; padding-left:1.15rem}
+.sumcard li{margin:0 0 .35rem; font-size:.94rem}
+.sumcard details{margin-top:1.1rem; border-top:1px solid var(--line-2); padding-top:.8rem}
+.sumcard summary{cursor:pointer; font-family:var(--mono); font-size:.75rem; color:var(--accent)}
+
+.evidence-grid{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  margin-top:.9rem; grid-template-columns:repeat(auto-fit,minmax(128px,1fr))}
+.evidence-card{background:var(--panel-2); padding:.65rem .75rem}
+.evidence-card b{display:block; font-family:var(--mono); font-size:1.1rem;
+  font-variant-numeric:tabular-nums; line-height:1.3}
+.evidence-card span{display:block; font-size:.7rem; color:var(--dim); margin-top:.15rem}
+
+/* ---------- 表格 ---------- */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px;
+  background:var(--panel); box-shadow:var(--shadow); margin:0 0 1rem}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:.88rem}
+th,td{text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--line-2); vertical-align:top}
+/* 不用 sticky thead：它在 overflow-x 容器裡會跟 sticky topbar 打架，
+   在窄螢幕上會壓掉第一列。這裡的表都在 20 列以內，直接捲比較誠實。 */
+thead th{
+  background:var(--panel-2);
+  font-family:var(--mono); font-size:.63rem; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--dim); font-weight:500; border-bottom:1px solid var(--line); white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--panel-2)}
+td.num,th.num{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+.up{color:var(--good)} .down{color:var(--dim)}
+
+/* ---------- 比例條 ---------- */
+.bar{height:7px; background:var(--line-2); border-radius:0; min-width:56px; overflow:hidden}
+.bar i{display:block; height:100%; background:var(--accent)}
+.bar i.gap{background:var(--alarm)}
+.bar i.over{background:var(--signal)}
+.ratio{display:grid; gap:.4rem}
+.rrow{display:grid; grid-template-columns:5.2em 1fr 4.2em; align-items:center; gap:.65rem}
+.rname{font-size:.88rem; font-weight:600}
+.rtrack{position:relative; height:18px; background:var(--line-2); border-left:1px solid var(--line)}
+.ratio.baselined .rtrack::after{content:""; position:absolute; left:33.33%; top:-3px; bottom:-3px;
+  width:1px; background:var(--ink); opacity:.5}
+.rbar{position:absolute; left:0; top:0; bottom:0; background:var(--accent); opacity:.9}
+.rbar.gap{background:var(--alarm)} .rbar.over{background:var(--signal)}
+.rval{font-family:var(--mono); font-size:.8rem; text-align:right;
+  font-variant-numeric:tabular-nums; color:var(--ink-2)}
+
+/* 迷你長條圖 */
+.spark{display:flex; align-items:flex-end; gap:2px; height:38px}
+.spark i{flex:1; background:var(--accent); min-height:1px; opacity:.55}
+.spark i:last-child{opacity:1}
+
+/* ---------- 提示 ---------- */
+.note{border-left:3px solid var(--signal); padding:.5rem 0 .5rem .9rem;
+  color:var(--ink-2); font-size:.88rem; margin:1rem 0}
+.note.alarm{border-left-color:var(--alarm)}
+.note.calm{border-left-color:var(--accent)}
+.note p:last-child{margin-bottom:0}
+
+footer{border-top:1px solid var(--line); margin-top:3.5rem; padding:1.4rem 0 4rem}
+footer p{font-family:var(--mono); font-size:.72rem; color:var(--dim); line-height:1.95; margin:0 0 .4rem}
+footer a{color:var(--dim)}
+
+.loading{color:var(--dim); font-family:var(--mono); font-size:.8rem; padding:1.2rem 0}
+.err{border-left:3px solid var(--alarm); padding:.6rem 0 .6rem .9rem; color:var(--alarm); font-size:.88rem}

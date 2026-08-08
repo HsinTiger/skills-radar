@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>供應鏈風險 · Skills Radar</title>
+<meta name="description" content="語料惡意內容掃描結果與採用前的信任分級。">
+<link rel="stylesheet" href="assets/radar.css">
+</head>
+<body data-page="security" data-src="data.json">
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Skills<span>·</span>Radar</a>
+    <div class="navscroll"><nav class="main"><a href="index.html">概覽</a><a href="trends.html">趨勢</a><a href="niches.html">缺口</a><a href="security.html" aria-current="page">安全掃描</a><a href="method.html">方法</a><span class="sep"></span><span class="grp">專區</span><a href="eda-ic/index.html">EDA／IC</a><a href="investing/index.html">投資研究</a><a href="ai-automation/index.html">AI Harness</a><span class="sep"></span><span class="grp">文章</span><a href="editorials/index.html">每日觀點</a><a href="recommendations/index.html">建議清單</a><a href="wiki/index.html">Domain Wiki</a></nav></div>
+  </div>
+</div>
+<main class="wrap">
+<header class="pagehead">
+  <p class="eyebrow">分析 · 供應鏈風險</p>
+  <h1>語料裡有多少東西不該直接裝</h1>
+  <p class="dek">
+    這個專案的本質是大量讀取陌生人寫的、會被 AI 當成指令的文字。
+    每天全量掃一次，量化生態風險並決定哪些樣本要人看。
+  </p>
+</header>
+
+<section>
+  <div id="security-block"><p class="loading">載入中…</p></div>
+</section>
+
+<section>
+  <h2>這份掃描不是什麼</h2>
+  <div class="note alarm">
+    <p><strong>它不是門禁，也不可宣稱為完整防護。</strong>定位是「決定哪些樣本要人看 + 量化生態風險」。</p>
+  </div>
+  <ul class="tight">
+    <li><strong>規則與 LLM 必須並用。</strong>規則式偵測抓的是語法樣態，LLM 自標抓的是語意操控，
+        兩者的交集很小。單靠任一種都會漏。</li>
+    <li><strong>規則有明確誤判。</strong>「不要叫使用者把 API key 貼進 MCP client」這種正確的安全建議，
+        會被規則標成「隱瞞使用者」。命中數要當成待審清單，不是罪證。</li>
+    <li><strong>隱藏字元多半無害。</strong>實測絕大多數是零寬空格與 BOM（複製貼上與 emoji 造成），
+        沒有觀察到雙向覆寫或標籤字元，也就是沒有刻意的 Unicode 隱寫。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>採用前的信任分級</h2>
+  <div class="cards two">
+    <div class="card">
+      <div class="meta">T1 · 官方</div>
+      <h3>直接可讀、可裝</h3>
+      <p class="lede" style="margin:0">來源方即模型／工具的維護者。仍要 pin 版本。</p>
+    </div>
+    <div class="card">
+      <div class="meta">T2 · 具名且原始碼可讀</div>
+      <h3>讀過才裝</h3>
+      <p class="lede" style="margin:0">逐檔看過 SKILL.md 與它會執行的東西，確認沒有對外連線與憑證需求。</p>
+    </div>
+    <div class="card">
+      <div class="meta">T3 · 社群未驗證</div>
+      <h3>預設不裝</h3>
+      <p class="lede" style="margin:0">只抽方法、自己重寫。不整包安裝。</p>
+    </div>
+    <div class="card">
+      <div class="meta">T4 · 要金鑰或連外</div>
+      <h3>不碰</h3>
+      <p class="lede" style="margin:0">爆炸半徑不可控，任何理由都不例外。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p id="foot-gen" class="loading">載入中…</p>
+  <p>把公開的 Agent Skill 當成揭露性偏好資料集，反推 AI 正在被誰、在哪個領域、拿來做什麼層級的工作。
+     供給側的公開意願不等於企業採用率。</p>
+  <p><a href="https://github.com/HsinTiger/skills-radar">原始碼與方法</a> ·
+     <a href="method.html">資料邊界與口徑</a> ·
+     <a href="pipeline_health.json">pipeline_health.json</a></p>
+</footer>
+</main>
+<script src="assets/radar.js"></script>
+</body>
+</html>

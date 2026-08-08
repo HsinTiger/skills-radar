@@ -340,8 +340,55 @@ with open(os.path.join(DOCS, "data.json"), "w", encoding="utf-8", newline="\n") 
     json.dump(data, fh, ensure_ascii=False, indent=1)
     fh.write("\n")
 
-tpl = open(os.path.join(ROOT, "index", "site_template.html"), encoding="utf-8").read()
-page = tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
-open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page)
-print(f"站台完成：{N} 筆樣本 → docs/index.html ({len(page)//1024} KB)")
+# ---------- 多頁前端 ----------
+# 舊版把 118 KB 資料內嵌進單一 index.html，整頁高度接近 90 個螢幕、沒有導覽。
+# 現在拆成數個各自負責一種決策的頁面，共用 assets/radar.css 與 assets/radar.js，
+# 資料一律 fetch docs/data.json（同源，Pages 上可直接讀）。
+SITE = os.path.join(ROOT, "index", "site")
+ASSETS = os.path.join(DOCS, "assets")
+os.makedirs(ASSETS, exist_ok=True)
+for asset in ("radar.css", "radar.js"):
+    with open(os.path.join(SITE, asset), encoding="utf-8") as fh:
+        body = fh.read()
+    with open(os.path.join(ASSETS, asset), "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(body)
+
+# (檔名, data-page, 標題, 說明, 導覽群組)
+PAGES = [
+    ("index.html",    "home",     "Skills Radar — AI 應用行為研究", "每日更新的 Agent Skill 生態情報：四個時間尺度的判讀、結構性缺口與供應鏈風險。", "概覽"),
+    ("trends.html",   "trends",   "趨勢 · Skills Radar",           "哪些領域的比重在移動、哪些真的上線、哪些卡在工作流草稿。",                 "趨勢"),
+    ("niches.html",   "niches",   "缺口 · Skills Radar",           "結構性缺口、硬體內部缺口與前緣職業；缺口不等於機會。",                     "缺口"),
+    ("security.html", "security", "供應鏈風險 · Skills Radar",      "語料惡意內容掃描結果與採用前的信任分級。",                                "安全掃描"),
+    ("method.html",   "method",   "方法與資料邊界 · Skills Radar",  "兩個時鐘、標籤來源、已知口徑變更，以及本機 gate 與遠端發佈的分界。",        "方法"),
+]
+ZONE_LINKS = [("eda-ic/index.html", "EDA／IC"), ("investing/index.html", "投資研究"),
+              ("ai-automation/index.html", "AI Harness")]
+DOC_LINKS = [("editorials/index.html", "每日觀點"), ("recommendations/index.html", "建議清單"),
+             ("wiki/index.html", "Domain Wiki")]
+
+def nav_html(current):
+    out = []
+    for href, _page, _t, _d, label in PAGES:
+        cur = ' aria-current="page"' if _page == current else ""
+        out.append(f'<a href="{href}"{cur}>{label}</a>')
+    out.append('<span class="sep"></span><span class="grp">專區</span>')
+    out += [f'<a href="{h}">{l}</a>' for h, l in ZONE_LINKS]
+    out.append('<span class="sep"></span><span class="grp">文章</span>')
+    out += [f'<a href="{h}">{l}</a>' for h, l in DOC_LINKS]
+    return "".join(out)
+
+shell = open(os.path.join(SITE, "shell.html"), encoding="utf-8").read()
+written = []
+for fname, page_id, title, desc, _label in PAGES:
+    body = open(os.path.join(SITE, f"page-{page_id}.html"), encoding="utf-8").read()
+    html = (shell.replace("__TITLE__", title).replace("__DESC__", desc)
+                 .replace("__PAGE__", page_id).replace("__BASE__", "")
+                 .replace("__NAV__", nav_html(page_id)).replace("__BODY__", body))
+    with open(os.path.join(DOCS, fname), "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(html)
+    written.append((fname, len(html)))
+
+print(f"站台完成：{N} 筆樣本 → {len(written)} 頁 + assets/")
+for fname, size in written:
+    print(f"  docs/{fname} ({size // 1024} KB)")
 print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、季級 {len(data['quarter']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")

@@ -17,6 +17,8 @@ import re
 from collections import Counter
 from datetime import date, datetime, timezone
 from pathlib import Path
+
+import site_shell
 from urllib.parse import quote
 
 
@@ -867,19 +869,27 @@ def render_html(report: dict) -> str:
 <p>{esc(category['summary'])}</p><p class="muted">範圍：{esc(category['scope'])}<br>排除：{esc(category['excluded_scope'])}</p>
 <div class="grid">{''.join(cards)}</div><p class="gate"><strong>採用 gate：</strong>{esc(category['adoption_gate'])}</p></section>""")
     fresh = report["corpus_freshness"]
+    TOPBAR = site_shell.topbar("../", "recommendations")
     return f"""<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>每日 Skill 建議採用清單 — {esc(report['report_date'])}</title>
+<link rel="stylesheet" href="../assets/radar.css">
 <style>
-:root{{--bg:#fbfaf8;--card:#fff;--ink:#1c1b19;--dim:#6b6660;--line:#e4dfd7;--accent:#a94d21;--ok:#2f6b4f;--warn:#936313}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#151413;--card:#1e1d1b;--ink:#ece8e2;--dim:#aaa29a;--line:#38332e;--accent:#e18456;--ok:#75b994;--warn:#d5a64c}}}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.65}}
-main{{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}}a{{color:var(--accent)}}h1{{margin-bottom:.25rem}}h2{{margin-top:2.8rem;border-bottom:1px solid var(--line);padding-bottom:.4rem}}
-.muted,.repo{{color:var(--dim);font-size:.88rem}}.notice,.gate{{border-left:3px solid var(--warn);padding:.7rem 1rem;background:var(--card)}}
-.grid{{display:grid;gap:.8rem}}@media(min-width:760px){{.grid{{grid-template-columns:1fr 1fr}}}}.card{{border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;background:var(--card)}}
-.card h3{{margin:.5rem 0 0}}.status,.review{{font-size:.72rem;border:1px solid currentColor;border-radius:999px;padding:.12rem .48rem;margin-right:.35rem}}.pilot{{color:var(--ok)}}.watch{{color:var(--warn)}}.review{{color:var(--dim)}}details{{font-size:.86rem}}
-</style></head><body><main>
-<p><a href="../index.html">← Skills Radar</a></p><h1>每日 Skill 建議採用清單</h1>
+h2{{margin-top:2.6rem;border-bottom:1px solid var(--line);padding-bottom:.4rem}}
+.muted,.repo{{color:var(--dim);font-size:.86rem}}
+.notice,.gate{{border-left:3px solid var(--signal);padding:.65rem 1rem;background:var(--panel);
+  border-radius:0 8px 8px 0;margin:1rem 0}}
+.grid{{display:grid;gap:.8rem}}@media(min-width:760px){{.grid{{grid-template-columns:1fr 1fr}}}}
+.card h3{{margin:.5rem 0 0}}
+.status,.review{{font-family:var(--mono);font-size:.7rem;border:1px solid currentColor;
+  border-radius:999px;padding:.1rem .48rem;margin-right:.35rem}}
+.pilot{{color:var(--good)}}.watch{{color:var(--signal)}}.review{{color:var(--dim)}}
+details{{font-size:.86rem}}
+details summary{{cursor:pointer;font-family:var(--mono);font-size:.76rem;color:var(--accent)}}
+</style></head><body>
+{TOPBAR}
+<main class="wrap">
+<h1>每日 Skill 建議採用清單</h1>
 <p class="muted">{esc(report['report_date'])} · deterministic daily build</p>
 <div class="notice"><strong>{esc(report['status'])}</strong>：{esc(fresh['note'])}<br>財經類只供研究，不授權交易、帳號或 credential 操作。</div>
 {''.join(sections)}
