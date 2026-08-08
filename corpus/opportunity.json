@@ -623,8 +623,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "devops-infra",
-    "security"
+    "security",
+    "devops-infra"
    ],
    "pains": [
     "K8s 集群的 CIS 安全基準檢查與修復步驟繁瑣。",
@@ -680,8 +680,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "marketing-growth",
-    "design-creative"
+    "design-creative",
+    "marketing-growth"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -739,8 +739,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "software-dev",
-    "other"
+    "other",
+    "software-dev"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
@@ -754,8 +754,8 @@
    "n": 4,
    "production": 4,
    "domains": [
-    "marketing-growth",
-    "research-academia"
+    "research-academia",
+    "marketing-growth"
    ],
    "pains": [
     "產品上架前的市場與競品調研整理繁瑣",
@@ -895,8 +895,8 @@
    "n": 4,
    "production": 3,
    "domains": [
-    "data-analytics",
-    "devops-infra"
+    "devops-infra",
+    "data-analytics"
    ],
    "pains": [
     "資料庫 Agent 權限與核心技能未規範",

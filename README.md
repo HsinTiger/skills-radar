@@ -8,14 +8,14 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-08-07](daily/2026-08-07.md)
+## 最新一期：[2026-08-08](daily/2026-08-08.md)
 
-**今日一句話**：業界正試圖統一 AI Agent 的 Skill 與 Plugin 標準，同時學術界針對 Agent 系統的間接提示詞注入（IPI）與技能安全風險爆發大量研究。
+**今日一句話**：Claude Code 將預設開啟 Auto Mode（8/14 起），且支援跨 session 通訊，本機多 Agent 協作與全自動化基礎設施正在快速成形。
 
 **短期建議（一週內）**
 
-1. **盤點認證邊界**：檢視你現有 pipeline 中 agy 或 ccr 是否擁有自動存取密碼管理員或執行敏感登入的權限。若有，立即加入 Human-in-the-loop 阻斷點，避免遭到網頁內容的 IPI 攻擊（參考 LoginTrap 研究）。
-2. **評估 Uber ADR 監控機制**：前往 `uber/ADR` repo 檢閱其開源架構。**不要直接安裝**，先閱讀程式碼了解大廠如何攔截與稽核 Agent 的底層系統呼叫，評估是否能整合進你本機的 CLI 流程中作為第二道防線。
+1. **檢視現有 CI/CD 與自動化 Pipeline 權限**：既然 Claude Code 即將預設開啟 Auto mode，請盤點本機或 pipeline 裡的自動化腳本，確保沒有把 `sudo` 權限、個人 SSH Private Key 或高權限 API Token 直接暴露在 Agent 可觸及的預設環境變數與目錄中。
+2. **評估跨 Session 通訊的防火牆隔離**：將你目前的「市場監控」或「社群發文」pipeline 切分為兩個 Session。一個專門對外抓資料與解析（Read-only，高污染風險），一個專門負責寫入本地知識庫或發文（Write-only，無對外網路存取）。透過官方新支援的 cross-session messaging 傳遞純文字結構資料，阻斷 Injection 擴散。
 
 ## 生態指標
 
@@ -40,6 +40,7 @@ daily/YYYY-MM-DD.md 每日簡報
 
 ## 歷史簡報
 
+- [2026-08-08](daily/2026-08-08.md)
 - [2026-08-07](daily/2026-08-07.md)
 - [2026-08-06](daily/2026-08-06.md)
 - [2026-08-05](daily/2026-08-05.md)
