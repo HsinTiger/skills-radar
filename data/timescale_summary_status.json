@@ -1,19 +1,85 @@
 {
- "run_date": "2026-07-29",
+ "run_date": "2026-08-08",
  "freshness": {
   "status": "CURRENT",
-  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
   "actual_seed": 6577,
-  "actual_model": 35830,
+  "actual_model": 38875,
   "expected_seed": 6577,
-  "expected_model": 35830
+  "expected_model": 38875
  },
  "due": [
   {
    "scale": "day",
-   "period_id": "2026-07-28",
-   "start": "2026-07-28",
-   "end": "2026-07-28"
+   "period_id": "2026-07-29",
+   "start": "2026-07-29",
+   "end": "2026-07-29"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-30",
+   "start": "2026-07-30",
+   "end": "2026-07-30"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-31",
+   "start": "2026-07-31",
+   "end": "2026-07-31"
+  },
+  {
+   "scale": "month",
+   "period_id": "2026-07",
+   "start": "2026-07-01",
+   "end": "2026-07-31"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-01",
+   "start": "2026-08-01",
+   "end": "2026-08-01"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-02",
+   "start": "2026-08-02",
+   "end": "2026-08-02"
+  },
+  {
+   "scale": "week",
+   "period_id": "2026-W31",
+   "start": "2026-07-27",
+   "end": "2026-08-02"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-03",
+   "start": "2026-08-03",
+   "end": "2026-08-03"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-04",
+   "start": "2026-08-04",
+   "end": "2026-08-04"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-05",
+   "start": "2026-08-05",
+   "end": "2026-08-05"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-06",
+   "start": "2026-08-06",
+   "end": "2026-08-06"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-07",
+   "start": "2026-08-07",
+   "end": "2026-08-07"
   }
  ],
  "rewrite_due": [],
@@ -27,7 +93,51 @@
  "updated_periods": [
   {
    "scale": "day",
-   "period_id": "2026-07-28"
+   "period_id": "2026-07-29"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-30"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-31"
+  },
+  {
+   "scale": "month",
+   "period_id": "2026-07"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-01"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-02"
+  },
+  {
+   "scale": "week",
+   "period_id": "2026-W31"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-03"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-04"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-05"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-06"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-07"
   }
  ]
 }

@@ -1,19 +1,19 @@
 {
  "schema_version": 1,
- "report_date": "2026-07-29",
- "generated_at": "2026-07-29T09:26:50.668636+00:00",
+ "report_date": "2026-08-08",
+ "generated_at": "2026-08-08T02:30:29.990472+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
-  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
   "actual": {
-   "rows": 42407,
+   "rows": 45452,
    "seed": 6577,
-   "model": 35830
+   "model": 38875
   },
   "expected": {
    "seed": 6577,
-   "model": 35830
+   "model": 38875
   },
   "population_claims_allowed": false,
   "note": "master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。"
@@ -21,8 +21,8 @@
  "asic_catalog_freshness": {
   "status": "CURRENT",
   "catalog_status": "CURRENT_CANDIDATE_CATALOG",
-  "catalog_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
-  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "catalog_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
+  "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
   "taxonomy_validation": "BLOCKED",
   "claim_boundary": "catalog CURRENT permits candidate routing only; taxonomy validation and EDA runtime are separate gates"
  },
@@ -2624,7 +2624,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.696,
+      "domain_conf": 0.698,
       "stars_repo_level": 3622
      },
      "do_not_claim": [
@@ -2691,7 +2691,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.651,
+      "domain_conf": 0.647,
       "stars_repo_level": 511
      },
      "do_not_claim": [
@@ -2894,7 +2894,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.735,
+      "domain_conf": 0.734,
       "stars_repo_level": 231
      },
      "do_not_claim": [
@@ -2965,7 +2965,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.857,
+      "domain_conf": 0.853,
       "stars_repo_level": 27770
      },
      "do_not_claim": [

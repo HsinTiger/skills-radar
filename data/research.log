@@ -1364,3 +1364,322 @@ maturity:
 [privacy] 通過：未發現雇主名稱或持倉資訊
 [validate] 2026-08-08 通過
 [08:35:26] === research done (新增 0) ===
+[10:08:55] === research start 2026-08-08 ===
+/opt/homebrew/bin/gh
+github.com
+  ✓ Logged in to github.com account HsinTiger (keyring)
+  - Active account: true
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+
+  ✓ Logged in to github.com account tingsyuan0319-max (keyring)
+  - Active account: false
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+[delta] 已知 42407 筆
+  bucket <1000 page 1: 累計 100 檔 / 95 repo
+  bucket <1000 page 2: 累計 200 檔 / 185 repo
+  bucket <1000 page 3: 累計 293 檔 / 264 repo
+  bucket <1000 page 4: 累計 346 檔 / 310 repo
+  bucket <1000 page 5: 累計 396 檔 / 350 repo
+  bucket <1000 page 6: 累計 479 檔 / 411 repo
+  bucket <1000 page 7: 累計 561 檔 / 481 repo
+  bucket <1000 page 8: 累計 641 檔 / 549 repo
+  bucket <1000 page 9: 累計 704 檔 / 604 repo
+  bucket <1000 page 10: 累計 766 檔 / 656 repo
+  bucket 1000..2000 page 1: 累計 866 檔 / 756 repo
+  bucket 1000..2000 page 2: 累計 948 檔 / 825 repo
+  bucket 1000..2000 page 3: 累計 987 檔 / 858 repo
+  bucket 1000..2000 page 4: 累計 1060 檔 / 920 repo
+  bucket 1000..2000 page 5: 累計 1143 檔 / 993 repo
+  bucket 1000..2000 page 6: 累計 1225 檔 / 1057 repo
+  bucket 1000..2000 page 7: 累計 1308 檔 / 1120 repo
+  bucket 1000..2000 page 8: 累計 1368 檔 / 1171 repo
+  bucket 1000..2000 page 9: 累計 1430 檔 / 1223 repo
+  bucket 1000..2000 page 10: 累計 1510 檔 / 1287 repo
+  bucket 2000..3000 page 1: 累計 1610 檔 / 1387 repo
+  bucket 2000..3000 page 2: 累計 1699 檔 / 1462 repo
+  bucket 2000..3000 page 3: 累計 1786 檔 / 1536 repo
+  bucket 2000..3000 page 4: 累計 1840 檔 / 1579 repo
+  bucket 2000..3000 page 5: 累計 1908 檔 / 1636 repo
+  bucket 2000..3000 page 6: 累計 1982 檔 / 1694 repo
+  bucket 2000..3000 page 7: 累計 1983 檔 / 1695 repo
+  bucket 2000..3000 page 8: 累計 2053 檔 / 1753 repo
+  bucket 2000..3000 page 9: 累計 2098 檔 / 1785 repo
+  bucket 2000..3000 page 10: 累計 2157 檔 / 1836 repo
+  bucket 3000..4500 page 1: 累計 2257 檔 / 1935 repo
+  bucket 3000..4500 page 2: 累計 2324 檔 / 1986 repo
+  bucket 3000..4500 page 3: 累計 2398 檔 / 2043 repo
+  bucket 3000..4500 page 4: 累計 2448 檔 / 2083 repo
+  bucket 3000..4500 page 5: 累計 2457 檔 / 2090 repo
+  bucket 3000..4500 page 6: 累計 2477 檔 / 2107 repo
+  bucket 3000..4500 page 7: 累計 2528 檔 / 2150 repo
+  bucket 3000..4500 page 8: 累計 2578 檔 / 2187 repo
+  bucket 3000..4500 page 9: 累計 2638 檔 / 2237 repo
+  bucket 3000..4500 page 10: 累計 2658 檔 / 2252 repo
+  bucket 4500..6000 page 1: 累計 2758 檔 / 2352 repo
+  bucket 4500..6000 page 2: 累計 2838 檔 / 2418 repo
+  bucket 4500..6000 page 3: 累計 2915 檔 / 2483 repo
+  bucket 4500..6000 page 4: 累計 2998 檔 / 2545 repo
+  bucket 4500..6000 page 5: 累計 3075 檔 / 2609 repo
+  bucket 4500..6000 page 6: 累計 3131 檔 / 2650 repo
+  bucket 4500..6000 page 7: 累計 3203 檔 / 2714 repo
+  bucket 4500..6000 page 8: 累計 3281 檔 / 2779 repo
+  bucket 4500..6000 page 9: 累計 3351 檔 / 2830 repo
+  bucket 4500..6000 page 10: 累計 3417 檔 / 2877 repo
+  bucket 6000..8000 page 1: 累計 3517 檔 / 2977 repo
+  bucket 6000..8000 page 2: 累計 3592 檔 / 3036 repo
+  bucket 6000..8000 page 3: 累計 3670 檔 / 3090 repo
+  bucket 6000..8000 page 4: 累計 3754 檔 / 3162 repo
+  bucket 6000..8000 page 5: 累計 3838 檔 / 3223 repo
+  bucket 6000..8000 page 6: 累計 3917 檔 / 3280 repo
+  bucket 6000..8000 page 7: 累計 3949 檔 / 3302 repo
+  bucket 6000..8000 page 8: 累計 3959 檔 / 3310 repo
+  bucket 6000..8000 page 9: 累計 3978 檔 / 3320 repo
+  bucket 6000..8000 page 10: 累計 4051 檔 / 3377 repo
+  bucket 8000..12000 page 1: 累計 4151 檔 / 3477 repo
+  bucket 8000..12000 page 2: 累計 4223 檔 / 3531 repo
+  bucket 8000..12000 page 3: 累計 4301 檔 / 3596 repo
+  bucket 8000..12000 page 4: 累計 4381 檔 / 3657 repo
+  bucket 8000..12000 page 5: 累計 4463 檔 / 3715 repo
+  bucket 8000..12000 page 6: 累計 4545 檔 / 3771 repo
+  bucket 8000..12000 page 7: 累計 4618 檔 / 3822 repo
+  bucket 8000..12000 page 8: 累計 4692 檔 / 3867 repo
+  bucket 8000..12000 page 9: 累計 4740 檔 / 3899 repo
+  bucket 8000..12000 page 10: 累計 4777 檔 / 3926 repo
+  bucket 12000..20000 page 1: 累計 4877 檔 / 4026 repo
+  bucket 12000..20000 page 2: 累計 4958 檔 / 4086 repo
+  bucket 12000..20000 page 3: 累計 5027 檔 / 4134 repo
+  bucket 12000..20000 page 4: 累計 5088 檔 / 4178 repo
+  bucket 12000..20000 page 5: 累計 5127 檔 / 4206 repo
+  bucket 12000..20000 page 6: 累計 5157 檔 / 4226 repo
+  bucket 12000..20000 page 7: 累計 5197 檔 / 4255 repo
+  bucket 12000..20000 page 8: 累計 5262 檔 / 4295 repo
+  bucket 12000..20000 page 9: 累計 5337 檔 / 4355 repo
+  bucket 12000..20000 page 10: 累計 5363 檔 / 4374 repo
+  bucket >20000 page 1: 累計 5463 檔 / 4474 repo
+  bucket >20000 page 2: 累計 5549 檔 / 4539 repo
+  bucket >20000 page 3: 累計 5625 檔 / 4597 repo
+  bucket >20000 page 4: 累計 5651 檔 / 4612 repo
+  bucket >20000 page 5: 累計 5726 檔 / 4667 repo
+  bucket >20000 page 6: 累計 5807 檔 / 4732 repo
+  bucket >20000 page 7: 累計 5886 檔 / 4794 repo
+  bucket >20000 page 8: 累計 5963 檔 / 4854 repo
+  bucket >20000 page 9: 累計 6040 檔 / 4906 repo
+  bucket >20000 page 10: 累計 6123 檔 / 4962 repo
+[delta] 掃到 6123 筆，其中新的 3123 筆
+[delta] 本次新增 3045 筆；當日累積 3045 筆 → /Users/hsin/skills-radar/corpus/delta-2026-08-08.jsonl
+[corpus-update] SUCCESS rows=45452 new=3045
+[10:26:38] 新增 3045 筆
+[10:26:38] 新增 3045 筆超過 LLM seed 上限 180；使用本機模型並保留 confidence gate
+種子樣本 6577 筆｜待標 38875 筆｜總計 45452 筆
+  domain     交叉驗證準確率 0.725 ±0.011（多數類基準 0.334，提升 +0.392）
+  task       交叉驗證準確率 0.650 ±0.016（多數類基準 0.231，提升 +0.419）
+  target     交叉驗證準確率 0.630 ±0.006（多數類基準 0.366，提升 +0.264）
+  maturity   交叉驗證準確率 0.685 ±0.006（多數類基準 0.530，提升 +0.154）
+
+已預測 38875 筆（domain 信心 ≥0.6 佔 31.9%）
+
+報告 → corpus/model_report.json
+掃描 45,452 筆，命中 618 筆（1.36%）
+嚴重度：{'高(>=15)': 0, '中(8-14)': 36, '低(1-7)': 582}
+
+樣態分佈：
+   憑證竊取             186
+   隱藏字元             159
+   越權自主              89
+   改動設定或掛鉤           88
+   破壞性操作             40
+   指令覆寫              32
+   編碼混淆              14
+   隱瞞使用者             12
+   外送資料              12
+
+各領域命中率（前 8）：
+   software-dev            144/14521    1.0%
+   ai-agent-tooling        119/5175     2.3%
+   security                 98/3588     2.7%
+   devops-infra             83/3710     2.2%
+   design-creative          55/3988     1.4%
+   personal-productivity    29/1379     2.1%
+   finance-investing        17/913      1.9%
+   ops-admin                14/1496     0.9%
+
+最高分樣本（需人工檢視）：
+    14 | leonardoaraujosantos/my_ai_skills      | 憑證竊取,改動設定或掛鉤
+    14 | elementalsouls/Claude-BugHunter        | 憑證竊取,改動設定或掛鉤
+    14 | Skobyn/talon                           | 憑證竊取,改動設定或掛鉤
+    12 | MFS-code/gstack                        | 破壞性操作
+    12 | gebl/anvil-skill-marketplace           | 破壞性操作
+    12 | soyasis/gstack-private                 | 破壞性操作
+    12 | lyh2/gstack-deepseek                   | 破壞性操作
+    12 | fghaffar/faystack                      | 破壞性操作
+    12 | rmarino550/gstack                      | 破壞性操作
+    12 | mr-daedalium/ostack-saas               | 破壞性操作
+聚合完成：6577 筆
+
+domain:
+   software-dev              2194   33.4%
+   ai-agent-tooling           944   14.4%
+   devops-infra               429    6.5%
+   design-creative            423    6.4%
+   security                   358    5.4%
+   personal-productivity      327    5.0%
+   ops-admin                  288    4.4%
+   marketing-growth           252    3.8%
+
+task:
+   generate                  1521   23.1%
+   configure                 1052   16.0%
+   verify                    1016   15.4%
+   orchestrate               1005   15.3%
+   analyze                    846   12.9%
+   retrieve                   638    9.7%
+   transform                  499    7.6%
+
+maturity:
+   workflow                  3489   53.0%
+   production                2780   42.3%
+   toy                        308    4.7%
+機會訊號計算完成（樣本 6131）
+
+[A] 上線率高於全體平均（全體 42.7%）:
+   devops-infra           n= 439  production  67.2%  (+24.5)
+   security               n= 343  production  66.9%  (+24.2)
+   legal-compliance       n= 107  production  65.0%  (+22.3)
+   data-analytics         n= 133  production  54.1%  (+11.5)
+   healthcare-bio         n= 139  production  52.7%  (+10.0)
+   ai-agent-tooling       n= 887  production  46.2%  (+3.5)
+
+[B1] 能力缺口（該領域這種任務明顯少於全體水準）:
+   healthcare-bio         缺 generate    實際   1 / 期望  28.4  (0.04x)
+   personal-productivity  缺 verify      實際   3 / 期望  49.7  (0.06x)
+   security               缺 orchestrate 實際   6 / 期望  48.5  (0.12x)
+   sales-crm              缺 verify      實際   1 / 期望   8.2  (0.12x)
+   finance-investing      缺 transform   實際   2 / 期望  14.9  (0.13x)
+   legal-compliance       缺 orchestrate 實際   2 / 期望  13.9  (0.14x)
+   design-creative        缺 analyze     實際   7 / 期望  45.8  (0.15x)
+   design-creative        缺 configure   實際  10 / 期望  61.7  (0.16x)
+
+[B2] 做一半（完成率最低）:
+   education-training     workflow   57 → production   13  完成率 0.19
+   personal-productivity  workflow  224 → production   66  完成率 0.23
+   other                  workflow   12 → production    4  完成率 0.25
+   research-academia      workflow  147 → production   55  完成率 0.27
+   writing-content        workflow  125 → production   49  完成率 0.28
+   sales-crm              workflow   37 → production   15  完成率 0.29
+ASIC catalog: 1096 eligible rows -> 667 deduplicated candidates; status=CURRENT_CANDIDATE_CATALOG
+ai automation observation: 2026-08-08; status=DAILY_OBSERVATION; reviews=8
+daily recommendations: 2026-08-08; status=READY_FOR_OWNER_REVIEW; EDA=8; finance=5; ai-automation=8
+{
+ "run_date": "2026-08-08",
+ "freshness": {
+  "status": "CURRENT",
+  "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
+  "actual_seed": 6577,
+  "actual_model": 38875,
+  "expected_seed": 6577,
+  "expected_model": 38875
+ },
+ "due": [
+  {
+   "scale": "day",
+   "period_id": "2026-07-29",
+   "start": "2026-07-29",
+   "end": "2026-07-29"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-30",
+   "start": "2026-07-30",
+   "end": "2026-07-30"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-07-31",
+   "start": "2026-07-31",
+   "end": "2026-07-31"
+  },
+  {
+   "scale": "month",
+   "period_id": "2026-07",
+   "start": "2026-07-01",
+   "end": "2026-07-31"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-01",
+   "start": "2026-08-01",
+   "end": "2026-08-01"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-02",
+   "start": "2026-08-02",
+   "end": "2026-08-02"
+  },
+  {
+   "scale": "week",
+   "period_id": "2026-W31",
+   "start": "2026-07-27",
+   "end": "2026-08-02"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-03",
+   "start": "2026-08-03",
+   "end": "2026-08-03"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-04",
+   "start": "2026-08-04",
+   "end": "2026-08-04"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-05",
+   "start": "2026-08-05",
+   "end": "2026-08-05"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-06",
+   "start": "2026-08-06",
+   "end": "2026-08-06"
+  },
+  {
+   "scale": "day",
+   "period_id": "2026-08-07",
+   "start": "2026-08-07",
+   "end": "2026-08-07"
+  }
+ ],
+ "rewrite_due": [],
+ "backlog": {
+  "day": 0,
+  "week": 0,
+  "month": 0,
+  "quarter": 0
+ }
+}
+timescale summaries updated: [{'scale': 'day', 'period_id': '2026-07-29'}, {'scale': 'day', 'period_id': '2026-07-30'}, {'scale': 'day', 'period_id': '2026-07-31'}, {'scale': 'month', 'period_id': '2026-07'}, {'scale': 'day', 'period_id': '2026-08-01'}, {'scale': 'day', 'period_id': '2026-08-02'}, {'scale': 'week', 'period_id': '2026-W31'}, {'scale': 'day', 'period_id': '2026-08-03'}, {'scale': 'day', 'period_id': '2026-08-04'}, {'scale': 'day', 'period_id': '2026-08-05'}, {'scale': 'day', 'period_id': '2026-08-06'}, {'scale': 'day', 'period_id': '2026-08-07'}]
+editorial evidence: 2026-08-08; digest=ebcecf9e94e3fc510a6603f338eba439dbdba708bc57f0acad62478c1b03463b
+editorial artifact -> /Users/hsin/skills-radar/research/editorials/2026-08-08.md (2842 chars)
+editorials rendered: 3; latest=2026-08-08
+[10:33:48] 每日觀點 ok (    8126 bytes)
+Wiki ingested: 2026-08-08 r1, 18 domains, neutral n=6131
+domain zones: 2026-08-08; status=READY_FOR_OWNER_REVIEW; EDA=26; finance=8; ai-automation=8
+站台完成：6131 筆樣本 → docs/index.html (117 KB)
+  日級 30 天、週級 16 期、月級 12 期、季級 12 期、EDA 209 件（其中晶片相關 13 件）
+[lint] 檢查 30 份報告、2 個指標
+[lint] 未發現跨報告矛盾，Wiki ledger 與實體頁面一致
+[privacy] 通過：未發現雇主名稱或持倉資訊
+{"schema_version": 1, "report_date": "2026-08-08", "completed_at": "2026-08-08T02:33:52.450586+00:00", "status": "PASS", "gates": {"corpus_update": "SUCCESS", "daily_brief": "PASS", "daily_recommendations": "PASS", "domain_zones": "PASS", "editorial_markdown": "PASS", "editorial_html": "PASS", "legacy_opportunity_insight": "ARCHIVE_ONLY", "timescale_dispatch": "AI_GENERATED", "privacy": "PASS", "master_freshness": "CURRENT"}, "corpus_update": {"status": "SUCCESS", "new_rows": 3045, "rows_after": 45452, "run_context": "manual_recovery"}, "timescale": {"updated_periods": [{"scale": "day", "period_id": "2026-07-29"}, {"scale": "day", "period_id": "2026-07-30"}, {"scale": "day", "period_id": "2026-07-31"}, {"scale": "month", "period_id": "2026-07"}, {"scale": "day", "period_id": "2026-08-01"}, {"scale": "day", "period_id": "2026-08-02"}, {"scale": "week", "period_id": "2026-W31"}, {"scale": "day", "period_id": "2026-08-03"}, {"scale": "day", "period_id": "2026-08-04"}, {"scale": "day", "period_id": "2026-08-05"}, {"scale": "day", "period_id": "2026-08-06"}, {"scale": "day", "period_id": "2026-08-07"}], "due": [{"scale": "day", "period_id": "2026-07-29", "start": "2026-07-29", "end": "2026-07-29"}, {"scale": "day", "period_id": "2026-07-30", "start": "2026-07-30", "end": "2026-07-30"}, {"scale": "day", "period_id": "2026-07-31", "start": "2026-07-31", "end": "2026-07-31"}, {"scale": "month", "period_id": "2026-07", "start": "2026-07-01", "end": "2026-07-31"}, {"scale": "day", "period_id": "2026-08-01", "start": "2026-08-01", "end": "2026-08-01"}, {"scale": "day", "period_id": "2026-08-02", "start": "2026-08-02", "end": "2026-08-02"}, {"scale": "week", "period_id": "2026-W31", "start": "2026-07-27", "end": "2026-08-02"}, {"scale": "day", "period_id": "2026-08-03", "start": "2026-08-03", "end": "2026-08-03"}, {"scale": "day", "period_id": "2026-08-04", "start": "2026-08-04", "end": "2026-08-04"}, {"scale": "day", "period_id": "2026-08-05", "start": "2026-08-05", "end": "2026-08-05"}, {"scale": "day", "period_id": "2026-08-06", "start": "2026-08-06", "end": "2026-08-06"}, {"scale": "day", "period_id": "2026-08-07", "start": "2026-08-07", "end": "2026-08-07"}], "backlog": {"day": 0, "week": 0, "month": 0, "quarter": 0}}, "schedule_contract": {"dispatcher": "daily 08:30 Asia/Taipei", "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh", "execution_context": "manual_recovery", "day": "previous complete day", "week": "previous complete Monday-Sunday week", "month": "previous complete calendar month", "quarter": "previous complete calendar quarter", "catch_up": "missing period_id only"}, "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK", "claim_boundary": "local PASS proves a successful public collector readback plus required local artifacts; it does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome"}
+domain zones: 2026-08-08; status=READY_FOR_OWNER_REVIEW; EDA=26; finance=8; ai-automation=8
+站台完成：6131 筆樣本 → docs/index.html (118 KB)
+  日級 30 天、週級 16 期、月級 12 期、季級 12 期、EDA 209 件（其中晶片相關 13 件）
+[privacy] 通過：未發現雇主名稱或持倉資訊
+[10:33:54] === research done (新增 3045) ===

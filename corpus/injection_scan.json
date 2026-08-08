@@ -1,107 +1,107 @@
 {
- "n_scanned": 42407,
- "n_flagged": 545,
- "pct_flagged": 1.29,
+ "n_scanned": 45452,
+ "n_flagged": 618,
+ "pct_flagged": 1.36,
  "by_category": {
-  "隱藏字元": 144,
-  "憑證竊取": 143,
-  "越權自主": 87,
-  "改動設定或掛鉤": 79,
-  "破壞性操作": 37,
-  "指令覆寫": 31,
-  "編碼混淆": 13,
+  "憑證竊取": 186,
+  "隱藏字元": 159,
+  "越權自主": 89,
+  "改動設定或掛鉤": 88,
+  "破壞性操作": 40,
+  "指令覆寫": 32,
+  "編碼混淆": 14,
   "隱瞞使用者": 12,
   "外送資料": 12
  },
  "by_domain": {
   "software-dev": {
-   "flagged": 121,
-   "total": 13240,
-   "pct": 0.9
+   "flagged": 144,
+   "total": 14521,
+   "pct": 1.0
   },
   "ai-agent-tooling": {
-   "flagged": 101,
-   "total": 4708,
-   "pct": 2.1
+   "flagged": 119,
+   "total": 5175,
+   "pct": 2.3
   },
   "security": {
-   "flagged": 93,
-   "total": 3481,
+   "flagged": 98,
+   "total": 3588,
    "pct": 2.7
   },
   "devops-infra": {
-   "flagged": 66,
-   "total": 3442,
-   "pct": 1.9
+   "flagged": 83,
+   "total": 3710,
+   "pct": 2.2
   },
   "design-creative": {
-   "flagged": 52,
-   "total": 3865,
-   "pct": 1.3
+   "flagged": 55,
+   "total": 3988,
+   "pct": 1.4
   },
   "personal-productivity": {
    "flagged": 29,
-   "total": 1223,
-   "pct": 2.4
+   "total": 1379,
+   "pct": 2.1
   },
   "finance-investing": {
    "flagged": 17,
-   "total": 859,
-   "pct": 2.0
+   "total": 913,
+   "pct": 1.9
   },
   "ops-admin": {
-   "flagged": 13,
-   "total": 1369,
+   "flagged": 14,
+   "total": 1496,
    "pct": 0.9
   },
   "data-analytics": {
-   "flagged": 13,
-   "total": 974,
+   "flagged": 14,
+   "total": 1038,
    "pct": 1.3
+  },
+  "research-academia": {
+   "flagged": 11,
+   "total": 2020,
+   "pct": 0.5
   },
   "marketing-growth": {
    "flagged": 11,
-   "total": 1721,
+   "total": 1836,
    "pct": 0.6
   },
-  "research-academia": {
-   "flagged": 10,
-   "total": 1918,
-   "pct": 0.5
-  },
   "writing-content": {
-   "flagged": 5,
-   "total": 667,
-   "pct": 0.7
+   "flagged": 9,
+   "total": 733,
+   "pct": 1.2
   },
   "hardware-eda": {
    "flagged": 5,
-   "total": 2598,
+   "total": 2596,
    "pct": 0.2
   },
   "sales-crm": {
    "flagged": 4,
-   "total": 301,
+   "total": 309,
    "pct": 1.3
   },
   "legal-compliance": {
    "flagged": 3,
-   "total": 666,
-   "pct": 0.5
+   "total": 703,
+   "pct": 0.4
   },
   "healthcare-bio": {
    "flagged": 1,
-   "total": 818,
+   "total": 853,
    "pct": 0.1
   },
   "education-training": {
    "flagged": 1,
-   "total": 271,
-   "pct": 0.4
+   "total": 294,
+   "pct": 0.3
   },
   "other": {
    "flagged": 0,
-   "total": 286,
+   "total": 300,
    "pct": 0.0
   }
  },
@@ -266,6 +266,18 @@
    "name": "claude-code-hooks"
   },
   {
+   "repo": "Cjay-Cyber-2/Flowfex",
+   "path": "skills-md/imported/agent-swarm-skills/safety-guard/SKILL.md",
+   "stars": 0,
+   "domain": "devops-infra",
+   "score": 12,
+   "hits": {
+    "改動設定或掛鉤": 1,
+    "破壞性操作": 2
+   },
+   "name": "safety-guard"
+  },
+  {
    "repo": "tools-only/X-Skills",
    "path": "development/003-name-skill_e2474108/skill.md",
    "stars": 7,
@@ -353,6 +365,28 @@
     "憑證竊取": 2
    },
    "name": "resend"
+  },
+  {
+   "repo": "denial-web/clawguard",
+   "path": "examples/metadata-mismatch-skill/SKILL.md",
+   "stars": 0,
+   "domain": "ai-agent-tooling",
+   "score": 10,
+   "hits": {
+    "憑證竊取": 2
+   },
+   "name": "metadata-mismatch-skill"
+  },
+  {
+   "repo": "Anantha-236/Agent-Hunter",
+   "path": "claude_code_leaked_source_code/everything-claude-code-main/skills/security-review/SKILL.md",
+   "stars": 1,
+   "domain": "security",
+   "score": 10,
+   "hits": {
+    "憑證竊取": 2
+   },
+   "name": "security-review"
   },
   {
    "repo": "mrndstvndv/pi-coding-agent-flake",
@@ -470,6 +504,17 @@
     "破壞性操作": 2
    },
    "name": "cfn-careful"
+  },
+  {
+   "repo": "mattnigh/skills_collection",
+   "path": "collection/modu-ai__moai-adk__claude__skills__moai-foundation-claude__SKILL.md",
+   "stars": 24,
+   "domain": "ai-agent-tooling",
+   "score": 8,
+   "hits": {
+    "改動設定或掛鉤": 2
+   },
+   "name": "moai-foundation-claude"
   },
   {
    "repo": "Scrulius/SuperEnchanter",
@@ -734,56 +779,12 @@
     "隱藏字元": 1
    },
    "name": "名称"
-  },
-  {
-   "repo": "NVIDIA-AI-IOT/jetson-ai-lab",
-   "path": ".agents/skills/jetson-ai-lab-verify-build/SKILL.md",
-   "stars": 192,
-   "domain": "software-dev",
-   "score": 5,
-   "hits": {
-    "隱藏字元": 1
-   },
-   "name": "Jetson AI Lab: verify the build"
-  },
-  {
-   "repo": "boazcstrike/opencode",
-   "path": "skills/slack/SKILL.md",
-   "stars": 3,
-   "domain": "ops-admin",
-   "score": 5,
-   "hits": {
-    "憑證竊取": 1
-   },
-   "name": "slack"
-  },
-  {
-   "repo": "konflux-ci/qe-tools",
-   "path": "skills/debugging-cli-locally/SKILL.md",
-   "stars": 0,
-   "domain": "devops-infra",
-   "score": 5,
-   "hits": {
-    "憑證竊取": 1
-   },
-   "name": "debugging-cli-locally"
-  },
-  {
-   "repo": "silvio-l/skills",
-   "path": "skills/openai-image/SKILL.md",
-   "stars": 0,
-   "domain": "design-creative",
-   "score": 5,
-   "hits": {
-    "憑證竊取": 1
-   },
-   "name": "openai-image"
   }
  ],
  "severity_buckets": {
   "高(>=15)": 0,
-  "中(8-14)": 32,
-  "低(1-7)": 513
+  "中(8-14)": 36,
+  "低(1-7)": 582
  },
  "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
 }

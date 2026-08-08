@@ -1,32 +1,32 @@
 {
  "schema_version": 1,
- "run_date": "2026-07-29",
+ "run_date": "2026-08-08",
  "status": "SUCCESS",
- "started_at": "2026-07-29T08:24:54.125582+00:00",
- "completed_at": "2026-07-29T08:38:08.575392+00:00",
+ "started_at": "2026-08-08T02:08:56.893759+00:00",
+ "completed_at": "2026-08-08T02:26:38.297428+00:00",
  "collector": "github_code_search_incremental",
  "collector_exit_code": 0,
  "run_context": "manual_recovery",
  "daily_baseline": {
-  "rows": 42242,
-  "sha256": "3a2d07c6965d92c167a932ea1323b9bc9f77b921416afdc90a2363f1528133f6",
+  "rows": 42407,
+  "sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
   "first_seen_on_run_date": 0
  },
  "before": {
   "rows": 42407,
-  "sha256": "7ffc145f84e4956bdd731600820bfccbcfb99af236cf8f44c2ddf70d0262c929",
-  "first_seen_on_run_date": 165
+  "sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "first_seen_on_run_date": 0
  },
  "after": {
-  "rows": 42407,
-  "sha256": "7ffc145f84e4956bdd731600820bfccbcfb99af236cf8f44c2ddf70d0262c929",
-  "first_seen_on_run_date": 165
+  "rows": 45452,
+  "sha256": "4add3dbaf0da31047f0d5692be016fff9898ca88965cec0cdba21a1230be8483",
+  "first_seen_on_run_date": 3045
  },
- "new_rows": 165,
- "run_new_rows": 0,
- "delta_file": "delta-2026-07-29.jsonl",
- "delta_rows": 165,
- "reused_daily_delta": true,
+ "new_rows": 3045,
+ "run_new_rows": 3045,
+ "delta_file": "delta-2026-08-08.jsonl",
+ "delta_rows": 3045,
+ "reused_daily_delta": false,
  "delta_already_classified": false,
  "validation_error": null,
  "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows",
@@ -34,10 +34,10 @@
   "status": "MODEL_PREDICTED",
   "method": "local_classifier_from_existing_seed_set",
   "llm_seed_rows": 6577,
-  "model_rows": 35830,
-  "model_report_master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
-  "domain_cv_accuracy": 0.724,
-  "domain_model_confidence_at_least_0_6_pct": 33.2,
+  "model_rows": 38875,
+  "model_report_master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
+  "domain_cv_accuracy": 0.725,
+  "domain_model_confidence_at_least_0_6_pct": 31.9,
   "claim_boundary": "new and existing non-seed rows were labelled by the local classifier; they are not new LLM or human seed evidence and remain subject to field-confidence gates"
  }
 }

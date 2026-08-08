@@ -1,32 +1,26 @@
 {
- "generated": "2026-07-29 09:37 UTC",
- "n_total": 5621,
+ "generated": "2026-08-08 02:33 UTC",
+ "n_total": 6131,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
   "model_conf_min": 0.6,
-  "n_domain": 5621,
-  "n_task": 5499,
-  "n_maturity": 5563,
-  "n_target": 5525
+  "n_domain": 6131,
+  "n_task": 5744,
+  "n_maturity": 5911,
+  "n_target": 5827
  },
- "global_production_pct": 42.4,
+ "global_production_pct": 42.7,
  "global_task_pct": {
   "生成": 22.0,
-  "轉換": 7.9,
+  "轉換": 7.8,
   "分析": 12.5,
-  "驗證": 15.4,
-  "調度": 15.5,
-  "檢索": 9.8,
+  "驗證": 16.1,
+  "調度": 15.1,
+  "檢索": 9.6,
   "配置": 16.9
  },
  "day": {
   "periods": [
-   "2026-06-30",
-   "2026-07-01",
-   "2026-07-02",
-   "2026-07-03",
-   "2026-07-04",
-   "2026-07-05",
    "2026-07-06",
    "2026-07-07",
    "2026-07-08",
@@ -50,80 +44,80 @@
    "2026-07-26",
    "2026-07-27",
    "2026-07-28",
-   "2026-07-29"
+   "2026-07-29",
+   "2026-07-30",
+   "2026-08-01",
+   "2026-08-03",
+   "2026-08-05",
+   "2026-08-06",
+   "2026-08-07"
   ],
   "totals": [
-   23,
-   12,
-   10,
-   11,
-   11,
    15,
-   13,
+   15,
    11,
-   10,
-   17,
    19,
-   9,
-   5,
-   12,
-   8,
+   19,
    11,
-   7,
+   11,
+   14,
+   10,
    16,
    9,
-   5,
-   14,
-   9,
+   17,
+   10,
    6,
-   7,
+   17,
+   11,
    8,
-   2,
+   10,
+   9,
+   3,
    1,
    4,
+   4,
+   8,
+   4,
    2,
-   5
+   4,
+   1,
+   2,
+   1
   ],
   "stack": {
    "software-dev": [
-    7,
-    5,
-    5,
+    2,
     4,
-    2,
-    2,
-    1,
-    2,
     1,
     5,
     8,
-    4,
-    1,
     5,
-    4,
-    3,
     2,
+    7,
+    4,
     5,
+    3,
     5,
+    6,
     1,
     3,
+    1,
     0,
-    0,
-    4,
+    6,
     1,
     1,
     0,
     0,
+    2,
+    0,
+    0,
+    1,
+    2,
+    1,
     1,
     0
    ],
    "ai-agent-tooling": [
-    6,
-    1,
-    1,
-    2,
-    2,
-    2,
     3,
     3,
     2,
@@ -134,7 +128,7 @@
     4,
     2,
     0,
-    1,
+    2,
     2,
     0,
     2,
@@ -147,19 +141,19 @@
     0,
     2,
     0,
-    1
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
    ],
    "devops-infra": [
-    1,
-    1,
-    1,
-    0,
-    2,
-    0,
     0,
     0,
     1,
-    0,
+    1,
     0,
     0,
     0,
@@ -169,25 +163,25 @@
     0,
     3,
     0,
+    2,
+    2,
     1,
-    1,
-    1,
-    3,
+    4,
     1,
     2,
     0,
     1,
     0,
+    1,
+    2,
+    1,
     0,
-    1
+    0,
+    0,
+    0,
+    0
    ],
    "design-creative": [
-    0,
-    0,
-    1,
-    1,
-    0,
-    5,
     6,
     0,
     2,
@@ -196,10 +190,10 @@
     2,
     1,
     0,
-    1,
-    1,
+    2,
+    2,
     0,
-    1,
+    2,
     1,
     0,
     0,
@@ -208,18 +202,18 @@
     0,
     2,
     1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
     0,
     0,
     0,
     1
    ],
    "personal-productivity": [
-    3,
-    2,
-    0,
-    0,
-    0,
-    1,
     1,
     1,
     1,
@@ -238,6 +232,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     0,
@@ -246,44 +246,38 @@
     0
    ],
    "security": [
+    0,
+    2,
     2,
     1,
     0,
+    1,
+    5,
     0,
     1,
-    0,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
     3,
     1,
     0,
     0,
+    2,
     1,
-    0,
     0,
     0,
     1,
     0,
     0,
     2,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
     0,
     0
    ],
    "ops-admin": [
-    1,
-    0,
-    1,
-    3,
-    0,
-    1,
     0,
     1,
     2,
@@ -307,18 +301,18 @@
     0,
     0,
     1,
-    1
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
    ],
    "marketing-growth": [
     0,
     0,
     0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    0,
     1,
     1,
     0,
@@ -334,20 +328,20 @@
     1,
     0,
     0,
+    1,
     0,
     0,
     0,
+    0,
+    0,
+    1,
+    0,
+    1,
     0,
     0,
     0
    ],
    "research-academia": [
-    1,
-    1,
-    0,
-    0,
-    1,
-    0,
     0,
     0,
     0,
@@ -371,16 +365,16 @@
     0,
     0,
     0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
     0
    ],
    "finance-investing": [
-    0,
-    0,
     1,
-    0,
-    2,
-    0,
-    0,
     0,
     0,
     1,
@@ -396,6 +390,12 @@
     0,
     1,
     2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -407,13 +407,7 @@
    ],
    "writing-content": [
     1,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
+    2,
     0,
     0,
     0,
@@ -427,6 +421,12 @@
     1,
     0,
     1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -438,12 +438,6 @@
     0
    ],
    "data-analytics": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     1,
     0,
     0,
@@ -458,8 +452,14 @@
     0,
     0,
     0,
+    2,
     1,
     1,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -471,12 +471,6 @@
    ],
    "healthcare-bio": [
     0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
     1,
     0,
     0,
@@ -493,25 +487,31 @@
     0,
     0,
     0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     0,
     0,
     0,
-    0,
-    1
+    0
    ],
    "legal-compliance": [
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     1,
     0,
     1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -535,12 +535,6 @@
    ],
    "education-training": [
     0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     1,
@@ -555,6 +549,12 @@
     0,
     0,
     2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -603,12 +603,6 @@
     0,
     0,
     0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     0,
@@ -622,6 +616,12 @@
     0,
     0,
     2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -666,73 +666,63 @@
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
-    "recent": 16,
-    "older": 6,
-    "recent_share": 15.1,
-    "older_share": 3.2,
-    "delta": 11.9
-   },
-   {
-    "domain": "security",
-    "zh": "資安",
-    "recent": 8,
-    "older": 6,
-    "recent_share": 7.5,
-    "older_share": 3.2,
-    "delta": 4.3
+    "recent": 13,
+    "older": 11,
+    "recent_share": 18.1,
+    "older_share": 5.5,
+    "delta": 12.6
    },
    {
     "domain": "ops-admin",
     "zh": "營運行政",
-    "recent": 12,
+    "recent": 6,
     "older": 14,
-    "recent_share": 11.3,
-    "older_share": 7.5,
-    "delta": 3.8
+    "recent_share": 8.3,
+    "older_share": 7.0,
+    "delta": 1.3
    },
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 9,
-    "older": 22,
-    "recent_share": 8.5,
-    "older_share": 11.8,
-    "delta": -3.3
+    "recent": 7,
+    "older": 21,
+    "recent_share": 9.7,
+    "older_share": 10.5,
+    "delta": -0.8
    },
    {
-    "domain": "software-dev",
-    "zh": "軟體開發",
-    "recent": 26,
-    "older": 56,
-    "recent_share": 24.5,
-    "older_share": 30.1,
-    "delta": -5.6
-   },
-   {
-    "domain": "personal-productivity",
-    "zh": "個人生產力",
-    "recent": 2,
-    "older": 14,
-    "recent_share": 1.9,
-    "older_share": 7.5,
-    "delta": -5.6
+    "domain": "security",
+    "zh": "資安",
+    "recent": 6,
+    "older": 20,
+    "recent_share": 8.3,
+    "older_share": 10.0,
+    "delta": -1.7
    },
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 13,
-    "older": 34,
-    "recent_share": 12.3,
-    "older_share": 18.3,
-    "delta": -6.0
+    "recent": 6,
+    "older": 29,
+    "recent_share": 8.3,
+    "older_share": 14.5,
+    "delta": -6.2
+   },
+   {
+    "domain": "software-dev",
+    "zh": "軟體開發",
+    "recent": 16,
+    "older": 61,
+    "recent_share": 22.2,
+    "older_share": 30.5,
+    "delta": -8.3
    }
   ],
-  "recent_label": "2026-07-15 ~ 2026-07-29",
-  "older_label": "2026-06-30 ~ 2026-07-14"
+  "recent_label": "2026-07-21 ~ 2026-08-07",
+  "older_label": "2026-07-06 ~ 2026-07-20"
  },
  "week": {
   "periods": [
-   "2026-04-13",
    "2026-04-20",
    "2026-04-27",
    "2026-05-04",
@@ -747,103 +737,103 @@
    "2026-07-06",
    "2026-07-13",
    "2026-07-20",
-   "2026-07-27"
+   "2026-07-27",
+   "2026-08-03"
   ],
   "totals": [
-   178,
-   192,
-   155,
-   160,
-   151,
-   139,
-   151,
-   106,
-   140,
-   113,
-   81,
-   88,
-   84,
-   68,
-   47,
-   11
+   209,
+   169,
+   174,
+   167,
+   172,
+   164,
+   122,
+   150,
+   126,
+   94,
+   97,
+   101,
+   82,
+   59,
+   22,
+   8
   ],
   "stack": {
    "software-dev": [
-    51,
-    63,
-    36,
-    45,
-    47,
-    25,
-    31,
-    35,
+    72,
     41,
-    32,
-    16,
+    51,
+    49,
+    35,
+    35,
+    40,
+    44,
+    34,
+    21,
+    31,
     27,
-    22,
-    25,
-    9,
-    1
+    31,
+    12,
+    3,
+    4
    ],
    "ai-agent-tooling": [
-    31,
-    21,
+    22,
     23,
     35,
-    20,
-    26,
-    18,
-    9,
-    28,
+    22,
+    29,
     18,
     10,
+    29,
+    18,
+    11,
     15,
     14,
-    11,
+    12,
     5,
-    3
+    4,
+    0
    ],
    "devops-infra": [
-    8,
     13,
-    21,
-    5,
-    5,
-    7,
-    9,
-    6,
+    22,
     7,
     8,
-    3,
-    5,
-    1,
-    6,
     9,
-    1
+    14,
+    8,
+    11,
+    12,
+    4,
+    6,
+    2,
+    7,
+    11,
+    4,
+    0
    ],
    "design-creative": [
     11,
+    13,
+    20,
+    20,
     10,
-    10,
-    17,
-    19,
-    7,
     5,
+    13,
+    7,
+    9,
+    9,
     8,
-    6,
-    7,
-    7,
-    7,
     14,
-    4,
+    7,
     5,
+    1,
     1
    ],
    "personal-productivity": [
-    18,
-    12,
-    12,
+    13,
+    14,
     8,
     10,
     9,
@@ -856,30 +846,30 @@
     8,
     2,
     0,
+    1,
     0
    ],
    "security": [
-    8,
     15,
-    12,
+    14,
     11,
-    7,
+    11,
+    15,
     13,
     11,
-    11,
     4,
-    14,
+    15,
     5,
     4,
-    2,
+    11,
+    7,
     4,
-    2,
-    2
+    3,
+    1
    ],
    "ops-admin": [
-    8,
-    11,
-    9,
+    12,
+    10,
     4,
     4,
     4,
@@ -892,136 +882,136 @@
     8,
     5,
     5,
-    2
+    2,
+    0
    ],
    "marketing-growth": [
-    7,
-    10,
+    13,
     9,
-    5,
-    5,
-    3,
+    6,
+    6,
+    4,
     4,
     2,
     7,
-    3,
-    11,
+    5,
+    12,
     2,
     2,
     1,
+    2,
     1,
-    0
+    1
    ],
    "research-academia": [
-    4,
     8,
     5,
     9,
     2,
-    9,
+    10,
     11,
     5,
     5,
     2,
-    4,
-    3,
+    6,
+    6,
     1,
     4,
     1,
-    0
+    2,
+    1
    ],
    "finance-investing": [
-    5,
     4,
     4,
-    5,
-    3,
+    6,
+    4,
     9,
-    9,
+    10,
+    6,
     5,
     5,
-    4,
     3,
     4,
-    2,
+    3,
     2,
     3,
+    0,
     0
    ],
    "writing-content": [
-    9,
     8,
     5,
     5,
     4,
-    5,
+    6,
     9,
     3,
-    9,
+    10,
     2,
     6,
     3,
-    3,
+    4,
     2,
     1,
+    0,
     0
    ],
    "data-analytics": [
-    4,
     9,
     3,
     1,
     3,
-    4,
+    5,
     2,
     5,
     1,
     3,
-    4,
+    5,
     0,
     1,
     2,
-    2,
+    4,
+    0,
     0
    ],
    "healthcare-bio": [
     1,
     1,
-    1,
-    5,
-    7,
-    2,
-    13,
-    0,
-    2,
+    6,
+    9,
     3,
+    14,
+    1,
+    2,
+    4,
     2,
     2,
     1,
     0,
-    0,
-    1
+    2,
+    1,
+    0
    ],
    "legal-compliance": [
     2,
-    2,
     1,
     2,
     7,
-    15,
+    22,
     11,
-    0,
+    1,
     2,
     3,
     0,
     1,
     2,
+    0,
     0,
     0,
     0
    ],
    "education-training": [
-    3,
     2,
     2,
     2,
@@ -1036,10 +1026,10 @@
     3,
     0,
     2,
+    0,
     0
    ],
    "sales-crm": [
-    1,
     2,
     0,
     0,
@@ -1049,6 +1039,7 @@
     0,
     2,
     1,
+    0,
     0,
     0,
     0,
@@ -1057,7 +1048,6 @@
     0
    ],
    "hardware-eda": [
-    3,
     0,
     1,
     1,
@@ -1072,18 +1062,19 @@
     0,
     0,
     2,
+    0,
     0
    ],
    "other": [
-    4,
-    1,
-    1,
-    0,
-    1,
+    2,
     1,
     0,
+    1,
+    2,
+    0,
     0,
     1,
+    0,
     0,
     0,
     0,
@@ -1097,154 +1088,153 @@
    {
     "domain": "ops-admin",
     "zh": "營運行政",
-    "recent": 37,
-    "older": 49,
-    "recent_share": 5.9,
-    "older_share": 4.0,
-    "delta": 1.9
-   },
-   {
-    "domain": "ai-agent-tooling",
-    "zh": "AI Agent 工具",
-    "recent": 104,
-    "older": 183,
-    "recent_share": 16.5,
-    "older_share": 14.9,
-    "delta": 1.6
+    "recent": 33,
+    "older": 47,
+    "recent_share": 5.6,
+    "older_share": 3.5,
+    "delta": 2.1
    },
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 51,
-    "older": 87,
-    "recent_share": 8.1,
-    "older_share": 7.1,
-    "delta": 1.0
-   },
-   {
-    "domain": "marketing-growth",
-    "zh": "行銷成長",
-    "recent": 27,
-    "older": 45,
-    "recent_share": 4.3,
-    "older_share": 3.7,
-    "delta": 0.6
-   },
-   {
-    "domain": "education-training",
-    "zh": "教育訓練",
-    "recent": 13,
-    "older": 20,
-    "recent_share": 2.1,
-    "older_share": 1.6,
-    "delta": 0.4
-   },
-   {
-    "domain": "software-dev",
-    "zh": "軟體開發",
-    "recent": 173,
-    "older": 333,
-    "recent_share": 27.4,
-    "older_share": 27.0,
-    "delta": 0.3
-   },
-   {
-    "domain": "devops-infra",
-    "zh": "DevOps 基礎設施",
-    "recent": 40,
-    "older": 74,
-    "recent_share": 6.3,
-    "older_share": 6.0,
-    "delta": 0.3
-   },
-   {
-    "domain": "writing-content",
-    "zh": "寫作內容",
-    "recent": 26,
-    "older": 48,
-    "recent_share": 4.1,
-    "older_share": 3.9,
-    "delta": 0.2
-   },
-   {
-    "domain": "finance-investing",
-    "zh": "金融投資",
-    "recent": 23,
-    "older": 44,
-    "recent_share": 3.6,
-    "older_share": 3.6,
-    "delta": 0.1
-   },
-   {
-    "domain": "hardware-eda",
-    "zh": "硬體 / EDA",
-    "recent": 6,
-    "older": 10,
-    "recent_share": 0.9,
-    "older_share": 0.8,
-    "delta": 0.1
-   },
-   {
-    "domain": "personal-productivity",
-    "zh": "個人生產力",
-    "recent": 39,
-    "older": 82,
-    "recent_share": 6.2,
-    "older_share": 6.7,
-    "delta": -0.5
-   },
-   {
-    "domain": "data-analytics",
-    "zh": "資料分析",
-    "recent": 13,
-    "older": 31,
-    "recent_share": 2.1,
-    "older_share": 2.5,
-    "delta": -0.5
-   },
-   {
-    "domain": "healthcare-bio",
-    "zh": "醫療生技",
-    "recent": 11,
-    "older": 30,
-    "recent_share": 1.7,
-    "older_share": 2.4,
-    "delta": -0.7
-   },
-   {
-    "domain": "research-academia",
-    "zh": "研究學術",
-    "recent": 20,
-    "older": 53,
-    "recent_share": 3.2,
-    "older_share": 4.3,
-    "delta": -1.1
+    "recent": 54,
+    "older": 99,
+    "recent_share": 9.2,
+    "older_share": 7.5,
+    "delta": 1.7
    },
    {
     "domain": "security",
     "zh": "資安",
-    "recent": 37,
-    "older": 88,
-    "recent_share": 5.9,
+    "recent": 50,
+    "older": 94,
+    "recent_share": 8.5,
     "older_share": 7.1,
-    "delta": -1.3
+    "delta": 1.4
+   },
+   {
+    "domain": "devops-infra",
+    "zh": "DevOps 基礎設施",
+    "recent": 46,
+    "older": 92,
+    "recent_share": 7.8,
+    "older_share": 6.9,
+    "delta": 0.9
+   },
+   {
+    "domain": "marketing-growth",
+    "zh": "行銷成長",
+    "recent": 26,
+    "older": 51,
+    "recent_share": 4.4,
+    "older_share": 3.8,
+    "delta": 0.6
+   },
+   {
+    "domain": "data-analytics",
+    "zh": "資料分析",
+    "recent": 15,
+    "older": 29,
+    "recent_share": 2.5,
+    "older_share": 2.2,
+    "delta": 0.4
+   },
+   {
+    "domain": "education-training",
+    "zh": "教育訓練",
+    "recent": 11,
+    "older": 19,
+    "recent_share": 1.9,
+    "older_share": 1.4,
+    "delta": 0.4
+   },
+   {
+    "domain": "hardware-eda",
+    "zh": "硬體 / EDA",
+    "recent": 5,
+    "older": 8,
+    "recent_share": 0.8,
+    "older_share": 0.6,
+    "delta": 0.2
+   },
+   {
+    "domain": "software-dev",
+    "zh": "軟體開發",
+    "recent": 163,
+    "older": 367,
+    "recent_share": 27.7,
+    "older_share": 27.7,
+    "delta": 0.0
+   },
+   {
+    "domain": "research-academia",
+    "zh": "研究學術",
+    "recent": 23,
+    "older": 55,
+    "recent_share": 3.9,
+    "older_share": 4.1,
+    "delta": -0.2
+   },
+   {
+    "domain": "finance-investing",
+    "zh": "金融投資",
+    "recent": 20,
+    "older": 48,
+    "recent_share": 3.4,
+    "older_share": 3.6,
+    "delta": -0.2
+   },
+   {
+    "domain": "writing-content",
+    "zh": "寫作內容",
+    "recent": 18,
+    "older": 50,
+    "recent_share": 3.1,
+    "older_share": 3.8,
+    "delta": -0.7
+   },
+   {
+    "domain": "ai-agent-tooling",
+    "zh": "AI Agent 工具",
+    "recent": 79,
+    "older": 188,
+    "recent_share": 13.4,
+    "older_share": 14.2,
+    "delta": -0.8
+   },
+   {
+    "domain": "healthcare-bio",
+    "zh": "醫療生技",
+    "recent": 12,
+    "older": 37,
+    "recent_share": 2.0,
+    "older_share": 2.8,
+    "delta": -0.8
+   },
+   {
+    "domain": "personal-productivity",
+    "zh": "個人生產力",
+    "recent": 27,
+    "older": 80,
+    "recent_share": 4.6,
+    "older_share": 6.0,
+    "delta": -1.4
    },
    {
     "domain": "legal-compliance",
     "zh": "法務合規",
-    "recent": 8,
-    "older": 40,
-    "recent_share": 1.3,
-    "older_share": 3.2,
-    "delta": -2.0
+    "recent": 6,
+    "older": 48,
+    "recent_share": 1.0,
+    "older_share": 3.6,
+    "delta": -2.6
    }
   ],
-  "recent_label": "2026-06-08 ~ 2026-07-27",
-  "older_label": "2026-04-13 ~ 2026-06-01"
+  "recent_label": "2026-06-15 ~ 2026-08-03",
+  "older_label": "2026-04-20 ~ 2026-06-08"
  },
  "month": {
   "periods": [
-   "2025-08",
    "2025-09",
    "2025-10",
    "2025-11",
@@ -1255,179 +1245,179 @@
    "2026-04",
    "2026-05",
    "2026-06",
-   "2026-07"
+   "2026-07",
+   "2026-08"
   ],
   "totals": [
-   46,
-   38,
-   108,
-   117,
-   180,
-   461,
-   680,
-   1014,
-   856,
-   657,
-   469,
-   269
+   42,
+   115,
+   126,
+   197,
+   492,
+   728,
+   1100,
+   929,
+   739,
+   522,
+   329,
+   10
   ],
   "stack": {
    "software-dev": [
-    25,
-    16,
-    35,
-    40,
-    82,
-    157,
-    203,
-    287,
-    234,
-    163,
-    133,
-    75
+    17,
+    42,
+    43,
+    89,
+    169,
+    224,
+    319,
+    267,
+    188,
+    148,
+    94,
+    5
    ],
    "ai-agent-tooling": [
     9,
-    9,
     13,
     24,
-    29,
-    75,
+    31,
+    76,
     101,
-    179,
+    183,
+    119,
     117,
-    112,
-    72,
-    41
+    75,
+    43,
+    0
    ],
    "devops-infra": [
-    6,
-    0,
-    9,
-    11,
-    11,
-    37,
+    1,
+    10,
+    13,
+    16,
     42,
-    62,
-    59,
-    32,
-    25,
-    21
+    49,
+    75,
+    66,
+    44,
+    36,
+    29,
+    0
    ],
    "design-creative": [
-    1,
     2,
     9,
+    7,
     6,
-    6,
-    32,
-    39,
-    59,
-    55,
-    51,
-    28,
-    31
+    34,
+    43,
+    67,
+    61,
+    60,
+    38,
+    35,
+    1
    ],
    "personal-productivity": [
-    3,
     2,
     5,
     3,
     6,
     21,
-    35,
-    56,
-    73,
+    37,
+    58,
+    80,
     39,
     32,
-    13
+    14,
+    0
    ],
    "security": [
-    0,
-    1,
     2,
-    5,
-    5,
-    17,
-    47,
-    57,
-    47,
-    43,
-    36,
-    12
+    2,
+    6,
+    6,
+    19,
+    52,
+    69,
+    50,
+    52,
+    37,
+    27,
+    1
    ],
    "ops-admin": [
-    0,
     1,
     7,
     6,
     9,
     22,
     40,
-    39,
-    50,
+    40,
+    52,
     19,
     16,
-    25
+    25,
+    0
    ],
    "marketing-growth": [
-    0,
     1,
     4,
-    2,
+    3,
     5,
-    21,
-    42,
-    41,
-    40,
-    19,
     23,
-    6
+    43,
+    44,
+    44,
+    22,
+    26,
+    8,
+    1
    ],
    "research-academia": [
-    0,
     1,
     7,
     6,
     4,
-    5,
-    31,
-    47,
-    34,
+    6,
     32,
-    17,
-    8
+    49,
+    38,
+    33,
+    20,
+    11,
+    2
    ],
    "finance-investing": [
-    0,
-    0,
-    4,
+    1,
+    3,
     1,
     4,
-    14,
-    32,
-    44,
-    25,
-    30,
-    18,
-    10
+    15,
+    35,
+    47,
+    27,
+    33,
+    20,
+    11,
+    0
    ],
    "writing-content": [
-    1,
     1,
     4,
     4,
     8,
-    13,
     15,
+    16,
     28,
-    30,
-    25,
-    21,
-    8
+    31,
+    26,
+    22,
+    9,
+    0
    ],
    "data-analytics": [
-    0,
     1,
     1,
     2,
@@ -1436,54 +1426,54 @@
     10,
     26,
     25,
-    11,
-    13,
-    5
+    12,
+    14,
+    7,
+    0
    ],
    "healthcare-bio": [
-    1,
     0,
     3,
     3,
-    2,
-    17,
-    7,
-    41,
+    4,
+    18,
+    9,
+    44,
     5,
-    27,
-    8,
-    3
+    32,
+    10,
+    5,
+    0
    ],
    "legal-compliance": [
     0,
-    0,
     3,
     0,
     3,
-    5,
-    12,
-    14,
-    11,
-    35,
     6,
-    2
+    12,
+    16,
+    12,
+    42,
+    7,
+    2,
+    0
    ],
    "education-training": [
-    0,
     2,
     1,
     1,
     0,
-    4,
+    5,
     7,
-    11,
+    12,
     17,
     8,
     12,
-    6
+    6,
+    0
    ],
    "sales-crm": [
-    0,
     1,
     0,
     2,
@@ -1494,10 +1484,10 @@
     14,
     4,
     3,
+    0,
     0
    ],
    "hardware-eda": [
-    0,
     0,
     1,
     1,
@@ -1508,189 +1498,190 @@
     8,
     4,
     5,
-    3
+    3,
+    0
    ],
    "other": [
     0,
     0,
-    0,
-    0,
+    1,
     1,
     2,
-    9,
+    10,
     2,
-    12,
-    3,
+    13,
+    4,
     1,
+    0,
     0
    ]
   },
   "growth": [
    {
-    "domain": "security",
-    "zh": "資安",
-    "recent": 242,
-    "older": 30,
-    "recent_share": 6.1,
-    "older_share": 3.2,
-    "delta": 3.0
-   },
-   {
     "domain": "personal-productivity",
     "zh": "個人生產力",
-    "recent": 248,
-    "older": 40,
-    "recent_share": 6.3,
-    "older_share": 4.2,
-    "delta": 2.1
+    "recent": 223,
+    "older": 74,
+    "recent_share": 6.1,
+    "older_share": 4.4,
+    "delta": 1.8
+   },
+   {
+    "domain": "security",
+    "zh": "資安",
+    "recent": 236,
+    "older": 87,
+    "recent_share": 6.5,
+    "older_share": 5.1,
+    "delta": 1.4
+   },
+   {
+    "domain": "design-creative",
+    "zh": "設計創意",
+    "recent": 262,
+    "older": 101,
+    "recent_share": 7.2,
+    "older_share": 5.9,
+    "delta": 1.3
    },
    {
     "domain": "research-academia",
     "zh": "研究學術",
-    "recent": 169,
-    "older": 23,
-    "recent_share": 4.3,
-    "older_share": 2.4,
-    "delta": 1.9
-   },
-   {
-    "domain": "finance-investing",
-    "zh": "金融投資",
-    "recent": 159,
-    "older": 23,
-    "recent_share": 4.0,
-    "older_share": 2.4,
-    "delta": 1.6
-   },
-   {
-    "domain": "marketing-growth",
-    "zh": "行銷成長",
-    "recent": 171,
-    "older": 33,
-    "recent_share": 4.3,
-    "older_share": 3.5,
+    "recent": 153,
+    "older": 56,
+    "recent_share": 4.2,
+    "older_share": 3.3,
     "delta": 0.9
    },
    {
     "domain": "legal-compliance",
     "zh": "法務合規",
-    "recent": 80,
-    "older": 11,
-    "recent_share": 2.0,
-    "older_share": 1.2,
-    "delta": 0.9
-   },
-   {
-    "domain": "design-creative",
-    "zh": "設計創意",
-    "recent": 263,
-    "older": 56,
-    "recent_share": 6.7,
-    "older_share": 5.9,
+    "recent": 79,
+    "older": 24,
+    "recent_share": 2.2,
+    "older_share": 1.4,
     "delta": 0.8
    },
    {
     "domain": "education-training",
     "zh": "教育訓練",
-    "recent": 61,
-    "older": 8,
+    "recent": 55,
+    "older": 16,
     "recent_share": 1.5,
-    "older_share": 0.8,
-    "delta": 0.7
-   },
-   {
-    "domain": "hardware-eda",
-    "zh": "硬體 / EDA",
-    "recent": 28,
-    "older": 3,
-    "recent_share": 0.7,
-    "older_share": 0.3,
-    "delta": 0.4
-   },
-   {
-    "domain": "other",
-    "zh": "其他",
-    "recent": 27,
-    "older": 3,
-    "recent_share": 0.7,
-    "older_share": 0.3,
-    "delta": 0.4
-   },
-   {
-    "domain": "sales-crm",
-    "zh": "銷售 CRM",
-    "recent": 42,
-    "older": 8,
-    "recent_share": 1.1,
-    "older_share": 0.8,
-    "delta": 0.2
-   },
-   {
-    "domain": "ops-admin",
-    "zh": "營運行政",
-    "recent": 189,
-    "older": 45,
-    "recent_share": 4.8,
-    "older_share": 4.7,
-    "delta": 0.1
-   },
-   {
-    "domain": "writing-content",
-    "zh": "寫作內容",
-    "recent": 127,
-    "older": 31,
-    "recent_share": 3.2,
-    "older_share": 3.3,
-    "delta": -0.0
-   },
-   {
-    "domain": "data-analytics",
-    "zh": "資料分析",
-    "recent": 90,
-    "older": 22,
-    "recent_share": 2.3,
-    "older_share": 2.3,
-    "delta": -0.0
+    "older_share": 0.9,
+    "delta": 0.6
    },
    {
     "domain": "healthcare-bio",
     "zh": "醫療生技",
-    "recent": 91,
-    "older": 26,
+    "recent": 96,
+    "older": 37,
+    "recent_share": 2.6,
+    "older_share": 2.2,
+    "delta": 0.5
+   },
+   {
+    "domain": "writing-content",
+    "zh": "寫作內容",
+    "recent": 116,
+    "older": 48,
+    "recent_share": 3.2,
+    "older_share": 2.8,
+    "delta": 0.4
+   },
+   {
+    "domain": "data-analytics",
+    "zh": "資料分析",
+    "recent": 84,
+    "older": 32,
     "recent_share": 2.3,
-    "older_share": 2.7,
-    "delta": -0.4
+    "older_share": 1.9,
+    "delta": 0.4
+   },
+   {
+    "domain": "finance-investing",
+    "zh": "金融投資",
+    "recent": 138,
+    "older": 59,
+    "recent_share": 3.8,
+    "older_share": 3.5,
+    "delta": 0.3
+   },
+   {
+    "domain": "sales-crm",
+    "zh": "銷售 CRM",
+    "recent": 37,
+    "older": 13,
+    "recent_share": 1.0,
+    "older_share": 0.8,
+    "delta": 0.3
+   },
+   {
+    "domain": "hardware-eda",
+    "zh": "硬體 / EDA",
+    "recent": 25,
+    "older": 6,
+    "recent_share": 0.7,
+    "older_share": 0.4,
+    "delta": 0.3
    },
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 622,
-    "older": 159,
-    "recent_share": 15.8,
-    "older_share": 16.7,
-    "delta": -1.0
+    "recent": 537,
+    "older": 254,
+    "recent_share": 14.8,
+    "older_share": 14.9,
+    "delta": -0.1
+   },
+   {
+    "domain": "other",
+    "zh": "其他",
+    "recent": 20,
+    "older": 14,
+    "recent_share": 0.6,
+    "older_share": 0.8,
+    "delta": -0.3
+   },
+   {
+    "domain": "marketing-growth",
+    "zh": "行銷成長",
+    "recent": 145,
+    "older": 79,
+    "recent_share": 4.0,
+    "older_share": 4.6,
+    "delta": -0.7
    },
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
-    "recent": 241,
-    "older": 74,
-    "recent_share": 6.1,
-    "older_share": 7.8,
-    "delta": -1.7
+    "recent": 250,
+    "older": 131,
+    "recent_share": 6.9,
+    "older_share": 7.7,
+    "delta": -0.8
+   },
+   {
+    "domain": "ops-admin",
+    "zh": "營運行政",
+    "recent": 152,
+    "older": 85,
+    "recent_share": 4.2,
+    "older_share": 5.0,
+    "delta": -0.8
    },
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 1095,
-    "older": 355,
-    "recent_share": 27.8,
-    "older_share": 37.4,
-    "delta": -9.6
+    "recent": 1021,
+    "older": 584,
+    "recent_share": 28.1,
+    "older_share": 34.4,
+    "delta": -6.2
    }
   ],
-  "recent_label": "2026-02 ~ 2026-07",
-  "older_label": "2025-08 ~ 2026-01"
+  "recent_label": "2026-03 ~ 2026-08",
+  "older_label": "2025-09 ~ 2026-02"
  },
  "quarter": {
   "periods": [
@@ -1708,36 +1699,36 @@
    "2026-Q3"
   ],
   "totals": [
-   14,
-   18,
+   17,
+   19,
    25,
    26,
-   44,
-   69,
-   97,
-   132,
-   405,
-   2155,
-   1982,
-   269
+   46,
+   72,
+   103,
+   139,
+   438,
+   2320,
+   2190,
+   339
   ],
   "stack": {
    "software-dev": [
-    11,
-    8,
+    12,
+    9,
     17,
     19,
-    23,
-    29,
-    45,
-    59,
-    157,
-    647,
-    530,
-    75
+    24,
+    32,
+    48,
+    63,
+    174,
+    712,
+    603,
+    99
    ],
    "ai-agent-tooling": [
-    0,
+    1,
     1,
     0,
     0,
@@ -1745,24 +1736,24 @@
     14,
     19,
     35,
-    66,
-    355,
-    301,
-    41
+    68,
+    360,
+    311,
+    43
    ],
    "devops-infra": [
     0,
     1,
     2,
     1,
-    3,
-    3,
     4,
+    3,
     6,
-    31,
-    141,
-    116,
-    21
+    7,
+    39,
+    166,
+    146,
+    29
    ],
    "design-creative": [
     0,
@@ -1771,12 +1762,12 @@
     1,
     2,
     2,
-    3,
+    4,
     5,
-    21,
-    130,
-    134,
-    31
+    22,
+    144,
+    159,
+    36
    ],
    "personal-productivity": [
     0,
@@ -1788,9 +1779,9 @@
     2,
     5,
     14,
-    112,
-    144,
-    13
+    116,
+    151,
+    14
    ],
    "security": [
     0,
@@ -1800,11 +1791,11 @@
     3,
     0,
     7,
-    1,
-    12,
-    121,
-    126,
-    12
+    2,
+    14,
+    140,
+    139,
+    28
    ],
    "ops-admin": [
     1,
@@ -1816,12 +1807,12 @@
     5,
     3,
     22,
-    101,
-    85,
+    102,
+    87,
     25
    ],
    "marketing-growth": [
-    0,
+    1,
     0,
     0,
     0,
@@ -1829,10 +1820,10 @@
     1,
     1,
     3,
-    11,
-    104,
-    82,
-    6
+    12,
+    110,
+    92,
+    9
    ],
    "research-academia": [
     0,
@@ -1844,9 +1835,9 @@
     2,
     1,
     17,
-    83,
-    83,
-    8
+    87,
+    91,
+    13
    ],
    "finance-investing": [
     0,
@@ -1856,11 +1847,11 @@
     0,
     0,
     1,
-    2,
-    9,
-    90,
-    73,
-    10
+    3,
+    8,
+    97,
+    80,
+    11
    ],
    "writing-content": [
     0,
@@ -1872,9 +1863,9 @@
     2,
     3,
     16,
-    56,
-    76,
-    8
+    59,
+    79,
+    9
    ],
    "data-analytics": [
     0,
@@ -1887,8 +1878,8 @@
     1,
     7,
     50,
-    49,
-    5
+    51,
+    7
    ],
    "healthcare-bio": [
     0,
@@ -1899,10 +1890,10 @@
     3,
     0,
     2,
-    8,
-    65,
-    40,
-    3
+    10,
+    71,
+    47,
+    5
    ],
    "legal-compliance": [
     0,
@@ -1914,8 +1905,8 @@
     0,
     0,
     6,
-    31,
-    52,
+    34,
+    61,
     2
    ],
    "education-training": [
@@ -1928,7 +1919,7 @@
     0,
     2,
     2,
-    22,
+    24,
     37,
     6
    ],
@@ -1969,9 +1960,9 @@
     1,
     0,
     1,
-    1,
-    13,
-    16,
+    2,
+    14,
+    18,
     0
    ]
   },
@@ -1979,133 +1970,133 @@
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 817,
-    "older": 21,
-    "recent_share": 16.2,
+    "recent": 836,
+    "older": 22,
+    "recent_share": 15.1,
     "older_share": 10.7,
-    "delta": 5.5
+    "delta": 4.4
    },
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 324,
+    "recent": 370,
     "older": 6,
-    "recent_share": 6.4,
-    "older_share": 3.1,
-    "delta": 3.4
-   },
-   {
-    "domain": "marketing-growth",
-    "zh": "行銷成長",
-    "recent": 207,
-    "older": 2,
-    "recent_share": 4.1,
-    "older_share": 1.0,
-    "delta": 3.1
-   },
-   {
-    "domain": "personal-productivity",
-    "zh": "個人生產力",
-    "recent": 290,
-    "older": 6,
-    "recent_share": 5.8,
-    "older_share": 3.1,
-    "delta": 2.7
-   },
-   {
-    "domain": "ops-admin",
-    "zh": "營運行政",
-    "recent": 241,
-    "older": 4,
-    "recent_share": 4.8,
-    "older_share": 2.0,
-    "delta": 2.7
+    "recent_share": 6.7,
+    "older_share": 2.9,
+    "delta": 3.8
    },
    {
     "domain": "security",
     "zh": "資安",
-    "recent": 279,
+    "recent": 330,
+    "older": 6,
+    "recent_share": 6.0,
+    "older_share": 2.9,
+    "delta": 3.0
+   },
+   {
+    "domain": "marketing-growth",
+    "zh": "行銷成長",
+    "recent": 227,
+    "older": 3,
+    "recent_share": 4.1,
+    "older_share": 1.5,
+    "delta": 2.6
+   },
+   {
+    "domain": "personal-productivity",
+    "zh": "個人生產力",
+    "recent": 302,
     "older": 6,
     "recent_share": 5.5,
-    "older_share": 3.1,
+    "older_share": 2.9,
+    "delta": 2.5
+   },
+   {
+    "domain": "ops-admin",
+    "zh": "營運行政",
+    "recent": 244,
+    "older": 4,
+    "recent_share": 4.4,
+    "older_share": 2.0,
     "delta": 2.5
    },
    {
     "domain": "finance-investing",
     "zh": "金融投資",
-    "recent": 185,
+    "recent": 200,
     "older": 3,
-    "recent_share": 3.7,
+    "recent_share": 3.6,
     "older_share": 1.5,
-    "delta": 2.1
-   },
-   {
-    "domain": "research-academia",
-    "zh": "研究學術",
-    "recent": 194,
-    "older": 5,
-    "recent_share": 3.8,
-    "older_share": 2.6,
-    "delta": 1.3
-   },
-   {
-    "domain": "legal-compliance",
-    "zh": "法務合規",
-    "recent": 91,
-    "older": 1,
-    "recent_share": 1.8,
-    "older_share": 0.5,
-    "delta": 1.3
+    "delta": 2.2
    },
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
-    "recent": 319,
-    "older": 10,
-    "recent_share": 6.3,
-    "older_share": 5.1,
-    "delta": 1.2
+    "recent": 393,
+    "older": 11,
+    "recent_share": 7.1,
+    "older_share": 5.4,
+    "delta": 1.7
+   },
+   {
+    "domain": "research-academia",
+    "zh": "研究學術",
+    "recent": 211,
+    "older": 5,
+    "recent_share": 3.8,
+    "older_share": 2.4,
+    "delta": 1.4
+   },
+   {
+    "domain": "legal-compliance",
+    "zh": "法務合規",
+    "recent": 103,
+    "older": 1,
+    "recent_share": 1.9,
+    "older_share": 0.5,
+    "delta": 1.4
    },
    {
     "domain": "sales-crm",
     "zh": "銷售 CRM",
     "recent": 54,
     "older": 0,
-    "recent_share": 1.1,
+    "recent_share": 1.0,
     "older_share": 0.0,
-    "delta": 1.1
+    "delta": 1.0
    },
    {
     "domain": "healthcare-bio",
     "zh": "醫療生技",
-    "recent": 118,
+    "recent": 135,
     "older": 4,
-    "recent_share": 2.3,
+    "recent_share": 2.4,
     "older_share": 2.0,
-    "delta": 0.3
+    "delta": 0.5
    },
    {
     "domain": "writing-content",
     "zh": "寫作內容",
-    "recent": 161,
+    "recent": 168,
     "older": 6,
-    "recent_share": 3.2,
-    "older_share": 3.1,
+    "recent_share": 3.0,
+    "older_share": 2.9,
     "delta": 0.1
+   },
+   {
+    "domain": "other",
+    "zh": "其他",
+    "recent": 35,
+    "older": 2,
+    "recent_share": 0.6,
+    "older_share": 1.0,
+    "delta": -0.3
    },
    {
     "domain": "hardware-eda",
     "zh": "硬體 / EDA",
     "recent": 33,
-    "older": 2,
-    "recent_share": 0.7,
-    "older_share": 1.0,
-    "delta": -0.4
-   },
-   {
-    "domain": "other",
-    "zh": "其他",
-    "recent": 31,
     "older": 2,
     "recent_share": 0.6,
     "older_share": 1.0,
@@ -2114,29 +2105,29 @@
    {
     "domain": "data-analytics",
     "zh": "資料分析",
-    "recent": 114,
+    "recent": 118,
     "older": 6,
-    "recent_share": 2.3,
-    "older_share": 3.1,
+    "recent_share": 2.1,
+    "older_share": 2.9,
     "delta": -0.8
    },
    {
     "domain": "education-training",
     "zh": "教育訓練",
-    "recent": 69,
+    "recent": 71,
     "older": 5,
-    "recent_share": 1.4,
-    "older_share": 2.6,
+    "recent_share": 1.3,
+    "older_share": 2.4,
     "delta": -1.2
    },
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 1513,
-    "older": 107,
-    "recent_share": 30.0,
-    "older_share": 54.6,
-    "delta": -24.6
+    "recent": 1699,
+    "older": 113,
+    "recent_share": 30.7,
+    "older_share": 55.1,
+    "delta": -24.4
    }
   ],
   "recent_label": "2025-Q2 ~ 2026-Q3",
@@ -2146,15 +2137,18 @@
   "days": [
    "2026-07-26",
    "2026-07-28",
-   "2026-07-29"
+   "2026-07-29",
+   "2026-08-08"
   ],
   "totals": [
    5405,
-   168,
-   48
+   166,
+   47,
+   513
   ],
   "targeted": [
    35800,
+   0,
    0,
    0
   ],
@@ -2168,11 +2162,11 @@
     "security": 266
    },
    "2026-07-28": {
-    "software-dev": 39,
-    "security": 22,
+    "software-dev": 38,
+    "security": 23,
     "devops-infra": 16,
-    "ai-agent-tooling": 15,
     "research-academia": 15,
+    "ai-agent-tooling": 14,
     "design-creative": 11
    },
    "2026-07-29": {
@@ -2182,34 +2176,42 @@
     "security": 4,
     "ops-admin": 3,
     "design-creative": 3
+   },
+   "2026-08-08": {
+    "software-dev": 201,
+    "devops-infra": 77,
+    "security": 50,
+    "design-creative": 46,
+    "ai-agent-tooling": 22,
+    "marketing-growth": 21
    }
   },
-  "n_days": 3
+  "n_days": 4
  },
  "summary": {
   "insight": {
-   "date": "2026-07-28",
-   "headline": "security 和 devops-infra 拿到最漂亮的文件 proxy，但可能是「安全意識強、寫得清楚」造成的敘事優勢；hardware-eda（你的本業）樣本小到近乎統計雜訊，卻同時是 pain diversity 最高、完成率倒數第三——這只能提出「公開供給稀薄且 IC 設計被系統性低估」的假說，還不能證明市場需求。",
-   "short": "1. 立刻可做：把你既有的「規格+驗收」工作流包裝成 personal-productivity × verify 的 skill，B1 訊號顯示這格幾乎是零（ratio 0.07），你本來就在做這件事，成本最低。\n2. finance-investing × transform 的缺口可以拿來測試你的 Substack 選題：寫一篇「為什麼金融 AI 工具全是分析器，沒人做轉換器」，直接引用 B1 數字。\n3. 不要碰 healthcare-bio 的 generate 缺口——先花五分鐘確認自己沒有被「缺口=機會」的直覺誤導，這格是本報告裡最容易判斷錯的地雷。",
-   "mid": "1. 賭 hardware-eda（n=36 太小，不下重注但值得種）：completion_ratio 0.37、diversity 1.0，公開語料嚴重低估這塊，因為 IC 設計圈根本不習慣把工具公開發 GitHub。我賭這塊會慢慢冒出頭，尤其你自己就是活生生的反例（一個 IC 工程師在自建 pipeline 卻不會出現在這份語料裡）。**什麼訊號證明我錯**：如果三個月後 hardware-eda 樣本數沒有明顯成長、且新增樣本依然全是 EDA 工具腳本而非設計流程類，就代表這領域真的不會走向公開化，我的判斷錯。\n2. 賭 education-training 的完成率會持續墊底（目前 0.19 最低），因為教育的客製化本質跟通用 skill 天生衝突，不是暫時性缺口。**反證訊號**：如果下季 completion_ratio 明顯回升到 0.3+，代表有人找到了「模板化教育內容」的解法，我要重新評估。"
+   "date": "2026-08-08",
+   "headline": "AI Agent 的落地已跨越「生成」階段，正在往「高規格審查（Verify）」與「繁瑣配置（Configure）」的企業痛點收斂，但多數領域缺乏能串接既有工作流的最後一哩路。",
+   "short": "1. **EDA 流程的「外掛式」整合：** 既然 hardware-eda 落地的最大阻礙是封閉工具，你可以在自己建構的 pipeline 中，利用 Python 或 Bash 腳本將 EDA 工具的 Log 導出，讓 Claude Code 擔任純粹的 Verify / Analyze 角色，避開讓 AI 直接操作 EDA 工具的雷區。\n2. **切入「髒資料清理」：** 參考 sales-crm 與 data-analytics 缺少的 Verify 能力，用 ccr 寫一個能對接 CSV 或特定資料庫，專做「異常值標記與格式修正」的厚重工作外包腳本，這能立刻省下大量人工 review 時間。",
+   "mid": "1. **「配置（Configure）」將成為下一個熱門 AI 任務：** 當生成內容不再稀缺，如何讓 AI 產出的東西符合企業既有的環境（設計規範、程式碼風格、法務用詞）將是重點。推論：我賭接下來半年，主打 \"Style-aligned\" 或 \"Policy-compliant\" 的 Agent 框架會崛起。\n   * **證明我錯的訊號：** 如果大型模型（如 GPT-5 或 Claude-4）原生的 Context Window 內建了極強的 Few-shot 對齊能力，導致「外部配置」變成多此一舉。\n2. **Orchestrate（調度）權限會持續被限縮在純軟體圈：** 除了 devops 與 ai-agent-tooling 敢讓 AI 自動執行腳本，其他領域仍會死守審核權。推論：不要在傳統產業（醫療、法務、硬體）推銷全自動 Agent，要推銷「具備精美審核介面的 Copilot」。\n   * **證明我錯的訊號：** legal-compliance 或 healthcare-bio 的 Orchestrate 任務在下一季的數據中突破預期值的 30%。"
   },
   "ecosystem": {
-   "date": "2026-07-29",
-   "headline": "官方無結構性變動，但 Claude Code v2.1.219 悄悄把 Opus 5 設為預設 Opus（1M context、快速模式 $10/$50 per Mtok），這是本週唯一值得直接反映在成本估算上的事實。",
-   "official": "- **v2.1.219**：Opus 5 (`claude-opus-5`) 成為預設 Opus，1M context，fast mode $10/$50 per Mtok；新增 `sandbox.network.strictAllowlist`（sandboxed 指令的網域白名單，不在清單內直接拒絕不再詢問）；新增 `DirectoryAdded` hook。\n  → 對你：strictAllowlist 這個設定值得立刻用在跑第三方 skill 的 sandbox 上，等於多一層「未經允許不能連網」的硬管制。\n- **v2.1.218**：`/code-review` 改為背景 subagent 執行，不再佔用主對話；修復 Windows 路徑含 `\\u` 前綴段被誤轉成中文字元的 bug（IC 工具鏈常見路徑坑，值得留意）。\n- **claude-plugins-official**：本日全是 GitHub Actions bot 自動 bump 第三方 plugin（quarkus-agent、slack、superpowers 等）版本 hash，屬機械性維護，不代表新增/移除官方認可 plugin。"
+   "date": "2026-08-08",
+   "headline": "Claude Code 釋出跨會話通訊與 Self-hosted Runner，Agent-Reach 的零配置管道大洗牌，生態正式走向多 Agent 協作與混合部署。",
+   "official": "- **Claude Code 核心機制升級 (v2.1.224-225)**: \n  - 推出 `self-hosted-runner`，允許企業將自有機器轉為 Claude Code 運行節點，代表官方開始收割混合雲運算市場。\n  - 推出 `crossSessionInbound` 與跨會話通訊。Agent 現在可以跟其他 Agent 直接溝通，這會改變自動化 Pipeline 的設計，從單體 Agent 走向多會話微服務化。\n  - 支援 `archive` 格式安裝外掛，可透過 HTTPS 下載 zip 並驗證 SHA-256，繞過 git/npm 依賴，降低 CI/CD 部署 Agent 的複雜度。\n  - 安全強化：修復 Bash 權限繞過漏洞與隱藏字元欺騙權限驗證對話框的問題。\n- **官方外掛擴增 (`claude-plugins-official`)**:\n  - 新增 `airwallex-dev`、`salesforce-development`、`synthflow` 等外掛。代表金融支付、CRM 與語音 AI 進入官方背書的整合範疇。\n  - `context7` 遷移至遠端 MCP Server，顯示第三方開始脫離本機端執行，轉向 Hosted MCP 服務模式。"
   }
  },
  "timescale_summary": {
   "latest": {
    "day": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-29T09:28:20.117747+00:00",
-    "run_date": "2026-07-29",
+    "generated_at": "2026-08-08T02:32:52.293036+00:00",
+    "run_date": "2026-08-08",
     "period": {
      "scale": "day",
-     "period_id": "2026-07-28",
-     "start": "2026-07-28",
-     "end": "2026-07-28"
+     "period_id": "2026-08-07",
+     "start": "2026-08-07",
+     "end": "2026-08-07"
     },
     "time_contract": {
      "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
@@ -2218,23 +2220,17 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 2,
-      "archive_previous_n": 4,
-      "discovered_n": 168,
+      "archive_n": 1,
+      "archive_previous_n": 2,
+      "discovered_n": 0,
       "discovered_previous_n": 0
      },
      "E2_domain_mix": [
       {
-       "key": "software-dev",
-       "label": "軟體開發",
+       "key": "design-creative",
+       "label": "設計創意",
        "count": 1,
-       "share_pct": 50.0
-      },
-      {
-       "key": "ops-admin",
-       "label": "營運行政",
-       "count": 1,
-       "share_pct": 50.0
+       "share_pct": 100.0
       }
      ],
      "E3_domain_shifts": [],
@@ -2250,16 +2246,16 @@
      "E6_maturity": {
       "mix": [
        {
-        "key": "workflow",
-        "label": "workflow",
+        "key": "production",
+        "label": "production",
         "count": 1,
         "share_pct": 100.0
        }
       ],
       "production_document_proxy": {
-       "count": 0,
+       "count": 1,
        "eligible_n": 1,
-       "pct": 0.0
+       "pct": 100.0
       },
       "agent_target_proxy": {
        "count": 0,
@@ -2270,9 +2266,9 @@
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 1.0,
-       "categories": 2,
-       "n": 2
+       "normalized": 0.0,
+       "categories": 1,
+       "n": 1
       },
       "task_entropy": {
        "normalized": 0.0,
@@ -2302,63 +2298,49 @@
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 2,
-      "comparison_domain_eligible_n": 4,
+      "archive_domain_eligible_n": 1,
+      "comparison_domain_eligible_n": 2,
       "minimum_shift_support": 5
      }
     },
     "ai": {
      "scale": "day",
-     "period_id": "2026-07-28",
-     "headline": "本期樣本量太小，任何結構性結論都站不住腳",
-     "executive_summary": "這一天系統依專案建立日期歸入本期的樣本只有兩筆，另有大量以本系統首次觀察為準的新發現項目，但兩種計數的時間定義不同，不能直接相加或互相印證。由於符合品質門檻可比對的樣本數遠低於做比較所需的最低門檻，今天不足以判斷領域或任務組合是否真的出現變化，只能記錄目前看到的樣子。",
+     "period_id": "2026-08-07",
+     "headline": "設計領域生成技能單點出現，持續缺乏大樣本動能",
+     "executive_summary": "本日與前幾日相似，僅收錄一件依專案建立日期歸屬的設計創意類樣本，其核心任務為生成，並宣稱已達實用等級。由於全市場連續數日呈現公開活動低谷或受限於索引延遲，今日數據依然無法描繪具代表性的趨勢。",
      "structural_changes": [
-      "依專案建立日期歸入本期的樣本僅兩筆，分別落在軟體開發與營運行政兩個領域，各占一半",
-      "任務型態上這兩筆樣本都被標記為生成類，沒有其他任務型態出現",
-      "文件自述已投入使用的比例為零，代表沒有樣本聲稱進入實際佈署"
+      "單一樣本無法用於辨識結構性趨勢。"
      ],
-     "eda_ic_readout": "本期沒有任何樣本落在晶片設計相關範圍內，且次分類本身尚未通過驗證，因此完全無法對特殊應用積體電路或暫存器傳輸級設計做出判讀。",
-     "finance_readout": "本期沒有財經研究相關樣本可供判讀，僅有既有觀察清單裡分別標記為試行與觀察中的項目，但這些狀態與今天的新增證據無關，不能當作今天的財經研究結論。",
-     "contrarian_view": "值得留意的是，如果只看依專案建立日期歸類的樣本會覺得數量在萎縮，但同一天以本系統首次觀察為準的新發現項目卻出現大量增長；這種落差更可能反映資料蒐集節奏或索引時間差，而不是實際供給量的真實變化。",
+     "eda_ic_readout": "無相關資料可供電子設計自動化分析。",
+     "finance_readout": "無相關資料可供財經投資領域研判。",
+     "contrarian_view": "連續的公開平台樣本枯竭，強烈暗示依賴公開開源指標可能已逐漸脫離實際產業導入的節奏，企業端的閉門開發可能正在暗中加速。",
      "actions": [
-      "把依專案建立日期歸類與依系統首次觀察歸類的兩套計數分開存放並各自標示時間定義，避免混用",
-      "針對新發現項目大量增加的這一天，回頭確認資料來源是否有批次補登或索引延遲",
-      "累積更多天數的樣本後再重新檢視領域與任務組合是否出現真正的結構變化",
-      "暫緩對今天的比例數字做任何對外陳述，先標註為觀察不足"
+      "尋求額外資料來源以驗證是否出現開源社群疲勞，抑或純粹為平台技術性的收錄延遲。"
      ],
      "falsifiers": [
-      "後續數天若依專案建立日期歸類的樣本持續維持在極低水準，代表萎縮可能是真實訊號而非取樣噪音",
-      "若新發現項目的暴增只集中在這一天且之後迅速回落，應懷疑是一次性資料抓取異常",
-      "若後續样本中出現晶片設計相關項目且能通過分類驗證，才能開始討論相關領域的判讀",
-      "若財經研究樣本開始穩定出現，才具備建立財經觀點的基礎"
+      "若下週起樣本數恢復正常水準，便能否定社群疲勞的悲觀假說。"
      ],
      "caveats": [
-      "本期樣本量遠低於做比較所需的最低支持門檻，任何比例都可能因單一樣本大幅擺動",
-      "文件自述已投入使用的標籤只是作者自我陳述，不代表實際佈署或成效",
-      "晶片設計次分類尚未通過驗證，任何相關描述只能算暫定，不能當作正確結果",
-      "最新一天的依專案建立日期樣本可能因搜尋索引尚未完整收錄而被低估"
+      "極度不完整的近期資料會嚴重扭曲對市場現況的認知。"
      ],
      "confidence": "LOW",
      "evidence_ids": [
       "E1",
       "E2",
       "E4",
-      "E6",
-      "E8",
-      "E9",
-      "E10"
+      "E6"
      ]
     }
    },
    "week": {
     "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T08:20:52.274621+00:00",
-    "run_date": "2026-07-28",
+    "generated_at": "2026-08-08T02:32:52.293017+00:00",
+    "run_date": "2026-08-08",
     "period": {
      "scale": "week",
-     "period_id": "2026-W30",
-     "start": "2026-07-20",
-     "end": "2026-07-26"
+     "period_id": "2026-W31",
+     "start": "2026-07-27",
+     "end": "2026-08-02"
     },
     "time_contract": {
      "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
@@ -2367,242 +2349,212 @@
     },
     "evidence": {
      "E1_sample": {
-      "archive_n": 47,
-      "archive_previous_n": 68,
-      "discovered_n": 5405,
-      "discovered_previous_n": 0
+      "archive_n": 22,
+      "archive_previous_n": 59,
+      "discovered_n": 213,
+      "discovered_previous_n": 5405
      },
      "E2_domain_mix": [
       {
-       "key": "software-dev",
-       "label": "軟體開發",
-       "count": 9,
-       "share_pct": 19.1
+       "key": "ai-agent-tooling",
+       "label": "AI Agent 工具",
+       "count": 4,
+       "share_pct": 18.2
       },
       {
        "key": "devops-infra",
        "label": "DevOps 基礎設施",
-       "count": 9,
-       "share_pct": 19.1
-      },
-      {
-       "key": "ai-agent-tooling",
-       "label": "AI Agent 工具",
-       "count": 5,
-       "share_pct": 10.6
-      },
-      {
-       "key": "ops-admin",
-       "label": "營運行政",
-       "count": 5,
-       "share_pct": 10.6
-      },
-      {
-       "key": "design-creative",
-       "label": "設計創意",
-       "count": 5,
-       "share_pct": 10.6
-      },
-      {
-       "key": "finance-investing",
-       "label": "財經投資",
-       "count": 3,
-       "share_pct": 6.4
+       "count": 4,
+       "share_pct": 18.2
       },
       {
        "key": "security",
        "label": "資安",
-       "count": 2,
-       "share_pct": 4.3
+       "count": 3,
+       "share_pct": 13.6
       },
-      {
-       "key": "hardware-eda",
-       "label": "硬體 / EDA",
-       "count": 2,
-       "share_pct": 4.3
-      }
-     ],
-     "E3_domain_shifts": [
       {
        "key": "software-dev",
        "label": "軟體開發",
-       "current_count": 9,
-       "previous_count": 25,
-       "current_share_pct": 19.1,
-       "previous_share_pct": 36.8,
-       "delta_pp": -17.6
+       "count": 3,
+       "share_pct": 13.6
       },
       {
-       "key": "devops-infra",
-       "label": "DevOps 基礎設施",
-       "current_count": 9,
-       "previous_count": 6,
-       "current_share_pct": 19.1,
-       "previous_share_pct": 8.8,
-       "delta_pp": 10.3
-      },
-      {
-       "key": "ai-agent-tooling",
-       "label": "AI Agent 工具",
-       "current_count": 5,
-       "previous_count": 11,
-       "current_share_pct": 10.6,
-       "previous_share_pct": 16.2,
-       "delta_pp": -5.5
-      },
-      {
-       "key": "design-creative",
-       "label": "設計創意",
-       "current_count": 5,
-       "previous_count": 4,
-       "current_share_pct": 10.6,
-       "previous_share_pct": 5.9,
-       "delta_pp": 4.8
+       "key": "ops-admin",
+       "label": "營運行政",
+       "count": 2,
+       "share_pct": 9.1
       },
       {
        "key": "research-academia",
        "label": "研究學術",
-       "current_count": 1,
-       "previous_count": 4,
-       "current_share_pct": 2.1,
-       "previous_share_pct": 5.9,
-       "delta_pp": -3.8
+       "count": 2,
+       "share_pct": 9.1
       },
       {
-       "key": "finance-investing",
-       "label": "財經投資",
-       "current_count": 3,
-       "previous_count": 2,
-       "current_share_pct": 6.4,
-       "previous_share_pct": 2.9,
-       "delta_pp": 3.4
+       "key": "design-creative",
+       "label": "設計創意",
+       "count": 1,
+       "share_pct": 4.5
       },
       {
-       "key": "ops-admin",
-       "label": "營運行政",
-       "current_count": 5,
+       "key": "healthcare-bio",
+       "label": "醫療生技",
+       "count": 1,
+       "share_pct": 4.5
+      }
+     ],
+     "E3_domain_shifts": [
+      {
+       "key": "ai-agent-tooling",
+       "label": "AI Agent 工具",
+       "current_count": 4,
        "previous_count": 5,
-       "current_share_pct": 10.6,
-       "previous_share_pct": 7.4,
-       "delta_pp": 3.3
+       "current_share_pct": 18.2,
+       "previous_share_pct": 8.5,
+       "delta_pp": 9.7
       },
       {
        "key": "security",
        "label": "資安",
-       "current_count": 2,
+       "current_count": 3,
        "previous_count": 4,
-       "current_share_pct": 4.3,
-       "previous_share_pct": 5.9,
-       "delta_pp": -1.6
+       "current_share_pct": 13.6,
+       "previous_share_pct": 6.8,
+       "delta_pp": 6.9
+      },
+      {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "current_count": 3,
+       "previous_count": 12,
+       "current_share_pct": 13.6,
+       "previous_share_pct": 20.3,
+       "delta_pp": -6.7
+      },
+      {
+       "key": "design-creative",
+       "label": "設計創意",
+       "current_count": 1,
+       "previous_count": 5,
+       "current_share_pct": 4.5,
+       "previous_share_pct": 8.5,
+       "delta_pp": -3.9
+      },
+      {
+       "key": "ops-admin",
+       "label": "營運行政",
+       "current_count": 2,
+       "previous_count": 5,
+       "current_share_pct": 9.1,
+       "previous_share_pct": 8.5,
+       "delta_pp": 0.6
+      },
+      {
+       "key": "devops-infra",
+       "label": "DevOps 基礎設施",
+       "current_count": 4,
+       "previous_count": 11,
+       "current_share_pct": 18.2,
+       "previous_share_pct": 18.6,
+       "delta_pp": -0.5
       }
      ],
      "E4_task_mix": [
       {
        "key": "generate",
        "label": "生成",
-       "count": 12,
-       "share_pct": 26.1
-      },
-      {
-       "key": "configure",
-       "label": "配置",
-       "count": 9,
-       "share_pct": 19.6
-      },
-      {
-       "key": "orchestrate",
-       "label": "調度",
-       "count": 8,
-       "share_pct": 17.4
-      },
-      {
-       "key": "retrieve",
-       "label": "檢索",
        "count": 5,
-       "share_pct": 10.9
-      },
-      {
-       "key": "analyze",
-       "label": "分析",
-       "count": 5,
-       "share_pct": 10.9
-      },
-      {
-       "key": "transform",
-       "label": "轉換",
-       "count": 4,
-       "share_pct": 8.7
+       "share_pct": 31.2
       },
       {
        "key": "verify",
        "label": "驗證",
+       "count": 4,
+       "share_pct": 25.0
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
        "count": 3,
-       "share_pct": 6.5
+       "share_pct": 18.8
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 2,
+       "share_pct": 12.5
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "count": 2,
+       "share_pct": 12.5
       }
      ],
      "E5_task_shifts": [
       {
        "key": "verify",
        "label": "驗證",
-       "current_count": 3,
-       "previous_count": 12,
-       "current_share_pct": 6.5,
-       "previous_share_pct": 18.2,
-       "delta_pp": -11.7
-      },
-      {
-       "key": "orchestrate",
-       "label": "調度",
-       "current_count": 8,
-       "previous_count": 6,
-       "current_share_pct": 17.4,
-       "previous_share_pct": 9.1,
-       "delta_pp": 8.3
-      },
-      {
-       "key": "generate",
-       "label": "生成",
-       "current_count": 12,
-       "previous_count": 12,
-       "current_share_pct": 26.1,
-       "previous_share_pct": 18.2,
-       "delta_pp": 7.9
-      },
-      {
-       "key": "configure",
-       "label": "配置",
-       "current_count": 9,
-       "previous_count": 17,
-       "current_share_pct": 19.6,
-       "previous_share_pct": 25.8,
-       "delta_pp": -6.2
+       "current_count": 4,
+       "previous_count": 4,
+       "current_share_pct": 25.0,
+       "previous_share_pct": 7.5,
+       "delta_pp": 17.5
       },
       {
        "key": "analyze",
        "label": "分析",
-       "current_count": 5,
-       "previous_count": 10,
-       "current_share_pct": 10.9,
-       "previous_share_pct": 15.2,
-       "delta_pp": -4.3
-      },
-      {
-       "key": "retrieve",
-       "label": "檢索",
-       "current_count": 5,
-       "previous_count": 5,
-       "current_share_pct": 10.9,
-       "previous_share_pct": 7.6,
-       "delta_pp": 3.3
+       "current_count": 0,
+       "previous_count": 7,
+       "current_share_pct": 0.0,
+       "previous_share_pct": 13.2,
+       "delta_pp": -13.2
       },
       {
        "key": "transform",
        "label": "轉換",
-       "current_count": 4,
-       "previous_count": 4,
-       "current_share_pct": 8.7,
-       "previous_share_pct": 6.1,
-       "delta_pp": 2.6
+       "current_count": 0,
+       "previous_count": 5,
+       "current_share_pct": 0.0,
+       "previous_share_pct": 9.4,
+       "delta_pp": -9.4
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "current_count": 3,
+       "previous_count": 6,
+       "current_share_pct": 18.8,
+       "previous_share_pct": 11.3,
+       "delta_pp": 7.4
+      },
+      {
+       "key": "generate",
+       "label": "生成",
+       "current_count": 5,
+       "previous_count": 13,
+       "current_share_pct": 31.2,
+       "previous_share_pct": 24.5,
+       "delta_pp": 6.7
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "current_count": 2,
+       "previous_count": 9,
+       "current_share_pct": 12.5,
+       "previous_share_pct": 17.0,
+       "delta_pp": -4.5
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "current_count": 2,
+       "previous_count": 9,
+       "current_share_pct": 12.5,
+       "previous_share_pct": 17.0,
+       "delta_pp": -4.5
       }
      ],
      "E6_maturity": {
@@ -2610,54 +2562,435 @@
        {
         "key": "production",
         "label": "production",
-        "count": 24,
-        "share_pct": 51.1
+        "count": 10,
+        "share_pct": 50.0
        },
        {
         "key": "workflow",
         "label": "workflow",
-        "count": 22,
-        "share_pct": 46.8
+        "count": 7,
+        "share_pct": 35.0
        },
        {
         "key": "toy",
         "label": "toy",
-        "count": 1,
-        "share_pct": 2.1
+        "count": 3,
+        "share_pct": 15.0
        }
       ],
       "production_document_proxy": {
-       "count": 24,
-       "eligible_n": 47,
-       "pct": 51.1
+       "count": 10,
+       "eligible_n": 20,
+       "pct": 50.0
       },
       "agent_target_proxy": {
-       "count": 5,
-       "eligible_n": 46,
-       "pct": 10.9
+       "count": 3,
+       "eligible_n": 14,
+       "pct": 21.4
       },
       "warning": "document labels are intent/proxy, not deployment or outcome verification"
      },
      "E7_diversity": {
       "domain_entropy": {
-       "normalized": 0.899,
-       "categories": 13,
-       "n": 47
+       "normalized": 0.939,
+       "categories": 10,
+       "n": 22
       },
       "task_entropy": {
-       "normalized": 0.949,
-       "categories": 7,
-       "n": 46
+       "normalized": 0.959,
+       "categories": 5,
+       "n": 16
       }
      },
      "E8_eda_ic": {
-      "hardware_eda_n": 2,
+      "hardware_eda_n": 0,
+      "owner_fit_provisional": {},
+      "hardware_target_provisional": {},
+      "top_asic_stages": [],
+      "wifi_areas": [],
+      "taxonomy_validation": "BLOCKED",
+      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+     },
+     "E9_finance": {
+      "finance_n": 0,
+      "task_mix": [],
+      "maturity_mix": [],
+      "current_recommendation_states": {
+       "pilot": 2,
+       "watch": 3
+      },
+      "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+     },
+     "E10_quality": {
+      "neutral_population_only": true,
+      "targeted_rows_excluded": true,
+      "archive_domain_eligible_n": 22,
+      "comparison_domain_eligible_n": 59,
+      "minimum_shift_support": 5
+     }
+    },
+    "ai": {
+     "scale": "week",
+     "period_id": "2026-W31",
+     "headline": "人工智慧輔助與資安專案佔比竄升，任務重心轉向系統驗證",
+     "executive_summary": "本週本期新發現與依建檔時間歸入的樣本數量維持穩定。我們觀察到傳統軟體開發領域的比重顯著下滑，取而代之的是人工智慧輔助工具與資訊安全專案的快速崛起。任務型態上，驗證工作呈現跳躍式成長，分析與轉換類型的任務則雙雙減少。過半數專案標示已達實用等級，顯示社群正積極打造能解決實際痛點的工具。",
+     "structural_changes": [
+      "人工智慧輔助工具與資安專案的佔比大幅上升，軟體開發的相對比重則明顯衰退。",
+      "驗證類任務的比例激增，分析與轉換任務顯著下滑，顯示開發重點從資料處理轉向確保系統正確性。",
+      "自我宣告為代理導向的專案比例達兩成，暗示進階自動化的企圖心正在醞釀。"
+     ],
+     "eda_ic_readout": "本週未尋獲與無線基頻或特殊應用積體電路相關的樣本，無法研判硬體自動化的最新趨勢。",
+     "finance_readout": "本週未見針對財務數據、估值或風險論點的專屬研究專案。",
+     "contrarian_view": "儘管資安領域的開發活動升溫且驗證任務增加，這可能反映了近期市場對大型語言模型生成程式碼的不信任感加劇，而非單純的技術推進。",
+     "actions": [
+      "深究本週湧現的資安與驗證技能，評估其能否無縫整合至現有的持續整合流程中。",
+      "追蹤人工智慧輔助工具的後續更新，確認其能否跨越初期的實驗階段。"
+     ],
+     "falsifiers": [
+      "若下週驗證任務的比重迅速回落，則本週的激增可能僅是少數專案批次發布所造成的短期雜訊。"
+     ],
+     "caveats": [
+      "本週樣本總量相較於月度基準較小，特定領域的佔比變動極易被放大解讀。",
+      "文件自述的成熟程度不能完全代表實際在企業環境運行的穩定度。"
+     ],
+     "confidence": "MEDIUM",
+     "evidence_ids": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7"
+     ]
+    }
+   },
+   "month": {
+    "status": "AI_GENERATED",
+    "generated_at": "2026-08-08T02:32:52.292996+00:00",
+    "run_date": "2026-08-08",
+    "period": {
+     "scale": "month",
+     "period_id": "2026-07",
+     "start": "2026-07-01",
+     "end": "2026-07-31"
+    },
+    "time_contract": {
+     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+     "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+     "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+    },
+    "evidence": {
+     "E1_sample": {
+      "archive_n": 329,
+      "archive_previous_n": 522,
+      "discovered_n": 5618,
+      "discovered_previous_n": 0
+     },
+     "E2_domain_mix": [
+      {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "count": 94,
+       "share_pct": 28.6
+      },
+      {
+       "key": "ai-agent-tooling",
+       "label": "AI Agent 工具",
+       "count": 43,
+       "share_pct": 13.1
+      },
+      {
+       "key": "design-creative",
+       "label": "設計創意",
+       "count": 35,
+       "share_pct": 10.6
+      },
+      {
+       "key": "devops-infra",
+       "label": "DevOps 基礎設施",
+       "count": 29,
+       "share_pct": 8.8
+      },
+      {
+       "key": "security",
+       "label": "資安",
+       "count": 27,
+       "share_pct": 8.2
+      },
+      {
+       "key": "ops-admin",
+       "label": "營運行政",
+       "count": 25,
+       "share_pct": 7.6
+      },
+      {
+       "key": "personal-productivity",
+       "label": "個人生產力",
+       "count": 14,
+       "share_pct": 4.3
+      },
+      {
+       "key": "finance-investing",
+       "label": "財經投資",
+       "count": 11,
+       "share_pct": 3.3
+      }
+     ],
+     "E3_domain_shifts": [
+      {
+       "key": "ops-admin",
+       "label": "營運行政",
+       "current_count": 25,
+       "previous_count": 16,
+       "current_share_pct": 7.6,
+       "previous_share_pct": 3.1,
+       "delta_pp": 4.5
+      },
+      {
+       "key": "design-creative",
+       "label": "設計創意",
+       "current_count": 35,
+       "previous_count": 38,
+       "current_share_pct": 10.6,
+       "previous_share_pct": 7.3,
+       "delta_pp": 3.4
+      },
+      {
+       "key": "marketing-growth",
+       "label": "行銷成長",
+       "current_count": 8,
+       "previous_count": 26,
+       "current_share_pct": 2.4,
+       "previous_share_pct": 5.0,
+       "delta_pp": -2.5
+      },
+      {
+       "key": "devops-infra",
+       "label": "DevOps 基礎設施",
+       "current_count": 29,
+       "previous_count": 36,
+       "current_share_pct": 8.8,
+       "previous_share_pct": 6.9,
+       "delta_pp": 1.9
+      },
+      {
+       "key": "personal-productivity",
+       "label": "個人生產力",
+       "current_count": 14,
+       "previous_count": 32,
+       "current_share_pct": 4.3,
+       "previous_share_pct": 6.1,
+       "delta_pp": -1.9
+      },
+      {
+       "key": "writing-content",
+       "label": "寫作內容",
+       "current_count": 9,
+       "previous_count": 22,
+       "current_share_pct": 2.7,
+       "previous_share_pct": 4.2,
+       "delta_pp": -1.5
+      },
+      {
+       "key": "ai-agent-tooling",
+       "label": "AI Agent 工具",
+       "current_count": 43,
+       "previous_count": 75,
+       "current_share_pct": 13.1,
+       "previous_share_pct": 14.4,
+       "delta_pp": -1.3
+      },
+      {
+       "key": "security",
+       "label": "資安",
+       "current_count": 27,
+       "previous_count": 37,
+       "current_share_pct": 8.2,
+       "previous_share_pct": 7.1,
+       "delta_pp": 1.1
+      },
+      {
+       "key": "legal-compliance",
+       "label": "法務合規",
+       "current_count": 2,
+       "previous_count": 7,
+       "current_share_pct": 0.6,
+       "previous_share_pct": 1.3,
+       "delta_pp": -0.7
+      },
+      {
+       "key": "data-analytics",
+       "label": "資料分析",
+       "current_count": 7,
+       "previous_count": 14,
+       "current_share_pct": 2.1,
+       "previous_share_pct": 2.7,
+       "delta_pp": -0.6
+      }
+     ],
+     "E4_task_mix": [
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 83,
+       "share_pct": 27.8
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 52,
+       "share_pct": 17.4
+      },
+      {
+       "key": "verify",
+       "label": "驗證",
+       "count": 46,
+       "share_pct": 15.4
+      },
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 37,
+       "share_pct": 12.4
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "count": 37,
+       "share_pct": 12.4
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "count": 22,
+       "share_pct": 7.4
+      },
+      {
+       "key": "transform",
+       "label": "轉換",
+       "count": 22,
+       "share_pct": 7.4
+      }
+     ],
+     "E5_task_shifts": [
+      {
+       "key": "generate",
+       "label": "生成",
+       "current_count": 83,
+       "previous_count": 107,
+       "current_share_pct": 27.8,
+       "previous_share_pct": 22.0,
+       "delta_pp": 5.7
+      },
+      {
+       "key": "transform",
+       "label": "轉換",
+       "current_count": 22,
+       "previous_count": 48,
+       "current_share_pct": 7.4,
+       "previous_share_pct": 9.9,
+       "delta_pp": -2.5
+      },
+      {
+       "key": "analyze",
+       "label": "分析",
+       "current_count": 37,
+       "previous_count": 70,
+       "current_share_pct": 12.4,
+       "previous_share_pct": 14.4,
+       "delta_pp": -2.0
+      },
+      {
+       "key": "configure",
+       "label": "配置",
+       "current_count": 52,
+       "previous_count": 90,
+       "current_share_pct": 17.4,
+       "previous_share_pct": 18.5,
+       "delta_pp": -1.1
+      },
+      {
+       "key": "retrieve",
+       "label": "檢索",
+       "current_count": 22,
+       "previous_count": 39,
+       "current_share_pct": 7.4,
+       "previous_share_pct": 8.0,
+       "delta_pp": -0.7
+      },
+      {
+       "key": "verify",
+       "label": "驗證",
+       "current_count": 46,
+       "previous_count": 72,
+       "current_share_pct": 15.4,
+       "previous_share_pct": 14.8,
+       "delta_pp": 0.6
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "current_count": 37,
+       "previous_count": 60,
+       "current_share_pct": 12.4,
+       "previous_share_pct": 12.3,
+       "delta_pp": 0.0
+      }
+     ],
+     "E6_maturity": {
+      "mix": [
+       {
+        "key": "workflow",
+        "label": "workflow",
+        "count": 153,
+        "share_pct": 49.2
+       },
+       {
+        "key": "production",
+        "label": "production",
+        "count": 152,
+        "share_pct": 48.9
+       },
+       {
+        "key": "toy",
+        "label": "toy",
+        "count": 6,
+        "share_pct": 1.9
+       }
+      ],
+      "production_document_proxy": {
+       "count": 152,
+       "eligible_n": 311,
+       "pct": 48.9
+      },
+      "agent_target_proxy": {
+       "count": 44,
+       "eligible_n": 301,
+       "pct": 14.6
+      },
+      "warning": "document labels are intent/proxy, not deployment or outcome verification"
+     },
+     "E7_diversity": {
+      "domain_entropy": {
+       "normalized": 0.837,
+       "categories": 16,
+       "n": 329
+      },
+      "task_entropy": {
+       "normalized": 0.95,
+       "categories": 7,
+       "n": 299
+      }
+     },
+     "E8_eda_ic": {
+      "hardware_eda_n": 3,
       "owner_fit_provisional": {
-       "adjacent": 1,
+       "adjacent": 2,
        "supporting": 1
       },
       "hardware_target_provisional": {
-       "generic": 2
+       "generic": 3
       },
       "top_asic_stages": [
        {
@@ -2670,521 +3003,85 @@
       "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
      },
      "E9_finance": {
-      "finance_n": 3,
-      "task_mix": [
-       {
-        "key": "retrieve",
-        "label": "檢索",
-        "count": 2,
-        "share_pct": 66.7
-       },
-       {
-        "key": "analyze",
-        "label": "分析",
-        "count": 1,
-        "share_pct": 33.3
-       }
-      ],
-      "maturity_mix": [
-       {
-        "key": "production",
-        "label": "production",
-        "count": 2,
-        "share_pct": 66.7
-       },
-       {
-        "key": "workflow",
-        "label": "workflow",
-        "count": 1,
-        "share_pct": 33.3
-       }
-      ],
-      "current_recommendation_states": {
-       "pilot": 3,
-       "watch": 5
-      },
-      "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
-     },
-     "E10_quality": {
-      "neutral_population_only": true,
-      "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 47,
-      "comparison_domain_eligible_n": 68,
-      "minimum_shift_support": 5
-     }
-    },
-    "ai": {
-     "scale": "week",
-     "period_id": "2026-W30",
-     "headline": "本週看似湧入大量新項目，真正的訊號卻是觀察範圍改變",
-     "executive_summary": "本系統在本週首次收進大量資料，但依公開專案建立日期歸入本週的樣本反而偏少。兩個現象放在一起，更像收集機制補齊了先前看不到的內容，而不是技能供給突然爆發。開發維運類比重上升、軟體開發類下降，目前只能當成待驗證線索。",
-     "structural_changes": [
-      "新發現的跳升遠大於同期史料變化，顯示觀察系統本身是主要變因",
-      "生成與工作調度的描述變多，驗證與設定的描述變少，但少量樣本很容易被個別專案扭曲"
-     ],
-     "eda_ic_readout": "電子設計自動化與數位晶片設計的樣本太少，也沒有直接對應無線網路基頻設計的內容。本週不宜因此調整採用清單。",
-     "finance_readout": "財經內容同樣稀少，主要集中在資料查找與初步分析，還不足以說明研究方法正在轉向。",
-     "contrarian_view": "如果後續人工抽樣發現這批項目來自彼此獨立且近期活躍的來源，那麼供給加速的解釋才值得重新討論。",
-     "actions": [
-      "抽樣檢查大量新發現是否來自一次性搜尋擴張或舊資料補回",
-      "下一完整週再比較同一套搜尋範圍，確認領域變化是否重現"
-     ],
-     "falsifiers": [
-      "若下一週新發現回到低量，這次跳升就較可能是一次性補回",
-      "若領域變化分散於許多獨立來源並持續重現，系統事件的解釋就會變弱"
-     ],
-     "caveats": [
-      "本週首次找到的項目與本週建立的公開專案是兩種不同時間",
-      "專業晶片與財經工作常不公開，公開資料會低估真實活動"
-     ],
-     "confidence": "LOW",
-     "evidence_ids": [
-      "E1",
-      "E3",
-      "E5",
-      "E8",
-      "E9"
-     ]
-    }
-   },
-   "month": {
-    "status": "AI_GENERATED",
-    "generated_at": "2026-07-28T08:20:52.274583+00:00",
-    "run_date": "2026-07-28",
-    "period": {
-     "scale": "month",
-     "period_id": "2026-06",
-     "start": "2026-06-01",
-     "end": "2026-06-30"
-    },
-    "time_contract": {
-     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
-     "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
-     "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
-    },
-    "evidence": {
-     "E1_sample": {
-      "archive_n": 468,
-      "archive_previous_n": 652,
-      "discovered_n": 0,
-      "discovered_previous_n": 0
-     },
-     "E2_domain_mix": [
-      {
-       "key": "software-dev",
-       "label": "軟體開發",
-       "count": 133,
-       "share_pct": 28.4
-      },
-      {
-       "key": "ai-agent-tooling",
-       "label": "AI Agent 工具",
-       "count": 72,
-       "share_pct": 15.4
-      },
-      {
-       "key": "security",
-       "label": "資安",
-       "count": 36,
-       "share_pct": 7.7
-      },
-      {
-       "key": "personal-productivity",
-       "label": "個人生產力",
-       "count": 32,
-       "share_pct": 6.8
-      },
-      {
-       "key": "design-creative",
-       "label": "設計創意",
-       "count": 28,
-       "share_pct": 6.0
-      },
-      {
-       "key": "devops-infra",
-       "label": "DevOps 基礎設施",
-       "count": 24,
-       "share_pct": 5.1
-      },
-      {
-       "key": "marketing-growth",
-       "label": "行銷成長",
-       "count": 23,
-       "share_pct": 4.9
-      },
-      {
-       "key": "writing-content",
-       "label": "寫作內容",
-       "count": 21,
-       "share_pct": 4.5
-      }
-     ],
-     "E3_domain_shifts": [
-      {
-       "key": "legal-compliance",
-       "label": "法務合規",
-       "current_count": 6,
-       "previous_count": 34,
-       "current_share_pct": 1.3,
-       "previous_share_pct": 5.2,
-       "delta_pp": -3.9
-      },
-      {
-       "key": "software-dev",
-       "label": "軟體開發",
-       "current_count": 133,
-       "previous_count": 161,
-       "current_share_pct": 28.4,
-       "previous_share_pct": 24.7,
-       "delta_pp": 3.7
-      },
-      {
-       "key": "healthcare-bio",
-       "label": "醫療生技",
-       "current_count": 8,
-       "previous_count": 27,
-       "current_share_pct": 1.7,
-       "previous_share_pct": 4.1,
-       "delta_pp": -2.4
-      },
-      {
-       "key": "marketing-growth",
-       "label": "行銷成長",
-       "current_count": 23,
-       "previous_count": 19,
-       "current_share_pct": 4.9,
-       "previous_share_pct": 2.9,
-       "delta_pp": 2.0
-      },
-      {
-       "key": "ai-agent-tooling",
-       "label": "AI Agent 工具",
-       "current_count": 72,
-       "previous_count": 112,
-       "current_share_pct": 15.4,
-       "previous_share_pct": 17.2,
-       "delta_pp": -1.8
-      },
-      {
-       "key": "design-creative",
-       "label": "設計創意",
-       "current_count": 28,
-       "previous_count": 51,
-       "current_share_pct": 6.0,
-       "previous_share_pct": 7.8,
-       "delta_pp": -1.8
-      },
-      {
-       "key": "education-training",
-       "label": "教育訓練",
-       "current_count": 12,
-       "previous_count": 8,
-       "current_share_pct": 2.6,
-       "previous_share_pct": 1.2,
-       "delta_pp": 1.3
-      },
-      {
-       "key": "research-academia",
-       "label": "研究學術",
-       "current_count": 17,
-       "previous_count": 32,
-       "current_share_pct": 3.6,
-       "previous_share_pct": 4.9,
-       "delta_pp": -1.3
-      },
-      {
-       "key": "security",
-       "label": "資安",
-       "current_count": 36,
-       "previous_count": 42,
-       "current_share_pct": 7.7,
-       "previous_share_pct": 6.4,
-       "delta_pp": 1.3
-      },
-      {
-       "key": "data-analytics",
-       "label": "資料分析",
-       "current_count": 13,
-       "previous_count": 11,
-       "current_share_pct": 2.8,
-       "previous_share_pct": 1.7,
-       "delta_pp": 1.1
-      }
-     ],
-     "E4_task_mix": [
-      {
-       "key": "generate",
-       "label": "生成",
-       "count": 99,
-       "share_pct": 21.5
-      },
-      {
-       "key": "configure",
-       "label": "配置",
-       "count": 86,
-       "share_pct": 18.7
-      },
-      {
-       "key": "verify",
-       "label": "驗證",
-       "count": 67,
-       "share_pct": 14.6
-      },
-      {
-       "key": "analyze",
-       "label": "分析",
-       "count": 66,
-       "share_pct": 14.3
-      },
-      {
-       "key": "orchestrate",
-       "label": "調度",
-       "count": 58,
-       "share_pct": 12.6
-      },
-      {
-       "key": "transform",
-       "label": "轉換",
-       "count": 46,
-       "share_pct": 10.0
-      },
-      {
-       "key": "retrieve",
-       "label": "檢索",
-       "count": 38,
-       "share_pct": 8.3
-      }
-     ],
-     "E5_task_shifts": [
-      {
-       "key": "configure",
-       "label": "配置",
-       "current_count": 86,
-       "previous_count": 108,
-       "current_share_pct": 18.7,
-       "previous_share_pct": 16.9,
-       "delta_pp": 1.8
-      },
-      {
-       "key": "analyze",
-       "label": "分析",
-       "current_count": 66,
-       "previous_count": 102,
-       "current_share_pct": 14.3,
-       "previous_share_pct": 16.0,
-       "delta_pp": -1.6
-      },
-      {
-       "key": "orchestrate",
-       "label": "調度",
-       "current_count": 58,
-       "previous_count": 90,
-       "current_share_pct": 12.6,
-       "previous_share_pct": 14.1,
-       "delta_pp": -1.5
-      },
-      {
-       "key": "transform",
-       "label": "轉換",
-       "current_count": 46,
-       "previous_count": 55,
-       "current_share_pct": 10.0,
-       "previous_share_pct": 8.6,
-       "delta_pp": 1.4
-      },
-      {
-       "key": "generate",
-       "label": "生成",
-       "current_count": 99,
-       "previous_count": 134,
-       "current_share_pct": 21.5,
-       "previous_share_pct": 21.0,
-       "delta_pp": 0.5
-      },
-      {
-       "key": "retrieve",
-       "label": "檢索",
-       "current_count": 38,
-       "previous_count": 56,
-       "current_share_pct": 8.3,
-       "previous_share_pct": 8.8,
-       "delta_pp": -0.5
-      },
-      {
-       "key": "verify",
-       "label": "驗證",
-       "current_count": 67,
-       "previous_count": 93,
-       "current_share_pct": 14.6,
-       "previous_share_pct": 14.6,
-       "delta_pp": -0.0
-      }
-     ],
-     "E6_maturity": {
-      "mix": [
-       {
-        "key": "workflow",
-        "label": "workflow",
-        "count": 248,
-        "share_pct": 53.6
-       },
-       {
-        "key": "production",
-        "label": "production",
-        "count": 202,
-        "share_pct": 43.6
-       },
-       {
-        "key": "toy",
-        "label": "toy",
-        "count": 13,
-        "share_pct": 2.8
-       }
-      ],
-      "production_document_proxy": {
-       "count": 202,
-       "eligible_n": 463,
-       "pct": 43.6
-      },
-      "agent_target_proxy": {
-       "count": 79,
-       "eligible_n": 465,
-       "pct": 17.0
-      },
-      "warning": "document labels are intent/proxy, not deployment or outcome verification"
-     },
-     "E7_diversity": {
-      "domain_entropy": {
-       "normalized": 0.833,
-       "categories": 18,
-       "n": 468
-      },
-      "task_entropy": {
-       "normalized": 0.977,
-       "categories": 7,
-       "n": 460
-      }
-     },
-     "E8_eda_ic": {
-      "hardware_eda_n": 5,
-      "owner_fit_provisional": {
-       "adjacent": 4,
-       "exclude": 1
-      },
-      "hardware_target_provisional": {
-       "generic": 4,
-       "fpga": 1
-      },
-      "top_asic_stages": [
-       {
-        "key": "lint-cdc-rdc",
-        "count": 1
-       },
-       {
-        "key": "simulation-debug",
-        "count": 1
-       }
-      ],
-      "wifi_areas": [],
-      "taxonomy_validation": "BLOCKED",
-      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
-     },
-     "E9_finance": {
-      "finance_n": 18,
+      "finance_n": 11,
       "task_mix": [
        {
         "key": "analyze",
         "label": "分析",
-        "count": 7,
-        "share_pct": 41.2
-       },
-       {
-        "key": "retrieve",
-        "label": "檢索",
         "count": 4,
-        "share_pct": 23.5
+        "share_pct": 40.0
+       },
+       {
+        "key": "retrieve",
+        "label": "檢索",
+        "count": 3,
+        "share_pct": 30.0
        },
        {
         "key": "orchestrate",
         "label": "調度",
-        "count": 2,
-        "share_pct": 11.8
-       },
-       {
-        "key": "generate",
-        "label": "生成",
-        "count": 2,
-        "share_pct": 11.8
-       },
-       {
-        "key": "configure",
-        "label": "配置",
-        "count": 1,
-        "share_pct": 5.9
-       },
-       {
-        "key": "verify",
-        "label": "驗證",
-        "count": 1,
-        "share_pct": 5.9
+        "count": 3,
+        "share_pct": 30.0
        }
       ],
       "maturity_mix": [
        {
-        "key": "workflow",
-        "label": "workflow",
-        "count": 10,
-        "share_pct": 58.8
-       },
-       {
         "key": "production",
         "label": "production",
         "count": 7,
-        "share_pct": 41.2
+        "share_pct": 70.0
+       },
+       {
+        "key": "workflow",
+        "label": "workflow",
+        "count": 3,
+        "share_pct": 30.0
        }
       ],
       "current_recommendation_states": {
-       "pilot": 3,
-       "watch": 5
+       "pilot": 2,
+       "watch": 3
       },
       "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
      },
      "E10_quality": {
       "neutral_population_only": true,
       "targeted_rows_excluded": true,
-      "archive_domain_eligible_n": 468,
-      "comparison_domain_eligible_n": 652,
+      "archive_domain_eligible_n": 329,
+      "comparison_domain_eligible_n": 522,
       "minimum_shift_support": 5
      }
     },
     "ai": {
      "scale": "month",
-     "period_id": "2026-06",
-     "headline": "軟體開發仍是主體，本月更值得注意的是專業領域的可見度落差",
-     "executive_summary": "依公開專案的建立日期觀察，軟體開發的比重仍高，法務合規與醫療生技則明顯變少。不過本月可見的整體史料也比前一期少，因此這更像公開程度與搜尋完整度的共同結果，不能直接解讀成真實需求轉移。",
+     "period_id": "2026-07",
+     "headline": "軟體開發主導單月動能，營運行政與生成任務呈現顯著擴張",
+     "executive_summary": "本月份我們觀察到龐大的本期新發現技能與回溯樣本，充分展現了市場整體的活躍度。傳統軟體開發仍是最大的應用場景，但營運行政與設計創意領域的佔比出現明顯成長。從任務屬性來看，內容生成的需求大幅回升，絕大多數文件皆標示其專案已達實用等級或具備完整工作流程。硬體設計與財經領域也有零星但具體的進展。",
      "structural_changes": [
-      "軟體開發的比重上升，但整體可見樣本縮小，不能把比重增加當成絕對成長",
-      "法務合規與醫療生技下降幅度較大，恰好也是企業內部資料最不容易公開的領域"
+      "營運管理相關技能的佔比出現顯著增長，顯示自動化正向傳統後勤業務深度滲透。",
+      "生成類任務的比例大幅提升，取代了部分轉換與分析任務的相對比重。",
+      "絕大多數樣本自述已具備完整工作流程或達到實用階段，純實驗性質的玩具型專案比例極低。"
      ],
-     "eda_ic_readout": "數位晶片設計相關材料仍然很少，分類方法也尚未完成可靠度確認。目前只能挑出候選做人工閱讀，不能據此選擇工具或更動設計流程。",
-     "finance_readout": "財經材料開始看得出資料分析與查找是常見用途，但樣本仍偏少。較穩健的用法是改善資料來源、財報整理與反方論證，而不是產生買賣結論。",
-     "contrarian_view": "專業領域變少，可能只是公開平台越來越偏向容易展示的通用工具；它不一定代表企業對專業能力的需求下降。",
+     "eda_ic_readout": "本月觀察到少數硬體相關樣本，涵蓋規格與架構設計階段，但多屬通用硬體或周邊輔助性質，尚未見到直接針對特殊應用積體電路或無線基頻的核心自動化方案。由於次級分類尚未完成權威驗證，此項發現僅供初步參考。",
+     "finance_readout": "財經領域出現了多項專注於分析與檢索的專案，多數自述已達實用水平。這些技能主要聚焦於資料彙整與基本面論點研究，並嚴守不涉及交易執行與帳戶操作的安全邊界。",
+     "contrarian_view": "儘管近半數專案宣稱具備實際應用價值，但針對自主代理運作的專案比例仍然偏低，這意味著多數工具仍高度依賴人類介入與監督，並未真正實現理想中的全自動化。",
      "actions": [
-      "對下降最多的專業領域做來源抽樣，分辨真實減少與搜尋缺口",
-      "晶片與財經候選只做人工驗證，不因比重變化直接升級採用"
+      "深入檢視營運行政領域的新興工具，評估其在企業內部後勤流程的實際適用性。",
+      "針對財經分析類技能，測試其對於財報數據萃取的準確度與風險評估邏輯。"
      ],
      "falsifiers": [
-      "若後續補齊索引後專業領域迅速回升，本月差異就主要是資料缺口",
-      "若相同結構在多個完整月份持續重現，才可提升對長期變化的信心"
+      "若下個月生成類任務的比例快速回落，可能代表本月的增長僅為短期熱潮，而非長期結構改變。"
      ],
      "caveats": [
-      "專案建立日期不是技能被安裝或採用的日期",
-      "公開平台會系統性低估公司內部的晶片、金融、法務與醫療工作"
+      "文件上標示的成熟度多屬作者自我期許，不能直接等同於企業級的部署成功率。",
+      "公開平台的樣本組成容易低估金融與半導體等高機密行業的內部開發實況。"
      ],
-     "confidence": "MEDIUM",
+     "confidence": "HIGH",
      "evidence_ids": [
       "E1",
+      "E2",
       "E3",
+      "E4",
       "E5",
       "E6",
       "E8",
@@ -3664,21 +3561,87 @@
    }
   },
   "status": {
-   "run_date": "2026-07-29",
+   "run_date": "2026-08-08",
    "freshness": {
     "status": "CURRENT",
-    "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+    "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
     "actual_seed": 6577,
-    "actual_model": 35830,
+    "actual_model": 38875,
     "expected_seed": 6577,
-    "expected_model": 35830
+    "expected_model": 38875
    },
    "due": [
     {
      "scale": "day",
-     "period_id": "2026-07-28",
-     "start": "2026-07-28",
-     "end": "2026-07-28"
+     "period_id": "2026-07-29",
+     "start": "2026-07-29",
+     "end": "2026-07-29"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-30",
+     "start": "2026-07-30",
+     "end": "2026-07-30"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-31",
+     "start": "2026-07-31",
+     "end": "2026-07-31"
+    },
+    {
+     "scale": "month",
+     "period_id": "2026-07",
+     "start": "2026-07-01",
+     "end": "2026-07-31"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-01"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-02",
+     "start": "2026-08-02",
+     "end": "2026-08-02"
+    },
+    {
+     "scale": "week",
+     "period_id": "2026-W31",
+     "start": "2026-07-27",
+     "end": "2026-08-02"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-03",
+     "start": "2026-08-03",
+     "end": "2026-08-03"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-04",
+     "start": "2026-08-04",
+     "end": "2026-08-04"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-05",
+     "start": "2026-08-05",
+     "end": "2026-08-05"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-06",
+     "start": "2026-08-06",
+     "end": "2026-08-06"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-07",
+     "start": "2026-08-07",
+     "end": "2026-08-07"
     }
    ],
    "rewrite_due": [],
@@ -3692,26 +3655,70 @@
    "updated_periods": [
     {
      "scale": "day",
-     "period_id": "2026-07-28"
+     "period_id": "2026-07-29"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-30"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-31"
+    },
+    {
+     "scale": "month",
+     "period_id": "2026-07"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-01"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-02"
+    },
+    {
+     "scale": "week",
+     "period_id": "2026-W31"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-03"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-04"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-05"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-06"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-07"
     }
    ]
   },
   "period_counts": {
-   "day": 2,
-   "week": 1,
-   "month": 1,
+   "day": 12,
+   "week": 2,
+   "month": 2,
    "quarter": 1
   }
  },
  "editorial": {
-  "date": "2026-07-29",
-  "title": "Skills Radar 觀點 — 2026-07-29",
-  "href": "editorials/2026-07-29.html"
+  "date": "2026-08-08",
+  "title": "Skills Radar 觀點 — 2026-08-08",
+  "href": "editorials/2026-08-08.html"
  },
  "pipeline_health": {
   "schema_version": 1,
-  "report_date": "2026-07-29",
-  "completed_at": "2026-07-29T09:36:45.828073+00:00",
+  "report_date": "2026-08-08",
+  "completed_at": "2026-08-08T02:33:52.450586+00:00",
   "status": "PASS",
   "gates": {
    "corpus_update": "SUCCESS",
@@ -3727,23 +3734,133 @@
   },
   "corpus_update": {
    "status": "SUCCESS",
-   "new_rows": 165,
-   "rows_after": 42407,
+   "new_rows": 3045,
+   "rows_after": 45452,
    "run_context": "manual_recovery"
   },
   "timescale": {
    "updated_periods": [
     {
      "scale": "day",
-     "period_id": "2026-07-28"
+     "period_id": "2026-07-29"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-30"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-31"
+    },
+    {
+     "scale": "month",
+     "period_id": "2026-07"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-01"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-02"
+    },
+    {
+     "scale": "week",
+     "period_id": "2026-W31"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-03"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-04"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-05"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-06"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-07"
     }
    ],
    "due": [
     {
      "scale": "day",
-     "period_id": "2026-07-28",
-     "start": "2026-07-28",
-     "end": "2026-07-28"
+     "period_id": "2026-07-29",
+     "start": "2026-07-29",
+     "end": "2026-07-29"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-30",
+     "start": "2026-07-30",
+     "end": "2026-07-30"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-07-31",
+     "start": "2026-07-31",
+     "end": "2026-07-31"
+    },
+    {
+     "scale": "month",
+     "period_id": "2026-07",
+     "start": "2026-07-01",
+     "end": "2026-07-31"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-01"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-02",
+     "start": "2026-08-02",
+     "end": "2026-08-02"
+    },
+    {
+     "scale": "week",
+     "period_id": "2026-W31",
+     "start": "2026-07-27",
+     "end": "2026-08-02"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-03",
+     "start": "2026-08-03",
+     "end": "2026-08-03"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-04",
+     "start": "2026-08-04",
+     "end": "2026-08-04"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-05",
+     "start": "2026-08-05",
+     "end": "2026-08-05"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-06",
+     "start": "2026-08-06",
+     "end": "2026-08-06"
+    },
+    {
+     "scale": "day",
+     "period_id": "2026-08-07",
+     "start": "2026-08-07",
+     "end": "2026-08-07"
     }
    ],
    "backlog": {
@@ -3780,10 +3897,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 1,
-   "expected": 26.1,
+   "expected": 28.4,
    "ratio": 0.04,
-   "domain_n": 119,
-   "momentum": -0.7,
+   "domain_n": 129,
+   "momentum": -0.8,
    "hot": false
   },
   {
@@ -3792,11 +3909,23 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 46.9,
+   "expected": 49.7,
    "ratio": 0.06,
-   "domain_n": 305,
-   "momentum": -0.5,
+   "domain_n": 309,
+   "momentum": -1.4,
    "hot": false
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 6,
+   "expected": 48.5,
+   "ratio": 0.12,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
   },
   {
    "domain": "sales-crm",
@@ -3804,8 +3933,8 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 1,
-   "expected": 7.8,
-   "ratio": 0.13,
+   "expected": 8.2,
+   "ratio": 0.12,
    "domain_n": 51,
    "momentum": null,
    "hot": false
@@ -3816,22 +3945,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 2,
-   "expected": 14.7,
-   "ratio": 0.14,
-   "domain_n": 186,
-   "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "security",
-   "zh": "資安",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 6,
-   "expected": 44.0,
-   "ratio": 0.14,
-   "domain_n": 284,
-   "momentum": -1.3,
+   "expected": 14.9,
+   "ratio": 0.13,
+   "domain_n": 191,
+   "momentum": -0.2,
    "hot": false
   },
   {
@@ -3842,8 +3959,8 @@
    "observed": 2,
    "expected": 13.9,
    "ratio": 0.14,
-   "domain_n": 90,
-   "momentum": -2.0,
+   "domain_n": 92,
+   "momentum": -2.6,
    "hot": false
   },
   {
@@ -3852,10 +3969,22 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 42.0,
-   "ratio": 0.17,
-   "domain_n": 336,
-   "momentum": 1.0,
+   "expected": 45.8,
+   "ratio": 0.15,
+   "domain_n": 366,
+   "momentum": 1.7,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 10,
+   "expected": 61.7,
+   "ratio": 0.16,
+   "domain_n": 366,
+   "momentum": 1.7,
    "hot": true
   },
   {
@@ -3864,8 +3993,8 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 2,
-   "expected": 12.0,
-   "ratio": 0.17,
+   "expected": 12.5,
+   "ratio": 0.16,
    "domain_n": 78,
    "momentum": 0.4,
    "hot": true
@@ -3876,23 +4005,11 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 28.6,
+   "expected": 29.0,
    "ratio": 0.17,
-   "domain_n": 169,
-   "momentum": 0.2,
-   "hot": true
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 56.9,
-   "ratio": 0.18,
-   "domain_n": 336,
-   "momentum": 1.0,
-   "hot": true
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "writing-content",
@@ -3900,11 +4017,11 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.2,
+   "expected": 26.1,
    "ratio": 0.19,
-   "domain_n": 169,
-   "momentum": 0.2,
-   "hot": true
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "design-creative",
@@ -3912,46 +4029,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 52.0,
-   "ratio": 0.25,
-   "domain_n": 336,
-   "momentum": 1.0,
-   "hot": true
-  },
-  {
-   "domain": "data-analytics",
-   "zh": "資料分析",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 129,
-   "momentum": -0.5,
-   "hot": false
-  },
-  {
-   "domain": "healthcare-bio",
-   "zh": "醫療生技",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 5,
-   "expected": 20.2,
-   "ratio": 0.25,
-   "domain_n": 119,
-   "momentum": -0.7,
-   "hot": false
-  },
-  {
-   "domain": "marketing-growth",
-   "zh": "行銷成長",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 9,
-   "expected": 35.1,
-   "ratio": 0.26,
-   "domain_n": 207,
-   "momentum": 0.6,
+   "expected": 55.4,
+   "ratio": 0.23,
+   "domain_n": 366,
+   "momentum": 1.7,
    "hot": true
   },
   {
@@ -3960,10 +4041,22 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 16,
-   "expected": 62.4,
-   "ratio": 0.26,
-   "domain_n": 284,
-   "momentum": -1.3,
+   "expected": 70.5,
+   "ratio": 0.23,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
+  },
+  {
+   "domain": "healthcare-bio",
+   "zh": "醫療生技",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 5,
+   "expected": 21.7,
+   "ratio": 0.23,
+   "domain_n": 129,
+   "momentum": -0.8,
    "hot": false
   },
   {
@@ -3972,22 +4065,34 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 21,
-   "expected": 76.9,
-   "ratio": 0.27,
-   "domain_n": 350,
-   "momentum": 0.3,
+   "expected": 86.4,
+   "ratio": 0.24,
+   "domain_n": 392,
+   "momentum": 0.9,
    "hot": true
   },
   {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 6,
+   "domain": "data-analytics",
+   "zh": "資料分析",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 5,
    "expected": 21.1,
-   "ratio": 0.28,
-   "domain_n": 169,
-   "momentum": 0.2,
+   "ratio": 0.24,
+   "domain_n": 131,
+   "momentum": 0.4,
+   "hot": true
+  },
+  {
+   "domain": "marketing-growth",
+   "zh": "行銷成長",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 9,
+   "expected": 36.6,
+   "ratio": 0.25,
+   "domain_n": 217,
+   "momentum": 0.6,
    "hot": true
   },
   {
@@ -3996,10 +4101,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 11,
-   "expected": 38.2,
-   "ratio": 0.29,
-   "domain_n": 248,
-   "momentum": 1.9,
+   "expected": 40.2,
+   "ratio": 0.27,
+   "domain_n": 250,
+   "momentum": 2.1,
    "hot": true
   },
   {
@@ -4008,10 +4113,34 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 31.5,
+   "expected": 32.2,
+   "ratio": 0.28,
+   "domain_n": 191,
+   "momentum": -0.2,
+   "hot": false
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 6,
+   "expected": 21.5,
+   "ratio": 0.28,
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 9,
+   "expected": 30.6,
    "ratio": 0.29,
-   "domain_n": 186,
-   "momentum": 0.1,
+   "domain_n": 392,
+   "momentum": 0.9,
    "hot": true
   },
   {
@@ -4020,10 +4149,22 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 10,
-   "expected": 31.8,
-   "ratio": 0.31,
-   "domain_n": 207,
+   "expected": 34.9,
+   "ratio": 0.29,
+   "domain_n": 217,
    "momentum": 0.6,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 8,
+   "expected": 25.0,
+   "ratio": 0.32,
+   "domain_n": 320,
+   "momentum": 1.4,
    "hot": true
   },
   {
@@ -4032,23 +4173,11 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 34,
-   "expected": 106.7,
+   "expected": 107.8,
    "ratio": 0.32,
-   "domain_n": 854,
-   "momentum": 1.6,
-   "hot": true
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "transform",
-   "task_zh": "轉換",
-   "observed": 9,
-   "expected": 27.8,
-   "ratio": 0.32,
-   "domain_n": 350,
-   "momentum": 0.3,
-   "hot": true
+   "domain_n": 862,
+   "momentum": -0.8,
+   "hot": false
   },
   {
    "domain": "legal-compliance",
@@ -4056,22 +4185,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 15.3,
-   "ratio": 0.33,
-   "domain_n": 90,
-   "momentum": -2.0,
-   "hot": false
-  },
-  {
-   "domain": "research-academia",
-   "zh": "研究學術",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 11,
-   "expected": 32.0,
-   "ratio": 0.34,
-   "domain_n": 189,
-   "momentum": -1.1,
+   "expected": 15.5,
+   "ratio": 0.32,
+   "domain_n": 92,
+   "momentum": -2.6,
    "hot": false
   }
  ],
@@ -4082,10 +4199,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 1,
-   "expected": 26.1,
+   "expected": 28.4,
    "ratio": 0.04,
-   "domain_n": 119,
-   "momentum": -0.7,
+   "domain_n": 129,
+   "momentum": -0.8,
    "hot": false
   },
   {
@@ -4094,11 +4211,23 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 46.9,
+   "expected": 49.7,
    "ratio": 0.06,
-   "domain_n": 305,
-   "momentum": -0.5,
+   "domain_n": 309,
+   "momentum": -1.4,
    "hot": false
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 6,
+   "expected": 48.5,
+   "ratio": 0.12,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
   },
   {
    "domain": "sales-crm",
@@ -4106,8 +4235,8 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 1,
-   "expected": 7.8,
-   "ratio": 0.13,
+   "expected": 8.2,
+   "ratio": 0.12,
    "domain_n": 51,
    "momentum": null,
    "hot": false
@@ -4118,22 +4247,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 2,
-   "expected": 14.7,
-   "ratio": 0.14,
-   "domain_n": 186,
-   "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "security",
-   "zh": "資安",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 6,
-   "expected": 44.0,
-   "ratio": 0.14,
-   "domain_n": 284,
-   "momentum": -1.3,
+   "expected": 14.9,
+   "ratio": 0.13,
+   "domain_n": 191,
+   "momentum": -0.2,
    "hot": false
   },
   {
@@ -4144,8 +4261,8 @@
    "observed": 2,
    "expected": 13.9,
    "ratio": 0.14,
-   "domain_n": 90,
-   "momentum": -2.0,
+   "domain_n": 92,
+   "momentum": -2.6,
    "hot": false
   },
   {
@@ -4154,10 +4271,22 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 42.0,
-   "ratio": 0.17,
-   "domain_n": 336,
-   "momentum": 1.0,
+   "expected": 45.8,
+   "ratio": 0.15,
+   "domain_n": 366,
+   "momentum": 1.7,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 10,
+   "expected": 61.7,
+   "ratio": 0.16,
+   "domain_n": 366,
+   "momentum": 1.7,
    "hot": true
   },
   {
@@ -4166,8 +4295,8 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 2,
-   "expected": 12.0,
-   "ratio": 0.17,
+   "expected": 12.5,
+   "ratio": 0.16,
    "domain_n": 78,
    "momentum": 0.4,
    "hot": true
@@ -4178,23 +4307,11 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 28.6,
+   "expected": 29.0,
    "ratio": 0.17,
-   "domain_n": 169,
-   "momentum": 0.2,
-   "hot": true
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 56.9,
-   "ratio": 0.18,
-   "domain_n": 336,
-   "momentum": 1.0,
-   "hot": true
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "writing-content",
@@ -4202,11 +4319,11 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.2,
+   "expected": 26.1,
    "ratio": 0.19,
-   "domain_n": 169,
-   "momentum": 0.2,
-   "hot": true
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "design-creative",
@@ -4214,46 +4331,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 52.0,
-   "ratio": 0.25,
-   "domain_n": 336,
-   "momentum": 1.0,
-   "hot": true
-  },
-  {
-   "domain": "data-analytics",
-   "zh": "資料分析",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 129,
-   "momentum": -0.5,
-   "hot": false
-  },
-  {
-   "domain": "healthcare-bio",
-   "zh": "醫療生技",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 5,
-   "expected": 20.2,
-   "ratio": 0.25,
-   "domain_n": 119,
-   "momentum": -0.7,
-   "hot": false
-  },
-  {
-   "domain": "marketing-growth",
-   "zh": "行銷成長",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 9,
-   "expected": 35.1,
-   "ratio": 0.26,
-   "domain_n": 207,
-   "momentum": 0.6,
+   "expected": 55.4,
+   "ratio": 0.23,
+   "domain_n": 366,
+   "momentum": 1.7,
    "hot": true
   },
   {
@@ -4262,10 +4343,22 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 16,
-   "expected": 62.4,
-   "ratio": 0.26,
-   "domain_n": 284,
-   "momentum": -1.3,
+   "expected": 70.5,
+   "ratio": 0.23,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
+  },
+  {
+   "domain": "healthcare-bio",
+   "zh": "醫療生技",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 5,
+   "expected": 21.7,
+   "ratio": 0.23,
+   "domain_n": 129,
+   "momentum": -0.8,
    "hot": false
   },
   {
@@ -4274,22 +4367,34 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 21,
-   "expected": 76.9,
-   "ratio": 0.27,
-   "domain_n": 350,
-   "momentum": 0.3,
+   "expected": 86.4,
+   "ratio": 0.24,
+   "domain_n": 392,
+   "momentum": 0.9,
    "hot": true
   },
   {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 6,
+   "domain": "data-analytics",
+   "zh": "資料分析",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 5,
    "expected": 21.1,
-   "ratio": 0.28,
-   "domain_n": 169,
-   "momentum": 0.2,
+   "ratio": 0.24,
+   "domain_n": 131,
+   "momentum": 0.4,
+   "hot": true
+  },
+  {
+   "domain": "marketing-growth",
+   "zh": "行銷成長",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 9,
+   "expected": 36.6,
+   "ratio": 0.25,
+   "domain_n": 217,
+   "momentum": 0.6,
    "hot": true
   },
   {
@@ -4298,10 +4403,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 11,
-   "expected": 38.2,
-   "ratio": 0.29,
-   "domain_n": 248,
-   "momentum": 1.9,
+   "expected": 40.2,
+   "ratio": 0.27,
+   "domain_n": 250,
+   "momentum": 2.1,
    "hot": true
   },
   {
@@ -4310,10 +4415,34 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 31.5,
+   "expected": 32.2,
+   "ratio": 0.28,
+   "domain_n": 191,
+   "momentum": -0.2,
+   "hot": false
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 6,
+   "expected": 21.5,
+   "ratio": 0.28,
+   "domain_n": 172,
+   "momentum": -0.7,
+   "hot": false
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 9,
+   "expected": 30.6,
    "ratio": 0.29,
-   "domain_n": 186,
-   "momentum": 0.1,
+   "domain_n": 392,
+   "momentum": 0.9,
    "hot": true
   },
   {
@@ -4322,10 +4451,22 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 10,
-   "expected": 31.8,
-   "ratio": 0.31,
-   "domain_n": 207,
+   "expected": 34.9,
+   "ratio": 0.29,
+   "domain_n": 217,
    "momentum": 0.6,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 8,
+   "expected": 25.0,
+   "ratio": 0.32,
+   "domain_n": 320,
+   "momentum": 1.4,
    "hot": true
   },
   {
@@ -4334,23 +4475,11 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 34,
-   "expected": 106.7,
+   "expected": 107.8,
    "ratio": 0.32,
-   "domain_n": 854,
-   "momentum": 1.6,
-   "hot": true
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "transform",
-   "task_zh": "轉換",
-   "observed": 9,
-   "expected": 27.8,
-   "ratio": 0.32,
-   "domain_n": 350,
-   "momentum": 0.3,
-   "hot": true
+   "domain_n": 862,
+   "momentum": -0.8,
+   "hot": false
   },
   {
    "domain": "legal-compliance",
@@ -4358,22 +4487,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 15.3,
-   "ratio": 0.33,
-   "domain_n": 90,
-   "momentum": -2.0,
-   "hot": false
-  },
-  {
-   "domain": "research-academia",
-   "zh": "研究學術",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 11,
-   "expected": 32.0,
-   "ratio": 0.34,
-   "domain_n": 189,
-   "momentum": -1.1,
+   "expected": 15.5,
+   "ratio": 0.32,
+   "domain_n": 92,
+   "momentum": -2.6,
    "hot": false
   }
  ],
@@ -4384,11 +4501,11 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 1,
-   "expected": 26.1,
+   "expected": 28.4,
    "ratio": 0.04,
-   "domain_n": 119,
-   "momentum": -0.4,
-   "hot": false
+   "domain_n": 129,
+   "momentum": 0.5,
+   "hot": true
   },
   {
    "domain": "personal-productivity",
@@ -4396,22 +4513,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 46.9,
+   "expected": 49.7,
    "ratio": 0.06,
-   "domain_n": 305,
-   "momentum": 2.1,
-   "hot": true
-  },
-  {
-   "domain": "sales-crm",
-   "zh": "銷售 CRM",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 1,
-   "expected": 7.8,
-   "ratio": 0.13,
-   "domain_n": 51,
-   "momentum": 0.2,
+   "domain_n": 309,
+   "momentum": 1.8,
    "hot": true
   },
   {
@@ -4420,10 +4525,22 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 6,
-   "expected": 44.0,
-   "ratio": 0.14,
-   "domain_n": 284,
-   "momentum": 3.0,
+   "expected": 48.5,
+   "ratio": 0.12,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
+  },
+  {
+   "domain": "sales-crm",
+   "zh": "銷售 CRM",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 1,
+   "expected": 8.2,
+   "ratio": 0.12,
+   "domain_n": 51,
+   "momentum": 0.3,
    "hot": true
   },
   {
@@ -4432,10 +4549,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 2,
-   "expected": 14.7,
-   "ratio": 0.14,
-   "domain_n": 186,
-   "momentum": 1.6,
+   "expected": 14.9,
+   "ratio": 0.13,
+   "domain_n": 191,
+   "momentum": 0.3,
    "hot": true
   },
   {
@@ -4446,8 +4563,8 @@
    "observed": 2,
    "expected": 13.9,
    "ratio": 0.14,
-   "domain_n": 90,
-   "momentum": 0.9,
+   "domain_n": 92,
+   "momentum": 0.8,
    "hot": true
   },
   {
@@ -4456,10 +4573,22 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 42.0,
-   "ratio": 0.17,
-   "domain_n": 336,
-   "momentum": 0.8,
+   "expected": 45.8,
+   "ratio": 0.15,
+   "domain_n": 366,
+   "momentum": 1.3,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 10,
+   "expected": 61.7,
+   "ratio": 0.16,
+   "domain_n": 366,
+   "momentum": 1.3,
    "hot": true
   },
   {
@@ -4468,10 +4597,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 2,
-   "expected": 12.0,
-   "ratio": 0.17,
+   "expected": 12.5,
+   "ratio": 0.16,
    "domain_n": 78,
-   "momentum": 0.7,
+   "momentum": 0.6,
    "hot": true
   },
   {
@@ -4480,22 +4609,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 28.6,
+   "expected": 29.0,
    "ratio": 0.17,
-   "domain_n": 169,
-   "momentum": -0.0,
-   "hot": false
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 56.9,
-   "ratio": 0.18,
-   "domain_n": 336,
-   "momentum": 0.8,
+   "domain_n": 172,
+   "momentum": 0.4,
    "hot": true
   },
   {
@@ -4504,11 +4621,23 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.2,
+   "expected": 26.1,
    "ratio": 0.19,
-   "domain_n": 169,
-   "momentum": -0.0,
-   "hot": false
+   "domain_n": 172,
+   "momentum": 0.4,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 16,
+   "expected": 70.5,
+   "ratio": 0.23,
+   "domain_n": 320,
+   "momentum": 1.4,
+   "hot": true
   },
   {
    "domain": "design-creative",
@@ -4516,10 +4645,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 52.0,
-   "ratio": 0.25,
-   "domain_n": 336,
-   "momentum": 0.8,
+   "expected": 55.4,
+   "ratio": 0.23,
+   "domain_n": 366,
+   "momentum": 1.3,
    "hot": true
   },
   {
@@ -4528,11 +4657,11 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 20.2,
-   "ratio": 0.25,
-   "domain_n": 119,
-   "momentum": -0.4,
-   "hot": false
+   "expected": 21.7,
+   "ratio": 0.23,
+   "domain_n": 129,
+   "momentum": 0.5,
+   "hot": true
   },
   {
    "domain": "data-analytics",
@@ -4540,34 +4669,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 129,
-   "momentum": -0.0,
-   "hot": false
-  },
-  {
-   "domain": "security",
-   "zh": "資安",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 16,
-   "expected": 62.4,
-   "ratio": 0.26,
-   "domain_n": 284,
-   "momentum": 3.0,
-   "hot": true
-  },
-  {
-   "domain": "marketing-growth",
-   "zh": "行銷成長",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 9,
-   "expected": 35.1,
-   "ratio": 0.26,
-   "domain_n": 207,
-   "momentum": 0.9,
+   "expected": 21.1,
+   "ratio": 0.24,
+   "domain_n": 131,
+   "momentum": 0.4,
    "hot": true
   },
   {
@@ -4576,275 +4681,9 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 21,
-   "expected": 76.9,
-   "ratio": 0.27,
-   "domain_n": 350,
-   "momentum": -1.7,
-   "hot": false
-  },
-  {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 6,
-   "expected": 21.1,
-   "ratio": 0.28,
-   "domain_n": 169,
-   "momentum": -0.0,
-   "hot": false
-  },
-  {
-   "domain": "finance-investing",
-   "zh": "金融投資",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 9,
-   "expected": 31.5,
-   "ratio": 0.29,
-   "domain_n": 186,
-   "momentum": 1.6,
-   "hot": true
-  },
-  {
-   "domain": "ops-admin",
-   "zh": "營運行政",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 11,
-   "expected": 38.2,
-   "ratio": 0.29,
-   "domain_n": 248,
-   "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "marketing-growth",
-   "zh": "行銷成長",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 10,
-   "expected": 31.8,
-   "ratio": 0.31,
-   "domain_n": 207,
-   "momentum": 0.9,
-   "hot": true
-  },
-  {
-   "domain": "ai-agent-tooling",
-   "zh": "AI Agent 工具",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 34,
-   "expected": 106.7,
-   "ratio": 0.32,
-   "domain_n": 854,
-   "momentum": -1.0,
-   "hot": false
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "transform",
-   "task_zh": "轉換",
-   "observed": 9,
-   "expected": 27.8,
-   "ratio": 0.32,
-   "domain_n": 350,
-   "momentum": -1.7,
-   "hot": false
-  },
-  {
-   "domain": "legal-compliance",
-   "zh": "法務合規",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 5,
-   "expected": 15.3,
-   "ratio": 0.33,
-   "domain_n": 90,
-   "momentum": 0.9,
-   "hot": true
-  },
-  {
-   "domain": "research-academia",
-   "zh": "研究學術",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 11,
-   "expected": 32.0,
-   "ratio": 0.34,
-   "domain_n": 189,
-   "momentum": 1.9,
-   "hot": true
-  }
- ],
- "niche_quarter": [
-  {
-   "domain": "healthcare-bio",
-   "zh": "醫療生技",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 1,
-   "expected": 26.1,
-   "ratio": 0.04,
-   "domain_n": 119,
-   "momentum": 0.3,
-   "hot": true
-  },
-  {
-   "domain": "personal-productivity",
-   "zh": "個人生產力",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 3,
-   "expected": 46.9,
-   "ratio": 0.06,
-   "domain_n": 305,
-   "momentum": 2.7,
-   "hot": true
-  },
-  {
-   "domain": "sales-crm",
-   "zh": "銷售 CRM",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 1,
-   "expected": 7.8,
-   "ratio": 0.13,
-   "domain_n": 51,
-   "momentum": 1.1,
-   "hot": true
-  },
-  {
-   "domain": "security",
-   "zh": "資安",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 6,
-   "expected": 44.0,
-   "ratio": 0.14,
-   "domain_n": 284,
-   "momentum": 2.5,
-   "hot": true
-  },
-  {
-   "domain": "finance-investing",
-   "zh": "金融投資",
-   "task": "transform",
-   "task_zh": "轉換",
-   "observed": 2,
-   "expected": 14.7,
-   "ratio": 0.14,
-   "domain_n": 186,
-   "momentum": 2.1,
-   "hot": true
-  },
-  {
-   "domain": "legal-compliance",
-   "zh": "法務合規",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 2,
-   "expected": 13.9,
-   "ratio": 0.14,
-   "domain_n": 90,
-   "momentum": 1.3,
-   "hot": true
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 7,
-   "expected": 42.0,
-   "ratio": 0.17,
-   "domain_n": 336,
-   "momentum": 3.4,
-   "hot": true
-  },
-  {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 5,
-   "expected": 28.6,
-   "ratio": 0.17,
-   "domain_n": 169,
-   "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "education-training",
-   "zh": "教育訓練",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 2,
-   "expected": 12.0,
-   "ratio": 0.17,
-   "domain_n": 78,
-   "momentum": -1.2,
-   "hot": false
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 10,
-   "expected": 56.9,
-   "ratio": 0.18,
-   "domain_n": 336,
-   "momentum": 3.4,
-   "hot": true
-  },
-  {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 5,
-   "expected": 26.2,
-   "ratio": 0.19,
-   "domain_n": 169,
-   "momentum": 0.1,
-   "hot": true
-  },
-  {
-   "domain": "design-creative",
-   "zh": "設計創意",
-   "task": "orchestrate",
-   "task_zh": "調度",
-   "observed": 13,
-   "expected": 52.0,
-   "ratio": 0.25,
-   "domain_n": 336,
-   "momentum": 3.4,
-   "hot": true
-  },
-  {
-   "domain": "healthcare-bio",
-   "zh": "醫療生技",
-   "task": "configure",
-   "task_zh": "配置",
-   "observed": 5,
-   "expected": 20.2,
-   "ratio": 0.25,
-   "domain_n": 119,
-   "momentum": 0.3,
-   "hot": true
-  },
-  {
-   "domain": "data-analytics",
-   "zh": "資料分析",
-   "task": "verify",
-   "task_zh": "驗證",
-   "observed": 5,
-   "expected": 19.8,
-   "ratio": 0.25,
-   "domain_n": 129,
+   "expected": 86.4,
+   "ratio": 0.24,
+   "domain_n": 392,
    "momentum": -0.8,
    "hot": false
   },
@@ -4854,47 +4693,11 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 35.1,
-   "ratio": 0.26,
-   "domain_n": 207,
-   "momentum": 3.1,
-   "hot": true
-  },
-  {
-   "domain": "security",
-   "zh": "資安",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 16,
-   "expected": 62.4,
-   "ratio": 0.26,
-   "domain_n": 284,
-   "momentum": 2.5,
-   "hot": true
-  },
-  {
-   "domain": "devops-infra",
-   "zh": "DevOps 基礎設施",
-   "task": "generate",
-   "task_zh": "生成",
-   "observed": 21,
-   "expected": 76.9,
-   "ratio": 0.27,
-   "domain_n": 350,
-   "momentum": 1.2,
-   "hot": true
-  },
-  {
-   "domain": "writing-content",
-   "zh": "寫作內容",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 6,
-   "expected": 21.1,
-   "ratio": 0.28,
-   "domain_n": 169,
-   "momentum": 0.1,
-   "hot": true
+   "expected": 36.6,
+   "ratio": 0.25,
+   "domain_n": 217,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "ops-admin",
@@ -4902,10 +4705,22 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 11,
-   "expected": 38.2,
-   "ratio": 0.29,
-   "domain_n": 248,
-   "momentum": 2.7,
+   "expected": 40.2,
+   "ratio": 0.27,
+   "domain_n": 250,
+   "momentum": -0.8,
+   "hot": false
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 6,
+   "expected": 21.5,
+   "ratio": 0.28,
+   "domain_n": 172,
+   "momentum": 0.4,
    "hot": true
   },
   {
@@ -4914,10 +4729,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 31.5,
-   "ratio": 0.29,
-   "domain_n": 186,
-   "momentum": 2.1,
+   "expected": 32.2,
+   "ratio": 0.28,
+   "domain_n": 191,
+   "momentum": 0.3,
    "hot": true
   },
   {
@@ -4926,23 +4741,11 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 10,
-   "expected": 31.8,
-   "ratio": 0.31,
-   "domain_n": 207,
-   "momentum": 3.1,
-   "hot": true
-  },
-  {
-   "domain": "ai-agent-tooling",
-   "zh": "AI Agent 工具",
-   "task": "analyze",
-   "task_zh": "分析",
-   "observed": 34,
-   "expected": 106.7,
-   "ratio": 0.32,
-   "domain_n": 854,
-   "momentum": 5.5,
-   "hot": true
+   "expected": 34.9,
+   "ratio": 0.29,
+   "domain_n": 217,
+   "momentum": -0.7,
+   "hot": false
   },
   {
    "domain": "devops-infra",
@@ -4950,10 +4753,22 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 27.8,
+   "expected": 30.6,
+   "ratio": 0.29,
+   "domain_n": 392,
+   "momentum": -0.8,
+   "hot": false
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 8,
+   "expected": 25.0,
    "ratio": 0.32,
-   "domain_n": 350,
-   "momentum": 1.2,
+   "domain_n": 320,
+   "momentum": 1.4,
    "hot": true
   },
   {
@@ -4962,129 +4777,431 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 15.3,
-   "ratio": 0.33,
-   "domain_n": 90,
-   "momentum": 1.3,
+   "expected": 15.5,
+   "ratio": 0.32,
+   "domain_n": 92,
+   "momentum": 0.8,
    "hot": true
   },
   {
-   "domain": "research-academia",
-   "zh": "研究學術",
+   "domain": "ai-agent-tooling",
+   "zh": "AI Agent 工具",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 34,
+   "expected": 107.8,
+   "ratio": 0.32,
+   "domain_n": 862,
+   "momentum": -0.1,
+   "hot": false
+  }
+ ],
+ "niche_quarter": [
+  {
+   "domain": "healthcare-bio",
+   "zh": "醫療生技",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 1,
+   "expected": 28.4,
+   "ratio": 0.04,
+   "domain_n": 129,
+   "momentum": 0.5,
+   "hot": true
+  },
+  {
+   "domain": "personal-productivity",
+   "zh": "個人生產力",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 3,
+   "expected": 49.7,
+   "ratio": 0.06,
+   "domain_n": 309,
+   "momentum": 2.5,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 6,
+   "expected": 48.5,
+   "ratio": 0.12,
+   "domain_n": 320,
+   "momentum": 3.0,
+   "hot": true
+  },
+  {
+   "domain": "sales-crm",
+   "zh": "銷售 CRM",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 1,
+   "expected": 8.2,
+   "ratio": 0.12,
+   "domain_n": 51,
+   "momentum": 1.0,
+   "hot": true
+  },
+  {
+   "domain": "finance-investing",
+   "zh": "金融投資",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 2,
+   "expected": 14.9,
+   "ratio": 0.13,
+   "domain_n": 191,
+   "momentum": 2.2,
+   "hot": true
+  },
+  {
+   "domain": "legal-compliance",
+   "zh": "法務合規",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 2,
+   "expected": 13.9,
+   "ratio": 0.14,
+   "domain_n": 92,
+   "momentum": 1.4,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 7,
+   "expected": 45.8,
+   "ratio": 0.15,
+   "domain_n": 366,
+   "momentum": 3.8,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
    "task": "configure",
    "task_zh": "配置",
+   "observed": 10,
+   "expected": 61.7,
+   "ratio": 0.16,
+   "domain_n": 366,
+   "momentum": 3.8,
+   "hot": true
+  },
+  {
+   "domain": "education-training",
+   "zh": "教育訓練",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 2,
+   "expected": 12.5,
+   "ratio": 0.16,
+   "domain_n": 78,
+   "momentum": -1.2,
+   "hot": false
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 5,
+   "expected": 29.0,
+   "ratio": 0.17,
+   "domain_n": 172,
+   "momentum": 0.1,
+   "hot": true
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 5,
+   "expected": 26.1,
+   "ratio": 0.19,
+   "domain_n": 172,
+   "momentum": 0.1,
+   "hot": true
+  },
+  {
+   "domain": "design-creative",
+   "zh": "設計創意",
+   "task": "orchestrate",
+   "task_zh": "調度",
+   "observed": 13,
+   "expected": 55.4,
+   "ratio": 0.23,
+   "domain_n": 366,
+   "momentum": 3.8,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 16,
+   "expected": 70.5,
+   "ratio": 0.23,
+   "domain_n": 320,
+   "momentum": 3.0,
+   "hot": true
+  },
+  {
+   "domain": "healthcare-bio",
+   "zh": "醫療生技",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 5,
+   "expected": 21.7,
+   "ratio": 0.23,
+   "domain_n": 129,
+   "momentum": 0.5,
+   "hot": true
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "generate",
+   "task_zh": "生成",
+   "observed": 21,
+   "expected": 86.4,
+   "ratio": 0.24,
+   "domain_n": 392,
+   "momentum": 1.7,
+   "hot": true
+  },
+  {
+   "domain": "data-analytics",
+   "zh": "資料分析",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 5,
+   "expected": 21.1,
+   "ratio": 0.24,
+   "domain_n": 131,
+   "momentum": -0.8,
+   "hot": false
+  },
+  {
+   "domain": "marketing-growth",
+   "zh": "行銷成長",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 9,
+   "expected": 36.6,
+   "ratio": 0.25,
+   "domain_n": 217,
+   "momentum": 2.6,
+   "hot": true
+  },
+  {
+   "domain": "ops-admin",
+   "zh": "營運行政",
+   "task": "verify",
+   "task_zh": "驗證",
    "observed": 11,
-   "expected": 32.0,
-   "ratio": 0.34,
-   "domain_n": 189,
-   "momentum": 1.3,
+   "expected": 40.2,
+   "ratio": 0.27,
+   "domain_n": 250,
+   "momentum": 2.5,
+   "hot": true
+  },
+  {
+   "domain": "finance-investing",
+   "zh": "金融投資",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 9,
+   "expected": 32.2,
+   "ratio": 0.28,
+   "domain_n": 191,
+   "momentum": 2.2,
+   "hot": true
+  },
+  {
+   "domain": "writing-content",
+   "zh": "寫作內容",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 6,
+   "expected": 21.5,
+   "ratio": 0.28,
+   "domain_n": 172,
+   "momentum": 0.1,
+   "hot": true
+  },
+  {
+   "domain": "marketing-growth",
+   "zh": "行銷成長",
+   "task": "verify",
+   "task_zh": "驗證",
+   "observed": 10,
+   "expected": 34.9,
+   "ratio": 0.29,
+   "domain_n": 217,
+   "momentum": 2.6,
+   "hot": true
+  },
+  {
+   "domain": "devops-infra",
+   "zh": "DevOps 基礎設施",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 9,
+   "expected": 30.6,
+   "ratio": 0.29,
+   "domain_n": 392,
+   "momentum": 1.7,
+   "hot": true
+  },
+  {
+   "domain": "ai-agent-tooling",
+   "zh": "AI Agent 工具",
+   "task": "analyze",
+   "task_zh": "分析",
+   "observed": 34,
+   "expected": 107.8,
+   "ratio": 0.32,
+   "domain_n": 862,
+   "momentum": 4.4,
+   "hot": true
+  },
+  {
+   "domain": "security",
+   "zh": "資安",
+   "task": "transform",
+   "task_zh": "轉換",
+   "observed": 8,
+   "expected": 25.0,
+   "ratio": 0.32,
+   "domain_n": 320,
+   "momentum": 3.0,
+   "hot": true
+  },
+  {
+   "domain": "legal-compliance",
+   "zh": "法務合規",
+   "task": "configure",
+   "task_zh": "配置",
+   "observed": 5,
+   "expected": 15.5,
+   "ratio": 0.32,
+   "domain_n": 92,
+   "momentum": 1.4,
    "hot": true
   }
  ],
  "traction": [
   {
-   "domain": "legal-compliance",
-   "n": 95,
-   "n_maturity": 93,
-   "n_target": 91,
-   "production_pct": 65.6,
-   "vs_global_production": 23.2,
-   "median_stars": 36,
-   "p90_stars": 1381,
-   "agent_facing_pct": 1.1,
-   "zh": "法務合規"
-  },
-  {
    "domain": "devops-infra",
-   "n": 362,
-   "n_maturity": 354,
-   "n_target": 351,
-   "production_pct": 64.1,
-   "vs_global_production": 21.8,
-   "median_stars": 13,
-   "p90_stars": 471,
-   "agent_facing_pct": 8.8,
+   "n": 439,
+   "n_maturity": 402,
+   "n_target": 410,
+   "production_pct": 67.2,
+   "vs_global_production": 24.5,
+   "median_stars": 7,
+   "p90_stars": 425,
+   "agent_facing_pct": 7.8,
    "zh": "DevOps 基礎設施"
   },
   {
    "domain": "security",
-   "n": 292,
-   "n_maturity": 287,
-   "n_target": 279,
-   "production_pct": 64.1,
-   "vs_global_production": 21.8,
-   "median_stars": 18,
-   "p90_stars": 1283,
-   "agent_facing_pct": 9.3,
+   "n": 343,
+   "n_maturity": 329,
+   "n_target": 316,
+   "production_pct": 66.9,
+   "vs_global_production": 24.2,
+   "median_stars": 9,
+   "p90_stars": 1022,
+   "agent_facing_pct": 8.2,
    "zh": "資安"
   },
   {
-   "domain": "healthcare-bio",
-   "n": 122,
-   "n_maturity": 120,
-   "n_target": 121,
-   "production_pct": 53.3,
-   "vs_global_production": 11.0,
-   "median_stars": 17,
-   "p90_stars": 1593,
-   "agent_facing_pct": 2.5,
-   "zh": "醫療生技"
+   "domain": "legal-compliance",
+   "n": 107,
+   "n_maturity": 100,
+   "n_target": 101,
+   "production_pct": 65.0,
+   "vs_global_production": 22.3,
+   "median_stars": 36,
+   "p90_stars": 1395,
+   "agent_facing_pct": 1.0,
+   "zh": "法務合規"
   },
   {
    "domain": "data-analytics",
-   "n": 129,
-   "n_maturity": 129,
-   "n_target": 129,
-   "production_pct": 52.7,
-   "vs_global_production": 10.4,
+   "n": 133,
+   "n_maturity": 133,
+   "n_target": 131,
+   "production_pct": 54.1,
+   "vs_global_production": 11.5,
    "median_stars": 16,
-   "p90_stars": 475,
-   "agent_facing_pct": 13.2,
+   "p90_stars": 438,
+   "agent_facing_pct": 13.0,
    "zh": "資料分析"
   },
   {
+   "domain": "healthcare-bio",
+   "n": 139,
+   "n_maturity": 129,
+   "n_target": 134,
+   "production_pct": 52.7,
+   "vs_global_production": 10.0,
+   "median_stars": 11,
+   "p90_stars": 1539,
+   "agent_facing_pct": 3.0,
+   "zh": "醫療生技"
+  },
+  {
    "domain": "ai-agent-tooling",
-   "n": 866,
-   "n_maturity": 858,
-   "n_target": 862,
-   "production_pct": 45.7,
-   "vs_global_production": 3.3,
-   "median_stars": 9,
-   "p90_stars": 634,
-   "agent_facing_pct": 60.1,
+   "n": 887,
+   "n_maturity": 871,
+   "n_target": 875,
+   "production_pct": 46.2,
+   "vs_global_production": 3.5,
+   "median_stars": 8,
+   "p90_stars": 611,
+   "agent_facing_pct": 60.7,
    "zh": "AI Agent 工具"
   },
   {
    "domain": "finance-investing",
-   "n": 194,
-   "n_maturity": 192,
-   "n_target": 187,
-   "production_pct": 44.3,
-   "vs_global_production": 1.9,
-   "median_stars": 21,
-   "p90_stars": 475,
-   "agent_facing_pct": 12.8,
+   "n": 209,
+   "n_maturity": 198,
+   "n_target": 197,
+   "production_pct": 43.9,
+   "vs_global_production": 1.3,
+   "median_stars": 18,
+   "p90_stars": 434,
+   "agent_facing_pct": 12.2,
    "zh": "金融投資"
   },
   {
    "domain": "software-dev",
-   "n": 1864,
-   "n_maturity": 1850,
-   "n_target": 1838,
-   "production_pct": 41.1,
-   "vs_global_production": -1.2,
-   "median_stars": 9,
-   "p90_stars": 521,
-   "agent_facing_pct": 12.0,
+   "n": 2064,
+   "n_maturity": 1974,
+   "n_target": 1954,
+   "production_pct": 40.8,
+   "vs_global_production": -1.8,
+   "median_stars": 6,
+   "p90_stars": 449,
+   "agent_facing_pct": 11.3,
    "zh": "軟體開發"
   },
   {
    "domain": "ops-admin",
-   "n": 258,
-   "n_maturity": 256,
-   "n_target": 256,
-   "production_pct": 39.5,
-   "vs_global_production": -2.9,
+   "n": 261,
+   "n_maturity": 257,
+   "n_target": 257,
+   "production_pct": 39.3,
+   "vs_global_production": -3.4,
    "median_stars": 10,
    "p90_stars": 531,
    "agent_facing_pct": 7.0,
@@ -5092,14 +5209,14 @@
   },
   {
    "domain": "design-creative",
-   "n": 338,
-   "n_maturity": 333,
-   "n_target": 329,
-   "production_pct": 37.8,
-   "vs_global_production": -4.5,
-   "median_stars": 12,
-   "p90_stars": 590,
-   "agent_facing_pct": 7.3,
+   "n": 384,
+   "n_maturity": 367,
+   "n_target": 342,
+   "production_pct": 38.4,
+   "vs_global_production": -4.2,
+   "median_stars": 7,
+   "p90_stars": 485,
+   "agent_facing_pct": 7.0,
    "zh": "設計創意"
   },
   {
@@ -5108,7 +5225,7 @@
    "n_maturity": 36,
    "n_target": 36,
    "production_pct": 36.1,
-   "vs_global_production": -6.2,
+   "vs_global_production": -6.6,
    "median_stars": 9,
    "p90_stars": 330,
    "agent_facing_pct": 22.2,
@@ -5116,27 +5233,15 @@
   },
   {
    "domain": "marketing-growth",
-   "n": 211,
-   "n_maturity": 208,
-   "n_target": 208,
-   "production_pct": 35.6,
-   "vs_global_production": -6.8,
-   "median_stars": 22,
-   "p90_stars": 573,
+   "n": 232,
+   "n_maturity": 227,
+   "n_target": 210,
+   "production_pct": 33.0,
+   "vs_global_production": -9.6,
+   "median_stars": 14,
+   "p90_stars": 562,
    "agent_facing_pct": 2.4,
    "zh": "行銷成長"
-  },
-  {
-   "domain": "writing-content",
-   "n": 175,
-   "n_maturity": 172,
-   "n_target": 172,
-   "production_pct": 28.5,
-   "vs_global_production": -13.9,
-   "median_stars": 25,
-   "p90_stars": 444,
-   "agent_facing_pct": 1.7,
-   "zh": "寫作內容"
   },
   {
    "domain": "sales-crm",
@@ -5144,81 +5249,93 @@
    "n_maturity": 53,
    "n_target": 52,
    "production_pct": 28.3,
-   "vs_global_production": -14.0,
+   "vs_global_production": -14.4,
    "median_stars": 40,
    "p90_stars": 248,
    "agent_facing_pct": 3.8,
    "zh": "銷售 CRM"
   },
   {
+   "domain": "writing-content",
+   "n": 182,
+   "n_maturity": 180,
+   "n_target": 180,
+   "production_pct": 27.2,
+   "vs_global_production": -15.4,
+   "median_stars": 21,
+   "p90_stars": 440,
+   "agent_facing_pct": 1.7,
+   "zh": "寫作內容"
+  },
+  {
    "domain": "research-academia",
-   "n": 203,
-   "n_maturity": 201,
-   "n_target": 194,
-   "production_pct": 26.9,
-   "vs_global_production": -15.5,
-   "median_stars": 20,
+   "n": 220,
+   "n_maturity": 215,
+   "n_target": 201,
+   "production_pct": 25.6,
+   "vs_global_production": -17.1,
+   "median_stars": 15,
    "p90_stars": 868,
-   "agent_facing_pct": 5.2,
+   "agent_facing_pct": 5.0,
    "zh": "研究學術"
   },
   {
    "domain": "personal-productivity",
-   "n": 308,
-   "n_maturity": 307,
-   "n_target": 308,
-   "production_pct": 21.2,
-   "vs_global_production": -21.2,
+   "n": 320,
+   "n_maturity": 319,
+   "n_target": 314,
+   "production_pct": 20.7,
+   "vs_global_production": -22.0,
    "median_stars": 6,
-   "p90_stars": 274,
-   "agent_facing_pct": 5.2,
+   "p90_stars": 253,
+   "agent_facing_pct": 5.1,
    "zh": "個人生產力"
   },
   {
    "domain": "education-training",
-   "n": 78,
-   "n_maturity": 78,
-   "n_target": 78,
-   "production_pct": 16.7,
-   "vs_global_production": -25.7,
+   "n": 81,
+   "n_maturity": 81,
+   "n_target": 80,
+   "production_pct": 16.0,
+   "vs_global_production": -26.6,
    "median_stars": 6,
    "p90_stars": 296,
-   "agent_facing_pct": 2.6,
+   "agent_facing_pct": 2.5,
    "zh": "教育訓練"
   },
   {
    "domain": "other",
-   "n": 36,
-   "n_maturity": 36,
-   "n_target": 34,
-   "production_pct": 11.1,
-   "vs_global_production": -31.2,
-   "median_stars": 11,
+   "n": 40,
+   "n_maturity": 40,
+   "n_target": 37,
+   "production_pct": 10.0,
+   "vs_global_production": -32.7,
+   "median_stars": 10,
    "p90_stars": 531,
-   "agent_facing_pct": 2.9,
+   "agent_facing_pct": 2.7,
    "zh": "其他"
   }
  ],
  "unfinished": [
   {
    "domain": "education-training",
-   "n": 78,
-   "workflow": 54,
+   "n": 81,
+   "workflow": 57,
    "production": 13,
    "completion_ratio": 0.19,
    "zh": "教育訓練"
   },
   {
    "domain": "personal-productivity",
-   "n": 307,
-   "workflow": 214,
-   "production": 65,
+   "n": 319,
+   "workflow": 224,
+   "production": 66,
    "completion_ratio": 0.23,
    "zh": "個人生產力"
   },
   {
    "domain": "other",
-   "n": 36,
+   "n": 40,
    "workflow": 12,
    "production": 4,
    "completion_ratio": 0.25,
@@ -5226,11 +5343,19 @@
   },
   {
    "domain": "research-academia",
-   "n": 201,
-   "workflow": 136,
-   "production": 54,
-   "completion_ratio": 0.28,
+   "n": 215,
+   "workflow": 147,
+   "production": 55,
+   "completion_ratio": 0.27,
    "zh": "研究學術"
+  },
+  {
+   "domain": "writing-content",
+   "n": 180,
+   "workflow": 125,
+   "production": 49,
+   "completion_ratio": 0.28,
+   "zh": "寫作內容"
   },
   {
    "domain": "sales-crm",
@@ -5241,19 +5366,11 @@
    "zh": "銷售 CRM"
   },
   {
-   "domain": "writing-content",
-   "n": 172,
-   "workflow": 117,
-   "production": 49,
-   "completion_ratio": 0.3,
-   "zh": "寫作內容"
-  },
-  {
    "domain": "marketing-growth",
-   "n": 208,
-   "workflow": 131,
-   "production": 74,
-   "completion_ratio": 0.36,
+   "n": 227,
+   "workflow": 149,
+   "production": 75,
+   "completion_ratio": 0.33,
    "zh": "行銷成長"
   },
   {
@@ -5266,83 +5383,83 @@
   },
   {
    "domain": "design-creative",
-   "n": 333,
-   "workflow": 200,
-   "production": 126,
+   "n": 367,
+   "workflow": 219,
+   "production": 141,
    "completion_ratio": 0.39,
    "zh": "設計創意"
   },
   {
    "domain": "ops-admin",
-   "n": 256,
-   "workflow": 149,
+   "n": 257,
+   "workflow": 150,
    "production": 101,
    "completion_ratio": 0.4,
    "zh": "營運行政"
   },
   {
    "domain": "software-dev",
-   "n": 1850,
-   "workflow": 1045,
-   "production": 761,
+   "n": 1974,
+   "workflow": 1124,
+   "production": 806,
    "completion_ratio": 0.42,
    "zh": "軟體開發"
   },
   {
    "domain": "finance-investing",
-   "n": 192,
-   "workflow": 102,
-   "production": 85,
+   "n": 198,
+   "workflow": 106,
+   "production": 87,
    "completion_ratio": 0.45,
    "zh": "金融投資"
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 858,
-   "workflow": 365,
-   "production": 392,
+   "n": 871,
+   "workflow": 368,
+   "production": 402,
    "completion_ratio": 0.52,
    "zh": "AI Agent 工具"
   },
   {
    "domain": "healthcare-bio",
-   "n": 120,
-   "workflow": 54,
-   "production": 64,
+   "n": 129,
+   "workflow": 59,
+   "production": 68,
    "completion_ratio": 0.54,
    "zh": "醫療生技"
   },
   {
    "domain": "data-analytics",
-   "n": 129,
+   "n": 133,
    "workflow": 59,
-   "production": 68,
-   "completion_ratio": 0.54,
+   "production": 72,
+   "completion_ratio": 0.55,
    "zh": "資料分析"
   },
   {
+   "domain": "legal-compliance",
+   "n": 100,
+   "workflow": 34,
+   "production": 65,
+   "completion_ratio": 0.66,
+   "zh": "法務合規"
+  },
+  {
    "domain": "security",
-   "n": 287,
-   "workflow": 99,
-   "production": 184,
-   "completion_ratio": 0.65,
+   "n": 329,
+   "workflow": 105,
+   "production": 220,
+   "completion_ratio": 0.68,
    "zh": "資安"
   },
   {
    "domain": "devops-infra",
-   "n": 354,
-   "workflow": 117,
-   "production": 227,
-   "completion_ratio": 0.66,
+   "n": 402,
+   "workflow": 122,
+   "production": 270,
+   "completion_ratio": 0.69,
    "zh": "DevOps 基礎設施"
-  },
-  {
-   "domain": "legal-compliance",
-   "n": 93,
-   "workflow": 31,
-   "production": 61,
-   "completion_ratio": 0.66,
-   "zh": "法務合規"
   }
  ],
  "niche_pros": [
@@ -5365,8 +5482,8 @@
    "n": 8,
    "production": 6,
    "domains": [
-    "software-dev",
     "devops-infra",
+    "software-dev",
     "data-analytics"
    ],
    "pains": [
@@ -5381,9 +5498,9 @@
    "n": 8,
    "production": 5,
    "domains": [
-    "ops-admin",
+    "ai-agent-tooling",
     "software-dev",
-    "ai-agent-tooling"
+    "ops-admin"
    ],
    "pains": [
     "團隊任務文檔結構紊亂且資訊歸屬權責不清",
@@ -5524,8 +5641,8 @@
    "n": 8,
    "production": 4,
    "domains": [
-    "design-creative",
-    "marketing-growth"
+    "marketing-growth",
+    "design-creative"
    ],
    "pains": [
     "AI 圖片生成提示詞控制困難且風格難一致",
@@ -5553,8 +5670,8 @@
    "n": 5,
    "production": 4,
    "domains": [
-    "software-dev",
-    "other"
+    "other",
+    "software-dev"
    ],
    "pains": [
     "建築資訊模型 (BIM) 資料品質與合規檢查繁瑣",
@@ -5607,23 +5724,23 @@
   }
  ],
  "eda": {
-  "n": 210,
+  "n": 209,
   "chip_n": 13,
   "neutral_n": 10,
-  "targeted_n": 200,
-  "pct_of_corpus": 0.18,
+  "targeted_n": 199,
+  "pct_of_corpus": 0.16,
   "task": {
    "驗證": 30,
    "生成": 18,
    "調度": 13,
-   "分析": 12,
+   "分析": 11,
    "配置": 5,
    "轉換": 5,
    "檢索": 2
   },
   "maturity": {
-   "workflow": 82,
-   "production": 71,
+   "workflow": 79,
+   "production": 72,
    "toy": 1
   },
   "chip": [
@@ -5855,113 +5972,113 @@
     "repo": "arpitg1304/robotics-agent-skills"
    }
   ],
-  "verify_pct": 14.3,
-  "global_verify_pct": 15.4
+  "verify_pct": 14.4,
+  "global_verify_pct": 16.1
  },
  "security": {
-  "n_scanned": 42407,
-  "n_flagged": 545,
-  "pct_flagged": 1.29,
+  "n_scanned": 45452,
+  "n_flagged": 618,
+  "pct_flagged": 1.36,
   "by_category": {
-   "隱藏字元": 144,
-   "憑證竊取": 143,
-   "越權自主": 87,
-   "改動設定或掛鉤": 79,
-   "破壞性操作": 37,
-   "指令覆寫": 31,
-   "編碼混淆": 13,
+   "憑證竊取": 186,
+   "隱藏字元": 159,
+   "越權自主": 89,
+   "改動設定或掛鉤": 88,
+   "破壞性操作": 40,
+   "指令覆寫": 32,
+   "編碼混淆": 14,
    "隱瞞使用者": 12,
    "外送資料": 12
   },
   "by_domain": {
    "software-dev": {
-    "flagged": 121,
-    "total": 13240,
-    "pct": 0.9
+    "flagged": 144,
+    "total": 14521,
+    "pct": 1.0
    },
    "ai-agent-tooling": {
-    "flagged": 101,
-    "total": 4708,
-    "pct": 2.1
+    "flagged": 119,
+    "total": 5175,
+    "pct": 2.3
    },
    "security": {
-    "flagged": 93,
-    "total": 3481,
+    "flagged": 98,
+    "total": 3588,
     "pct": 2.7
    },
    "devops-infra": {
-    "flagged": 66,
-    "total": 3442,
-    "pct": 1.9
+    "flagged": 83,
+    "total": 3710,
+    "pct": 2.2
    },
    "design-creative": {
-    "flagged": 52,
-    "total": 3865,
-    "pct": 1.3
+    "flagged": 55,
+    "total": 3988,
+    "pct": 1.4
    },
    "personal-productivity": {
     "flagged": 29,
-    "total": 1223,
-    "pct": 2.4
+    "total": 1379,
+    "pct": 2.1
    },
    "finance-investing": {
     "flagged": 17,
-    "total": 859,
-    "pct": 2.0
+    "total": 913,
+    "pct": 1.9
    },
    "ops-admin": {
-    "flagged": 13,
-    "total": 1369,
+    "flagged": 14,
+    "total": 1496,
     "pct": 0.9
    },
    "data-analytics": {
-    "flagged": 13,
-    "total": 974,
+    "flagged": 14,
+    "total": 1038,
     "pct": 1.3
+   },
+   "research-academia": {
+    "flagged": 11,
+    "total": 2020,
+    "pct": 0.5
    },
    "marketing-growth": {
     "flagged": 11,
-    "total": 1721,
+    "total": 1836,
     "pct": 0.6
    },
-   "research-academia": {
-    "flagged": 10,
-    "total": 1918,
-    "pct": 0.5
-   },
    "writing-content": {
-    "flagged": 5,
-    "total": 667,
-    "pct": 0.7
+    "flagged": 9,
+    "total": 733,
+    "pct": 1.2
    },
    "hardware-eda": {
     "flagged": 5,
-    "total": 2598,
+    "total": 2596,
     "pct": 0.2
    },
    "sales-crm": {
     "flagged": 4,
-    "total": 301,
+    "total": 309,
     "pct": 1.3
    },
    "legal-compliance": {
     "flagged": 3,
-    "total": 666,
-    "pct": 0.5
+    "total": 703,
+    "pct": 0.4
    },
    "healthcare-bio": {
     "flagged": 1,
-    "total": 818,
+    "total": 853,
     "pct": 0.1
    },
    "education-training": {
     "flagged": 1,
-    "total": 271,
-    "pct": 0.4
+    "total": 294,
+    "pct": 0.3
    },
    "other": {
     "flagged": 0,
-    "total": 286,
+    "total": 300,
     "pct": 0.0
    }
   },
@@ -6126,6 +6243,18 @@
     "name": "claude-code-hooks"
    },
    {
+    "repo": "Cjay-Cyber-2/Flowfex",
+    "path": "skills-md/imported/agent-swarm-skills/safety-guard/SKILL.md",
+    "stars": 0,
+    "domain": "devops-infra",
+    "score": 12,
+    "hits": {
+     "改動設定或掛鉤": 1,
+     "破壞性操作": 2
+    },
+    "name": "safety-guard"
+   },
+   {
     "repo": "tools-only/X-Skills",
     "path": "development/003-name-skill_e2474108/skill.md",
     "stars": 7,
@@ -6213,6 +6342,28 @@
      "憑證竊取": 2
     },
     "name": "resend"
+   },
+   {
+    "repo": "denial-web/clawguard",
+    "path": "examples/metadata-mismatch-skill/SKILL.md",
+    "stars": 0,
+    "domain": "ai-agent-tooling",
+    "score": 10,
+    "hits": {
+     "憑證竊取": 2
+    },
+    "name": "metadata-mismatch-skill"
+   },
+   {
+    "repo": "Anantha-236/Agent-Hunter",
+    "path": "claude_code_leaked_source_code/everything-claude-code-main/skills/security-review/SKILL.md",
+    "stars": 1,
+    "domain": "security",
+    "score": 10,
+    "hits": {
+     "憑證竊取": 2
+    },
+    "name": "security-review"
    },
    {
     "repo": "mrndstvndv/pi-coding-agent-flake",
@@ -6330,6 +6481,17 @@
      "破壞性操作": 2
     },
     "name": "cfn-careful"
+   },
+   {
+    "repo": "mattnigh/skills_collection",
+    "path": "collection/modu-ai__moai-adk__claude__skills__moai-foundation-claude__SKILL.md",
+    "stars": 24,
+    "domain": "ai-agent-tooling",
+    "score": 8,
+    "hits": {
+     "改動設定或掛鉤": 2
+    },
+    "name": "moai-foundation-claude"
    },
    {
     "repo": "Scrulius/SuperEnchanter",
@@ -6594,68 +6756,24 @@
      "隱藏字元": 1
     },
     "name": "名称"
-   },
-   {
-    "repo": "NVIDIA-AI-IOT/jetson-ai-lab",
-    "path": ".agents/skills/jetson-ai-lab-verify-build/SKILL.md",
-    "stars": 192,
-    "domain": "software-dev",
-    "score": 5,
-    "hits": {
-     "隱藏字元": 1
-    },
-    "name": "Jetson AI Lab: verify the build"
-   },
-   {
-    "repo": "boazcstrike/opencode",
-    "path": "skills/slack/SKILL.md",
-    "stars": 3,
-    "domain": "ops-admin",
-    "score": 5,
-    "hits": {
-     "憑證竊取": 1
-    },
-    "name": "slack"
-   },
-   {
-    "repo": "konflux-ci/qe-tools",
-    "path": "skills/debugging-cli-locally/SKILL.md",
-    "stars": 0,
-    "domain": "devops-infra",
-    "score": 5,
-    "hits": {
-     "憑證竊取": 1
-    },
-    "name": "debugging-cli-locally"
-   },
-   {
-    "repo": "silvio-l/skills",
-    "path": "skills/openai-image/SKILL.md",
-    "stars": 0,
-    "domain": "design-creative",
-    "score": 5,
-    "hits": {
-     "憑證竊取": 1
-    },
-    "name": "openai-image"
    }
   ],
   "severity_buckets": {
    "高(>=15)": 0,
-   "中(8-14)": 32,
-   "低(1-7)": 513
+   "中(8-14)": 36,
+   "低(1-7)": 582
   },
   "caveat": "規則式偵測，只抓已知樣態；高分不等於惡意（教學文件會引用攻擊字串），低分不等於安全。用途是決定哪些樣本要人看，不是門禁。"
  },
  "eda_gaps": {
-  "n_hw": 210,
+  "n_hw": 209,
   "tasks": [
    {
     "task": "retrieve",
     "zh": "檢索",
     "hw_pct": 2.4,
-    "global_pct": 9.8,
-    "ratio": 0.24,
+    "global_pct": 9.6,
+    "ratio": 0.25,
     "n": 2,
     "samples": [
      {
@@ -6673,7 +6791,7 @@
    {
     "task": "configure",
     "zh": "配置",
-    "hw_pct": 5.9,
+    "hw_pct": 6.0,
     "global_pct": 16.9,
     "ratio": 0.35,
     "n": 5,
@@ -6708,9 +6826,9 @@
    {
     "task": "transform",
     "zh": "轉換",
-    "hw_pct": 5.9,
-    "global_pct": 7.9,
-    "ratio": 0.74,
+    "hw_pct": 6.0,
+    "global_pct": 7.8,
+    "ratio": 0.76,
     "n": 5,
     "samples": [
      {
@@ -6743,9 +6861,9 @@
    {
     "task": "generate",
     "zh": "生成",
-    "hw_pct": 21.2,
+    "hw_pct": 21.4,
     "global_pct": 22.0,
-    "ratio": 0.96,
+    "ratio": 0.97,
     "n": 18,
     "samples": [
      {
@@ -6783,9 +6901,9 @@
    {
     "task": "orchestrate",
     "zh": "調度",
-    "hw_pct": 15.3,
-    "global_pct": 15.5,
-    "ratio": 0.99,
+    "hw_pct": 15.5,
+    "global_pct": 15.1,
+    "ratio": 1.02,
     "n": 13,
     "samples": [
      {
@@ -6823,10 +6941,10 @@
    {
     "task": "analyze",
     "zh": "分析",
-    "hw_pct": 14.1,
+    "hw_pct": 13.1,
     "global_pct": 12.5,
-    "ratio": 1.13,
-    "n": 12,
+    "ratio": 1.05,
+    "n": 11,
     "samples": [
      {
       "pain": "Simulink 模型求解器效能瓶頸難以分析排解",
@@ -6863,9 +6981,9 @@
    {
     "task": "verify",
     "zh": "驗證",
-    "hw_pct": 35.3,
-    "global_pct": 15.4,
-    "ratio": 2.29,
+    "hw_pct": 35.7,
+    "global_pct": 16.1,
+    "ratio": 2.22,
     "n": 30,
     "samples": [
      {

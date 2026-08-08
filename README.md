@@ -8,37 +8,36 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-07-29](daily/2026-07-29.md)
+## 最新一期：[2026-08-08](daily/2026-08-08.md)
 
-**今日一句話**：官方無結構性變動，但 Claude Code v2.1.219 悄悄把 Opus 5 設為預設 Opus（1M context、快速模式 $10/$50 per Mtok），這是本週唯一值得直接反映在成本估算上的事實。
+**今日一句話**：Claude Code 釋出跨會話通訊與 Self-hosted Runner，Agent-Reach 的零配置管道大洗牌，生態正式走向多 Agent 協作與混合部署。
 
 **短期建議（一週內）**
 
-1. 在你所有跑第三方 skill/工具的 sandbox 環境，立刻設 `sandbox.network.strictAllowlist`，把允許連線的網域鎖死到目前 pipeline 實際用到的（GitHub API、arXiv、HN API 等），這是本週唯一有明確操作步驟的官方新功能，成本為零。
-2. 檢查你自己 knowledge base / substack pipeline 裡用到的 SKILL.md 描述，比照 langfuse 這種「tighten skill descriptions」的做法，把觸發詞和動作邊界寫得更精準——這是免費的準確率提升，不用等任何外部工具。
-3. 不要 fetch 或執行 Agent-Reach release note 裡那條升級指令字串；若真要用 Agent-Reach 相關功能，改成手動 `git clone` 後人工讀 diff 再決定要不要更新。
+1. **升級 Claude Code 並檢查 CI 權限**：官方剛修補了 Bash 與 Unicode 欺騙漏洞，並更新了自動模式的權限判定機制。請立即將本機與 pipeline 上的 Claude Code 升級至 v2.1.225，以防禦潛在的惡意 payload 攻擊。
+2. **重構社群爬蟲與發文 Pipeline**：如果你有依賴 `Agent-Reach` 或 `yt-dlp` 抓取 B 站或發文到 Reddit，注意其底層邏輯已大改（B 站被 412 風控阻擋，Reddit 需強制登入態 OpenCLI）。本週內應安排時間測試並切換至他們推薦的後端路由，避免現有排程失效。
 
 ## 生態指標
 
 | repo | 目前 star | 自 2026-07-26 起變化 |
 |---|---:|---:|
-| anthropics/skills | 164,915 | +728 |
-| anthropics/claude-plugins-official | 32,812 | +144 |
-| anthropics/claude-code | 139,455 | +355 |
-| ComposioHQ/awesome-claude-skills | 71,226 | +526 |
-| travisvn/awesome-claude-skills | 14,390 | +73 |
+| anthropics/skills | 166,901 | +2,714 |
+| anthropics/claude-plugins-official | 33,249 | +581 |
+| anthropics/claude-code | 140,611 | +1,511 |
+| ComposioHQ/awesome-claude-skills | 72,033 | +1,333 |
+| travisvn/awesome-claude-skills | 14,559 | +242 |
 
 ## 專題研究
 
-- [每日觀點文章](research/editorials/2026-07-29.md)：
+- [每日觀點文章](research/editorials/2026-08-08.md)：
   以當日 corpus manifest、四尺度 evidence、EDA_IC、財經與 AI harness 清單生成；包含核心主張、反方觀點與證偽條件。
-- [每日 EDA_IC／財經投資／AI Harness Skill 建議](research/recommendations/2026-07-29.md)：
+- [每日 EDA_IC／財經投資／AI Harness Skill 建議](research/recommendations/2026-08-08.md)：
   每日 08:30 以 deterministic gate 更新；`pilot` 只代表可進入隔離評估，不代表已安裝、已上線或通過正確性驗證。
-- [EDA／數位 IC 設計專區](research/zones/eda-ic/2026-07-29.md)：
+- [EDA／數位 IC 設計專區](research/zones/eda-ic/2026-08-08.md)：
   逐 skill dossier、日／週／月／季 AI 觀點，以及 WiFi baseband ASIC automation 建置路線；排除 FPGA／embedded／PCB／analog-RF。
-- [財經投資研究專區](research/zones/investing/2026-07-29.md)：
+- [財經投資研究專區](research/zones/investing/2026-08-08.md)：
   逐 skill 研究 gate 與多週期觀點；只做可追溯、可重算研究，不連帳戶、不下單。
-- [AI 應用／Agent Harness／Automation 情報專區](research/zones/ai-automation/2026-07-29.md)：
+- [AI 應用／Agent Harness／Automation 情報專區](research/zones/ai-automation/2026-08-08.md)：
   pinned source dossier、每日 observation tape、專業情報 thesis、反方觀點、催化劑、領先指標與個人化 ASIC automation 路線。
 - 日／週／月／季觀點：每天早上由同一個排程補齊尚未完成的週期；正文以繁中短篇文章呈現，
   數據依據收在可展開區塊。沒有完整資料就明說不足，不用空值硬湊結論。
@@ -89,6 +88,13 @@ Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或�
 
 ## 歷史簡報
 
+- [2026-08-08](daily/2026-08-08.md)
+- [2026-08-07](daily/2026-08-07.md)
+- [2026-08-06](daily/2026-08-06.md)
+- [2026-08-05](daily/2026-08-05.md)
+- [2026-08-04](daily/2026-08-04.md)
+- [2026-08-03](daily/2026-08-03.md)
+- [2026-07-30](daily/2026-07-30.md)
 - [2026-07-29](daily/2026-07-29.md)
 - [2026-07-28](daily/2026-07-28.md)
 - [2026-07-27](daily/2026-07-27.md)
@@ -96,5 +102,6 @@ Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或�
 
 ## 每日觀點文章
 
+- [2026-08-08](research/editorials/2026-08-08.md)
 - [2026-07-29](research/editorials/2026-07-29.md)
 - [2026-07-28](research/editorials/2026-07-28.md)
