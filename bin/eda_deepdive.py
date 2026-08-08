@@ -13,6 +13,10 @@ import json, os, re
 from collections import Counter, defaultdict
 from statistics import median
 
+from corpus_policy import (
+    CONF_MIN, is_neutral, is_targeted, label_is_eligible, require_model_report_alignment,
+)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER = os.path.join(ROOT, "corpus", "master.jsonl")
 
@@ -26,12 +30,13 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
     except Exception:
         pass
 
+require_model_report_alignment(rows, os.path.join(ROOT, "corpus", "model_report.json"))
+
 # 判定硬體樣本一律用「模型/LLM 標的 domain」，不用關鍵字正則。
 # 教訓：關鍵字正則的誤判率實測 75.6%——RTL 在網頁開發是 right-to-left、STA/timing closure 也大量誤中。
-CONF_MIN = 0.6
 eda = [r for r in rows if r.get("domain") == "hardware-eda"
-       and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= CONF_MIN)]
-neutral_all = [r for r in rows if r.get("sample") != "targeted-eda" and r.get("domain")]
+       and label_is_eligible(r, "domain")]
+neutral_all = [r for r in rows if is_neutral(r) and label_is_eligible(r, "domain")]
 
 # 依詞彙層級判斷「有多真」——被 chip-design 層撈到且內容確實談 RTL/時序，才算核心
 CORE = re.compile(r"\b(verilog|systemverilog|rtl|netlist|tapeout|asic|synthes|floorplan|"
@@ -58,8 +63,8 @@ for r in eda:
 def profile(rs, label):
     if not rs:
         return {"label": label, "n": 0}
-    tc = Counter(x.get("task") for x in rs if x.get("task"))
-    mc = Counter(x.get("maturity") for x in rs if x.get("maturity"))
+    tc = Counter(x.get("task") for x in rs if label_is_eligible(x, "task"))
+    mc = Counter(x.get("maturity") for x in rs if label_is_eligible(x, "maturity"))
     pc = Counter((x.get("profession") or "unknown") for x in rs)
     stars = [x.get("stars") or 0 for x in rs]
     n_task = sum(tc.values()) or 1
@@ -75,8 +80,8 @@ def profile(rs, label):
     }
 
 # 全體基準（只用中立樣本）
-gt = Counter(r.get("task") for r in neutral_all if r.get("task"))
-gm = Counter(r.get("maturity") for r in neutral_all if r.get("maturity"))
+gt = Counter(r.get("task") for r in neutral_all if label_is_eligible(r, "task"))
+gm = Counter(r.get("maturity") for r in neutral_all if label_is_eligible(r, "maturity"))
 gn_t, gn_m = sum(gt.values()) or 1, sum(gm.values()) or 1
 
 # 反覆出現的痛點＝行業通則
@@ -101,10 +106,10 @@ def pain_themes(rs):
 
 out = {
     "n_eda_total": len(eda),
-    "n_targeted": sum(1 for r in eda if r.get("sample") == "targeted-eda"),
+    "n_targeted": sum(1 for r in eda if is_targeted(r)),
     "conf_min": CONF_MIN,
     "n_llm_labeled": sum(1 for r in eda if r.get("label_source") != "model"),
-    "n_neutral": sum(1 for r in eda if r.get("sample") != "targeted-eda"),
+    "n_neutral": sum(1 for r in eda if is_neutral(r)),
     "global_baseline": {
         "task_pct": {k: round(100 * v / gn_t, 1) for k, v in gt.most_common()},
         "production_pct": round(100 * gm.get("production", 0) / gn_m, 1),
@@ -114,11 +119,14 @@ out = {
     "pain_themes": {"核心晶片設計": pain_themes(core), "驗證": pain_themes(verif),
                     "鄰接硬體": pain_themes(adjacent)},
     "top_core": [{"repo": r.get("repo"), "stars": r.get("stars"), "name": (r.get("name") or "")[:90],
-                  "task": r.get("task"), "maturity": r.get("maturity"),
+                  "task": r.get("task") if label_is_eligible(r, "task") else None,
+                  "maturity": r.get("maturity") if label_is_eligible(r, "maturity") else None,
                   "pain": r.get("pain"), "terms": (r.get("matched_terms") or [])[:4]}
                  for r in sorted(core, key=lambda x: -(x.get("stars") or 0))[:30]],
     "top_verif": [{"repo": r.get("repo"), "stars": r.get("stars"), "name": (r.get("name") or "")[:90],
-                   "task": r.get("task"), "maturity": r.get("maturity"), "pain": r.get("pain")}
+                   "task": r.get("task") if label_is_eligible(r, "task") else None,
+                   "maturity": r.get("maturity") if label_is_eligible(r, "maturity") else None,
+                   "pain": r.get("pain")}
                   for r in sorted(verif, key=lambda x: -(x.get("stars") or 0))[:25]],
 }
 json.dump(out, open(os.path.join(ROOT, "corpus", "eda_deepdive.json"), "w"),

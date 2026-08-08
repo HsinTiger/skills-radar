@@ -1,41 +1,857 @@
 {
- "generated_at": "2026-07-29T00:30:07.676095+00:00",
+ "generated_at": "2026-07-29T07:34:37.305014+00:00",
  "window_days": 1,
  "repos": [
   {
    "repo": "anthropics/skills",
    "tier": 1,
    "why": "官方 Agent Skills 參考實作與規範",
-   "error": "[Errno 2] No such file or directory: 'gh'"
+   "stars": 164915,
+   "pushed_at": "2026-07-24T20:12:36Z",
+   "open_issues": 1066,
+   "head_sha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
+   "head_verified": true,
+   "commits": [],
+   "releases": []
   },
   {
    "repo": "anthropics/claude-plugins-official",
    "tier": 1,
    "why": "官方 plugin 目錄",
-   "error": "[Errno 2] No such file or directory: 'gh'"
+   "stars": 32812,
+   "pushed_at": "2026-07-29T00:19:43Z",
+   "open_issues": 856,
+   "head_sha": "885edf89c4d8b0a6215a8d229576b87916e107e5",
+   "head_verified": true,
+   "commits": [
+    {
+     "sha": "885edf89",
+     "date": "2026-07-29T00:19:41Z",
+     "msg_untrusted": "bump(quarkus-agent): 47cd6df3 → d39fa1cf (#4628)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "2be72d20",
+     "date": "2026-07-29T00:19:13Z",
+     "msg_untrusted": "bump(sentry-cli): 83fb00f5 → 3e292ee4 (#4632)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "284fdedb",
+     "date": "2026-07-29T00:18:45Z",
+     "msg_untrusted": "bump(dataverse): a6e49712 → ab56d1ad (#4625)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "66d8951f",
+     "date": "2026-07-29T00:18:18Z",
+     "msg_untrusted": "bump(hyperframes): c691869e → 4f344c50 (#4626)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "e1487c60",
+     "date": "2026-07-29T00:17:48Z",
+     "msg_untrusted": "bump(slack): e75b0cf1 → f43f620b (#4633)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "4bca2f11",
+     "date": "2026-07-29T00:17:02Z",
+     "msg_untrusted": "bump(data-agent-kit-starter-pack): 62d2f9c5 → e8fa2b8c (#4624)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "b60dfcb2",
+     "date": "2026-07-29T00:16:32Z",
+     "msg_untrusted": "bump(aws-startup-advisor): 084d44e1 → 927def0c (#4621)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "c07c72c9",
+     "date": "2026-07-29T00:15:59Z",
+     "msg_untrusted": "bump(crowdstrike-falcon-foundry): fad171a8 → cd35ba4d (#4623)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "78a6cdf0",
+     "date": "2026-07-29T00:15:37Z",
+     "msg_untrusted": "bump(carta-cap-table): 81f53fb2 → 7e2e42fc (#4622)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "bbb0fea9",
+     "date": "2026-07-29T00:15:21Z",
+     "msg_untrusted": "bump(youdotcom-agent-skills): b390ddb6 → 4006e71a (#4635)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "5d65e759",
+     "date": "2026-07-29T00:14:56Z",
+     "msg_untrusted": "bump(agentforce-adlc): 74e7c25b → 2e735ab7 (#4619)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "8f901197",
+     "date": "2026-07-29T00:14:21Z",
+     "msg_untrusted": "bump(amd-skills): 22898093 → d93e3ed6 (#4620)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "730babf0",
+     "date": "2026-07-29T00:14:08Z",
+     "msg_untrusted": "bump(nimble): 74ca4dd4 → 83fcffc3 (#4627)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "cf9371dc",
+     "date": "2026-07-29T00:13:32Z",
+     "msg_untrusted": "bump(railway): 191601b4 → c8b14877 (#4629)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "4795fd9b",
+     "date": "2026-07-29T00:12:49Z",
+     "msg_untrusted": "bump(remember): 01c9565b → c85af539 (#4630)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "8ef499f6",
+     "date": "2026-07-29T00:12:38Z",
+     "msg_untrusted": "bump(sanity): af54474c → fc0e709f (#4631)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "980f04d3",
+     "date": "2026-07-29T00:12:26Z",
+     "msg_untrusted": "bump(superpowers): 3dcbd5c4 → 44c9b2d6 (#4634)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "bcce2c2d",
+     "date": "2026-07-29T00:11:41Z",
+     "msg_untrusted": "bump(langfuse): b2ef4908 → cf98ef9b (#4636)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "83e22eb0",
+     "date": "2026-07-29T00:09:41Z",
+     "msg_untrusted": "bump(apollo-skills): 3466193e → 85996a0b (#4594)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "da4ce626",
+     "date": "2026-07-28T18:20:36Z",
+     "msg_untrusted": "bump(datarobot-agent-skills): f432e0cb → b54fba97 (#4603)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "29a20791",
+     "date": "2026-07-28T18:20:11Z",
+     "msg_untrusted": "bump(sap-cds-mcp): 1f08b628 → 562ac32d (#4613)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "bc1f9cef",
+     "date": "2026-07-28T18:19:45Z",
+     "msg_untrusted": "bump(qdrant-skills): e24485f0 → 50d35907 (#4611)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "0382b48a",
+     "date": "2026-07-28T18:19:18Z",
+     "msg_untrusted": "bump(codspeed): aebdbbc6 → 0418479c (#4601)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "2b4e3319",
+     "date": "2026-07-28T18:18:52Z",
+     "msg_untrusted": "bump(hyperframes): dbdc9408 → c691869e (#4607)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "a084c237",
+     "date": "2026-07-28T18:18:24Z",
+     "msg_untrusted": "bump(outputai): 2cbd0a26 → 3d1f9bd0 (#4609)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "bf74d4ab",
+     "date": "2026-07-28T18:17:55Z",
+     "msg_untrusted": "bump(paypal): c93cbfe5 → a8e5aef8 (#4610)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "7e32f96a",
+     "date": "2026-07-28T18:17:27Z",
+     "msg_untrusted": "bump(remember): d1fc7945 → 01c9565b (#4612)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "3da081b8",
+     "date": "2026-07-28T18:16:42Z",
+     "msg_untrusted": "bump(data-agent-kit-starter-pack): cc9c6719 → 62d2f9c5 (#4602)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "de74210d",
+     "date": "2026-07-28T18:16:12Z",
+     "msg_untrusted": "bump(bigquery-data-analytics): 7b89e741 → b8feae85 (#4597)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    },
+    {
+     "sha": "ade35f1d",
+     "date": "2026-07-28T18:15:44Z",
+     "msg_untrusted": "bump(carta-cap-table): 35c25847 → 81f53fb2 (#4598)  Co-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+    }
+   ],
+   "releases": []
   },
   {
    "repo": "anthropics/claude-code",
    "tier": 1,
    "why": "Claude Code 本體（changelog / issue 風向）",
-   "error": "[Errno 2] No such file or directory: 'gh'"
+   "stars": 139455,
+   "pushed_at": "2026-07-25T01:35:55Z",
+   "open_issues": 13719,
+   "head_sha": "7ef6eec9d9ba84ea6f233f26c45f1df5c5991843",
+   "head_verified": false,
+   "commits": [],
+   "releases": [
+    {
+     "tag": "v2.1.220",
+     "published": "2026-07-25T01:35:55Z",
+     "name_untrusted": "v2.1.220",
+     "body_untrusted": "## What's changed  - Bug fixes and reliability improvements"
+    },
+    {
+     "tag": "v2.1.219",
+     "published": "2026-07-24T17:14:23Z",
+     "name_untrusted": "v2.1.219",
+     "body_untrusted": "## What's changed  - Added Claude Opus 5 (`claude-opus-5`), now the default Opus model — 1M context, fast mode at $10/$50 per Mtok - Added `sandbox.network.strictAllowlist` setting to deny non-allowlisted hosts for sandboxed commands without prompting - Added `DirectoryAdded` hook that fires after `/add-dir` or the SDK `register_repo_root` control request registers a new working directory mid-session - Added `mcp_server_errors` to the headless stream-json init event, listing `--mcp-config` entries skipped by config validation; terminal runs print a startup warning - Added the `workflowSizeGuideline` settings key so the advisory Dynamic workflow size guideline can be set from any settings file; the `/config` row is hidden while one does - Added nested subagent forwarding in stream-json: sub"
+    },
+    {
+     "tag": "v2.1.218",
+     "published": "2026-07-22T21:24:56Z",
+     "name_untrusted": "v2.1.218",
+     "body_untrusted": "## What's changed  - Changed `/code-review` to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target - Added screen-reader announcements of deleted text for word and line deletions (`Option+Delete`, `Ctrl+W`, `Cmd+Backspace`, `Ctrl+U`, `Ctrl+K`) in `--ax-screen-reader` mode - Fixed Windows paths with `\\u`-prefixed segments (like `C:\\Users\\unicorn`) being corrupted into CJK characters in tool inputs, which made those files inaccessible - Fixed the left arrow key discarding the conversation with no undo: presses right after editing now ask to confirm, and Esc in the agent view returns to the conversation it backgrounded - Added HTTP status and error text to `claude mcp list` and `/mcp` when a server fails to conne"
+    }
+   ]
   },
   {
    "repo": "ComposioHQ/awesome-claude-skills",
    "tier": 3,
    "why": "最大社群精選清單",
-   "error": "[Errno 2] No such file or directory: 'gh'"
+   "stars": 71226,
+   "pushed_at": "2026-07-24T07:48:01Z",
+   "open_issues": 1120,
+   "head_sha": "be2a406907dbc61b73e6827ded415c96139d13a2",
+   "head_verified": true,
+   "commits": [],
+   "releases": []
   },
   {
    "repo": "travisvn/awesome-claude-skills",
    "tier": 3,
    "why": "Claude Code 取向的社群清單",
-   "error": "[Errno 2] No such file or directory: 'gh'"
+   "stars": 14390,
+   "pushed_at": "2026-04-28T19:30:24Z",
+   "open_issues": 664,
+   "head_sha": "1da55aa810f206d3fe2005e7e3989b15a275d942",
+   "head_verified": false,
+   "commits": [],
+   "releases": []
+  },
+  {
+   "repo": "Panniantong/Agent-Reach",
+   "tier": 3,
+   "why": "公開資訊 reach routing 候選；登入型 channel 僅作風險觀察",
+   "stars": 62006,
+   "pushed_at": "2026-07-25T10:20:07Z",
+   "open_issues": 174,
+   "head_sha": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+   "head_verified": true,
+   "commits": [],
+   "releases": [
+    {
+     "tag": "v1.5.0",
+     "published": "2026-06-11T12:29:59Z",
+     "name_untrusted": "v1.5.0 — 能力层:多后端路由 + 真体检 + OpenCLI",
+     "body_untrusted": "## 这一版是什么  **Agent Reach 从「工具集合」升级为「能力层」**:每个平台 = 首选 + 备选的有序后端列表,当下最稳的接入方式替你实测选好、装好、体检好——接入方式换代,你无感。本版全部选型基于 2026-06 真机实测(32 项端到端测试)。  ## 平台路由变化  | 平台 | 现在的路 | |------|---------| | 小红书 | **OpenCLI**(桌面,复用浏览器登录态零配置)▸ xiaohongshu-mcp(服务器,扫码)▸ xhs-cli(存量备选,上游已停更) | | Reddit | **OpenCLI** ▸ rdt-cli。诚实口径:Reddit 没有零配置路径(匿名接口已被全面封锁、官方 API 审批制),必须登录态 | | B站 | **bili-cli**(搜索/热门/详情,无需登录)▸ OpenCLI(字幕)▸ 搜索 API 兜底。**yt-dlp 退出 B站**(被 412 风控全面拦截,实测最新版+代理+Cookie 均无效);yt-dlp 继续服务 YouTube | | Twitter | twitter-cli 守门(实测稳定)▸ OpenCLI 备选,探测加重试 |  ## doctor 成了真体检  - 真跑命令探测,而不是只看文件存在——能识别「装了但坏了」(典型:系统 Python 升级后 venv 断链),并给出可直接复制的重装处方 - 报告每个多后端平台**当前在用哪条路**(`doctor --json` 的 `active_backend`) - 一个渠道崩了不再拖垮整个体检  ## 收纳 OpenCLI(桌面后端)  `agent-reach install --channels opencli`:npm 自动装,Chrome 扩展商店点一次(Chrome 安全模型,无法代点)"
+    },
+    {
+     "tag": "v1.4.2",
+     "published": "2026-06-10T08:02:48Z",
+     "name_untrusted": "v1.4.2 — 诚实瘦身：移除失修渠道，新增转写与 doctor --json",
+     "body_untrusted": "## 渠道调整  **移除抖音、微博、微信公众号三个渠道。** 原因很直接——它们已经名不副实：  - **抖音**：上游 douyin-mcp-server 已停止维护（archived），且需要手动起本地服务的 4 步配置，几乎没人能配通 - **微博**：依赖一个久未维护的个人 fork，实际已不可用 - **微信公众号**：全文阅读被反爬拦截越来越严重（#339），却还在宣传\"零配置可用\"  与其展示坏掉的承诺，不如诚实下架。等有可靠的上游方案时它们会回来（v1.4.0 移除 Discord/头条是同样的逻辑）。现在的口径：**13 个平台，6 个真零配置**。  ## 新功能  - **`agent-reach transcribe <链接或文件>`** — Whisper 音频转写直接进 CLI（Groq 免费 key 即可，失败自动降级 OpenAI），无字幕视频的兜底方案（#277） - **`agent-reach doctor --json`** — 机器可读的健康检查输出；文本版加了图例，看得懂 ✅/[!]/[X] 是什么意思了（#348） - **Skill 自动触发优化** — 重写了 SKILL 描述（平台中英文别名 + 动作触发词），Agent 现在能更可靠地自动用上 Agent Reach（#324，感谢 @alfred1994）  ## 修复  - **Reddit 安装命令修复** — doctor 之前教你装 PyPI 上不存在的 rdt-cli 0.4.2；现在从 GitHub 源安装（钉死 0.4.2 commit），文档同步更新（#326，感谢 @Bortlesboat，关闭 #294） - **小宇宙转写质量** — Whisper prompt 要求输出中文标点（修复了被 bash 吞掉的引号），429 重试也带 prompt"
+    },
+    {
+     "tag": "v1.4.1",
+     "published": "2026-06-10T03:47:52Z",
+     "name_untrusted": "v1.4.1 — 修复源码安装失败(wheel 重复打包)",
+     "body_untrusted": "## 修复  **修复了源码安装失败的问题。** 近期从 GitHub 安装(`pip install .../archive/main.zip`、`pipx`、`uvx`)会因 wheel 重复打包直接构建失败:  ``` ValueError: A second file is being added to the wheel archive at the same path: `agent_reach/guides/setup-exa.md` ```  原因是 `pyproject.toml` 中 `packages = [\"agent_reach\"]` 已经包含了 `guides/`、`skill/`、`scripts/`,而 `force-include` 又把它们打包了一遍——新版 hatchling 对此直接报错。现已删除冗余的 force-include 块(#329)。  已验证:wheel 构建干净(无重复条目)、SKILL.md / guides / scripts 全部正常随包分发、85 个测试全绿。  - 关闭:#308 #315 #328 #332 #334 - 感谢 @nyxst4ck(#329)与 @1131096740(#319)提交修复 🙏  ## CI 加固  新增 **wheel-build 门禁**(#340):每次提交都会真实构建 wheel、校验无重复条目、确认数据文件在包内,并在干净 venv 中冒烟安装。此前 CI 只跑 editable 安装(`pip install -e .`),永远测不到打包问题——这类 bug 从此结构性地无法再发布出去。  ## 升级方式  把这句话发给你的 Agent:  ``` 帮我更新 Agent Reach:https://raw.githubusercontent.com/Pannian"
+    }
+   ]
+  },
+  {
+   "repo": "headroomlabs-ai/headroom",
+   "tier": 3,
+   "why": "context compression 與 reversible retrieval 候選",
+   "stars": 63020,
+   "pushed_at": "2026-07-28T23:59:54Z",
+   "open_issues": 579,
+   "head_sha": "1588f5e04144af5de8398810ea3893c6e623309c",
+   "head_verified": true,
+   "commits": [
+    {
+     "sha": "1588f5e0",
+     "date": "2026-07-28T22:33:08Z",
+     "msg_untrusted": "feat: expose configured OTEL meters to integrations (#2519)  ## Description  Expose a small public observability API that lets optional integrations create OpenTelemetry instruments using Headroom's c"
+    }
+   ],
+   "releases": [
+    {
+     "tag": "v0.32.0",
+     "published": "2026-07-17T04:38:48Z",
+     "name_untrusted": "v0.32.0",
+     "body_untrusted": "## What's Changed * ci(release-please): use a PAT so releases trigger the publish workflows by @chopratejas in https://github.com/headroomlabs-ai/headroom/pull/1920 * ci: bump actions/checkout from 4 to 7 by @dependabot[bot] in https://github.com/headroomlabs-ai/headroom/pull/1414 * fix(memory/sync): make Codex AGENTS.md adapter additive (stop wiping memories) by @abhay-codes07 in https://github.com/headroomlabs-ai/headroom/pull/1674 * fix(proxy): honor x-headroom-base-url on /v1/messages route by @adryanev in https://github.com/headroomlabs-ai/headroom/pull/1763 * fix(litellm): surface Bedrock cache token usage in non-streaming responses by @dspv in https://github.com/headroomlabs-ai/headroom/pull/1848 * fix(copilot-auth): stop discarding the caller's valid Copilot auth token by @yehsuf i"
+    },
+    {
+     "tag": "v0.31.0",
+     "published": "2026-07-09T15:19:44Z",
+     "name_untrusted": "Release v0.31.0",
+     "body_untrusted": "## What's Changed * fix(dashboard): price proxy savings without litellm by @rodboev in https://github.com/headroomlabs-ai/headroom/pull/1728 * fix(proxy): surface codex websocket loop failures in livez by @rodboev in https://github.com/headroomlabs-ai/headroom/pull/1727 * fix(savings): guard non-finite numeric coercion by @inix-x in https://github.com/headroomlabs-ai/headroom/pull/1769 * feat(content-router): accept any real compression (remove min-savings floor) by @chopratejas in https://github.com/headroomlabs-ai/headroom/pull/1771 * fix(content-router): token-measure lossless folds at the acceptance gate by @chopratejas in https://github.com/headroomlabs-ai/headroom/pull/1772 * fix(opencode): expose headroom/* models in injected provider config by @Parideboy in https://github.com/headr"
+    },
+    {
+     "tag": "v0.30.0",
+     "published": "2026-07-03T19:22:40Z",
+     "name_untrusted": "Release v0.30.0",
+     "body_untrusted": "## What's Changed * feat(agent-savings): land coding + general workload personas on main by @chopratejas in https://github.com/headroomlabs-ai/headroom/pull/1732 * feat(content-router): lossless-excluded compaction (grep/log/json) + enable in coding/general personas by @chopratejas in https://github.com/headroomlabs-ai/headroom/pull/1762 * feat(anthropic): add Claude 5 family pricing & align current rates by @KennethWKZ in https://github.com/headroomlabs-ai/headroom/pull/1767 * fix(relevance): gate ONNX embedding backend behind AVX2 to avoid SIGILL (#1723) by @Parideboy in https://github.com/headroomlabs-ai/headroom/pull/1765   **Full Changelog**: https://github.com/headroomlabs-ai/headroom/compare/v0.29.0...v0.30.0"
+    }
+   ]
+  },
+  {
+   "repo": "china-qijizhifeng/agentic-harness-engineering",
+   "tier": 3,
+   "why": "harness change/evidence contract 候選",
+   "stars": 780,
+   "pushed_at": "2026-06-14T16:03:21Z",
+   "open_issues": 5,
+   "head_sha": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+   "head_verified": true,
+   "commits": [],
+   "releases": []
+  },
+  {
+   "repo": "langchain-ai/langgraph",
+   "tier": 2,
+   "why": "durable orchestration 與 checkpoint conformance 候選",
+   "stars": 38394,
+   "pushed_at": "2026-07-28T18:34:13Z",
+   "open_issues": 649,
+   "head_sha": "41341457342327166d72fc11952ab28fb61ec0bf",
+   "head_verified": true,
+   "commits": [
+    {
+     "sha": "41341457",
+     "date": "2026-07-28T14:49:37Z",
+     "msg_untrusted": "release(langgraph): 1.2.10 (#8462)  ## Summary  Releases `langgraph` 1.2.10.  Bumps the package version `1.2.9` -> `1.2.10` and propagates it into the `langgraph`, `prebuilt`, and `sdk-py` lockfiles. "
+    }
+   ],
+   "releases": [
+    {
+     "tag": "1.2.10",
+     "published": "2026-07-28T18:34:14Z",
+     "name_untrusted": "langgraph==1.2.10",
+     "body_untrusted": "Changes since 1.2.9  * release(langgraph): 1.2.10 (#8462) * chore(deps): bump jupyterlab from 4.5.9 to 4.5.10 in /libs/langgraph (#8440) * chore(deps): bump setuptools from 80.9.0 to 83.0.0 in /libs/langgraph (#8435) * feat(langgraph): type v3 stream_events return and native projections (#8389) * revert(langgraph): delete TracePolicy (#8403) * feat(langgraph): drop tags from TracePolicy (#8402) * feat(langgraph): expose `trace_policy` on `add_node` (#8362) * chore(deps): bump mistune from 3.2.1 to 3.3.0 in /libs/langgraph (#8317) * chore(deps): bump soupsieve from 2.8.1 to 2.8.4 in /libs/langgraph (#8318) * chore(cli): allow langgraph-api versions up to 1.0.0 (#8319)"
+    },
+    {
+     "tag": "1.2.9",
+     "published": "2026-07-10T01:30:24Z",
+     "name_untrusted": "langgraph==1.2.9",
+     "body_untrusted": "Changes since 1.2.8  * release(langgraph): 1.2.9 (#8316) * fix: updateState metadata/counters for delta channel (#8315)"
+    },
+    {
+     "tag": "cli==0.4.31",
+     "published": "2026-07-10T22:58:04Z",
+     "name_untrusted": "langgraph-cli==0.4.31",
+     "body_untrusted": "Changes since cli==0.4.30  * chore(cli): allow langgraph-api versions up to 1.0.0 (#8319) * chore(deps): bump the minor-and-patch group in /libs/cli with 5 updates (#8251) * chore(deps): bump the minor-and-patch group in /libs/cli/js-examples with 6 updates (#8246) * chore(deps): bump the minor-and-patch group in /libs/cli/js-monorepo-example with 7 updates (#8245) * chore(deps): bump starlette from 1.0.1 to 1.3.1 in /libs/cli (#8105) * chore(deps): bump langsmith from 0.8.0 to 0.8.18 in /libs/cli (#8172) * feat(cli): allow prebuild images for langgraph deploy (#8100) * chore(deps): bump langchain-anthropic from 1.0.0a5 to 1.4.6 in /libs/cli/examples/graph_prerelease_reqs in the pip group across 1 directory (#8145) * chore(deps): bump @babel/core from 7.25.2 to 7.29.7 in /libs/cli/js-examp"
+    }
+   ]
+  },
+  {
+   "repo": "langfuse/langfuse",
+   "tier": 2,
+   "why": "agent observability/evaluation 候選",
+   "stars": 32063,
+   "pushed_at": "2026-07-29T07:34:33Z",
+   "open_issues": 704,
+   "head_sha": "6d2988fcc050afcbee4dc28fec31669dc688c013",
+   "head_verified": true,
+   "commits": [
+    {
+     "sha": "6d2988fc",
+     "date": "2026-07-29T07:34:31Z",
+     "msg_untrusted": "docs(agent): tighten skill descriptions (#15550)"
+    },
+    {
+     "sha": "90b98d00",
+     "date": "2026-07-28T22:23:56Z",
+     "msg_untrusted": "docs(previews): seed data into a preview via port-forward + seed CLI (#15547)  docs(previews): add seed-data-into-a-preview to the langfuse-previews skill  Documents the simplest way to improve data i"
+    },
+    {
+     "sha": "429ec4ff",
+     "date": "2026-07-28T19:26:18Z",
+     "msg_untrusted": "fix(events): show Pulse loading skeleton on time-window changes (LFE-14575) (#15544)  * fix(events): show Pulse loading skeleton on time-window changes (LFE-14575)  The strip reused held-over bins as "
+    },
+    {
+     "sha": "9a5cab7a",
+     "date": "2026-07-28T18:18:56Z",
+     "msg_untrusted": "test(events): approx-count behavioral test + documented tuple constant (LFE-11057 follow-up) (#15542)  * refactor(events): extract approx-count sentinel tuple to a documented constant  Co-Authored-By:"
+    },
+    {
+     "sha": "c482824b",
+     "date": "2026-07-28T17:37:51Z",
+     "msg_untrusted": "feat(events): Follow-up UX adjustments to the Pulse outlier strip  (#15540)  * fix(dev): pin turbopack root so nested-worktree dev servers resolve @langfuse/shared  Co-Authored-By: Claude Fable 5 <nor"
+    },
+    {
+     "sha": "f1a69183",
+     "date": "2026-07-28T17:23:12Z",
+     "msg_untrusted": "feat(traces): show approximate row count in the traces table (LFE-11057) (#15517)  * feat(traces): show approximate row count in the traces table (LFE-11057)  Add an always-on approximate distinct-tra"
+    },
+    {
+     "sha": "4deb6bc2",
+     "date": "2026-07-28T16:04:06Z",
+     "msg_untrusted": "feat(tracing): filter for ingested api key (#15515)"
+    },
+    {
+     "sha": "d6621997",
+     "date": "2026-07-28T15:27:41Z",
+     "msg_untrusted": "fix(web): stop trace/observations tables crashing on unknown level values (#15538)  * fix(web): stop trace/observations tables crashing on unknown level values  A level is user-/OTel-controlled data —"
+    },
+    {
+     "sha": "cc0e3ff7",
+     "date": "2026-07-28T15:18:33Z",
+     "msg_untrusted": "fix(pricing): match Bedrock JP and AU model prefixes (#15539)  * fix(pricing): match Bedrock JP and AU model prefixes  * test(pricing): avoid dynamic regex compilation"
+    },
+    {
+     "sha": "749ce9f4",
+     "date": "2026-07-28T15:04:29Z",
+     "msg_untrusted": "feat(events): PostHog instrumentation for the Pulse outlier strip (LFE-14451) (#15535)  * feat(events): PostHog instrumentation for the Pulse outlier strip (LFE-14451)  pulse:* taxonomy — drill_in (tr"
+    },
+    {
+     "sha": "84648830",
+     "date": "2026-07-28T14:57:07Z",
+     "msg_untrusted": "fix(events): keep Pulse touch tooltip on-screen at viewport edges (LFE-14451) (#15524)  * fix(events): keep the pinned touch tooltip on-screen at viewport edges  The touch preview centered on the tap "
+    },
+    {
+     "sha": "23154582",
+     "date": "2026-07-28T14:51:32Z",
+     "msg_untrusted": "docs(agent): Add guidelines for React component composition (#15537)"
+    },
+    {
+     "sha": "76568882",
+     "date": "2026-07-28T14:22:08Z",
+     "msg_untrusted": "fix(otel): map foreign observation levels onto the Langfuse enum (#15513)  * fix(otel): map foreign observation levels onto the Langfuse enum  The OTel path handled langfuse.observation.level inconsis"
+    },
+    {
+     "sha": "535ac9da",
+     "date": "2026-07-28T13:11:34Z",
+     "msg_untrusted": "feat(analytics): attribute cloud signups to Google Ads clicks (gclid) (#15048)  feat(analytics): attribute cloud_signup_complete events to Google Ads clicks  Adds a gclid property to the server-side c"
+    },
+    {
+     "sha": "7f719433",
+     "date": "2026-07-28T12:47:31Z",
+     "msg_untrusted": "feat(worker): add opt-in queue-consumption liveness health check (LFE-13685) (#15512)  * feat(worker): add opt-in queue-consumption liveness health check (LFE-13685)  After Redis lock loss (FLUSHALL, "
+    },
+    {
+     "sha": "d86d604d",
+     "date": "2026-07-28T11:57:48Z",
+     "msg_untrusted": "fix(otel): normalize environment on the direct events_full write path (#15499)  * fix(otel): normalize environment on the direct events_full write path  The direct OTel events write (processToEvent ->"
+    },
+    {
+     "sha": "44d44aa5",
+     "date": "2026-07-28T11:47:22Z",
+     "msg_untrusted": "feat(v4): hand off coding-agent upgrades to the canonical skill (#15527)  feat(v4): hand off upgrades to canonical skill (LFE-14553)"
+    },
+    {
+     "sha": "187686a1",
+     "date": "2026-07-28T10:49:52Z",
+     "msg_untrusted": "fix(events): Pulse tap clears a leftover drag-selection band (LFE-14451) (#15521)  fix(events): tap clears a leftover drag-selection band (LFE-14451)  Self-review of the recent touch-model commits: a "
+    },
+    {
+     "sha": "3a9448f7",
+     "date": "2026-07-28T10:49:37Z",
+     "msg_untrusted": "chore(seeder): use current models in demo seed data (LFMKT-2190) (#15523)  Swap the hardcoded old model names in the scenario/data seeders for current, small, latest-generation models so demo videos a"
+    },
+    {
+     "sha": "83f03e53",
+     "date": "2026-07-28T10:04:33Z",
+     "msg_untrusted": "chore: clean up legacy queue metrics after migration (#15516)  Remove legacy queue consumer metrics"
+    },
+    {
+     "sha": "04350093",
+     "date": "2026-07-28T10:04:32Z",
+     "msg_untrusted": "chore(deps): bump brace-expansion to 5.0.8 (#15520)"
+    },
+    {
+     "sha": "ca2e5456",
+     "date": "2026-07-28T10:01:26Z",
+     "msg_untrusted": "refactor(widgets): move WidgetForm to react-hook-form and fix histogram silent-revert (LFE-10699) (#15403)  * feat(widgets): widget-form schema + adapters for RHF migration (LFE-10699)  Add a composed"
+    },
+    {
+     "sha": "99687052",
+     "date": "2026-07-28T09:59:16Z",
+     "msg_untrusted": "chore(deps): bump Snyk-flagged path-to-regexp and @ai-sdk/provider-utils (#15518)  Co-authored-by: Claude Fable 5 <noreply@anthropic.com>"
+    },
+    {
+     "sha": "70ec9083",
+     "date": "2026-07-28T09:56:20Z",
+     "msg_untrusted": "feat(events): outlier chart strip above the trace table (LFE-14451) (#15486)  * feat(events): binned outlier-metrics endpoint for the trace-table chart (LFE-14451)  Adds events.metricsTimeSeries: epoc"
+    },
+    {
+     "sha": "d0c844f2",
+     "date": "2026-07-28T09:41:54Z",
+     "msg_untrusted": "feat(experiments): auth headers on remote experiment run (#15382)  * feat(remote-experiment): add support for secret keys and custom headers  * tests(remote-experiment): implement tests for secret key"
+    },
+    {
+     "sha": "1bb37478",
+     "date": "2026-07-28T09:22:26Z",
+     "msg_untrusted": "refactor(web): Cleanup `StatusBadge` (#15497)  * Remove unused badgeClassName prop from TruncatedLabels  * Freeze StatusBadge className prop to union of used literal values  * Move always-passed text "
+    },
+    {
+     "sha": "b97e8195",
+     "date": "2026-07-28T09:04:07Z",
+     "msg_untrusted": "refactor(agent): Move in-app-agent runtime into shared package (#15421)  refactor(agent): move in-app-agent runtime into shared module (LFE-14487)  The executor moves once into packages/shared/src/in-"
+    },
+    {
+     "sha": "261b888a",
+     "date": "2026-07-28T08:56:30Z",
+     "msg_untrusted": "feat(storybook): design system docs: color, typography, layout, charts (#15500)  * feat(storybook): design system docs — color, typography, layout, charts  Add four single-leaf reference pages directl"
+    },
+    {
+     "sha": "ce10eb5b",
+     "date": "2026-07-28T08:50:39Z",
+     "msg_untrusted": "feat(filters): refine event facet counts from the row query's filter state (LFE-14489) (#15466)  * feat(filters): refine event facet counts against active filters (LFE-14489)  Feed the applied filter "
+    },
+    {
+     "sha": "57c7c349",
+     "date": "2026-07-28T08:43:35Z",
+     "msg_untrusted": "fix(evals): normalize Python score aliases in plain dictionaries (#15514)  * fix(evals): normalize Python score aliases in plain dictionaries  * chore(evals): move Python alias coverage to Floci  * fi"
+    }
+   ],
+   "releases": [
+    {
+     "tag": "v4.0.0-rc.3",
+     "published": "2026-07-27T08:32:32Z",
+     "name_untrusted": "v4.0.0-rc.3",
+     "body_untrusted": "## What's Changed    ### Features    * feat(trace): perf telemetry for the lazy JSON viewer (LFE-14419) by @nkabardin in https://github.com/langfuse/langfuse/pull/15422  * feat: refine event filter options using active filters by @sumerman in https://github.com/langfuse/langfuse/pull/15424  * feat(v4): improve SDK migration detection by @maxdeichmann in https://github.com/langfuse/langfuse/pull/15385    ### Fixes    * fix: renew media retention leases during blob cleanup by @sumerman in https://github.com/langfuse/langfuse/pull/15416  * fix(mobile): header title crush on long labels + tighten spacing (LFE-11067) by @nkabardin in https://github.com/langfuse/langfuse/pull/15420  * fix: Preserve accurate retention backlog gauges after cleanup by @sumerman in https://github.com/langfuse/langfu"
+    },
+    {
+     "tag": "v3.224.2",
+     "published": "2026-07-27T14:58:05Z",
+     "name_untrusted": "v3.224.2",
+     "body_untrusted": "## What's Changed    ### Fixes    * fix(llm): require fresh secrets for base URL changes (v3 backport of #15401) by @Steffen911 in https://github.com/langfuse/langfuse/pull/15473  * fix(api): stop logging public API request payloads (v3 backport of #15399) by @Steffen911 in https://github.com/langfuse/langfuse/pull/15474  * fix(auth): resolve API key scope publicKey from the verified key (v3 backport of #15456) by @Steffen911 in https://github.com/langfuse/langfuse/pull/15475    ### Chores    * build: run snyk on v3 branch (v3 backport of #15479) by @Steffen911 in https://github.com/langfuse/langfuse/pull/15482  * build: add v3 branch to github action security check by @Steffen911 in https://github.com/langfuse/langfuse/pull/15484  * chore(deps): bump next-auth to 4.24.15 on v3 (backport o"
+    },
+    {
+     "tag": "v4.0.0-rc.2",
+     "published": "2026-07-24T12:34:34Z",
+     "name_untrusted": "v4.0.0-rc.2",
+     "body_untrusted": "## What's Changed    ### Features    * feat(agent): Add additional DB columns and scoped backfill for background execution (LFE-14370) by @LysanderKie in https://github.com/langfuse/langfuse/pull/15291  * feat(json-viewer): async virtualized lazy JSON renderer (LFE-11080) by @nkabardin in https://github.com/langfuse/langfuse/pull/15265  * feat(sfdc-sync): rework backfill to per-org units with CSV controls and delivery outcomes by @Steffen911 in https://github.com/langfuse/langfuse/pull/15406  * feat(search-bar): score Ask AI parse outcomes on the trace (LFE-11001) by @nkabardin in https://github.com/langfuse/langfuse/pull/15407  * feat(v4)!: drop superseded Postgres and ClickHouse tables by @Steffen911 in https://github.com/langfuse/langfuse/pull/15369  * feat(session): mobile layout — rec"
+    }
+   ]
+  },
+  {
+   "repo": "e2b-dev/E2B",
+   "tier": 2,
+   "why": "sandbox contract 候選；外部執行邊界需另審",
+   "stars": 13161,
+   "pushed_at": "2026-07-28T14:34:34Z",
+   "open_issues": 60,
+   "head_sha": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+   "head_verified": false,
+   "commits": [],
+   "releases": [
+    {
+     "tag": "e2b@2.36.1",
+     "published": "2026-07-27T13:35:42Z",
+     "name_untrusted": "e2b@2.36.1",
+     "body_untrusted": "### Patch Changes  - 178e267: Bump the `glob` dependency from `^11.1.0` to `^13.0.6`. glob 11 is deprecated on npm, so every install of a project depending on `e2b` printed a `npm warn deprecated glob@11.1.0` warning that downstream packages could not silence (`overrides` and shrinkwrap only apply to the top-level project). glob 12 and 13 only changed the CLI — the `--shell` option and the `glob` bin, which moved to a separate `glob-bin` package — so the programmatic API the SDK uses (`glob(pattern, { ignore, withFileTypes, dot, cwd })` plus `Path#isDirectory()/fullpath()/relative()`) is unchanged. glob 13 also drops the CLI's transitive dependencies, cutting a fresh `npm install e2b` from 37 to 26 packages. - b511953: Remove the `new Function('return import(...)')` trick from undici loadi"
+    },
+    {
+     "tag": "@e2b/cli@2.16.0",
+     "published": "2026-07-27T13:35:45Z",
+     "name_untrusted": "@e2b/cli@2.16.0",
+     "body_untrusted": "### Minor Changes  - 48e9249: Bump `@npmcli/package-json` from `^5.2.1` to `^7.0.5`, clearing the last `npm warn deprecated glob@10.5.0` warning printed on every `@e2b/cli` install (`@npmcli/package-json@5` pinned `glob@10`; `7.0.4` moved to `glob@13`). Together with the `e2b` glob bump, a fresh `npm install @e2b/cli` is now warning-free and drops from 183 to 145 packages.    `@npmcli/package-json@7` requires Node `^20.17.0 || >=22.9.0`, so the CLI's Node 22 floor moves from `>=22` to `>=22.9.0`. Node 20 support is unchanged (`>=20.18.1 <21`). Only the `PackageJson.load`/`create`/`update`/`save` API used by `e2b template init` is touched, and it is unchanged across the bump.  ### Patch Changes  - Updated dependencies [178e267] - Updated dependencies [b511953] - Updated dependencies [b51195"
+    },
+    {
+     "tag": "e2b@2.36.0",
+     "published": "2026-07-24T14:45:46Z",
+     "name_untrusted": "e2b@2.36.0",
+     "body_untrusted": "### Minor Changes  - 4fcf7cb: Add `FileType.SYMLINK` to the sandbox filesystem types. Newer envd versions report symlinks with a dedicated `FILE_TYPE_SYMLINK` entry type; previously the SDKs treated it as unknown, so `files.list()` silently omitted symlink entries and `getInfo()`/`get_info()` returned an `undefined`/`None` type for them. Symlinks now surface as `FileType.SYMLINK` (`'symlink'`) with `symlinkTarget`/`symlink_target` populated, in JS and both sync and async Python.  ### Patch Changes  - 3f46d56: Select template build-step stack-trace frames by SDK boundary instead of fixed depth. The caller's frame is now the first one whose file lies outside the SDK package, so traces stay correct when transpilers inject extra frames (e.g. TS class-field initializers) or runtimes elide deleg"
+    }
+   ]
+  },
+  {
+   "repo": "modelcontextprotocol/servers",
+   "tier": 1,
+   "why": "MCP steering-group reference implementations",
+   "stars": 89011,
+   "pushed_at": "2026-07-26T03:16:32Z",
+   "open_issues": 697,
+   "head_sha": "d31124c982401739917fd817c2a59db344529c16",
+   "head_verified": true,
+   "commits": [],
+   "releases": [
+    {
+     "tag": "2026.7.10",
+     "published": "2026-07-10T03:39:07Z",
+     "name_untrusted": "Release 2026.7.10",
+     "body_untrusted": "# Release : v2026.7.10  ## Updated packages - @modelcontextprotocol/server-filesystem@2026.7.10 - mcp-server-time@2026.7.10 - mcp-server-fetch@2026.7.10 - mcp-server-git@2026.7.10"
+    },
+    {
+     "tag": "2026.7.4",
+     "published": "2026-07-04T23:05:56Z",
+     "name_untrusted": "Release 2026.7.4",
+     "body_untrusted": "# Release : v2026.7.4  ## Updated packages - @modelcontextprotocol/server-everything@2026.7.4 - @modelcontextprotocol/server-filesystem@2026.7.4 - @modelcontextprotocol/server-sequential-thinking@2026.7.4 - @modelcontextprotocol/server-memory@2026.7.4"
+    },
+    {
+     "tag": "2026.1.26",
+     "published": "2026-01-27T12:11:26Z",
+     "name_untrusted": "Release 2026.1.26",
+     "body_untrusted": "# Release : v2026.1.26  ## Updated packages - @modelcontextprotocol/server-everything@2026.1.26 - @modelcontextprotocol/server-memory@2026.1.26 - mcp-server-time@2026.1.26"
+    }
+   ]
+  },
+  {
+   "repo": "ComposioHQ/composio",
+   "tier": 3,
+   "why": "runtime tool discovery 與 scoped session pattern 候選",
+   "stars": 29431,
+   "pushed_at": "2026-07-29T05:59:27Z",
+   "open_issues": 67,
+   "head_sha": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+   "head_verified": true,
+   "commits": [
+    {
+     "sha": "3335bb30",
+     "date": "2026-07-28T21:35:43Z",
+     "msg_untrusted": "fix(docs): restore API reference pages dropped by undeclared tags (#3973)  This PR:  - fixes a regression introduced by https://github.com/ComposioHQ/composio/pull/3956: fumadocs-openapi 11's `groupBy"
+    },
+    {
+     "sha": "fc974504",
+     "date": "2026-07-28T20:48:28Z",
+     "msg_untrusted": "feat(cli): make headless composio login agent-friendly (PRDE-1138) (#3945)  ## What  Closes the PRDE-1138 gap: an unattended agent hitting plain `composio login` in a pipe dead-ended at browser OAuth."
+    },
+    {
+     "sha": "0c6b09df",
+     "date": "2026-07-28T20:33:28Z",
+     "msg_untrusted": "fix(cli): never reuse a stored agent identity the agents API rejected  getStoredReadyAgent collapsed every whoami failure into Option.none via Effect.option and fell back to the on-disk identity, so a"
+    },
+    {
+     "sha": "14011b90",
+     "date": "2026-07-28T20:21:49Z",
+     "msg_untrusted": "fix(e2e): scope node_modules dockerignore to the CLI image only  A root .dockerignore excluding **/node_modules broke Dockerfile.node's runtime fixtures: suites without a setup phase (claude-agent-sdk"
+    },
+    {
+     "sha": "fab1790b",
+     "date": "2026-07-28T18:55:05Z",
+     "msg_untrusted": "chore(cli): decommission npm + Homebrew install channels (PRDE-1155, PRDE-1156) (#3960)  ## What  Removes npm and Homebrew as Composio CLI install channels. `curl -fsSL .../install.sh | bash` is now t"
+    },
+    {
+     "sha": "11686484",
+     "date": "2026-07-28T16:40:28Z",
+     "msg_untrusted": "[codex] restore Security and Data docs (#3720)"
+    },
+    {
+     "sha": "6725d1c0",
+     "date": "2026-07-28T16:35:06Z",
+     "msg_untrusted": "Merge branch 'next' into kj/decommission-npm-brew"
+    },
+    {
+     "sha": "27706a50",
+     "date": "2026-07-28T16:10:48Z",
+     "msg_untrusted": "fix(install): stop swallowing the CLI's PATH guidance (#3951)  This PR:  - follows up https://github.com/ComposioHQ/composio/pull/3943, replacing its hardcoded message with a fix for the cause it work"
+    },
+    {
+     "sha": "c5c3203d",
+     "date": "2026-07-28T15:45:09Z",
+     "msg_untrusted": "fix(install): prioritize Windows platform guidance"
+    },
+    {
+     "sha": "fa0b8f7c",
+     "date": "2026-07-28T15:45:18Z",
+     "msg_untrusted": "fix(cli): align generated Windows install guidance"
+    },
+    {
+     "sha": "6dc77c98",
+     "date": "2026-07-28T15:46:25Z",
+     "msg_untrusted": "fix(cli): preserve release bundle in manual installs"
+    },
+    {
+     "sha": "2b9571b1",
+     "date": "2026-07-28T15:33:06Z",
+     "msg_untrusted": "fix(core): resolve typedoc against the TS6 compiler API (#3972)  This PR: - restores TypeDoc generation after https://github.com/ComposioHQ/composio/pull/3966 by resolving `@composio/core`'s TypeScrip"
+    },
+    {
+     "sha": "fc146099",
+     "date": "2026-07-24T21:01:56Z",
+     "msg_untrusted": "feat(cli): make headless composio login agent-friendly (PRDE-1138)  Teach non-interactive login to reuse an existing READY agent identity without creating one implicitly. Preserve explicit --no-browse"
+    },
+    {
+     "sha": "a3f6b9c8",
+     "date": "2026-07-28T14:38:54Z",
+     "msg_untrusted": "fix(py/triggers): swallow malformed chunked frame instead of tearing down subscription (#3892)  ## Problem  TriggerSubscription._handle_chunked_events is bound directly as a Pysher channel callback. P"
+    },
+    {
+     "sha": "2deb239e",
+     "date": "2026-07-28T14:27:07Z",
+     "msg_untrusted": "fix(cli): separate prompt, output, and decoration capabilities (#3964)  ## Summary  `TerminalUI` classified the terminal with a single aggregate:  ```ts isInteractive = stdinIsTTY && stdoutIsTTY && st"
+    },
+    {
+     "sha": "64acec65",
+     "date": "2026-07-28T14:23:19Z",
+     "msg_untrusted": "ci(ts): fix next push trigger and cache reuse (#3971)  This PR:  - fixes the `ts.build.yml` push trigger, which still pointed at `master`: the repo's default branch is `next`, so the workflow has not "
+    },
+    {
+     "sha": "f233e469",
+     "date": "2026-07-28T13:46:57Z",
+     "msg_untrusted": "chore(repo): migrate eslint to oxlint and typecheck to TypeScript 7 (#3966)  This PR:  - replaces ESLint with oxlint across the pnpm workspace and the Bun-based docs site, porting the rules to `.oxlin"
+    },
+    {
+     "sha": "022ecf61",
+     "date": "2026-07-28T13:14:01Z",
+     "msg_untrusted": "docs(agents): require zod and effect/Schema at data boundaries (#3969)  This PR:  - codifies the schema-parsing convention in agent guidance: parse untyped/external data once at the boundary with zod "
+    },
+    {
+     "sha": "a84d05fc",
+     "date": "2026-07-28T13:06:08Z",
+     "msg_untrusted": "fix(cli): resolve pusher-js constructor across ESM/CJS interop shapes (#3926)  ## Summary  `composio listen` crashes with `TypeError: Object is not a constructor` immediately after realtime init in ev"
+    },
+    {
+     "sha": "2a2d77a7",
+     "date": "2026-07-28T12:29:14Z",
+     "msg_untrusted": "fix(py/triggers): stop() deadlock + subscribe() timeout connection leak (#3890)  Fixes #3858 (both bugs reported there).  Bug 1 — TriggerSubscription.stop() deadlocks when called from a trigger callba"
+    },
+    {
+     "sha": "16fa3d96",
+     "date": "2026-07-28T09:56:57Z",
+     "msg_untrusted": "chore(docs): migrate the docs site to Fumadocs 11 (#3956)  ## Summary  - upgrades `fumadocs-openapi` 10 → 11, `fumadocs-mdx` 14 → 15, and `fumadocs-core` / `fumadocs-ui` 16.4 → 16.13 - migrates the Fu"
+    },
+    {
+     "sha": "24151cbe",
+     "date": "2026-07-28T09:42:14Z",
+     "msg_untrusted": "fix(cli): make source-map enrichment best-effort end to end (#3963)  This PR: - fixes #3925 - treats source maps as best-effort metadata end to end: a missing, malformed, invalid, consumer-rejected, o"
+    },
+    {
+     "sha": "8cb290be",
+     "date": "2026-07-28T08:45:49Z",
+     "msg_untrusted": "fix(schema_converter): allOf containing a false member must reject every value (#3921)  ### Summary  Preserves JSON Schema boolean-schema semantics throughout the Python schema converter:  - an unsati"
+    },
+    {
+     "sha": "026c104f",
+     "date": "2026-07-28T08:33:53Z",
+     "msg_untrusted": "fix(py): validate canonical URL targets (#3962)  This PR: - builds on top of https://github.com/ComposioHQ/composio/pull/3823 - carries forward the Requests canonicalization hardening proposed in http"
+    },
+    {
+     "sha": "3fc91bc6",
+     "date": "2026-07-28T08:03:44Z",
+     "msg_untrusted": "docs: fix GitHub issue links in example READMEs (#3957)  ## Summary  Fix the \"GitHub Issues\" links shared by ten TypeScript example READMEs. They pointed to `github.com/composio/composio/issues`, whic"
+    },
+    {
+     "sha": "577a3d40",
+     "date": "2026-07-28T07:56:41Z",
+     "msg_untrusted": "security: fix 3 CodeQL alerts (2026-07-22) (#3909)  ## Summary  Automated weekly CodeQL remediation run for 2026-07-22. Closes three `js/polynomial-redos` code scanning alerts (all severity high) in t"
+    },
+    {
+     "sha": "b85cea76",
+     "date": "2026-07-28T07:51:07Z",
+     "msg_untrusted": "docs: replace masking-disable instructions with Proxy Execute (#3887)  ## What changed  - Kept the credential-masking explanation and masked-value examples in the Connected Accounts guide. - Removed o"
+    },
+    {
+     "sha": "f016bceb",
+     "date": "2026-07-28T07:48:55Z",
+     "msg_untrusted": "fix(mimetypes): make guess() case-insensitive on file extensions (#3899)  guess() in composio/utils/mimetypes.py looked up Path(file).suffix against the lowercase _types table without normalizing case"
+    },
+    {
+     "sha": "d94aa32a",
+     "date": "2026-07-28T07:48:40Z",
+     "msg_untrusted": "test: add unit tests for the schema_converter boolean-schema filter (#3876)  ## Description  `composio.utils.schema_converter._filter_boolean_schemas` pre-processes JSON Schemas before handing them to"
+    }
+   ],
+   "releases": [
+    {
+     "tag": "@composio/cli@0.2.33-beta.298",
+     "published": "2026-07-21T07:38:22Z",
+     "name_untrusted": "CLI Beta @composio/cli@0.2.33-beta.298",
+     "body_untrusted": "## What's Changed * fix(cli): fail closed on permission gaps and tolerate skewed payloads by @jkomyno in https://github.com/ComposioHQ/composio/pull/3879   **Full Changelog**: https://github.com/ComposioHQ/composio/compare/@composio/cli@0.2.33-beta.297...@composio/cli@0.2.33-beta.298"
+    },
+    {
+     "tag": "@composio/cli@0.2.33-beta.297",
+     "published": "2026-07-21T07:34:37Z",
+     "name_untrusted": "CLI Beta @composio/cli@0.2.33-beta.297",
+     "body_untrusted": "## What's Changed * docs: remove stale DiscordBot 401 FAQ by @composio-zen[bot] in https://github.com/ComposioHQ/composio/pull/3888 * chore(cli): land Effect-first guidelines and inert guardrail rule groups by @jkomyno in https://github.com/ComposioHQ/composio/pull/3877 * fix(cli): remove `new Function()` eval from JSON-ish input parsing by @jkomyno in https://github.com/ComposioHQ/composio/pull/3878   **Full Changelog**: https://github.com/ComposioHQ/composio/compare/@composio/cli@0.2.33-beta.295...@composio/cli@0.2.33-beta.297"
+    },
+    {
+     "tag": "@composio/cli@0.2.33-beta.296",
+     "published": "2026-07-21T07:43:27Z",
+     "name_untrusted": "CLI Beta @composio/cli@0.2.33-beta.296",
+     "body_untrusted": "## What's Changed * docs: remove stale DiscordBot 401 FAQ by @composio-zen[bot] in https://github.com/ComposioHQ/composio/pull/3888 * chore(cli): land Effect-first guidelines and inert guardrail rule groups by @jkomyno in https://github.com/ComposioHQ/composio/pull/3877   **Full Changelog**: https://github.com/ComposioHQ/composio/compare/@composio/cli@0.2.33-beta.295...@composio/cli@0.2.33-beta.296"
+    }
+   ]
   }
  ],
- "official_skills": {},
- "official_plugins": [],
+ "official_skills": {
+  "skills": [
+   "algorithmic-art",
+   "brand-guidelines",
+   "canvas-design",
+   "claude-api",
+   "doc-coauthoring",
+   "docx",
+   "frontend-design",
+   "internal-comms",
+   "mcp-builder",
+   "pdf",
+   "pptx",
+   "skill-creator",
+   "slack-gif-creator",
+   "theme-factory",
+   "web-artifacts-builder",
+   "webapp-testing",
+   "xlsx"
+  ]
+ },
+ "official_plugins": [
+  "agent-sdk-dev",
+  "clangd-lsp",
+  "claude-code-setup",
+  "claude-md-management",
+  "claude-security",
+  "code-modernization",
+  "code-review",
+  "code-simplifier",
+  "commit-commands",
+  "csharp-lsp",
+  "cwc-makers",
+  "example-plugin",
+  "explanatory-output-style",
+  "feature-dev",
+  "frontend-design",
+  "gopls-lsp",
+  "hookify",
+  "jdtls-lsp",
+  "kotlin-lsp",
+  "learning-output-style",
+  "lua-lsp",
+  "math-olympiad",
+  "mcp-server-dev",
+  "mcp-tunnels",
+  "php-lsp",
+  "playground",
+  "plugin-dev",
+  "pr-review-toolkit",
+  "project-artifact",
+  "pyright-lsp",
+  "ralph-loop",
+  "receipts",
+  "ruby-lsp",
+  "rust-analyzer-lsp",
+  "security-guidance",
+  "session-report",
+  "skill-creator",
+  "swift-lsp",
+  "typescript-lsp"
+ ],
  "arxiv": [
+  {
+   "published": "2026-07-28T10:40:59Z",
+   "title_untrusted": "Agent Skills Matter: Inferring Proprietary Skills from Execution Trajectories",
+   "summary_untrusted": "Agent skills package reusable procedures that improve downstream performance. Their lightweight, portable form enables marketplace monetization and private deployment behind cloud-hosted agent interfaces, giving providers incentives to keep high-value skills proprietary. Yet hiding the artifacts does not conceal their behavioral effects, which remain observable in execution trajectories and form a",
+   "link": "http://arxiv.org/abs/2607.25560v1"
+  },
+  {
+   "published": "2026-07-28T03:55:47Z",
+   "title_untrusted": "SafeFlow: Semantic Information-Flow Control for Blocking Malicious Propagation in Multi-Agent Systems",
+   "summary_untrusted": "Multi-agent systems improve capability through task decomposition and role specialization, but these same mechanisms introduce an important safety blind spot: a harmful objective can be fragmented into locally plausible subtasks, allowing malicious intent to evade detection by any single agent. This is a growing social-impact challenge: systems handling sensitive information or consequential tools",
+   "link": "http://arxiv.org/abs/2607.25255v1"
+  },
+  {
+   "published": "2026-07-27T19:43:41Z",
+   "title_untrusted": "Authoring Agent Skills: A Software-Engineering Approach",
+   "summary_untrusted": "Agent Skills are an emerging way to extend large language model agents with reusable procedural knowledge that the agent loads on demand. Anthropic introduced Agent Skills and published the format as an open specification supported across several agent tools. This note argues that a skill is a software artefact and that its construction should follow software-engineering principles, with qualifica",
+   "link": "http://arxiv.org/abs/2607.25032v1"
+  },
   {
    "published": "2026-07-27T17:01:30Z",
    "title_untrusted": "A corrective agentic hybrid RAG and an operations-grounded evaluation for a scientific facility",
@@ -58,7 +874,7 @@
    "published": "2026-07-27T04:51:20Z",
    "title_untrusted": "ContainmentBench: Trace-Based Evaluation of Post-Injection Containment in Tool-Using LLM Agents",
    "summary_untrusted": "Tool-using LLM agents process untrusted content, maintain memory, delegate across agents, and invoke side-effecting tools. Existing prompt-injection evaluations typically summarize security with terminal attack or policy outcomes, but equal endpoints can conceal different post-exposure traces and different losses of authorized utility. We introduce ContainmentBench, a sandboxed, trace-based benchm",
-   "link": "http://arxiv.org/abs/2607.23999v1"
+   "link": "http://arxiv.org/abs/2607.23999v2"
   },
   {
    "published": "2026-07-26T10:29:20Z",
@@ -111,15 +927,8 @@
  ],
  "hn": [
   {
-   "q": "claude code",
-   "points": 27,
-   "comments": 2,
-   "title_untrusted": "Show HN: Tines 3B – safe workflow automation for when everyone builds software",
-   "url": "https://www.tines.com/"
-  },
-  {
    "q": "agent skills",
-   "points": 13,
+   "points": 14,
    "comments": 2,
    "title_untrusted": "Show HN: BrowserAct: Browser Layer for Your AI Agent",
    "url": "https://github.com/browser-act/skills"
@@ -127,23 +936,23 @@
   {
    "q": "claude code",
    "points": 10,
-   "comments": 12,
+   "comments": 14,
    "title_untrusted": "Ask HN: I lost any interest in technology. What do I do?",
    "url": "https://news.ycombinator.com/item?id=49088197"
   },
   {
    "q": "claude code",
-   "points": 9,
+   "points": 10,
    "comments": 2,
    "title_untrusted": "Claude Opus 5: Model Welfare",
    "url": "https://thezvi.substack.com/p/claude-opus-5-model-welfare"
   },
   {
-   "q": "claude skills",
-   "points": 5,
-   "comments": 6,
-   "title_untrusted": "Ask HN: How to rewrite `Claude.md` and install the skill for Opus5 and Fable5",
-   "url": "https://news.ycombinator.com/item?id=49080135"
+   "q": "claude code",
+   "points": 7,
+   "comments": 0,
+   "title_untrusted": "Show HN: Magpie, a CLI to Turn Your AI Agent into a Bookkeeper",
+   "url": "https://github.com/kyle-visner/magpie"
   },
   {
    "q": "claude code",
@@ -153,6 +962,13 @@
    "url": "https://www.noclick.com/"
   },
   {
+   "q": "agent harness",
+   "points": 4,
+   "comments": 0,
+   "title_untrusted": "Marble – a model-agnostic agent harness for life sciences",
+   "url": "https://marble.glass.bio/"
+  },
+  {
    "q": "claude skills",
    "points": 3,
    "comments": 0,
@@ -160,18 +976,11 @@
    "url": "https://github.com/chesapeakedev/dn"
   },
   {
-   "q": "claude code",
-   "points": 3,
-   "comments": 0,
-   "title_untrusted": "Show HN: Magpie, a CLI to Turn Your AI Agent into a Bookkeeper",
-   "url": "https://github.com/kyle-visner/magpie"
-  },
-  {
-   "q": "claude code",
-   "points": 3,
-   "comments": 0,
-   "title_untrusted": "Show HN: The Rise of Open Weights – a long scroll story",
-   "url": "https://blog.scottlogic.com/ceberhardt/rise-of-open-weights/"
+   "q": "claude skills",
+   "points": 2,
+   "comments": 1,
+   "title_untrusted": "Ponytail Skill for Claude Code: Does It Cut Tokens",
+   "url": "https://blog.jetbrains.com/ai/2026/07/ponytail-skill-claude-tested/"
   },
   {
    "q": "agent skills",
@@ -179,6 +988,13 @@
    "comments": 0,
    "title_untrusted": "Show HN: Mustuse.ai – Open-source automated ranking system run by agents",
    "url": "https://mustuse.ai"
+  },
+  {
+   "q": "claude code",
+   "points": 2,
+   "comments": 0,
+   "title_untrusted": "If U.S. labs slow down AGI development, this could be 2028",
+   "url": "https://news.ycombinator.com/item?id=49093166"
   },
   {
    "q": "claude code",
@@ -230,27 +1046,155 @@
    "url": "https://github.com/braincompany/sessiongrep"
   },
   {
-   "q": "claude code",
-   "points": 2,
-   "comments": 1,
-   "title_untrusted": "Show HN: Cetus – A macOS App for Claude Code, Codex, OpenCode, and More",
-   "url": "https://github.com/drewnekota/cetus"
-  },
-  {
    "q": "agent harness",
    "points": 2,
    "comments": 0,
    "title_untrusted": "Six Agent Harness Capabilities for Higher Model Performance",
    "url": "https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Portable Claude Code",
+   "url": "https://gist.github.com/mlajtos/138886341335ad4ddbfb034039e39a28"
+  },
+  {
+   "q": "claude code",
+   "points": 1,
+   "comments": 0,
+   "title_untrusted": "Claude Code Tools",
+   "url": "https://pchalasani.github.io/claude-code-tools/"
   }
  ],
- "new_community_repos": [],
+ "new_community_repos": [
+  {
+   "repo": "codejunkie99/graph-engineering",
+   "stars": 167,
+   "created": "2026-07-23T14:10:49Z",
+   "desc_untrusted": "Graph engineering for AI agents: the 9-stage knowledge-graph pipeline (translated from SEU's graduate course) + task-graph orchestration patterns, as a Claude skill with teaching mode and paste-ready "
+  },
+  {
+   "repo": "NulightJens/humanizer-stack",
+   "stars": 128,
+   "created": "2026-07-23T15:47:07Z",
+   "desc_untrusted": "Two-pass pipeline for removing AI writing tells from outward-facing text: a surface pass plus a structural pass grounded in the StoryScope study. Packaged as Claude Code Skills.      Free community: s"
+  },
+  {
+   "repo": "robbin/wechat-exporter",
+   "stars": 113,
+   "created": "2026-07-28T09:26:48Z",
+   "desc_untrusted": "A Claude Code / Codex skill to export and decrypt WeChat (macOS) chat history into plaintext SQLite databases"
+  },
+  {
+   "repo": "brittanyellich/loop-board",
+   "stars": 41,
+   "created": "2026-07-26T03:56:34Z",
+   "desc_untrusted": "A basic set of skills and workers to run loop engineering with Claude Code."
+  },
+  {
+   "repo": "OpenCesium/Cesium-Skills",
+   "stars": 21,
+   "created": "2026-07-28T09:37:33Z",
+   "desc_untrusted": "基于 CesiumJS 1.142 的原生 Cesium Agent Skill（Cursor / Codex / Claude）。含约 185 个 JS 示例与材质脚本，覆盖地形、3D Tiles、特效等；仅 md/js，无 HTML。复制到 .cursor/skills、.agents/skills 或 .claude/skills 即可使用。"
+  },
+  {
+   "repo": "nick-vels/skills",
+   "stars": 19,
+   "created": "2026-07-26T11:54:35Z",
+   "desc_untrusted": "Autopilot — это skill)для AI-агентов вроде Claude Code. Он берёт вашу идею, задаёт 5–8 важных вопросов, а дальше сам пишет техзадание, разбивает работу на задачи и собирает проект целиком. Вам не нужн"
+  },
+  {
+   "repo": "Leehyunbin0131/claude-ros2-skills",
+   "stars": 18,
+   "created": "2026-07-23T07:57:44Z",
+   "desc_untrusted": "Claude Code skills for ROS 2 Jazzy — establish the unknowns first, verify against the installed system, prove the result ran."
+  },
+  {
+   "repo": "OscarCode9/github-profile-dashboard-skill",
+   "stars": 17,
+   "created": "2026-07-23T19:23:34Z",
+   "desc_untrusted": "Claude Code skill: build a GitHub profile README with self-hosted stats cards (Lambda + CloudFront)"
+  },
+  {
+   "repo": "thebigasif/google-leak-patents-seo",
+   "stars": 17,
+   "created": "2026-07-26T04:16:48Z",
+   "desc_untrusted": "The 2024 Google Content Warehouse API leak cross-referenced against 5,456 Google search patents. 848 classified ranking signals, 77,663 extracted patent claims, a 12-stage pipeline, and 26 decision pl"
+  },
+  {
+   "repo": "maddness/agent-research-radar",
+   "stars": 16,
+   "created": "2026-07-26T16:59:42Z",
+   "desc_untrusted": "Claude Code skill: radar for fundamental posts on autonomous AI agents across AI-lab engineering blogs"
+  },
+  {
+   "repo": "Djarvur/go-ultimate",
+   "stars": 16,
+   "created": "2026-07-26T16:32:27Z",
+   "desc_untrusted": "Opinionated Go development skill for Claude Code — architecture, conventions, review, and MCP/agent patterns, synthesized from four general-Go skills plus five agent/MCP donors."
+  },
+  {
+   "repo": "superchun/no-slop-zh",
+   "stars": 16,
+   "created": "2026-07-23T10:08:53Z",
+   "desc_untrusted": "中文优先的 AI 模板腔清理 skill，支持 Codex 与 Claude Code。"
+  },
+  {
+   "repo": "avenoxai/avenoxskills",
+   "stars": 15,
+   "created": "2026-07-25T14:58:08Z",
+   "desc_untrusted": "Production agent skills for Claude Code, Cursor, and any SKILL.md harness — Codex fleets, video pipeline, monorepo review bundles, multi-chain explorer."
+  },
+  {
+   "repo": "Lunarsong/Claude-Opus-5-tools",
+   "stars": 12,
+   "created": "2026-07-25T15:38:15Z",
+   "desc_untrusted": "Shareable skills and agent definitions for reliable work with Opus 5 agents"
+  },
+  {
+   "repo": "abubakarsiddik31/whisperx-transcribe",
+   "stars": 11,
+   "created": "2026-07-26T15:19:19Z",
+   "desc_untrusted": "Claude Code skill/plugin: transcribe audio & video into clean, speaker-labeled Markdown via WhisperX, so an LLM can read a long meeting without processing raw audio."
+  },
+  {
+   "repo": "yangyixxxx/sunzi-strategy-advisor",
+   "stars": 9,
+   "created": "2026-07-28T00:52:49Z",
+   "desc_untrusted": "把《孙子兵法》当作决策纪律来执行的 AI Skill：先问询后诊断，输出结构化战略诊断文档。适用于 Claude Code / NewMax。"
+  },
+  {
+   "repo": "mathruffian-dot/rdq-skill",
+   "stars": 8,
+   "created": "2026-07-26T12:28:18Z",
+   "desc_untrusted": "RDQ Method 需求探索四象限法 — 一個給 Claude Code 用的需求訪談 Skill。動工前用四象限訪談挖出需求，產出規格卡確認後才執行。"
+  },
+  {
+   "repo": "karanb192/itr-wala",
+   "stars": 8,
+   "created": "2026-07-26T06:27:38Z",
+   "desc_untrusted": "File your Indian income tax return (ITR) from your terminal. Deterministic tax engine, both regimes, AY 2026-27. Claude Code / Codex / Gemini skill."
+  },
+  {
+   "repo": "linkonai2026-kr/designon",
+   "stars": 7,
+   "created": "2026-07-28T10:12:08Z",
+   "desc_untrusted": "한 문장이면 완성된 웹페이지가 나오는 디자인 오케스트레이터. 제작 4트랙·검수 3트랙 병렬 실행 + 안티패턴 59종 기계 검사로 'AI 티'를 0건까지 잡는다. Impeccable·tasteskill·UI Skills·emil-skill 내장. Claude Code / Codex 지원."
+  },
+  {
+   "repo": "rollingSirius/TradeGit",
+   "stars": 7,
+   "created": "2026-07-25T13:01:34Z",
+   "desc_untrusted": "交易日志 Skill：在 Claude / Codex / Workbuddy 里一句话记下交易和当时的理由，导入券商流水，FIFO 算清盈亏 —— 数据全程在你自己的 GitHub 私有仓库或本地，零依赖"
+  }
+ ],
  "diff": {
   "star_delta": {},
   "skills_added": {},
   "skills_removed": {},
   "plugins_added": [],
   "plugins_removed": [],
-  "first_run": false
+  "first_run": true
  }
 }

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills Radar 觀點 — 2026-07-28</title>
+<style>
+:root{--bg:#fbfaf8;--panel:#fff;--ink:#1c1b19;--dim:#6b6660;--line:#e6e2db;--accent:#a74718}
+@media(prefers-color-scheme:dark){:root{--bg:#151413;--panel:#1e1d1b;--ink:#ece8e2;--dim:#aaa29a;--line:#35312d;--accent:#e08050}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.85}
+main{max-width:760px;margin:auto;padding:2.5rem 1.25rem 5rem}nav{font-size:.9rem;margin-bottom:2.5rem}a{color:var(--accent)}h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.15;letter-spacing:-.035em}h2{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.2rem}p{margin:1rem 0}blockquote{margin:1.5rem 0;padding:1rem 1.2rem;border-left:4px solid var(--accent);background:var(--panel);color:var(--dim)}
+li{margin:.55rem 0}code,.cite{font-family:ui-monospace,"SF Mono",monospace;font-size:.86em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:.05rem .28rem}footer{margin-top:4rem;color:var(--dim);font-size:.82rem}
+</style></head><body><main><nav><a href="../index.html">← Skills Radar</a> · <a href="index.html">所有觀點</a></nav>
+<h1>Skills Radar 觀點 — 2026-07-28</h1>
+<blockquote>本文由 AI 依當日可查證資料生成；觀點不等於實際部署、晶片設計簽核或投資建議。</blockquote>
+<h2>核心觀點</h2>
+<p>今天最重要的消息不是又找到多少技能，而是資料庫終於能分辨「真的新增」與「採集失敗」。資料庫從 41,230 筆增加到 42,242 筆，共恢復 1,012 筆；最後一次完整重跑沒有再增加內容，表示這批資料已被穩定收進來。這是一個資料修復事件，不能直接解讀成技能生態突然暴增。<span class="cite">〔今日採集〕</span></p>
+<p>我的判斷是，Skills Radar 現階段最有價值的不是追逐單日熱門項目，而是建立一條不會把錯誤說成成功的研究流程。只有每日採集、較長週期觀察、EDA 清單與財經清單彼此分開，我們才有資格討論趨勢。否則，再漂亮的圖表也只是把不確定性藏起來。</p>
+<h2>資料庫今天發生什麼</h2>
+<p>今天的採集器確實完成了公開 GitHub 搜尋，也把新增批次逐筆讀回資料庫。恢復的 1,012 筆沒有重複路徑，且全部能在主資料庫找到。這批資料量遠高於一般日常增量，較合理的解釋是先前漏跑後的集中補回，而不是一天之內出現同等規模的新需求。<span class="cite">〔今日採集〕</span></p>
+<p>這批資料由既有本機分類器標記，沒有冒充成人工或高品質 AI 種子。分類結果仍要通過信心門檻，低信心資料不會進入結構比例。這個限制會減少可用樣本，卻能避免把模糊分類放大成確定結論。<span class="cite">〔資料限制〕</span></p>
+<h2>多尺度判讀</h2>
+<p>日尺度沒有足夠材料，今天不應從前一完整日硬湊趨勢。週尺度曾出現大量首次觀察樣本，但它更像採集系統開始完整工作時留下的台階，而不是市場突然轉向。真正值得保留的只有一個方法論結論：單日與單週訊號很容易被索引補齊、漏跑修復與搜尋範圍影響。<span class="cite">〔日觀察〕</span><span class="cite">〔週觀察〕</span></p>
+<p>月與季的資料比較適合提出假說。它們顯示公開技能逐漸不只做內容生成，也開始處理分析、轉換與驗證工作；但這些時間是依專案建立日期歸類，並不是技能被採用的日期。因此，我會把它看成公開文件如何描述工作正在改變，而不是企業採用率正在改變。<span class="cite">〔月觀察〕</span><span class="cite">〔季觀察〕</span></p>
+<h2>EDA／WiFi ASIC</h2>
+<p>對 WiFi 特定用途積體電路（ASIC）的暫存器傳輸級設計（RTL）而言，電子設計自動化（EDA）技能最值得引用的不是外部命令，而是三種工作契約。</p>
+<p>第一種是證據清單。每次編譯、模擬、波形檢查與覆蓋率報告，都要記下輸入版本、執行工具、預期結果與失敗條件。第二種是候選斷言流程。AI 可以協助提出要驗證的性質，但每一條都必須連回規格需求，再交給正式驗證工具證明。第三種是週期契約。在寫 RTL 前先固定資料何時進、何時出、重設期間允許什麼行為，交接時再把結構檢查、功能模擬與正式簽核分開。<span class="cite">〔EDA 清單〕</span></p>
+<p>這些方法可以放進下一個 WiFi 基頻模組的設計開端，但目前只能做隔離試行。來源審查不等於工具真的跑過，公開範例也不等於內部流程可直接套用。尤其要排除可程式化邏輯開發、嵌入式系統、電路板與類比射頻內容，避免被表面相似的硬體詞彙帶偏。<span class="cite">〔EDA 清單〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>財經研究</h2>
+<p>財經技能今天呈現三條實用路線。第一條是對帳與現金流一致性檢查，先處理資料是否可信。第二條是把投資論點、反證與待查問題分開，避免只蒐集支持原有看法的材料。第三條是把財報正規化、估值假設與敏感度拆開，讓結論可以被追問與重算。<span class="cite">〔財經清單〕</span></p>
+<p>這些技能只能支援研究，不能接觸券商帳號、錢包或憑證，也不能把模型分數變成行動指令。研究品質的真正門檻仍是一手來源、時間戳、公司行動調整與反方證據，而不是技能名稱或專案受歡迎程度。<span class="cite">〔財經清單〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>反方觀點</h2>
+<p>本文可能低估了今天新增資料的意義。若接下來幾天仍持續出現相近規模、來源分散且不重複的新增項目，那麼這 1,012 筆就不只是補回漏掉的資料，而可能代表公開技能供給正在加速。</p>
+<p>相反地，月與季看見的結構變化也可能只是 GitHub 公開資料的偏差。企業內部的晶片、金融、法務與醫療工作通常不會公開，搜尋索引也會延遲。因此，公開資料裡某個領域變少，不代表真實世界的需求正在消失。<span class="cite">〔月觀察〕</span><span class="cite">〔季觀察〕</span><span class="cite">〔資料限制〕</span></p>
+<h2>接下來怎麼驗證</h2>
+<p>接下來先觀察每日新增是否回到較小且穩定的範圍。如果大批新增只出現一次，就支持「漏跑後補回」的解釋；如果連續多日重現，才值得重新討論供給加速。</p>
+<p>EDA 部分應挑一個不含機密的簡化 RTL 模組，實際走過週期契約、候選斷言與證據清單，並分開記錄語法檢查、模擬與正式工具結果。財經部分則挑一份公開財報，驗證資料來源、公式與反方論點能否被另一位讀者重算。只有這些可重複的結果，才足以把「可試行」往前推進。<span class="cite">〔EDA 清單〕</span><span class="cite">〔財經清單〕</span></p>
+<h2>證據與限制</h2>
+<p>文中的「今日採集」代表資料庫更新與讀回紀錄；日、週、月、季觀察代表不同完整期間；EDA 清單與財經清單則是經過範圍與風險篩選的候選方法。這些標籤只是讓讀者知道一句話從哪裡來，不是權威背書。</p>
+<p>資料只涵蓋公開 GitHub 內容，會系統性低估不公開的專業工作。文件自述已投入使用，也不等於實際安裝、部署或產生效果。分類法仍有待更多人工樣本驗證，任何比例都應被視為研究線索，而不是事實全貌。<span class="cite">〔資料限制〕</span></p><footer>文章日期：2026-07-28 · 由 AI 依可查證資料生成</footer></main></body></html>

@@ -20,14 +20,72 @@ CORPUS = os.path.join(ROOT, "corpus")
 SEEN = os.path.join(CORPUS, "seen.tsv")
 MASTER = os.path.join(CORPUS, "master.jsonl")
 
+def _row_key(row, source):
+    key = (row.get("repo"), row.get("path"))
+    if not all(isinstance(value, str) and value for value in key):
+        raise ValueError(f"{source} contains a row without repo/path")
+    return key
+
+
+def _read_jsonl(path):
+    rows = []
+    if not os.path.exists(path):
+        return rows
+    with open(path, encoding="utf-8", errors="replace") as handle:
+        for line_no, line in enumerate(handle, 1):
+            if not line.strip():
+                continue
+            try:
+                rows.append(json.loads(line))
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"{path}:{line_no} contains invalid JSON") from exc
+    return rows
+
+
 def load_seen():
-    s = set()
+    """Return canonical corpus keys; seen.tsv is only a bootstrap cache.
+
+    A restored or stale seen.tsv must never hide a path that is absent from the
+    append-only master.  When master exists it is therefore the sole authority.
+    """
+    if os.path.exists(MASTER):
+        return {_row_key(row, MASTER) for row in _read_jsonl(MASTER)}
+
+    seen = set()
     if os.path.exists(SEEN):
-        for line in open(SEEN, encoding="utf-8", errors="replace"):
-            p = line.rstrip("\n").split("\t")
-            if len(p) == 2:
-                s.add((p[0], p[1]))
-    return s
+        with open(SEEN, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) == 2 and all(parts):
+                    seen.add((parts[0], parts[1]))
+    return seen
+
+
+def merge_daily_delta(path, rows):
+    """Atomically merge new rows into the date-level delta without shrinking it."""
+    combined = _read_jsonl(path)
+    positions = {}
+    for index, row in enumerate(combined):
+        key = _row_key(row, path)
+        if key in positions:
+            raise ValueError(f"{path} contains duplicate repo/path {key!r}")
+        positions[key] = index
+    for row in rows:
+        key = _row_key(row, "collector batch")
+        if key not in positions:
+            positions[key] = len(combined)
+            combined.append(row)
+
+    temporary = path + ".tmp"
+    try:
+        with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+            for row in combined:
+                handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+    return len(combined)
 
 def main():
     seen = load_seen()
@@ -68,19 +126,21 @@ def main():
             if r and (r["name"] or r["description"]):
                 rows.append(r)
 
+    if not rows:
+        print("[delta] 沒有可用的新內容；保留既有當日 delta", file=sys.stderr)
+        return
+
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     out = os.path.join(CORPUS, f"delta-{stamp}.jsonl")
-    with open(out, "w", encoding="utf-8") as fh:
-        for r in rows:
-            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    daily_total = merge_daily_delta(out, rows)
     # 累積進 master，並更新 seen
     with open(MASTER, "a", encoding="utf-8") as fh:
         for r in rows:
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
     with open(SEEN, "a", encoding="utf-8") as fh:
-        for r, p in targets:
-            fh.write(f"{r}\t{p}\n")
-    print(f"[delta] 新增 {len(rows)} 筆 → {out}", file=sys.stderr)
+        for row in rows:
+            fh.write(f"{row['repo']}\t{row['path']}\n")
+    print(f"[delta] 本次新增 {len(rows)} 筆；當日累積 {daily_total} 筆 → {out}", file=sys.stderr)
     print(out)
 
 if __name__ == "__main__":

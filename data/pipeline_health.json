@@ -1,0 +1,58 @@
+{
+ "schema_version": 1,
+ "report_date": "2026-07-29",
+ "completed_at": "2026-07-29T09:36:45.828073+00:00",
+ "status": "PASS",
+ "gates": {
+  "corpus_update": "SUCCESS",
+  "daily_brief": "PASS",
+  "daily_recommendations": "PASS",
+  "domain_zones": "PASS",
+  "editorial_markdown": "PASS",
+  "editorial_html": "PASS",
+  "legacy_opportunity_insight": "ARCHIVE_ONLY",
+  "timescale_dispatch": "AI_GENERATED",
+  "privacy": "PASS",
+  "master_freshness": "CURRENT"
+ },
+ "corpus_update": {
+  "status": "SUCCESS",
+  "new_rows": 165,
+  "rows_after": 42407,
+  "run_context": "manual_recovery"
+ },
+ "timescale": {
+  "updated_periods": [
+   {
+    "scale": "day",
+    "period_id": "2026-07-28"
+   }
+  ],
+  "due": [
+   {
+    "scale": "day",
+    "period_id": "2026-07-28",
+    "start": "2026-07-28",
+    "end": "2026-07-28"
+   }
+  ],
+  "backlog": {
+   "day": 0,
+   "week": 0,
+   "month": 0,
+   "quarter": 0
+  }
+ },
+ "schedule_contract": {
+  "dispatcher": "daily 08:30 Asia/Taipei",
+  "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
+  "execution_context": "manual_recovery",
+  "day": "previous complete day",
+  "week": "previous complete Monday-Sunday week",
+  "month": "previous complete calendar month",
+  "quarter": "previous complete calendar quarter",
+  "catch_up": "missing period_id only"
+ },
+ "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK",
+ "claim_boundary": "local PASS proves a successful public collector readback plus required local artifacts; it does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome"
+}

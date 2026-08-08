@@ -6,10 +6,12 @@ build_site.py — 產生知識庫前端頁面 docs/index.html。零 token。
 注意：這代表「這個 skill 所在的 repo 何時建立」，不是 skill 何時被寫出來，
 更不是它何時被使用。頁面上必須標明這個限制。
 """
-import json, os, re, html
+import json, os, re, html, hashlib
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from statistics import median
+
+from corpus_policy import is_targeted, label_is_eligible, neutral_for, require_model_report_alignment
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER = os.path.join(ROOT, "corpus", "master.jsonl")
@@ -27,8 +29,40 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
     except Exception:
         continue
     rows_all.append(r)
-    if r.get("domain") and r.get("sample") != "targeted-eda":
+    if neutral_for(r, "domain"):
         rows.append(r)
+
+require_model_report_alignment(rows_all, os.path.join(ROOT, "corpus", "model_report.json"))
+
+catalog_path = os.path.join(ROOT, "corpus", "asic_skill_catalog.json")
+asic_catalog = json.load(open(catalog_path, encoding="utf-8"))
+master_hasher = hashlib.sha256()
+with open(MASTER, "rb") as master_fh:
+    for block in iter(lambda: master_fh.read(1024 * 1024), b""):
+        master_hasher.update(block)
+master_digest = master_hasher.hexdigest()
+catalog_snapshot = asic_catalog.get("snapshot", {})
+if (asic_catalog.get("status") != "CURRENT_CANDIDATE_CATALOG"
+        or catalog_snapshot.get("sha256") != master_digest):
+    raise ValueError("ASIC catalog is stale; run bin/build_asic_catalog.py before build_site.py")
+
+ASIC_OWNER_KEYS = {
+    (item.get("repo"), item.get("path")): item
+    for item in asic_catalog.get("candidates", [])
+    if item.get("owner_fit") in {"direct", "supporting"}
+    and item.get("hardware_target") in {"asic", "generic"}
+}
+
+OWNER_SCOPE_EXCLUDE = re.compile(
+    r"\b(?:FPGA|Vivado|Quartus|Vitis|Xilinx|ESP32|STM32|MCU|firmware|PCB|antenna|"
+    r"LoRa(?:WAN)?|Zigbee|Bluetooth|UWB|Sub[- ]?GHz)\b|S-parameter|類比|射頻",
+    re.I,
+)
+
+
+def owner_scope_row(row):
+    text = " ".join(str(row.get(key) or "") for key in ("name", "path", "description", "pain"))
+    return not OWNER_SCOPE_EXCLUDE.search(text)
 
 opp = json.load(open(OPP, encoding="utf-8"))
 N = len(rows)
@@ -67,6 +101,8 @@ def bucket(r, mode):
     if mode == "month":
         return d[:7]
     dt = datetime.strptime(d, "%Y-%m-%d")
+    if mode == "quarter":
+        return f"{dt.year}-Q{((dt.month - 1) // 3) + 1}"
     monday = dt - timedelta(days=dt.weekday())
     return monday.strftime("%Y-%m-%d")
 
@@ -110,7 +146,7 @@ def build_view(mode, keep):
 # ---------- 利基：沒人注意到但做得起來的 ----------
 def niches(mode):
     """把結構性缺口 × 該領域近期熱度，挑出「需求在成長、能力卻缺席」的組合"""
-    view = build_view(mode, 12 if mode == "month" else 16)
+    view = build_view(mode, 12 if mode in {"month", "quarter"} else 16)
     grow = {g["domain"]: g for g in view["growth"]}
     out = []
     for g in opp["B1_task_gaps"]:
@@ -128,21 +164,29 @@ def niches(mode):
     return out
 
 # ---------- EDA / IC 專區 ----------
-CHIP_PAT = re.compile(r"晶片|IC|RTL|UVM|FPGA|時序|閘級|佈線|OpenROAD|驗證平台|覆蓋率|布爾", re.I)
 def eda_section():
-    neutral_eda = [r for r in rows if r.get("domain") == "hardware-eda"]
-    # 過取樣樣本要通過信心門檻才採用（關鍵字正則誤判率實測 75.6%，已棄用）
-    eda = [r for r in rows_all if r.get("domain") == "hardware-eda"
-           and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
-    chip = [r for r in eda if CHIP_PAT.search((r.get("pain") or "") + (r.get("name") or ""))]
+    # The owner zone is catalog-routed, not broad hardware keyword search.  This
+    # keeps FPGA/embedded/PCB/analog-RF material out even when descriptions also
+    # mention RTL or ASIC.
+    eda = [
+        r for r in rows_all
+        if (r.get("repo"), r.get("path")) in ASIC_OWNER_KEYS
+        and label_is_eligible(r, "domain")
+        and owner_scope_row(r)
+    ]
+    neutral_eda = [r for r in eda if neutral_for(r, "domain")]
+    chip = [r for r in eda if ASIC_OWNER_KEYS[(r.get("repo"), r.get("path"))].get("owner_fit") == "direct"]
     others = [r for r in eda if r not in chip]
     def fmt(rs):
-        return [{"stars": r.get("stars") or 0, "task": r.get("task"), "task_zh": TASK_ZH.get(r.get("task"), ""),
-                 "maturity": r.get("maturity"), "profession": r.get("profession"),
+        return [{"stars": r.get("stars") or 0,
+                 "task": r.get("task") if label_is_eligible(r, "task") else None,
+                 "task_zh": TASK_ZH.get(r.get("task"), "") if label_is_eligible(r, "task") else "",
+                 "maturity": r.get("maturity") if label_is_eligible(r, "maturity") else None,
+                 "profession": r.get("profession"),
                  "pain": redact(r.get("pain")), "repo": r.get("repo")}
                 for r in sorted(rs, key=lambda x: -(x.get("stars") or 0))]
-    tc = Counter(r.get("task") for r in eda)
-    mc = Counter(r.get("maturity") for r in eda)
+    tc = Counter(r.get("task") for r in eda if label_is_eligible(r, "task"))
+    mc = Counter(r.get("maturity") for r in eda if label_is_eligible(r, "maturity"))
     # 全體 verify 佔比 vs EDA verify 佔比
     return {
         "n": len(eda), "chip_n": len(chip),
@@ -167,7 +211,7 @@ def daily_discovery():
     days = sorted(disc)[-30:]
     targeted = Counter()
     for r in rows_all:
-        if r.get("sample") == "targeted-eda" and r.get("first_seen"):
+        if is_targeted(r) and r.get("first_seen"):
             targeted[r["first_seen"]] += 1
     return {"days": days,
             "totals": [sum(disc[d].values()) for d in days],
@@ -207,13 +251,46 @@ def read_summary():
         }
     return out
 
+def read_timescale_summary():
+    """Read only validated, period-keyed summaries; never infer success from a scheduled job."""
+    history_path = os.path.join(ROOT, "data", "timescale_summaries.json")
+    status_path = os.path.join(ROOT, "data", "timescale_summary_status.json")
+    history = {}
+    status = {"status": "NOT_RUN", "updated_periods": []}
+    if os.path.exists(history_path):
+        history = json.load(open(history_path, encoding="utf-8"))
+    if os.path.exists(status_path):
+        status = json.load(open(status_path, encoding="utf-8"))
+    periods = history.get("periods", {})
+    return {
+        "latest": history.get("latest", {}),
+        "status": status,
+        "period_counts": {scale: len(records) for scale, records in periods.items()},
+    }
+
+def read_latest_editorial():
+    """Expose only validated local editorial metadata; the renderer owns article HTML."""
+    import glob as _g
+    sources = sorted(_g.glob(os.path.join(ROOT, "research", "editorials", "*.md")), reverse=True)
+    if not sources:
+        return None
+    source = sources[0]
+    date = os.path.basename(source)[:-3]
+    first = open(source, encoding="utf-8", errors="replace").readline().strip()
+    title = first[2:].strip() if first.startswith("# ") else f"Skills Radar 觀點 — {date}"
+    return {"date": date, "title": title, "href": f"editorials/{date}.html"}
+
 def eda_gaps():
-    """EDA 內部的能力缺口，附真實痛點樣本。只取信心夠或 LLM 標註的硬體樣本。"""
-    hw = [r for r in rows_all if r.get("domain") == "hardware-eda"
-          and (r.get("label_source") != "model" or (r.get("domain_conf") or 0) >= 0.6)]
-    gt = Counter(r.get("task") for r in rows if r.get("task"))
+    """Owner-scoped ASIC/RTL ability gaps; excluded hardware never enters."""
+    hw = [
+        r for r in rows_all
+        if (r.get("repo"), r.get("path")) in ASIC_OWNER_KEYS
+        and label_is_eligible(r, "domain")
+        and owner_scope_row(r)
+    ]
+    gt = Counter(r.get("task") for r in rows if label_is_eligible(r, "task"))
     gn = sum(gt.values()) or 1
-    ht = Counter(r.get("task") for r in hw if r.get("task"))
+    ht = Counter(r.get("task") for r in hw if label_is_eligible(r, "task"))
     hn = sum(ht.values()) or 1
     out = []
     for t in TASK_ZH:
@@ -221,7 +298,8 @@ def eda_gaps():
         gp = 100 * gt.get(t, 0) / gn
         samples = [{"pain": redact(r.get("pain")), "stars": r.get("stars") or 0,
                     "name": redact((r.get("name") or "")[:60])}
-                   for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")],
+                   for r in sorted([x for x in hw if x.get("task") == t and x.get("pain")
+                                    and label_is_eligible(x, "task")],
                                    key=lambda x: -(x.get("stars") or 0))[:6]]
         out.append({"task": t, "zh": TASK_ZH[t], "hw_pct": round(hp, 1), "global_pct": round(gp, 1),
                     "ratio": round(hp / gp, 2) if gp else 0, "n": ht.get(t, 0), "samples": samples})
@@ -231,18 +309,25 @@ def eda_gaps():
 data = {
     "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     "n_total": N,
+    "eligibility": opp.get("eligibility", {}),
     "global_production_pct": opp["global_production_pct"],
     "global_task_pct": {TASK_ZH[k]: v for k, v in opp["global_task_pct"].items()},
     "day": build_view("day", 30),
     "week": build_view("week", 16),
     "month": build_view("month", 12),
+    "quarter": build_view("quarter", 12),
     "discovery": daily_discovery(),
     "summary": read_summary(),
+    "timescale_summary": read_timescale_summary(),
+    "editorial": read_latest_editorial(),
+    "pipeline_health": (json.load(open(os.path.join(ROOT, "data", "pipeline_health.json"), encoding="utf-8"))
+                        if os.path.exists(os.path.join(ROOT, "data", "pipeline_health.json")) else None),
     "schedule": {"hour": 8, "minute": 30, "tz": "Asia/Taipei",
                  "cadence": "每日", "job": "com.hsin.skills-radar"},
     "niche_day": niches("week"),
     "niche_week": niches("week"),
     "niche_month": niches("month"),
+    "niche_quarter": niches("quarter"),
     "traction": [{**t, "zh": DOM_ZH.get(t["domain"], t["domain"])} for t in opp["A_traction"]],
     "unfinished": [{**u, "zh": DOM_ZH.get(u["domain"], u["domain"])} for u in opp["B2_unfinished"]],
     "niche_pros": opp["B3_niche_professions"][:18],
@@ -251,10 +336,12 @@ data = {
                  if os.path.exists(os.path.join(ROOT, "corpus", "injection_scan.json")) else None),
     "eda_gaps": eda_gaps(),
 }
-json.dump(data, open(os.path.join(DOCS, "data.json"), "w"), ensure_ascii=False, indent=1)
+with open(os.path.join(DOCS, "data.json"), "w", encoding="utf-8", newline="\n") as fh:
+    json.dump(data, fh, ensure_ascii=False, indent=1)
+    fh.write("\n")
 
 tpl = open(os.path.join(ROOT, "index", "site_template.html"), encoding="utf-8").read()
 page = tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
 open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page)
 print(f"站台完成：{N} 筆樣本 → docs/index.html ({len(page)//1024} KB)")
-print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")
+print(f"  日級 {len(data['day']['periods'])} 天、週級 {len(data['week']['periods'])} 期、月級 {len(data['month']['periods'])} 期、季級 {len(data['quarter']['periods'])} 期、EDA {data['eda']['n']} 件（其中晶片相關 {data['eda']['chip_n']} 件）")

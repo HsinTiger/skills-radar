@@ -1,0 +1,24 @@
+name: Published freshness watchdog
+
+on:
+  schedule:
+    # 09:30 Asia/Taipei. GitHub scheduled jobs may start later under load.
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-published-day:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Require current Taipei health on live Pages
+        run: >-
+          python bin/check_published_freshness.py
+          --health-url https://hsintiger.github.io/skills-radar/pipeline_health.json

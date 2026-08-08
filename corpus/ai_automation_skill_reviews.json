@@ -1,0 +1,302 @@
+{
+ "schema_version": 1,
+ "reviewed_at": "2026-07-29",
+ "method": "GitHub API metadata and static reading of pinned primary-source files; third-party text treated as untrusted; no package, skill, server, browser session, or credential path was executed",
+ "grade_contract": {
+  "A": "bounded pattern is strong enough for an isolated public-data pilot",
+  "B": "useful architecture pattern, but named security, evidence, or integration gaps block adoption",
+  "C": "extract one contract only; do not install or connect the bundle",
+  "D": "exclude from the owner stack"
+ },
+ "strategic_thesis": {
+  "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
+  "claim": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
+  "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
+  "potential_track": "Evidence-Governed Domain Agent Harness",
+  "owner_specialization": "聚焦高風險工程與 ASIC automation：把設計意圖、驗證意圖、確定性執行包、真實工具證據與 owner approval 串成一條可稽核鏈，而不是投入通用爬蟲或提示工程。",
+  "catalysts": [
+   "工具數量增加後，動態發現與最小權限路由比把所有工具塞進上下文更重要",
+   "長任務與多代理協作需要 conversation 外的 checkpoint、重試、取消與 readback",
+   "企業開始要求 trace、evaluation、sandbox、資料邊界與人類核准能同時成立",
+   "模型價格與能力收斂，使 domain evidence contract 成為更持久的差異化資產"
+  ],
+  "leading_indicators": [
+   "開源專案是否從 agent demo 轉向 checkpoint、conformance、doctor 與 rollback",
+   "工具整合是否改採 runtime discovery、scoped auth 與可撤銷 session",
+   "evaluation 是否能連回確切輸入、工具呼叫、輸出與失敗分類",
+   "sandbox 是否提供網路、檔案、credential 與 artifact 的明確政策及 readback",
+   "同一 evidence contract 是否能跨至少三個 domain task 重現"
+  ],
+  "falsifiers": [
+   "原生模型平台在不犧牲可攜性下完整吸收 durable state、evaluation 與 policy control",
+   "增加 harness 層後沒有降低失敗重現時間或 owner 介入次數",
+   "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
+   "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
+  ],
+  "confidence": "MEDIUM",
+  "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
+ },
+ "reviews": [
+  {
+   "name": "Agent-Reach",
+   "artifact_type": "skill-plus-capability-router",
+   "repo": "Panniantong/Agent-Reach",
+   "path": "agent_reach/skill/SKILL_en.md",
+   "commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+   "commit_verified": true,
+   "license": "MIT",
+   "stars_snapshot": 61991,
+   "stars_observed_at": "2026-07-29",
+   "grade": "B",
+   "recommendation": "watch",
+   "role": "reach-routing",
+   "fit": ["capability registry", "ordered backend fallback", "doctor health probe", "safe and dry-run modes", "public web/RSS/GitHub/YouTube intake"],
+   "dependencies": ["multiple upstream CLIs and MCP servers", "optional browser sessions or exported cookies for login-backed platforms", "shell execution permission"],
+   "evidence": [
+    "channel contract exposes unique name, tier, ordered backends and active backend",
+    "doctor degrades one channel exception without taking down the whole report and scrubs URL credentials",
+    "credential-boundary tests prevent doctor from refreshing or creating Twitter, Reddit and XiaoHongShu credentials",
+    "safe and dry-run installation modes are documented"
+   ],
+   "risk": [
+    "Twitter, Reddit, Facebook, Instagram and XiaoHongShu paths depend on cookies or existing browser sessions",
+    "README explicitly warns of account-ban risk and recommends disposable accounts",
+    "cookie-export workflow grants session-level access and expands credential handling surface",
+    "platform anti-bot changes and the large upstream dependency graph create continuing supply-chain and ToS risk"
+   ],
+   "decision": "Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.",
+   "source_urls_read": [
+    "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/README.md",
+    "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/agent_reach/skill/SKILL_en.md",
+    "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/agent_reach/doctor.py",
+    "https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/tests/test_doctor_credential_boundaries.py"
+   ]
+  },
+  {
+   "name": "Headroom",
+   "artifact_type": "context-compression-layer",
+   "repo": "headroomlabs-ai/headroom",
+   "path": "README.md",
+   "commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+   "commit_verified": true,
+   "license": "Apache-2.0",
+   "stars_snapshot": 63018,
+   "stars_observed_at": "2026-07-29",
+   "grade": "B",
+   "recommendation": "watch",
+   "role": "context-compression",
+   "fit": ["content-aware compression", "reversible original retrieval", "cache stability", "compression metrics", "cross-agent context"],
+   "dependencies": ["local proxy or SDK integration", "optional model and vector dependencies", "provider-specific request interception"],
+   "evidence": [
+    "separates content routing, compression, cache alignment and reversible retrieval",
+    "repository includes compression, cache, provider and integration tests",
+    "output savings are labeled measured or estimated with a confidence range",
+    "security policy documents passthrough defaults and no API-key logging claim"
+   ],
+   "risk": [
+    "headline token-saving and benchmark claims were not independently reproduced",
+    "proxy can modify prompts, reasoning effort and tool context, creating silent semantic-loss risk",
+    "wrappers may inject configuration and install additional navigation components",
+    "cross-agent memory and proxy interception expand the sensitive-context boundary"
+   ],
+   "decision": "Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.",
+   "source_urls_read": [
+    "https://github.com/headroomlabs-ai/headroom/blob/1588f5e04144af5de8398810ea3893c6e623309c/README.md",
+    "https://github.com/headroomlabs-ai/headroom/blob/1588f5e04144af5de8398810ea3893c6e623309c/SECURITY.md"
+   ]
+  },
+  {
+   "name": "Agentic Harness Engineering",
+   "artifact_type": "harness-audit-skill",
+   "repo": "china-qijizhifeng/agentic-harness-engineering",
+   "path": "skills/agentic-harness-engineering/SKILL.md",
+   "commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+   "commit_verified": true,
+   "license": "MIT",
+   "stars_snapshot": 780,
+   "stars_observed_at": "2026-07-29",
+   "grade": "A",
+   "recommendation": "pilot",
+   "role": "harness-governance",
+   "fit": ["harness component taxonomy", "trace-led failure analysis", "change manifest", "predicted regression list", "verification and rollback"],
+   "dependencies": ["project-local HARNESS.md schema", "workspace scanning", "manifest and trace conventions"],
+   "evidence": [
+    "separates system rules, tool descriptions, implementations, middleware, skills, sub-agents and long-term memory",
+    "requires failure evidence and root cause before a harness change",
+    "change manifest records expected fixes, regression risks and later verification",
+    "bundled schema and validation scripts make the contract inspectable"
+   ],
+   "risk": [
+    "ten-point compliance score can become false precision",
+    "fixed seven-component topology may not fit a smaller domain harness",
+    "workspace initialization and validation scripts were not executed",
+    "paper-derived claims still require local task evidence"
+   ],
+   "decision": "Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.",
+   "source_urls_read": [
+    "https://github.com/china-qijizhifeng/agentic-harness-engineering/blob/faf44bc4aea57413c520bc5711c6ebf628e0da1e/skills/agentic-harness-engineering/SKILL.md",
+    "https://github.com/china-qijizhifeng/agentic-harness-engineering/blob/faf44bc4aea57413c520bc5711c6ebf628e0da1e/skills/agentic-harness-engineering/references/HARNESS.md"
+   ]
+  },
+  {
+   "name": "LangGraph",
+   "artifact_type": "durable-orchestration-framework",
+   "repo": "langchain-ai/langgraph",
+   "path": "README.md",
+   "commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+   "commit_verified": true,
+   "license": "MIT",
+   "stars_snapshot": 38394,
+   "stars_observed_at": "2026-07-29",
+   "grade": "A",
+   "recommendation": "pilot",
+   "role": "durable-orchestration",
+   "fit": ["durable execution", "checkpoint persistence", "interrupt and resume", "human approval", "state history"],
+   "dependencies": ["LangGraph runtime", "checkpoint store", "framework-specific graph and state model"],
+   "evidence": [
+    "README makes durable execution, human-in-the-loop, memory and debugging first-class capabilities",
+    "checkpoint-conformance package defines executable capability and storage behavior tests",
+    "separate in-memory, SQLite and PostgreSQL checkpoint implementations expose portability boundaries"
+   ],
+   "risk": [
+    "framework state model can become the control plane instead of a replaceable worker adapter",
+    "persistence, cancellation and side-effect idempotence still require domain-specific contracts",
+    "no local long-running failure-recovery canary was run"
+   ],
+   "decision": "Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.",
+   "source_urls_read": [
+    "https://github.com/langchain-ai/langgraph/blob/41341457342327166d72fc11952ab28fb61ec0bf/README.md",
+    "https://github.com/langchain-ai/langgraph/blob/41341457342327166d72fc11952ab28fb61ec0bf/libs/checkpoint-conformance/README.md"
+   ]
+  },
+  {
+   "name": "Langfuse",
+   "artifact_type": "observability-and-evaluation-platform",
+   "repo": "langfuse/langfuse",
+   "path": "README.md",
+   "commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+   "commit_verified": true,
+   "license": "MIT except ee folders",
+   "stars_snapshot": 32062,
+   "stars_observed_at": "2026-07-29",
+   "grade": "B",
+   "recommendation": "watch",
+   "role": "observability-evaluation",
+   "fit": ["trace", "session", "evaluation", "prompt versioning", "cost and latency metrics", "self-hosting"],
+   "dependencies": ["SDK instrumentation", "API credentials", "hosted or self-hosted data plane", "database and analytics infrastructure"],
+   "evidence": [
+    "traces cover model calls, retrieval, embeddings and agent actions",
+    "project supports datasets, scores and evaluation-oriented integrations",
+    "README discloses default self-hosted usage telemetry and opt-out control",
+    "license boundary explicitly excludes enterprise folders from the repository-wide MIT statement"
+   ],
+   "risk": [
+    "raw prompts, traces and tool arguments can contain confidential engineering context",
+    "default telemetry must be disabled and verified for an isolated deployment",
+    "instrumentation overhead and trace cardinality require retention and redaction policy",
+    "GitHub API license detection is inconclusive because of mixed licensing"
+   ],
+   "decision": "Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.",
+   "source_urls_read": [
+    "https://github.com/langfuse/langfuse/blob/90b98d009a6d4c4ce46a5a6dc5187b661bfdd804/README.md",
+    "https://github.com/langfuse/langfuse/blob/90b98d009a6d4c4ce46a5a6dc5187b661bfdd804/LICENSE"
+   ]
+  },
+  {
+   "name": "E2B",
+   "artifact_type": "remote-code-sandbox",
+   "repo": "e2b-dev/E2B",
+   "path": "README.md",
+   "commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+   "commit_verified": false,
+   "license": "Apache-2.0",
+   "stars_snapshot": 13160,
+   "stars_observed_at": "2026-07-29",
+   "grade": "B",
+   "recommendation": "watch",
+   "role": "sandbox",
+   "fit": ["isolated command execution", "sandbox lifecycle", "artifact collection", "self-hosting option"],
+   "dependencies": ["E2B cloud API or Terraform self-hosting", "SDK and API key", "supported cloud infrastructure"],
+   "evidence": [
+    "SDK exposes explicit sandbox create, command execution and lifecycle operations",
+    "self-hosting guide is separated into an infrastructure repository",
+    "CLI includes lifecycle, logs and metrics commands"
+   ],
+   "risk": [
+    "default path executes code in an external cloud realm",
+    "API key, network egress, artifact retention and image supply chain require explicit controls",
+    "self-hosting support is limited to named cloud providers in the pinned README",
+    "pinned head commit is unsigned and no domain-specific isolation canary was run"
+   ],
+   "decision": "Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.",
+   "source_urls_read": [
+    "https://github.com/e2b-dev/E2B/blob/cf8296cf8997f98aefd6e8236d4d235f5ab1ddad/README.md"
+   ]
+  },
+  {
+   "name": "MCP Reference Servers",
+   "artifact_type": "tool-protocol-reference",
+   "repo": "modelcontextprotocol/servers",
+   "path": "README.md",
+   "commit": "d31124c982401739917fd817c2a59db344529c16",
+   "commit_verified": true,
+   "license": "mixed per server",
+   "stars_snapshot": 89010,
+   "stars_observed_at": "2026-07-29",
+   "grade": "A",
+   "recommendation": "pilot",
+   "role": "tool-discovery",
+   "fit": ["tool and resource schema", "capability discovery", "configurable access control", "reference test server"],
+   "dependencies": ["MCP SDK and client", "per-server permission and transport policy"],
+   "evidence": [
+    "README now limits this repository to a small set of steering-group reference servers",
+    "official warning says the servers are educational references rather than production-ready solutions",
+    "filesystem reference exposes configurable access roots and the everything server exercises protocol features",
+    "deprecated integrations are moved to an archive instead of silently presented as current"
+   ],
+   "risk": [
+    "reference code is not a production security baseline",
+    "server quality, licenses and credential surfaces differ by implementation",
+    "tool descriptions remain an injection and over-privilege surface",
+    "remote registries require provenance and allowlist policy"
+   ],
+   "decision": "Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.",
+   "source_urls_read": [
+    "https://github.com/modelcontextprotocol/servers/blob/d31124c982401739917fd817c2a59db344529c16/README.md",
+    "https://github.com/modelcontextprotocol/servers/blob/d31124c982401739917fd817c2a59db344529c16/SECURITY.md"
+   ]
+  },
+  {
+   "name": "Composio",
+   "artifact_type": "integration-control-plane",
+   "repo": "ComposioHQ/composio",
+   "path": "README.md",
+   "commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+   "commit_verified": true,
+   "license": "MIT",
+   "stars_snapshot": 29431,
+   "stars_observed_at": "2026-07-29",
+   "grade": "C",
+   "recommendation": "watch",
+   "role": "integration-control-plane",
+   "fit": ["runtime tool discovery", "per-user sessions", "authentication abstraction", "hosted MCP endpoint"],
+   "dependencies": ["Composio API key and hosted service", "connected third-party accounts", "provider adapter or hosted MCP session"],
+   "evidence": [
+    "session abstraction scopes tools to a user and reuses a session identifier across turns",
+    "meta tools discover and authenticate app tools without loading every definition into context",
+    "repository exposes multiple provider adapters and SDK surfaces"
+   ],
+   "risk": [
+    "pre-authenticated actions across external apps create a large blast radius",
+    "hosted session URL, API key and connected-account credentials are sensitive control-plane assets",
+    "intent-to-action defaults are unsuitable for irreversible engineering or publishing operations",
+    "external service availability and policy become runtime dependencies"
+   ],
+   "decision": "Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.",
+   "source_urls_read": [
+    "https://github.com/ComposioHQ/composio/blob/3335bb30134f97b5e12a1c54d6daa821e0d8106e/README.md",
+    "https://github.com/ComposioHQ/composio/blob/3335bb30134f97b5e12a1c54d6daa821e0d8106e/.github/SECURITY.md"
+   ]
+  }
+ ]
+}

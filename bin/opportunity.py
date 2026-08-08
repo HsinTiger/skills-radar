@@ -14,10 +14,12 @@ import json, os, sys
 from collections import Counter, defaultdict
 from statistics import median
 
+from corpus_policy import CONF_MIN, label_is_eligible, neutral_for, require_model_report_alignment
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER = os.path.join(ROOT, "corpus", "master.jsonl")
 
-rows = []
+rows, rows_all = [], []
 for line in open(MASTER, encoding="utf-8", errors="replace"):
     line = line.strip()
     if not line:
@@ -26,15 +28,24 @@ for line in open(MASTER, encoding="utf-8", errors="replace"):
         r = json.loads(line)
     except Exception:
         continue
-    # 分層過取樣的樣本不可進入比例統計（見 harvest_eda.py 的方法論說明）
-    if r.get("domain") and r.get("sample") != "targeted-eda":
+    rows_all.append(r)
+    # 所有 targeted-* 都是過取樣；只允許中立樣本進母體統計。
+    # model 標籤另需通過 domain 信心門檻。
+    if neutral_for(r, "domain"):
         rows.append(r)
+
+require_model_report_alignment(rows_all, os.path.join(ROOT, "corpus", "model_report.json"))
 
 N = len(rows)
 TASKS = ["generate", "transform", "analyze", "verify", "orchestrate", "retrieve", "configure"]
-global_task = Counter(r.get("task") for r in rows)
-global_task_pct = {t: global_task.get(t, 0) / N for t in TASKS}
-global_prod = sum(1 for r in rows if r.get("maturity") == "production") / N
+task_rows = [r for r in rows if label_is_eligible(r, "task")]
+maturity_rows = [r for r in rows if label_is_eligible(r, "maturity")]
+target_rows = [r for r in rows if label_is_eligible(r, "target")]
+global_task = Counter(r.get("task") for r in task_rows)
+global_task_n = len(task_rows) or 1
+global_task_pct = {t: global_task.get(t, 0) / global_task_n for t in TASKS}
+global_prod_n = len(maturity_rows) or 1
+global_prod = sum(1 for r in maturity_rows if r.get("maturity") == "production") / global_prod_n
 
 by_dom = defaultdict(list)
 for r in rows:
@@ -46,11 +57,15 @@ for d, rs in by_dom.items():
     n = len(rs)
     if n < 30:
         continue
-    prod = sum(1 for r in rs if r.get("maturity") == "production") / n
+    mrs = [r for r in rs if label_is_eligible(r, "maturity")]
+    trs = [r for r in rs if label_is_eligible(r, "target")]
+    if not mrs:
+        continue
+    prod = sum(1 for r in mrs if r.get("maturity") == "production") / len(mrs)
     stars = [r.get("stars") or 0 for r in rs]
-    agent_facing = sum(1 for r in rs if r.get("target") == "agent") / n
+    agent_facing = (sum(1 for r in trs if r.get("target") == "agent") / len(trs)) if trs else 0
     traction.append({
-        "domain": d, "n": n,
+        "domain": d, "n": n, "n_maturity": len(mrs), "n_target": len(trs),
         "production_pct": round(100 * prod, 1),
         "vs_global_production": round(100 * (prod - global_prod), 1),
         "median_stars": int(median(stars)),
@@ -62,10 +77,11 @@ traction.sort(key=lambda x: -x["vs_global_production"])
 # ---------- B1. 能力缺口：某領域缺哪一種任務型態 ----------
 task_gaps = []
 for d, rs in by_dom.items():
-    n = len(rs)
+    trs = [r for r in rs if label_is_eligible(r, "task")]
+    n = len(trs)
     if n < 50:
         continue
-    c = Counter(r.get("task") for r in rs)
+    c = Counter(r.get("task") for r in trs)
     for t in TASKS:
         expected = global_task_pct[t] * n
         observed = c.get(t, 0)
@@ -83,10 +99,11 @@ task_gaps.sort(key=lambda x: (x["ratio_vs_global"], -x["domain_n"]))
 # ---------- B2. 做了一半：workflow 多但 production 少 ----------
 unfinished = []
 for d, rs in by_dom.items():
-    n = len(rs)
+    mrs = [r for r in rs if label_is_eligible(r, "maturity")]
+    n = len(mrs)
     if n < 30:
         continue
-    c = Counter(r.get("maturity") for r in rs)
+    c = Counter(r.get("maturity") for r in mrs)
     wf, pr = c.get("workflow", 0), c.get("production", 0)
     if wf >= 10:
         unfinished.append({"domain": d, "n": n, "workflow": wf, "production": pr,
@@ -103,7 +120,8 @@ niche_pros = []
 for p, rs in prof.items():
     n = len(rs)
     if 1 <= n <= 8:
-        pr = sum(1 for r in rs if r.get("maturity") == "production")
+        pr = sum(1 for r in rs if label_is_eligible(r, "maturity")
+                 and r.get("maturity") == "production")
         if pr >= 1:
             niche_pros.append({"profession": p, "n": n, "production": pr,
                                "domains": list({r["domain"] for r in rs}),
@@ -130,6 +148,14 @@ for r in rows:
 
 out = {
     "n_total": N,
+    "eligibility": {
+        "sample": "neutral only (sample missing, empty, or neutral)",
+        "model_conf_min": CONF_MIN,
+        "n_domain": N,
+        "n_task": len(task_rows),
+        "n_maturity": len(maturity_rows),
+        "n_target": len(target_rows),
+    },
     "global_production_pct": round(100 * global_prod, 1),
     "global_task_pct": {k: round(100 * v, 1) for k, v in global_task_pct.items()},
     "A_traction": traction,
@@ -139,8 +165,16 @@ out = {
     "B4_pain_diversity": scarcity,
     "B5_by_first_seen": {k: dict(v.most_common(8)) for k, v in sorted(recent.items())[-10:]},
 }
-json.dump(out, open(os.path.join(ROOT, "corpus", "opportunity.json"), "w"),
-          ensure_ascii=False, indent=1)
+output_path = os.path.join(ROOT, "corpus", "opportunity.json")
+temporary = output_path + ".tmp"
+try:
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(out, handle, ensure_ascii=False, indent=1)
+        handle.write("\n")
+    os.replace(temporary, output_path)
+finally:
+    if os.path.exists(temporary):
+        os.unlink(temporary)
 
 print(f"機會訊號計算完成（樣本 {N}）")
 print(f"\n[A] 上線率高於全體平均（全體 {out['global_production_pct']}%）:")

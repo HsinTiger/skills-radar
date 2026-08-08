@@ -1,77 +1,8 @@
 {
- "n_files": 26,
- "n_metrics_tracked": 3,
- "n_conflicts": 1,
- "conflicts": [
-  {
-   "metric": "語料規模",
-   "min": 3984.0,
-   "max": 246584.0,
-   "spread_pct": 6089.4,
-   "by_file": {
-    "research/DATA_STRATEGY.md": [
-     246584.0
-    ],
-    "daily/2026-07-28.md": [
-     3984.0
-    ],
-    "daily/2026-07-29.md": [
-     3984.0
-    ],
-    "daily/2026-07-30.md": [
-     3984.0
-    ],
-    "daily/2026-08-03.md": [
-     3984.0
-    ],
-    "daily/2026-08-04.md": [
-     3984.0
-    ],
-    "daily/2026-08-05.md": [
-     3984.0
-    ],
-    "daily/2026-08-06.md": [
-     3984.0
-    ],
-    "daily/2026-08-07.md": [
-     3984.0
-    ],
-    "daily/2026-08-08.md": [
-     3984.0
-    ]
-   },
-   "samples": [
-    {
-     "file": "research/DATA_STRATEGY.md",
-     "value": 246584.0,
-     "ctx": "GitHub 上有 **246,584 個公開 SKILL.md**。"
-    },
-    {
-     "file": "daily/2026-07-28.md",
-     "value": 3984.0,
-     "ctx": "- **既有基準底線**：Snyk ToxicSkills 2026-02 掃描 3,984 個 skill，36.82% 含安全缺陷、13.4% critical、76 個確認惡意負載。"
-    },
-    {
-     "file": "daily/2026-07-29.md",
-     "value": 3984.0,
-     "ctx": "*（生態風險基準：Snyk ToxicSkills 2026-02 掃描 3,984 個 skill，36.82% 含安全缺陷、13.4% critical、76 個確認惡意負載。"
-    },
-    {
-     "file": "daily/2026-07-30.md",
-     "value": 3984.0,
-     "ctx": "> **基準風險提醒**：Snyk ToxicSkills 2026-02 掃描 3,984 個 skill，36.82% 含安全缺陷、13.4% critical、76 個確認惡意負載。"
-    },
-    {
-     "file": "daily/2026-08-03.md",
-     "value": 3984.0,
-     "ctx": "根據 **Snyk ToxicSkills 2026-02** 針對 3,984 個 skill 的大規模安全掃描統計："
-    },
-    {
-     "file": "daily/2026-08-04.md",
-     "value": 3984.0,
-     "ctx": "- **既有底線提醒**：繼續堅持 Snyk ToxicSkills 2026-02 掃描標準作為防禦底線（3,984 個 skill 中 **36.82% 含安全缺陷、13.4% 為 Critical、76 個含惡意負載**）。"
-    }
-   ]
-  }
- ]
+ "n_files": 15,
+ "n_metrics_tracked": 2,
+ "n_conflicts": 0,
+ "conflicts": [],
+ "n_wiki_errors": 0,
+ "wiki_errors": []
 }

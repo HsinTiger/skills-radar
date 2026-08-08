@@ -1,0 +1,38 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-07-27T03:55:34.260941+00:00",
+ "n_golden": 0,
+ "status": "BLOCKED",
+ "thresholds": {
+  "min_n": 200,
+  "min_scalar_accuracy": 0.75,
+  "min_jaccard": 0.65
+ },
+ "failures": [
+  "n_golden=0 < 200",
+  "hardware_target.accuracy below 0.75",
+  "owner_fit.accuracy below 0.75",
+  "asic_stages.mean_jaccard below 0.65",
+  "wifi_areas.mean_jaccard below 0.65"
+ ],
+ "metrics": {
+  "hardware_target": {
+   "accuracy": null,
+   "confusion": {}
+  },
+  "owner_fit": {
+   "accuracy": null,
+   "confusion": {}
+  },
+  "asic_stages": {
+   "exact_match": null,
+   "mean_jaccard": null,
+   "per_label": {}
+  },
+  "wifi_areas": {
+   "exact_match": null,
+   "mean_jaccard": null,
+   "per_label": {}
+  }
+ }
+}

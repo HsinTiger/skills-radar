@@ -8,6 +8,7 @@
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Anthropic 維護的高品質 plugin 目錄，目前 39 個 |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | Claude Code 本體：release、changelog、issue 風向 |
 | [docs.claude.com](https://docs.claude.com) | Skills / plugin / API 官方文件 |
+| [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | MCP steering-group 維護的 reference servers；repo 自身明示非 production-ready |
 
 ⚠️ 即使是官方 repo 也有免責聲明：這些 skill **僅供示範與教學用途**，正式用途前需自行測試。
 
@@ -27,6 +28,8 @@
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | Claude Code 取向清單 |
 | Hacker News（自動抓取） | 討論熱度，看「大家開始在意什麼」 |
 | GitHub 新建 skill repo（自動抓取） | 供給面訊號 |
+| Agent-Reach／Headroom／Agentic Harness Engineering | reach、context 與 harness pattern 候選；只用 pinned source review，不直接安裝 |
+| LangGraph／Langfuse／E2B／Composio | orchestration、observability、sandbox、integration pattern 候選；產品宣稱仍需獨立 canary |
 
 被收錄進精選清單**不等於安全** —— Snyk 的研究正是在這類聚合站點上發現惡意樣本。
 

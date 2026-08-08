@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-把分類結果聚合成統計事實，供最後的洞察報告使用。
+把 LLM／legacy seed 標籤聚合成統計事實，供質性洞察使用。
 只算數字，不下判斷 —— 判斷留給報告階段，且必須基於這裡算出來的數字。
+
+預設從 master 讀取所有非 model seeds，避免 transient classified.jsonl 每批
+覆蓋歷史。這是 golden-label audit，不是中立抽樣母體；人口比例只能使用
+opportunity.py 的 neutral-only policy。
 """
 import json, os, sys
 from collections import Counter, defaultdict
@@ -9,6 +13,7 @@ from collections import Counter, defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 corpus_p = sys.argv[1] if len(sys.argv) > 1 else None
 cls_p = os.path.join(ROOT, "corpus", "classified.jsonl")
+master_p = os.path.join(ROOT, "corpus", "master.jsonl")
 
 corpus = {}
 if corpus_p and os.path.exists(corpus_p):
@@ -16,25 +21,36 @@ if corpus_p and os.path.exists(corpus_p):
         corpus[i] = json.loads(line)
 
 rows = []
-seen = set()
-for line in open(cls_p, encoding="utf-8", errors="replace"):
-    line = line.strip()
-    if not line:
-        continue
-    try:
+if corpus_p:
+    seen = set()
+    for line in open(cls_p, encoding="utf-8", errors="replace"):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            r = json.loads(line)
+        except Exception:
+            continue
+        i = r.get("i")
+        if i in seen:
+            continue
+        seen.add(i)
+        src = corpus.get(i, {})
+        r["stars"] = src.get("stars") or 0
+        r["repo"] = src.get("repo")
+        r["repo_created"] = (src.get("repo_created") or "")[:7]
+        r["chars"] = src.get("chars") or 0
+        rows.append(r)
+else:
+    for line in open(master_p, encoding="utf-8", errors="replace"):
+        if not line.strip():
+            continue
         r = json.loads(line)
-    except Exception:
-        continue
-    i = r.get("i")
-    if i in seen:
-        continue
-    seen.add(i)
-    src = corpus.get(i, {})
-    r["stars"] = src.get("stars") or 0
-    r["repo"] = src.get("repo")
-    r["repo_created"] = (src.get("repo_created") or "")[:7]
-    r["chars"] = src.get("chars") or 0
-    rows.append(r)
+        if r.get("domain") and r.get("label_source") != "model":
+            r["stars"] = r.get("stars") or 0
+            r["repo_created"] = (r.get("repo_created") or "")[:7]
+            r["chars"] = r.get("chars") or 0
+            rows.append(r)
 
 def cnt(field):
     return Counter(r.get(field) or "unknown" for r in rows)
@@ -45,6 +61,11 @@ def pct(c, total):
 N = len(rows)
 out = {
     "n_classified": N,
+    "scope": {
+        "rows": "all non-model seeds from master",
+        "population_claims_allowed": False,
+        "population_authority": "corpus/opportunity.json neutral-only policy",
+    },
     "domain": pct(cnt("domain"), N),
     "task": pct(cnt("task"), N),
     "target": pct(cnt("target"), N),
@@ -89,8 +110,16 @@ out["top_by_stars"] = [
     {k: r.get(k) for k in ("repo", "domain", "profession", "task", "maturity", "pain", "stars")}
     for r in sorted(rows, key=lambda r: -(r.get("stars") or 0))[:40]]
 
-json.dump(out, open(os.path.join(ROOT, "corpus", "aggregate.json"), "w"),
-          ensure_ascii=False, indent=1)
+output_path = os.path.join(ROOT, "corpus", "aggregate.json")
+temporary = output_path + ".tmp"
+try:
+    with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(out, handle, ensure_ascii=False, indent=1)
+        handle.write("\n")
+    os.replace(temporary, output_path)
+finally:
+    if os.path.exists(temporary):
+        os.unlink(temporary)
 print(f"聚合完成：{N} 筆")
 for k in ("domain", "task", "maturity"):
     print(f"\n{k}:")

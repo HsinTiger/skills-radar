@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每日 Skill 建議採用清單 — 2026-07-29</title>
+<style>
+:root{--bg:#fbfaf8;--card:#fff;--ink:#1c1b19;--dim:#6b6660;--line:#e4dfd7;--accent:#a94d21;--ok:#2f6b4f;--warn:#936313}
+@media(prefers-color-scheme:dark){:root{--bg:#151413;--card:#1e1d1b;--ink:#ece8e2;--dim:#aaa29a;--line:#38332e;--accent:#e18456;--ok:#75b994;--warn:#d5a64c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.65}
+main{max-width:1050px;margin:auto;padding:2.2rem 1.2rem 5rem}a{color:var(--accent)}h1{margin-bottom:.25rem}h2{margin-top:2.8rem;border-bottom:1px solid var(--line);padding-bottom:.4rem}
+.muted,.repo{color:var(--dim);font-size:.88rem}.notice,.gate{border-left:3px solid var(--warn);padding:.7rem 1rem;background:var(--card)}
+.grid{display:grid;gap:.8rem}@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}.card{border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;background:var(--card)}
+.card h3{margin:.5rem 0 0}.status,.review{font-size:.72rem;border:1px solid currentColor;border-radius:999px;padding:.12rem .48rem;margin-right:.35rem}.pilot{color:var(--ok)}.watch{color:var(--warn)}.review{color:var(--dim)}details{font-size:.86rem}
+</style></head><body><main>
+<p><a href="../index.html">← Skills Radar</a></p><h1>每日 Skill 建議採用清單</h1>
+<p class="muted">2026-07-29 · deterministic daily build</p>
+<div class="notice"><strong>READY_FOR_OWNER_REVIEW</strong>：master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。<br>財經類只供研究，不授權交易、帳號或 credential 操作。</div>
+
+<section><h2>EDA / 數位 IC（WiFi baseband ASIC）</h2>
+<p>已審 26 個來源；15 個可沙盒試行、6 個待補證據、5 個排除。本頁列出前 8 個非排除候選；完整 26 個 dossier 見 EDA 專區。</p><p class="muted">範圍：規格、fixed-point、microarchitecture、RTL、lint/CDC/RDC、formal/SVA、VCS/Verdi、UVM、logic synthesis、LEC 與前端 ECO。<br>排除：FPGA/Vivado/Quartus/bitstream、MCU/firmware/embedded、board/PCB、analog/RF/antenna，以及 P&amp;R/CTS/route/physical signoff。</p>
+<div class="grid">
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/simra-tech/OpenADA/blob/939fe803882956b9e6c34e0270f82ba8bbdfe991/skills/review-rtl-architecture/SKILL.md">review-rtl-architecture</a></h3>
+  <p class="repo">simra-tech/OpenADA · commit 939fe803882956b9e6c34e0270f82ba8bbdfe991</p>
+  <p>優先改編：作為 RTL architecture review 與 evidence-governor 骨架；不複製工具命令，需用真實 parser/lint/VCS/DC/CDC/formal gate 回填。</p><p><strong>引用：</strong>在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。</p>
+  <details><summary>風險與限制</summary><ul><li>OpenADA runtime was not executed</li><li>v1alpha1 lacks general parameter override and library/waiver provenance roles</li><li>OpenADA-specific contract must map to internal filelist/tool evidence</li><li>clean lint remains non-functional evidence</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/nlsundeep/Hardware-Design-Agent-Workflow/blob/5a53e85f43337872a6dc19817a6234b27f258b00/.claude/skills/hw-cdc/SKILL.md">hw-cdc</a></h3>
+  <p class="repo">nlsundeep/Hardware-Design-Agent-Workflow · commit 5a53e85f43337872a6dc19817a6234b27f258b00</p>
+  <p>優先抽取 claim boundary 與 crossing inventory schema；真 CDC/RDC tool run 才能升級 PASS。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
+  <details><summary>風險與限制</summary><ul><li>repository has no detected license</li><li>no executable proprietary-tool adapter or report schema in this file</li><li>depends on repo-local baseline mechanisms</li><li>structural pattern matching can miss reconvergence and protocol semantics</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/chuanseng-ng/digital-chip-design-agents/blob/d9ec7f93343ecdd7bd7d886ef28563f8c5960308/plugins/formal/skills/formal-verification/SKILL.md">formal-verification</a></h3>
+  <p class="repo">chuanseng-ng/digital-chip-design-agents · commit d9ec7f93343ecdd7bd7d886ef28563f8c5960308</p>
+  <p>只採 property/assumption/vacuity/CEX/LEC stage model；刪除 assumed-correct shortcut，所有 PASS 綁定真 formal report 與 owner-approved waiver。</p><p><strong>引用：</strong>只生成綁定 spec requirement 的 candidate property，再交由正式 formal flow 證明。</p>
+  <details><summary>風險與限制</summary><ul><li>over-broad signoff wording without exact report schemas</li><li>assumed-correct shortcut is unacceptable for hard gates</li><li>generic constraint prescriptions need qualification</li><li>writes repo-local memory and delegates to unavailable orchestrator</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/vibeic/vibe-ic/blob/93ff966d3258ab2b1abc914abf72d9ef72d3648b/vibe-ic-marketplace/plugins/vibe-ic/skills/equivalence-check/SKILL.md">equivalence-check</a></h3>
+  <p class="repo">vibeic/vibe-ic · commit 93ff966d3258ab2b1abc914abf72d9ef72d3648b</p>
+  <p>優先改編 LEC substance gate schema；用內部 Formality/Conformal canonical report readback 實作，不把 Yosys PASS 升格為產品 ECO signoff。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
+  <details><summary>風險與限制</summary><ul><li>MCP-EDA/Yosys integration is not the internal flow</li><li>commercial parsing claim was not runtime-tested</li><li>test/scan/black-box/state mapping needs tool-specific contracts</li><li>no Formality/Conformal evidence was run</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/L1Ban404-computer-architecture/systemverilog-waveform-debug-skill/blob/3af2c119a59d2a1ffaef0774c0e2de52bc990e3b/SKILL.md">systemverilog-waveform-debug</a></h3>
+  <p class="repo">L1Ban404-computer-architecture/systemverilog-waveform-debug-skill · commit 3af2c119a59d2a1ffaef0774c0e2de52bc990e3b</p>
+  <p>優先改編方法：provenance、earliest divergence、bounded probe 與 falsifier；必須接真 FSDB/Verdi readback，公開側只保留獲准摘要。</p><p><strong>引用：</strong>在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。</p>
+  <details><summary>風險與限制</summary><ul><li>no native FSDB support</li><li>VCS/Verdi flow needs an approved FSDB adapter</li><li>offline waveform cannot prove simulator scheduling regions</li><li>tool/scripts were not executed</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/simra-tech/OpenADA/blob/92895d8f7f6150c9332e51642cfb2b08ccf1886d/skills/assess-synthesis-and-inference/SKILL.md">assess-synthesis-and-inference</a></h3>
+  <p class="repo">simra-tech/OpenADA · commit 92895d8f7f6150c9332e51642cfb2b08ccf1886d</p>
+  <p>優先改編 evidence manifest 與 claim boundary；不要把 OpenADA/Yosys 命令直接帶進現有商用 EDA flow。</p><p><strong>引用：</strong>引用 evidence manifest 與 claim boundary；命令、library、constraint 與 ECO/LEC 規則以 golden flow 為準。</p>
+  <details><summary>風險與限制</summary><ul><li>commit unsigned</li><li>OpenADA runtime unavailable here</li><li>open-source contract needs mapping to proprietary OA/NX flow</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/BLANK2077/xverif/blob/abc390cc7799ff8075b23d9c25ccf21bbc279e11/skills/x-npi/SKILL.md">x-npi</a></h3>
+  <p class="repo">BLANK2077/xverif · commit abc390cc7799ff8075b23d9c25ccf21bbc279e11</p>
+  <p>優先改編：保留 runtime/API preflight、同一 clock edge 取樣、coverage denominator 與 JSON evidence contract；不直接複製整包。</p><p><strong>引用：</strong>在正式 compile/sim 之後引用其 waveform、coverage 與 debug evidence contract。</p>
+  <details><summary>風險與限制</summary><ul><li>commit unsigned</li><li>real pynpi tests not executed locally</li><li>must not expose license or internal signal names</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/babyworm/rtl-agent-team/blob/ca43e220af36492be516996b137dafb1922c2d88/skills/rtl-p3-uarch-policy/SKILL.md">rtl-p3-uarch-policy</a></h3>
+  <p class="repo">babyworm/rtl-agent-team · commit ca43e220af36492be516996b137dafb1922c2d88</p>
+  <p>只抽取 intent schema、traceability、bit-true BFM gate 與 throughput invariant；不採固定 threshold、命名或 agent topology。</p><p><strong>引用：</strong>在寫 RTL 前引用：先凍結 spec、fixed-point、cycle/interface/reset contract，再產生 candidate RTL。</p>
+  <details><summary>風險與限制</summary><ul><li>fixed SRAM and buffering thresholds are technology-specific</li><li>rigid naming and artifact layout</li><li>multi-agent review rounds are attention-heavy</li><li>some advisory criteria conflict with final hard-checklist wording</li></ul></details>
+</article></div><p class="gate"><strong>採用 gate：</strong>先抽取 procedure → owner 核准 → toy design canary → internal golden-flow proof → 才能採用。</p></section>
+<section><h2>財經投資研究</h2>
+<p>今日選出 5 個研究候選：2 個沙盒試行、3 個觀察；5 個已完成 pinned source review。</p><p class="muted">範圍：市場／總經資料、財報與盈餘品質、估值、產業鏈論點、風險與回測方法。<br>排除：自動下單、實盤交易、券商／錢包／私鑰／credential 操作，以及無證據的獲利承諾。</p>
+<div class="grid">
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/anthropics/knowledge-work-plugins/blob/2d6f7e22dd25593f0f748010430ef86f19659735/finance/skills/reconciliation/SKILL.md">reconciliation</a></h3>
+  <p class="repo">anthropics/knowledge-work-plugins · commit 2d6f7e22dd25593f0f748010430ef86f19659735</p>
+  <p>Pin and adapt its reconciliation manifest/checklist to public filings; offline fixtures only; retain human review.</p><p><strong>引用：</strong>適合作為研究資料品質 gate，不取代會計師簽核。</p>
+  <details><summary>風險與限制</summary><ul><li>illustrative materiality thresholds must never become defaults</li><li>public-company research use transfers the reconciliation method, not the stated accounting purpose</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/muxuuu/serenity-skill/blob/d23e6e4b5125daaf1b4d56ddf15b56faa96e497d/SKILL.md">serenity-skill</a></h3>
+  <p class="repo">muxuuu/serenity-skill · commit d23e6e4b5125daaf1b4d56ddf15b56faa96e497d</p>
+  <p>Best personalized finance pilot for public semiconductor/WiFi/EDA value-chain research; allow read-only public sources, require citations/falsifiers, forbid positions/orders/credentials.</p><p><strong>引用：</strong>只作研究排序與論點壓力測試；結論必須回到一手來源。</p>
+  <details><summary>風險與限制</summary><ul><li>large current scans can be costly and tool-dependent</li><li>candidate ranking can become de-facto advice unless enforced as research priority only</li><li>only the two critical boundary references received full content review</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/evolution-foundation/evo-nexus/blob/f805ed7601e3cf75f4dbf422db237c374281724a/.claude/skills/fin-financial-statements/SKILL.md">fin-financial-statements</a></h3>
+  <p class="repo">evolution-foundation/evo-nexus · commit f805ed7601e3cf75f4dbf422db237c374281724a</p>
+  <p>Watch until license and broken reference resolve; if used, copy only the public-filing normalization/variance checklist into an isolated adapter.</p><p><strong>引用：</strong>把假設、公式、來源與敏感度分開；不得把單一估值當成價格預測。</p>
+  <details><summary>風險與限制</summary><ul><li>repository license unresolved</li><li>broken CONNECTORS.md reference</li><li>connected enterprise data is outside the public research-only boundary</li><li>generated statements must not be treated as issuer-reported truth</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / C</span></div>
+  <h3><a href="https://github.com/kyegomez/swarms/blob/2e41657e1d7a2362e3d23b43f7ca20d5788aa71f/examples/single_agent/capabilities/skills/financial-analysis/SKILL.md">financial-analysis</a></h3>
+  <p class="repo">kyegomez/swarms · commit 2e41657e1d7a2362e3d23b43f7ca20d5788aa71f</p>
+  <p>Do not install; extract only a valuation/sensitivity checklist behind provenance and citation gates.</p><p><strong>引用：</strong>把假設、公式、來源與敏感度分開；不得把單一估值當成價格預測。</p>
+  <details><summary>風險與限制</summary><ul><li>generic checklist can produce unsupported precision</li><li>investment-recommendation output crosses the research-only boundary</li><li>no source hierarchy, as-of dates, accounting normalization or reproducibility gate</li><li>未找到明確 research-only／no-trade boundary</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / C</span></div>
+  <h3><a href="https://github.com/FerroxLabs/wayland/blob/2b3b60e11edd7331f96aa2b08dc83342ff2c9e5d/src/process/resources/bundled-workflows/bodies/wayland-cashflow-batch-review/SKILL.md">wayland-cashflow-batch-review</a></h3>
+  <p class="repo">FerroxLabs/wayland · commit 2b3b60e11edd7331f96aa2b08dc83342ff2c9e5d</p>
+  <p>Do not install the workflow; at most extract halt-on-empty and reconciliation invariants for public-data fixtures.</p><p><strong>引用：</strong>適合作為研究資料品質 gate，不取代會計師簽核。</p>
+  <details><summary>風險與限制</summary><ul><li>sensitive bank/accounting data</li><li>external connector/credential surface</li><li>unresolved child dependency</li><li>AGPL obligations and low fit to public investment research</li></ul></details>
+</article></div><p class="gate"><strong>採用 gate：</strong>先 pin commit 與 license → source/security review → 無 credential 的離線資料 canary → owner 核准。</p></section>
+<section><h2>AI 應用／Agent Harness／Automation</h2>
+<p>已完成 8 個 pinned source review：3 個可進入公開資料 canary、5 個只觀察或抽取 contract、0 個排除。</p><p class="muted">範圍：公開資訊入口、context 管理、durable orchestration、tool discovery、evaluation/observability、sandbox 與 integration control plane。<br>排除：私人貼文、未授權登入、cookie/session 匯入、反反爬或 CAPTCHA 規避、不可逆外部 action，以及公司機密或 EDA 資料外傳。</p>
+<div class="grid">
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/china-qijizhifeng/agentic-harness-engineering/blob/faf44bc4aea57413c520bc5711c6ebf628e0da1e/skills/agentic-harness-engineering/SKILL.md">Agentic Harness Engineering</a></h3>
+  <p class="repo">china-qijizhifeng/agentic-harness-engineering · commit faf44bc4aea57413c520bc5711c6ebf628e0da1e</p>
+  <p>Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.</p><p><strong>引用：</strong>Best immediate pattern source. Adapt the change-manifest, failure taxonomy and rollback fields into the evidence kernel; do not copy the fixed directory topology or compliance score.</p>
+  <details><summary>風險與限制</summary><ul><li>ten-point compliance score can become false precision</li><li>fixed seven-component topology may not fit a smaller domain harness</li><li>workspace initialization and validation scripts were not executed</li><li>paper-derived claims still require local task evidence</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/langchain-ai/langgraph/blob/41341457342327166d72fc11952ab28fb61ec0bf/README.md">LangGraph</a></h3>
+  <p class="repo">langchain-ai/langgraph · commit 41341457342327166d72fc11952ab28fb61ec0bf</p>
+  <p>Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.</p><p><strong>引用：</strong>Pilot the checkpoint interface and conformance idea on a public multi-step task. Keep owner decisions and evidence in repository-owned state so LangGraph remains replaceable.</p>
+  <details><summary>風險與限制</summary><ul><li>framework state model can become the control plane instead of a replaceable worker adapter</li><li>persistence, cancellation and side-effect idempotence still require domain-specific contracts</li><li>no local long-running failure-recovery canary was run</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status pilot">沙盒試行</span>
+  <span class="review">REVIEWED / A</span></div>
+  <h3><a href="https://github.com/modelcontextprotocol/servers/blob/d31124c982401739917fd817c2a59db344529c16/README.md">MCP Reference Servers</a></h3>
+  <p class="repo">modelcontextprotocol/servers · commit d31124c982401739917fd817c2a59db344529c16</p>
+  <p>Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.</p><p><strong>引用：</strong>Adopt the protocol-facing schema and discovery tests, not the reference servers as-is. Pin every server, constrain roots and permissions, and keep a machine-readable tool allowlist.</p>
+  <details><summary>風險與限制</summary><ul><li>reference code is not a production security baseline</li><li>server quality, licenses and credential surfaces differ by implementation</li><li>tool descriptions remain an injection and over-privilege surface</li><li>remote registries require provenance and allowlist policy</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/langfuse/langfuse/blob/90b98d009a6d4c4ce46a5a6dc5187b661bfdd804/README.md">Langfuse</a></h3>
+  <p class="repo">langfuse/langfuse · commit 90b98d009a6d4c4ce46a5a6dc5187b661bfdd804</p>
+  <p>Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.</p><p><strong>引用：</strong>Extract the trace schema and evaluation linkage. Any pilot must use sanitized public traces, explicit redaction, retention limits and telemetry readback before considering self-hosted deployment.</p>
+  <details><summary>風險與限制</summary><ul><li>raw prompts, traces and tool arguments can contain confidential engineering context</li><li>default telemetry must be disabled and verified for an isolated deployment</li><li>instrumentation overhead and trace cardinality require retention and redaction policy</li><li>GitHub API license detection is inconclusive because of mixed licensing</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/headroomlabs-ai/headroom/blob/1588f5e04144af5de8398810ea3893c6e623309c/README.md">Headroom</a></h3>
+  <p class="repo">headroomlabs-ai/headroom · commit 1588f5e04144af5de8398810ea3893c6e623309c</p>
+  <p>Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.</p><p><strong>引用：</strong>Do not wrap the production agent. Pilot only a reversible compressor on sanitized public traces; compare task outcome, constraint retention, cache hit rate and retrieval frequency against an uncompressed holdout.</p>
+  <details><summary>風險與限制</summary><ul><li>headline token-saving and benchmark claims were not independently reproduced</li><li>proxy can modify prompts, reasoning effort and tool context, creating silent semantic-loss risk</li><li>wrappers may inject configuration and install additional navigation components</li><li>cross-agent memory and proxy interception expand the sensitive-context boundary</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/e2b-dev/E2B/blob/cf8296cf8997f98aefd6e8236d4d235f5ab1ddad/README.md">E2B</a></h3>
+  <p class="repo">e2b-dev/E2B · commit cf8296cf8997f98aefd6e8236d4d235f5ab1ddad</p>
+  <p>Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.</p><p><strong>引用：</strong>Use as a sandbox contract reference, not an execution target for internal engineering. A future public-data pilot must deny unnecessary network access, inject no durable credential and read back filesystem and process artifacts.</p>
+  <details><summary>風險與限制</summary><ul><li>default path executes code in an external cloud realm</li><li>API key, network egress, artifact retention and image supply chain require explicit controls</li><li>self-hosting support is limited to named cloud providers in the pinned README</li><li>pinned head commit is unsigned and no domain-specific isolation canary was run</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / B</span></div>
+  <h3><a href="https://github.com/Panniantong/Agent-Reach/blob/b4d52c46c9113cb0f653d6df4cf71ebadf4930ac/agent_reach/skill/SKILL_en.md">Agent-Reach</a></h3>
+  <p class="repo">Panniantong/Agent-Reach · commit b4d52c46c9113cb0f653d6df4cf71ebadf4930ac</p>
+  <p>Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.</p><p><strong>引用：</strong>Do not install the bundle. Extract only the capability registry, health probe, ordered fallback and public-source adapter contract; prohibit private posts, automatic login, cookie import, CAPTCHA bypass and anti-bot evasion.</p>
+  <details><summary>風險與限制</summary><ul><li>Twitter, Reddit, Facebook, Instagram and XiaoHongShu paths depend on cookies or existing browser sessions</li><li>README explicitly warns of account-ban risk and recommends disposable accounts</li><li>cookie-export workflow grants session-level access and expands credential handling surface</li><li>platform anti-bot changes and the large upstream dependency graph create continuing supply-chain and ToS risk</li></ul></details>
+</article>
+<article class="card">
+  <div><span class="status watch">觀察／待審</span>
+  <span class="review">REVIEWED / C</span></div>
+  <h3><a href="https://github.com/ComposioHQ/composio/blob/3335bb30134f97b5e12a1c54d6daa821e0d8106e/README.md">Composio</a></h3>
+  <p class="repo">ComposioHQ/composio · commit 3335bb30134f97b5e12a1c54d6daa821e0d8106e</p>
+  <p>Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.</p><p><strong>引用：</strong>Do not connect accounts. Extract only runtime discovery, scoped session and approval-before-action patterns into a local allowlisted adapter.</p>
+  <details><summary>風險與限制</summary><ul><li>pre-authenticated actions across external apps create a large blast radius</li><li>hosted session URL, API key and connected-account credentials are sensitive control-plane assets</li><li>intent-to-action defaults are unsuitable for irreversible engineering or publishing operations</li><li>external service availability and policy become runtime dependencies</li></ul></details>
+</article></div><p class="gate"><strong>採用 gate：</strong>只抽取 contract → 公開 fixture canary → failure/recovery/evidence readback → owner 核准；不直接安裝第三方 bundle。</p></section>
+<section><h2>證據邊界</h2><p class="muted">master SHA-256: <code>aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75</code><br>
+實際 seed/model: 6577 / 35830；預期: 6577 / 35830。</p>
+<p>「沙盒試行」不等於已採用或已上線；repo stars、回測、parser/lint PASS 都不是 EDA 正確性、金融正確性或獲利證明。</p></section>
+</main></body></html>

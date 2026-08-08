@@ -1,0 +1,134 @@
+{
+ "schema_version": 1,
+ "run_date": "2026-07-29",
+ "freshness": {
+  "status": "CURRENT",
+  "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+  "actual_seed": 6577,
+  "actual_model": 35830,
+  "expected_seed": 6577,
+  "expected_model": 35830
+ },
+ "periods": [
+  {
+   "scale": "day",
+   "scale_zh": "日",
+   "period": {
+    "scale": "day",
+    "period_id": "2026-07-28",
+    "start": "2026-07-28",
+    "end": "2026-07-28"
+   },
+   "previous_period": {
+    "scale": "day",
+    "period_id": "2026-07-27",
+    "start": "2026-07-27",
+    "end": "2026-07-27"
+   },
+   "time_contract": {
+    "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+    "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+    "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+   },
+   "freshness": {
+    "status": "CURRENT",
+    "master_sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+    "actual_seed": 6577,
+    "actual_model": 35830,
+    "expected_seed": 6577,
+    "expected_model": 35830
+   },
+   "evidence": {
+    "E1_sample": {
+     "archive_n": 2,
+     "archive_previous_n": 4,
+     "discovered_n": 168,
+     "discovered_previous_n": 0
+    },
+    "E2_domain_mix": [
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 1,
+      "share_pct": 50.0
+     },
+     {
+      "key": "ops-admin",
+      "label": "營運行政",
+      "count": 1,
+      "share_pct": 50.0
+     }
+    ],
+    "E3_domain_shifts": [],
+    "E4_task_mix": [
+     {
+      "key": "generate",
+      "label": "生成",
+      "count": 1,
+      "share_pct": 100.0
+     }
+    ],
+    "E5_task_shifts": [],
+    "E6_maturity": {
+     "mix": [
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 1,
+       "share_pct": 100.0
+      }
+     ],
+     "production_document_proxy": {
+      "count": 0,
+      "eligible_n": 1,
+      "pct": 0.0
+     },
+     "agent_target_proxy": {
+      "count": 0,
+      "eligible_n": 1,
+      "pct": 0.0
+     },
+     "warning": "document labels are intent/proxy, not deployment or outcome verification"
+    },
+    "E7_diversity": {
+     "domain_entropy": {
+      "normalized": 1.0,
+      "categories": 2,
+      "n": 2
+     },
+     "task_entropy": {
+      "normalized": 0.0,
+      "categories": 1,
+      "n": 1
+     }
+    },
+    "E8_eda_ic": {
+     "hardware_eda_n": 0,
+     "owner_fit_provisional": {},
+     "hardware_target_provisional": {},
+     "top_asic_stages": [],
+     "wifi_areas": [],
+     "taxonomy_validation": "BLOCKED",
+     "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+    },
+    "E9_finance": {
+     "finance_n": 0,
+     "task_mix": [],
+     "maturity_mix": [],
+     "current_recommendation_states": {
+      "pilot": 2,
+      "watch": 3
+     },
+     "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+    },
+    "E10_quality": {
+     "neutral_population_only": true,
+     "targeted_rows_excluded": true,
+     "archive_domain_eligible_n": 2,
+     "comparison_domain_eligible_n": 4,
+     "minimum_shift_support": 5
+    }
+   }
+  }
+ ]
+}
