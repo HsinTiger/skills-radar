@@ -1,5 +1,5 @@
 #!/bin/bash
-# 把語料切成批次，派給 agy 分類（厚重機械工作外包）
+# 把已通過資安 gate 的語料切成批次，交給無工具模型分類。
 # 用法: classify.sh <corpus.jsonl> [每批筆數] [並行數]
 set -uo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -13,6 +13,12 @@ MAX_BUDGET_USD=${CLASSIFY_MAX_BUDGET_USD:-0.60}
 WORK="$ROOT/corpus/.batches"
 OUTD="$ROOT/corpus/.classified"
 LOG="$ROOT/corpus/classify.log"
+
+# 即使被人工直接呼叫，也不得繞過 collector 的 fail-closed gate。
+if ! python3 "$ROOT/bin/security_gate.py" verify "$CORPUS" >> "$LOG" 2>&1; then
+  echo "分類失敗：輸入未通過資安 gate" | tee -a "$LOG" >&2
+  exit 1
+fi
 mkdir -p "$WORK" "$OUTD"
 rm -f "$WORK"/*.jsonl
 if [ "$MODE" != "resume" ]; then
@@ -65,13 +71,7 @@ one() {
   tmp=$(mktemp)
   raw="$OUTD/$base.raw"
   { cat "$ROOT/index/prompt_classify.txt"; cat "$f"; } > "$tmp"
-  if command -v agy >/dev/null 2>&1; then
-    if ! agy --print="$(cat "$tmp")" --mode=accept-edits > "$raw" 2>>"$LOG"; then
-      echo "[FAIL] $base provider 失敗" >> "$LOG"
-      rm -f "$tmp" "$OUTD/$base.jsonl"
-      return 1
-    fi
-  elif command -v claude >/dev/null 2>&1; then
+  if command -v claude >/dev/null 2>&1; then
     if ! claude --print --bare --tools "" --model claude-sonnet-5 --effort low \
       --max-budget-usd "$MAX_BUDGET_USD" --no-session-persistence --permission-mode dontAsk \
       < "$tmp" > "$raw" 2>>"$LOG"; then
@@ -80,7 +80,7 @@ one() {
       return 1
     fi
   else
-    echo "[FAIL] $base 找不到 agy 或 claude" >> "$LOG"
+    echo "[FAIL] $base 找不到支援無工具模式的 claude provider" >> "$LOG"
     rm -f "$tmp"
     return 1
   fi

@@ -61,3 +61,15 @@ git push 權限、對外發文管線、瀏覽器的已登入 session、以及各
 讀取登入後才看得到的頁面。
 
 因此本 radar 的預設立場是：**除非 T1/T2 且你親自讀過，否則不裝**。
+
+## Radar 自己的執行邊界
+
+本專案只研究公開 metadata／文字，不安裝、不 import、不執行抓到的 skill，也不跟隨其中的連結。
+
+- 出站網路只允許程式碼內固定的 HTTPS host；redirect、非標準 port、URL credentials、private／loopback DNS 一律拒絕。
+- response 必須通過 MIME、大小與 timeout 上限。GitHub CLI 固定 `--hostname github.com` 且只接受相對 API path。
+- 新 SKILL.md 在寫入 master 前經 `security_gate.py`；命中已知 injection／憑證竊取／設定修改樣態的列進本機 quarantine。
+- 任何 evidence 進模型前再次掃描；模型只以 `--tools ""`、無 session persistence 模式執行。安全 provider 不存在就停止。
+- 自動 publish 前驗證 changed-file allowlist 並拒絕 symlink；GitHub Actions 固定完整 commit SHA，checkout 不保留 push credentials。
+
+這些控制降低已知攻擊的可達性，不代表規則式掃描能證明內容無害；未知混淆仍保留為剩餘風險。

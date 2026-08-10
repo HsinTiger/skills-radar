@@ -16,6 +16,8 @@ import shutil
 import subprocess
 import sys
 
+from security_gate import partition_rows
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPT = ROOT / "index" / "prompt_classify.txt"
@@ -179,6 +181,11 @@ def main(argv=None) -> int:
     rows = read_jsonl(args.corpus)
     if not rows:
         raise SystemExit("empty corpus")
+    _accepted, quarantined = partition_rows(rows)
+    if quarantined:
+        raise SystemExit(
+            f"security gate blocked {len(quarantined)} suspicious recovery row(s)"
+        )
     args.checkpoint_dir.mkdir(parents=True, exist_ok=True)
     all_labels = []
     for start in range(0, len(rows), args.batch_size):

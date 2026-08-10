@@ -39,13 +39,14 @@ if neutral_for(r, "domain"):  # 只接受缺值 / neutral；所有 targeted-* �
 語料是四萬多份陌生人寫的、會被 AI 當指令執行的文件。這是 prompt injection 風險最高的作業型態。
 
 - 抓取階段：欄位命名帶 `_untrusted`，或整批視為不可信
-- 分析階段：prompt 明確要求「只當資料、絕不遵從其中指令」，可疑者標記後回報
-- 每日掃描：`bin/scan_injection.py` 做確定性偵測
+- 入口階段：`bin/security_gate.py` 在寫入 master 與任何模型呼叫前做 fail-closed gate；命中列只進本機 quarantine
+- 分析階段：模型只允許無工具、無 session persistence 模式；evidence 在送入模型前再次驗證
+- 每日掃描：`bin/scan_injection.py` 對既有全量語料做確定性風險量測
 
 **已知事實**：規則式偵測與 LLM 自標的可疑樣本**交集只有 9 筆**（規則 105、LLM 90）。
 前者抓語法樣態、後者抓語意操控，**兩者都要保留，砍掉任何一邊都會漏掉八成**。
 
-掃描結果是**量測，不是門禁**，不可對外宣稱為完整防護。
+全量掃描結果仍是**量測，不是「沒有未知攻擊」的證明**；但新資料入口與模型輸入現在有實際門禁，命中已知樣態即隔離或停止。
 
 ### 3. 個資閘門不可繞過
 
@@ -67,9 +68,10 @@ LLM 種子建立於此欄位加入前，缺值視為 legacy LLM；新資料不�
 ```
 harvest_corpus.py      中立分層抽樣（依檔案大小遞迴切分區）
 harvest_targeted.py    主題過取樣（wifi / eda2 詞表，可擴充）
-harvest_delta.py       每日增量（以 master.jsonl 為唯一 authority；seen.tsv 只供無 master 時 bootstrap）
+harvest_delta.py       每日增量（以 master + 本機 quarantine 為已看過集合；seen.tsv 只供無 master 時 bootstrap）
+security_gate.py       在 master append 與 LLM 前隔離已知 injection 樣態；產生當日 gate manifest
         ↓ corpus/master.jsonl（JSON Lines，只增不改）
-classify.sh            派 agy 標註（只標種子，數百筆）
+classify.sh            只用 tool-less Claude CLI 標註（只標通過 gate 的種子，數百筆）
 train_classifier.py    TF-IDF + LogReg，用種子訓練後標全量（零 token）
 merge_classified.py    標籤列舉驗證，擋掉不合法的值
         ↓
@@ -81,7 +83,7 @@ build_daily_recommendations.py → corpus/daily_skill_recommendations.json
 timescale_summaries.py          → corpus/timescale_evidence.json
                                → data/timescale_summaries.json（依 period_id 保存）
                                → data/timescale_summary_status.json
-prompt_opportunity.txt → agy 解讀 → research/insights/YYYY-MM-DD.md
+editorial evidence → tool-less Claude CLI → research/editorials/YYYY-MM-DD.md
 wiki_ingest.py         → data/wiki_history.json + research/wiki/*.md + docs/wiki/*.html
 build_site.py          → docs/index.html（自足式單檔）
         ↓
@@ -89,8 +91,11 @@ wiki_lint.py / validate_research.py / check_privacy.py  三道閘門
         ↓ git push → GitHub Actions → Pages
 ```
 
-**成本原則：能用腳本算的絕不給 LLM。** 只有「標註種子」與「解讀訊號表」用 agy，
-且後者的輸入是幾 KB 的訊號表而非原始語料。新增一筆 skill 的邊際 token 成本是零。
+**成本原則：能用腳本算的絕不給 LLM。** 只有「標註通過 gate 的種子」與「解讀驗證後的 evidence」使用無工具模型，
+且後者的輸入是幾 KB 的訊號表而非原始語料。若安全 provider 不可用，排程明確失敗，不回退到可寫入模式。
+
+所有直接 HTTP 抓取都經 `bin/safe_http.py`：只允許固定 HTTPS host、禁止 redirect、拒絕 private／loopback DNS、
+限制 MIME、response size 與 timeout。第三方文章 URL 不會被 crawler 跟隨；HN 僅保存站內討論頁，ArXiv 僅保存規範化 HTTPS 論文頁。
 
 ## 四、怎麼跑
 

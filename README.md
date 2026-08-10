@@ -53,9 +53,10 @@
 
 ```
 bin/fetch.py        抓事實（GitHub API / arXiv / HN），不做判斷
-                    → 第三方文字一律標記 _untrusted，供下游模型辨識
-index/prompt_daily.txt  分析規格（含 prompt injection 防禦指令）
-bin/run_daily.sh    主流程：抓取 → AI provider 產簡報 → 驗收 → 更新 README → push
+                    → 固定 HTTPS allowlist／response bounds；可疑第三方文字先隔離
+bin/security_gate.py  在 master append 與任何模型呼叫前 fail closed
+index/prompt_daily.txt  分析規格（模型只以 tool-less 模式執行）
+bin/run_daily.sh    主流程：抓取 → 安全 gate → tool-less AI → 驗收 → publish scope → push
 bin/build_readme.py 重建本頁
 bin/wiki_ingest.py 累積各領域 evidence snapshot，產生 research/wiki 與 docs/wiki 實體頁面
 bin/wiki_query.py  查詢最新 Wiki snapshot（不讀第三方原文）
@@ -71,6 +72,7 @@ bin/write_pipeline_health.py  公開最後一次本機 gate 狀態；remote/Page
 bin/install_launchd.sh  在 canonical Mac 安裝/重載每日 08:30 dispatcher
 bin/check_launchd.sh  驗證版本化 plist 契約與 launchd registration
 bin/check_published_freshness.py  GitHub Actions 每日 09:30 回讀 live Pages，讓漏跑／stale／部署漂移明確失敗
+bin/validate_publish_scope.py  自動提交前拒絕非預期路徑、可執行檔與 symlink
 data/snapshot.json  上次狀態（用於 diff 出「今天有什麼變了」）
 data/wiki_history.json Wiki 的 append-only evidence history（同日修正需 revision note）
 data/history.jsonl  指標時序
@@ -82,7 +84,7 @@ research/editorials/YYYY-MM-DD.md 每日繁中觀點文章
 排程：launchd `com.hsin.skills-radar` 每日 08:30 執行 dispatcher；日摘要每天、週摘要每週一、
 月摘要每月一日、季摘要每季首月一日更新上一完整期。離線後補跑缺少的 `period_id`。
 Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或重載：`./bin/install_launchd.sh`；
-稽核：`./bin/check_launchd.sh`。安裝器會確認 GitHub 登入、Python 套件及文章模型均可從排程環境找到。
+稽核：`./bin/check_launchd.sh`。安裝器會確認 GitHub 登入、Python 套件及 tool-less Claude CLI 均可從排程環境找到。
 自 2026-07-29 起，09:30 watchdog 另要求 health marker 的 `execution_context=launchd`；人工補跑不算排程證明。
 手動跑一次：`~/skills-radar/bin/run_daily.sh`
 

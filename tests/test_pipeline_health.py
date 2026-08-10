@@ -39,6 +39,9 @@ class PipelineHealthTests(unittest.TestCase):
                 "run_date": "2026-07-28", "status": "SUCCESS", "new_rows": 0,
                 "after": {"rows": 1}, "run_context": "launchd",
             })
+            write(root / "data/security_gate_manifest.json", {
+                "run_date": "2026-07-28", "status": "PASS", "quarantined_rows": 0,
+            })
             write(root / "corpus/daily_skill_recommendations.json", {
                 "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
                 "corpus_freshness": {"status": "CURRENT"},
@@ -51,6 +54,29 @@ class PipelineHealthTests(unittest.TestCase):
         self.assertEqual(health["status"], "PASS")
         self.assertEqual(health["remote_publish"], "NOT_PROVEN_UNTIL_REMOTE_READBACK")
         self.assertEqual(health["schedule_contract"]["execution_context"], "launchd")
+        self.assertEqual(health["gates"]["security_intake"], "PASS")
+
+    def test_missing_security_gate_manifest_is_not_a_health_pass(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write(root / "daily/2026-07-28.md", "daily")
+            write(root / "research/editorials/2026-07-28.md", "editorial")
+            write(root / "docs/editorials/2026-07-28.html", "editorial html")
+            write(root / "data/corpus_update_manifest.json", {
+                "run_date": "2026-07-28", "status": "SUCCESS", "new_rows": 0,
+                "after": {"rows": 1}, "run_context": "launchd",
+            })
+            write(root / "corpus/daily_skill_recommendations.json", {
+                "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",
+                "corpus_freshness": {"status": "CURRENT"},
+            })
+            write(root / "data/timescale_summary_status.json", {
+                "run_date": "2026-07-28", "status": "AI_GENERATED", "updated_periods": [],
+            })
+            write_zones(root)
+            health = build_health("2026-07-28", privacy_passed=True, root=root)
+        self.assertEqual(health["status"], "FAIL")
+        self.assertEqual(health["gates"]["security_intake"], "NOT_RUN")
 
     def test_ai_block_is_partial_and_retried_not_false_pass(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -61,6 +87,9 @@ class PipelineHealthTests(unittest.TestCase):
             write(root / "data/corpus_update_manifest.json", {
                 "run_date": "2026-07-28", "status": "SUCCESS", "new_rows": 0,
                 "after": {"rows": 1}, "run_context": "manual",
+            })
+            write(root / "data/security_gate_manifest.json", {
+                "run_date": "2026-07-28", "status": "PASS", "quarantined_rows": 0,
             })
             write(root / "corpus/daily_skill_recommendations.json", {
                 "report_date": "2026-07-28", "status": "READY_FOR_OWNER_REVIEW",

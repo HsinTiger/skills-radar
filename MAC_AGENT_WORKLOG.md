@@ -434,3 +434,73 @@ the watchdog also fails unless `schedule_contract.execution_context` is exactly 
 - The 2026-07-30 local build is honestly `PARTIAL` because `data/ai_automation_history.json` still ends on
   2026-07-29. Pull this change, run the real scheduled intake, and require Pages readback before calling
   the current issue published or the LaunchAgent healthy.
+
+---
+
+# 2026-08-10 security hardening handoff — Mac remains canonical producer
+
+## Owner status
+
+- `PROVEN`: the previous pipeline allowed newly fetched SKILL.md text to reach a model before the
+  deterministic injection scan, and several model paths could select a repo-writing provider.
+- `PROVEN`: the patched ingress partitions suspicious rows before `master.jsonl` append. Quarantined
+  rows stay in ignored local `corpus/quarantine-YYYY-MM-DD.jsonl` and are not classified or published.
+- `PROVEN`: direct HTTP now uses fixed HTTPS host allowlists, refuses redirects, private／loopback DNS,
+  nonstandard ports and URL credentials, and enforces MIME, response-size and timeout bounds.
+- `PROVEN`: all scheduled model calls now require tool-less Claude CLI with no session persistence.
+  There is no fallback to a provider that can edit the repository.
+- `PROVEN`: unattended publish rejects a dirty starting worktree, unexpected changed paths and
+  symlinks; Actions use full commit SHAs and checkout does not persist credentials.
+- `UNKNOWN`: the canonical Mac has not yet pulled this commit, reloaded its LaunchAgent, or produced a
+  real 08:30 `execution_context=launchd` marker with the new `security_intake` gate.
+
+No URL found inside third-party content was opened during this Windows change. The collector fetches
+only the coded source hosts; HN story destinations are not followed or retained, and ArXiv links are
+normalized without fetching their targets.
+
+## Mac pull and preflight
+
+The new dispatcher intentionally refuses to run when tracked or untracked, non-ignored files already
+exist. Do not discard owner work to make this pass; inspect and commit or hand it off first.
+
+```bash
+cd ~/skills-radar
+git status --short
+git pull --ff-only origin main
+python3 -m unittest discover -s tests -p 'test_*.py'
+python3 -m compileall -q bin tests
+bash -n bin/classify.sh bin/classify_asic.sh bin/daily_research.sh bin/install_launchd.sh bin/check_launchd.sh bin/publish_snapshot.sh bin/run_daily.sh
+git diff --check
+./bin/install_launchd.sh
+./bin/check_launchd.sh
+```
+
+`install_launchd.sh` must stop if `claude` is unavailable in the captured PATH. That is a security
+failure, not a reason to restore the old fallback.
+
+## Production readback after the next real 08:30 run
+
+```bash
+cd ~/skills-radar
+git log -1 --oneline
+git status --short
+./bin/check_launchd.sh
+python3 - <<'PY'
+import json
+from pathlib import Path
+health = json.loads(Path('data/pipeline_health.json').read_text())
+gate = json.loads(Path('data/security_gate_manifest.json').read_text())
+print('health', health['report_date'], health['status'], health['schedule_contract']['execution_context'])
+print('security', gate['run_date'], gate['status'], gate['accepted_rows'], gate['quarantined_rows'])
+assert health['gates']['security_intake'] in {'PASS', 'PASS_WITH_QUARANTINE'}
+assert health['schedule_contract']['execution_context'] == 'launchd'
+PY
+```
+
+Then read back `https://hsintiger.github.io/skills-radar/pipeline_health.json` and require the same
+report date, security gate, and `execution_context=launchd`. Local tests, a manual kickstart, a pushed
+commit, or Pages HTTP 200 alone are not production schedule proof.
+
+Branch protection remains an owner decision: enabling it now would break the existing direct Mac push
+contract. The current patch narrows credentials and publish scope but does not claim to replace that
+repository-level control.

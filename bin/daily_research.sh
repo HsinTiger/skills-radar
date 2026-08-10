@@ -20,7 +20,7 @@ if ! command -v gh >> "$LOG" 2>&1; then
   log "STOP: GitHub CLI (gh) 不在 PATH；請重載版本化 LaunchAgent"
   exit 1
 fi
-if ! gh auth status >> "$LOG" 2>&1; then
+if ! gh auth status --hostname github.com >> "$LOG" 2>&1; then
   log "STOP: gh auth status 失敗；未開始 corpus collector"
   exit 1
 fi
@@ -63,8 +63,10 @@ if [ "$(date +%u)" = "1" ]; then
   python3 bin/cluster.py 120 >> "$LOG" 2>&1 || log "WARN: 分群失敗"
 fi
 
-# 2.7 惡意內容掃描（零 token）——這個專案的本質是大量讀取陌生人寫的、會被 AI 當指令的文字
-python3 bin/scan_injection.py >> "$LOG" 2>&1 || log "WARN: 注入掃描失敗"
+# 2.7 全量安全量測（零 token）。新資料已在 collector 內先 gate；量測本身也不得靜默失敗。
+python3 bin/scan_injection.py >> "$LOG" 2>&1 || {
+  log "STOP: 全量注入量測失敗"; exit 1;
+}
 
 # 3. 聚合 + 機會訊號（零 token）
 python3 bin/aggregate.py >> "$LOG" 2>&1 || {

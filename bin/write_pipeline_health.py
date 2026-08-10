@@ -25,6 +25,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
     rec = load(root / "corpus" / "daily_skill_recommendations.json", {})
     ts = load(root / "data" / "timescale_summary_status.json", {})
     update = load(root / "data" / "corpus_update_manifest.json", {})
+    security = load(root / "data" / "security_gate_manifest.json", {})
     daily_ok = nonempty(root / "daily" / f"{report_date}.md")
     editorial_md_ok = nonempty(root / "research" / "editorials" / f"{report_date}.md")
     editorial_html_ok = nonempty(root / "docs" / "editorials" / f"{report_date}.html")
@@ -38,10 +39,12 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
     zones_ok = zones_ran and zones.get("status") == "READY_FOR_OWNER_REVIEW"
     update_current = update.get("run_date") == report_date
     update_ok = update_current and update.get("status") == "SUCCESS"
+    security_current = security.get("run_date") == report_date
+    security_ok = security_current and security.get("status") in {"PASS", "PASS_WITH_QUARANTINE"}
     rec_ok = rec.get("report_date") == report_date and rec.get("status") == "READY_FOR_OWNER_REVIEW"
     ts_ran = ts.get("run_date") == report_date
     ts_ok = ts_ran and ts.get("status") in {"AI_GENERATED", "NO_PERIOD_DUE"}
-    core_ok = update_ok and daily_ok and rec_ok and zones_ran and privacy_passed and ts_ran
+    core_ok = security_ok and update_ok and daily_ok and rec_ok and zones_ran and privacy_passed and ts_ran
     if not core_ok:
         status = "FAIL"
     elif not editorial_md_ok or not editorial_html_ok or not ts_ok or not zones_ok:
@@ -56,6 +59,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
         "status": status,
         "gates": {
             "corpus_update": update.get("status", "NOT_RUN") if update_current else "NOT_RUN",
+            "security_intake": security.get("status", "NOT_RUN") if security_current else "NOT_RUN",
             "daily_brief": "PASS" if daily_ok else "FAIL",
             "daily_recommendations": "PASS" if rec_ok else "FAIL",
             "domain_zones": "PASS" if zones_ok else "FAIL",
@@ -71,6 +75,13 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
             "new_rows": update.get("new_rows") if update_current else None,
             "rows_after": (update.get("after") or {}).get("rows") if update_current else None,
             "run_context": update.get("run_context") if update_current else None,
+        },
+        "security_intake": {
+            "status": security.get("status", "NOT_RUN") if security_current else "NOT_RUN",
+            "accepted_rows": security.get("accepted_rows") if security_current else None,
+            "quarantined_rows": security.get("quarantined_rows") if security_current else None,
+            "categories": security.get("categories", {}) if security_current else {},
+            "claim_boundary": security.get("claim_boundary") if security_current else None,
         },
         "timescale": {
             "updated_periods": ts.get("updated_periods", []),
@@ -88,7 +99,7 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
             "catch_up": "missing period_id only",
         },
         "remote_publish": "NOT_PROVEN_UNTIL_REMOTE_READBACK",
-        "claim_boundary": "local PASS proves a successful public collector readback plus required local artifacts; it does not prove git push, Pages deployment, skill correctness, EDA signoff, or investment outcome",
+        "claim_boundary": "local PASS proves a successful public collector readback, current security-intake evidence, and required local artifacts; it does not prove git push, Pages deployment, absence of unknown attacks, skill correctness, EDA signoff, or investment outcome",
     }
 
 

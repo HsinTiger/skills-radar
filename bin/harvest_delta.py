@@ -7,10 +7,12 @@ harvest_delta.py — 每日增量採集。零 token。
 但只對**沒看過的**路徑抓內容、只把新的送去分類。
 穩定狀態下每天新增大約幾十到幾百筆，而不是 5,600 筆。
 """
-import json, os, sys
+import glob, hashlib, json, os, sys
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import importlib.util
+
+from security_gate import partition_rows
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 spec = importlib.util.spec_from_file_location("hc", os.path.join(ROOT, "bin", "harvest_corpus.py"))
@@ -19,6 +21,7 @@ hc = importlib.util.module_from_spec(spec); spec.loader.exec_module(hc)
 CORPUS = os.path.join(ROOT, "corpus")
 SEEN = os.path.join(CORPUS, "seen.tsv")
 MASTER = os.path.join(CORPUS, "master.jsonl")
+SECURITY_MANIFEST = os.path.join(ROOT, "data", "security_gate_manifest.json")
 
 def _row_key(row, source):
     key = (row.get("repo"), row.get("path"))
@@ -49,7 +52,10 @@ def load_seen():
     append-only master.  When master exists it is therefore the sole authority.
     """
     if os.path.exists(MASTER):
-        return {_row_key(row, MASTER) for row in _read_jsonl(MASTER)}
+        seen = {_row_key(row, MASTER) for row in _read_jsonl(MASTER)}
+        for quarantine in glob.glob(os.path.join(CORPUS, "quarantine-*.jsonl")):
+            seen.update(_row_key(row, quarantine) for row in _read_jsonl(quarantine))
+        return seen
 
     seen = set()
     if os.path.exists(SEEN):
@@ -87,7 +93,41 @@ def merge_daily_delta(path, rows):
             os.unlink(temporary)
     return len(combined)
 
+
+def write_security_manifest(stamp, accepted, quarantined, quarantine_path=None):
+    categories = {}
+    digest = hashlib.sha256()
+    for item in quarantined:
+        for category, count in item["hits"].items():
+            categories[category] = categories.get(category, 0) + count
+        digest.update(json.dumps(item["row"], ensure_ascii=False, sort_keys=True).encode("utf-8"))
+    value = {
+        "schema_version": 1,
+        "run_date": stamp,
+        "status": "PASS_WITH_QUARANTINE" if quarantined else "PASS",
+        "accepted_rows": len(accepted),
+        "quarantined_rows": len(quarantined),
+        "categories": categories,
+        "quarantine_file": os.path.basename(quarantine_path) if quarantine_path else None,
+        "quarantine_sha256": digest.hexdigest() if quarantined else None,
+        "claim_boundary": (
+            "Known injection patterns are quarantined before master append and model input; "
+            "rule-based non-detection is not proof that content is benign"
+        ),
+    }
+    os.makedirs(os.path.dirname(SECURITY_MANIFEST), exist_ok=True)
+    temporary = SECURITY_MANIFEST + ".tmp"
+    try:
+        with open(temporary, "w", encoding="utf-8", newline="\n") as handle:
+            json.dump(value, handle, ensure_ascii=False, indent=1)
+            handle.write("\n")
+        os.replace(temporary, SECURITY_MANIFEST)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
 def main():
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     seen = load_seen()
     print(f"[delta] 已知 {len(seen)} 筆", file=sys.stderr)
 
@@ -96,6 +136,7 @@ def main():
     print(f"[delta] 掃到 {sum(len(v) for v in found.values())} 筆，其中新的 {len(targets)} 筆", file=sys.stderr)
 
     if not targets:
+        write_security_manifest(stamp, [], [])
         print("", end="")
         return
 
@@ -127,10 +168,28 @@ def main():
                 rows.append(r)
 
     if not rows:
+        write_security_manifest(stamp, [], [])
         print("[delta] 沒有可用的新內容；保留既有當日 delta", file=sys.stderr)
         return
 
-    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    rows, quarantined = partition_rows(rows)
+    quarantine_path = None
+    if quarantined:
+        quarantine_path = os.path.join(CORPUS, f"quarantine-{stamp}.jsonl")
+        quarantine_rows = [
+            {**item["row"], "_security_gate": {"score": item["score"], "hits": item["hits"]}}
+            for item in quarantined
+        ]
+        merge_daily_delta(quarantine_path, quarantine_rows)
+        print(
+            f"[security] 隔離 {len(quarantined)} 筆，不寫入 master、不送模型 → {quarantine_path}",
+            file=sys.stderr,
+        )
+    write_security_manifest(stamp, rows, quarantined, quarantine_path)
+    if not rows:
+        print("[delta] 新內容全部被資安 gate 隔離", file=sys.stderr)
+        return
+
     out = os.path.join(CORPUS, f"delta-{stamp}.jsonl")
     daily_total = merge_daily_delta(out, rows)
     # 累積進 master，並更新 seen

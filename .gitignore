@@ -1,5 +1,6 @@
 data/run.log
 data/launchd.*
+data/run_daily.lock/
 daily/*.new
 corpus/.batches/
 corpus/.classified/

@@ -33,11 +33,12 @@ class LaunchdScheduleTests(unittest.TestCase):
         self.assertIn("command -v gh", installer)
         self.assertIn("gh auth status", installer)
         self.assertIn("import numpy, sklearn", installer)
-        self.assertIn("command -v agy", installer)
+        self.assertIn("command -v claude", installer)
+        self.assertNotIn("command -v agy", installer)
         self.assertIn("installed PATH cannot resolve gh", auditor)
         self.assertIn("gh auth status", auditor)
         self.assertIn("import numpy, sklearn", auditor)
-        self.assertIn("installed PATH cannot resolve agy or claude", auditor)
+        self.assertIn("installed PATH cannot resolve tool-less claude provider", auditor)
 
 
 if __name__ == "__main__":

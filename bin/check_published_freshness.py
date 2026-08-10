@@ -6,8 +6,9 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
-from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
+
+from safe_http import fetch_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +32,8 @@ def validate_health(health, expected_date):
         gates = health.get("gates", {})
         if gates.get("corpus_update") != "SUCCESS":
             errors.append(f"corpus_update={gates.get('corpus_update')} expected=SUCCESS")
+        if gates.get("security_intake") not in {"PASS", "PASS_WITH_QUARANTINE"}:
+            errors.append(f"security_intake={gates.get('security_intake')} is not successful")
         if gates.get("editorial_markdown") != "PASS":
             errors.append(f"editorial_markdown={gates.get('editorial_markdown')} expected=PASS")
         if gates.get("editorial_html") != "PASS":
@@ -50,15 +53,15 @@ def load_remote_health(url, timeout=20):
     query = parse_qsl(parts.query, keep_blank_values=True)
     query.append(("watchdog", datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")))
     live_url = urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
-    request = Request(
+    payload = fetch_bytes(
         live_url,
-        headers={"Cache-Control": "no-cache", "User-Agent": "skills-radar-freshness-watchdog/1"},
+        allowed_hosts={"hsintiger.github.io"},
+        allowed_content_types={"application/json"},
+        max_bytes=256_000,
+        timeout=timeout,
+        user_agent="skills-radar-freshness-watchdog/1",
+        extra_headers={"Cache-Control": "no-cache"},
     )
-    with urlopen(request, timeout=timeout) as response:
-        status = getattr(response, "status", 200)
-        if status != 200:
-            raise RuntimeError(f"live health HTTP {status}")
-        payload = response.read()
     return json.loads(payload.decode("utf-8"))
 
 
