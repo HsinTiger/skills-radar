@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-09 01:12 UTC",
+ "generated": "2026-08-11 17:07 UTC",
  "n_total": 6242,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
@@ -2207,9 +2207,9 @@
    "mid": "1. **「配置（Configure）」將成為下一個熱門 AI 任務：** 當生成內容不再稀缺，如何讓 AI 產出的東西符合企業既有的環境（設計規範、程式碼風格、法務用詞）將是重點。推論：我賭接下來半年，主打 \"Style-aligned\" 或 \"Policy-compliant\" 的 Agent 框架會崛起。\n   * **證明我錯的訊號：** 如果大型模型（如 GPT-5 或 Claude-4）原生的 Context Window 內建了極強的 Few-shot 對齊能力，導致「外部配置」變成多此一舉。\n2. **Orchestrate（調度）權限會持續被限縮在純軟體圈：** 除了 devops 與 ai-agent-tooling 敢讓 AI 自動執行腳本，其他領域仍會死守審核權。推論：不要在傳統產業（醫療、法務、硬體）推銷全自動 Agent，要推銷「具備精美審核介面的 Copilot」。\n   * **證明我錯的訊號：** legal-compliance 或 healthcare-bio 的 Orchestrate 任務在下一季的數據中突破預期值的 30%。"
   },
   "ecosystem": {
-   "date": "2026-08-09",
-   "headline": "Claude Code 釋出跨 session 通訊與自託管環境支援（v2.1.224），同時學界與社群對 Agent Skill 的安全風險（如軌跡下毒與隱藏惡意指令）拉響警報。",
-   "official": "- **anthropics/claude-code (v2.1.224 - v2.1.226)**\n  - **跨 Session 通訊與權限管理**：新增 `crossSessionInbound` 與 `dialogExpiry` 設定，允許不同 Claude Code session 互相傳遞訊息。這代表你的多 agent 自動化 pipeline 現在可以直接在不同終端機程序之間溝通，而不需要自己寫外部中介或是依賴檔案系統交接。\n  - **自託管 Runner (`claude self-hosted-runner`)**：允許在自有機器或容器上執行 Claude Code 網頁或桌面端 session。這代表本機算力與高隱私隔離工作區有了官方的支援路徑。\n  - **支援 ZIP 格式 Plugin (`archive` source)**：不需 git 或 npm，可直接透過 HTTPS 下載 zip 安裝 plugin。這會加速內網或受限環境的自動化部署，但同時也會增加未過濾來源的風險。\n- **anthropics/claude-plugins-official**\n  - 今日更新皆為第三方整合套件（fastly, hyperframes, wix, stripe 等）的版本推升，無新增或移除 plugin。這表示官方 plugin 生態正處於穩定維護期。"
+   "date": "2026-08-10",
+   "headline": "Claude Code 預設開啟 Auto Mode 並正式支援 Self-hosted Runner，而社群與學界焦點已全面轉向 Agent 執行邊界的安全防護與惡意技能注入風險。",
+   "official": "- **`anthropics/claude-code` 發布 v2.1.224 - 226**：\n  - **新增 Self-hosted Runner (Team/Enterprise)**：允許將自己的機器或容器變成 Claude Code 的執行環境。這代表官方正式打通了內網/地端部署的最後一哩路，這對依賴高機密資料庫或本機硬體（如 EDA tools）的開發者是重大突破。\n  - **新增 Archive Plugin Source**：支援透過 HTTPS 直接安裝 zip 外掛，並附帶 SHA-256 驗證，不再強依賴 git 或 npm。這降低了隔離環境（Air-gapped）或嚴格 CI/CD 流程中的部署門檻。\n  - **安全與權限控制強化**：新增 Gateway 支出上限提示、未信任目錄的安全提示（workspace trust prompt），並修正 Auto Mode 在被安全攔截時的配額計算。\n- **`anthropics/claude-plugins-official` 依賴升級**：\n  - 更新 `hyperframes`, `deepeval`, `nimble`, `qodo`, `wix`, `lumen`, `remember` 等外掛版號，官方外掛生態系維持常規維護與穩定化，無破壞性變動。"
   }
  },
  "timescale_summary": {
