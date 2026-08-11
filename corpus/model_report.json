@@ -1,7 +1,7 @@
 {
  "n_seed": 6671,
- "n_predicted": 38875,
- "n_total": 45546,
+ "n_predicted": 38941,
+ "n_total": 45612,
  "fields": {
   "domain": {
    "cv_accuracy": 0.723,
@@ -38,8 +38,8 @@
  },
  "pred_conf": {
   "mean": 0.477,
-  "pct_above_0.6": 32.2,
+  "pct_above_0.6": 32.1,
   "pct_above_0.8": 13.8
  },
- "master_sha256": "525eae0729c04016805952d540523f4d663494c1d9fd93dad59b9b4b9096eed1"
+ "master_sha256": "580b175fceddc09371bcf8a7fb5420619bd370585517b58618362167253cb6dc"
 }

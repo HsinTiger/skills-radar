@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
- "report_date": "2026-08-11",
- "generated_at": "2026-08-11T17:07:35.245058+00:00",
+ "report_date": "2026-08-12",
+ "generated_at": "2026-08-11T17:17:28.641709+00:00",
  "status": "PARTIAL",
  "corpus_freshness": {
   "status": "CURRENT",
@@ -2851,7 +2851,7 @@
      "status": "INSUFFICIENT_HISTORY",
      "period": {
       "scale": "day",
-      "period_id": "2026-08-11"
+      "period_id": "2026-08-12"
      },
      "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
      "lead": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",

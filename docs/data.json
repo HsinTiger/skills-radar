@@ -1,13 +1,13 @@
 {
- "generated": "2026-08-11 17:07 UTC",
- "n_total": 6242,
+ "generated": "2026-08-11 17:17 UTC",
+ "n_total": 6255,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
   "model_conf_min": 0.6,
-  "n_domain": 6242,
-  "n_task": 5854,
-  "n_maturity": 6014,
-  "n_target": 5945
+  "n_domain": 6255,
+  "n_task": 5861,
+  "n_maturity": 6022,
+  "n_target": 5953
  },
  "global_production_pct": 43.0,
  "global_task_pct": {
@@ -15,13 +15,12 @@
   "轉換": 7.7,
   "分析": 12.6,
   "驗證": 16.0,
-  "調度": 15.2,
+  "調度": 15.3,
   "檢索": 9.5,
   "配置": 16.6
  },
  "day": {
   "periods": [
-   "2026-07-07",
    "2026-07-08",
    "2026-07-09",
    "2026-07-10",
@@ -50,11 +49,11 @@
    "2026-08-05",
    "2026-08-06",
    "2026-08-07",
-   "2026-08-08"
+   "2026-08-08",
+   "2026-08-09"
   ],
   "totals": [
-   16,
-   11,
+   12,
    19,
    21,
    12,
@@ -78,16 +77,16 @@
    8,
    4,
    2,
-   8,
-   1,
+   10,
    2,
+   3,
    2,
-   5
+   5,
+   1
   ],
   "stack": {
    "software-dev": [
-    4,
-    1,
+    2,
     5,
     8,
     5,
@@ -112,13 +111,13 @@
     0,
     1,
     4,
+    2,
     1,
     1,
-    1,
-    2
+    2,
+    0
    ],
    "ai-agent-tooling": [
-    3,
     2,
     1,
     5,
@@ -143,14 +142,14 @@
     1,
     1,
     0,
-    2,
+    3,
+    0,
     0,
     0,
     0,
     0
    ],
    "devops-infra": [
-    0,
     1,
     1,
     0,
@@ -179,10 +178,10 @@
     0,
     0,
     0,
-    2
+    2,
+    0
    ],
    "design-creative": [
-    0,
     2,
     3,
     0,
@@ -209,16 +208,16 @@
     0,
     0,
     0,
-    0,
     1,
-    0
+    1,
+    0,
+    1
    ],
    "personal-productivity": [
     1,
     1,
     1,
     1,
-    1,
     2,
     0,
     0,
@@ -237,6 +236,7 @@
     0,
     0,
     1,
+    0,
     0,
     0,
     0,
@@ -247,7 +247,6 @@
    ],
    "security": [
     2,
-    2,
     1,
     0,
     1,
@@ -275,10 +274,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
    "ops-admin": [
-    1,
     2,
     2,
     2,
@@ -301,6 +300,7 @@
     0,
     1,
     1,
+    0,
     0,
     0,
     0,
@@ -311,7 +311,6 @@
    ],
    "marketing-growth": [
     0,
-    0,
     1,
     1,
     0,
@@ -335,14 +334,14 @@
     0,
     1,
     0,
+    2,
+    0,
+    0,
+    0,
     1,
-    0,
-    0,
-    0,
-    1
+    0
    ],
    "research-academia": [
-    0,
     0,
     1,
     0,
@@ -370,11 +369,11 @@
     0,
     0,
     1,
+    0,
     0,
     0
    ],
    "finance-investing": [
-    1,
     0,
     1,
     1,
@@ -389,6 +388,7 @@
     0,
     1,
     2,
+    0,
     0,
     0,
     0,
@@ -406,7 +406,6 @@
     0
    ],
    "writing-content": [
-    2,
     0,
     0,
     0,
@@ -420,6 +419,7 @@
     1,
     2,
     1,
+    0,
     0,
     0,
     0,
@@ -443,7 +443,6 @@
     0,
     0,
     0,
-    0,
     1,
     1,
     0,
@@ -467,10 +466,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
    "healthcare-bio": [
-    1,
     0,
     0,
     1,
@@ -493,6 +492,7 @@
     0,
     0,
     1,
+    0,
     0,
     0,
     0,
@@ -502,9 +502,9 @@
     0
    ],
    "legal-compliance": [
-    1,
     0,
     1,
+    0,
     0,
     0,
     0,
@@ -535,7 +535,6 @@
    ],
    "education-training": [
     0,
-    0,
     1,
     2,
     0,
@@ -548,6 +547,7 @@
     0,
     0,
     2,
+    0,
     0,
     0,
     0,
@@ -613,8 +613,8 @@
     0,
     0,
     0,
-    0,
     2,
+    0,
     0,
     0,
     0,
@@ -666,60 +666,60 @@
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
-    "recent": 14,
-    "older": 13,
-    "recent_share": 19.4,
-    "older_share": 6.3,
-    "delta": 13.1
-   },
-   {
-    "domain": "design-creative",
-    "zh": "設計創意",
-    "recent": 6,
-    "older": 16,
-    "recent_share": 8.3,
-    "older_share": 7.8,
-    "delta": 0.5
+    "recent": 10,
+    "older": 17,
+    "recent_share": 14.5,
+    "older_share": 8.6,
+    "delta": 5.9
    },
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 20,
-    "older": 60,
-    "recent_share": 27.8,
-    "older_share": 29.3,
-    "delta": -1.5
+    "recent": 21,
+    "older": 57,
+    "recent_share": 30.4,
+    "older_share": 28.8,
+    "delta": 1.6
    },
    {
-    "domain": "ai-agent-tooling",
-    "zh": "AI Agent 工具",
-    "recent": 9,
-    "older": 29,
-    "recent_share": 12.5,
-    "older_share": 14.1,
-    "delta": -1.6
-   },
-   {
-    "domain": "ops-admin",
-    "zh": "營運行政",
-    "recent": 4,
+    "domain": "design-creative",
+    "zh": "設計創意",
+    "recent": 7,
     "older": 17,
-    "recent_share": 5.6,
-    "older_share": 8.3,
-    "delta": -2.7
+    "recent_share": 10.1,
+    "older_share": 8.6,
+    "delta": 1.6
    },
    {
     "domain": "security",
     "zh": "資安",
     "recent": 5,
-    "older": 21,
-    "recent_share": 6.9,
-    "older_share": 10.2,
-    "delta": -3.3
+    "older": 19,
+    "recent_share": 7.2,
+    "older_share": 9.6,
+    "delta": -2.3
+   },
+   {
+    "domain": "ops-admin",
+    "zh": "營運行政",
+    "recent": 4,
+    "older": 16,
+    "recent_share": 5.8,
+    "older_share": 8.1,
+    "delta": -2.3
+   },
+   {
+    "domain": "ai-agent-tooling",
+    "zh": "AI Agent 工具",
+    "recent": 8,
+    "older": 28,
+    "recent_share": 11.6,
+    "older_share": 14.1,
+    "delta": -2.5
    }
   ],
-  "recent_label": "2026-07-22 ~ 2026-08-08",
-  "older_label": "2026-07-07 ~ 2026-07-21"
+  "recent_label": "2026-07-23 ~ 2026-08-09",
+  "older_label": "2026-07-08 ~ 2026-07-22"
  },
  "week": {
   "periods": [
@@ -745,18 +745,18 @@
    171,
    178,
    168,
-   176,
+   177,
    169,
-   127,
-   156,
+   128,
+   157,
    126,
-   96,
+   97,
    102,
-   105,
+   107,
    87,
    60,
    22,
-   18
+   23
   ],
   "stack": {
    "software-dev": [
@@ -771,11 +771,11 @@
     34,
     23,
     31,
-    27,
+    28,
     31,
     12,
     3,
-    9
+    10
    ],
    "ai-agent-tooling": [
     23,
@@ -793,7 +793,7 @@
     13,
     6,
     4,
-    2
+    3
    ],
    "devops-infra": [
     13,
@@ -821,7 +821,7 @@
     11,
     6,
     13,
-    7,
+    8,
     9,
     9,
     9,
@@ -829,7 +829,7 @@
     7,
     5,
     1,
-    1
+    3
    ],
    "personal-productivity": [
     13,
@@ -843,7 +843,7 @@
     7,
     3,
     6,
-    8,
+    9,
     2,
     0,
     1,
@@ -901,7 +901,7 @@
     1,
     2,
     1,
-    2
+    3
    ],
    "research-academia": [
     8,
@@ -910,7 +910,7 @@
     2,
     11,
     11,
-    5,
+    6,
     6,
     2,
     6,
@@ -944,7 +944,7 @@
     5,
     6,
     4,
-    6,
+    7,
     9,
     3,
     10,
@@ -967,7 +967,7 @@
     6,
     1,
     3,
-    5,
+    6,
     0,
     1,
     2,
@@ -1090,44 +1090,53 @@
     "zh": "營運行政",
     "recent": 34,
     "older": 49,
-    "recent_share": 5.5,
+    "recent_share": 5.4,
     "older_share": 3.6,
-    "delta": 1.9
+    "delta": 1.8
    },
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 55,
-    "older": 103,
-    "recent_share": 8.9,
+    "recent": 57,
+    "older": 104,
+    "recent_share": 9.1,
     "older_share": 7.6,
-    "delta": 1.3
+    "delta": 1.5
    },
    {
     "domain": "devops-infra",
     "zh": "DevOps 基礎設施",
     "recent": 50,
     "older": 95,
-    "recent_share": 8.1,
+    "recent_share": 8.0,
     "older_share": 7.0,
-    "delta": 1.1
+    "delta": 1.0
    },
    {
     "domain": "security",
     "zh": "資安",
     "recent": 50,
     "older": 95,
-    "recent_share": 8.1,
+    "recent_share": 8.0,
     "older_share": 7.0,
-    "delta": 1.1
+    "delta": 1.0
    },
    {
     "domain": "marketing-growth",
     "zh": "行銷成長",
-    "recent": 27,
+    "recent": 28,
     "older": 54,
-    "recent_share": 4.4,
+    "recent_share": 4.5,
     "older_share": 4.0,
+    "delta": 0.5
+   },
+   {
+    "domain": "data-analytics",
+    "zh": "資料分析",
+    "recent": 16,
+    "older": 30,
+    "recent_share": 2.6,
+    "older_share": 2.2,
     "delta": 0.4
    },
    {
@@ -1138,15 +1147,6 @@
     "recent_share": 1.8,
     "older_share": 1.4,
     "delta": 0.4
-   },
-   {
-    "domain": "data-analytics",
-    "zh": "資料分析",
-    "recent": 15,
-    "older": 30,
-    "recent_share": 2.4,
-    "older_share": 2.2,
-    "delta": 0.2
    },
    {
     "domain": "hardware-eda",
@@ -1160,7 +1160,7 @@
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 87,
+    "recent": 88,
     "older": 190,
     "recent_share": 14.1,
     "older_share": 14.0,
@@ -1171,36 +1171,36 @@
     "zh": "金融投資",
     "recent": 22,
     "older": 48,
-    "recent_share": 3.6,
+    "recent_share": 3.5,
     "older_share": 3.5,
-    "delta": 0.0
+    "delta": -0.0
    },
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 170,
+    "recent": 172,
     "older": 376,
     "recent_share": 27.6,
-    "older_share": 27.7,
+    "older_share": 27.6,
     "delta": -0.1
    },
    {
     "domain": "research-academia",
     "zh": "研究學術",
     "recent": 23,
-    "older": 57,
+    "older": 58,
     "recent_share": 3.7,
-    "older_share": 4.2,
-    "delta": -0.5
+    "older_share": 4.3,
+    "delta": -0.6
    },
    {
     "domain": "writing-content",
     "zh": "寫作內容",
     "recent": 20,
-    "older": 51,
+    "older": 52,
     "recent_share": 3.2,
     "older_share": 3.8,
-    "delta": -0.5
+    "delta": -0.6
    },
    {
     "domain": "healthcare-bio",
@@ -1214,11 +1214,11 @@
    {
     "domain": "personal-productivity",
     "zh": "個人生產力",
-    "recent": 27,
+    "recent": 28,
     "older": 80,
-    "recent_share": 4.4,
+    "recent_share": 4.5,
     "older_share": 5.9,
-    "delta": -1.5
+    "delta": -1.4
    },
    {
     "domain": "legal-compliance",
@@ -1255,12 +1255,12 @@
    201,
    501,
    735,
-   1110,
+   1112,
    947,
-   753,
-   535,
-   344,
-   20
+   754,
+   538,
+   346,
+   25
   ],
   "stack": {
    "software-dev": [
@@ -1274,8 +1274,8 @@
     275,
     191,
     154,
-    94,
-    10
+    95,
+    11
    ],
    "ai-agent-tooling": [
     9,
@@ -1284,12 +1284,12 @@
     31,
     81,
     103,
-    184,
+    186,
     122,
     118,
     75,
     49,
-    2
+    3
    ],
    "devops-infra": [
     1,
@@ -1315,9 +1315,9 @@
     67,
     62,
     63,
-    38,
+    39,
     36,
-    1
+    3
    ],
    "personal-productivity": [
     2,
@@ -1330,7 +1330,7 @@
     80,
     39,
     32,
-    14,
+    15,
     0
    ],
    "security": [
@@ -1373,7 +1373,7 @@
     24,
     27,
     8,
-    2
+    3
    ],
    "research-academia": [
     1,
@@ -1385,7 +1385,7 @@
     49,
     38,
     34,
-    21,
+    22,
     11,
     2
    ],
@@ -1412,7 +1412,7 @@
     16,
     29,
     31,
-    27,
+    28,
     22,
     11,
     0
@@ -1427,7 +1427,7 @@
     26,
     25,
     12,
-    15,
+    16,
     7,
     0
    ],
@@ -1520,7 +1520,7 @@
    {
     "domain": "personal-productivity",
     "zh": "個人生產力",
-    "recent": 223,
+    "recent": 224,
     "older": 74,
     "recent_share": 6.0,
     "older_share": 4.3,
@@ -1538,16 +1538,16 @@
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 267,
+    "recent": 270,
     "older": 102,
-    "recent_share": 7.2,
+    "recent_share": 7.3,
     "older_share": 5.9,
     "delta": 1.3
    },
    {
     "domain": "research-academia",
     "zh": "研究學術",
-    "recent": 155,
+    "recent": 156,
     "older": 58,
     "recent_share": 4.2,
     "older_share": 3.4,
@@ -1563,13 +1563,13 @@
     "delta": 0.7
    },
    {
-    "domain": "education-training",
-    "zh": "教育訓練",
-    "recent": 55,
-    "older": 16,
-    "recent_share": 1.5,
-    "older_share": 0.9,
-    "delta": 0.6
+    "domain": "writing-content",
+    "zh": "寫作內容",
+    "recent": 121,
+    "older": 48,
+    "recent_share": 3.3,
+    "older_share": 2.8,
+    "delta": 0.5
    },
    {
     "domain": "healthcare-bio",
@@ -1581,18 +1581,18 @@
     "delta": 0.5
    },
    {
-    "domain": "writing-content",
-    "zh": "寫作內容",
-    "recent": 120,
-    "older": 48,
-    "recent_share": 3.2,
-    "older_share": 2.8,
-    "delta": 0.4
+    "domain": "education-training",
+    "zh": "教育訓練",
+    "recent": 55,
+    "older": 16,
+    "recent_share": 1.5,
+    "older_share": 0.9,
+    "delta": 0.5
    },
    {
     "domain": "data-analytics",
     "zh": "資料分析",
-    "recent": 85,
+    "recent": 86,
     "older": 33,
     "recent_share": 2.3,
     "older_share": 1.9,
@@ -1605,7 +1605,7 @@
     "older": 6,
     "recent_share": 0.7,
     "older_share": 0.3,
-    "delta": 0.4
+    "delta": 0.3
    },
    {
     "domain": "finance-investing",
@@ -1637,9 +1637,9 @@
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 550,
+    "recent": 553,
     "older": 261,
-    "recent_share": 14.8,
+    "recent_share": 14.9,
     "older_share": 15.2,
     "delta": -0.3
    },
@@ -1655,7 +1655,7 @@
    {
     "domain": "marketing-growth",
     "zh": "行銷成長",
-    "recent": 151,
+    "recent": 152,
     "older": 80,
     "recent_share": 4.1,
     "older_share": 4.6,
@@ -1673,11 +1673,11 @@
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 1045,
+    "recent": 1047,
     "older": 589,
-    "recent_share": 28.2,
+    "recent_share": 28.1,
     "older_share": 34.2,
-    "delta": -6.0
+    "delta": -6.1
    }
   ],
   "recent_label": "2026-03 ~ 2026-08",
@@ -1708,9 +1708,9 @@
    106,
    139,
    443,
-   2346,
-   2235,
-   364
+   2348,
+   2239,
+   371
   ],
   "stack": {
    "software-dev": [
@@ -1725,7 +1725,7 @@
     176,
     717,
     620,
-    104
+    106
    ],
    "ai-agent-tooling": [
     1,
@@ -1737,9 +1737,9 @@
     19,
     35,
     68,
-    368,
+    370,
     315,
-    51
+    52
    ],
    "devops-infra": [
     0,
@@ -1766,8 +1766,8 @@
     5,
     22,
     145,
-    163,
-    37
+    164,
+    39
    ],
    "personal-productivity": [
     0,
@@ -1781,7 +1781,7 @@
     14,
     116,
     151,
-    14
+    15
    ],
    "security": [
     0,
@@ -1823,7 +1823,7 @@
     12,
     111,
     97,
-    10
+    11
    ],
    "research-academia": [
     0,
@@ -1836,7 +1836,7 @@
     1,
     18,
     88,
-    93,
+    94,
     13
    ],
    "finance-investing": [
@@ -1864,7 +1864,7 @@
     3,
     16,
     60,
-    80,
+    81,
     11
    ],
    "data-analytics": [
@@ -1878,7 +1878,7 @@
     1,
     7,
     51,
-    52,
+    53,
     7
    ],
    "healthcare-bio": [
@@ -1970,7 +1970,7 @@
    {
     "domain": "ai-agent-tooling",
     "zh": "AI Agent 工具",
-    "recent": 856,
+    "recent": 859,
     "older": 22,
     "recent_share": 15.2,
     "older_share": 10.7,
@@ -1979,7 +1979,7 @@
    {
     "domain": "design-creative",
     "zh": "設計創意",
-    "recent": 376,
+    "recent": 379,
     "older": 6,
     "recent_share": 6.7,
     "older_share": 2.9,
@@ -1997,11 +1997,20 @@
    {
     "domain": "marketing-growth",
     "zh": "行銷成長",
-    "recent": 235,
+    "recent": 236,
     "older": 3,
     "recent_share": 4.2,
     "older_share": 1.5,
     "delta": 2.7
+   },
+   {
+    "domain": "personal-productivity",
+    "zh": "個人生產力",
+    "recent": 303,
+    "older": 6,
+    "recent_share": 5.4,
+    "older_share": 2.9,
+    "delta": 2.5
    },
    {
     "domain": "ops-admin",
@@ -2011,15 +2020,6 @@
     "recent_share": 4.4,
     "older_share": 1.9,
     "delta": 2.5
-   },
-   {
-    "domain": "personal-productivity",
-    "zh": "個人生產力",
-    "recent": 302,
-    "older": 6,
-    "recent_share": 5.4,
-    "older_share": 2.9,
-    "delta": 2.4
    },
    {
     "domain": "finance-investing",
@@ -2042,7 +2042,7 @@
    {
     "domain": "research-academia",
     "zh": "研究學術",
-    "recent": 215,
+    "recent": 216,
     "older": 5,
     "recent_share": 3.8,
     "older_share": 2.4,
@@ -2078,11 +2078,11 @@
    {
     "domain": "writing-content",
     "zh": "寫作內容",
-    "recent": 172,
+    "recent": 173,
     "older": 6,
     "recent_share": 3.1,
     "older_share": 2.9,
-    "delta": 0.1
+    "delta": 0.2
    },
    {
     "domain": "other",
@@ -2105,7 +2105,7 @@
    {
     "domain": "data-analytics",
     "zh": "資料分析",
-    "recent": 120,
+    "recent": 121,
     "older": 6,
     "recent_share": 2.1,
     "older_share": 2.9,
@@ -2123,11 +2123,11 @@
    {
     "domain": "software-dev",
     "zh": "軟體開發",
-    "recent": 1730,
+    "recent": 1732,
     "older": 113,
     "recent_share": 30.7,
     "older_share": 54.9,
-    "delta": -24.1
+    "delta": -24.2
    }
   ],
   "recent_label": "2025-Q2 ~ 2026-Q3",
@@ -2139,17 +2139,20 @@
    "2026-07-28",
    "2026-07-29",
    "2026-08-08",
-   "2026-08-09"
+   "2026-08-09",
+   "2026-08-10"
   ],
   "totals": [
    5405,
    167,
    49,
    527,
-   94
+   94,
+   13
   ],
   "targeted": [
    35800,
+   0,
    0,
    0,
    0,
@@ -2195,9 +2198,17 @@
     "marketing-growth": 6,
     "design-creative": 5,
     "security": 4
+   },
+   "2026-08-10": {
+    "ai-agent-tooling": 3,
+    "design-creative": 3,
+    "software-dev": 2,
+    "personal-productivity": 1,
+    "writing-content": 1,
+    "research-academia": 1
    }
   },
-  "n_days": 5
+  "n_days": 6
  },
  "summary": {
   "insight": {
@@ -3744,10 +3755,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 49.5,
+   "expected": 49.6,
    "ratio": 0.06,
-   "domain_n": 309,
-   "momentum": -1.5,
+   "domain_n": 310,
+   "momentum": -1.4,
    "hot": false
   },
   {
@@ -3756,10 +3767,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 6,
-   "expected": 49.4,
+   "expected": 49.5,
    "ratio": 0.12,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -3783,7 +3794,7 @@
    "expected": 14.9,
    "ratio": 0.13,
    "domain_n": 194,
-   "momentum": 0.0,
+   "momentum": -0.0,
    "hot": false
   },
   {
@@ -3804,10 +3815,10 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 47.0,
+   "expected": 47.2,
    "ratio": 0.15,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -3816,10 +3827,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 10,
-   "expected": 61.9,
+   "expected": 62.0,
    "ratio": 0.16,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -3840,10 +3851,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 29.3,
+   "expected": 29.4,
    "ratio": 0.17,
-   "domain_n": 176,
-   "momentum": -0.5,
+   "domain_n": 177,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -3852,10 +3863,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.8,
-   "ratio": 0.19,
-   "domain_n": 176,
-   "momentum": -0.5,
+   "expected": 27.0,
+   "ratio": 0.18,
+   "domain_n": 177,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -3867,7 +3878,7 @@
    "expected": 72.1,
    "ratio": 0.22,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -3876,10 +3887,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 56.7,
+   "expected": 57.0,
    "ratio": 0.23,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -3888,10 +3899,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 134,
-   "momentum": 0.2,
+   "momentum": 0.4,
    "hot": true
   },
   {
@@ -3900,7 +3911,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 129,
    "momentum": -0.6,
@@ -3915,7 +3926,7 @@
    "expected": 37.4,
    "ratio": 0.24,
    "domain_n": 225,
-   "momentum": 0.4,
+   "momentum": 0.5,
    "hot": true
   },
   {
@@ -3927,7 +3938,7 @@
    "expected": 40.5,
    "ratio": 0.27,
    "domain_n": 253,
-   "momentum": 1.9,
+   "momentum": 1.8,
    "hot": true
   },
   {
@@ -3936,10 +3947,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 24,
-   "expected": 90.5,
+   "expected": 90.6,
    "ratio": 0.27,
    "domain_n": 407,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -3948,10 +3959,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 32.3,
+   "expected": 32.2,
    "ratio": 0.28,
    "domain_n": 194,
-   "momentum": 0.0,
+   "momentum": -0.0,
    "hot": false
   },
   {
@@ -3960,10 +3971,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 31.3,
+   "expected": 31.2,
    "ratio": 0.29,
    "domain_n": 407,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -3975,7 +3986,7 @@
    "expected": 24.9,
    "ratio": 0.32,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -3984,9 +3995,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 36,
-   "expected": 111.2,
+   "expected": 111.6,
    "ratio": 0.32,
-   "domain_n": 880,
+   "domain_n": 883,
    "momentum": 0.1,
    "hot": true
   },
@@ -3996,10 +4007,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 34.1,
+   "expected": 34.2,
    "ratio": 0.32,
-   "domain_n": 205,
-   "momentum": -0.5,
+   "domain_n": 206,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -4020,10 +4031,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 7,
-   "expected": 20.4,
+   "expected": 20.5,
    "ratio": 0.34,
    "domain_n": 134,
-   "momentum": 0.2,
+   "momentum": 0.4,
    "hot": true
   }
  ],
@@ -4046,10 +4057,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 49.5,
+   "expected": 49.6,
    "ratio": 0.06,
-   "domain_n": 309,
-   "momentum": -1.5,
+   "domain_n": 310,
+   "momentum": -1.4,
    "hot": false
   },
   {
@@ -4058,10 +4069,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 6,
-   "expected": 49.4,
+   "expected": 49.5,
    "ratio": 0.12,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -4085,7 +4096,7 @@
    "expected": 14.9,
    "ratio": 0.13,
    "domain_n": 194,
-   "momentum": 0.0,
+   "momentum": -0.0,
    "hot": false
   },
   {
@@ -4106,10 +4117,10 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 47.0,
+   "expected": 47.2,
    "ratio": 0.15,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -4118,10 +4129,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 10,
-   "expected": 61.9,
+   "expected": 62.0,
    "ratio": 0.16,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -4142,10 +4153,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 29.3,
+   "expected": 29.4,
    "ratio": 0.17,
-   "domain_n": 176,
-   "momentum": -0.5,
+   "domain_n": 177,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -4154,10 +4165,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.8,
-   "ratio": 0.19,
-   "domain_n": 176,
-   "momentum": -0.5,
+   "expected": 27.0,
+   "ratio": 0.18,
+   "domain_n": 177,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -4169,7 +4180,7 @@
    "expected": 72.1,
    "ratio": 0.22,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -4178,10 +4189,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 56.7,
+   "expected": 57.0,
    "ratio": 0.23,
-   "domain_n": 372,
-   "momentum": 1.3,
+   "domain_n": 373,
+   "momentum": 1.5,
    "hot": true
   },
   {
@@ -4190,10 +4201,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 134,
-   "momentum": 0.2,
+   "momentum": 0.4,
    "hot": true
   },
   {
@@ -4202,7 +4213,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 129,
    "momentum": -0.6,
@@ -4217,7 +4228,7 @@
    "expected": 37.4,
    "ratio": 0.24,
    "domain_n": 225,
-   "momentum": 0.4,
+   "momentum": 0.5,
    "hot": true
   },
   {
@@ -4229,7 +4240,7 @@
    "expected": 40.5,
    "ratio": 0.27,
    "domain_n": 253,
-   "momentum": 1.9,
+   "momentum": 1.8,
    "hot": true
   },
   {
@@ -4238,10 +4249,10 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 24,
-   "expected": 90.5,
+   "expected": 90.6,
    "ratio": 0.27,
    "domain_n": 407,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -4250,10 +4261,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 32.3,
+   "expected": 32.2,
    "ratio": 0.28,
    "domain_n": 194,
-   "momentum": 0.0,
+   "momentum": -0.0,
    "hot": false
   },
   {
@@ -4262,10 +4273,10 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 31.3,
+   "expected": 31.2,
    "ratio": 0.29,
    "domain_n": 407,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -4277,7 +4288,7 @@
    "expected": 24.9,
    "ratio": 0.32,
    "domain_n": 324,
-   "momentum": 1.1,
+   "momentum": 1.0,
    "hot": true
   },
   {
@@ -4286,9 +4297,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 36,
-   "expected": 111.2,
+   "expected": 111.6,
    "ratio": 0.32,
-   "domain_n": 880,
+   "domain_n": 883,
    "momentum": 0.1,
    "hot": true
   },
@@ -4298,10 +4309,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 34.1,
+   "expected": 34.2,
    "ratio": 0.32,
-   "domain_n": 205,
-   "momentum": -0.5,
+   "domain_n": 206,
+   "momentum": -0.6,
    "hot": false
   },
   {
@@ -4322,10 +4333,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 7,
-   "expected": 20.4,
+   "expected": 20.5,
    "ratio": 0.34,
    "domain_n": 134,
-   "momentum": 0.2,
+   "momentum": 0.4,
    "hot": true
   }
  ],
@@ -4348,9 +4359,9 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 49.5,
+   "expected": 49.6,
    "ratio": 0.06,
-   "domain_n": 309,
+   "domain_n": 310,
    "momentum": 1.7,
    "hot": true
   },
@@ -4360,7 +4371,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 6,
-   "expected": 49.4,
+   "expected": 49.5,
    "ratio": 0.12,
    "domain_n": 324,
    "momentum": 1.4,
@@ -4408,9 +4419,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 47.0,
+   "expected": 47.2,
    "ratio": 0.15,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 1.3,
    "hot": true
   },
@@ -4420,9 +4431,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 10,
-   "expected": 61.9,
+   "expected": 62.0,
    "ratio": 0.16,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 1.3,
    "hot": true
   },
@@ -4435,7 +4446,7 @@
    "expected": 12.5,
    "ratio": 0.16,
    "domain_n": 78,
-   "momentum": 0.6,
+   "momentum": 0.5,
    "hot": true
   },
   {
@@ -4444,10 +4455,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 29.3,
+   "expected": 29.4,
    "ratio": 0.17,
-   "domain_n": 176,
-   "momentum": 0.4,
+   "domain_n": 177,
+   "momentum": 0.5,
    "hot": true
   },
   {
@@ -4456,10 +4467,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.8,
-   "ratio": 0.19,
-   "domain_n": 176,
-   "momentum": 0.4,
+   "expected": 27.0,
+   "ratio": 0.18,
+   "domain_n": 177,
+   "momentum": 0.5,
    "hot": true
   },
   {
@@ -4480,9 +4491,9 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 56.7,
+   "expected": 57.0,
    "ratio": 0.23,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 1.3,
    "hot": true
   },
@@ -4492,7 +4503,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 129,
    "momentum": 0.5,
@@ -4504,7 +4515,7 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 134,
    "momentum": 0.4,
@@ -4528,7 +4539,7 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 24,
-   "expected": 90.5,
+   "expected": 90.6,
    "ratio": 0.27,
    "domain_n": 407,
    "momentum": -0.6,
@@ -4552,7 +4563,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 32.3,
+   "expected": 32.2,
    "ratio": 0.28,
    "domain_n": 194,
    "momentum": 0.2,
@@ -4564,7 +4575,7 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 31.3,
+   "expected": 31.2,
    "ratio": 0.29,
    "domain_n": 407,
    "momentum": -0.6,
@@ -4588,9 +4599,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 34.1,
+   "expected": 34.2,
    "ratio": 0.32,
-   "domain_n": 205,
+   "domain_n": 206,
    "momentum": 0.8,
    "hot": true
   },
@@ -4612,9 +4623,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 36,
-   "expected": 111.2,
+   "expected": 111.6,
    "ratio": 0.32,
-   "domain_n": 880,
+   "domain_n": 883,
    "momentum": -0.3,
    "hot": false
   },
@@ -4624,7 +4635,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 7,
-   "expected": 20.4,
+   "expected": 20.5,
    "ratio": 0.34,
    "domain_n": 134,
    "momentum": 0.4,
@@ -4650,10 +4661,10 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 3,
-   "expected": 49.5,
+   "expected": 49.6,
    "ratio": 0.06,
-   "domain_n": 309,
-   "momentum": 2.4,
+   "domain_n": 310,
+   "momentum": 2.5,
    "hot": true
   },
   {
@@ -4662,7 +4673,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 6,
-   "expected": 49.4,
+   "expected": 49.5,
    "ratio": 0.12,
    "domain_n": 324,
    "momentum": 3.0,
@@ -4710,9 +4721,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 7,
-   "expected": 47.0,
+   "expected": 47.2,
    "ratio": 0.15,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 3.8,
    "hot": true
   },
@@ -4722,9 +4733,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 10,
-   "expected": 61.9,
+   "expected": 62.0,
    "ratio": 0.16,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 3.8,
    "hot": true
   },
@@ -4746,10 +4757,10 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 29.3,
+   "expected": 29.4,
    "ratio": 0.17,
-   "domain_n": 176,
-   "momentum": 0.1,
+   "domain_n": 177,
+   "momentum": 0.2,
    "hot": true
   },
   {
@@ -4758,10 +4769,10 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 5,
-   "expected": 26.8,
-   "ratio": 0.19,
-   "domain_n": 176,
-   "momentum": 0.1,
+   "expected": 27.0,
+   "ratio": 0.18,
+   "domain_n": 177,
+   "momentum": 0.2,
    "hot": true
   },
   {
@@ -4782,9 +4793,9 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 13,
-   "expected": 56.7,
+   "expected": 57.0,
    "ratio": 0.23,
-   "domain_n": 372,
+   "domain_n": 373,
    "momentum": 3.8,
    "hot": true
   },
@@ -4794,7 +4805,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 129,
    "momentum": 0.5,
@@ -4806,7 +4817,7 @@
    "task": "verify",
    "task_zh": "驗證",
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio": 0.23,
    "domain_n": 134,
    "momentum": -0.8,
@@ -4842,7 +4853,7 @@
    "task": "generate",
    "task_zh": "生成",
    "observed": 24,
-   "expected": 90.5,
+   "expected": 90.6,
    "ratio": 0.27,
    "domain_n": 407,
    "momentum": 1.9,
@@ -4854,7 +4865,7 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 9,
-   "expected": 32.3,
+   "expected": 32.2,
    "ratio": 0.28,
    "domain_n": 194,
    "momentum": 2.2,
@@ -4866,7 +4877,7 @@
    "task": "transform",
    "task_zh": "轉換",
    "observed": 9,
-   "expected": 31.3,
+   "expected": 31.2,
    "ratio": 0.29,
    "domain_n": 407,
    "momentum": 1.9,
@@ -4878,9 +4889,9 @@
    "task": "analyze",
    "task_zh": "分析",
    "observed": 36,
-   "expected": 111.2,
+   "expected": 111.6,
    "ratio": 0.32,
-   "domain_n": 880,
+   "domain_n": 883,
    "momentum": 4.5,
    "hot": true
   },
@@ -4902,9 +4913,9 @@
    "task": "configure",
    "task_zh": "配置",
    "observed": 11,
-   "expected": 34.1,
+   "expected": 34.2,
    "ratio": 0.32,
-   "domain_n": 205,
+   "domain_n": 206,
    "momentum": 1.4,
    "hot": true
   },
@@ -4926,7 +4937,7 @@
    "task": "orchestrate",
    "task_zh": "調度",
    "observed": 7,
-   "expected": 20.4,
+   "expected": 20.5,
    "ratio": 0.34,
    "domain_n": 134,
    "momentum": -0.8,
@@ -4972,12 +4983,12 @@
   },
   {
    "domain": "data-analytics",
-   "n": 135,
-   "n_maturity": 135,
+   "n": 136,
+   "n_maturity": 136,
    "n_target": 133,
-   "production_pct": 54.8,
-   "vs_global_production": 11.8,
-   "median_stars": 14,
+   "production_pct": 55.1,
+   "vs_global_production": 12.2,
+   "median_stars": 15,
    "p90_stars": 438,
    "agent_facing_pct": 12.8,
    "zh": "資料分析"
@@ -4996,13 +5007,13 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 909,
-   "n_maturity": 892,
-   "n_target": 897,
-   "production_pct": 46.7,
-   "vs_global_production": 3.8,
+   "n": 912,
+   "n_maturity": 894,
+   "n_target": 898,
+   "production_pct": 46.9,
+   "vs_global_production": 3.9,
    "median_stars": 8,
-   "p90_stars": 585,
+   "p90_stars": 581,
    "agent_facing_pct": 61.2,
    "zh": "AI Agent 工具"
   },
@@ -5020,10 +5031,10 @@
   },
   {
    "domain": "software-dev",
-   "n": 2099,
-   "n_maturity": 2008,
-   "n_target": 1997,
-   "production_pct": 40.7,
+   "n": 2101,
+   "n_maturity": 2009,
+   "n_target": 1998,
+   "production_pct": 40.8,
    "vs_global_production": -2.2,
    "median_stars": 6,
    "p90_stars": 442,
@@ -5032,13 +5043,13 @@
   },
   {
    "domain": "design-creative",
-   "n": 390,
-   "n_maturity": 370,
-   "n_target": 346,
+   "n": 393,
+   "n_maturity": 372,
+   "n_target": 348,
    "production_pct": 39.5,
    "vs_global_production": -3.5,
    "median_stars": 5,
-   "p90_stars": 485,
+   "p90_stars": 468,
    "agent_facing_pct": 6.9,
    "zh": "設計創意"
   },
@@ -5048,7 +5059,7 @@
    "n_maturity": 260,
    "n_target": 261,
    "production_pct": 39.2,
-   "vs_global_production": -3.7,
+   "vs_global_production": -3.8,
    "median_stars": 9,
    "p90_stars": 511,
    "agent_facing_pct": 7.3,
@@ -5060,7 +5071,7 @@
    "n_maturity": 37,
    "n_target": 37,
    "production_pct": 35.1,
-   "vs_global_production": -7.8,
+   "vs_global_production": -7.9,
    "median_stars": 10,
    "p90_stars": 330,
    "agent_facing_pct": 21.6,
@@ -5068,9 +5079,9 @@
   },
   {
    "domain": "marketing-growth",
-   "n": 240,
+   "n": 241,
    "n_maturity": 234,
-   "n_target": 219,
+   "n_target": 220,
    "production_pct": 34.6,
    "vs_global_production": -8.4,
    "median_stars": 12,
@@ -5092,11 +5103,11 @@
   },
   {
    "domain": "writing-content",
-   "n": 186,
-   "n_maturity": 183,
-   "n_target": 183,
-   "production_pct": 27.3,
-   "vs_global_production": -15.6,
+   "n": 187,
+   "n_maturity": 184,
+   "n_target": 184,
+   "production_pct": 27.2,
+   "vs_global_production": -15.8,
    "median_stars": 21,
    "p90_stars": 440,
    "agent_facing_pct": 1.6,
@@ -5104,11 +5115,11 @@
   },
   {
    "domain": "research-academia",
-   "n": 224,
-   "n_maturity": 218,
-   "n_target": 204,
-   "production_pct": 25.2,
-   "vs_global_production": -17.7,
+   "n": 225,
+   "n_maturity": 219,
+   "n_target": 205,
+   "production_pct": 25.1,
+   "vs_global_production": -17.9,
    "median_stars": 14,
    "p90_stars": 868,
    "agent_facing_pct": 4.9,
@@ -5116,9 +5127,9 @@
   },
   {
    "domain": "personal-productivity",
-   "n": 320,
+   "n": 321,
    "n_maturity": 319,
-   "n_target": 314,
+   "n_target": 315,
    "production_pct": 20.7,
    "vs_global_production": -22.3,
    "median_stars": 6,
@@ -5144,7 +5155,7 @@
    "n_maturity": 42,
    "n_target": 39,
    "production_pct": 9.5,
-   "vs_global_production": -33.4,
+   "vs_global_production": -33.5,
    "median_stars": 10,
    "p90_stars": 531,
    "agent_facing_pct": 5.1,
@@ -5178,16 +5189,16 @@
   },
   {
    "domain": "research-academia",
-   "n": 218,
-   "workflow": 150,
+   "n": 219,
+   "workflow": 151,
    "production": 55,
    "completion_ratio": 0.27,
    "zh": "研究學術"
   },
   {
    "domain": "writing-content",
-   "n": 183,
-   "workflow": 127,
+   "n": 184,
+   "workflow": 128,
    "production": 50,
    "completion_ratio": 0.28,
    "zh": "寫作內容"
@@ -5226,17 +5237,17 @@
   },
   {
    "domain": "design-creative",
-   "n": 370,
-   "workflow": 217,
-   "production": 146,
+   "n": 372,
+   "workflow": 218,
+   "production": 147,
    "completion_ratio": 0.4,
    "zh": "設計創意"
   },
   {
    "domain": "software-dev",
-   "n": 2008,
+   "n": 2009,
    "workflow": 1146,
-   "production": 818,
+   "production": 819,
    "completion_ratio": 0.42,
    "zh": "軟體開發"
   },
@@ -5250,9 +5261,9 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 892,
+   "n": 894,
    "workflow": 373,
-   "production": 417,
+   "production": 419,
    "completion_ratio": 0.53,
    "zh": "AI Agent 工具"
   },
@@ -5266,9 +5277,9 @@
   },
   {
    "domain": "data-analytics",
-   "n": 135,
+   "n": 136,
    "workflow": 59,
-   "production": 74,
+   "production": 75,
    "completion_ratio": 0.56,
    "zh": "資料分析"
   },
@@ -5318,8 +5329,8 @@
    "production": 5,
    "domains": [
     "software-dev",
-    "ai-agent-tooling",
-    "ops-admin"
+    "ops-admin",
+    "ai-agent-tooling"
    ],
    "pains": [
     "團隊任務文檔結構紊亂且資訊歸屬權責不清",
@@ -5333,8 +5344,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "security",
-    "devops-infra"
+    "devops-infra",
+    "security"
    ],
    "pains": [
     "傳統網路連線排查工具輸出格式難以解析",
@@ -6735,7 +6746,7 @@
     "task": "orchestrate",
     "zh": "調度",
     "hw_pct": 15.1,
-    "global_pct": 15.2,
+    "global_pct": 15.3,
     "ratio": 0.99,
     "n": 13,
     "samples": [

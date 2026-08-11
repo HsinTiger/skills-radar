@@ -1,12 +1,12 @@
 {
- "n_total": 6242,
+ "n_total": 6255,
  "eligibility": {
   "sample": "neutral only (sample missing, empty, or neutral)",
   "model_conf_min": 0.6,
-  "n_domain": 6242,
-  "n_task": 5854,
-  "n_maturity": 6014,
-  "n_target": 5945
+  "n_domain": 6255,
+  "n_task": 5861,
+  "n_maturity": 6022,
+  "n_target": 5953
  },
  "global_production_pct": 43.0,
  "global_task_pct": {
@@ -14,7 +14,7 @@
   "transform": 7.7,
   "analyze": 12.6,
   "verify": 16.0,
-  "orchestrate": 15.2,
+  "orchestrate": 15.3,
   "retrieve": 9.5,
   "configure": 16.6
  },
@@ -54,12 +54,12 @@
   },
   {
    "domain": "data-analytics",
-   "n": 135,
-   "n_maturity": 135,
+   "n": 136,
+   "n_maturity": 136,
    "n_target": 133,
-   "production_pct": 54.8,
-   "vs_global_production": 11.8,
-   "median_stars": 14,
+   "production_pct": 55.1,
+   "vs_global_production": 12.2,
+   "median_stars": 15,
    "p90_stars": 438,
    "agent_facing_pct": 12.8
   },
@@ -76,13 +76,13 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 909,
-   "n_maturity": 892,
-   "n_target": 897,
-   "production_pct": 46.7,
-   "vs_global_production": 3.8,
+   "n": 912,
+   "n_maturity": 894,
+   "n_target": 898,
+   "production_pct": 46.9,
+   "vs_global_production": 3.9,
    "median_stars": 8,
-   "p90_stars": 585,
+   "p90_stars": 581,
    "agent_facing_pct": 61.2
   },
   {
@@ -98,10 +98,10 @@
   },
   {
    "domain": "software-dev",
-   "n": 2099,
-   "n_maturity": 2008,
-   "n_target": 1997,
-   "production_pct": 40.7,
+   "n": 2101,
+   "n_maturity": 2009,
+   "n_target": 1998,
+   "production_pct": 40.8,
    "vs_global_production": -2.2,
    "median_stars": 6,
    "p90_stars": 442,
@@ -109,13 +109,13 @@
   },
   {
    "domain": "design-creative",
-   "n": 390,
-   "n_maturity": 370,
-   "n_target": 346,
+   "n": 393,
+   "n_maturity": 372,
+   "n_target": 348,
    "production_pct": 39.5,
    "vs_global_production": -3.5,
    "median_stars": 5,
-   "p90_stars": 485,
+   "p90_stars": 468,
    "agent_facing_pct": 6.9
   },
   {
@@ -124,7 +124,7 @@
    "n_maturity": 260,
    "n_target": 261,
    "production_pct": 39.2,
-   "vs_global_production": -3.7,
+   "vs_global_production": -3.8,
    "median_stars": 9,
    "p90_stars": 511,
    "agent_facing_pct": 7.3
@@ -135,16 +135,16 @@
    "n_maturity": 37,
    "n_target": 37,
    "production_pct": 35.1,
-   "vs_global_production": -7.8,
+   "vs_global_production": -7.9,
    "median_stars": 10,
    "p90_stars": 330,
    "agent_facing_pct": 21.6
   },
   {
    "domain": "marketing-growth",
-   "n": 240,
+   "n": 241,
    "n_maturity": 234,
-   "n_target": 219,
+   "n_target": 220,
    "production_pct": 34.6,
    "vs_global_production": -8.4,
    "median_stars": 12,
@@ -164,31 +164,31 @@
   },
   {
    "domain": "writing-content",
-   "n": 186,
-   "n_maturity": 183,
-   "n_target": 183,
-   "production_pct": 27.3,
-   "vs_global_production": -15.6,
+   "n": 187,
+   "n_maturity": 184,
+   "n_target": 184,
+   "production_pct": 27.2,
+   "vs_global_production": -15.8,
    "median_stars": 21,
    "p90_stars": 440,
    "agent_facing_pct": 1.6
   },
   {
    "domain": "research-academia",
-   "n": 224,
-   "n_maturity": 218,
-   "n_target": 204,
-   "production_pct": 25.2,
-   "vs_global_production": -17.7,
+   "n": 225,
+   "n_maturity": 219,
+   "n_target": 205,
+   "production_pct": 25.1,
+   "vs_global_production": -17.9,
    "median_stars": 14,
    "p90_stars": 868,
    "agent_facing_pct": 4.9
   },
   {
    "domain": "personal-productivity",
-   "n": 320,
+   "n": 321,
    "n_maturity": 319,
-   "n_target": 314,
+   "n_target": 315,
    "production_pct": 20.7,
    "vs_global_production": -22.3,
    "median_stars": 6,
@@ -212,7 +212,7 @@
    "n_maturity": 42,
    "n_target": 39,
    "production_pct": 9.5,
-   "vs_global_production": -33.4,
+   "vs_global_production": -33.5,
    "median_stars": 10,
    "p90_stars": 531,
    "agent_facing_pct": 5.1
@@ -230,9 +230,9 @@
   {
    "domain": "personal-productivity",
    "task": "verify",
-   "domain_n": 309,
+   "domain_n": 310,
    "observed": 3,
-   "expected": 49.5,
+   "expected": 49.6,
    "ratio_vs_global": 0.06
   },
   {
@@ -240,7 +240,7 @@
    "task": "orchestrate",
    "domain_n": 324,
    "observed": 6,
-   "expected": 49.4,
+   "expected": 49.5,
    "ratio_vs_global": 0.12
   },
   {
@@ -270,17 +270,17 @@
   {
    "domain": "design-creative",
    "task": "analyze",
-   "domain_n": 372,
+   "domain_n": 373,
    "observed": 7,
-   "expected": 47.0,
+   "expected": 47.2,
    "ratio_vs_global": 0.15
   },
   {
    "domain": "design-creative",
    "task": "configure",
-   "domain_n": 372,
+   "domain_n": 373,
    "observed": 10,
-   "expected": 61.9,
+   "expected": 62.0,
    "ratio_vs_global": 0.16
   },
   {
@@ -294,18 +294,18 @@
   {
    "domain": "writing-content",
    "task": "configure",
-   "domain_n": 176,
+   "domain_n": 177,
    "observed": 5,
-   "expected": 29.3,
+   "expected": 29.4,
    "ratio_vs_global": 0.17
   },
   {
    "domain": "writing-content",
    "task": "orchestrate",
-   "domain_n": 176,
+   "domain_n": 177,
    "observed": 5,
-   "expected": 26.8,
-   "ratio_vs_global": 0.19
+   "expected": 27.0,
+   "ratio_vs_global": 0.18
   },
   {
    "domain": "security",
@@ -318,9 +318,9 @@
   {
    "domain": "design-creative",
    "task": "orchestrate",
-   "domain_n": 372,
+   "domain_n": 373,
    "observed": 13,
-   "expected": 56.7,
+   "expected": 57.0,
    "ratio_vs_global": 0.23
   },
   {
@@ -328,7 +328,7 @@
    "task": "verify",
    "domain_n": 134,
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio_vs_global": 0.23
   },
   {
@@ -336,7 +336,7 @@
    "task": "configure",
    "domain_n": 129,
    "observed": 5,
-   "expected": 21.5,
+   "expected": 21.4,
    "ratio_vs_global": 0.23
   },
   {
@@ -352,7 +352,7 @@
    "task": "generate",
    "domain_n": 407,
    "observed": 24,
-   "expected": 90.5,
+   "expected": 90.6,
    "ratio_vs_global": 0.27
   },
   {
@@ -368,7 +368,7 @@
    "task": "configure",
    "domain_n": 194,
    "observed": 9,
-   "expected": 32.3,
+   "expected": 32.2,
    "ratio_vs_global": 0.28
   },
   {
@@ -376,15 +376,15 @@
    "task": "transform",
    "domain_n": 407,
    "observed": 9,
-   "expected": 31.3,
+   "expected": 31.2,
    "ratio_vs_global": 0.29
   },
   {
    "domain": "ai-agent-tooling",
    "task": "analyze",
-   "domain_n": 880,
+   "domain_n": 883,
    "observed": 36,
-   "expected": 111.2,
+   "expected": 111.6,
    "ratio_vs_global": 0.32
   },
   {
@@ -398,9 +398,9 @@
   {
    "domain": "research-academia",
    "task": "configure",
-   "domain_n": 205,
+   "domain_n": 206,
    "observed": 11,
-   "expected": 34.1,
+   "expected": 34.2,
    "ratio_vs_global": 0.32
   },
   {
@@ -416,7 +416,7 @@
    "task": "orchestrate",
    "domain_n": 134,
    "observed": 7,
-   "expected": 20.4,
+   "expected": 20.5,
    "ratio_vs_global": 0.34
   }
  ],
@@ -444,15 +444,15 @@
   },
   {
    "domain": "research-academia",
-   "n": 218,
-   "workflow": 150,
+   "n": 219,
+   "workflow": 151,
    "production": 55,
    "completion_ratio": 0.27
   },
   {
    "domain": "writing-content",
-   "n": 183,
-   "workflow": 127,
+   "n": 184,
+   "workflow": 128,
    "production": 50,
    "completion_ratio": 0.28
   },
@@ -486,16 +486,16 @@
   },
   {
    "domain": "design-creative",
-   "n": 370,
-   "workflow": 217,
-   "production": 146,
+   "n": 372,
+   "workflow": 218,
+   "production": 147,
    "completion_ratio": 0.4
   },
   {
    "domain": "software-dev",
-   "n": 2008,
+   "n": 2009,
    "workflow": 1146,
-   "production": 818,
+   "production": 819,
    "completion_ratio": 0.42
   },
   {
@@ -507,9 +507,9 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 892,
+   "n": 894,
    "workflow": 373,
-   "production": 417,
+   "production": 419,
    "completion_ratio": 0.53
   },
   {
@@ -521,9 +521,9 @@
   },
   {
    "domain": "data-analytics",
-   "n": 135,
+   "n": 136,
    "workflow": 59,
-   "production": 74,
+   "production": 75,
    "completion_ratio": 0.56
   },
   {
@@ -569,8 +569,8 @@
    "production": 5,
    "domains": [
     "software-dev",
-    "ai-agent-tooling",
-    "ops-admin"
+    "ops-admin",
+    "ai-agent-tooling"
    ],
    "pains": [
     "團隊任務文檔結構紊亂且資訊歸屬權責不清",
@@ -584,8 +584,8 @@
    "n": 7,
    "production": 5,
    "domains": [
-    "security",
-    "devops-infra"
+    "devops-infra",
+    "security"
    ],
    "pains": [
     "傳統網路連線排查工具輸出格式難以解析",
@@ -1024,8 +1024,8 @@
    "n": 3,
    "production": 3,
    "domains": [
-    "research-academia",
-    "marketing-growth"
+    "marketing-growth",
+    "research-academia"
    ],
    "pains": [
     "產品上架前的市場與競品調研整理繁瑣",
@@ -1070,9 +1070,9 @@
   },
   {
    "domain": "data-analytics",
-   "n": 135,
+   "n": 136,
    "unique_pains": 124,
-   "diversity": 0.92
+   "diversity": 0.91
   },
   {
    "domain": "ops-admin",
@@ -1082,31 +1082,31 @@
   },
   {
    "domain": "ai-agent-tooling",
-   "n": 909,
+   "n": 912,
    "unique_pains": 812,
    "diversity": 0.89
   },
   {
    "domain": "writing-content",
-   "n": 186,
+   "n": 187,
    "unique_pains": 166,
    "diversity": 0.89
   },
   {
    "domain": "personal-productivity",
-   "n": 320,
+   "n": 321,
    "unique_pains": 279,
    "diversity": 0.87
   },
   {
    "domain": "software-dev",
-   "n": 2099,
+   "n": 2101,
    "unique_pains": 1694,
    "diversity": 0.81
   },
   {
    "domain": "research-academia",
-   "n": 224,
+   "n": 225,
    "unique_pains": 182,
    "diversity": 0.81
   },
@@ -1124,7 +1124,7 @@
   },
   {
    "domain": "marketing-growth",
-   "n": 240,
+   "n": 241,
    "unique_pains": 193,
    "diversity": 0.8
   },
@@ -1136,7 +1136,7 @@
   },
   {
    "domain": "design-creative",
-   "n": 390,
+   "n": 393,
    "unique_pains": 293,
    "diversity": 0.75
   },
@@ -1209,6 +1209,16 @@
    "security": 4,
    "research-academia": 3,
    "ops-admin": 3
+  },
+  "2026-08-10": {
+   "ai-agent-tooling": 3,
+   "design-creative": 3,
+   "software-dev": 2,
+   "personal-productivity": 1,
+   "writing-content": 1,
+   "research-academia": 1,
+   "marketing-growth": 1,
+   "data-analytics": 1
   }
  }
 }

@@ -29,5 +29,15 @@
  "reused_daily_delta": false,
  "delta_already_classified": false,
  "validation_error": null,
- "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows"
+ "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows",
+ "classification": {
+  "status": "MODEL_PREDICTED",
+  "method": "local_classifier_from_existing_seed_set",
+  "llm_seed_rows": 6671,
+  "model_rows": 38941,
+  "model_report_master_sha256": "580b175fceddc09371bcf8a7fb5420619bd370585517b58618362167253cb6dc",
+  "domain_cv_accuracy": 0.723,
+  "domain_model_confidence_at_least_0_6_pct": 32.1,
+  "claim_boundary": "new and existing non-seed rows were labelled by the local classifier; they are not new LLM or human seed evidence and remain subject to field-confidence gates"
+ }
 }
