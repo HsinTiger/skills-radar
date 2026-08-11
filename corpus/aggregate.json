@@ -1,5 +1,5 @@
 {
- "n_classified": 6577,
+ "n_classified": 6671,
  "scope": {
   "rows": "all non-model seeds from master",
   "population_claims_allowed": false,
@@ -7,63 +7,63 @@
  },
  "domain": {
   "software-dev": {
-   "n": 2194,
+   "n": 2227,
    "pct": 33.4
   },
   "ai-agent-tooling": {
-   "n": 944,
+   "n": 962,
    "pct": 14.4
   },
   "devops-infra": {
-   "n": 429,
-   "pct": 6.5
+   "n": 440,
+   "pct": 6.6
   },
   "design-creative": {
-   "n": 423,
+   "n": 428,
    "pct": 6.4
   },
   "security": {
-   "n": 358,
+   "n": 362,
    "pct": 5.4
   },
   "personal-productivity": {
    "n": 327,
-   "pct": 5.0
+   "pct": 4.9
   },
   "ops-admin": {
-   "n": 288,
+   "n": 291,
    "pct": 4.4
   },
   "marketing-growth": {
-   "n": 252,
-   "pct": 3.8
+   "n": 258,
+   "pct": 3.9
   },
   "research-academia": {
-   "n": 240,
+   "n": 243,
    "pct": 3.6
   },
   "finance-investing": {
-   "n": 210,
+   "n": 211,
    "pct": 3.2
   },
   "writing-content": {
-   "n": 181,
-   "pct": 2.8
+   "n": 183,
+   "pct": 2.7
   },
   "data-analytics": {
-   "n": 148,
+   "n": 151,
    "pct": 2.3
   },
   "healthcare-bio": {
-   "n": 140,
+   "n": 141,
    "pct": 2.1
   },
   "hardware-eda": {
-   "n": 130,
+   "n": 131,
    "pct": 2.0
   },
   "legal-compliance": {
-   "n": 104,
+   "n": 105,
    "pct": 1.6
   },
   "education-training": {
@@ -75,97 +75,97 @@
    "pct": 0.9
   },
   "other": {
-   "n": 55,
-   "pct": 0.8
+   "n": 57,
+   "pct": 0.9
   }
  },
  "task": {
   "generate": {
-   "n": 1521,
-   "pct": 23.1
+   "n": 1548,
+   "pct": 23.2
   },
   "configure": {
-   "n": 1052,
-   "pct": 16.0
+   "n": 1058,
+   "pct": 15.9
   },
   "verify": {
-   "n": 1016,
+   "n": 1029,
    "pct": 15.4
   },
   "orchestrate": {
-   "n": 1005,
-   "pct": 15.3
+   "n": 1024,
+   "pct": 15.4
   },
   "analyze": {
-   "n": 846,
-   "pct": 12.9
+   "n": 865,
+   "pct": 13.0
   },
   "retrieve": {
-   "n": 638,
+   "n": 646,
    "pct": 9.7
   },
   "transform": {
-   "n": 499,
-   "pct": 7.6
+   "n": 501,
+   "pct": 7.5
   }
  },
  "target": {
-  "self": {
-   "n": 2407,
-   "pct": 36.6
-  },
   "team": {
-   "n": 2374,
-   "pct": 36.1
+   "n": 2429,
+   "pct": 36.4
+  },
+  "self": {
+   "n": 2418,
+   "pct": 36.2
   },
   "agent": {
-   "n": 1005,
-   "pct": 15.3
+   "n": 1026,
+   "pct": 15.4
   },
   "public": {
-   "n": 485,
+   "n": 492,
    "pct": 7.4
   },
   "client": {
    "n": 306,
-   "pct": 4.7
+   "pct": 4.6
   }
  },
  "maturity": {
   "workflow": {
-   "n": 3489,
-   "pct": 53.0
+   "n": 3524,
+   "pct": 52.8
   },
   "production": {
-   "n": 2780,
-   "pct": 42.3
+   "n": 2837,
+   "pct": 42.5
   },
   "toy": {
-   "n": 308,
-   "pct": 4.7
+   "n": 310,
+   "pct": 4.6
   }
  },
  "profession_top": {
-  "軟體工程師": 675,
-  "前端工程師": 421,
-  "AI工程師": 256,
-  "後端工程師": 253,
-  "DevOps工程師": 174,
-  "unknown": 158,
-  "資安工程師": 124,
-  "專案經理": 113,
+  "軟體工程師": 685,
+  "前端工程師": 424,
+  "AI工程師": 262,
+  "後端工程師": 259,
+  "DevOps工程師": 181,
+  "unknown": 159,
+  "資安工程師": 126,
+  "專案經理": 114,
   "軟體架構師": 111,
   "獨立創作者": 97,
   "AI 工程師": 84,
-  "產品經理": 80,
-  "全端工程師": 76,
+  "產品經理": 83,
+  "全端工程師": 77,
   "研究生": 75,
-  "資料工程師": 64,
-  "行銷企劃": 57,
-  "UI/UX設計師": 52,
-  "研究員": 52,
+  "資料工程師": 65,
+  "行銷企劃": 59,
+  "UI/UX設計師": 56,
+  "研究員": 55,
   "UI/UX 設計師": 52,
-  "系統架構師": 50,
+  "系統架構師": 51,
   "DevOps 工程師": 48,
   "資料分析師": 47,
   "測試工程師": 45,
@@ -174,50 +174,50 @@
   "AI研究員": 38,
   "AI 系統架構師": 37,
   "全棧工程師": 36,
-  "資深軟體工程師": 34,
+  "資深軟體工程師": 36,
   "量化交易員": 32
  },
- "injection_suspect": 112,
+ "injection_suspect": 116,
  "domain_x_task": {
   "software-dev": {
-   "generate": 584,
-   "verify": 516,
+   "generate": 597,
+   "verify": 523,
    "configure": 386,
-   "orchestrate": 230,
-   "analyze": 191,
-   "transform": 147,
-   "retrieve": 140
+   "orchestrate": 234,
+   "analyze": 196,
+   "transform": 149,
+   "retrieve": 142
   },
   "ai-agent-tooling": {
-   "orchestrate": 308,
-   "configure": 275,
-   "generate": 117,
-   "retrieve": 95,
+   "orchestrate": 318,
+   "configure": 276,
+   "generate": 120,
+   "retrieve": 97,
    "verify": 73,
    "transform": 40,
-   "analyze": 36
+   "analyze": 38
   },
   "devops-infra": {
-   "configure": 176,
+   "configure": 181,
    "orchestrate": 86,
    "verify": 58,
-   "analyze": 43,
+   "analyze": 47,
+   "generate": 29,
    "retrieve": 29,
-   "generate": 27,
    "transform": 10
   },
   "design-creative": {
-   "generate": 275,
+   "generate": 279,
    "transform": 59,
-   "verify": 26,
+   "verify": 27,
    "retrieve": 22,
    "orchestrate": 16,
    "analyze": 13,
    "configure": 12
   },
   "security": {
-   "verify": 182,
-   "analyze": 74,
+   "verify": 183,
+   "analyze": 77,
    "configure": 33,
    "retrieve": 21,
    "orchestrate": 20,
@@ -234,7 +234,7 @@
    "verify": 3
   },
   "ops-admin": {
-   "orchestrate": 86,
+   "orchestrate": 89,
    "analyze": 50,
    "retrieve": 44,
    "configure": 34,
@@ -243,25 +243,25 @@
    "verify": 14
   },
   "marketing-growth": {
-   "generate": 95,
-   "analyze": 66,
+   "generate": 96,
+   "analyze": 68,
    "orchestrate": 43,
+   "verify": 16,
    "retrieve": 16,
-   "verify": 13,
    "configure": 11,
    "transform": 8
   },
   "research-academia": {
    "analyze": 59,
    "generate": 53,
-   "retrieve": 45,
+   "retrieve": 47,
    "verify": 25,
-   "orchestrate": 23,
+   "orchestrate": 24,
    "transform": 23,
    "configure": 12
   },
   "finance-investing": {
-   "analyze": 89,
+   "analyze": 90,
    "orchestrate": 36,
    "retrieve": 34,
    "generate": 24,
@@ -270,18 +270,18 @@
    "transform": 3
   },
   "writing-content": {
-   "generate": 77,
+   "generate": 78,
    "transform": 63,
    "verify": 13,
    "retrieve": 9,
-   "analyze": 7,
+   "analyze": 8,
    "orchestrate": 6,
    "configure": 6
   },
   "data-analytics": {
-   "analyze": 39,
+   "analyze": 40,
    "retrieve": 31,
-   "generate": 27,
+   "generate": 29,
    "transform": 22,
    "configure": 15,
    "orchestrate": 9,
@@ -289,7 +289,7 @@
   },
   "healthcare-bio": {
    "analyze": 69,
-   "retrieve": 23,
+   "retrieve": 24,
    "verify": 15,
    "transform": 12,
    "orchestrate": 10,
@@ -299,7 +299,7 @@
   "hardware-eda": {
    "generate": 32,
    "configure": 27,
-   "verify": 20,
+   "verify": 21,
    "orchestrate": 18,
    "analyze": 17,
    "transform": 8,
@@ -309,7 +309,7 @@
    "verify": 31,
    "generate": 26,
    "analyze": 23,
-   "retrieve": 10,
+   "retrieve": 11,
    "transform": 6,
    "configure": 6,
    "orchestrate": 2
@@ -333,39 +333,39 @@
    "verify": 1
   },
   "other": {
-   "generate": 16,
+   "generate": 17,
    "analyze": 12,
    "retrieve": 9,
    "configure": 7,
-   "orchestrate": 5,
+   "orchestrate": 6,
    "verify": 4,
    "transform": 2
   }
  },
  "domain_x_maturity": {
   "software-dev": {
-   "production": 932,
-   "workflow": 1209,
+   "production": 947,
+   "workflow": 1227,
    "toy": 53
   },
   "ai-agent-tooling": {
-   "toy": 108,
-   "production": 433,
-   "workflow": 403
+   "toy": 109,
+   "production": 446,
+   "workflow": 407
   },
   "devops-infra": {
-   "workflow": 156,
-   "production": 260,
+   "workflow": 159,
+   "production": 268,
    "toy": 13
   },
   "design-creative": {
-   "workflow": 266,
-   "production": 147,
+   "workflow": 267,
+   "production": 151,
    "toy": 10
   },
   "security": {
-   "production": 221,
-   "workflow": 132,
+   "production": 224,
+   "workflow": 133,
    "toy": 5
   },
   "personal-productivity": {
@@ -374,49 +374,49 @@
    "production": 69
   },
   "ops-admin": {
-   "workflow": 168,
-   "production": 115,
+   "workflow": 169,
+   "production": 117,
    "toy": 5
   },
   "marketing-growth": {
-   "workflow": 165,
-   "production": 84,
+   "workflow": 167,
+   "production": 88,
    "toy": 3
   },
   "research-academia": {
-   "workflow": 160,
+   "workflow": 162,
    "toy": 16,
-   "production": 64
+   "production": 65
   },
   "finance-investing": {
    "workflow": 112,
-   "production": 91,
+   "production": 92,
    "toy": 7
   },
   "writing-content": {
-   "production": 58,
-   "workflow": 116,
+   "production": 59,
+   "workflow": 117,
    "toy": 7
   },
   "data-analytics": {
    "toy": 2,
    "workflow": 73,
-   "production": 73
+   "production": 76
   },
   "healthcare-bio": {
    "workflow": 64,
    "toy": 2,
-   "production": 74
+   "production": 75
   },
   "hardware-eda": {
-   "toy": 2,
+   "toy": 3,
    "workflow": 69,
    "production": 59
   },
   "legal-compliance": {
    "toy": 1,
    "workflow": 43,
-   "production": 60
+   "production": 61
   },
   "education-training": {
    "toy": 16,
@@ -430,19 +430,11 @@
   },
   "other": {
    "toy": 29,
-   "workflow": 21,
+   "workflow": 23,
    "production": 5
   }
  },
  "timeline_by_month": {
-  "2025-05": {
-   "software-dev": 12,
-   "ai-agent-tooling": 8,
-   "security": 2,
-   "finance-investing": 1,
-   "personal-productivity": 1,
-   "sales-crm": 1
-  },
   "2025-06": {
    "software-dev": 23,
    "ai-agent-tooling": 7,
@@ -460,7 +452,7 @@
    "marketing-growth": 2
   },
   "2025-08": {
-   "software-dev": 27,
+   "software-dev": 28,
    "ai-agent-tooling": 9,
    "devops-infra": 7,
    "personal-productivity": 3,
@@ -492,7 +484,7 @@
    "security": 6
   },
   "2025-12": {
-   "software-dev": 88,
+   "software-dev": 90,
    "ai-agent-tooling": 30,
    "devops-infra": 11,
    "ops-admin": 9,
@@ -500,60 +492,66 @@
    "design-creative": 8
   },
   "2026-01": {
-   "software-dev": 178,
-   "ai-agent-tooling": 84,
+   "software-dev": 180,
+   "ai-agent-tooling": 87,
    "devops-infra": 40,
    "design-creative": 36,
    "ops-admin": 26,
-   "marketing-growth": 24
+   "marketing-growth": 25
   },
   "2026-02": {
-   "software-dev": 243,
-   "ai-agent-tooling": 112,
+   "software-dev": 244,
+   "ai-agent-tooling": 113,
    "security": 51,
+   "design-creative": 50,
    "devops-infra": 50,
-   "design-creative": 49,
    "marketing-growth": 42
   },
   "2026-03": {
-   "software-dev": 335,
-   "ai-agent-tooling": 190,
-   "devops-infra": 80,
-   "security": 74,
+   "software-dev": 337,
+   "ai-agent-tooling": 191,
+   "devops-infra": 84,
+   "security": 75,
    "design-creative": 73,
    "personal-productivity": 59
   },
   "2026-04": {
-   "software-dev": 282,
-   "ai-agent-tooling": 132,
+   "software-dev": 289,
+   "ai-agent-tooling": 135,
    "personal-productivity": 77,
    "design-creative": 68,
-   "devops-infra": 58,
-   "security": 56
+   "devops-infra": 59,
+   "security": 58
   },
   "2026-05": {
-   "software-dev": 205,
-   "ai-agent-tooling": 122,
-   "design-creative": 63,
-   "security": 59,
-   "devops-infra": 46,
-   "research-academia": 44
+   "software-dev": 210,
+   "ai-agent-tooling": 123,
+   "design-creative": 66,
+   "security": 60,
+   "devops-infra": 48,
+   "research-academia": 45
   },
   "2026-06": {
-   "software-dev": 182,
+   "software-dev": 187,
    "ai-agent-tooling": 84,
    "security": 41,
    "design-creative": 38,
    "personal-productivity": 37,
-   "devops-infra": 35
+   "devops-infra": 36
   },
   "2026-07": {
    "software-dev": 95,
-   "ai-agent-tooling": 42,
-   "design-creative": 39,
-   "ops-admin": 24,
-   "devops-infra": 24,
+   "ai-agent-tooling": 47,
+   "design-creative": 40,
+   "ops-admin": 25,
+   "devops-infra": 25,
    "security": 15
+  },
+  "2026-08": {
+   "software-dev": 5,
+   "devops-infra": 2,
+   "ai-agent-tooling": 2,
+   "marketing-growth": 1
   }
  },
  "pain_samples": {

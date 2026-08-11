@@ -10,21 +10,21 @@
 
 ## Current evidence
 
-- `PROVEN` 中立且可用的 domain 樣本：**36**（母體 0.59%）
-- `PROVEN` production：**36.1%**（maturity 有效樣本 36）
-- `PROVEN` agent target：**22.2%**（target 有效樣本 36）
-- `PROVEN` 最新 evidence：2026-08-08 r1
+- `PROVEN` 中立且可用的 domain 樣本：**37**（母體 0.59%）
+- `PROVEN` production：**35.1%**（maturity 有效樣本 37）
+- `PROVEN` agent target：**21.6%**（target 有效樣本 37）
+- `PROVEN` 最新 evidence：2026-08-09 r1
 - `UNKNOWN` 私有／企業內 skill 的採用比例、實際使用頻率與業務成效。
 
 ### Task distribution
 
 | task | share |
 |---|---:|
-| 配置 (`configure`) | 33.3% |
-| 調度 (`orchestrate`) | 22.2% |
-| 生成 (`generate`) | 16.7% |
-| 驗證 (`verify`) | 11.1% |
-| 分析 (`analyze`) | 8.3% |
+| 配置 (`configure`) | 32.4% |
+| 調度 (`orchestrate`) | 21.6% |
+| 生成 (`generate`) | 16.2% |
+| 驗證 (`verify`) | 13.5% |
+| 分析 (`analyze`) | 8.1% |
 
 ### Structural signals
 
@@ -38,12 +38,13 @@
 | 2026-07-28 | 2 | 36 | 0.65% | 36.1% | +168 | corpus recovery 1012 rows and editorial migration |
 | 2026-07-29 | 1 | 36 | 0.64% | 36.1% | +48 | scheduled evidence ingest |
 | 2026-08-08 | 1 | 36 | 0.59% | 36.1% | +510 | scheduled evidence ingest |
+| 2026-08-09 | 1 | 37 | 0.59% | 35.1% | +111 | scheduled evidence ingest |
 
 ## Evidence contract
 
 - 中立抽樣限定；所有 `targeted-*` 排除於母體統計。
 - 模型欄位信心門檻：`0.6`；各欄位分開判定。
 - Wiki 不收錄第三方原文；質性例子須另經 injection 與 privacy 檢查。
-- master SHA-256：`fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99`
+- master SHA-256：`525eae0729c04016805952d540523f4d663494c1d9fd93dad59b9b4b9096eed1`
 
 [返回 Wiki index](README.md)

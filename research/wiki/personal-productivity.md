@@ -10,10 +10,10 @@
 
 ## Current evidence
 
-- `PROVEN` 中立且可用的 domain 樣本：**320**（母體 5.22%）
+- `PROVEN` 中立且可用的 domain 樣本：**320**（母體 5.13%）
 - `PROVEN` production：**20.7%**（maturity 有效樣本 319）
 - `PROVEN` agent target：**5.1%**（target 有效樣本 314）
-- `PROVEN` 最新 evidence：2026-08-08 r1
+- `PROVEN` 最新 evidence：2026-08-09 r1
 - `UNKNOWN` 私有／企業內 skill 的採用比例、實際使用頻率與業務成效。
 
 ### Task distribution
@@ -30,7 +30,7 @@
 
 | missing task | observed / expected | ratio |
 |---|---:|---:|
-| 驗證 (`verify`) | 3 / 49.7 | 0.06x |
+| 驗證 (`verify`) | 3 / 49.5 | 0.06x |
 
 `PROVEN` 僅限 observed/expected 計算；把缺口解讀成產品機會仍是 `ASSUMED`，需 owner 判斷。
 
@@ -42,12 +42,13 @@
 | 2026-07-28 | 2 | 308 | 5.53% | 21.2% | +168 | corpus recovery 1012 rows and editorial migration |
 | 2026-07-29 | 1 | 308 | 5.48% | 21.2% | +48 | scheduled evidence ingest |
 | 2026-08-08 | 1 | 320 | 5.22% | 20.7% | +510 | scheduled evidence ingest |
+| 2026-08-09 | 1 | 320 | 5.13% | 20.7% | +111 | scheduled evidence ingest |
 
 ## Evidence contract
 
 - 中立抽樣限定；所有 `targeted-*` 排除於母體統計。
 - 模型欄位信心門檻：`0.6`；各欄位分開判定。
 - Wiki 不收錄第三方原文；質性例子須另經 injection 與 privacy 檢查。
-- master SHA-256：`fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99`
+- master SHA-256：`525eae0729c04016805952d540523f4d663494c1d9fd93dad59b9b4b9096eed1`
 
 [返回 Wiki index](README.md)

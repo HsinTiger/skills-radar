@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
- "report_date": "2026-08-08",
- "completed_at": "2026-08-08T02:33:52.450586+00:00",
+ "report_date": "2026-08-09",
+ "completed_at": "2026-08-09T01:12:38.194890+00:00",
  "status": "PASS",
  "gates": {
   "corpus_update": "SUCCESS",
@@ -17,133 +17,23 @@
  },
  "corpus_update": {
   "status": "SUCCESS",
-  "new_rows": 3045,
-  "rows_after": 45452,
-  "run_context": "manual_recovery"
+  "new_rows": 94,
+  "rows_after": 45546,
+  "run_context": "launchd"
  },
  "timescale": {
   "updated_periods": [
    {
     "scale": "day",
-    "period_id": "2026-07-29"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-07-30"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-07-31"
-   },
-   {
-    "scale": "month",
-    "period_id": "2026-07"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-01"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-02"
-   },
-   {
-    "scale": "week",
-    "period_id": "2026-W31"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-03"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-04"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-05"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-06"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-07"
+    "period_id": "2026-08-08"
    }
   ],
   "due": [
    {
     "scale": "day",
-    "period_id": "2026-07-29",
-    "start": "2026-07-29",
-    "end": "2026-07-29"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-07-30",
-    "start": "2026-07-30",
-    "end": "2026-07-30"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-07-31",
-    "start": "2026-07-31",
-    "end": "2026-07-31"
-   },
-   {
-    "scale": "month",
-    "period_id": "2026-07",
-    "start": "2026-07-01",
-    "end": "2026-07-31"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-01",
-    "start": "2026-08-01",
-    "end": "2026-08-01"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-02",
-    "start": "2026-08-02",
-    "end": "2026-08-02"
-   },
-   {
-    "scale": "week",
-    "period_id": "2026-W31",
-    "start": "2026-07-27",
-    "end": "2026-08-02"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-03",
-    "start": "2026-08-03",
-    "end": "2026-08-03"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-04",
-    "start": "2026-08-04",
-    "end": "2026-08-04"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-05",
-    "start": "2026-08-05",
-    "end": "2026-08-05"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-06",
-    "start": "2026-08-06",
-    "end": "2026-08-06"
-   },
-   {
-    "scale": "day",
-    "period_id": "2026-08-07",
-    "start": "2026-08-07",
-    "end": "2026-08-07"
+    "period_id": "2026-08-08",
+    "start": "2026-08-08",
+    "end": "2026-08-08"
    }
   ],
   "backlog": {
@@ -156,7 +46,7 @@
  "schedule_contract": {
   "dispatcher": "daily 08:30 Asia/Taipei",
   "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
-  "execution_context": "manual_recovery",
+  "execution_context": "launchd",
   "day": "previous complete day",
   "week": "previous complete Monday-Sunday week",
   "month": "previous complete calendar month",

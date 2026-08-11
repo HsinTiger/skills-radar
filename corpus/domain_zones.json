@@ -1,26 +1,26 @@
 {
  "schema_version": 1,
- "report_date": "2026-08-08",
- "generated_at": "2026-08-08T14:51:27.746780+00:00",
+ "report_date": "2026-08-09",
+ "generated_at": "2026-08-09T01:12:38.641668+00:00",
  "status": "READY_FOR_OWNER_REVIEW",
  "corpus_freshness": {
   "status": "CURRENT",
-  "master_sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
+  "master_sha256": "525eae0729c04016805952d540523f4d663494c1d9fd93dad59b9b4b9096eed1",
   "actual": {
-   "rows": 45452,
-   "seed": 6577,
+   "rows": 45546,
+   "seed": 6671,
    "model": 38875
   },
   "expected": {
-   "seed": 6577,
+   "seed": 6671,
    "model": 38875
   },
   "population_claims_allowed": false,
   "note": "master 與 model report 對齊；推薦仍只是候選排序，不是採用或正確性證明。"
  },
  "schedule_proof": {
-  "execution_context": "manual_recovery",
-  "unattended_schedule_proven": false,
+  "execution_context": "launchd",
+  "unattended_schedule_proven": true,
   "claim_boundary": "manual_recovery/manual_canary 可補資料，但只有真實排程 marker 才證明 unattended schedule。"
  },
  "cadence": {
@@ -44,12 +44,12 @@
      "status": "AI_GENERATED",
      "period": {
       "scale": "day",
-      "period_id": "2026-08-07",
-      "start": "2026-08-07",
-      "end": "2026-08-07"
+      "period_id": "2026-08-08",
+      "start": "2026-08-08",
+      "end": "2026-08-08"
      },
-     "headline": "設計領域生成技能單點出現，持續缺乏大樣本動能",
-     "lead": "無相關資料可供電子設計自動化分析。",
+     "headline": "新發現技能大幅增加，惟近期新設專案集中於基礎設施與軟體工程",
+     "lead": "本期未尋獲符合特殊應用積體電路或暫存器傳輸級設計條件的樣本，目前無足夠跡象判斷數位晶片設計自動化的最新進展。",
      "context": "日尺度只決定今天是否有新的 source/review/evidence 需要處理；不因單日件數改寫設計方法。",
      "counterpoint": "公開 skill 供給很可能低估公司內數位 IC 實務；secondary taxonomy 目前為 BLOCKED，因此候選數與關鍵字命中不能替代人工審查或 NX runtime evidence。",
      "next_actions": [
@@ -59,7 +59,9 @@
       "若實際 canary 無法重現、需要外傳內部資訊或不能產生 tool readback，該 skill 應降級或退役。"
      ],
      "caveats": [
-      "極度不完整的近期資料會嚴重扭曲對市場現況的認知。"
+      "依專案建立時間歸入本期的樣本極度缺乏，大幅限縮了結構變化判斷的可靠性。",
+      "文件標示的成熟度無法等同於真實商業環境的部署狀態。",
+      "最新的專案可能因搜尋索引不全而遺漏，我們必須對近期的絕對數量保持謹慎。"
      ],
      "confidence": "LOW",
      "evidence": {
@@ -71,7 +73,7 @@
       "taxonomy_validation": "BLOCKED",
       "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
      },
-     "generated_at": "2026-08-08T02:32:52.293036+00:00",
+     "generated_at": "2026-08-09T01:10:54.011842+00:00",
      "claim_boundary": "AI 觀點受 period evidence 約束；它不是 skill 正確性、EDA signoff、實際部署或投資績效證明。"
     },
     {
@@ -1994,12 +1996,12 @@
      "status": "AI_GENERATED",
      "period": {
       "scale": "day",
-      "period_id": "2026-08-07",
-      "start": "2026-08-07",
-      "end": "2026-08-07"
+      "period_id": "2026-08-08",
+      "start": "2026-08-08",
+      "end": "2026-08-08"
      },
-     "headline": "設計領域生成技能單點出現，持續缺乏大樣本動能",
-     "lead": "無相關資料可供財經投資領域研判。",
+     "headline": "新發現技能大幅增加，惟近期新設專案集中於基礎設施與軟體工程",
+     "lead": "本次未能觀察到針對財報解讀、估值或風險研究的相關樣本，暫無財經領域的實質觀點可供探討。",
      "context": "日尺度是一條 research tape：只記錄 reviewed skill、source pin、license 與引用是否改變，不談趨勢。",
      "counterpoint": "GitHub 上的財經 skill 供給不是機構採用證據；公開資料也會漏掉內部研究。方法品質只能由來源、重算與反證來提升。",
      "next_actions": [
@@ -2009,7 +2011,9 @@
       "若來源不可達、公式無法重算、as-of/revision 不明或輸出滑向買賣指令，該方法應降級或排除。"
      ],
      "caveats": [
-      "極度不完整的近期資料會嚴重扭曲對市場現況的認知。"
+      "依專案建立時間歸入本期的樣本極度缺乏，大幅限縮了結構變化判斷的可靠性。",
+      "文件標示的成熟度無法等同於真實商業環境的部署狀態。",
+      "最新的專案可能因搜尋索引不全而遺漏，我們必須對近期的絕對數量保持謹慎。"
      ],
      "confidence": "LOW",
      "evidence": {
@@ -2022,7 +2026,7 @@
       },
       "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
      },
-     "generated_at": "2026-08-08T02:32:52.293036+00:00",
+     "generated_at": "2026-08-09T01:10:54.011842+00:00",
      "claim_boundary": "AI 觀點受 period evidence 約束；它不是 skill 正確性、EDA signoff、實際部署或投資績效證明。"
     },
     {
@@ -2327,7 +2331,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.698,
+      "domain_conf": 0.701,
       "stars_repo_level": 3622
      },
      "do_not_claim": [
@@ -2394,7 +2398,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.647,
+      "domain_conf": 0.639,
       "stars_repo_level": 511
      },
      "do_not_claim": [
@@ -2666,7 +2670,7 @@
      "evidence": {
       "first_seen": "2026-07-26",
       "label_source": "model",
-      "domain_conf": 0.853,
+      "domain_conf": 0.857,
       "stars_repo_level": 27770
      },
      "do_not_claim": [
@@ -2847,7 +2851,7 @@
      "status": "AI_GENERATED",
      "period": {
       "scale": "day",
-      "period_id": "2026-08-08"
+      "period_id": "2026-08-09"
      },
      "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
      "lead": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
@@ -2865,7 +2869,7 @@
      "confidence": "MEDIUM",
      "evidence": {
       "history_started_at": "2026-07-29",
-      "observation_days": 2,
+      "observation_days": 3,
       "review_count": 8,
       "grade_counts": {
        "B": 4,
@@ -2898,12 +2902,12 @@
     {
      "scale": "week",
      "scale_zh": "週",
-     "status": "INSUFFICIENT_HISTORY",
+     "status": "AI_GENERATED",
      "period": {
       "scale": "week",
       "period_id": "2026-W32"
      },
-     "headline": "週尺度歷史尚短，先保留觀測而不宣稱趨勢",
+     "headline": "從工具清單轉向一條可失敗、可恢復的 harness canary",
      "lead": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
      "context": "週尺度應選一個角色缺口做公開 fixture 實驗，量測重試、rollback、context retention 與 owner interruption。",
      "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
@@ -2916,10 +2920,10 @@
       "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
       "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
      ],
-     "confidence": "LOW",
+     "confidence": "MEDIUM",
      "evidence": {
       "history_started_at": "2026-07-29",
-      "observation_days": 2,
+      "observation_days": 3,
       "review_count": 8,
       "grade_counts": {
        "B": 4,
@@ -2973,7 +2977,7 @@
      "confidence": "LOW",
      "evidence": {
       "history_started_at": "2026-07-29",
-      "observation_days": 2,
+      "observation_days": 3,
       "review_count": 8,
       "grade_counts": {
        "B": 4,
@@ -3027,7 +3031,7 @@
      "confidence": "LOW",
      "evidence": {
       "history_started_at": "2026-07-29",
-      "observation_days": 2,
+      "observation_days": 3,
       "review_count": 8,
       "grade_counts": {
        "B": 4,
@@ -4095,14 +4099,14 @@
    },
    "github_breakout_lab": {
     "status": "COMPARABLE",
-    "history_days": 2,
+    "history_days": 3,
     "thesis": "Stars 是稀缺注意力與出圈程度的強訊號：用來決定先拆誰；source review、release/commit、failure model、tests 與 canary 才決定學什麼、能否採用。",
     "ranked": [
      {
       "name": "MCP Reference Servers",
       "repo": "modelcontextprotocol/servers",
-      "stars": 89331,
-      "star_delta": 320,
+      "stars": 89352,
+      "star_delta": 21,
       "bucket": "OUTLIER_ATTENTION",
       "grade": "A",
       "recommendation": "pilot",
@@ -4114,8 +4118,8 @@
      {
       "name": "Agent-Reach",
       "repo": "Panniantong/Agent-Reach",
-      "stars": 68388,
-      "star_delta": 6382,
+      "stars": 68834,
+      "star_delta": 446,
       "bucket": "OUTLIER_ATTENTION",
       "grade": "B",
       "recommendation": "watch",
@@ -4127,47 +4131,47 @@
      {
       "name": "Headroom",
       "repo": "headroomlabs-ai/headroom",
-      "stars": 65411,
-      "star_delta": 2391,
+      "stars": 65532,
+      "star_delta": 121,
       "bucket": "OUTLIER_ATTENTION",
       "grade": "B",
       "recommendation": "watch",
       "commit_drift": true,
-      "pushed_at": "2026-08-07T22:17:32Z",
+      "pushed_at": "2026-08-08T20:48:27Z",
       "implementation_fit": "長任務需要壓縮脈絡，但設計約束與失敗證據不能因省 token 被靜默丟失。",
       "first_experiment": "在去識別化公開 trace 上做壓縮／不壓縮對照，逐項檢查 constraint retention、取回率與任務結果。"
      },
      {
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
-      "stars": 39156,
-      "star_delta": 762,
+      "stars": 39245,
+      "star_delta": 89,
       "bucket": "BREAKOUT_SCALE",
       "grade": "A",
       "recommendation": "pilot",
       "commit_drift": true,
-      "pushed_at": "2026-08-07T20:40:15Z",
+      "pushed_at": "2026-08-09T00:28:39Z",
       "implementation_fit": "長時間 EDA 任務必須能 checkpoint、重試、取消與恢復，且流程真相不能只存在 agent 對話。",
       "first_experiment": "用公開多步驟任務模擬中斷、重入與重複 side effect，驗證 checkpoint conformance 與 idempotence。"
      },
      {
       "name": "Langfuse",
       "repo": "langfuse/langfuse",
-      "stars": 32715,
-      "star_delta": 652,
+      "stars": 32750,
+      "star_delta": 35,
       "bucket": "BREAKOUT_SCALE",
       "grade": "B",
       "recommendation": "watch",
       "commit_drift": true,
-      "pushed_at": "2026-08-07T22:57:28Z",
+      "pushed_at": "2026-08-08T10:57:42Z",
       "implementation_fit": "trace 只有在能連回輸入版本、工具呼叫、artifact 與評測 oracle 時才有工程價值。",
       "first_experiment": "對公開 task set 收集已脫敏 trace，建立 failure taxonomy、eval linkage、retention 與 telemetry-off readback。"
      },
      {
       "name": "Composio",
       "repo": "ComposioHQ/composio",
-      "stars": 29575,
-      "star_delta": 144,
+      "stars": 29588,
+      "star_delta": 13,
       "bucket": "BREAKOUT_SCALE",
       "grade": "C",
       "recommendation": "watch",
@@ -4179,8 +4183,8 @@
      {
       "name": "E2B",
       "repo": "e2b-dev/E2B",
-      "stars": 13290,
-      "star_delta": 129,
+      "stars": 13307,
+      "star_delta": 17,
       "bucket": "BREAKOUT_SCALE",
       "grade": "B",
       "recommendation": "watch",
@@ -4192,8 +4196,8 @@
      {
       "name": "Agentic Harness Engineering",
       "repo": "china-qijizhifeng/agentic-harness-engineering",
-      "stars": 806,
-      "star_delta": 26,
+      "stars": 809,
+      "star_delta": 3,
       "bucket": "QUIET_HIGH_SIGNAL",
       "grade": "A",
       "recommendation": "pilot",
@@ -5659,13 +5663,13 @@
    },
    "observation_tape": {
     "started_at": "2026-07-29",
-    "days": 2,
+    "days": 3,
     "latest": {
-     "date": "2026-08-08",
-     "observed_at": "2026-08-08T02:30:28.532580+00:00",
+     "date": "2026-08-09",
+     "observed_at": "2026-08-09T01:09:59.438789+00:00",
      "status": "DAILY_OBSERVATION",
-     "history_days": 2,
-     "evidence_hash": "516925e5f93ebb30f3b9f4a3c952b35d02d4e8a7d6c89d1eb8a191dc83fce31d",
+     "history_days": 3,
+     "evidence_hash": "3737d2de137def6821e0fe4322044ac2ab55ccb96ec7efce7a606330eb383d4d",
      "review_count": 8,
      "grade_counts": {
       "B": 4,
@@ -5695,7 +5699,7 @@
        "pinned_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
        "observed_head": "13cba53b1d1d88eb9f54b740735fcd33534e0eb5",
        "commit_drift": true,
-       "stars": 29575,
+       "stars": 29588,
        "pushed_at": "2026-08-08T00:41:27Z",
        "metadata_source": "daily_fact"
       },
@@ -5707,7 +5711,7 @@
        "pinned_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
        "observed_head": "1221ecd0c3e0502ee37406f03543bedf7503f2c7",
        "commit_drift": true,
-       "stars": 68388,
+       "stars": 68834,
        "pushed_at": "2026-08-06T12:09:49Z",
        "metadata_source": "daily_fact"
       },
@@ -5719,7 +5723,7 @@
        "pinned_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
        "observed_head": "8b2a55d97590363fe50c3cc6b5e833b020a4bb4c",
        "commit_drift": true,
-       "stars": 806,
+       "stars": 809,
        "pushed_at": "2026-08-03T03:54:33Z",
        "metadata_source": "daily_fact"
       },
@@ -5731,7 +5735,7 @@
        "pinned_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
        "observed_head": "cab27aa6fabd53f759189328c4f74df2df1550ad",
        "commit_drift": true,
-       "stars": 13290,
+       "stars": 13307,
        "pushed_at": "2026-08-07T20:10:25Z",
        "metadata_source": "daily_fact"
       },
@@ -5741,10 +5745,10 @@
        "grade": "B",
        "recommendation": "watch",
        "pinned_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
-       "observed_head": "1f5fefffd3e82c73bddd928cfd53334031e807bc",
+       "observed_head": "91d6bf33cde777b541375fb182d4479fdd78f81b",
        "commit_drift": true,
-       "stars": 65411,
-       "pushed_at": "2026-08-07T22:17:32Z",
+       "stars": 65532,
+       "pushed_at": "2026-08-08T20:48:27Z",
        "metadata_source": "daily_fact"
       },
       {
@@ -5753,10 +5757,10 @@
        "grade": "A",
        "recommendation": "pilot",
        "pinned_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
-       "observed_head": "fde3068970679184b68d3d068a92c83c966a4888",
+       "observed_head": "d56666f7fbf0d380ad84cdf0cbe5aa48ab0cc086",
        "commit_drift": true,
-       "stars": 39156,
-       "pushed_at": "2026-08-07T20:40:15Z",
+       "stars": 39245,
+       "pushed_at": "2026-08-09T00:28:39Z",
        "metadata_source": "daily_fact"
       },
       {
@@ -5767,8 +5771,8 @@
        "pinned_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
        "observed_head": "017ba00e5080486786029fe68cf03e889320b958",
        "commit_drift": true,
-       "stars": 32715,
-       "pushed_at": "2026-08-07T22:57:28Z",
+       "stars": 32750,
+       "pushed_at": "2026-08-08T10:57:42Z",
        "metadata_source": "daily_fact"
       },
       {
@@ -5779,7 +5783,7 @@
        "pinned_commit": "d31124c982401739917fd817c2a59db344529c16",
        "observed_head": "76d64c822f5125032f89eb71dbdb94e42b434821",
        "commit_drift": true,
-       "stars": 89331,
+       "stars": 89352,
        "pushed_at": "2026-08-05T13:50:29Z",
        "metadata_source": "daily_fact"
       }
@@ -5787,14 +5791,14 @@
      "change_since_previous": {
       "status": "COMPARABLE",
       "star_delta": {
-       "ComposioHQ/composio": 144,
-       "Panniantong/Agent-Reach": 6382,
-       "china-qijizhifeng/agentic-harness-engineering": 26,
-       "e2b-dev/E2B": 129,
-       "headroomlabs-ai/headroom": 2391,
-       "langchain-ai/langgraph": 762,
-       "langfuse/langfuse": 652,
-       "modelcontextprotocol/servers": 320
+       "ComposioHQ/composio": 13,
+       "Panniantong/Agent-Reach": 446,
+       "china-qijizhifeng/agentic-harness-engineering": 3,
+       "e2b-dev/E2B": 17,
+       "headroomlabs-ai/headroom": 121,
+       "langchain-ai/langgraph": 89,
+       "langfuse/langfuse": 35,
+       "modelcontextprotocol/servers": 21
       },
       "source_drift_repos": [
        "ComposioHQ/composio",

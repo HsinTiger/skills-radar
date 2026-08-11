@@ -8,36 +8,36 @@
 > 本 radar 的推薦一律附信任分級與驗證步驟，**任何 skill 都不要看到就裝**。
 > 判斷方法見 [TRUST_MODEL.md](TRUST_MODEL.md)，來源分級見 [SOURCES.md](SOURCES.md)。
 
-## 最新一期：[2026-08-08](daily/2026-08-08.md)
+## 最新一期：[2026-08-09](daily/2026-08-09.md)
 
-**今日一句話**：Claude Code 釋出跨會話通訊與 Self-hosted Runner，Agent-Reach 的零配置管道大洗牌，生態正式走向多 Agent 協作與混合部署。
+**今日一句話**：Claude Code 釋出跨 session 通訊與自託管環境支援（v2.1.224），同時學界與社群對 Agent Skill 的安全風險（如軌跡下毒與隱藏惡意指令）拉響警報。
 
 **短期建議（一週內）**
 
-1. **升級 Claude Code 並檢查 CI 權限**：官方剛修補了 Bash 與 Unicode 欺騙漏洞，並更新了自動模式的權限判定機制。請立即將本機與 pipeline 上的 Claude Code 升級至 v2.1.225，以防禦潛在的惡意 payload 攻擊。
-2. **重構社群爬蟲與發文 Pipeline**：如果你有依賴 `Agent-Reach` 或 `yt-dlp` 抓取 B 站或發文到 Reddit，注意其底層邏輯已大改（B 站被 412 風控阻擋，Reddit 需強制登入態 OpenCLI）。本週內應安排時間測試並切換至他們推薦的後端路由，避免現有排程失效。
+1. **升級 Claude Code 並測試跨 Session 通訊**：更新至 v2.1.226，試著在你的兩條自動化 pipeline（例如：一條負責市場資訊監控，一條負責曼報知識庫分類）之間，利用 `crossSessionInbound` 建立直接通訊通道，簡化你現有的架構。
+2. **盤點資訊監控 Pipeline 的失效風險**：由於多家社群平台的「零配置」抓取路徑已被封殺，請檢查你現有的監控腳本。若是依賴舊版免登入 API，請準備將架構切換至需要本機登入授權的工具，並建議將這些工具放進 Docker 或獨立虛擬機沙盒中執行，以防憑證外洩。
 
 ## 生態指標
 
 | repo | 目前 star | 自 2026-07-26 起變化 |
 |---|---:|---:|
-| anthropics/skills | 166,901 | +2,714 |
-| anthropics/claude-plugins-official | 33,249 | +581 |
-| anthropics/claude-code | 140,611 | +1,511 |
-| ComposioHQ/awesome-claude-skills | 72,033 | +1,333 |
-| travisvn/awesome-claude-skills | 14,559 | +242 |
+| anthropics/skills | 167,063 | +2,876 |
+| anthropics/claude-plugins-official | 33,283 | +615 |
+| anthropics/claude-code | 140,734 | +1,634 |
+| ComposioHQ/awesome-claude-skills | 72,087 | +1,387 |
+| travisvn/awesome-claude-skills | 14,564 | +247 |
 
 ## 專題研究
 
-- [每日觀點文章](research/editorials/2026-08-08.md)：
+- [每日觀點文章](research/editorials/2026-08-09.md)：
   以當日 corpus manifest、四尺度 evidence、EDA_IC、財經與 AI harness 清單生成；包含核心主張、反方觀點與證偽條件。
-- [每日 EDA_IC／財經投資／AI Harness Skill 建議](research/recommendations/2026-08-08.md)：
+- [每日 EDA_IC／財經投資／AI Harness Skill 建議](research/recommendations/2026-08-09.md)：
   每日 08:30 以 deterministic gate 更新；`pilot` 只代表可進入隔離評估，不代表已安裝、已上線或通過正確性驗證。
-- [EDA／數位 IC 設計專區](research/zones/eda-ic/2026-08-08.md)：
+- [EDA／數位 IC 設計專區](research/zones/eda-ic/2026-08-09.md)：
   逐 skill dossier、日／週／月／季 AI 觀點，以及 WiFi baseband ASIC automation 建置路線；排除 FPGA／embedded／PCB／analog-RF。
-- [財經投資研究專區](research/zones/investing/2026-08-08.md)：
+- [財經投資研究專區](research/zones/investing/2026-08-09.md)：
   逐 skill 研究 gate 與多週期觀點；只做可追溯、可重算研究，不連帳戶、不下單。
-- [AI 應用／Agent Harness／Automation 情報專區](research/zones/ai-automation/2026-08-08.md)：
+- [AI 應用／Agent Harness／Automation 情報專區](research/zones/ai-automation/2026-08-09.md)：
   pinned source dossier、每日 observation tape、專業情報 thesis、反方觀點、催化劑、領先指標與個人化 ASIC automation 路線。
 - 日／週／月／季觀點：每天早上由同一個排程補齊尚未完成的週期；正文以繁中短篇文章呈現，
   數據依據收在可展開區塊。沒有完整資料就明說不足，不用空值硬湊結論。
@@ -88,6 +88,7 @@ Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或�
 
 ## 歷史簡報
 
+- [2026-08-09](daily/2026-08-09.md)
 - [2026-08-08](daily/2026-08-08.md)
 - [2026-08-07](daily/2026-08-07.md)
 - [2026-08-06](daily/2026-08-06.md)
@@ -102,6 +103,7 @@ Mac 首次準備：`python3 -m pip install -r requirements-ml.txt`；安裝或�
 
 ## 每日觀點文章
 
+- [2026-08-09](research/editorials/2026-08-09.md)
 - [2026-08-08](research/editorials/2026-08-08.md)
 - [2026-07-29](research/editorials/2026-07-29.md)
 - [2026-07-28](research/editorials/2026-07-28.md)

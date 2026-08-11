@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "started_at": "2026-07-29",
- "updated_at": "2026-08-08T02:30:28.532580+00:00",
+ "updated_at": "2026-08-09T01:09:59.438789+00:00",
  "observations": [
   {
    "date": "2026-07-29",
@@ -341,14 +341,191 @@
     "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
    },
    "claim_boundary": "GitHub metadata and static source review only; stars, commits and README claims do not prove adoption, security, runtime reliability, EDA correctness or business value"
+  },
+  {
+   "date": "2026-08-09",
+   "observed_at": "2026-08-09T01:09:59.438789+00:00",
+   "status": "DAILY_OBSERVATION",
+   "history_days": 3,
+   "evidence_hash": "3737d2de137def6821e0fe4322044ac2ab55ccb96ec7efce7a606330eb383d4d",
+   "review_count": 8,
+   "grade_counts": {
+    "B": 4,
+    "A": 3,
+    "C": 1
+   },
+   "recommendation_counts": {
+    "watch": 5,
+    "pilot": 3
+   },
+   "role_counts": {
+    "reach-routing": 1,
+    "context-compression": 1,
+    "harness-governance": 1,
+    "durable-orchestration": 1,
+    "observability-evaluation": 1,
+    "sandbox": 1,
+    "tool-discovery": 1,
+    "integration-control-plane": 1
+   },
+   "repo_metrics": [
+    {
+     "repo": "ComposioHQ/composio",
+     "role": "integration-control-plane",
+     "grade": "C",
+     "recommendation": "watch",
+     "pinned_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
+     "observed_head": "13cba53b1d1d88eb9f54b740735fcd33534e0eb5",
+     "commit_drift": true,
+     "stars": 29588,
+     "pushed_at": "2026-08-08T00:41:27Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "Panniantong/Agent-Reach",
+     "role": "reach-routing",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
+     "observed_head": "1221ecd0c3e0502ee37406f03543bedf7503f2c7",
+     "commit_drift": true,
+     "stars": 68834,
+     "pushed_at": "2026-08-06T12:09:49Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "china-qijizhifeng/agentic-harness-engineering",
+     "role": "harness-governance",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
+     "observed_head": "8b2a55d97590363fe50c3cc6b5e833b020a4bb4c",
+     "commit_drift": true,
+     "stars": 809,
+     "pushed_at": "2026-08-03T03:54:33Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "e2b-dev/E2B",
+     "role": "sandbox",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
+     "observed_head": "cab27aa6fabd53f759189328c4f74df2df1550ad",
+     "commit_drift": true,
+     "stars": 13307,
+     "pushed_at": "2026-08-07T20:10:25Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "headroomlabs-ai/headroom",
+     "role": "context-compression",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
+     "observed_head": "91d6bf33cde777b541375fb182d4479fdd78f81b",
+     "commit_drift": true,
+     "stars": 65532,
+     "pushed_at": "2026-08-08T20:48:27Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "langchain-ai/langgraph",
+     "role": "durable-orchestration",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
+     "observed_head": "d56666f7fbf0d380ad84cdf0cbe5aa48ab0cc086",
+     "commit_drift": true,
+     "stars": 39245,
+     "pushed_at": "2026-08-09T00:28:39Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "langfuse/langfuse",
+     "role": "observability-evaluation",
+     "grade": "B",
+     "recommendation": "watch",
+     "pinned_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
+     "observed_head": "017ba00e5080486786029fe68cf03e889320b958",
+     "commit_drift": true,
+     "stars": 32750,
+     "pushed_at": "2026-08-08T10:57:42Z",
+     "metadata_source": "daily_fact"
+    },
+    {
+     "repo": "modelcontextprotocol/servers",
+     "role": "tool-discovery",
+     "grade": "A",
+     "recommendation": "pilot",
+     "pinned_commit": "d31124c982401739917fd817c2a59db344529c16",
+     "observed_head": "76d64c822f5125032f89eb71dbdb94e42b434821",
+     "commit_drift": true,
+     "stars": 89352,
+     "pushed_at": "2026-08-05T13:50:29Z",
+     "metadata_source": "daily_fact"
+    }
+   ],
+   "change_since_previous": {
+    "status": "COMPARABLE",
+    "star_delta": {
+     "ComposioHQ/composio": 13,
+     "Panniantong/Agent-Reach": 446,
+     "china-qijizhifeng/agentic-harness-engineering": 3,
+     "e2b-dev/E2B": 17,
+     "headroomlabs-ai/headroom": 121,
+     "langchain-ai/langgraph": 89,
+     "langfuse/langfuse": 35,
+     "modelcontextprotocol/servers": 21
+    },
+    "source_drift_repos": [
+     "ComposioHQ/composio",
+     "Panniantong/Agent-Reach",
+     "china-qijizhifeng/agentic-harness-engineering",
+     "e2b-dev/E2B",
+     "headroomlabs-ai/headroom",
+     "langchain-ai/langgraph",
+     "langfuse/langfuse",
+     "modelcontextprotocol/servers"
+    ]
+   },
+   "analysis": {
+    "headline": "模型與單點工具正在商品化，價值正上移到可治理的 Agent Harness",
+    "claim": "下一波差異化不在再做一個會回答問題的代理，而在把資訊入口、脈絡壓縮、持久狀態、工具路由、評測觀測、隔離執行與證據契約組成可恢復的控制平面。",
+    "counterpoint": "熱門專案的星數、文件自述節省量與平台覆蓋不等於企業採用或可靠性；原生模型能力也可能快速吸收部分框架價值。",
+    "potential_track": "Evidence-Governed Domain Agent Harness",
+    "owner_specialization": "聚焦高風險工程與 ASIC automation：把設計意圖、驗證意圖、確定性執行包、真實工具證據與 owner approval 串成一條可稽核鏈，而不是投入通用爬蟲或提示工程。",
+    "catalysts": [
+     "工具數量增加後，動態發現與最小權限路由比把所有工具塞進上下文更重要",
+     "長任務與多代理協作需要 conversation 外的 checkpoint、重試、取消與 readback",
+     "企業開始要求 trace、evaluation、sandbox、資料邊界與人類核准能同時成立",
+     "模型價格與能力收斂，使 domain evidence contract 成為更持久的差異化資產"
+    ],
+    "leading_indicators": [
+     "開源專案是否從 agent demo 轉向 checkpoint、conformance、doctor 與 rollback",
+     "工具整合是否改採 runtime discovery、scoped auth 與可撤銷 session",
+     "evaluation 是否能連回確切輸入、工具呼叫、輸出與失敗分類",
+     "sandbox 是否提供網路、檔案、credential 與 artifact 的明確政策及 readback",
+     "同一 evidence contract 是否能跨至少三個 domain task 重現"
+    ],
+    "falsifiers": [
+     "原生模型平台在不犧牲可攜性下完整吸收 durable state、evaluation 與 policy control",
+     "增加 harness 層後沒有降低失敗重現時間或 owner 介入次數",
+     "context compression 在真實任務上造成關鍵約束遺失且無法由可逆取回機制補救",
+     "domain workflow 無法產生可機器讀取的工具證據，只剩敘事型報告"
+    ],
+    "confidence": "MEDIUM",
+    "history_boundary": "2026-07-29 才開始保存此專區的每日 observation tape；更早期間只能引用既有 corpus 史料，不可偽造成逐日追蹤。"
+   },
+   "claim_boundary": "GitHub metadata and static source review only; stars, commits and README claims do not prove adoption, security, runtime reliability, EDA correctness or business value"
   }
  ],
  "latest": {
-  "date": "2026-08-08",
-  "observed_at": "2026-08-08T02:30:28.532580+00:00",
+  "date": "2026-08-09",
+  "observed_at": "2026-08-09T01:09:59.438789+00:00",
   "status": "DAILY_OBSERVATION",
-  "history_days": 2,
-  "evidence_hash": "516925e5f93ebb30f3b9f4a3c952b35d02d4e8a7d6c89d1eb8a191dc83fce31d",
+  "history_days": 3,
+  "evidence_hash": "3737d2de137def6821e0fe4322044ac2ab55ccb96ec7efce7a606330eb383d4d",
   "review_count": 8,
   "grade_counts": {
    "B": 4,
@@ -378,7 +555,7 @@
     "pinned_commit": "3335bb30134f97b5e12a1c54d6daa821e0d8106e",
     "observed_head": "13cba53b1d1d88eb9f54b740735fcd33534e0eb5",
     "commit_drift": true,
-    "stars": 29575,
+    "stars": 29588,
     "pushed_at": "2026-08-08T00:41:27Z",
     "metadata_source": "daily_fact"
    },
@@ -390,7 +567,7 @@
     "pinned_commit": "b4d52c46c9113cb0f653d6df4cf71ebadf4930ac",
     "observed_head": "1221ecd0c3e0502ee37406f03543bedf7503f2c7",
     "commit_drift": true,
-    "stars": 68388,
+    "stars": 68834,
     "pushed_at": "2026-08-06T12:09:49Z",
     "metadata_source": "daily_fact"
    },
@@ -402,7 +579,7 @@
     "pinned_commit": "faf44bc4aea57413c520bc5711c6ebf628e0da1e",
     "observed_head": "8b2a55d97590363fe50c3cc6b5e833b020a4bb4c",
     "commit_drift": true,
-    "stars": 806,
+    "stars": 809,
     "pushed_at": "2026-08-03T03:54:33Z",
     "metadata_source": "daily_fact"
    },
@@ -414,7 +591,7 @@
     "pinned_commit": "cf8296cf8997f98aefd6e8236d4d235f5ab1ddad",
     "observed_head": "cab27aa6fabd53f759189328c4f74df2df1550ad",
     "commit_drift": true,
-    "stars": 13290,
+    "stars": 13307,
     "pushed_at": "2026-08-07T20:10:25Z",
     "metadata_source": "daily_fact"
    },
@@ -424,10 +601,10 @@
     "grade": "B",
     "recommendation": "watch",
     "pinned_commit": "1588f5e04144af5de8398810ea3893c6e623309c",
-    "observed_head": "1f5fefffd3e82c73bddd928cfd53334031e807bc",
+    "observed_head": "91d6bf33cde777b541375fb182d4479fdd78f81b",
     "commit_drift": true,
-    "stars": 65411,
-    "pushed_at": "2026-08-07T22:17:32Z",
+    "stars": 65532,
+    "pushed_at": "2026-08-08T20:48:27Z",
     "metadata_source": "daily_fact"
    },
    {
@@ -436,10 +613,10 @@
     "grade": "A",
     "recommendation": "pilot",
     "pinned_commit": "41341457342327166d72fc11952ab28fb61ec0bf",
-    "observed_head": "fde3068970679184b68d3d068a92c83c966a4888",
+    "observed_head": "d56666f7fbf0d380ad84cdf0cbe5aa48ab0cc086",
     "commit_drift": true,
-    "stars": 39156,
-    "pushed_at": "2026-08-07T20:40:15Z",
+    "stars": 39245,
+    "pushed_at": "2026-08-09T00:28:39Z",
     "metadata_source": "daily_fact"
    },
    {
@@ -450,8 +627,8 @@
     "pinned_commit": "90b98d009a6d4c4ce46a5a6dc5187b661bfdd804",
     "observed_head": "017ba00e5080486786029fe68cf03e889320b958",
     "commit_drift": true,
-    "stars": 32715,
-    "pushed_at": "2026-08-07T22:57:28Z",
+    "stars": 32750,
+    "pushed_at": "2026-08-08T10:57:42Z",
     "metadata_source": "daily_fact"
    },
    {
@@ -462,7 +639,7 @@
     "pinned_commit": "d31124c982401739917fd817c2a59db344529c16",
     "observed_head": "76d64c822f5125032f89eb71dbdb94e42b434821",
     "commit_drift": true,
-    "stars": 89331,
+    "stars": 89352,
     "pushed_at": "2026-08-05T13:50:29Z",
     "metadata_source": "daily_fact"
    }
@@ -470,14 +647,14 @@
   "change_since_previous": {
    "status": "COMPARABLE",
    "star_delta": {
-    "ComposioHQ/composio": 144,
-    "Panniantong/Agent-Reach": 6382,
-    "china-qijizhifeng/agentic-harness-engineering": 26,
-    "e2b-dev/E2B": 129,
-    "headroomlabs-ai/headroom": 2391,
-    "langchain-ai/langgraph": 762,
-    "langfuse/langfuse": 652,
-    "modelcontextprotocol/servers": 320
+    "ComposioHQ/composio": 13,
+    "Panniantong/Agent-Reach": 446,
+    "china-qijizhifeng/agentic-harness-engineering": 3,
+    "e2b-dev/E2B": 17,
+    "headroomlabs-ai/headroom": 121,
+    "langchain-ai/langgraph": 89,
+    "langfuse/langfuse": 35,
+    "modelcontextprotocol/servers": 21
    },
    "source_drift_repos": [
     "ComposioHQ/composio",

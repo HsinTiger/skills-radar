@@ -1669,6 +1669,179 @@
       "E6"
      ]
     }
+   },
+   "2026-08-08": {
+    "status": "AI_GENERATED",
+    "generated_at": "2026-08-09T01:10:54.011842+00:00",
+    "run_date": "2026-08-09",
+    "period": {
+     "scale": "day",
+     "period_id": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-08"
+    },
+    "time_contract": {
+     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
+     "archive_clock": "repo_created: repository creation cohort, not skill creation or usage time",
+     "completeness": "recent repo_created cohorts are search-index incomplete; interpret the newest period cautiously"
+    },
+    "evidence": {
+     "E1_sample": {
+      "archive_n": 5,
+      "archive_previous_n": 2,
+      "discovered_n": 527,
+      "discovered_previous_n": 0
+     },
+     "E2_domain_mix": [
+      {
+       "key": "devops-infra",
+       "label": "DevOps 基礎設施",
+       "count": 2,
+       "share_pct": 40.0
+      },
+      {
+       "key": "software-dev",
+       "label": "軟體開發",
+       "count": 2,
+       "share_pct": 40.0
+      },
+      {
+       "key": "marketing-growth",
+       "label": "行銷成長",
+       "count": 1,
+       "share_pct": 20.0
+      }
+     ],
+     "E3_domain_shifts": [],
+     "E4_task_mix": [
+      {
+       "key": "configure",
+       "label": "配置",
+       "count": 2,
+       "share_pct": 40.0
+      },
+      {
+       "key": "generate",
+       "label": "生成",
+       "count": 1,
+       "share_pct": 20.0
+      },
+      {
+       "key": "orchestrate",
+       "label": "調度",
+       "count": 1,
+       "share_pct": 20.0
+      },
+      {
+       "key": "analyze",
+       "label": "分析",
+       "count": 1,
+       "share_pct": 20.0
+      }
+     ],
+     "E5_task_shifts": [],
+     "E6_maturity": {
+      "mix": [
+       {
+        "key": "production",
+        "label": "production",
+        "count": 3,
+        "share_pct": 60.0
+       },
+       {
+        "key": "workflow",
+        "label": "workflow",
+        "count": 2,
+        "share_pct": 40.0
+       }
+      ],
+      "production_document_proxy": {
+       "count": 3,
+       "eligible_n": 5,
+       "pct": 60.0
+      },
+      "agent_target_proxy": {
+       "count": 0,
+       "eligible_n": 5,
+       "pct": 0.0
+      },
+      "warning": "document labels are intent/proxy, not deployment or outcome verification"
+     },
+     "E7_diversity": {
+      "domain_entropy": {
+       "normalized": 0.96,
+       "categories": 3,
+       "n": 5
+      },
+      "task_entropy": {
+       "normalized": 0.961,
+       "categories": 4,
+       "n": 5
+      }
+     },
+     "E8_eda_ic": {
+      "hardware_eda_n": 0,
+      "owner_fit_provisional": {},
+      "hardware_target_provisional": {},
+      "top_asic_stages": [],
+      "wifi_areas": [],
+      "taxonomy_validation": "BLOCKED",
+      "scope_note": "deterministic secondary taxonomy; FPGA/embedded/PCB/analog-RF are not owner-direct"
+     },
+     "E9_finance": {
+      "finance_n": 0,
+      "task_mix": [],
+      "maturity_mix": [],
+      "current_recommendation_states": {
+       "pilot": 2,
+       "watch": 3
+      },
+      "boundary": "research only; no trade execution, broker/wallet credentials, or profit claims"
+     },
+     "E10_quality": {
+      "neutral_population_only": true,
+      "targeted_rows_excluded": true,
+      "archive_domain_eligible_n": 5,
+      "comparison_domain_eligible_n": 2,
+      "minimum_shift_support": 5
+     }
+    },
+    "ai": {
+     "scale": "day",
+     "period_id": "2026-08-08",
+     "headline": "新發現技能大幅增加，惟近期新設專案集中於基礎設施與軟體工程",
+     "executive_summary": "本期系統新發現的技能總數有顯著增長，然而若按專案建立日期檢視，近期新設的樣本依然稀少。在這些少數的近期專案中，軟體開發與基礎設施部署佔據主導地位，主要協助解決系統配置問題。值得注意的是，即便樣本稀缺，文件自述已投入使用的比例過半，且各項任務與領域的分散程度極高，顯示開發者正在多個獨立的利基市場中進行零星嘗試。",
+     "structural_changes": [
+      "軟體開發與基礎設施管理仍是少數新設立專案最優先投入的場域。",
+      "應用領域與任務類型呈現極端發散，暫時缺乏具備強大拉力的新興題材。"
+     ],
+     "eda_ic_readout": "本期未尋獲符合特殊應用積體電路或暫存器傳輸級設計條件的樣本，目前無足夠跡象判斷數位晶片設計自動化的最新進展。",
+     "finance_readout": "本次未能觀察到針對財報解讀、估值或風險研究的相關樣本，暫無財經領域的實質觀點可供探討。",
+     "contrarian_view": "雖然多數文件標示已具備投入使用的成熟度，但考量到極微小的樣本基數，這更可能是個別作者為提高專案能見度所做的宣傳，而非真正在企業環境中獲得實際成效驗證。",
+     "actions": [
+      "優先檢視本期大量新發現的既有專案，發掘過去被遺漏的潛力應用。",
+      "拉長觀察時間至全週，確認新設立專案的冷清狀態是否為週末或假期效應。"
+     ],
+     "falsifiers": [
+      "若未來幾日新建立的專案數急遽反彈，將說明目前的冷清僅是短期波動。",
+      "當樣本擴大後，自稱達可用狀態的比例若大幅下滑，即證明當前的高比例為小樣本偏差。"
+     ],
+     "caveats": [
+      "依專案建立時間歸入本期的樣本極度缺乏，大幅限縮了結構變化判斷的可靠性。",
+      "文件標示的成熟度無法等同於真實商業環境的部署狀態。",
+      "最新的專案可能因搜尋索引不全而遺漏，我們必須對近期的絕對數量保持謹慎。"
+     ],
+     "confidence": "LOW",
+     "evidence_ids": [
+      "E1",
+      "E2",
+      "E4",
+      "E6",
+      "E7",
+      "E8",
+      "E9"
+     ]
+    }
    }
   },
   "week": {
@@ -3751,13 +3924,13 @@
  "latest": {
   "day": {
    "status": "AI_GENERATED",
-   "generated_at": "2026-08-08T02:32:52.293036+00:00",
-   "run_date": "2026-08-08",
+   "generated_at": "2026-08-09T01:10:54.011842+00:00",
+   "run_date": "2026-08-09",
    "period": {
     "scale": "day",
-    "period_id": "2026-08-07",
-    "start": "2026-08-07",
-    "end": "2026-08-07"
+    "period_id": "2026-08-08",
+    "start": "2026-08-08",
+    "end": "2026-08-08"
    },
    "time_contract": {
     "discovery_clock": "first_seen: radar first observed the skill; only valid after monitoring began",
@@ -3766,26 +3939,56 @@
    },
    "evidence": {
     "E1_sample": {
-     "archive_n": 1,
+     "archive_n": 5,
      "archive_previous_n": 2,
-     "discovered_n": 0,
+     "discovered_n": 527,
      "discovered_previous_n": 0
     },
     "E2_domain_mix": [
      {
-      "key": "design-creative",
-      "label": "設計創意",
+      "key": "devops-infra",
+      "label": "DevOps 基礎設施",
+      "count": 2,
+      "share_pct": 40.0
+     },
+     {
+      "key": "software-dev",
+      "label": "軟體開發",
+      "count": 2,
+      "share_pct": 40.0
+     },
+     {
+      "key": "marketing-growth",
+      "label": "行銷成長",
       "count": 1,
-      "share_pct": 100.0
+      "share_pct": 20.0
      }
     ],
     "E3_domain_shifts": [],
     "E4_task_mix": [
      {
+      "key": "configure",
+      "label": "配置",
+      "count": 2,
+      "share_pct": 40.0
+     },
+     {
       "key": "generate",
       "label": "生成",
       "count": 1,
-      "share_pct": 100.0
+      "share_pct": 20.0
+     },
+     {
+      "key": "orchestrate",
+      "label": "調度",
+      "count": 1,
+      "share_pct": 20.0
+     },
+     {
+      "key": "analyze",
+      "label": "分析",
+      "count": 1,
+      "share_pct": 20.0
      }
     ],
     "E5_task_shifts": [],
@@ -3794,32 +3997,38 @@
       {
        "key": "production",
        "label": "production",
-       "count": 1,
-       "share_pct": 100.0
+       "count": 3,
+       "share_pct": 60.0
+      },
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 2,
+       "share_pct": 40.0
       }
      ],
      "production_document_proxy": {
-      "count": 1,
-      "eligible_n": 1,
-      "pct": 100.0
+      "count": 3,
+      "eligible_n": 5,
+      "pct": 60.0
      },
      "agent_target_proxy": {
       "count": 0,
-      "eligible_n": 1,
+      "eligible_n": 5,
       "pct": 0.0
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
     },
     "E7_diversity": {
      "domain_entropy": {
-      "normalized": 0.0,
-      "categories": 1,
-      "n": 1
+      "normalized": 0.96,
+      "categories": 3,
+      "n": 5
      },
      "task_entropy": {
-      "normalized": 0.0,
-      "categories": 1,
-      "n": 1
+      "normalized": 0.961,
+      "categories": 4,
+      "n": 5
      }
     },
     "E8_eda_ic": {
@@ -3844,37 +4053,45 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 1,
+     "archive_domain_eligible_n": 5,
      "comparison_domain_eligible_n": 2,
      "minimum_shift_support": 5
     }
    },
    "ai": {
     "scale": "day",
-    "period_id": "2026-08-07",
-    "headline": "設計領域生成技能單點出現，持續缺乏大樣本動能",
-    "executive_summary": "本日與前幾日相似，僅收錄一件依專案建立日期歸屬的設計創意類樣本，其核心任務為生成，並宣稱已達實用等級。由於全市場連續數日呈現公開活動低谷或受限於索引延遲，今日數據依然無法描繪具代表性的趨勢。",
+    "period_id": "2026-08-08",
+    "headline": "新發現技能大幅增加，惟近期新設專案集中於基礎設施與軟體工程",
+    "executive_summary": "本期系統新發現的技能總數有顯著增長，然而若按專案建立日期檢視，近期新設的樣本依然稀少。在這些少數的近期專案中，軟體開發與基礎設施部署佔據主導地位，主要協助解決系統配置問題。值得注意的是，即便樣本稀缺，文件自述已投入使用的比例過半，且各項任務與領域的分散程度極高，顯示開發者正在多個獨立的利基市場中進行零星嘗試。",
     "structural_changes": [
-     "單一樣本無法用於辨識結構性趨勢。"
+     "軟體開發與基礎設施管理仍是少數新設立專案最優先投入的場域。",
+     "應用領域與任務類型呈現極端發散，暫時缺乏具備強大拉力的新興題材。"
     ],
-    "eda_ic_readout": "無相關資料可供電子設計自動化分析。",
-    "finance_readout": "無相關資料可供財經投資領域研判。",
-    "contrarian_view": "連續的公開平台樣本枯竭，強烈暗示依賴公開開源指標可能已逐漸脫離實際產業導入的節奏，企業端的閉門開發可能正在暗中加速。",
+    "eda_ic_readout": "本期未尋獲符合特殊應用積體電路或暫存器傳輸級設計條件的樣本，目前無足夠跡象判斷數位晶片設計自動化的最新進展。",
+    "finance_readout": "本次未能觀察到針對財報解讀、估值或風險研究的相關樣本，暫無財經領域的實質觀點可供探討。",
+    "contrarian_view": "雖然多數文件標示已具備投入使用的成熟度，但考量到極微小的樣本基數，這更可能是個別作者為提高專案能見度所做的宣傳，而非真正在企業環境中獲得實際成效驗證。",
     "actions": [
-     "尋求額外資料來源以驗證是否出現開源社群疲勞，抑或純粹為平台技術性的收錄延遲。"
+     "優先檢視本期大量新發現的既有專案，發掘過去被遺漏的潛力應用。",
+     "拉長觀察時間至全週，確認新設立專案的冷清狀態是否為週末或假期效應。"
     ],
     "falsifiers": [
-     "若下週起樣本數恢復正常水準，便能否定社群疲勞的悲觀假說。"
+     "若未來幾日新建立的專案數急遽反彈，將說明目前的冷清僅是短期波動。",
+     "當樣本擴大後，自稱達可用狀態的比例若大幅下滑，即證明當前的高比例為小樣本偏差。"
     ],
     "caveats": [
-     "極度不完整的近期資料會嚴重扭曲對市場現況的認知。"
+     "依專案建立時間歸入本期的樣本極度缺乏，大幅限縮了結構變化判斷的可靠性。",
+     "文件標示的成熟度無法等同於真實商業環境的部署狀態。",
+     "最新的專案可能因搜尋索引不全而遺漏，我們必須對近期的絕對數量保持謹慎。"
     ],
     "confidence": "LOW",
     "evidence_ids": [
      "E1",
      "E2",
      "E4",
-     "E6"
+     "E6",
+     "E7",
+     "E8",
+     "E9"
     ]
    }
   },

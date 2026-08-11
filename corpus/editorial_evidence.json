@@ -1,8 +1,8 @@
 {
  "schema_version": 1,
- "editorial_date": "2026-08-08",
+ "editorial_date": "2026-08-09",
  "status": "READY_FOR_AI_EDITORIAL",
- "evidence_digest": "ebcecf9e94e3fc510a6603f338eba439dbdba708bc57f0acad62478c1b03463b",
+ "evidence_digest": "e3df5ebdfdee3168edb2a708272b85f9e6df3925701b4ea4b31220886945dd8a",
  "allowed_citations": [
   "C1",
   "T-day",
@@ -28,22 +28,22 @@
  "evidence_ledger": {
   "C1": {
    "label": "daily corpus update",
-   "run_date": "2026-08-08",
+   "run_date": "2026-08-09",
    "status": "SUCCESS",
    "collector": "github_code_search_incremental",
    "daily_baseline": {
-    "rows": 42407,
-    "sha256": "aa0fb3da6ba9ec1e7b85aaea3a73aed1dcd5872e598e60160abc981af2028f75",
+    "rows": 45452,
+    "sha256": "fb19ae1e48aaca91259bf08212990d203244d3699b28aab9a2406ce2630b9e99",
     "first_seen_on_run_date": 0
    },
    "after": {
-    "rows": 45452,
-    "sha256": "4add3dbaf0da31047f0d5692be016fff9898ca88965cec0cdba21a1230be8483",
-    "first_seen_on_run_date": 3045
+    "rows": 45546,
+    "sha256": "91d42339c0f852976ce451ed336d097e56f662cfc279b9d1e70d09f84670c46b",
+    "first_seen_on_run_date": 94
    },
-   "daily_new_rows": 3045,
-   "delta_rows": 3045,
-   "run_context": "manual_recovery",
+   "daily_new_rows": 94,
+   "delta_rows": 94,
+   "run_context": "launchd",
    "claim_boundary": "SUCCESS proves the public collector completed and the local append-only corpus was read back; new_rows is the preserved run-date delta while run_new_rows is this invocation's growth; zero new rows is valid, while FAILED must never be reported as zero new rows",
    "reader_rule": "daily_new_rows is authoritative for what the database gained on the editorial date"
   },
@@ -51,43 +51,51 @@
    "status": "AI_GENERATED",
    "period": {
     "scale": "day",
-    "period_id": "2026-08-07",
-    "start": "2026-08-07",
-    "end": "2026-08-07"
+    "period_id": "2026-08-08",
+    "start": "2026-08-08",
+    "end": "2026-08-08"
    },
    "ai_summary": {
     "scale": "day",
-    "period_id": "2026-08-07",
-    "headline": "設計領域生成技能單點出現，持續缺乏大樣本動能",
-    "executive_summary": "本日與前幾日相似，僅收錄一件依專案建立日期歸屬的設計創意類樣本，其核心任務為生成，並宣稱已達實用等級。由於全市場連續數日呈現公開活動低谷或受限於索引延遲，今日數據依然無法描繪具代表性的趨勢。",
+    "period_id": "2026-08-08",
+    "headline": "新發現技能大幅增加，惟近期新設專案集中於基礎設施與軟體工程",
+    "executive_summary": "本期系統新發現的技能總數有顯著增長，然而若按專案建立日期檢視，近期新設的樣本依然稀少。在這些少數的近期專案中，軟體開發與基礎設施部署佔據主導地位，主要協助解決系統配置問題。值得注意的是，即便樣本稀缺，文件自述已投入使用的比例過半，且各項任務與領域的分散程度極高，顯示開發者正在多個獨立的利基市場中進行零星嘗試。",
     "structural_changes": [
-     "單一樣本無法用於辨識結構性趨勢。"
+     "軟體開發與基礎設施管理仍是少數新設立專案最優先投入的場域。",
+     "應用領域與任務類型呈現極端發散，暫時缺乏具備強大拉力的新興題材。"
     ],
-    "eda_ic_readout": "無相關資料可供電子設計自動化分析。",
-    "finance_readout": "無相關資料可供財經投資領域研判。",
-    "contrarian_view": "連續的公開平台樣本枯竭，強烈暗示依賴公開開源指標可能已逐漸脫離實際產業導入的節奏，企業端的閉門開發可能正在暗中加速。",
+    "eda_ic_readout": "本期未尋獲符合特殊應用積體電路或暫存器傳輸級設計條件的樣本，目前無足夠跡象判斷數位晶片設計自動化的最新進展。",
+    "finance_readout": "本次未能觀察到針對財報解讀、估值或風險研究的相關樣本，暫無財經領域的實質觀點可供探討。",
+    "contrarian_view": "雖然多數文件標示已具備投入使用的成熟度，但考量到極微小的樣本基數，這更可能是個別作者為提高專案能見度所做的宣傳，而非真正在企業環境中獲得實際成效驗證。",
     "actions": [
-     "尋求額外資料來源以驗證是否出現開源社群疲勞，抑或純粹為平台技術性的收錄延遲。"
+     "優先檢視本期大量新發現的既有專案，發掘過去被遺漏的潛力應用。",
+     "拉長觀察時間至全週，確認新設立專案的冷清狀態是否為週末或假期效應。"
     ],
     "falsifiers": [
-     "若下週起樣本數恢復正常水準，便能否定社群疲勞的悲觀假說。"
+     "若未來幾日新建立的專案數急遽反彈，將說明目前的冷清僅是短期波動。",
+     "當樣本擴大後，自稱達可用狀態的比例若大幅下滑，即證明當前的高比例為小樣本偏差。"
     ],
     "caveats": [
-     "極度不完整的近期資料會嚴重扭曲對市場現況的認知。"
+     "依專案建立時間歸入本期的樣本極度缺乏，大幅限縮了結構變化判斷的可靠性。",
+     "文件標示的成熟度無法等同於真實商業環境的部署狀態。",
+     "最新的專案可能因搜尋索引不全而遺漏，我們必須對近期的絕對數量保持謹慎。"
     ],
     "confidence": "LOW",
     "evidence_ids": [
      "E1",
      "E2",
      "E4",
-     "E6"
+     "E6",
+     "E7",
+     "E8",
+     "E9"
     ]
    },
    "deterministic_evidence": {
     "E1_sample": {
-     "archive_n": 1,
+     "archive_n": 5,
      "archive_previous_n": 2,
-     "discovered_n": 0,
+     "discovered_n": 527,
      "discovered_previous_n": 0
     },
     "E3_domain_shifts": [],
@@ -97,18 +105,24 @@
       {
        "key": "production",
        "label": "production",
-       "count": 1,
-       "share_pct": 100.0
+       "count": 3,
+       "share_pct": 60.0
+      },
+      {
+       "key": "workflow",
+       "label": "workflow",
+       "count": 2,
+       "share_pct": 40.0
       }
      ],
      "production_document_proxy": {
-      "count": 1,
-      "eligible_n": 1,
-      "pct": 100.0
+      "count": 3,
+      "eligible_n": 5,
+      "pct": 60.0
      },
      "agent_target_proxy": {
       "count": 0,
-      "eligible_n": 1,
+      "eligible_n": 5,
       "pct": 0.0
      },
      "warning": "document labels are intent/proxy, not deployment or outcome verification"
@@ -135,7 +149,7 @@
     "E10_quality": {
      "neutral_population_only": true,
      "targeted_rows_excluded": true,
-     "archive_domain_eligible_n": 1,
+     "archive_domain_eligible_n": 5,
      "comparison_domain_eligible_n": 2,
      "minimum_shift_support": 5
     }
@@ -1443,24 +1457,24 @@
   },
   "Q": {
    "label": "neutral-corpus opportunity signals",
-   "n_total": 6131,
+   "n_total": 6242,
    "eligibility": {
     "sample": "neutral only (sample missing, empty, or neutral)",
     "model_conf_min": 0.6,
-    "n_domain": 6131,
-    "n_task": 5744,
-    "n_maturity": 5911,
-    "n_target": 5827
+    "n_domain": 6242,
+    "n_task": 5854,
+    "n_maturity": 6014,
+    "n_target": 5945
    },
-   "production_document_proxy_pct": 42.7,
+   "production_document_proxy_pct": 43.0,
    "task_mix_pct": {
-    "generate": 22.0,
-    "transform": 7.8,
-    "analyze": 12.5,
-    "verify": 16.1,
-    "orchestrate": 15.1,
-    "retrieve": 9.6,
-    "configure": 16.9
+    "generate": 22.2,
+    "transform": 7.7,
+    "analyze": 12.6,
+    "verify": 16.0,
+    "orchestrate": 15.2,
+    "retrieve": 9.5,
+    "configure": 16.6
    },
    "top_structural_gaps": [
     {
@@ -1468,23 +1482,23 @@
      "task": "generate",
      "domain_n": 129,
      "observed": 1,
-     "expected": 28.4,
-     "ratio_vs_global": 0.04
+     "expected": 28.7,
+     "ratio_vs_global": 0.03
     },
     {
      "domain": "personal-productivity",
      "task": "verify",
      "domain_n": 309,
      "observed": 3,
-     "expected": 49.7,
+     "expected": 49.5,
      "ratio_vs_global": 0.06
     },
     {
      "domain": "security",
      "task": "orchestrate",
-     "domain_n": 320,
+     "domain_n": 324,
      "observed": 6,
-     "expected": 48.5,
+     "expected": 49.4,
      "ratio_vs_global": 0.12
     },
     {
@@ -1498,7 +1512,7 @@
     {
      "domain": "finance-investing",
      "task": "transform",
-     "domain_n": 191,
+     "domain_n": 194,
      "observed": 2,
      "expected": 14.9,
      "ratio_vs_global": 0.13
@@ -1506,25 +1520,25 @@
     {
      "domain": "legal-compliance",
      "task": "orchestrate",
-     "domain_n": 92,
+     "domain_n": 93,
      "observed": 2,
-     "expected": 13.9,
+     "expected": 14.2,
      "ratio_vs_global": 0.14
     },
     {
      "domain": "design-creative",
      "task": "analyze",
-     "domain_n": 366,
+     "domain_n": 372,
      "observed": 7,
-     "expected": 45.8,
+     "expected": 47.0,
      "ratio_vs_global": 0.15
     },
     {
      "domain": "design-creative",
      "task": "configure",
-     "domain_n": 366,
+     "domain_n": 372,
      "observed": 10,
-     "expected": 61.7,
+     "expected": 61.9,
      "ratio_vs_global": 0.16
     }
    ],
@@ -1537,6 +1551,13 @@
      "completion_ratio": 0.19
     },
     {
+     "domain": "other",
+     "n": 42,
+     "workflow": 14,
+     "production": 4,
+     "completion_ratio": 0.22
+    },
+    {
      "domain": "personal-productivity",
      "n": 319,
      "workflow": 224,
@@ -1544,24 +1565,17 @@
      "completion_ratio": 0.23
     },
     {
-     "domain": "other",
-     "n": 40,
-     "workflow": 12,
-     "production": 4,
-     "completion_ratio": 0.25
-    },
-    {
      "domain": "research-academia",
-     "n": 215,
-     "workflow": 147,
+     "n": 218,
+     "workflow": 150,
      "production": 55,
      "completion_ratio": 0.27
     },
     {
      "domain": "writing-content",
-     "n": 180,
-     "workflow": 125,
-     "production": 49,
+     "n": 183,
+     "workflow": 127,
+     "production": 50,
      "completion_ratio": 0.28
     },
     {
