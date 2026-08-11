@@ -2,7 +2,9 @@
 # Strict LLM labelling for ASIC secondary axes. Run only on a bounded sample.
 # Usage: classify_asic.sh corpus/asic-golden-sample.jsonl [batch-size] [parallelism]
 set -euo pipefail
-ROOT="$HOME/skills-radar"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONUTF8=1
+export PYTHONIOENCODING=utf-8
 CORPUS="$1"
 BATCH=${2:-30}
 PAR=${3:-2}
@@ -12,6 +14,15 @@ LOG="$ROOT/corpus/asic-classify.log"
 mkdir -p "$WORK" "$OUTD"
 rm -f "$WORK"/*.jsonl "$OUTD"/*.jsonl
 : > "$LOG"
+
+python3 "$ROOT/bin/security_gate.py" verify "$CORPUS" >> "$LOG" 2>&1 || {
+  echo "ASIC classification blocked: input failed security gate" >&2
+  exit 1
+}
+if ! command -v claude >/dev/null 2>&1; then
+  echo "ASIC classification blocked: tool-less claude provider is unavailable" >&2
+  exit 1
+fi
 
 python3 - "$CORPUS" "$WORK" "$BATCH" <<'PY'
 import json, sys, os
@@ -35,10 +46,13 @@ one() {
   f="$1"
   base=$(basename "$f" .jsonl)
   tmp=$(mktemp)
-  { cat "$HOME/skills-radar/index/prompt_asic_classify.txt"; cat "$f"; } > "$tmp"
-  agy --print="$(cat "$tmp")" 2>>"$HOME/skills-radar/corpus/asic-classify.log" \
+  { cat "$ROOT/index/prompt_asic_classify.txt"; cat "$f"; } > "$tmp"
+  claude --print --bare --tools "" --model claude-sonnet-5 --effort low \
+    --max-budget-usd "${CLASSIFY_ASIC_MAX_BUDGET_USD:-0.60}" \
+    --no-session-persistence --permission-mode dontAsk \
+    < "$tmp" 2>>"$ROOT/corpus/asic-classify.log" \
     | grep -E '^[[:space:]]*\{' | sed 's/^[[:space:]]*//' \
-    > "$HOME/skills-radar/corpus/.asic-classified/$base.jsonl"
+    > "$ROOT/corpus/.asic-classified/$base.jsonl"
   rm -f "$tmp"
 }
 export -f one

@@ -10,21 +10,6 @@ sys.path.insert(0, str(ROOT / "bin"))
 from check_published_freshness import load_remote_health, validate_health  # noqa: E402
 
 
-class FakeResponse:
-    def __init__(self, payload, status=200):
-        self.payload = payload
-        self.status = status
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *_args):
-        return False
-
-    def read(self):
-        return self.payload
-
-
 class PublishedFreshnessTests(unittest.TestCase):
     def test_current_pass_is_accepted(self):
         health = {
@@ -51,7 +36,7 @@ class PublishedFreshnessTests(unittest.TestCase):
             "gates": {
                 "master_freshness": "CURRENT", "timescale_dispatch": "AI_GENERATED",
                 "corpus_update": "SUCCESS", "editorial_markdown": "PASS", "editorial_html": "PASS",
-                "domain_zones": "PASS",
+                "domain_zones": "PASS", "security_intake": "PASS",
             },
             "schedule_contract": {"execution_context": "manual"},
         }
@@ -67,23 +52,27 @@ class PublishedFreshnessTests(unittest.TestCase):
         }
         errors = validate_health(health, "2026-07-29")
         self.assertTrue(any("corpus_update" in error for error in errors))
+        self.assertTrue(any("security_intake" in error for error in errors))
         self.assertTrue(any("editorial_markdown" in error for error in errors))
         self.assertTrue(any("editorial_html" in error for error in errors))
         self.assertTrue(any("domain_zones" in error for error in errors))
 
-    @patch("check_published_freshness.urlopen")
+    @patch("check_published_freshness.fetch_bytes")
     def test_live_readback_uses_cache_buster(self, mocked):
-        mocked.return_value = FakeResponse(b'{"status":"PASS"}')
-        self.assertEqual(load_remote_health("https://example.test/health.json"), {"status": "PASS"})
-        request = mocked.call_args.args[0]
-        self.assertIn("watchdog=", request.full_url)
-        self.assertEqual(request.headers["Cache-control"], "no-cache")
+        mocked.return_value = b'{"status":"PASS"}'
+        self.assertEqual(
+            load_remote_health("https://hsintiger.github.io/skills-radar/pipeline_health.json"),
+            {"status": "PASS"},
+        )
+        self.assertIn("watchdog=", mocked.call_args.args[0])
+        self.assertEqual(mocked.call_args.kwargs["allowed_hosts"], {"hsintiger.github.io"})
+        self.assertEqual(mocked.call_args.kwargs["extra_headers"]["Cache-Control"], "no-cache")
 
-    @patch("check_published_freshness.urlopen")
-    def test_live_readback_rejects_non_200(self, mocked):
-        mocked.return_value = FakeResponse(b"{}", status=503)
+    @patch("check_published_freshness.fetch_bytes")
+    def test_live_readback_propagates_bounded_fetch_failure(self, mocked):
+        mocked.side_effect = RuntimeError("HTTP 503")
         with self.assertRaises(RuntimeError):
-            load_remote_health("https://example.test/health.json")
+            load_remote_health("https://hsintiger.github.io/skills-radar/pipeline_health.json")
 
 
 if __name__ == "__main__":

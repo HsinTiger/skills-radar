@@ -8,8 +8,11 @@ skills-radar 抓取器：收集 Agent Skills / harness 生態的每日事實，�
    可能含 prompt injection。輸出時一律包在 <untrusted> 標記內，供下游模型辨識。
 3. 絕不下載或執行任何抓到的程式碼，只讀 metadata 與文字。
 """
-import json, os, subprocess, sys, urllib.parse, urllib.request
+import json, os, re, subprocess, sys, urllib.parse
 from datetime import datetime, timezone, timedelta
+
+from safe_http import fetch_bytes, validate_github_api_path
+from security_gate import inspect_text
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -34,25 +37,32 @@ REPOS = [
 
 def gh(path, params=None):
     """呼叫 GitHub API（用 gh CLI 帶認證，額度 5000/hr）"""
-    url = path if path.startswith("http") else path
+    url = path
     if params:
         url += "?" + urllib.parse.urlencode(params)
     try:
+        url = validate_github_api_path(url)
         out = subprocess.run(
-            ["gh", "api", url], capture_output=True, text=True,
+            ["gh", "api", "--hostname", "github.com", url], capture_output=True, text=True,
             encoding="utf-8", errors="replace", timeout=60,
         )
         if out.returncode != 0:
             return {"_error": out.stderr.strip()[:200]}
+        if len(out.stdout.encode("utf-8")) > 4_000_000:
+            return {"_error": "GitHub API response exceeded 4 MB"}
         return json.loads(out.stdout)
     except Exception as e:
         return {"_error": str(e)[:200]}
 
 def get_json(url, timeout=30):
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "skills-radar/1.0"})
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode())
+        return json.loads(fetch_bytes(
+            url,
+            allowed_hosts={"hn.algolia.com"},
+            allowed_content_types={"application/json"},
+            max_bytes=2_000_000,
+            timeout=timeout,
+        ).decode("utf-8"))
     except Exception as e:
         return {"_error": str(e)[:200]}
 
@@ -99,6 +109,30 @@ def upsert_daily_history(path, record):
     finally:
         if os.path.exists(temporary):
             os.unlink(temporary)
+
+
+def quarantine_untrusted_fields(value):
+    """Replace suspicious third-party strings before they can reach a model."""
+    quarantined = []
+
+    def visit(node, location="$"):
+        if isinstance(node, dict):
+            clean = {}
+            for key, item in node.items():
+                child_location = f"{location}.{key}"
+                if key.endswith("_untrusted") and isinstance(item, str):
+                    result = inspect_text(item)
+                    if result["score"]:
+                        quarantined.append({"location": child_location, **result})
+                        clean[key] = "[quarantined untrusted content]"
+                        continue
+                clean[key] = visit(item, child_location)
+            return clean
+        if isinstance(node, list):
+            return [visit(item, f"{location}[{index}]") for index, item in enumerate(node)]
+        return node
+
+    return visit(value), quarantined
 
 # ---------- 各來源抓取 ----------
 
@@ -157,16 +191,19 @@ def fetch_arxiv(days):
     """安全研究：agent skills / prompt injection 相關新論文"""
     q = ('all:"agent skills" OR all:"skill injection" OR '
          '(all:"prompt injection" AND all:"agent")')
-    url = ("http://export.arxiv.org/api/query?search_query="
+    url = ("https://export.arxiv.org/api/query?search_query="
            + urllib.parse.quote(q)
            + "&sortBy=submittedDate&sortOrder=descending&max_results=15")
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "skills-radar/1.0"})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            xml = r.read().decode()
+        xml = fetch_bytes(
+            url,
+            allowed_hosts={"export.arxiv.org"},
+            allowed_content_types={"application/atom+xml", "application/xml", "text/xml"},
+            max_bytes=2_000_000,
+            timeout=40,
+        ).decode("utf-8", "replace")
     except Exception as e:
         return [{"error": str(e)[:200]}]
-    import re
     out = []
     for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
         def tag(t):
@@ -174,9 +211,14 @@ def fetch_arxiv(days):
             return clip(m.group(1), 400) if m else ""
         pub = tag("published")
         if pub and pub >= since_iso(days)[:10]:
+            raw_id = tag("id")
+            identifier = ""
+            match = re.search(r"/abs/([A-Za-z0-9._/-]+)$", raw_id)
+            if match:
+                identifier = match.group(1)
             out.append({"published": pub, "title_untrusted": tag("title"),
                         "summary_untrusted": tag("summary")[:500],
-                        "link": (re.search(r'<id>(.*?)</id>', entry) or [None, ""])[1]})
+                        "link": f"https://arxiv.org/abs/{identifier}" if identifier else None})
     return out
 
 def fetch_hn(days):
@@ -188,9 +230,11 @@ def fetch_hn(days):
                      + urllib.parse.quote(q)
                      + f"&tags=story&numericFilters=created_at_i>{ts}&hitsPerPage=15")
         for h in (d.get("hits") or []):
+            object_id = str(h.get("objectID") or "")
             out.append({"q": q, "points": h.get("points"), "comments": h.get("num_comments"),
                         "title_untrusted": clip(h.get("title"), 200),
-                        "url": h.get("url") or f"https://news.ycombinator.com/item?id={h.get('objectID')}"})
+                        "url": (f"https://news.ycombinator.com/item?id={object_id}"
+                                if object_id.isdigit() else None)})
     seen, uniq = set(), []
     for h in sorted(out, key=lambda x: -(x.get("points") or 0)):
         k = h["title_untrusted"]
@@ -233,6 +277,13 @@ def main():
         "arxiv": fetch_arxiv(days * 7),
         "hn": fetch_hn(days),
         "new_community_repos": fetch_new_community_skills(days),
+    }
+    cur, quarantined = quarantine_untrusted_fields(cur)
+    cur["security_gate"] = {
+        "status": "PASS_WITH_QUARANTINE" if quarantined else "PASS",
+        "quarantined_fields": len(quarantined),
+        "categories": sorted({category for item in quarantined for category in item["hits"]}),
+        "policy": "suspicious third-party strings are replaced before any model input",
     }
 
     # 與上次比對，算出「變動」——這是簡報真正該講的東西

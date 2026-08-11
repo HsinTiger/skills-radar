@@ -26,7 +26,7 @@ if ! env PATH="$RUNTIME_PATH" /bin/sh -c 'command -v gh' >/dev/null 2>&1; then
   echo "launchd contract FAIL: installed PATH cannot resolve gh" >&2
   exit 1
 fi
-if ! env PATH="$RUNTIME_PATH" gh auth status >/dev/null 2>&1; then
+if ! env PATH="$RUNTIME_PATH" gh auth status --hostname github.com >/dev/null 2>&1; then
   echo "launchd contract FAIL: gh auth is unavailable under installed PATH" >&2
   exit 1
 fi
@@ -38,8 +38,8 @@ if ! env PATH="$RUNTIME_PATH" python3 -c 'import numpy, sklearn; from zoneinfo i
   echo "launchd contract FAIL: required Python packages or timezone data are unavailable" >&2
   exit 1
 fi
-if ! env PATH="$RUNTIME_PATH" /bin/sh -c 'command -v agy || command -v claude' >/dev/null 2>&1; then
-  echo "launchd contract FAIL: installed PATH cannot resolve agy or claude" >&2
+if ! env PATH="$RUNTIME_PATH" /bin/sh -c 'command -v claude' >/dev/null 2>&1; then
+  echo "launchd contract FAIL: installed PATH cannot resolve tool-less claude provider" >&2
   exit 1
 fi
 launchctl print "$DOMAIN/$LABEL"

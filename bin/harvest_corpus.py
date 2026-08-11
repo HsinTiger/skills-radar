@@ -11,9 +11,11 @@ harvest_corpus.py — 蒐集公開 SKILL.md 語料，作為「開發者行為」
 - 每個 repo 最多取 N 個 skill，避免單一大型 repo（或其 fork）灌爆分佈。
 - 只讀文字 metadata，不下載、不執行任何程式碼。
 """
-import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
+import json, os, re, subprocess, sys, time, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
+
+from safe_http import fetch_bytes, validate_github_api_path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "corpus")
@@ -26,12 +28,18 @@ SIZE_BUCKETS = [
 ]
 
 def gh(path):
+    try:
+        path = validate_github_api_path(path)
+    except Exception as exc:
+        return {"_error": f"blocked GitHub endpoint: {exc}"}
     for attempt in range(4):
         r = subprocess.run(
-            ["gh", "api", path], capture_output=True, text=True,
+            ["gh", "api", "--hostname", "github.com", path], capture_output=True, text=True,
             encoding="utf-8", errors="replace", timeout=90,
         )
         if r.returncode == 0:
+            if len(r.stdout.encode("utf-8")) > 4_000_000:
+                return {"_error": "GitHub API response exceeded 4 MB"}
             try:
                 return json.loads(r.stdout)
             except Exception as exc:
@@ -82,11 +90,19 @@ def search_skill_files():
 
 def fetch_raw(repo, path):
     for branch in ("main", "master"):
-        url = f"https://raw.githubusercontent.com/{repo}/{branch}/{urllib.request.quote(path)}"
+        encoded_path = urllib.parse.quote(path, safe="/")
+        url = f"https://raw.githubusercontent.com/{repo}/{branch}/{encoded_path}"
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "skills-radar-research/1.0"})
-            with urllib.request.urlopen(req, timeout=25) as r:
-                return r.read().decode("utf-8", "replace")
+            return fetch_bytes(
+                url,
+                allowed_hosts={"raw.githubusercontent.com"},
+                allowed_content_types={
+                    "text/plain", "text/markdown", "application/octet-stream",
+                },
+                max_bytes=1_000_000,
+                timeout=25,
+                user_agent="skills-radar-research/1.0",
+            ).decode("utf-8", "replace")
         except Exception:
             continue
     return None

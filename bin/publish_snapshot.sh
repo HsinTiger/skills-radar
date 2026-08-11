@@ -4,6 +4,8 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 export TZ="Asia/Taipei"
+export GH_HOST="github.com"
+REPO="HsinTiger/skills-radar"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 TAG="${1:-corpus-latest}"
@@ -28,15 +30,15 @@ gzip_sha256=${GZIP_SHA}
 
 sample=neutral is eligible for population estimates; targeted-* is topic oversampling and must not be used for population proportions."
 
-if gh release view "$TAG" >/dev/null 2>&1; then
-  gh release upload "$TAG" "$GZ" --clobber
-  gh release edit "$TAG" --title "語料 rolling snapshot ${SNAPSHOT_DATE}" --notes "$NOTES"
+if gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
+  gh release upload "$TAG" "$GZ" --clobber --repo "$REPO"
+  gh release edit "$TAG" --repo "$REPO" --title "語料 rolling snapshot ${SNAPSHOT_DATE}" --notes "$NOTES"
 else
-  gh release create "$TAG" "$GZ" \
+  gh release create "$TAG" "$GZ" --repo "$REPO" \
     --title "語料 rolling snapshot ${SNAPSHOT_DATE}" --notes "$NOTES"
 fi
 
-REMOTE_DIGEST=$(gh release view "$TAG" --json assets \
+REMOTE_DIGEST=$(gh release view "$TAG" --repo "$REPO" --json assets \
   --jq '.assets[] | select(.name=="master.jsonl.gz") | .digest')
 if [ "$REMOTE_DIGEST" != "sha256:${GZIP_SHA}" ]; then
   echo "release digest mismatch: local=sha256:${GZIP_SHA} remote=${REMOTE_DIGEST}" >&2

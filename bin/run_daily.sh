@@ -42,7 +42,19 @@ trap release_lock EXIT HUP INT TERM
 
 log "=== run start $DATE ==="
 
-# 0. 排程機器先以 fast-forward 對齊 remote；分歧或 dirty conflict 必須明確失敗。
+# 0. 不得把上一次殘留或人工檔案混進 unattended commit。
+if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+  log "STOP: worktree 在每日流程開始前不是 clean；拒絕自動 stage"
+  exit 1
+fi
+
+ORIGIN_URL=$(git remote get-url origin 2>/dev/null || true)
+case "$ORIGIN_URL" in
+  "https://github.com/HsinTiger/skills-radar.git"|"git@github.com:HsinTiger/skills-radar.git") ;;
+  *) log "STOP: origin 不屬於 HsinTiger/skills-radar on github.com"; exit 1 ;;
+esac
+
+# 排程機器先以 fast-forward 對齊 remote；分歧或 dirty conflict 必須明確失敗。
 if ! git pull --ff-only origin main >> "$LOG" 2>&1; then
   log "STOP: git pull --ff-only 失敗，未開始產生今日資料"
   exit 1
@@ -56,7 +68,7 @@ if [ ! -s "$FACTS" ]; then
 fi
 log "facts: $FACTS ($(wc -c < "$FACTS") bytes)"
 
-# 2-3. 產簡報並驗收。Mac 優先 agy；無 agy 時使用無工具 Claude CLI。
+# 2-3. 產簡報並驗收。只允許無工具、無 session persistence 的 Claude CLI。
 if ! /usr/bin/env python3 "$ROOT/bin/generate_ai_artifact.py" daily \
     --date "$DATE" --input "$FACTS" --output "$OUT" >> "$LOG" 2>&1; then
   log "FAIL: 每日簡報 AI provider 或結構驗收失敗"
@@ -86,6 +98,11 @@ fi
   log "STOP: README 重建失敗"; exit 1;
 }
 
+# 任何不在研究輸出 allowlist 的變更都必須在人為審查後另行提交。
+/usr/bin/env python3 "$ROOT/bin/validate_publish_scope.py" >> "$LOG" 2>&1 || {
+  log "STOP: publish scope 出現非預期路徑"; exit 1;
+}
+
 # 6.8 每次成功 run 更新 rolling Release；否則 tracked model report 會再次
 # 與可下載 master 漂移。週一另外保留 immutable dated archive。
 "$ROOT/bin/publish_snapshot.sh" corpus-latest >> "$LOG" 2>&1 || {
@@ -97,7 +114,15 @@ if [ "$(date +%u)" = "1" ]; then
 fi
 
 # 7. 推 repo
-git add -A >> "$LOG" 2>&1
+if ! /usr/bin/env python3 "$ROOT/bin/validate_publish_scope.py" >> "$LOG" 2>&1; then
+  log "STOP: snapshot 後 publish scope 出現非預期路徑"
+  exit 1
+fi
+git add --all -- README.md daily data corpus research docs >> "$LOG" 2>&1
+if ! /usr/bin/env python3 "$ROOT/bin/validate_publish_scope.py" --cached >> "$LOG" 2>&1; then
+  log "STOP: staged publish scope 驗證失敗"
+  exit 1
+fi
 if ! git diff --cached --quiet; then
   git -c user.name="HsinBro" -c user.email="j12345453@gmail.com" \
       commit -q -m "radar: $DATE 每日情報與研究增量" >> "$LOG" 2>&1

@@ -428,15 +428,15 @@ def legacy_rewrite_periods(history: dict, max_periods: int = 31) -> tuple[list[d
 
 def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
               claude_model: str = "claude-sonnet-5", max_budget_usd: float = 1.0) -> str:
+    from security_gate import assert_text_safe
+
     template = PROMPT.read_text(encoding="utf-8")
-    prompt = template + "\n\n以下是本次唯一可用的 evidence JSON：\n" + json.dumps(evidence_doc, ensure_ascii=False)
-    agy = shutil.which("agy") if provider in {"auto", "agy"} else None
+    evidence_json = json.dumps(evidence_doc, ensure_ascii=False)
+    assert_text_safe(evidence_json, source="timescale evidence")
+    prompt = template + "\n\n以下是本次唯一可用的 evidence JSON：\n" + evidence_json
     claude = ((shutil.which("claude.cmd") or shutil.which("claude"))
               if provider in {"auto", "claude"} else None)
-    if agy:
-        command = [agy, f"--print={prompt}", "--mode=accept-edits"]
-        input_text = None
-    elif claude:
+    if claude:
         command = [
             claude, "--print", "--bare", "--tools", "", "--model", claude_model,
             "--effort", "low", "--max-budget-usd", str(max_budget_usd),
@@ -497,8 +497,8 @@ def parse_args(argv=None):
     parser.add_argument("--evidence-output", type=Path, default=EVIDENCE_OUT)
     parser.add_argument("--status-output", type=Path, default=STATUS_OUT)
     parser.add_argument("--plan-only", action="store_true")
-    parser.add_argument("--ai-output", type=Path, help="validated offline/test AI JSON instead of invoking agy")
-    parser.add_argument("--ai-provider", choices=("auto", "agy", "claude"), default="auto")
+    parser.add_argument("--ai-output", type=Path, help="validated offline/test AI JSON instead of invoking a provider")
+    parser.add_argument("--ai-provider", choices=("auto", "claude"), default="auto")
     parser.add_argument("--claude-model", default="claude-sonnet-5")
     parser.add_argument("--max-ai-budget-usd", type=float, default=1.0)
     parser.add_argument("--timeout", type=int, default=300)

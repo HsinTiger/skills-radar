@@ -16,7 +16,7 @@ if ! command -v gh >/dev/null 2>&1; then
   echo "install_launchd.sh: gh is not available in the PATH that would be captured" >&2
   exit 1
 fi
-if ! gh auth status >/dev/null 2>&1; then
+if ! gh auth status --hostname github.com >/dev/null 2>&1; then
   echo "install_launchd.sh: gh auth status failed" >&2
   exit 1
 fi
@@ -28,8 +28,8 @@ if ! python3 -c 'import numpy, sklearn; from zoneinfo import ZoneInfo; ZoneInfo(
   echo "install_launchd.sh: Python dependencies missing; run python3 -m pip install -r requirements-ml.txt" >&2
   exit 1
 fi
-if ! command -v agy >/dev/null 2>&1 && ! command -v claude >/dev/null 2>&1; then
-  echo "install_launchd.sh: neither agy nor claude is available in the PATH that would be captured" >&2
+if ! command -v claude >/dev/null 2>&1; then
+  echo "install_launchd.sh: tool-less claude provider is not available in the PATH that would be captured" >&2
   exit 1
 fi
 

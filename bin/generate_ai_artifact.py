@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate one validated Markdown artifact with agy or tool-less Claude CLI."""
+"""Generate one validated Markdown artifact with a tool-less Claude CLI."""
 
 from __future__ import annotations
 
@@ -10,6 +10,8 @@ import os
 import re
 import shutil
 import subprocess
+
+from security_gate import assert_text_safe
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -126,13 +128,9 @@ def validate_editorial(text: str, evidence: dict, required: tuple[str, ...], min
 
 
 def invoke(prompt: str, provider: str, model: str, budget: float, timeout: int) -> str:
-    agy = shutil.which("agy") if provider in {"auto", "agy"} else None
     claude = ((shutil.which("claude.cmd") or shutil.which("claude"))
               if provider in {"auto", "claude"} else None)
-    if agy:
-        command = [agy, f"--print={prompt}", "--mode=accept-edits"]
-        input_text = None
-    elif claude:
+    if claude:
         command = [
             claude, "--print", "--bare", "--tools", "", "--model", model,
             "--effort", "low", "--max-budget-usd", str(budget),
@@ -167,7 +165,7 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("kind", choices=tuple(CONFIG))
     parser.add_argument("--date", required=True)
-    parser.add_argument("--provider", choices=("auto", "agy", "claude"), default="auto")
+    parser.add_argument("--provider", choices=("auto", "claude"), default="auto")
     parser.add_argument("--model", default="claude-sonnet-5")
     parser.add_argument("--max-budget-usd", type=float, default=1.0)
     parser.add_argument("--timeout", type=int, default=300)
@@ -179,6 +177,7 @@ def main(argv=None) -> int:
     output_path = args.output or config["output"](args.date)
     prompt = config["prompt"].read_text(encoding="utf-8").replace("YYYY-MM-DD", args.date)
     evidence = input_path.read_text(encoding="utf-8")
+    assert_text_safe(evidence, source=str(input_path))
     text = invoke(prompt + "\n" + evidence, args.provider, args.model,
                   args.max_budget_usd, args.timeout)
     if args.kind == "editorial":
