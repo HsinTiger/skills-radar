@@ -2,6 +2,9 @@
 
 先讀完這一頁再動手。這個專案的性質跟一般 repo 不同。
 
+> **2026-10-08：每日 routine 已從 Mac 移出，目前沒有任何機器在跑。**
+> 接手請先讀 [`HANDOFF.md`](HANDOFF.md)。
+
 ## 這個 repo 裡有一把上膛的槍
 
 `corpus/master.jsonl`（約 45,000 筆）與 `corpus/*.jsonl` 收的是**陌生人寫的、

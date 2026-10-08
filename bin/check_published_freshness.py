@@ -12,7 +12,12 @@ from safe_http import fetch_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LAUNCHD_PROOF_REQUIRED_FROM = "2026-07-29"
+SCHEDULER_PROOF_REQUIRED_FROM = "2026-07-29"
+# 契約的本意是「這一次是排程觸發的，不是人手動跑的」，不是「一定要 macOS」。
+# 2026-10-08 這條 routine 從 Mac 交接給另一台機器，所以改成排程器白名單；
+# manual / manual_recovery 照樣擋下。新增一種排程器就在這裡加一個值。
+SCHEDULER_CONTEXTS = frozenset({"launchd", "schtasks", "cron", "systemd", "github-actions"})
+LAUNCHD_PROOF_REQUIRED_FROM = SCHEDULER_PROOF_REQUIRED_FROM  # 舊名保留，避免外部引用壞掉
 PIPELINE_EVIDENCE_REQUIRED_FROM = "2026-07-29"
 
 
@@ -40,10 +45,11 @@ def validate_health(health, expected_date):
             errors.append(f"editorial_html={gates.get('editorial_html')} expected=PASS")
         if gates.get("domain_zones") != "PASS":
             errors.append(f"domain_zones={gates.get('domain_zones')} expected=PASS")
-    if expected_date >= LAUNCHD_PROOF_REQUIRED_FROM:
+    if expected_date >= SCHEDULER_PROOF_REQUIRED_FROM:
         context = health.get("schedule_contract", {}).get("execution_context")
-        if context != "launchd":
-            errors.append(f"execution_context={context} expected=launchd")
+        if context not in SCHEDULER_CONTEXTS:
+            expected = "|".join(sorted(SCHEDULER_CONTEXTS))
+            errors.append(f"execution_context={context} expected={expected}")
     return errors
 
 

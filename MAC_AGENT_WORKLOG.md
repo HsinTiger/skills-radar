@@ -1,5 +1,28 @@
 # Mac Agent Worklog
 
+## 2026-10-08 Mac 端 — 關閉本機排程，routine 交接出去
+
+- `PROVEN`：排程從 **2026-08-13 起連續 54 次沒有產出**，全部停在
+  `STOP: worktree 在每日流程開始前不是 clean`。根因是 08-12 手動補跑後
+  `data/history.jsonl`、`data/snapshot.json`、`data/facts-2026-08-12.json`
+  沒有 commit。檢查行為正確，問題在沒有人看到它在擋。殘留已收進 commit。
+- `PROVEN`：GitHub Actions 的 freshness watchdog 整段期間每天紅燈。
+  **這是這個專案第二次因為「告警沒有接到人」而失明**（第一次 07-29 ~ 08-07）。
+  接手方的第一件事應該是把 watchdog 失敗接到真的會看到的地方。
+- `PROVEN`：`bin/check_published_freshness.py` 原本把 `execution_context`
+  寫死必須等於 `launchd`，等於綁死 macOS。已改成排程器白名單
+  `SCHEDULER_CONTEXTS = {launchd, schtasks, cron, systemd, github-actions}`，
+  契約本意（證明是排程觸發、不是手動跑）不變，`manual` / `manual_recovery` 照樣擋。
+  121 個測試通過。
+- `PROVEN`：Mac 的 launchd 已 `bootout` + `disable`，plist 移到
+  `~/Library/LaunchAgents/disabled/`。本機不會再自動跑。
+- `UNKNOWN`：接手機器尚未設定，**目前沒有任何機器在跑這條 routine**。
+  線上看板停在 2026-08-09，語料停在 45,612 筆。
+
+交接文件：`HANDOFF.md`（現況、一次性設定、排程契約、已知地雷、安全邊界）。
+
+# Mac Agent Worklog
+
 ## 2026-08-08 Mac 端 — 管線復原 + 前端改為多頁
 
 - `PROVEN`：Mac 端從未執行 2026-07-28 的交接（`git pull --ff-only` + `install_launchd.sh`）。

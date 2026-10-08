@@ -40,7 +40,14 @@ class PublishedFreshnessTests(unittest.TestCase):
             },
             "schedule_contract": {"execution_context": "manual"},
         }
-        self.assertIn("execution_context=manual expected=launchd", validate_health(health, "2026-07-29"))
+        errors = validate_health(health, "2026-07-29")
+        self.assertTrue(any(e.startswith("execution_context=manual expected=") for e in errors), errors)
+        # 排程器白名單：換機器換排程器都算證明，手動跑不算
+        for scheduler in ("launchd", "schtasks", "cron", "systemd", "github-actions"):
+            health["schedule_contract"]["execution_context"] = scheduler
+            self.assertEqual([], validate_health(health, "2026-07-29"), scheduler)
+        health["schedule_contract"]["execution_context"] = "manual_recovery"
+        self.assertTrue(validate_health(health, "2026-07-29"))
         health["schedule_contract"]["execution_context"] = "launchd"
         self.assertEqual(validate_health(health, "2026-07-29"), [])
 
