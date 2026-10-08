@@ -4,11 +4,13 @@ import tempfile
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bin"))
 
+import timescale_summaries  # noqa: E402
 from timescale_summaries import (  # noqa: E402
     build_period_evidence,
     due_periods,
@@ -189,6 +191,18 @@ class TimescaleSummaryTests(unittest.TestCase):
         self.assertEqual(rc, 0)
         self.assertEqual(set(saved["latest"]), {"day", "week", "month", "quarter"})
         self.assertEqual(state["status"], "AI_GENERATED")
+
+    def test_provider_timeout_error_omits_local_command(self):
+        # AI_BLOCKED 的 error 會進公開的 status 檔，不能帶出本機 CLI 路徑。
+        local_cli = "/home/someone/node/bin/claude"
+        timeout = timescale_summaries.subprocess.TimeoutExpired([local_cli, "--print"], 5)
+        with patch.object(timescale_summaries.shutil, "which",
+                          side_effect=lambda name: local_cli if name == "claude" else None), \
+             patch.object(timescale_summaries.subprocess, "run", side_effect=timeout):
+            with self.assertRaises(RuntimeError) as caught:
+                timescale_summaries.invoke_ai({"periods": []}, timeout=5)
+        self.assertEqual(str(caught.exception), "AI provider timed out after 5s")
+        self.assertNotIn(local_cli, str(caught.exception))
 
     def test_dashboard_exposes_quarter_and_dual_clock_contract(self):
         # 前端已從單一 site_template.html 拆成多頁（index/site/），

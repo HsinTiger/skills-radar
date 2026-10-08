@@ -98,7 +98,8 @@ one() {
   fi
   echo "[ok  ] $base $n 筆" >> "$LOG"
 }
-export ROOT OUTD LOG
+# xargs 開的子 shell 只看得到 export 的變數；少了 MAX_BUDGET_USD 會送出 --max-budget-usd ""。
+export ROOT OUTD LOG MAX_BUDGET_USD
 export -f one
 
 if ! find "$WORK" -maxdepth 1 -name '*.jsonl' -print0 \

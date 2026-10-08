@@ -1,4 +1,5 @@
 data/run.log
+data/research.log
 data/launchd.*
 data/run_daily.lock/
 daily/*.new

@@ -445,10 +445,15 @@ def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
         input_text = prompt
     else:
         raise RuntimeError(f"AI provider not found: {provider}")
-    result = subprocess.run(
-        command, input=input_text, cwd=ROOT, capture_output=True, text=True,
-        encoding="utf-8", errors="replace", timeout=timeout,
-    )
+    try:
+        result = subprocess.run(
+            command, input=input_text, cwd=ROOT, capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=timeout,
+        )
+    except subprocess.TimeoutExpired:
+        # str(TimeoutExpired) embeds the full command, including the local CLI
+        # path; the error lands in a published status file, so keep only the limit.
+        raise RuntimeError(f"AI provider timed out after {timeout}s") from None
     if result.returncode != 0:
         detail = (result.stderr or result.stdout)[-500:]
         raise RuntimeError(f"AI provider failed rc={result.returncode}: {detail}")

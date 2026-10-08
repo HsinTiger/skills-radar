@@ -94,7 +94,9 @@ python3 bin/build_daily_recommendations.py --date "$DATE" >> "$LOG" 2>&1 || {
 
 # 3.6 各尺度獨立 cadence dispatcher（零 token evidence + due period 才用 AI）
 # 日/週/月/季只更新上一個完整期；依 period_id 補跑，不重算成功期。
-python3 bin/timescale_summaries.py --date "$DATE" >> "$LOG" 2>&1 || {
+# 每個尺度每天最多補 4 期（由舊到新）：一次補幾十期可能超過 300 秒上限，
+# 整批失敗後隔天又卡在同一批。
+python3 bin/timescale_summaries.py --date "$DATE" --max-periods 4 >> "$LOG" 2>&1 || {
   log "STOP: 多尺度摘要 freshness/evidence gate 失敗"; exit 1;
 }
 

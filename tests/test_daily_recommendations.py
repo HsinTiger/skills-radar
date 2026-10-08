@@ -230,6 +230,8 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn("build_asic_catalog.py", script)
         self.assertIn('build_domain_zones.py --date "$DATE"', script)
         self.assertIn('timescale_summaries.py --date "$DATE"', script)
+        self.assertIn('timescale_summaries.py --date "$DATE" --max-periods 4', script)
+        self.assertIn("data/research.log", (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines())
         self.assertIn('build_editorial_evidence.py --date "$DATE"', script)
         self.assertIn('generate_ai_artifact.py editorial --date "$DATE"', script)
         self.assertNotIn('generate_ai_artifact.py insight --date "$DATE"', script)
@@ -243,10 +245,13 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn("git pull --ff-only origin main", runner)
         self.assertLess(runner.index("daily_research.sh"), runner.index("build_readme.py"))
         self.assertIn("launchd 必須收到非零狀態", runner)
+        lock_line = next(line for line in runner.splitlines() if line.strip().startswith("LOCK_MTIME="))
+        self.assertLess(lock_line.index("stat -c %Y"), lock_line.index("stat -f %m"))
 
         classifier = (ROOT / "bin" / "classify.sh").read_text(encoding="utf-8")
         self.assertIn("PYTHONUTF8=1", classifier)
         self.assertIn("完整輸出只有", classifier)
+        self.assertRegex(classifier, r"(?m)^export [^\n]*\bMAX_BUDGET_USD\b")
 
 
 if __name__ == "__main__":

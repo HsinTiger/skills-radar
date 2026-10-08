@@ -25,7 +25,9 @@ if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   fi
   # Do not steal a newly-created lock during the tiny mkdir -> pid write window.
   # A dead lock is recoverable after six hours, well before the next daily run.
-  LOCK_MTIME=$(stat -f %m "$LOCK_DIR" 2>/dev/null || stat -c %Y "$LOCK_DIR" 2>/dev/null || echo 0)
+  # GNU stat first: GNU `stat -f %m` fails but still prints file-system info to
+  # stdout, which would corrupt LOCK_MTIME and make a dead lock unrecoverable.
+  LOCK_MTIME=$(stat -c %Y "$LOCK_DIR" 2>/dev/null || stat -f %m "$LOCK_DIR" 2>/dev/null || echo 0)
   NOW_EPOCH=$(date +%s)
   if ! [[ "$LOCK_MTIME" =~ ^[0-9]+$ ]] || [ $((NOW_EPOCH - LOCK_MTIME)) -lt 21600 ]; then
     log "STOP: lock owner is not provably stale: $LOCK_DIR"
