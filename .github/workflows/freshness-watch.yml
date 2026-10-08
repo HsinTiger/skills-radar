@@ -6,8 +6,12 @@ on:
     - cron: "30 1 * * *"
   workflow_dispatch:
 
+# 需要 issues: write——紅燈要開 issue，不然沒有人會發現。
+# 這個專案已經兩次因為「告警只留在 Actions 頁面」而失明：
+# 2026-07-29~08-07（十天）與 2026-08-13~10-08（五十四天）。
 permissions:
   contents: read
+  issues: write
 
 jobs:
   verify-published-day:
@@ -20,7 +24,63 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.13"
+
       - name: Require current Taipei health on live Pages
-        run: >-
-          python bin/check_published_freshness.py
-          --health-url https://hsintiger.github.io/skills-radar/pipeline_health.json
+        id: check
+        run: |
+          set +e
+          python bin/check_published_freshness.py \
+            --health-url https://hsintiger.github.io/skills-radar/pipeline_health.json \
+            > check.txt 2>&1
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          cat check.txt
+
+      - name: Open or refresh the alert issue
+        if: steps.check.outputs.code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create watchdog --color B60205 \
+            --description "每日發佈新鮮度告警" --force >/dev/null 2>&1 || true
+          {
+            echo "每日 routine 的遠端回讀失敗。看板沒有在更新。"
+            echo
+            echo '```'
+            cat check.txt
+            echo '```'
+            echo
+            echo "- 本次執行：$RUN_URL"
+            echo "- 最後檢查：$(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo
+            echo "修好之後這個 issue 會在下一次檢查通過時自動關閉。"
+            echo "接手與排程設定見 [HANDOFF.md]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/main/HANDOFF.md)。"
+          } > body.md
+          num=$(gh issue list --label watchdog --state open --limit 1 \
+                  --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            # 已經開著就只更新內容，不再留言——留言會每天寄一封信，變成雜訊
+            gh issue edit "$num" --body-file body.md
+            echo "更新既有告警 issue #$num"
+          else
+            gh issue create --title "🔴 看板停止更新（freshness watchdog）" \
+              --label watchdog --body-file body.md
+          fi
+
+      - name: Close the alert issue on recovery
+        if: steps.check.outputs.code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          num=$(gh issue list --label watchdog --state open --limit 1 \
+                  --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            gh issue close "$num" --comment "遠端回讀已通過，看板恢復更新。"
+            echo "關閉告警 issue #$num"
+          fi
+
+      - name: Fail the job when the check failed
+        if: steps.check.outputs.code != '0'
+        run: exit 1

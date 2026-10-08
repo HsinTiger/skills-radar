@@ -33,7 +33,9 @@ STOP: worktree 在每日流程開始前不是 clean；拒絕自動 stage
    它拒絕把不明來源的改動自動 stage 進每日 commit。手動跑完一定要 commit 乾淨。
 2. **告警管道必須被驗證過。** watchdog 每天都在紅燈，機制完全正確，但沒有人看到。
    這已經是這個專案第二次因為同一個原因失明（第一次是 2026-07-29 ~ 08-07）。
-   **接手的第一件事應該是把 watchdog 失敗接到你真的會看到的地方。**
+   **已修**：watchdog 失敗現在會自動開一個帶 `watchdog` 標籤的 GitHub Issue
+   （只開一個，之後每天更新內容而不重複留言，避免變成雜訊），
+   檢查恢復通過時自動關閉。訂閱這個 repo 的 Issue 通知就不會再失明。
 
 ---
 
@@ -82,6 +84,11 @@ python3 bin/check_published_freshness.py     # exit 0 才算數
 ```
 
 它會抓 live Pages 的 `pipeline_health.json`，比對日期、gates、以及 execution_context。
+
+同一支檢查每天 09:30 Asia/Taipei 也會在 GitHub Actions 跑一次
+（`.github/workflows/freshness-watch.yml`）。**失敗會自動開 Issue、恢復會自動關閉**，
+所以設定完排程之後，請確認你收得到這個 repo 的 Issue 通知——
+這是整條 routine 唯一不依賴任何一台機器活著的告警管道。
 
 ---
 
