@@ -1,7 +1,9 @@
+import io
 import sys
 import json
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -30,6 +32,46 @@ class HarvestCorpusTests(unittest.TestCase):
              patch.object(harvest_corpus, "gh", return_value={"total_count": 0, "items": []}):
             with self.assertRaisesRegex(RuntimeError, "without any SKILL.md"):
                 harvest_corpus.search_skill_files()
+
+    def test_code_search_drops_private_repositories(self):
+        items = [
+            {"repository": {"full_name": "someone/hidden", "private": True}, "path": "SKILL.md"},
+            {"repository": {"full_name": "someone/internal", "visibility": "internal"}, "path": "SKILL.md"},
+            {"repository": {"full_name": "someone/open", "private": False}, "path": "skills/a/SKILL.md"},
+        ]
+        with patch.object(harvest_corpus, "SIZE_BUCKETS", ["<1000"]), \
+             patch.object(harvest_corpus, "gh", return_value={"items": items}), \
+             patch.object(harvest_corpus.time, "sleep"), \
+             redirect_stderr(io.StringIO()):
+            found = harvest_corpus.search_skill_files()
+        self.assertEqual(found, {"someone/open": ["skills/a/SKILL.md"]})
+
+    def test_delta_never_fetches_or_stores_a_private_repository(self):
+        skill = "---\nname: demo\ndescription: a plain demo skill used by tests\n---\nbody text for the demo\n"
+
+        def fake_gh(path):
+            if path == "repos/someone/hidden":
+                return {"private": True, "visibility": "private"}
+            return {"private": False, "visibility": "public", "stargazers_count": 1}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "corpus").mkdir()
+            master = root / "corpus" / "master.jsonl"
+            master.write_text(json.dumps({"repo": "owner/old", "path": "SKILL.md"}) + "\n", encoding="utf-8")
+            found = {"someone/hidden": ["SKILL.md"], "someone/open": ["SKILL.md"]}
+            with patch.object(harvest_delta, "CORPUS", str(root / "corpus")), \
+                 patch.object(harvest_delta, "MASTER", str(master)), \
+                 patch.object(harvest_delta, "SEEN", str(root / "corpus" / "seen.tsv")), \
+                 patch.object(harvest_delta, "SECURITY_MANIFEST", str(root / "data" / "security.json")), \
+                 patch.object(harvest_delta.hc, "search_skill_files", return_value=found), \
+                 patch.object(harvest_delta.hc, "gh", side_effect=fake_gh), \
+                 patch.object(harvest_delta.hc, "fetch_raw", return_value=skill) as fetch_raw, \
+                 redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+                harvest_delta.main()
+            repos = [json.loads(line)["repo"] for line in master.read_text(encoding="utf-8").splitlines()]
+        fetch_raw.assert_called_once_with("someone/open", "SKILL.md")
+        self.assertEqual(repos, ["owner/old", "someone/open"])
 
     def test_canonical_master_recovers_seen_state(self):
         with tempfile.TemporaryDirectory() as tmp:

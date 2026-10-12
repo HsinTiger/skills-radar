@@ -21,6 +21,21 @@ class UntrustedContentError(ValueError):
     """Untrusted data is malformed or matched a known injection pattern."""
 
 
+def is_private_repo(repo: dict) -> bool:
+    """True when GitHub marks a repository as anything other than public.
+
+    Collectors search with the owner's gh login, so results can include private
+    repositories that login can read. Those must never reach the public corpus
+    or published facts. A repository without visibility fields counts as public.
+    """
+    if not isinstance(repo, dict):
+        return False
+    if repo.get("private") is True:
+        return True
+    visibility = repo.get("visibility")
+    return visibility is not None and visibility != "public"
+
+
 def row_text(row: dict) -> str:
     values = []
     for field in UNTRUSTED_ROW_FIELDS:

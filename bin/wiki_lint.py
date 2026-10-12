@@ -84,9 +84,12 @@ def validate_entity_wiki():
     if not os.path.exists(history_path):
         return ["data/wiki_history.json missing"]
     try:
-        history = json.load(open(history_path, encoding="utf-8"))
+        with open(history_path, encoding="utf-8") as fh:
+            history = json.load(fh)
     except (OSError, json.JSONDecodeError) as exc:
-        return [f"wiki history unreadable: {exc}"]
+        # corpus/wiki_lint.json 會被提交公開；OSError 原文帶本機絕對路徑，只寫進本機紀錄
+        print(f"[lint] wiki history unreadable: {exc}", file=sys.stderr)
+        return [f"wiki history unreadable: {type(exc).__name__}"]
     snapshots = history.get("snapshots")
     if history.get("schema_version") != 1 or not isinstance(snapshots, list) or not snapshots:
         return ["wiki history schema/version invalid or empty"]
@@ -147,8 +150,8 @@ def main():
     out = {"n_files": len(files), "n_metrics_tracked": len(hist),
            "n_conflicts": len(conflicts), "conflicts": conflicts,
            "n_wiki_errors": len(wiki_errors), "wiki_errors": wiki_errors}
-    json.dump(out, open(os.path.join(ROOT, "corpus", "wiki_lint.json"), "w"),
-              ensure_ascii=False, indent=1)
+    with open(os.path.join(ROOT, "corpus", "wiki_lint.json"), "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=1)
 
     print(f"[lint] 檢查 {len(files)} 份報告、{len(hist)} 個指標")
     if not conflicts and not wiki_errors:

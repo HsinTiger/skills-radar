@@ -52,6 +52,19 @@ if neutral_for(r, "domain"):  # 只接受缺值 / neutral；所有 targeted-* �
 
 `bin/check_privacy.py` 在 push 前擋雇主名稱與持倉資訊。這個 repo 公開且掛在個人帳號下。
 
+要擋的字和要遮的廠商名**不寫在 repo 裡**，寫進來就等於公開了。
+它們放在每台跑流程的機器上：`~/.config/skills-radar/private_terms.json`，
+或用環境變數 `SKILLS_RADAR_PRIVATE_TERMS` 指到別的路徑。由 `bin/private_terms.py` 讀取，格式：
+
+```json
+{"banned": ["<regex>", "..."], "redact": [["<regex>", "<替換文字>"]]}
+```
+
+- `banned`：`check_privacy.py` 用它找個資，區分大小寫。
+- `redact`：`build_site.py` 用它遮廠商名，不分大小寫。
+- 檔案不在或格式不對時，這兩支都會停，不會當成「沒有要擋的字」而放行。換新機器要先把這個檔案放好。
+- 查到時只印檔名、行號和規則編號，不印原字。原字也不要寫進程式、測試、文件或 commit 訊息；測試請用假字。
+
 語料中確實出現過特定 IC 廠名稱（第三方寫的型號查詢 skill），所以顯示層另有
 `redact()` 遮蔽廠商名。**加新的頁面欄位時，凡是來自語料的文字都要過 `redact()`。**
 

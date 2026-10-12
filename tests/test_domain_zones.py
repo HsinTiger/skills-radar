@@ -1,7 +1,9 @@
 import json
+import os
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +51,36 @@ def history():
             },
         }
     return {"latest": latest}
+
+
+class ScheduleProofTests(unittest.TestCase):
+    def setUp(self):
+        env = patch.dict(os.environ)
+        env.start()
+        self.addCleanup(env.stop)
+        os.environ.pop("SKILLS_RADAR_RUN_CONTEXT", None)
+
+    def proof(self, context):
+        rec = {
+            "status": "READY_FOR_OWNER_REVIEW", "corpus_freshness": {"status": "CURRENT"},
+            "categories": {
+                "EDA_IC": {"scope": "ASIC", "excluded_scope": "FPGA", "all_reviewed": [skill("x-npi")]},
+                "finance-investing": {"scope": "research", "excluded_scope": "trading",
+                                      "recommendations": [skill("valuation", "finance")], "excluded": []},
+                "ai-automation": {"scope": "harness", "excluded_scope": "cookies",
+                                  "all_reviewed": [skill("durable-run", "ai")]},
+            },
+        }
+        health = {"schedule_contract": {"execution_context": context}}
+        return build_report(rec, history(), health, "2026-07-28", {})["schedule_proof"]
+
+    def test_windows_task_scheduler_counts_as_a_real_schedule(self):
+        self.assertTrue(self.proof("schtasks")["unattended_schedule_proven"])
+        self.assertTrue(self.proof("launchd")["unattended_schedule_proven"])
+
+    def test_manual_runs_do_not_count_as_a_schedule(self):
+        self.assertFalse(self.proof("manual")["unattended_schedule_proven"])
+        self.assertFalse(self.proof("manual_recovery")["unattended_schedule_proven"])
 
 
 class DomainZoneTests(unittest.TestCase):

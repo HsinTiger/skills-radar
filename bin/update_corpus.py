@@ -198,7 +198,12 @@ def run_update(
         after = inspect_master(master, run_date)
         run_new_rows = after["rows"] - before["rows"]
         daily_new_rows = after["rows"] - baseline["rows"]
-        validation_error = "; ".join(filter(None, (collector_error, str(exc))))
+        # The manifest is published. This module's own ValueErrors carry fixed
+        # text; any other exception (an OSError, say) can embed absolute local
+        # paths, so it keeps only its class name and the detail goes to the log.
+        print(f"[corpus-update] validation detail: {type(exc).__name__}: {exc}", file=sys.stderr)
+        reason = str(exc) if type(exc) is ValueError else f"{type(exc).__name__} (detail in local log only)"
+        validation_error = "; ".join(filter(None, (collector_error, reason)))
 
     new_rows = max(0, daily_new_rows)
 

@@ -12,7 +12,7 @@ import json, os, re, subprocess, sys, urllib.parse
 from datetime import datetime, timezone, timedelta
 
 from safe_http import fetch_bytes, validate_github_api_path
-from security_gate import inspect_text
+from security_gate import inspect_text, is_private_repo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -35,6 +35,13 @@ REPOS = [
     ("ComposioHQ/composio", 3, "runtime tool discovery 與 scoped session pattern 候選"),
 ]
 
+def error_code(code, detail=""):
+    """回傳固定的錯誤代碼；原文只寫到本機紀錄（stderr → data/run.log）。
+    snapshot.json 與 facts-*.json 會公開，gh 或網路錯誤原文可能帶出本機主機名、IP 或路徑。"""
+    if detail:
+        print(f"[fetch] {code}: {detail}", file=sys.stderr)
+    return code
+
 def gh(path, params=None):
     """呼叫 GitHub API（用 gh CLI 帶認證，額度 5000/hr）"""
     url = path
@@ -47,12 +54,12 @@ def gh(path, params=None):
             encoding="utf-8", errors="replace", timeout=60,
         )
         if out.returncode != 0:
-            return {"_error": out.stderr.strip()[:200]}
+            return {"_error": error_code(f"gh_failed rc={out.returncode}", out.stderr.strip()[:200])}
         if len(out.stdout.encode("utf-8")) > 4_000_000:
             return {"_error": "GitHub API response exceeded 4 MB"}
         return json.loads(out.stdout)
     except Exception as e:
-        return {"_error": str(e)[:200]}
+        return {"_error": error_code(f"gh_error {type(e).__name__}", str(e)[:200])}
 
 def get_json(url, timeout=30):
     try:
@@ -64,7 +71,7 @@ def get_json(url, timeout=30):
             timeout=timeout,
         ).decode("utf-8"))
     except Exception as e:
-        return {"_error": str(e)[:200]}
+        return {"_error": error_code(f"network_error {type(e).__name__}", str(e)[:200])}
 
 def since_iso(days=1):
     return (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -140,6 +147,8 @@ def fetch_repo(full, tier, why, days):
     info = gh(f"repos/{full}")
     if "_error" in info:
         return {"repo": full, "tier": tier, "why": why, "error": info["_error"]}
+    if is_private_repo(info):
+        return {"repo": full, "tier": tier, "why": why, "error": "not_public"}
     commits = gh(f"repos/{full}/commits", {"since": since_iso(days), "per_page": 30})
     releases = gh(f"repos/{full}/releases", {"per_page": 3})
     branch = info.get("default_branch") or "HEAD"
@@ -203,7 +212,7 @@ def fetch_arxiv(days):
             timeout=40,
         ).decode("utf-8", "replace")
     except Exception as e:
-        return [{"error": str(e)[:200]}]
+        return [{"error": error_code(f"network_error {type(e).__name__}", str(e)[:200])}]
     out = []
     for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
         def tag(t):
@@ -244,12 +253,15 @@ def fetch_hn(days):
     return uniq[:25]
 
 def fetch_new_community_skills(days):
-    """GitHub 上新出現的 skill repo（社群供給面訊號，僅當風向）"""
+    """GitHub 上新出現的 skill repo（社群供給面訊號，僅當風向）
+    搜尋帶著 owner 的 gh 登入，所以要求 is:public，回來的私人 repo 也再丟掉一次。"""
     d = gh("search/repositories", {
-        "q": f"claude skill in:name,description created:>{since_iso(days*7)[:10]}",
+        "q": f"claude skill in:name,description is:public created:>{since_iso(days*7)[:10]}",
         "sort": "stars", "order": "desc", "per_page": 20})
     out = []
     for r in (d.get("items") or []):
+        if is_private_repo(r):
+            continue
         out.append({"repo": r.get("full_name"), "stars": r.get("stargazers_count"),
                     "created": r.get("created_at"),
                     "desc_untrusted": clip(r.get("description"), 200)})

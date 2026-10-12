@@ -1,7 +1,9 @@
+import io
 import json
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from datetime import date
 from pathlib import Path
 from unittest.mock import patch
@@ -60,6 +62,32 @@ def valid_summary(period):
         "confidence": "MEDIUM",
         "evidence_ids": ["E1", "E3", "E8", "E9"],
     }
+
+
+def cli_fixture(root, ai_text=None):
+    """寫出四個尺度都到期的新鮮語料，回傳 main() 參數；ai_text 為 None 時走真的 provider 路徑。"""
+    rows = [
+        row(repo=f"example/repo-{i}", path=f"skills/{i}/SKILL.md",
+            repo_created=created, first_seen="2026-07-27")
+        for i, created in enumerate((
+            "2026-07-27T00:00:00Z", "2026-07-25T00:00:00Z",
+            "2026-06-15T00:00:00Z", "2026-05-15T00:00:00Z",
+        ))
+    ]
+    (root / "master.jsonl").write_text("\n".join(json.dumps(r) for r in rows) + "\n", encoding="utf-8")
+    (root / "model.json").write_text(json.dumps({"n_seed": 4, "n_predicted": 0}), encoding="utf-8")
+    (root / "taxonomy.json").write_text("{}", encoding="utf-8")
+    (root / "recommendations.json").write_text("{}", encoding="utf-8")
+    args = [
+        "--date", "2026-07-28", "--master", str(root / "master.jsonl"),
+        "--model-report", str(root / "model.json"), "--taxonomy-report", str(root / "taxonomy.json"),
+        "--recommendations", str(root / "recommendations.json"), "--history", str(root / "history.json"),
+        "--evidence-output", str(root / "evidence.json"), "--status-output", str(root / "status.json"),
+    ]
+    if ai_text is not None:
+        (root / "ai.json").write_text(ai_text, encoding="utf-8")
+        args += ["--ai-output", str(root / "ai.json")]
+    return args
 
 
 class TimescaleSummaryTests(unittest.TestCase):
@@ -203,6 +231,60 @@ class TimescaleSummaryTests(unittest.TestCase):
                 timescale_summaries.invoke_ai({"periods": []}, timeout=5)
         self.assertEqual(str(caught.exception), "AI provider timed out after 5s")
         self.assertNotIn(local_cli, str(caught.exception))
+
+    def test_provider_failure_keeps_cli_output_out_of_the_error(self):
+        # CLI 的 stderr 可能帶出閘道網址或帳號資訊：只能進本機紀錄，不能進例外訊息。
+        local_cli = "/home/someone/node/bin/claude"
+        failed = timescale_summaries.subprocess.CompletedProcess(
+            [local_cli], 1, "", "401 from https://gateway.example.internal for user someone",
+        )
+        stderr = io.StringIO()
+        with patch.object(timescale_summaries.shutil, "which",
+                          side_effect=lambda name: local_cli if name == "claude" else None), \
+             patch.object(timescale_summaries.subprocess, "run", return_value=failed), \
+             redirect_stderr(stderr):
+            with self.assertRaises(RuntimeError) as caught:
+                timescale_summaries.invoke_ai({"periods": []}, timeout=5)
+        self.assertEqual(str(caught.exception), "AI provider failed rc=1")
+        self.assertEqual(caught.exception.code, "PROVIDER_FAILED rc=1")
+        self.assertIn("gateway.example.internal", stderr.getvalue())
+
+    def test_blocked_status_file_holds_only_a_reason_code(self):
+        local_cli = "/home/someone/node/bin/claude"
+        failed = timescale_summaries.subprocess.CompletedProcess(
+            [local_cli], 1, "", "401 from https://gateway.example.internal for user someone",
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(timescale_summaries.shutil, "which",
+                              side_effect=lambda name: local_cli if name == "claude" else None), \
+                 patch.object(timescale_summaries.subprocess, "run", return_value=failed), \
+                 redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+                rc = main(cli_fixture(root))
+            text = (root / "status.json").read_text(encoding="utf-8")
+        state = json.loads(text)
+        self.assertEqual(rc, 0)
+        self.assertEqual(state["status"], "AI_BLOCKED")
+        self.assertEqual(state["error"], "PROVIDER_FAILED rc=1")
+        self.assertNotIn("gateway.example.internal", text)
+        self.assertNotIn(local_cli, text)
+
+    def test_invalid_model_output_is_recorded_as_a_code(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with redirect_stdout(io.StringIO()):
+                rc = main(cli_fixture(root, ai_text="model said: not json at all"))
+            state = json.loads((root / "status.json").read_text(encoding="utf-8"))
+        self.assertEqual(rc, 0)
+        self.assertEqual(state["error"], "OUTPUT_INVALID")
+
+    def test_blocked_reason_codes(self):
+        from security_gate import UntrustedContentError
+
+        self.assertEqual(timescale_summaries.blocked_reason(UntrustedContentError("x")),
+                         "SECURITY_GATE_REJECTED")
+        self.assertEqual(timescale_summaries.blocked_reason(ValueError("x")), "OUTPUT_INVALID")
+        self.assertEqual(timescale_summaries.blocked_reason(OSError("C:/x")), "INTERNAL_ERROR OSError")
 
     def test_dashboard_exposes_quarter_and_dual_clock_contract(self):
         # 前端已從單一 site_template.html 拆成多頁（index/site/），

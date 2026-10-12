@@ -12,6 +12,7 @@ from datetime import datetime, timedelta, timezone
 from statistics import median
 
 from corpus_policy import is_targeted, label_is_eligible, neutral_for, require_model_report_alignment
+from private_terms import PrivateTermsError, load_private_terms
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MASTER = os.path.join(ROOT, "corpus", "master.jsonl")
@@ -69,10 +70,12 @@ N = len(rows)
 
 # 語料來自第三方，內容可能出現特定廠商名稱。本頁公開且掛在個人帳號下，
 # 為避免成為雇主關聯的推論訊號，顯示層一律遮蔽廠商名，但保留痛點語義。
-VENDOR_REDACT = [
-    (re.compile(r"瑞昱|Realtek", re.I), "某 IC 廠"),
-    (re.compile(r"聯發科|MediaTek", re.I), "某 IC 廠"),
-]
+# 廠商名單只放在這台機器的 private_terms.json（見 bin/private_terms.py），
+# 公開 repo 不寫原字；找不到名單就停，不產生沒遮蔽的頁面。
+try:
+    _, VENDOR_REDACT = load_private_terms()
+except PrivateTermsError as exc:
+    raise SystemExit(f"[build_site] STOP: {exc}")
 
 def redact(x):
     if not x:

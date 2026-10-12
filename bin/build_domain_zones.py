@@ -16,6 +16,8 @@ import os
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+from check_published_freshness import SCHEDULER_CONTEXTS
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RECOMMENDATIONS = ROOT / "corpus" / "daily_skill_recommendations.json"
@@ -744,7 +746,8 @@ def build_report(recommendations: dict, history: dict, health: dict, report_date
         "corpus_freshness": recommendations.get("corpus_freshness", {}),
         "schedule_proof": {
             "execution_context": execution_context,
-            "unattended_schedule_proven": execution_context == "launchd",
+            # Same scheduler list the freshness watchdog accepts (launchd, schtasks, ...).
+            "unattended_schedule_proven": execution_context in SCHEDULER_CONTEXTS,
             "claim_boundary": "manual_recovery/manual_canary 可補資料，但只有真實排程 marker 才證明 unattended schedule。",
         },
         "cadence": {

@@ -46,6 +46,9 @@ bin/security_gate.py verify     語料進模型前的隔離
 bin/wiki_lint.py                跨報告數字矛盾
 ```
 
+`check_privacy.py` 要找的字放在本機 `~/.config/skills-radar/private_terms.json`，不在 repo 裡
+（說明見 CONTRIBUTING.md「個資閘門」）。不要把清單裡的原字寫進任何檔案、測試或 commit 訊息。
+
 任何一個沒過就不要 commit／push。它們擋下來通常代表真的有問題，
 過去幾次都是（未分類的列、誤入版控的 .pyc、口徑前後不一致）。
 

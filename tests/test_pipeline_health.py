@@ -137,6 +137,17 @@ class PipelineHealthTests(unittest.TestCase):
         self.assertEqual(health["status"], "FAIL")
         self.assertEqual(health["gates"]["corpus_update"], "FAILED")
 
+    def test_scheduler_source_names_the_scheduler_that_ran(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            windows = build_health("2026-07-28", root=root, run_context="schtasks")["schedule_contract"]
+            mac = build_health("2026-07-28", root=root, run_context="launchd")["schedule_contract"]
+            manual = build_health("2026-07-28", root=root, run_context="manual")["schedule_contract"]
+        self.assertEqual(windows["execution_context"], "schtasks")
+        self.assertIn("Windows Task Scheduler", windows["scheduler_source"])
+        self.assertIn("install_launchd.sh", mac["scheduler_source"])
+        self.assertIn("self-reported", manual["scheduler_source"])
+
 
 if __name__ == "__main__":
     unittest.main()

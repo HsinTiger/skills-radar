@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import importlib.util
 
-from security_gate import partition_rows
+from security_gate import is_private_repo, partition_rows
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 spec = importlib.util.spec_from_file_location("hc", os.path.join(ROOT, "bin", "harvest_corpus.py"))
@@ -141,14 +141,22 @@ def main():
         return
 
     repos = sorted({r for r, _ in targets})
-    meta = {}
+    meta, private = {}, set()
     def rmeta(r):
         d = hc.gh(f"repos/{r}")
-        if "_error" not in d:
-            meta[r] = {"stars": d.get("stargazers_count"), "created": d.get("created_at"),
-                       "topics": d.get("topics") or [], "owner_type": (d.get("owner") or {}).get("Type") or (d.get("owner") or {}).get("type")}
+        if "_error" in d:
+            return
+        # 搜尋結果沒帶可見度時，這裡是第二道關：私人 repo 不抓內容、不進 master
+        if is_private_repo(d):
+            private.add(r)
+            return
+        meta[r] = {"stars": d.get("stargazers_count"), "created": d.get("created_at"),
+                   "topics": d.get("topics") or [], "owner_type": (d.get("owner") or {}).get("Type") or (d.get("owner") or {}).get("type")}
     with ThreadPoolExecutor(max_workers=6) as ex:
         list(ex.map(rmeta, repos))
+    if private:
+        targets = [(r, p) for r, p in targets if r not in private]
+        print(f"[delta] 略過私人 repo {len(private)} 個，剩 {len(targets)} 筆新的", file=sys.stderr)
 
     rows = []
     def work(t):

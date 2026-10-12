@@ -9,6 +9,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# Where each scheduler's 08:30 trigger is defined. Other contexts are only
+# what the run said about itself.
+SCHEDULER_SOURCES = {
+    "launchd": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
+    "schtasks": "Windows Task Scheduler runs a machine-local wrapper kept outside this repo",
+}
 
 
 def load(path, default):
@@ -90,7 +96,9 @@ def build_health(report_date, privacy_passed=False, root=ROOT, run_context=None)
         },
         "schedule_contract": {
             "dispatcher": "daily 08:30 Asia/Taipei",
-            "scheduler_source": "bin/launchd_schedule.py is rendered by bin/install_launchd.sh",
+            "scheduler_source": SCHEDULER_SOURCES.get(
+                execution_context, "self-reported run context; no scheduler source recorded",
+            ),
             "execution_context": execution_context,
             "day": "previous complete day",
             "week": "previous complete Monday-Sunday week",

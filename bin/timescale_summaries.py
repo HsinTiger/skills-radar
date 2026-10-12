@@ -18,6 +18,7 @@ import math
 import re
 import shutil
 import subprocess
+import sys
 from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -426,6 +427,27 @@ def legacy_rewrite_periods(history: dict, max_periods: int = 31) -> tuple[list[d
     return due, backlog
 
 
+class ProviderError(RuntimeError):
+    """AI provider failure whose message carries no CLI output or local path."""
+
+    def __init__(self, code: str, message: str):
+        super().__init__(message)
+        self.code = code
+
+
+def blocked_reason(exc: Exception) -> str:
+    """Fixed reason code for the published status file; details stay in the local log."""
+    from security_gate import UntrustedContentError
+
+    if isinstance(exc, ProviderError):
+        return exc.code
+    if isinstance(exc, UntrustedContentError):
+        return "SECURITY_GATE_REJECTED"
+    if isinstance(exc, (TypeError, ValueError)):
+        return "OUTPUT_INVALID"
+    return f"INTERNAL_ERROR {type(exc).__name__}"
+
+
 def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
               claude_model: str = "claude-sonnet-5", max_budget_usd: float = 1.0) -> str:
     from security_gate import assert_text_safe
@@ -444,7 +466,7 @@ def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
         ]
         input_text = prompt
     else:
-        raise RuntimeError(f"AI provider not found: {provider}")
+        raise ProviderError("PROVIDER_NOT_FOUND", f"AI provider not found: {provider}")
     try:
         result = subprocess.run(
             command, input=input_text, cwd=ROOT, capture_output=True, text=True,
@@ -453,10 +475,15 @@ def invoke_ai(evidence_doc: dict, timeout: int, provider: str = "auto",
     except subprocess.TimeoutExpired:
         # str(TimeoutExpired) embeds the full command, including the local CLI
         # path; the error lands in a published status file, so keep only the limit.
-        raise RuntimeError(f"AI provider timed out after {timeout}s") from None
+        raise ProviderError("PROVIDER_TIMEOUT", f"AI provider timed out after {timeout}s") from None
     if result.returncode != 0:
+        # CLI output can name gateway hosts, local paths or account details.
+        # It goes to the local research log only, never into the exception.
         detail = (result.stderr or result.stdout)[-500:]
-        raise RuntimeError(f"AI provider failed rc={result.returncode}: {detail}")
+        print(f"AI provider output tail: {detail}", file=sys.stderr, flush=True)
+        raise ProviderError(
+            f"PROVIDER_FAILED rc={result.returncode}", f"AI provider failed rc={result.returncode}",
+        )
     return result.stdout
 
 
@@ -567,10 +594,13 @@ def main(argv=None) -> int:
                ))
         summaries = validate_ai_output(raw, due)
     except Exception as exc:
-        status = {**plan, "status": "AI_BLOCKED", "error": str(exc), "updated_periods": []}
+        # The status file is published: it gets a fixed reason code, and the
+        # exception text (which can quote model output) goes to the local log.
+        reason = blocked_reason(exc)
+        status = {**plan, "status": "AI_BLOCKED", "error": reason, "updated_periods": []}
         args.status_output.parent.mkdir(parents=True, exist_ok=True)
         args.status_output.write_text(json.dumps(status, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-        print(f"timescale summaries AI blocked: {exc}", flush=True)
+        print(f"timescale summaries AI blocked: {reason}: {exc}", flush=True)
         return 0  # publish the truthful blocked state and retry next daily run
 
     history = persist_results(history, evidence_doc, summaries, args.date)

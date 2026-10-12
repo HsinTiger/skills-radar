@@ -52,7 +52,10 @@ gh release download corpus-latest --pattern master.jsonl.gz --dir corpus --clobb
 gunzip -f corpus/master.jsonl.gz
 
 python3 -m pip install -r requirements-ml.txt
-python3 -m unittest discover -s tests        # 應該 121 passed
+
+# 個資清單不在 repo 裡：從舊機器複製 ~/.config/skills-radar/private_terms.json 過來
+# （格式見 CONTRIBUTING.md「個資閘門」）。沒有它，check_privacy.py 和 build_site.py 會停。
+python3 -m unittest discover -s tests        # 應該 146 passed（還沒放個資清單時，會有 1 個 skipped）
 python3 bin/check_privacy.py
 ```
 
@@ -122,7 +125,7 @@ python3 bin/check_published_freshness.py     # exit 0 才算數
 ## 發佈前的閘門（會擋，不要繞過）
 
 ```
-bin/check_privacy.py              雇主名稱與持倉資訊
+bin/check_privacy.py              雇主名稱與持倉資訊（清單在本機 private_terms.json，不在 repo）
 bin/validate_publish_scope.py     每日自動 commit 只能碰白名單路徑
 bin/security_gate.py verify       語料進模型前的隔離
 bin/wiki_lint.py                  跨報告數字矛盾

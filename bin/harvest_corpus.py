@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 from safe_http import fetch_bytes, validate_github_api_path
+from security_gate import is_private_repo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "corpus")
@@ -61,6 +62,7 @@ def search_path(bucket, page):
 def search_skill_files():
     """分層抽樣：對每個大小級距翻頁，取得跨領域的 SKILL.md 清單"""
     found = {}
+    private = set()
     for bucket in SIZE_BUCKETS:
         for page in range(1, 11):          # code search 上限 1000 筆/query
             d = gh(search_path(bucket, page))
@@ -72,7 +74,12 @@ def search_skill_files():
             if not items:
                 break
             for it in items:
-                repo = (it.get("repository") or {}).get("full_name")
+                repository = it.get("repository") or {}
+                repo = repository.get("full_name")
+                # 搜尋帶著 owner 的 gh 登入，也會找到私人 repo；私人內容不能進公開語料
+                if is_private_repo(repository):
+                    private.add(repo)
+                    continue
                 path = it.get("path")
                 if not repo or not path:
                     continue
@@ -84,6 +91,8 @@ def search_skill_files():
             time.sleep(6.5)                 # code search 限 30 req/min
             if len(items) < 100:
                 break
+    if private:
+        print(f"  略過私人 repo {len(private)} 個（不抓內容、不進語料）", file=sys.stderr)
     if not found:
         raise RuntimeError("GitHub code search completed without any SKILL.md results")
     return found
@@ -137,16 +146,23 @@ def main():
 
     print("[2/3] 補 repo metadata...", file=sys.stderr)
     repos = list(found.keys())
-    meta = {}
+    meta, private = {}, set()
     def rmeta(r):
         d = gh(f"repos/{r}")
-        if "_error" not in d:
-            meta[r] = {"stars": d.get("stargazers_count"), "created": d.get("created_at"),
-                       "pushed": d.get("pushed_at"), "topics": d.get("topics") or [],
-                       "desc_untrusted": (d.get("description") or "")[:300],
-                       "owner_type": (d.get("owner") or {}).get("type")}
+        if "_error" in d:
+            return
+        if is_private_repo(d):
+            private.add(r)
+            return
+        meta[r] = {"stars": d.get("stargazers_count"), "created": d.get("created_at"),
+                   "pushed": d.get("pushed_at"), "topics": d.get("topics") or [],
+                   "desc_untrusted": (d.get("description") or "")[:300],
+                   "owner_type": (d.get("owner") or {}).get("type")}
     with ThreadPoolExecutor(max_workers=6) as ex:
         list(ex.map(rmeta, repos))
+    if private:
+        targets = [(r, p) for r, p in targets if r not in private]
+        print(f"    → 略過私人 repo {len(private)} 個，剩 {len(targets)} 個檔案", file=sys.stderr)
 
     print("[3/3] 抓取 SKILL.md 內容...", file=sys.stderr)
     rows, done = [], [0]

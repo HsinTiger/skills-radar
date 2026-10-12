@@ -1,14 +1,18 @@
+import io
 import json
 import sys
 import tempfile
 import textwrap
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bin"))
 
+import update_corpus  # noqa: E402
 from update_corpus import run_update  # noqa: E402
 
 
@@ -150,6 +154,23 @@ class CorpusUpdateTests(unittest.TestCase):
         self.assertEqual(manifest["status"], "FAILED")
         self.assertIn("timed out", manifest["validation_error"])
         self.assertEqual(saved["status"], "FAILED")
+
+    def test_unexpected_error_keeps_local_paths_out_of_manifest(self):
+        secret_path = "/home/example-user/secret-dir/delta.jsonl"
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self.make_root(tmp)
+            collector = root / "bin/noop.py"
+            collector.write_text("pass\n", encoding="utf-8")
+            failure = PermissionError(13, "Permission denied", secret_path)
+            stderr = io.StringIO()
+            with patch.object(update_corpus, "_delta_rows", side_effect=failure), redirect_stderr(stderr):
+                rc, manifest, _ = run_update("2026-07-28", root, [sys.executable, str(collector)])
+            saved_text = (root / "data/corpus_update_manifest.json").read_text(encoding="utf-8")
+        self.assertEqual(rc, 2)
+        self.assertEqual(manifest["status"], "FAILED")
+        self.assertEqual(manifest["validation_error"], "PermissionError (detail in local log only)")
+        self.assertNotIn("secret-dir", saved_text)
+        self.assertIn("secret-dir", stderr.getvalue())
 
 
 if __name__ == "__main__":
