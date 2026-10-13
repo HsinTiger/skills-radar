@@ -172,6 +172,23 @@ class CorpusUpdateTests(unittest.TestCase):
         self.assertNotIn("secret-dir", saved_text)
         self.assertIn("secret-dir", stderr.getvalue())
 
+    def test_cli_passes_timeout_to_collector(self):
+        manifest = {"after": {"rows": 1}, "new_rows": 0}
+        with patch.object(update_corpus, "run_update", return_value=(0, manifest, "")) as run, \
+                redirect_stderr(io.StringIO()):
+            rc = update_corpus.main(["--date", "2026-07-28", "--timeout-seconds", "7200"])
+        self.assertEqual(rc, 0)
+        self.assertEqual(run.call_args.kwargs["timeout_seconds"], 7200)
+
+    def test_cli_rejects_non_positive_timeout(self):
+        for value in ("0", "-5"):
+            with self.subTest(value=value), redirect_stderr(io.StringIO()), \
+                    patch.object(update_corpus, "run_update") as run, \
+                    self.assertRaises(SystemExit) as raised:
+                update_corpus.main(["--date", "2026-07-28", "--timeout-seconds", value])
+            self.assertEqual(raised.exception.code, 2)
+            run.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

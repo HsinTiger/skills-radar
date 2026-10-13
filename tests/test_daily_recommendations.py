@@ -223,6 +223,8 @@ class DailyRecommendationTests(unittest.TestCase):
         self.assertIn('command -v gh', script)
         self.assertIn('gh auth status', script)
         self.assertIn('update_corpus.py --date "$DATE"', script)
+        self.assertIn("${SKILLS_RADAR_COLLECTOR_TIMEOUT_SECONDS:-2400}", script)
+        self.assertIn('update_corpus.py --date "$DATE" --timeout-seconds "$COLLECTOR_TIMEOUT"', script)
         self.assertIn("SKILLS_RADAR_MAX_LLM_DELTA", script)
         self.assertIn("使用本機模型並保留 confidence gate", script)
         self.assertIn('build_daily_recommendations.py --date "$DATE"', script)

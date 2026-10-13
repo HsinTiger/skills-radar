@@ -27,7 +27,11 @@ fi
 
 # 1. 增量採集（零 token）。wrapper 會把 FAILED、有效零增量與真實新增分開，
 # 並將 master readback 寫入 data/corpus_update_manifest.json。
-if ! DELTA=$(python3 bin/update_corpus.py --date "$DATE" 2>>"$LOG"); then
+# collector 被時間上限砍掉時什麼都不存，下次又從頭抓。停很多天後第一次跑，
+# 新檔會積很多；由排程器的環境調大上限，不必改這裡。
+COLLECTOR_TIMEOUT=${SKILLS_RADAR_COLLECTOR_TIMEOUT_SECONDS:-2400}
+log "collector 時間上限 $COLLECTOR_TIMEOUT 秒"
+if ! DELTA=$(python3 bin/update_corpus.py --date "$DATE" --timeout-seconds "$COLLECTOR_TIMEOUT" 2>>"$LOG"); then
   log "STOP: corpus collector 失敗；不得宣稱今日零新增"
   exit 1
 fi

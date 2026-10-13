@@ -120,6 +120,7 @@ python3 bin/check_published_freshness.py     # exit 0 才算數
 | **Python 版本** | Mac 上是 3.9，所以程式碼避開了 3.10+ 的 runtime 語法（例如 `Path.write_text(newline=)`）。接手機器若是 3.11+ 不受影響，但**請維持相容**，Mac 可能還會回來跑。 |
 | **`agy` 不吃 cwd** | 用 `agy` 當 provider 時必須帶 `--add-dir`，否則它會把檔案寫到自己的 scratch 目錄，而且回報「已建立」。靜默失敗。 |
 | **GitHub code search 速率** | 實測上限是 10 次/分鐘（不是 30），節流設 6.5s。 |
+| **停很多天後的第一次採集** | 新的 SKILL.md 會積很多。collector 預設 2400 秒就被砍掉，砍掉時一筆都不存，下次又從頭抓。排程器的環境可以設 `SKILLS_RADAR_COLLECTOR_TIMEOUT_SECONDS` 調大上限（Windows 接手機器設 7200）。 |
 | **雙機同時寫** | 同一時刻只能有一台在跑。接手後請確認 Mac 這邊確實是關的。 |
 
 ## 發佈前的閘門（會擋，不要繞過）

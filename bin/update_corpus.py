@@ -246,6 +246,8 @@ def main(argv=None) -> int:
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--timeout-seconds", type=int, default=2400)
     args = parser.parse_args(argv)
+    if args.timeout_seconds <= 0:
+        parser.error("--timeout-seconds must be a positive number of seconds")
     rc, manifest, delta = run_update(args.date, args.root, timeout_seconds=args.timeout_seconds)
     if rc:
         print(
