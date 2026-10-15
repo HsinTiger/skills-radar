@@ -1,6 +1,7 @@
 import io
 import sys
 import json
+import subprocess
 import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
@@ -20,6 +21,27 @@ class HarvestCorpusTests(unittest.TestCase):
         path = harvest_corpus.search_path("<1000", 1)
         self.assertIn("%3C1000", path)
         self.assertNotIn("<1000", path)
+
+    def test_gh_retries_after_a_stuck_call(self):
+        stuck = subprocess.TimeoutExpired(["gh", "api"], 90)
+        done = subprocess.CompletedProcess(["gh", "api"], 0, stdout='{"items": []}', stderr="")
+        with patch.object(harvest_corpus.subprocess, "run", side_effect=[stuck, done]) as run, \
+             patch.object(harvest_corpus.time, "sleep") as sleep, \
+             redirect_stderr(io.StringIO()):
+            result = harvest_corpus.gh("search/code?q=x")
+        self.assertEqual(result, {"items": []})
+        self.assertEqual(run.call_count, 2)
+        sleep.assert_called_once_with(20)
+
+    def test_gh_gives_up_after_four_stuck_calls_without_leaking_the_command(self):
+        stuck = subprocess.TimeoutExpired(["gh", "api", "C:/Users/example-user/secret-dir"], 90)
+        with patch.object(harvest_corpus.subprocess, "run", side_effect=stuck) as run, \
+             patch.object(harvest_corpus.time, "sleep"), \
+             redirect_stderr(io.StringIO()) as log:
+            result = harvest_corpus.gh("search/code?q=x")
+        self.assertEqual(run.call_count, 4)
+        self.assertEqual(result, {"_error": "gh timed out"})
+        self.assertNotIn("secret-dir", log.getvalue())
 
     def test_search_api_error_is_not_interpreted_as_zero_results(self):
         with patch.object(harvest_corpus, "SIZE_BUCKETS", ["<1000"]), \

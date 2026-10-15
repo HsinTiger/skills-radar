@@ -33,11 +33,20 @@ def gh(path):
         path = validate_github_api_path(path)
     except Exception as exc:
         return {"_error": f"blocked GitHub endpoint: {exc}"}
+    failure = "retry exhausted"
     for attempt in range(4):
-        r = subprocess.run(
-            ["gh", "api", "--hostname", "github.com", path], capture_output=True, text=True,
-            encoding="utf-8", errors="replace", timeout=90,
-        )
+        try:
+            r = subprocess.run(
+                ["gh", "api", "--hostname", "github.com", path], capture_output=True, text=True,
+                encoding="utf-8", errors="replace", timeout=90,
+            )
+        except subprocess.TimeoutExpired:
+            # 一次呼叫卡住不該讓整輪採集停掉（2026-10-14 在搜尋第 18 分鐘就這樣停了）。
+            # str(TimeoutExpired) 會帶出完整指令，所以只寫固定訊息。
+            failure = "gh timed out"
+            print(f"[harvest] gh timed out after 90s (attempt {attempt + 1}/4)", file=sys.stderr)
+            time.sleep(20 * (attempt + 1))
+            continue
         if r.returncode == 0:
             if len(r.stdout.encode("utf-8")) > 4_000_000:
                 return {"_error": "GitHub API response exceeded 4 MB"}
@@ -46,10 +55,11 @@ def gh(path):
             except Exception as exc:
                 return {"_error": f"invalid gh JSON: {exc}"}
         if "rate limit" in r.stderr.lower() or "403" in r.stderr:
+            failure = "retry exhausted"
             time.sleep(20 * (attempt + 1))
             continue
         return {"_error": r.stderr.strip()[:160]}
-    return {"_error": "retry exhausted"}
+    return {"_error": failure}
 
 def search_path(bucket, page):
     query = urllib.parse.urlencode({
